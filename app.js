@@ -454,41 +454,60 @@ document.addEventListener("DOMContentLoaded", () => {
         appendMessage("assistant", activeScenario.greeting);
     }
 
+    function evaluateUserGrammarClientSide(text) {
+        const lower = text.toLowerCase().trim();
+        
+        // Check missing 'to be' verb before adjectives/nouns: e.g. "I happy", "Today I happy", "I fine", "I brave"
+        const toBeMatch = lower.match(/\b(i|you|he|she|it|we|they)\s+(happy|fine|brave|strong|ready|good|paladin|knight|a hero)\b/i);
+        if (toBeMatch) {
+            const subject = toBeMatch[1];
+            const word = toBeMatch[2];
+            let verb = "am";
+            if (["you", "we", "they"].includes(subject)) verb = "are";
+            if (["he", "she", "it"].includes(subject)) verb = "is";
+
+            return `💡 В предложении "${toBeMatch[0]}" пропущен глагол 'to be' (${verb}). Правильно: "${subject} ${verb} ${word}".`;
+        }
+
+        if (lower.includes("happi")) {
+            return `💡 Описание опечатки: В слове "happi" опечатка, должно быть "happy".`;
+        }
+        if (lower.includes("fihe")) {
+            return `💡 Описание опечатки: В слове "fihe" опечатка, должно быть "fine".`;
+        }
+
+        return "✅ Отлично! Предложение написано полностью грамматически правильно!";
+    }
+
     function translateA0TextToRussian(text) {
+        if (!text) return "";
         let ru = text;
-        const dict = {
-            "Greetings, my friend!": "Приветствую, мой друг!",
-            "I am Valerius, the Silver Paladin.": "Я Валериус, Серебряный Паладин.",
-            "Welcome to our Silver Outpost!": "Добро пожаловать в наш Серебряный Аванпост!",
-            "What is your name, and how are you feeling today?": "Как тебя зовут и как ты себя чувствуешь сегодня?",
-            "Thank you, my friend!": "Спасибо, мой друг!",
-            "I'm glad you think so!": "Я рад, что ты так думаешь!",
-            "I am proud to be a noble Silver Paladin.": "Я горжусь тем, что я благородный Паладин.",
-            "Who is the most important person in your family?": "Кто самый главный человек в твоей семье?",
+
+        const phraseDict = {
             "Nice to meet you!": "Приятно познакомиться!",
-            "Are you happy, brave, or strong today?": "Ты счастливый, храбрый или сильный сегодня?",
+            "My name is": "Меня зовут",
+            "I'm a noble Silver Paladin tank": "Я благородный Паладин-танк",
+            "I am a noble Silver Paladin tank": "Я благородный Паладин-танк",
+            "Are you happy or brave today?": "Ты сегодня счастливый или храбрый?",
+            "That's great to hear!": "Отлично это слышать!",
+            "I am happy too": "Я тоже счастлив",
+            "when I'm protecting my friends": "когда защищаю своих друзей",
+            "on the battlefield!": "на поле боя!",
+            "Do you have a brother or sister?": "У тебя есть брат или сестра?",
             "Do you have a brother or a sister?": "У тебя есть брат или сестра?",
             "Do you have a sword or a shield?": "У тебя есть меч или щит?",
+            "Who is the most important person in your family?": "Кто самый главный человек в твоей семье?",
             "Is your father a leader?": "Твой отец — лидер?",
-            "May the light bless you!": "Пусть свет благословит тебя!",
-            "I am Astraea.": "Я Астрея.",
             "Stay warm, my friend!": "Держись в тепле, мой друг!",
-            "I am Frostina.": "Я Фростина.",
             "The wind whispers of adventure!": "Ветер шепчет о приключениях!",
-            "I am Zephyr.": "Я Зефир.",
             "Hail, warrior!": "Приветствую, воин!",
-            "I am Thorin of the Iron Mines.": "Я Торин из Железных Шахт.",
             "Shh... walk quietly in the shadows.": "Тшш... ходи тихо в тенях.",
-            "I am Selene.": "Я Селена.",
-            "Welcome to the Emerald Grove!": "Добро пожаловать в Изумрудную Рощу!",
-            "I am Oberon.": "Я Оберон.",
-            "Hail! I am Freya.": "Приветствую! Я Фрейя.",
-            "Welcome, master student!": "Добро пожаловать, ученик-мастер!",
-            "I am Eldrin.": "Я Элдрин."
+            "Welcome to the Emerald Grove!": "Добро пожаловать в Изумрудную Рощу!"
         };
 
-        Object.keys(dict).forEach(key => {
-            ru = ru.replace(key, dict[key]);
+        Object.keys(phraseDict).forEach(key => {
+            const reg = new RegExp(key.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), 'gi');
+            ru = ru.replace(reg, phraseDict[key]);
         });
 
         return ru;
@@ -527,7 +546,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 translateBtn.addEventListener("click", () => {
                     if (translationBox.classList.contains("hidden")) {
                         if (!translationBox.innerHTML) {
-                            const rawRuText = customTranslation || translateA0TextToRussian(text);
+                            const isLeakage = customTranslation && (customTranslation.includes("энтузиазм") || customTranslation.includes("подробнее"));
+                            const rawRuText = (!isLeakage && customTranslation) ? customTranslation : translateA0TextToRussian(text);
                             const cleanRuText = rawRuText
                                 .replace(/^Точный русский перевод.*?:\s*/i, '')
                                 .replace(/^Русский перевод.*?:\s*/i, '')
@@ -613,17 +633,17 @@ document.addEventListener("DOMContentLoaded", () => {
         chatMessagesBox.removeChild(typingBubble);
         appendMessage("assistant", aiResponse.text, aiResponse.translation);
 
-        if (aiResponse.correction) {
+        if (aiResponse.correction && !aiResponse.correction.includes("✅")) {
             let cleanCorr = aiResponse.correction
                 .replace(/^💡\s*Ошибка\/опечатка:\s*/gi, '💡 ')
                 .replace(/^Ошибка\/опечатка:\s*/gi, '💡 ')
                 .trim();
-            if (!cleanCorr.startsWith('💡') && !cleanCorr.startsWith('✅')) {
+            if (!cleanCorr.startsWith('💡')) {
                 cleanCorr = '💡 ' + cleanCorr;
             }
             feedbackText.innerHTML = cleanCorr;
         } else {
-            feedbackText.innerHTML = "✅ Отлично! Предложение написано полностью грамматически правильно!";
+            feedbackText.innerHTML = evaluateUserGrammarClientSide(text);
         }
         feedbackBanner.classList.remove("hidden");
     }

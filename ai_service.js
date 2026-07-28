@@ -89,11 +89,13 @@ Ask simple questions like these so the user can easily answer using their cheats
             const heroPrompt = this.buildHeroPrompt(targetHeroObjects);
             const strictGuide = `\n[MANDATORY EVALUATION & TRANSLATION DIRECTIVES:
 At the very end of EVERY response, you MUST append TWO bracketed blocks in RUSSIAN:
-1. Grammar Evaluation of user's input (Start directly with bulb emoji 💡 or check emoji ✅, DO NOT write "Ошибка/опечатка:"):
-   - If user's message is correct: [Correction: ✅ Отлично! Предложение написано полностью правильно!]
-   - If user's message has errors or typos: [Correction: 💡 В предложении "I so happi" опечатка, должно быть "I am happy" (в порядке). Правильное предложение: "I am happy."]
-2. Direct Russian Translation of YOUR English message (DO NOT write prefixes like "Перевод:" or "Точный русский перевод ответа:"):
-   [Translation: Я рад видеть ваш энтузиазм! Скажите мне подробнее...]]`;
+1. Grammar Evaluation of user's input:
+   - Check if user missed the verb 'to be' (am/is/are), misspelled words (e.g. "happi" -> "happy"), or made grammar errors.
+   - If user's input is 100% correct: [Correction: ✅ Отлично! Предложение написано полностью правильно!]
+   - If user's input has errors or typos: [Correction: 💡 В предложении "I so happi" опечатка/ошибка, должно быть "I am so happy".]
+2. Direct Russian Translation of YOUR English message:
+   - Translate your EXACT English response into natural Russian. DO NOT copy placeholder text.
+   - Format: [Translation: (Напишите здесь точный перевод вашего ответа на русский язык)]]`;
 
             const systemMessage = { role: 'system', content: `${this.systemPrompt}\nContext/Scenario: ${scenario.systemPrompt}${strictGuide}${heroPrompt}` };
             const formattedMessages = [systemMessage, ...messagesHistory];
