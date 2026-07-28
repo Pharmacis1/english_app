@@ -269,16 +269,79 @@ document.addEventListener("DOMContentLoaded", () => {
         resetChat();
     }
 
+    // --- PERSISTENT HERO WORD USAGE TRACKER ---
+    function loadWordUsageMap() {
+        try {
+            return JSON.parse(localStorage.getItem("hero_word_usage_v2") || "{}");
+        } catch (e) {
+            return {};
+        }
+    }
+
+    function saveWordUsageMap(map) {
+        localStorage.setItem("hero_word_usage_v2", JSON.stringify(map));
+    }
+
+    function getWordUsageCount(heroId, word) {
+        const map = loadWordUsageMap();
+        const key = `${heroId}_${word.toLowerCase()}`;
+        return map[key] || 0;
+    }
+
+    function incrementWordUsageCount(heroId, word) {
+        const map = loadWordUsageMap();
+        const key = `${heroId}_${word.toLowerCase()}`;
+        const current = map[key] || 0;
+        map[key] = current + 1;
+        saveWordUsageMap(map);
+        return map[key];
+    }
+
+    function evaluateHeroDialogueXP(hero, text) {
+        if (!hero || !hero.words || !text) return { totalXP: 0, matchedWordsInfo: [] };
+
+        const lowerText = text.toLowerCase();
+        let totalXP = 0;
+        const matchedWordsInfo = [];
+
+        hero.words.forEach(wObj => {
+            const wordLower = wObj.word.toLowerCase();
+            const regex = new RegExp(`\\b${wordLower.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')}\\b`, 'i');
+            if (regex.test(lowerText)) {
+                const currentUsage = getWordUsageCount(hero.id, wObj.word);
+                let bonusXp = 1;
+                let tierText = "Mastered (+1 XP)";
+
+                if (currentUsage === 0) {
+                    bonusXp = 20;
+                    tierText = "1st Use (+20 XP)";
+                } else if (currentUsage === 1) {
+                    bonusXp = 10;
+                    tierText = "2nd Use (+10 XP)";
+                } else if (currentUsage === 2) {
+                    bonusXp = 5;
+                    tierText = "3rd Use (+5 XP)";
+                }
+
+                incrementWordUsageCount(hero.id, wObj.word);
+                totalXP += bonusXp;
+                matchedWordsInfo.push({ word: wObj.word, bonusXp, tierText });
+            }
+        });
+
+        return { totalXP, matchedWordsInfo };
+    }
+
     function renderHeroWordHelperPanel(scenario) {
         if (!heroWordHelperBox) return;
 
-        let targetHero = null;
-        if (scenario.isHeroScenario && scenario.heroId) {
-            targetHero = rpgEngine.heroes.find(h => h.id === scenario.heroId);
-        } else if (selectedTutorHeroIds && selectedTutorHeroIds.length > 0) {
-            targetHero = rpgEngine.heroes.find(h => h.id === selectedTutorHeroIds[0]);
+        // Show cheatsheet EXCLUSIVELY in dedicated Hero Roleplay Dialogues!
+        if (!scenario.isHeroScenario || !scenario.heroId) {
+            heroWordHelperBox.classList.add("hidden");
+            return;
         }
 
+        const targetHero = rpgEngine.heroes.find(h => h.id === scenario.heroId);
         if (!targetHero) {
             heroWordHelperBox.classList.add("hidden");
             return;
@@ -321,15 +384,31 @@ document.addEventListener("DOMContentLoaded", () => {
             chipsWrap.style.gap = "4px";
 
             sec.words.forEach(wObj => {
+                const currentUsage = getWordUsageCount(targetHero.id, wObj.word);
+                
+                let chipStyle = "border:1px solid rgba(255,255,255,0.15); color:var(--text-muted); background:transparent;";
+                let tierTooltip = "⚪ Mastered (+1 XP)";
+
+                if (currentUsage === 0) {
+                    chipStyle = "border:1px solid #f59e0b; color:#fbbf24; background:rgba(245,158,11,0.12);";
+                    tierTooltip = "🟡 1st Use Bonus: +20 XP!";
+                } else if (currentUsage === 1) {
+                    chipStyle = "border:1px solid #a855f7; color:#c084fc; background:rgba(168,85,247,0.12);";
+                    tierTooltip = "🟣 2nd Use Bonus: +10 XP!";
+                } else if (currentUsage === 2) {
+                    chipStyle = "border:1px solid #3b82f6; color:#60a5fa; background:rgba(59,130,246,0.12);";
+                    tierTooltip = "🔵 3rd Use Bonus: +5 XP!";
+                }
+
                 const chip = document.createElement("button");
                 chip.type = "button";
-                chip.className = "btn btn-sm btn-outline";
-                chip.style.fontSize = "10px";
-                chip.style.padding = "1px 6px";
-                chip.style.borderRadius = "4px";
-                chip.style.borderColor = "rgba(255,255,255,0.15)";
-                chip.title = `${wObj.word} ${wObj.phonetic || ''} — ${wObj.translation || ''} (Click to insert into chat)`;
-                chip.innerHTML = `<strong>${wObj.word}</strong> <span style="opacity:0.75;">(${wObj.translation})</span>`;
+                chip.className = "btn btn-sm";
+                chip.style.fontSize = "11px";
+                chip.style.padding = "2px 8px";
+                chip.style.borderRadius = "5px";
+                chip.style.cssText += chipStyle;
+                chip.title = `${wObj.word} ${wObj.phonetic || ''} — ${wObj.translation || ''} | ${tierTooltip} (Click to insert)`;
+                chip.innerHTML = `<strong>${wObj.word}</strong>`;
 
                 chip.addEventListener("click", () => {
                     if (userChatInput.value.length > 0 && !userChatInput.value.endsWith(" ")) {
@@ -389,13 +468,45 @@ document.addEventListener("DOMContentLoaded", () => {
         userChatInput.value = "";
         appendMessage("user", text);
 
+        // HERO DIALOGUE ONLY XP EVALUATION & LEVELING
+        if (activeScenario.isHeroScenario && activeScenario.heroId) {
+            const heroObj = rpgEngine.heroes.find(h => h.id === activeScenario.heroId);
+            if (heroObj) {
+                const evalResult = evaluateHeroDialogueXP(heroObj, text);
+                if (evalResult.totalXP > 0) {
+                    heroObj.xp += evalResult.totalXP;
+                    if (heroObj.xp >= heroObj.maxXp) {
+                        heroObj.level = Math.min(100, heroObj.level + 1);
+                        heroObj.xp -= heroObj.maxXp;
+                        heroObj.maxXp = Math.round(heroObj.maxXp * 1.25);
+                        heroObj.maxHp = Math.round(heroObj.maxHp * 1.15);
+                        heroObj.hp = heroObj.maxHp;
+                        heroObj.atk = Math.round(heroObj.atk * 1.12);
+                        heroObj.def = Math.round(heroObj.def * 1.10);
+                    }
+                    rpgEngine.save();
+                    addXP(evalResult.totalXP);
+                    renderRPGHeader();
+
+                    const wordsDetail = evalResult.matchedWordsInfo.map(m => `${m.word} (${m.tierText})`).join(", ");
+                    showToast(`⚔️ ${heroObj.name} earned +${evalResult.totalXP} XP! (${wordsDetail})`);
+                }
+            }
+        }
+
+        // Re-render hero word cheatsheet to update chip colors & tooltips live!
+        renderHeroWordHelperPanel(activeScenario);
+
         const typingBubble = document.createElement("div");
         typingBubble.className = "message-bubble assistant typing";
         typingBubble.innerHTML = `<div class="message-avatar"><i class="fa-solid ${activeScenario.icon}"></i></div><div class="message-content"><em>AI is typing...</em></div>`;
         chatMessagesBox.appendChild(typingBubble);
         chatMessagesBox.scrollTop = chatMessagesBox.scrollHeight;
 
-        const targetHeroObjects = rpgEngine.heroes.filter(h => h.unlocked && selectedTutorHeroIds.includes(h.id));
+        const targetHeroObjects = activeScenario.isHeroScenario && activeScenario.heroId 
+            ? rpgEngine.heroes.filter(h => h.id === activeScenario.heroId) 
+            : [];
+
         const aiResponse = await aiService.generateResponse(chatHistory, activeScenario, targetHeroObjects);
 
         chatMessagesBox.removeChild(typingBubble);
@@ -405,9 +516,6 @@ document.addEventListener("DOMContentLoaded", () => {
             feedbackText.innerHTML = aiResponse.correction;
             feedbackBanner.classList.remove("hidden");
         }
-
-        addXP(6);
-        triggerRPGReward("chat", selectedTutorHeroIds, null);
     }
 
     sendChatBtn.addEventListener("click", handleUserSendMessage);
