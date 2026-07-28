@@ -468,7 +468,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // --- TAB 3: GRAMMAR LAB (STRICT CEFR GATING) ---
+    // --- TAB 3: GRAMMAR LAB (STRICT CEFR GATING & SM-2 SRS REVIEWS) ---
+    const grammarSrsEngine = new GrammarSRSEngine();
+    let grammarLabMode = "study"; // "study" or "review"
+    let currentReviewQueue = [];
+    let currentReviewIndex = 0;
+    let activeReviewQuestion = null;
+
     const grammarTopicsNav = document.getElementById("grammar-topics-nav");
     const grammarTheoryCard = document.getElementById("grammar-theory-card");
     const quizQuestionText = document.getElementById("quiz-question-text");
@@ -476,6 +482,49 @@ document.addEventListener("DOMContentLoaded", () => {
     const quizFeedbackBox = document.getElementById("quiz-feedback-box");
     const nextQuizBtn = document.getElementById("next-quiz-btn");
     const quizProgressText = document.getElementById("quiz-progress-text");
+    const grammarDueBadge = document.getElementById("grammar-due-badge");
+    const grammarStudyModeBtn = document.getElementById("grammar-study-mode-btn");
+    const grammarReviewModeBtn = document.getElementById("grammar-review-mode-btn");
+    const grammarCollapsibleRuleBar = document.getElementById("grammar-collapsible-rule-bar");
+    const toggleGrammarRuleBtn = document.getElementById("toggle-grammar-rule-btn");
+    const collapsibleRuleContent = document.getElementById("collapsible-rule-content");
+    const ruleChevronIcon = document.getElementById("rule-chevron-icon");
+    const grammarSrsRatingContainer = document.getElementById("grammar-srs-rating-container");
+    const grammarExerciseHeading = document.getElementById("grammar-exercise-heading");
+
+    function updateGrammarDueBadge() {
+        if (grammarDueBadge) grammarDueBadge.textContent = grammarSrsEngine.getDueCount();
+    }
+
+    if (toggleGrammarRuleBtn) {
+        toggleGrammarRuleBtn.addEventListener("click", () => {
+            const isHidden = collapsibleRuleContent.classList.contains("hidden");
+            if (isHidden) {
+                collapsibleRuleContent.classList.remove("hidden");
+                ruleChevronIcon.className = "fa-solid fa-chevron-up";
+            } else {
+                collapsibleRuleContent.classList.add("hidden");
+                ruleChevronIcon.className = "fa-solid fa-chevron-down";
+            }
+        });
+    }
+
+    if (grammarStudyModeBtn && grammarReviewModeBtn) {
+        grammarStudyModeBtn.addEventListener("click", () => {
+            grammarLabMode = "study";
+            grammarStudyModeBtn.className = "btn btn-sm btn-primary grammar-mode-btn active";
+            grammarReviewModeBtn.className = "btn btn-sm btn-secondary grammar-mode-btn";
+            renderGrammarUI();
+        });
+
+        grammarReviewModeBtn.addEventListener("click", () => {
+            grammarLabMode = "review";
+            grammarReviewModeBtn.className = "btn btn-sm btn-primary grammar-mode-btn active";
+            grammarStudyModeBtn.className = "btn btn-sm btn-secondary grammar-mode-btn";
+            currentReviewIndex = 0;
+            renderGrammarUI();
+        });
+    }
 
     function getUnlockedGrammarTopics() {
         const unlockedHeroIds = rpgEngine.heroes.filter(h => h.unlocked).map(h => h.id);
@@ -483,6 +532,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function renderGrammarUI() {
+        updateGrammarDueBadge();
         grammarTopicsNav.innerHTML = "";
         const availableTopics = getUnlockedGrammarTopics();
 
@@ -490,21 +540,40 @@ document.addEventListener("DOMContentLoaded", () => {
             currentGrammarTopic = availableTopics[0] || GRAMMAR_TOPICS[0];
         }
 
-        availableTopics.forEach(topic => {
-            const btn = document.createElement("button");
-            btn.className = `topic-pill ${topic.id === currentGrammarTopic.id ? 'active' : ''}`;
-            btn.textContent = topic.title;
-            btn.addEventListener("click", () => {
-                currentGrammarTopic = topic;
-                currentQuizIndex = 0;
-                quizScore = 0;
-                renderGrammarUI();
-            });
-            grammarTopicsNav.appendChild(btn);
-        });
+        if (grammarLabMode === "study") {
+            grammarTopicsNav.style.display = "flex";
+            grammarTheoryCard.style.display = "block";
+            grammarCollapsibleRuleBar.classList.add("hidden");
+            grammarSrsRatingContainer.classList.add("hidden");
+            if (grammarExerciseHeading) grammarExerciseHeading.textContent = "Practice Exercise (10 Questions)";
 
-        grammarTheoryCard.innerHTML = currentGrammarTopic.theory;
-        renderQuizQuestion();
+            availableTopics.forEach(topic => {
+                const btn = document.createElement("button");
+                btn.className = `topic-pill ${topic.id === currentGrammarTopic.id ? 'active' : ''}`;
+                btn.textContent = topic.title;
+                btn.addEventListener("click", () => {
+                    currentGrammarTopic = topic;
+                    currentQuizIndex = 0;
+                    quizScore = 0;
+                    renderGrammarUI();
+                });
+                grammarTopicsNav.appendChild(btn);
+            });
+
+            grammarTheoryCard.innerHTML = currentGrammarTopic.theory;
+            renderQuizQuestion();
+        } else {
+            // SRS REVIEW QUEUE MODE
+            grammarTopicsNav.style.display = "none";
+            grammarTheoryCard.style.display = "none";
+            grammarCollapsibleRuleBar.classList.remove("hidden");
+            collapsibleRuleContent.classList.add("hidden");
+            ruleChevronIcon.className = "fa-solid fa-chevron-down";
+            if (grammarExerciseHeading) grammarExerciseHeading.textContent = "Grammar Spaced Repetition (SRS Review)";
+
+            currentReviewQueue = grammarSrsEngine.getDueQuestions();
+            renderGrammarReviewQuestion();
+        }
     }
 
     function renderQuizQuestion() {
@@ -514,6 +583,7 @@ document.addEventListener("DOMContentLoaded", () => {
             quizOptionsContainer.innerHTML = "";
             quizFeedbackBox.className = "quiz-feedback hidden";
             nextQuizBtn.style.display = "none";
+            grammarSrsRatingContainer.classList.add("hidden");
             return;
         }
 
@@ -523,6 +593,7 @@ document.addEventListener("DOMContentLoaded", () => {
         quizOptionsContainer.innerHTML = "";
         quizFeedbackBox.className = "quiz-feedback hidden";
         nextQuizBtn.style.display = "none";
+        grammarSrsRatingContainer.classList.add("hidden");
 
         q.options.forEach((opt, idx) => {
             const btn = document.createElement("button");
@@ -558,6 +629,92 @@ document.addEventListener("DOMContentLoaded", () => {
         quizFeedbackBox.classList.remove("hidden");
         nextQuizBtn.style.display = "inline-flex";
     }
+
+    function renderGrammarReviewQuestion() {
+        if (currentReviewQueue.length === 0) {
+            quizQuestionText.textContent = "🎉 All due grammar reviews complete! Excellent job mastering your English rules.";
+            quizProgressText.textContent = "Review Queue Empty";
+            quizOptionsContainer.innerHTML = "";
+            quizFeedbackBox.className = "quiz-feedback hidden";
+            nextQuizBtn.style.display = "none";
+            grammarSrsRatingContainer.classList.add("hidden");
+            collapsibleRuleContent.innerHTML = "No active rule to display.";
+            updateGrammarDueBadge();
+            return;
+        }
+
+        if (currentReviewIndex >= currentReviewQueue.length) {
+            currentReviewIndex = 0;
+        }
+
+        const q = currentReviewQueue[currentReviewIndex];
+        activeReviewQuestion = q;
+        collapsibleRuleContent.innerHTML = q.theory;
+
+        quizProgressText.textContent = `Due Review ${currentReviewIndex + 1} of ${currentReviewQueue.length} (${q.heroId.toUpperCase()})`;
+        quizQuestionText.textContent = q.text;
+        quizOptionsContainer.innerHTML = "";
+        quizFeedbackBox.className = "quiz-feedback hidden";
+        nextQuizBtn.style.display = "none";
+        grammarSrsRatingContainer.classList.add("hidden");
+
+        q.options.forEach((opt, idx) => {
+            const btn = document.createElement("button");
+            btn.className = "quiz-opt-btn";
+            btn.textContent = `${String.fromCharCode(65 + idx)}) ${opt}`;
+            btn.addEventListener("click", () => selectReviewQuizOption(idx, q.correct, q.explanation));
+            quizOptionsContainer.appendChild(btn);
+        });
+    }
+
+    function selectReviewQuizOption(selectedIdx, correctIdx, explanation) {
+        const buttons = quizOptionsContainer.querySelectorAll(".quiz-opt-btn");
+        buttons.forEach((btn, idx) => {
+            btn.disabled = true;
+            if (idx === correctIdx) btn.classList.add("correct");
+            if (idx === selectedIdx && idx !== correctIdx) btn.classList.add("wrong");
+        });
+
+        if (selectedIdx === correctIdx) {
+            quizFeedbackBox.style.background = "rgba(16, 185, 129, 0.15)";
+            quizFeedbackBox.style.border = "1px solid var(--success)";
+            quizFeedbackBox.innerHTML = `<strong>✅ Correct!</strong> ${explanation}`;
+        } else {
+            quizFeedbackBox.style.background = "rgba(239, 68, 68, 0.15)";
+            quizFeedbackBox.style.border = "1px solid var(--danger)";
+            quizFeedbackBox.innerHTML = `<strong>❌ Not quite.</strong> ${explanation}`;
+        }
+
+        quizFeedbackBox.classList.remove("hidden");
+        grammarSrsRatingContainer.classList.remove("hidden");
+    }
+
+    // Attach SRS Rating Button Event Listeners
+    document.querySelectorAll(".grammar-rate-btn").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+            const rating = e.target.getAttribute("data-rating");
+            if (!activeReviewQuestion) return;
+
+            let cardXp = 0;
+            if (rating === 'hard') cardXp = 2;
+            else if (rating === 'good') cardXp = 4;
+            else if (rating === 'easy') cardXp = 8;
+
+            if (cardXp > 0) {
+                addXP(cardXp);
+                triggerRPGReward("quiz", activeReviewQuestion.heroId, activeReviewQuestion.heroId, cardXp);
+            }
+
+            grammarSrsEngine.rateQuestion(activeReviewQuestion.id, rating);
+            updateGrammarDueBadge();
+
+            currentReviewQueue = grammarSrsEngine.getDueQuestions();
+            if (rating !== 'again') {
+                currentReviewIndex++;
+            }
+            renderGrammarReviewQuestion();
+        });
+    });
 
     nextQuizBtn.addEventListener("click", () => {
         currentQuizIndex++;

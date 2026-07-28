@@ -196,23 +196,53 @@
             <section class="tab-content" id="tab-grammar">
                 <div class="grammar-container glass-card">
                     <div class="grammar-header">
-                        <div class="topics-pills" id="grammar-topics-nav"></div>
+                        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:12px;">
+                            <div class="topics-pills" id="grammar-topics-nav"></div>
+                            <div style="display:flex; gap:8px;">
+                                <button class="btn btn-sm btn-primary grammar-mode-btn active" id="grammar-study-mode-btn">
+                                    <i class="fa-solid fa-book-open"></i> Study Mode (10 Questions)
+                                </button>
+                                <button class="btn btn-sm btn-secondary grammar-mode-btn" id="grammar-review-mode-btn">
+                                    <i class="fa-solid fa-repeat"></i> SRS Grammar Reviews <span class="badge font-mono" id="grammar-due-badge" style="background:var(--heart); margin-left:4px;">0</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Collapsible Rule Toggle Bar for SRS Review Mode -->
+                        <div id="grammar-collapsible-rule-bar" class="hidden" style="margin-top:8px;">
+                            <button class="btn btn-sm btn-outline" id="toggle-grammar-rule-btn" style="width:100%; text-align:left; display:flex; justify-content:space-between; align-items:center;">
+                                <span><i class="fa-solid fa-lightbulb" style="color:var(--warning);"></i> Need Help? Show Grammar Rule / Развернуть правило</span>
+                                <i class="fa-solid fa-chevron-down" id="rule-chevron-icon"></i>
+                            </button>
+                            <div id="collapsible-rule-content" class="hidden glass-card" style="margin-top:8px; padding:15px; background:rgba(15, 23, 42, 0.6); border:1px solid rgba(255,255,255,0.1);"></div>
+                        </div>
                     </div>
 
-                    <div class="grammar-body">
+                    <div class="grammar-body" id="grammar-body-container">
                         <div class="theory-card" id="grammar-theory-card"></div>
                         <div class="quiz-card" id="grammar-quiz-card">
                             <div class="quiz-header">
-                                <h3><i class="fa-solid fa-circle-question"></i> Practice Exercise</h3>
-                                <span class="quiz-progress font-mono" id="quiz-progress-text">Question 1 of 5</span>
+                                <h3><i class="fa-solid fa-circle-question"></i> <span id="grammar-exercise-heading">Practice Exercise</span></h3>
+                                <span class="quiz-progress font-mono" id="quiz-progress-text">Question 1 of 10</span>
                             </div>
                             <div class="quiz-question-box">
                                 <p class="quiz-question" id="quiz-question-text">Loading question...</p>
                             </div>
                             <div class="quiz-options" id="quiz-options-container"></div>
                             <div class="quiz-feedback hidden" id="quiz-feedback-box"></div>
-                            <div class="quiz-footer">
+                            <div class="quiz-footer" style="display:flex; flex-direction:column; gap:10px;">
                                 <button class="btn btn-primary" id="next-quiz-btn" style="display:none;">Next Question <i class="fa-solid fa-arrow-right"></i></button>
+
+                                <!-- Grammar SRS Rating Controls -->
+                                <div id="grammar-srs-rating-container" class="hidden" style="width:100%;">
+                                    <div style="font-size:12px; margin-bottom:6px; color:var(--text-muted); text-align:center;">Rate how well you knew this rule:</div>
+                                    <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:8px;">
+                                        <button class="btn btn-sm btn-outline grammar-rate-btn" data-rating="again" style="border-color:var(--danger); color:var(--danger);">Again (0 XP)</button>
+                                        <button class="btn btn-sm btn-outline grammar-rate-btn" data-rating="hard" style="border-color:var(--warning); color:var(--warning);">Hard (+2 XP)</button>
+                                        <button class="btn btn-sm btn-outline grammar-rate-btn" data-rating="good" style="border-color:var(--primary); color:var(--primary);">Good (+4 XP)</button>
+                                        <button class="btn btn-sm btn-outline grammar-rate-btn" data-rating="easy" style="border-color:var(--success); color:var(--success);">Easy (+8 XP)</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
