@@ -469,7 +469,13 @@ document.addEventListener("DOMContentLoaded", () => {
             return `💡 Ответ "${text}" грамматически некорректен. Следует говорить "No, I am not" или просто "No".`;
         }
 
-        // 3. Detect missing articles before family/hero nouns (e.g. "have sister", "have mother", "have brother")
+        // 3. Detect missing articles before nouns/roles (e.g. "have sister", "you knight", "you paladin")
+        const missingRoleArticleMatch = lower.match(/\b(are\s+you|is\s+he|is\s+she|i\s+am|you\s+are|he\s+is|she\s+is)\s+(knight|paladin|warrior|leader|hero|king|queen|boy|girl|man|woman)\b/i);
+        if (missingRoleArticleMatch) {
+            const role = missingRoleArticleMatch[2];
+            return `💡 В фразе "${missingRoleArticleMatch[0]}" пропущен артикль "a". Существительные в единственном числе требуют артикль: "... a ${role}".`;
+        }
+
         const missingArticleMatch = lower.match(/\bhave\s+(sister|brother|mother|father|son|daughter|child|friend|sword|shield)\b/i);
         if (missingArticleMatch) {
             const noun = missingArticleMatch[1];
@@ -477,15 +483,19 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         // 4. Detect missing 'to be' verb before adjectives/nouns (e.g. "I happy", "Today I happy", "I fine", "I brave")
-        const toBeMatch = lower.match(/\b(i|you|he|she|it|we|they)\s+(happy|fine|brave|strong|ready|good|paladin|knight|a hero)\b/i);
-        if (toBeMatch) {
-            const subject = toBeMatch[1];
-            const word = toBeMatch[2];
-            let verb = "am";
-            if (["you", "we", "they"].includes(subject)) verb = "are";
-            if (["he", "she", "it"].includes(subject)) verb = "is";
+        // Exclude questions that ALREADY have am/is/are/was/were before the subject!
+        const hasToBeVerb = /\b(am|is|are|was|were|be|do|does|did)\b/i.test(lower);
+        if (!hasToBeVerb) {
+            const toBeMatch = lower.match(/\b(i|you|he|she|it|we|they)\s+(happy|fine|brave|strong|ready|good|paladin|knight)\b/i);
+            if (toBeMatch) {
+                const subject = toBeMatch[1];
+                const word = toBeMatch[2];
+                let verb = "am";
+                if (["you", "we", "they"].includes(subject)) verb = "are";
+                if (["he", "she", "it"].includes(subject)) verb = "is";
 
-            return `💡 В предложении "${toBeMatch[0]}" пропущен глагол 'to be' (${verb}). Правильно: "${subject} ${verb} ${word}".`;
+                return `💡 В предложении "${toBeMatch[0]}" пропущен глагол 'to be' (${verb}). Правильно: "${subject} ${verb} ${word}".`;
+            }
         }
 
         // 5. Typos
