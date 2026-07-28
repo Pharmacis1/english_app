@@ -86,20 +86,28 @@ document.addEventListener("DOMContentLoaded", () => {
         themeToggleBtn.innerHTML = isLight ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
     });
 
-    function triggerRPGReward(activity, targetHeroIds = null, materialSourceHeroId = null, customBaseXp = null) {
-        const reward = rpgEngine.rewardFromEnglish(activity, targetHeroIds, materialSourceHeroId, customBaseXp);
-        renderRPGHeader();
-        
+    function showToast(msg, bg = "linear-gradient(135deg, #ec4899, #8b5cf6)") {
         const toast = document.createElement("div");
         toast.className = "feedback-banner";
         toast.style.position = "fixed";
         toast.style.bottom = "20px";
         toast.style.right = "20px";
-        toast.style.zIndex = "1000";
-        toast.style.background = reward.isFocusBonus ? "linear-gradient(135deg, #ec4899, #8b5cf6)" : "rgba(236, 72, 153, 0.9)";
+        toast.style.zIndex = "2000";
+        toast.style.background = bg;
         toast.style.color = "white";
         toast.style.fontWeight = "bold";
+        toast.style.padding = "12px 18px";
+        toast.style.borderRadius = "8px";
+        toast.style.boxShadow = "0 8px 24px rgba(0,0,0,0.4)";
+        toast.innerHTML = msg;
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 4000);
+    }
 
+    function triggerRPGReward(activity, targetHeroIds = null, materialSourceHeroId = null, customBaseXp = null) {
+        const reward = rpgEngine.rewardFromEnglish(activity, targetHeroIds, materialSourceHeroId, customBaseXp);
+        renderRPGHeader();
+        
         const heroNamesStr = reward.rewardedHeroNames.length > 0 ? reward.rewardedHeroNames.join(", ") : "None";
         const bonusTag = reward.isFocusBonus ? " 🔥 (+50% Focus Bonus!)" : "";
         
@@ -108,9 +116,8 @@ document.addEventListener("DOMContentLoaded", () => {
             blockedMsg = `<br><small style="color:#fcd34d">🚫 Material too simple for: ${reward.blockedHeroNames.join(", ")} (0 XP earned)</small>`;
         }
 
-        toast.innerHTML = `<i class="fa-solid fa-bolt"></i> ${heroNamesStr} Gained +${reward.xpAmount} XP!${bonusTag}${blockedMsg}`;
-        document.body.appendChild(toast);
-        setTimeout(() => toast.remove(), 3200);
+        const bg = reward.isFocusBonus ? "linear-gradient(135deg, #ec4899, #8b5cf6)" : "rgba(236, 72, 153, 0.9)";
+        showToast(`<i class="fa-solid fa-bolt"></i> ${heroNamesStr} Gained +${reward.xpAmount} XP!${bonusTag}${blockedMsg}`, bg);
     }
 
     function renderRPGHeader() {
