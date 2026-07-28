@@ -4,15 +4,19 @@ Set fso = CreateObject("Scripting.FileSystemObject")
 
 DesktopPath = WshShell.SpecialFolders("Desktop")
 AppDir = fso.GetParentFolderName(WScript.ScriptFullName)
-TargetScript = AppDir & "\Start_EnglishPulse.vbs"
+VbsScript = AppDir & "\Start_EnglishPulse.vbs"
+
+System32Folder = fso.GetSpecialFolder(1).Path
+WscriptExe = System32Folder & "\wscript.exe"
 
 ShortcutPath = DesktopPath & "\EnglishPulse AI.lnk"
 
 Set shortcut = WshShell.CreateShortcut(ShortcutPath)
-shortcut.TargetPath = TargetScript
+shortcut.TargetPath = WscriptExe
+shortcut.Arguments = """" & VbsScript & """"
 shortcut.WorkingDirectory = AppDir
 shortcut.Description = "Launch EnglishPulse AI RPG & Backend Server"
-shortcut.IconLocation = "shell32.dll,23" ' Shield/Lightning Icon
+shortcut.IconLocation = "shell32.dll,23"
 shortcut.Save
 
-WScript.Echo "🎉 Desktop Shortcut 'EnglishPulse AI' successfully created on your Desktop!"
+WScript.Echo "🎉 Desktop Shortcut 'EnglishPulse AI' successfully updated!"
