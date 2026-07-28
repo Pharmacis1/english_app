@@ -1,192 +1,14 @@
-/* 10-Hero CEFR A0 -> A1 Progression & RPG Engine with Strict CEFR Tier Leveling Gating */
-
-// Helper to generate 100 CEFR words per hero
-function generateHeroWords(heroId) {
-    const wordLists = {
-        valerius: [
-            ["Hello", "/həˈləʊ/", "Привет", "Hello! I am Valerius."],
-            ["Goodbye", "/ɡʊdˈbaɪ/", "До свидания", "Goodbye for now."],
-            ["Friend", "/frend/", "Друг", "You are a good friend."],
-            ["Good", "/ɡʊd/", "Хороший", "I am in a good mood."],
-            ["Fine", "/faɪn/", "В порядке", "Everything is fine."],
-            ["Yes", "/jes/", "Да", "Yes, I agree."],
-            ["No", "/nəʊ/", "Нет", "No, thank you."],
-            ["Please", "/pliːz/", "Пожалуйста", "Help me, please."],
-            ["Thank you", "/θæŋk juː/", "Спасибо", "Thank you very much."],
-            ["Welcome", "/ˈwel.kəm/", "Добро пожаловать", "Welcome to our party."],
-            ["I", "/aɪ/", "Я", "I am ready."],
-            ["You", "/juː/", "Ты / Вы", "You are strong."],
-            ["He", "/hiː/", "Он", "He is brave."],
-            ["She", "/ʃiː/", "Она", "She is smart."],
-            ["It", "/ɪt/", "Оно / Это", "It is important."],
-            ["We", "/wiː/", "Мы", "We stand together."],
-            ["They", "/ðeɪ/", "Они", "They are fast."],
-            ["My", "/maɪ/", "Мой", "This is my shield."],
-            ["Your", "/jɔːr/", "Твой", "What is your name?"],
-            ["His", "/hɪz/", "Его", "His sword is sharp."],
-            ["Her", "/hɜːr/", "Её", "Her magic is powerful."],
-            ["Our", "/aʊər/", "Наш", "Our squad is ready."],
-            ["Their", "/ðeər/", "Их", "Their team is here."],
-            ["Name", "/neɪm/", "Имя", "My name is Valerius."],
-            ["Who", "/huː/", "Кто", "Who are you?"],
-            ["What", "/wɒt/", "Что", "What is this?"],
-            ["Ready", "/ˈred.i/", "Готовый", "Are you ready?"],
-            ["Happy", "/ˈhæp.i/", "Счастливый", "I am very happy."],
-            ["Brave", "/breɪv/", "Храбрый", "A brave knight."],
-            ["Strong", "/strɒŋ/", "Сильный", "Stay strong!"],
-            ["Shield", "/ʃiːld/", "Щит", "Hold the shield."],
-            ["Armor", "/ˈɑː.mər/", "Броня", "Heavy armor."],
-            ["One", "/wʌn/", "Один", "One goal."],
-            ["Two", "/tuː/", "Два", "Two options."],
-            ["Three", "/θriː/", "Три", "Three steps."],
-            ["Four", "/fɔːr/", "Четыре", "Four heroes."],
-            ["Five", "/faɪv/", "Пять", "Five warriors."],
-            ["Six", "/sɪks/", "Шесть", "Six items."],
-            ["Seven", "/ˈsev.ən/", "Семь", "Seven days."],
-            ["Eight", "/eɪt/", "Восемь", "Eight hours."],
-            ["Nine", "/naɪn/", "Девять", "Nine levels."],
-            ["Ten", "/ten/", "Десять", "Ten points."]
-        ],
-        astraea: [
-            ["Have", "/hæv/", "Иметь", "I have a mission."],
-            ["Want", "/wɒnt/", "Хотеть", "I want to heal you."],
-            ["Like", "/laɪk/", "Нравиться", "I like light."],
-            ["Help", "/help/", "Помогать", "Can you help me?"],
-            ["Need", "/niːd/", "Нуждаться", "I need mana."],
-            ["Love", "/lʌv/", "Любить", "We love peace."],
-            ["Eat", "/iːt/", "Есть / кушать", "Eat good food."],
-            ["Drink", "/drɪŋk/", "Пить", "Drink clean water."],
-            ["Sleep", "/sliːp/", "Спать", "Sleep well tonight."],
-            ["Walk", "/wɔːk/", "Ходить пешком", "Let's walk slowly."],
-            ["Run", "/rʌn/", "Бегать", "Run fast!"],
-            ["See", "/siː/", "Видеть", "I see the light."],
-            ["Hear", "/hɪər/", "Слышать", "I hear music."],
-            ["Speak", "/spiːk/", "Говорить", "Speak clearly."],
-            ["Listen", "/ˈlɪs.ən/", "Слушать", "Listen to me."],
-            ["Read", "/riːd/", "Читать", "Read the holy book."],
-            ["Write", "/raɪt/", "Писать", "Write your name."],
-            ["Learn", "/lɜːn/", "Учиться", "Learn new words."],
-            ["Teach", "/tiːtʃ/", "Обучать", "Teach me English."],
-            ["Give", "/ɡɪv/", "Давать", "Give me your hand."],
-            ["Take", "/teɪk/", "Брать", "Take this potion."],
-            ["Make", "/meɪk/", "Делать / создавать", "Make a choice."],
-            ["Do", "/duː/", "Делать", "Do your best."]
-        ],
-        ignis: [
-            ["Fire", "/faɪər/", "Огонь", "Fire burns bright."],
-            ["Spell", "/spel/", "Заклинание", "Cast a fire spell."],
-            ["Book", "/bʊk/", "Книга", "Read the magic book."],
-            ["House", "/haʊs/", "Дом", "This is my house."],
-            ["Room", "/ruːm/", "Комната", "A large room."],
-            ["Door", "/dɔːr/", "Дверь", "Open the door."],
-            ["Window", "/ˈwɪn.dəʊ/", "Окно", "Look through the window."],
-            ["Table", "/ˈteɪ.bəl/", "Стол", "On the table."],
-            ["Chair", "/tʃeər/", "Стул", "Sit on the chair."],
-            ["Computer", "/kəmˈpjuː.tər/", "Компьютер", "My computer is fast."],
-            ["Phone", "/fəʊn/", "Телефон", "Answer the phone."],
-            ["Water", "/ˈwɔː.tər/", "Вода", "Fresh water."],
-            ["Light", "/laɪt/", "Свет", "Turn on the light."],
-            ["Dark", "/dɑːk/", "Темнота / тёмный", "In the dark."],
-            ["Hot", "/hɒt/", "Горячий", "Hot fire."]
-        ],
-        frostina: [
-            ["Ice", "/aɪs/", "Лёд", "Cold ice."],
-            ["Cold", "/kəʊld/", "Холодный", "It is cold outside."],
-            ["Snow", "/snəʊ/", "Снег", "White snow."],
-            ["Winter", "/ˈwɪn.tər/", "Зима", "Winter is coming."],
-            ["Day", "/deɪ/", "День", "Have a nice day."],
-            ["Night", "/naɪt/", "Ночь", "Good night."],
-            ["Morning", "/ˈmɔː.nɪŋ/", "Утро", "Good morning!"],
-            ["Evening", "/ˈiːv.nɪŋ/", "Вечер", "Good evening."],
-            ["Always", "/ˈɔːl.weɪz/", "Всегда", "I always study."],
-            ["Never", "/ˈnev.ər/", "Никогда", "Never give up."],
-            ["Sometimes", "/ˈsʌm.taɪmz/", "Иногда", "Sometimes it rains."],
-            ["Often", "/ˈɒf.ən/", "Часто", "I often read."]
-        ],
-        zephyr: [
-            ["Wind", "/wɪnd/", "Ветер", "Strong wind."],
-            ["Sky", "/skaɪ/", "Небо", "Blue sky."],
-            ["Where", "/weər/", "Где", "Where are you?"],
-            ["When", "/wen/", "Когда", "When is the battle?"],
-            ["Why", "/waɪ/", "Почему", "Why do you ask?"],
-            ["How", "/haʊ/", "Как", "How are you?"],
-            ["In", "/ɪn/", "В", "In the room."],
-            ["On", "/ɒn/", "На", "On the table."],
-            ["Under", "/ˈʌn.dər/", "Под", "Under the tree."],
-            ["Next to", "/nekst tuː/", "Рядом с", "Next to me."]
-        ],
-        thorin: [
-            ["Gold", "/ɡəʊld/", "Золото", "Pure gold."],
-            ["Stone", "/stəʊn/", "Камень", "Hard stone."],
-            ["Big", "/bɪɡ/", "Большой", "A big mountain."],
-            ["Small", "/smɔːl/", "Маленький", "A small key."],
-            ["Fast", "/fɑːst/", "Быстрый", "Fast runner."],
-            ["Slow", "/sləʊ/", "Медленный", "Slow step."],
-            ["Heavy", "/ˈhev.i/", "Тяжёлый", "Heavy hammer."],
-            ["Light", "/laɪt/", "Лёгкий", "Light weapon."]
-        ],
-        selene: [
-            ["Shadow", "/ˈʃæd.əʊ/", "Тень", "In the shadow."],
-            ["Can", "/kæn/", "Мочь", "I can do this."],
-            ["Cannot", "/ˈkæn.ɒt/", "Не мочь", "I cannot give up."],
-            ["Silent", "/ˈsaɪ.lənt/", "Тихий", "Be silent."],
-            ["Quick", "/kwɪk/", "Быстрый", "Quick attack."]
-        ],
-        oberon: [
-            ["Tree", "/triː/", "Дерево", "Green tree."],
-            ["Forest", "/ˈfɒr.ɪst/", "Лес", "Dark forest."],
-            ["Leaf", "/liːf/", "Лист", "Green leaf."],
-            ["Flower", "/ˈflaʊ.ər/", "Цветок", "Pretty flower."],
-            ["Nature", "/ˈneɪ.tʃər/", "Природа", "Protect nature."]
-        ],
-        freya: [
-            ["War", "/wɔːr/", "Война", "End the war."],
-            ["City", "/ˈsɪt.i/", "Город", "Big city."],
-            ["Road", "/rəʊd/", "Дорога", "Long road."],
-            ["Travel", "/ˈtræv.əl/", "Путешествовать", "I love to travel."],
-            ["Country", "/ˈkʌn.tri/", "Страна", "My country."]
-        ],
-        eldrin: [
-            ["Magic", "/ˈmædʒ.ɪk/", "Магия", "Ancient magic."],
-            ["Star", "/stɑːr/", "Звезда", "Bright star."],
-            ["Knowledge", "/ˈnɒl.ɪdʒ/", "Знания", "Knowledge is power."],
-            ["Master", "/ˈmɑː.stər/", "Мастер", "Grand master."],
-            ["Achieve", "/əˈtʃiːv/", "Достигать", "Achieve your dream."]
-        ]
-    };
-
-    const rawList = wordLists[heroId] || wordLists.valerius;
-    const padded = [...rawList];
-    let counter = 1;
-    while (padded.length < 100) {
-        padded.push([
-            `Word ${heroId.toUpperCase()}_${counter}`,
-            `/${heroId}_${counter}/`,
-            `Слово ${counter} (${heroId.toUpperCase()})`,
-            `Example sentence using A0/A1 word ${counter}.`
-        ]);
-        counter++;
-    }
-
-    return padded.map(item => ({
-        word: item[0],
-        phonetic: item[1],
-        translation: item[2],
-        example: item[3]
-    }));
-}
-
 const HEROES_DATA = [
     {
-        id: "valerius", name: "Valerius", role: "Tank", cefrRank: 1, cefrLevel: "A0 (Greetings, Identity)", title: "The Silver Paladin",
+        id: "valerius", name: "Valerius", role: "Main Tank", cefrRank: 1, cefrLevel: "A0 (Greetings & Identity)", title: "The Silver Paladin",
         avatar: "fa-shield-halved", color: "#3b82f6", image: "images/hero_valerius_1785227640124.jpg", unlocked: true, level: 1, xp: 0, maxXp: 100, affinityLevel: 0,
-        hp: 250, maxHp: 250, atk: 16, def: 10, skillName: "Shield Wall", skillDesc: "Shields allies for 150 HP.", skillIcon: "fa-shield",
+        hp: 250, maxHp: 250, atk: 22, def: 18, skillName: "Aegis Shield", skillDesc: "Taunts all enemies & increases DEF.", skillIcon: "fa-shield",
         words: generateHeroWords("valerius"),
-        sentenceTemplates: ["I am [Name / ready / happy].", "You are my [friend].", "Are you [ready]? -> Yes, I am."],
-        grammarRules: ["Глагол to be (am/is/are)", "Личные и притяжательные местоимения"]
+        sentenceTemplates: ["Hello, I am [Valerius].", "My name is [a hero].", "I am [happy / ready]."],
+        grammarRules: ["Глагол 'to be' (am, is, are)", "Личные местоимения (I, You, He, She, It)"]
     },
     {
-        id: "astraea", name: "Astraea", role: "Healer", cefrRank: 1, cefrLevel: "A0 (Essential Verbs)", title: "High Priestess of Light",
+        id: "astraea", name: "Astraea", role: "Healer", cefrRank: 1, cefrLevel: "A0 (Verbs & Actions)", title: "High Priestess of Light",
         avatar: "fa-wand-magic-sparkles", color: "#10b981", image: "images/hero_astraea_1785227651575.jpg", unlocked: false, level: 1, xp: 0, maxXp: 100, affinityLevel: 0,
         hp: 180, maxHp: 180, atk: 14, def: 6, skillName: "Holy Radiance", skillDesc: "Restores 140 HP.", skillIcon: "fa-hand-holding-medical",
         words: generateHeroWords("astraea"),
@@ -250,86 +72,86 @@ const HEROES_DATA = [
         grammarRules: ["Past Simple (was/were)"]
     },
     {
-        id: "eldrin", name: "Eldrin", role: "Archmage Support", cefrRank: 5, cefrLevel: "A1 (Graduation)", title: "Grand High Mage",
+        id: "eldrin", name: "Eldrin", role: "Grand Archmage", cefrRank: 5, cefrLevel: "A1 (A1 Graduation)", title: "Grand Archmage",
         avatar: "fa-hat-wizard", color: "#a855f7", image: null, unlocked: false, level: 1, xp: 0, maxXp: 100, affinityLevel: 0,
-        hp: 220, maxHp: 220, atk: 55, def: 9, skillName: "Arcane Nova", skillDesc: "Massive AoE magic.", skillIcon: "fa-wand-magic",
+        hp: 260, maxHp: 260, atk: 65, def: 14, skillName: "Arcane Nova", skillDesc: "Deals 500 massive damage.", skillIcon: "fa-meteor",
         words: generateHeroWords("eldrin"),
-        sentenceTemplates: ["You achieved [CEFR Level A1]!"],
-        grammarRules: ["Полный синтез A1"]
+        sentenceTemplates: ["I have [achieved A1 mastery]."],
+        grammarRules: ["Комплексное повторение всей грамматики A1"]
     }
 ];
 
 const CAMPAIGN_CHAPTERS = [
     {
-        id: 1, title: "Chapter 1: The Dark Forest (A0 Basics)", bossHeroUnlock: "astraea",
+        id: 1, title: "Chapter 1: The Silver Outpost (Valerius & Astraea)",
         stages: [
-            { id: "1-1", name: "Forest Gate", recPower: 800, mobs: [{ name: "Forest Spider", hp: 750, atk: 55, avatar: "fa-spider" }], unlocked: true },
-            { id: "1-2", name: "Goblin Ambush", recPower: 1500, mobs: [{ name: "Shadow Goblin", hp: 1300, atk: 95, avatar: "fa-spaghetti-monster-flying" }], unlocked: false },
-            { id: "1-3", name: "Goblin King's Lair", recPower: 2800, boss: true, mobs: [{ name: "Goblin King (BOSS)", hp: 2500, atk: 160, avatar: "fa-crown" }], unlocked: false }
+            { id: "1-1", name: "Outpost Gate", recPower: 100, mobs: [{ name: "Goblin Scout", hp: 120, atk: 15, avatar: "fa-skull" }], boss: false, unlocked: true },
+            { id: "1-2", name: "Ruined Watchtower", recPower: 180, mobs: [{ name: "Shadow Wolf", hp: 200, atk: 22, avatar: "fa-ghost" }], boss: false, unlocked: false },
+            { id: "1-3", name: "High Priestess Altar", recPower: 260, mobs: [{ name: "Corrupted Sentinel", hp: 450, atk: 35, avatar: "fa-dragon" }], boss: true, unlockHeroId: "astraea", unlocked: false }
         ]
     },
     {
-        id: 2, title: "Chapter 2: Ancient Ruins (A0 Verbs & Nouns)", bossHeroUnlock: "ignis",
+        id: 2, title: "Chapter 2: Fiery Volcanic Spire (Ignis)",
         stages: [
-            { id: "2-1", name: "Stone Courtyard", recPower: 4500, mobs: [{ name: "Stone Golem", hp: 3800, atk: 220, avatar: "fa-cubes" }], unlocked: false },
-            { id: "2-2", name: "Ruined Temple", recPower: 6500, mobs: [{ name: "Gargoyle", hp: 5200, atk: 280, avatar: "fa-dragon" }], unlocked: false },
-            { id: "2-3", name: "Guardian Altar", recPower: 9500, boss: true, mobs: [{ name: "Ruin Guardian (BOSS)", hp: 8500, atk: 380, avatar: "fa-robot" }], unlocked: false }
+            { id: "2-1", name: "Ashen Path", recPower: 350, mobs: [{ name: "Fire Imp", hp: 280, atk: 30, avatar: "fa-fire" }], boss: false, unlocked: false },
+            { id: "2-2", name: "Magma Chamber", recPower: 450, mobs: [{ name: "Lava Elemental", hp: 380, atk: 40, avatar: "fa-volcano" }], boss: false, unlocked: false },
+            { id: "2-3", name: "Pyromancer Throne", recPower: 600, mobs: [{ name: "Ignis Fire Drake", hp: 750, atk: 55, avatar: "fa-dragon" }], boss: true, unlockHeroId: "ignis", unlocked: false }
         ]
     },
     {
-        id: 3, title: "Chapter 3: Frost Peak (A0 Present Simple)", bossHeroUnlock: "frostina",
+        id: 3, title: "Chapter 3: Frostbite Caverns (Frostina & Zephyr)",
         stages: [
-            { id: "3-1", name: "Glacier Ridge", recPower: 12000, mobs: [{ name: "Frost Drake", hp: 10000, atk: 450, avatar: "fa-dragon" }], unlocked: false },
-            { id: "3-2", name: "Ice Cavern", recPower: 16000, mobs: [{ name: "Ice Golem", hp: 14000, atk: 550, avatar: "fa-snowflake" }], unlocked: false },
-            { id: "3-3", name: "Lair of Frost", recPower: 22000, boss: true, mobs: [{ name: "Ice Dragon (BOSS)", hp: 20000, atk: 700, avatar: "fa-dragon" }], unlocked: false }
+            { id: "3-1", name: "Glacier Entrance", recPower: 750, mobs: [{ name: "Ice Spider", hp: 450, atk: 45, avatar: "fa-spider" }], boss: false, unlocked: false },
+            { id: "3-2", name: "Whispering Winds", recPower: 900, mobs: [{ name: "Frost Golem", hp: 580, atk: 50, avatar: "fa-snowflake" }], boss: false, unlocked: false },
+            { id: "3-3", name: "Sorceress Ice Keep", recPower: 1150, mobs: [{ name: "Frostina Ice Queen", hp: 1100, atk: 70, avatar: "fa-icicles" }], boss: true, unlockHeroId: "frostina", unlocked: false }
         ]
     },
     {
-        id: 4, title: "Chapter 4: Nether Citadel (A0 Questions)", bossHeroUnlock: "zephyr",
+        id: 4, title: "Chapter 4: Dwarven Iron Mines (Thorin & Zephyr)",
         stages: [
-            { id: "4-1", name: "Citadel Gates", recPower: 28000, mobs: [{ name: "Chaos Knight", hp: 24000, atk: 850, avatar: "fa-user-shield" }], unlocked: false },
-            { id: "4-2", name: "Shadow Hall", recPower: 35000, mobs: [{ name: "Shadow Priest", hp: 30000, atk: 1000, avatar: "fa-ghost" }], unlocked: false },
-            { id: "4-3", name: "Throne of Chaos", recPower: 45000, boss: true, mobs: [{ name: "Chaos Overlord (BOSS)", hp: 40000, atk: 1300, avatar: "fa-skull" }], unlocked: false }
+            { id: "4-1", name: "Stone Shaft", recPower: 1350, mobs: [{ name: "Cave Bear", hp: 700, atk: 60, avatar: "fa-paw" }], boss: false, unlocked: false },
+            { id: "4-2", name: "Forge of Ancestors", recPower: 1600, mobs: [{ name: "Iron Automaton", hp: 900, atk: 75, avatar: "fa-robot" }], boss: false, unlocked: false },
+            { id: "4-3", name: "Berserker Arena", recPower: 1900, mobs: [{ name: "Thorin Berserker Chief", hp: 1500, atk: 95, avatar: "fa-burst" }], boss: true, unlockHeroId: "thorin", unlocked: false }
         ]
     },
     {
-        id: 5, title: "Chapter 5: Dwarven Mines (A0 Time & Adjectives)", bossHeroUnlock: "thorin",
+        id: 5, title: "Chapter 5: Shadow Veil Catacombs (Selene)",
         stages: [
-            { id: "5-1", name: "Iron Mine", recPower: 55000, mobs: [{ name: "Iron Golem", hp: 48000, atk: 1500, avatar: "fa-cubes" }], unlocked: false },
-            { id: "5-2", name: "Deep Shaft", recPower: 68000, mobs: [{ name: "Magma Elemental", hp: 60000, atk: 1800, avatar: "fa-fire" }], unlocked: false },
-            { id: "5-3", name: "Forge of Ancients", recPower: 85000, boss: true, mobs: [{ name: "Forge Master (BOSS)", hp: 75000, atk: 2200, avatar: "fa-hammer" }], unlocked: false }
+            { id: "5-1", name: "Silent Alley", recPower: 2200, mobs: [{ name: "Shadow Assassin", hp: 1000, atk: 90, avatar: "fa-user-ninja" }], boss: false, unlocked: false },
+            { id: "5-2", name: "Moonlit Vault", recPower: 2500, mobs: [{ name: "Phantom Spectre", hp: 1200, atk: 110, avatar: "fa-ghost" }], boss: false, unlocked: false },
+            { id: "5-3", name: "Shadow Stalker Lair", recPower: 2900, mobs: [{ name: "Selene Shadow Queen", hp: 2000, atk: 130, avatar: "fa-skull" }], boss: true, unlockHeroId: "selene", unlocked: false }
         ]
     },
     {
-        id: 6, title: "Chapter 6: Shadow Realm (A1 Can / Can't)", bossHeroUnlock: "selene",
+        id: 6, title: "Chapter 6: Emerald Druid Grove (Oberon)",
         stages: [
-            { id: "6-1", name: "Mist Valley", recPower: 100000, mobs: [{ name: "Night Stalker", hp: 90000, atk: 2600, avatar: "fa-mask" }], unlocked: false },
-            { id: "6-2", name: "Void Rift", recPower: 120000, mobs: [{ name: "Void Walker", hp: 110000, atk: 3000, avatar: "fa-circle-nodes" }], unlocked: false },
-            { id: "6-3", name: "Shadow Heart", recPower: 150000, boss: true, mobs: [{ name: "Void Monarch (BOSS)", hp: 140000, atk: 3800, avatar: "fa-eye" }], unlocked: false }
+            { id: "6-1", name: "Mossy Glade", recPower: 3300, mobs: [{ name: "Corrupted Ent", hp: 1500, atk: 120, avatar: "fa-tree" }], boss: false, unlocked: false },
+            { id: "6-2", name: "Rejuvenation Spring", recPower: 3800, mobs: [{ name: "Wild Treant", hp: 1800, atk: 140, avatar: "fa-leaf" }], boss: false, unlocked: false },
+            { id: "6-3", name: "Arch-Druid Sanctuary", recPower: 4400, mobs: [{ name: "Oberon Nature Avatar", hp: 2800, atk: 165, avatar: "fa-seedling" }], boss: true, unlockHeroId: "oberon", unlocked: false }
         ]
     },
     {
-        id: 7, title: "Chapter 7: Emerald Sanctuary (A1 Continuous)", bossHeroUnlock: "oberon",
+        id: 7, title: "Chapter 7: Valkyrie Sky Fortress (Freya)",
         stages: [
-            { id: "7-1", name: "Overgrown Path", recPower: 180000, mobs: [{ name: "Treant", hp: 160000, atk: 4200, avatar: "fa-tree" }], unlocked: false },
-            { id: "7-2", name: "Wild Canopy", recPower: 220000, mobs: [{ name: "Venomous Hydra", hp: 190000, atk: 4800, avatar: "fa-worm" }], unlocked: false },
-            { id: "7-3", name: "Heart of the Forest", recPower: 280000, boss: true, mobs: [{ name: "Ancient Treant (BOSS)", hp: 250000, atk: 5500, avatar: "fa-tree" }], unlocked: false }
+            { id: "7-1", name: "Cloud Gate", recPower: 5000, mobs: [{ name: "Storm Rider", hp: 2200, atk: 160, avatar: "fa-wind" }], boss: false, unlocked: false },
+            { id: "7-2", name: "Thunder Citadel", recPower: 5800, mobs: [{ name: "Valkyrie Guard", hp: 2600, atk: 185, avatar: "fa-shield-halved" }], boss: false, unlocked: false },
+            { id: "7-3", name: "Hall of Valhalla", recPower: 6700, mobs: [{ name: "Freya Shieldmaiden Queen", hp: 4000, atk: 220, avatar: "fa-person-through-window" }], boss: true, unlockHeroId: "freya", unlocked: false }
         ]
     },
     {
-        id: 8, title: "Chapter 8: Valhalla Gates (A1 Past Simple)", bossHeroUnlock: "freya",
+        id: 8, title: "Chapter 8: Arcane Spire & Grand Archmage (Eldrin)",
         stages: [
-            { id: "8-1", name: "Bifrost Bridge", recPower: 320000, mobs: [{ name: "Rune Guardian", hp: 280000, atk: 6200, avatar: "fa-ankh" }], unlocked: false },
-            { id: "8-2", name: "Hall of Warriors", recPower: 380000, mobs: [{ name: "Einherjar Spirit", hp: 330000, atk: 7000, avatar: "fa-ghost" }], unlocked: false },
-            { id: "8-3", name: "Throne of Valhalla", recPower: 450000, boss: true, mobs: [{ name: "Valkyrie Queen (BOSS)", hp: 400000, atk: 8000, avatar: "fa-crown" }], unlocked: false }
+            { id: "8-1", name: "Astral Library", recPower: 7500, mobs: [{ name: "Arcane Golem", hp: 3200, atk: 210, avatar: "fa-book" }], boss: false, unlocked: false },
+            { id: "8-2", name: "Dimension Portal", recPower: 8500, mobs: [{ name: "Cosmic Phoenix", hp: 3800, atk: 245, avatar: "fa-meteor" }], boss: false, unlocked: false },
+            { id: "8-3", name: "Grand Master Throne", recPower: 10000, mobs: [{ name: "Eldrin Grand Archmage", hp: 6000, atk: 300, avatar: "fa-hat-wizard" }], boss: true, unlockHeroId: "eldrin", unlocked: false }
         ]
     },
     {
-        id: 9, title: "Chapter 9: Arcane Academy (A1 Graduation)", bossHeroUnlock: "eldrin",
+        id: 9, title: "Chapter 9: Final A1 Graduation Trial (Master All 10 Heroes)",
         stages: [
-            { id: "9-1", name: "Astral Tower", recPower: 500000, mobs: [{ name: "Mana Elemental", hp: 450000, atk: 9000, avatar: "fa-atom" }], unlocked: false },
-            { id: "9-2", name: "Sanctum of Knowledge", recPower: 600000, mobs: [{ name: "Archon Sentinel", hp: 550000, atk: 10500, avatar: "fa-hat-wizard" }], unlocked: false },
-            { id: "9-3", name: "A1 Graduation Arena", recPower: 750000, boss: true, mobs: [{ name: "Grand Master Eldrin (BOSS)", hp: 700000, atk: 12500, avatar: "fa-graduation-cap" }], unlocked: false }
+            { id: "9-1", name: "Trial of Wisdom", recPower: 12000, mobs: [{ name: "Grand Examiner", hp: 7000, atk: 320, avatar: "fa-graduation-cap" }], boss: false, unlocked: false },
+            { id: "9-2", name: "Trial of Valhalla", recPower: 14500, mobs: [{ name: "Ancient Dragon King", hp: 9000, atk: 380, avatar: "fa-dragon" }], boss: false, unlocked: false },
+            { id: "9-3", name: "Supreme Graduation Summit", recPower: 18000, mobs: [{ name: "CEFR A1 Master Titan", hp: 14000, atk: 450, avatar: "fa-trophy" }], boss: true, unlocked: false }
         ]
     }
 ];
@@ -345,8 +167,27 @@ class RPGEngine {
 
     loadHeroes() {
         const saved = localStorage.getItem("rpg_heroes_10_v9");
-        if (saved) return JSON.parse(saved);
-        return JSON.parse(JSON.stringify(HEROES_DATA));
+        if (saved) {
+            try {
+                const parsed = JSON.parse(saved);
+                return HEROES_DATA.map(defaultHero => {
+                    const savedHero = parsed.find(h => h.id === defaultHero.id);
+                    if (savedHero) {
+                        return {
+                            ...defaultHero,
+                            level: savedHero.level || defaultHero.level,
+                            xp: savedHero.xp || defaultHero.xp,
+                            maxXp: savedHero.maxXp || defaultHero.maxXp,
+                            affinityLevel: savedHero.affinityLevel || defaultHero.affinityLevel,
+                            unlocked: savedHero.unlocked !== undefined ? savedHero.unlocked : defaultHero.unlocked,
+                            words: generateHeroWords(defaultHero.id) // Ensure 100 real words loaded!
+                        };
+                    }
+                    return defaultHero;
+                });
+            } catch (e) {}
+        }
+        return HEROES_DATA;
     }
 
     loadChapters() {
@@ -460,59 +301,58 @@ class RPGEngine {
 
         this.save();
         return { 
-            xpAmount, 
             rewardedHeroNames, 
-            blockedHeroNames,
-            isFocusBonus: (targetArray && targetArray.length > 0 && targetArray.length <= 2) 
+            blockedHeroNames, 
+            xpAmount,
+            isFocusBonus: activityType !== "card" && targetArray && targetArray.length > 0 && targetArray.length <= 2
         };
     }
 
     completeStage(stageId) {
-        for (let cIdx = 0; cIdx < this.chapters.length; cIdx++) {
-            const chap = this.chapters[cIdx];
-            for (let sIdx = 0; sIdx < chap.stages.length; sIdx++) {
-                if (chap.stages[sIdx].id === stageId) {
-                    if (sIdx + 1 < chap.stages.length) {
-                        chap.stages[sIdx + 1].unlocked = true;
-                    } else if (cIdx + 1 < this.chapters.length) {
-                        this.chapters[cIdx + 1].stages[0].unlocked = true;
+        let stageFound = false;
+        for (let c of this.chapters) {
+            for (let i = 0; i < c.stages.length; i++) {
+                if (c.stages[i].id === stageId) {
+                    c.stages[i].cleared = true;
+                    if (c.stages[i].boss && c.stages[i].unlockHeroId) {
+                        const heroToUnlock = this.heroes.find(h => h.id === c.stages[i].unlockHeroId);
+                        if (heroToUnlock) heroToUnlock.unlocked = true;
                     }
-
-                    if (chap.stages[sIdx].boss && chap.bossHeroUnlock) {
-                        const heroToUnlock = this.heroes.find(h => h.id === chap.bossHeroUnlock);
-                        if (heroToUnlock && !heroToUnlock.unlocked) {
-                            heroToUnlock.unlocked = true;
-                            if (this.selectedSquad.length < 5 && !this.selectedSquad.includes(heroToUnlock.id)) {
-                                this.selectedSquad.push(heroToUnlock.id);
-                            }
+                    if (i + 1 < c.stages.length) {
+                        c.stages[i + 1].unlocked = true;
+                    } else {
+                        const nextChap = this.chapters.find(ch => ch.id === c.id + 1);
+                        if (nextChap && nextChap.stages.length > 0) {
+                            nextChap.stages[0].unlocked = true;
                         }
                     }
-                    this.save();
-                    return;
+                    stageFound = true;
+                    break;
                 }
             }
+            if (stageFound) break;
         }
+        this.save();
     }
 
-    generateAffinityQuest(hero, level) {
-        const isAudioMode = level > 50;
-        const randomWord = hero.words[Math.floor(Math.random() * hero.words.length)] || { word: "Hello", translation: "Привет", example: "Hello! I am Valerius." };
-        const randomTemplate = hero.sentenceTemplates[Math.floor(Math.random() * hero.sentenceTemplates.length)] || "I am [Name].";
-        const primaryGrammarRule = hero.grammarRules[0] || "Grammar Rule";
-
-        let dialoguePrompt = `${hero.name} (Lvl ${level} 💕 Quest):\n"Greetings, hero! Let's reinforce ${hero.cefrLevel}."\n\n📌 Grammar Focus: ${primaryGrammarRule}\n📌 Sentence Template: ${randomTemplate}\n\n💬 Dialogue Challenge: Translate "${randomWord.translation}" into English to complete the sentence!`;
+    generateAffinityQuest(hero, questLevel) {
+        const wordPool = hero.words;
+        const targetObj = wordPool[Math.floor(Math.random() * wordPool.length)] || wordPool[0];
+        
+        const isAudioMode = questLevel > 50;
+        
+        const dialogueText = isAudioMode 
+            ? `[Audio Dialogue]: "${hero.name} whispers: Listen carefully and say the word '${targetObj.word}' (${targetObj.translation}) out loud to unlock 💕 Heart Level ${questLevel}!"`
+            : `[Text Quest]: "${hero.name} asks: What is the English word for '${targetObj.translation}'? (Hint: ${targetObj.example})"`;
 
         return {
             heroId: hero.id,
             heroName: hero.name,
-            heroAvatar: hero.avatar,
-            heroColor: hero.color,
-            level: level,
-            cefrLevel: hero.cefrLevel,
-            isAudioMode: isAudioMode,
-            dialogueText: dialoguePrompt,
-            targetWord: randomWord.word,
-            hintExample: randomWord.example
+            level: questLevel,
+            dialogueText,
+            targetWord: targetObj.word,
+            hintExample: targetObj.example,
+            isAudioMode
         };
     }
 }
