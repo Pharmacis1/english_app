@@ -885,10 +885,17 @@ class RPGEngine {
         const targetObj = wordPool[Math.floor(Math.random() * wordPool.length)] || wordPool[0];
         
         const isAudioMode = questLevel > 50;
+
+        let exampleWithBlank = targetObj.example;
+        if (targetObj.word) {
+            const escapedWord = targetObj.word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            const reg = new RegExp(`\\b${escapedWord}\\b`, 'gi');
+            exampleWithBlank = exampleWithBlank.replace(reg, '____');
+        }
         
         const dialogueText = isAudioMode 
             ? `💬 ${hero.name} (${hero.title}): "Listen carefully to my voice and say '${targetObj.word}' (${targetObj.translation}) out loud to unlock 💕 Heart Level ${questLevel}!"`
-            : `💬 ${hero.name} (${hero.title}): "Greetings, my friend! What is the English word for '${targetObj.translation}'? (Example sentence: ${targetObj.example})"`;
+            : `💬 ${hero.name} (${hero.title}): "Greetings, my friend! Fill in the blank with the English word for '${targetObj.translation}': '${exampleWithBlank}'"`;
 
         return {
             heroId: hero.id,
