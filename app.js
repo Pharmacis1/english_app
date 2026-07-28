@@ -1171,6 +1171,95 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // --- LOCAL AI SETTINGS & AUTO-DETECT MODELS ---
+    const settingsForm = document.getElementById("settings-form");
+    const aiProviderSelect = document.getElementById("ai-provider");
+    const apiEndpointInput = document.getElementById("api-endpoint");
+    const modelNameInput = document.getElementById("model-name");
+    const modelSelectDropdown = document.getElementById("model-select-dropdown");
+    const autoDetectModelsBtn = document.getElementById("auto-detect-models-btn");
+    const systemPromptInput = document.getElementById("system-prompt");
+    const testConnectionBtn = document.getElementById("test-connection-btn");
+
+    if (aiProviderSelect) aiProviderSelect.value = aiService.provider;
+    if (apiEndpointInput) apiEndpointInput.value = aiService.endpoint;
+    if (modelNameInput) modelNameInput.value = aiService.modelName;
+    if (systemPromptInput) systemPromptInput.value = aiService.systemPrompt;
+
+    if (autoDetectModelsBtn) {
+        autoDetectModelsBtn.addEventListener("click", async () => {
+            autoDetectModelsBtn.disabled = true;
+            autoDetectModelsBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Detecting...`;
+
+            if (aiProviderSelect) aiService.provider = aiProviderSelect.value;
+            if (apiEndpointInput) aiService.endpoint = apiEndpointInput.value;
+
+            const models = await aiService.fetchInstalledModels();
+            autoDetectModelsBtn.disabled = false;
+            autoDetectModelsBtn.innerHTML = `<i class="fa-solid fa-arrows-rotate"></i> Auto-Detect Installed Models`;
+
+            if (models && models.length > 0) {
+                modelSelectDropdown.innerHTML = "";
+                models.forEach(m => {
+                    const opt = document.createElement("option");
+                    opt.value = m;
+                    opt.textContent = m;
+                    if (m === aiService.modelName || m.includes(aiService.modelName)) opt.selected = true;
+                    modelSelectDropdown.appendChild(opt);
+                });
+
+                modelSelectDropdown.classList.remove("hidden");
+                modelNameInput.value = modelSelectDropdown.value;
+
+                modelSelectDropdown.addEventListener("change", () => {
+                    modelNameInput.value = modelSelectDropdown.value;
+                });
+
+                alert(`🟢 Detected ${models.length} model(s) installed in ${aiService.provider.toUpperCase()}:\n\n` + models.join("\n"));
+            } else {
+                alert(`⚠️ Could not auto-detect models at ${aiService.endpoint}.\n\nMake sure ${aiService.provider.toUpperCase()} is running in background/tray.`);
+            }
+        });
+    }
+
+    if (testConnectionBtn) {
+        testConnectionBtn.addEventListener("click", async () => {
+            testConnectionBtn.disabled = true;
+            testConnectionBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Testing...`;
+
+            if (aiProviderSelect) aiService.provider = aiProviderSelect.value;
+            if (apiEndpointInput) aiService.endpoint = apiEndpointInput.value;
+            if (modelNameInput) aiService.modelName = modelNameInput.value;
+
+            const res = await aiService.testConnection();
+            testConnectionBtn.disabled = false;
+            testConnectionBtn.innerHTML = `<i class="fa-solid fa-plug"></i> Test Connection Now`;
+
+            if (res.success) {
+                alert(`✅ ${res.message}`);
+                const statusDot = document.getElementById("ai-status-dot");
+                const statusText = document.getElementById("ai-status-text");
+                if (statusDot) statusDot.style.background = "var(--success)";
+                if (statusText) statusText.textContent = `${aiService.provider.toUpperCase()}: ${aiService.modelName}`;
+            } else {
+                alert(`❌ Connection Failed:\n\n${res.message}`);
+            }
+        });
+    }
+
+    if (settingsForm) {
+        settingsForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            aiService.saveSettings(
+                aiProviderSelect.value,
+                apiEndpointInput.value,
+                modelNameInput.value,
+                systemPromptInput.value
+            );
+            alert("💾 Local AI Settings Saved Successfully!");
+        });
+    }
+
     renderScenarios();
     selectScenario(SCENARIOS[0]);
     renderTutorHeroTargetChips();

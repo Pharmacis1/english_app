@@ -388,8 +388,16 @@
                         </div>
 
                         <div class="setting-group">
-                            <label for="model-name">Model Name (Ollama / LM Studio)</label>
-                            <input type="text" id="model-name" class="form-input" value="llama3">
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+                                <label for="model-name" style="margin-bottom:0;">Model Name (Ollama / LM Studio)</label>
+                                <button type="button" class="btn btn-sm btn-outline" id="auto-detect-models-btn" style="font-size:11px; padding:2px 8px;">
+                                    <i class="fa-solid fa-arrows-rotate"></i> Auto-Detect Installed Models
+                                </button>
+                            </div>
+                            <div style="display:flex; gap:8px;">
+                                <input type="text" id="model-name" class="form-input" value="llama3" style="flex:1;">
+                                <select id="model-select-dropdown" class="form-input hidden" style="flex:1;"></select>
+                            </div>
                         </div>
 
                         <div class="setting-group">

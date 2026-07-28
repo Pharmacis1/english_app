@@ -154,6 +154,64 @@ app.post('/api/backup/import', async (req, res) => {
     }
 });
 
+// 7. GET /api/ai/models — Proxy fetch installed models from Ollama / LM Studio (bypasses CORS)
+app.get('/api/ai/models', async (req, res) => {
+    const provider = req.query.provider || 'ollama';
+    const endpoint = (req.query.endpoint || 'http://localhost:11434').replace(/\/$/, '');
+
+    try {
+        if (provider === 'ollama') {
+            const resp = await fetch(`${endpoint}/api/tags`);
+            if (resp.ok) {
+                const data = await resp.json();
+                const modelNames = (data.models || []).map(m => m.name);
+                return res.json({ success: true, provider: 'ollama', models: modelNames });
+            }
+        } else if (provider === 'lmstudio') {
+            const resp = await fetch(`${endpoint}/v1/models`);
+            if (resp.ok) {
+                const data = await resp.json();
+                const modelNames = (data.data || []).map(m => m.id);
+                return res.json({ success: true, provider: 'lmstudio', models: modelNames });
+            }
+        }
+        return res.json({ success: false, models: [], message: `Server at ${endpoint} returned status ${resp ? resp.status : 'error'}` });
+    } catch (err) {
+        return res.json({ success: false, models: [], message: `Could not connect to ${provider} at ${endpoint}: ${err.message}` });
+    }
+});
+
+// 8. POST /api/ai/chat — Proxy chat completion request to bypass CORS
+app.post('/api/ai/chat', async (req, res) => {
+    const { provider, endpoint, model, messages } = req.body;
+    const targetEndpoint = (endpoint || 'http://localhost:11434').replace(/\/$/, '');
+
+    try {
+        if (provider === 'ollama') {
+            const resp = await fetch(`${targetEndpoint}/api/chat`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ model, messages, stream: false })
+            });
+            if (!resp.ok) throw new Error(`Ollama HTTP Error ${resp.status}`);
+            const data = await resp.json();
+            return res.json({ success: true, content: data.message.content });
+        } else if (provider === 'lmstudio') {
+            const resp = await fetch(`${targetEndpoint}/v1/chat/completions`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ model, messages, temperature: 0.7, max_tokens: 300 })
+            });
+            if (!resp.ok) throw new Error(`LM Studio HTTP Error ${resp.status}`);
+            const data = await resp.json();
+            return res.json({ success: true, content: data.choices[0].message.content });
+        }
+        return res.status(400).json({ success: false, error: "Unsupported provider" });
+    } catch (err) {
+        return res.status(500).json({ success: false, error: err.message });
+    }
+});
+
 // Start Express Server
 app.listen(PORT, () => {
     console.log(`==================================================`);

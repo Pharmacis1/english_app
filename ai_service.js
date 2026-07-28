@@ -20,29 +20,45 @@ class AIService {
         localStorage.setItem("system_prompt", systemPrompt);
     }
 
+    async fetchInstalledModels() {
+        try {
+            const res = await fetch(`/api/ai/models?provider=${this.provider}&endpoint=${encodeURIComponent(this.endpoint)}`);
+            if (res.ok) {
+                const data = await res.json();
+                if (data.success && Array.isArray(data.models)) {
+                    return data.models;
+                }
+            }
+        } catch (e) {}
+        return [];
+    }
+
     async testConnection() {
         if (this.provider === 'fallback') {
             return { success: true, message: "Smart Fallback Simulator active (No server required)" };
         }
 
         try {
-            if (this.provider === 'ollama') {
-                const res = await fetch(`${this.endpoint}/api/tags`, { method: 'GET', signal: AbortSignal.timeout(3000) });
-                if (res.ok) {
-                    const data = await res.json();
-                    const models = data.models ? data.models.map(m => m.name).join(', ') : 'Ready';
-                    return { success: true, message: `Connected to Ollama! Available models: ${models}` };
-                }
-            } else if (this.provider === 'lmstudio') {
-                const res = await fetch(`${this.endpoint}/v1/models`, { method: 'GET', signal: AbortSignal.timeout(3000) });
-                if (res.ok) {
-                    const data = await res.json();
-                    return { success: true, message: `Connected to LM Studio!` };
+            const res = await fetch(`/api/ai/models?provider=${this.provider}&endpoint=${encodeURIComponent(this.endpoint)}`);
+            if (res.ok) {
+                const data = await res.json();
+                if (data.success && data.models && data.models.length > 0) {
+                    return { 
+                        success: true, 
+                        message: `Connected to ${this.provider.toUpperCase()}! Installed models: ${data.models.join(', ')}`,
+                        models: data.models
+                    };
+                } else if (data.success) {
+                    return { 
+                        success: true, 
+                        message: `Connected to ${this.provider.toUpperCase()}! Server running.`,
+                        models: []
+                    };
                 }
             }
             return { success: false, message: `Could not reach ${this.provider} server at ${this.endpoint}` };
         } catch (err) {
-            return { success: false, message: `Server offline or CORS blocked at ${this.endpoint}: ${err.message}` };
+            return { success: false, message: `Server error or offline at ${this.endpoint}: ${err.message}` };
         }
     }
 
@@ -61,58 +77,31 @@ class AIService {
         }
 
         try {
-            if (this.provider === 'ollama') {
-                return await this.callOllama(messagesHistory, scenario, targetHeroObjects);
-            } else if (this.provider === 'lmstudio') {
-                return await this.callLMStudio(messagesHistory, scenario, targetHeroObjects);
-            }
+            const heroPrompt = this.buildHeroPrompt(targetHeroObjects);
+            const systemMessage = { role: 'system', content: `${this.systemPrompt}\nContext/Scenario: ${scenario.systemPrompt}${heroPrompt}` };
+            const formattedMessages = [systemMessage, ...messagesHistory];
+
+            const response = await fetch('/api/ai/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    provider: this.provider,
+                    endpoint: this.endpoint,
+                    model: this.modelName,
+                    messages: formattedMessages
+                })
+            });
+
+            if (!response.ok) throw new Error(`AI Proxy Error ${response.status}`);
+            const data = await response.json();
+            if (!data.success) throw new Error(data.error || "Proxy call failed");
+            return this.parseAIOutput(data.content);
         } catch (err) {
             console.warn("Local AI call failed, using fallback:", err);
             const fallback = this.getSmartFallbackResponse(messagesHistory, scenario, targetHeroObjects);
             fallback.text = `[Notice: Switched to offline tutor due to connection issue: ${err.message}]\n\n` + fallback.text;
             return fallback;
         }
-    }
-
-    async callOllama(messagesHistory, scenario, targetHeroObjects = null) {
-        const heroPrompt = this.buildHeroPrompt(targetHeroObjects);
-        const systemMessage = { role: 'system', content: `${this.systemPrompt}\nContext/Scenario: ${scenario.systemPrompt}${heroPrompt}` };
-        const formattedMessages = [systemMessage, ...messagesHistory];
-
-        const response = await fetch(`${this.endpoint}/api/chat`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                model: this.modelName,
-                messages: formattedMessages,
-                stream: false
-            })
-        });
-
-        if (!response.ok) throw new Error(`Ollama HTTP Error: ${response.statusText}`);
-        const data = await response.json();
-        return this.parseAIOutput(data.message.content);
-    }
-
-    async callLMStudio(messagesHistory, scenario, targetHeroObjects = null) {
-        const heroPrompt = this.buildHeroPrompt(targetHeroObjects);
-        const systemMessage = { role: 'system', content: `${this.systemPrompt}\nContext/Scenario: ${scenario.systemPrompt}${heroPrompt}` };
-        const formattedMessages = [systemMessage, ...messagesHistory];
-
-        const response = await fetch(`${this.endpoint}/v1/chat/completions`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                model: this.modelName,
-                messages: formattedMessages,
-                temperature: 0.7,
-                max_tokens: 300
-            })
-        });
-
-        if (!response.ok) throw new Error(`LM Studio HTTP Error: ${response.statusText}`);
-        const data = await response.json();
-        return this.parseAIOutput(data.choices[0].message.content);
     }
 
     parseAIOutput(rawText) {
