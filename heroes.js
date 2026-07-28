@@ -808,11 +808,6 @@ class RPGEngine {
             targetArray = Array.isArray(targetHeroIds) ? targetHeroIds : [targetHeroIds];
         }
 
-        // Apply +50% Focus Bonus if 1 or 2 specific heroes are focused in general practice (chat / shadowing)!
-        if (activityType !== "card" && targetArray && targetArray.length > 0 && targetArray.length <= 2) {
-            xpAmount = Math.round(baseAmount * 1.5);
-        }
-
         // Source hero rank determination
         let sourceRank = 1;
         if (materialSourceHeroId) {
@@ -851,7 +846,7 @@ class RPGEngine {
             rewardedHeroNames, 
             blockedHeroNames, 
             xpAmount,
-            isFocusBonus: activityType !== "card" && targetArray && targetArray.length > 0 && targetArray.length <= 2
+            isFocusBonus: false
         };
     }
 
