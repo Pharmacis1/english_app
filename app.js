@@ -277,8 +277,17 @@ document.addEventListener("DOMContentLoaded", () => {
         resetChat();
     }
 
-    // --- PERSISTENT HERO WORD USAGE TRACKER ---
+    // --- DAILY HERO WORD USAGE TRACKER (RESETS DAILY) ---
     function loadWordUsageMap() {
+        const todayStr = new Date().toISOString().split('T')[0];
+        const savedDate = localStorage.getItem("hero_word_usage_date");
+
+        if (savedDate !== todayStr) {
+            localStorage.setItem("hero_word_usage_v2", "{}");
+            localStorage.setItem("hero_word_usage_date", todayStr);
+            return {};
+        }
+
         try {
             return JSON.parse(localStorage.getItem("hero_word_usage_v2") || "{}");
         } catch (e) {
@@ -287,7 +296,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function saveWordUsageMap(map) {
+        const todayStr = new Date().toISOString().split('T')[0];
         localStorage.setItem("hero_word_usage_v2", JSON.stringify(map));
+        localStorage.setItem("hero_word_usage_date", todayStr);
     }
 
     function getWordUsageCount(heroId, word) {
@@ -399,13 +410,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 if (currentUsage === 0) {
                     chipStyle = "border:1px solid #f59e0b; color:#fbbf24; background:rgba(245,158,11,0.12);";
-                    tierTooltip = "🟡 1st Use Bonus: +20 XP!";
+                    tierTooltip = "🟡 1st Use Today Bonus: +20 XP!";
                 } else if (currentUsage === 1) {
                     chipStyle = "border:1px solid #a855f7; color:#c084fc; background:rgba(168,85,247,0.12);";
-                    tierTooltip = "🟣 2nd Use Bonus: +10 XP!";
+                    tierTooltip = "🟣 2nd Use Today Bonus: +10 XP!";
                 } else if (currentUsage === 2) {
                     chipStyle = "border:1px solid #3b82f6; color:#60a5fa; background:rgba(59,130,246,0.12);";
-                    tierTooltip = "🔵 3rd Use Bonus: +5 XP!";
+                    tierTooltip = "🔵 3rd Use Today Bonus: +5 XP!";
                 }
 
                 const chip = document.createElement("button");
