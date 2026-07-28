@@ -87,15 +87,12 @@ Ask simple questions like these so the user can easily answer using their cheats
 
         try {
             const heroPrompt = this.buildHeroPrompt(targetHeroObjects);
-            const strictGuide = `\n[MANDATORY EVALUATION & TRANSLATION DIRECTIVES:
-At the very end of EVERY response, you MUST append TWO bracketed blocks in RUSSIAN:
-1. Grammar Evaluation of user's input:
-   - Check if user missed the verb 'to be' (am/is/are), misspelled words (e.g. "happi" -> "happy"), or made grammar errors.
-   - If user's input is 100% correct: [Correction: ✅ Отлично! Предложение написано полностью правильно!]
-   - If user's input has errors or typos: [Correction: 💡 В предложении "I so happi" опечатка/ошибка, должно быть "I am so happy".]
-2. Direct Russian Translation of YOUR English message:
-   - Translate your EXACT English response into natural Russian. DO NOT copy placeholder text.
-   - Format: [Translation: (Напишите здесь точный перевод вашего ответа на русский язык)]]`;
+            const strictGuide = `\n[MANDATORY GRAMMAR EVALUATION DIRECTIVE:
+At the very end of EVERY response, you MUST append a bracketed evaluation block in RUSSIAN for the user's input:
+- Check if user missed the verb 'to be' (am/is/are), misspelled words, or made grammar errors.
+- If user's input is 100% correct: [Correction: ✅ Отлично! Предложение написано полностью правильно!]
+- If user's input has errors or typos: [Correction: 💡 В предложении "X" опечатка/ошибка, должно быть "Y".]
+DO NOT output any translation or extra brackets in the English text.]`;
 
             const systemMessage = { role: 'system', content: `${this.systemPrompt}\nContext/Scenario: ${scenario.systemPrompt}${strictGuide}${heroPrompt}` };
             const formattedMessages = [systemMessage, ...messagesHistory];
@@ -123,10 +120,46 @@ At the very end of EVERY response, you MUST append TWO bracketed blocks in RUSSI
         }
     }
 
+    async translateText(englishText) {
+        if (!englishText) return "";
+        if (this.provider === 'fallback') {
+            return translateA0TextToRussian(englishText);
+        }
+        try {
+            const formattedMessages = [
+                { role: 'system', content: "You are a direct, professional English-to-Russian translator. Return ONLY the clear Russian translation text without explanations, greetings, quotes, or original English." },
+                { role: 'user', content: `Translate this text to Russian: "${englishText}"` }
+            ];
+
+            const response = await fetch('/api/ai/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    provider: this.provider,
+                    endpoint: this.endpoint,
+                    model: this.modelName,
+                    messages: formattedMessages
+                })
+            });
+
+            if (!response.ok) throw new Error("Translation proxy error");
+            const data = await response.json();
+            if (data.success && data.content) {
+                return data.content
+                    .replace(/^Translation:\s*/gi, '')
+                    .replace(/^Перевод:\s*/gi, '')
+                    .replace(/^["']|["']$/g, '')
+                    .trim();
+            }
+        } catch (e) {
+            console.warn("Dedicated AI translation failed, using fallback:", e);
+        }
+        return translateA0TextToRussian(englishText);
+    }
+
     parseAIOutput(rawText) {
         let text = rawText;
         let correction = null;
-        let translation = null;
 
         const correctionMatch = text.match(/\[Correction:\s*([\s\S]*?)\]/i);
         if (correctionMatch) {
@@ -134,13 +167,10 @@ At the very end of EVERY response, you MUST append TWO bracketed blocks in RUSSI
             text = text.replace(/\[Correction:\s*[\s\S]*?\]/gi, '').trim();
         }
 
-        const translationMatch = text.match(/\[Translation:\s*([\s\S]*?)\]/i);
-        if (translationMatch) {
-            translation = translationMatch[1].trim();
-            text = text.replace(/\[Translation:\s*[\s\S]*?\]/gi, '').trim();
-        }
+        // Clean any leftover 'Translation:' text that vision or small models might leak
+        text = text.replace(/Translation:\s*.*$/gi, '').trim();
 
-        return { text, correction, translation };
+        return { text, correction };
     }
 
     getSmartFallbackResponse(messagesHistory, scenario, targetHeroObjects = null) {

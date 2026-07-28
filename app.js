@@ -543,19 +543,16 @@ document.addEventListener("DOMContentLoaded", () => {
             const translateBtn = bubble.querySelector(".translate-msg-btn");
             const translationBox = bubble.querySelector(".msg-translation-box");
             if (translateBtn && translationBox) {
-                translateBtn.addEventListener("click", () => {
+                translateBtn.addEventListener("click", async () => {
                     if (translationBox.classList.contains("hidden")) {
                         if (!translationBox.innerHTML) {
-                            const isLeakage = customTranslation && (customTranslation.includes("энтузиазм") || customTranslation.includes("подробнее"));
-                            const rawRuText = (!isLeakage && customTranslation) ? customTranslation : translateA0TextToRussian(text);
-                            const cleanRuText = rawRuText
-                                .replace(/^Точный русский перевод.*?:\s*/i, '')
-                                .replace(/^Русский перевод.*?:\s*/i, '')
-                                .replace(/^Перевод:\s*/i, '')
-                                .trim();
-                            translationBox.innerHTML = `<strong>🇷🇺</strong> ${cleanRuText}`;
+                            translationBox.innerHTML = `<em><i class="fa-solid fa-spinner fa-spin"></i> Перевожу...</em>`;
+                            translationBox.classList.remove("hidden");
+                            const ruText = await aiService.translateText(text);
+                            translationBox.innerHTML = `<strong>🇷🇺</strong> ${ruText}`;
+                        } else {
+                            translationBox.classList.remove("hidden");
                         }
-                        translationBox.classList.remove("hidden");
                     } else {
                         translationBox.classList.add("hidden");
                     }
