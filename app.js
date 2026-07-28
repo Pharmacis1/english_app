@@ -47,6 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 pageHeading.textContent = "Vocabulary & Batched SRS (10 Words Per Dose)";
                 pageSubheading.textContent = "Master 1,000 words in 10-card daily batches with SuperMemo SM-2 algorithm";
                 flashcardEngine.decks = flashcardEngine.loadDecks();
+                flashcardEngine.autoAdvanceBatch();
                 renderFlashcardsUI();
                 break;
             case "grammar":
@@ -328,7 +329,7 @@ document.addEventListener("DOMContentLoaded", () => {
             
             btn.addEventListener("click", () => {
                 flashcardEngine.currentCategory = cat;
-                flashcardEngine.batchIndex = 0;
+                flashcardEngine.autoAdvanceBatch();
                 flashcardEngine.currentIndex = 0;
                 flashcardEl.classList.remove("flipped");
                 renderFlashcardsUI();

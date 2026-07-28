@@ -15,6 +15,7 @@ class FlashcardEngine {
         this.decks = this.loadDecks();
         this.currentCategory = "Valerius's Pack (A0)";
         this.currentIndex = 0;
+        this.autoAdvanceBatch();
     }
 
     getTodayKey() {
@@ -113,6 +114,37 @@ class FlashcardEngine {
         return count;
     }
 
+    // Automatically find the first uncompleted batch for the current deck
+    autoAdvanceBatch() {
+        if (this.currentCategory === "🧠 Due for SRS Review") {
+            this.batchIndex = 0;
+            return;
+        }
+
+        const allCards = this.decks[this.currentCategory] || [];
+        if (allCards.length === 0) {
+            this.batchIndex = 0;
+            return;
+        }
+
+        const now = Date.now();
+        const totalBatches = Math.ceil(allCards.length / this.batchSize);
+
+        for (let b = 0; b < totalBatches; b++) {
+            const start = b * this.batchSize;
+            const batchCards = allCards.slice(start, start + this.batchSize);
+            const activeCards = batchCards.filter(c => !c.studied || (c.nextReviewDate && c.nextReviewDate <= now));
+            
+            if (activeCards.length > 0) {
+                this.batchIndex = b;
+                return;
+            }
+        }
+
+        // If all batches in this deck are completed, point to the last batch
+        this.batchIndex = Math.max(0, totalBatches - 1);
+    }
+
     // Filter cards in current batch that still need study today (unstudied or due for review)
     getCategoryCards() {
         const allCards = this.decks[this.currentCategory] || Object.values(this.decks)[0] || [];
@@ -189,7 +221,7 @@ class FlashcardEngine {
                 card.repetitions = 0;
                 card.interval = 1;
                 card.easeFactor = Math.max(1.3, card.easeFactor - 0.2);
-                card.nextReviewDate = Date.now() + 60000; // 1 min for 'Again' in session
+                card.nextReviewDate = Date.now(); // Immediate re-test in active session!
                 break;
             case 'hard':
                 card.repetitions = Math.max(1, card.repetitions);
