@@ -64,11 +64,15 @@ class AIService {
 
     buildHeroPrompt(targetHeroObjects) {
         if (!targetHeroObjects || targetHeroObjects.length === 0) return "";
-        const names = targetHeroObjects.map(h => h.name).join(", ");
-        const words = targetHeroObjects.flatMap(h => h.words.slice(0, 8).map(w => w.word)).slice(0, 15).join(", ");
+        const words = targetHeroObjects.flatMap(h => h.words.map(w => w.word)).slice(0, 30).join(", ");
         const rules = targetHeroObjects.flatMap(h => h.grammarRules).join("; ");
 
-        return `\n\n[TARGET HERO CURRICULUM INJECTION: Focus Heroes = ${names}. Actively use their vocabulary words: (${words}) and reinforce grammar: (${rules}).]`;
+        return `\n\n[CEFR A0 STRICT SIMPLICITY DIRECTIVE:
+You are speaking to a complete beginner (CEFR A0).
+1. USE ULTRA-SIMPLE, SHORT ENGLISH SENTENCES (4 to 6 words per sentence).
+2. ONLY USE BASIC A0 WORDS (such as: ${words}). DO NOT use complex words like 'duty', 'protect', 'allies', 'by the way', 'consequently', 'furthermore'.
+3. Reinforce these grammar rules: (${rules}).
+4. Always ask a simple A0 question at the end using these basic words.]`;
     }
 
     async generateResponse(messagesHistory, scenario, targetHeroObjects = null) {
@@ -78,7 +82,13 @@ class AIService {
 
         try {
             const heroPrompt = this.buildHeroPrompt(targetHeroObjects);
-            const strictGuide = "\n[CONVERSATION DIRECTIVE: Respond in 2-3 complete, engaging English sentences. Always ask a relevant follow-up question. NEVER echo or repeat the user's input back. If the user makes a grammar/vocabulary error, append [Correction: 💡 Пояснение ошибки на русском языке] at the end.]";
+            const strictGuide = `\n[GRAMMAR & SPELLING EVALUATION DIRECTIVE:
+At the very end of EVERY response, you MUST append a bracketed evaluation in RUSSIAN:
+- If the user's message is 100% correct without errors or typos:
+  [Correction: ✅ Отлично! Предложение написано полностью правильно!]
+- If the user's message has any grammar errors or spelling typos (e.g. "fihe" -> "fine", "I has" -> "I have"):
+  [Correction: 💡 Ошибка/опечатка: В слове "fihe" опечатка, должно быть "fine" (в порядке). Правильное предложение: "I am fine."]]`;
+
             const systemMessage = { role: 'system', content: `${this.systemPrompt}\nContext/Scenario: ${scenario.systemPrompt}${strictGuide}${heroPrompt}` };
             const formattedMessages = [systemMessage, ...messagesHistory];
 

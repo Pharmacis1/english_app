@@ -86,22 +86,23 @@ document.addEventListener("DOMContentLoaded", () => {
         themeToggleBtn.innerHTML = isLight ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
     });
 
-    function showToast(msg, bg = "linear-gradient(135deg, #ec4899, #8b5cf6)") {
+    function showToast(msg, bg = "linear-gradient(135deg, #1e1b4b, #312e81)", borderColor = "#818cf8") {
         const toast = document.createElement("div");
         toast.className = "feedback-banner";
         toast.style.position = "fixed";
-        toast.style.bottom = "20px";
-        toast.style.right = "20px";
-        toast.style.zIndex = "2000";
+        toast.style.bottom = "24px";
+        toast.style.right = "24px";
+        toast.style.zIndex = "3000";
         toast.style.background = bg;
+        toast.style.border = `2px solid ${borderColor}`;
         toast.style.color = "white";
-        toast.style.fontWeight = "bold";
-        toast.style.padding = "12px 18px";
-        toast.style.borderRadius = "8px";
-        toast.style.boxShadow = "0 8px 24px rgba(0,0,0,0.4)";
+        toast.style.padding = "14px 20px";
+        toast.style.borderRadius = "12px";
+        toast.style.boxShadow = "0 10px 30px rgba(0,0,0,0.6)";
+        toast.style.minWidth = "280px";
         toast.innerHTML = msg;
         document.body.appendChild(toast);
-        setTimeout(() => toast.remove(), 4000);
+        setTimeout(() => toast.remove(), 4500);
     }
 
     function triggerRPGReward(activity, targetHeroIds = null, materialSourceHeroId = null, customBaseXp = null) {
@@ -495,8 +496,23 @@ document.addEventListener("DOMContentLoaded", () => {
                     addXP(evalResult.totalXP);
                     renderRPGHeader();
 
-                    const wordsDetail = evalResult.matchedWordsInfo.map(m => `${m.word} (${m.tierText})`).join(", ");
-                    showToast(`⚔️ ${heroObj.name} earned +${evalResult.totalXP} XP! (${wordsDetail})`);
+                    const wordsDetailHtml = evalResult.matchedWordsInfo.map(m => 
+                        `<span style="display:inline-block; margin:2px; padding:1px 6px; background:rgba(255,255,255,0.1); border-radius:4px; font-size:10px;">${m.word} (${m.tierText})</span>`
+                    ).join("");
+
+                    showToast(`
+                        <div style="display:flex; flex-direction:column; gap:4px;">
+                            <div style="font-size:18px; font-weight:800; color:#fbbf24; display:flex; align-items:center; gap:8px;">
+                                <i class="fa-solid fa-trophy" style="color:#f59e0b;"></i> +${evalResult.totalXP} TOTAL XP EARNED!
+                            </div>
+                            <div style="font-size:12px; font-weight:600; color:#e2e8f0;">
+                                ⚔️ Hero <strong>${heroObj.name}</strong> Gained +${evalResult.totalXP} XP
+                            </div>
+                            <div style="font-size:11px; margin-top:4px; border-top:1px solid rgba(255,255,255,0.1); padding-top:4px;">
+                                ${wordsDetailHtml}
+                            </div>
+                        </div>
+                    `, "linear-gradient(135deg, #1e1b4b, #312e81)", "#818cf8");
                 }
             }
         }
