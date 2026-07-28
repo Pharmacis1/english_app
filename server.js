@@ -184,16 +184,26 @@ app.get('/api/ai/models', async (req, res) => {
 
 // 8. POST /api/ai/chat — Proxy chat completion request to bypass CORS
 app.post('/api/ai/chat', async (req, res) => {
-    const { provider, endpoint: rawEndpoint, model, messages } = req.body;
+    const { provider, endpoint: rawEndpoint, model, messages, num_ctx } = req.body;
     const endpoint = (rawEndpoint || 'http://127.0.0.1:11434').replace(/\/$/, '').replace('localhost', '127.0.0.1');
+
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 90000); // 90 sec timeout for heavy models
 
     try {
         if (provider === 'ollama') {
             const resp = await fetch(`${endpoint}/api/chat`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ model, messages, stream: false })
+                body: JSON.stringify({ 
+                    model, 
+                    messages, 
+                    stream: false,
+                    options: { num_ctx: num_ctx || 4096 }
+                }),
+                signal: controller.signal
             });
+            clearTimeout(timeoutId);
             if (!resp.ok) throw new Error(`Ollama HTTP Error ${resp.status}`);
             const data = await resp.json();
             return res.json({ success: true, content: data.message.content });
@@ -201,15 +211,23 @@ app.post('/api/ai/chat', async (req, res) => {
             const resp = await fetch(`${endpoint}/v1/chat/completions`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ model, messages, temperature: 0.7, max_tokens: 300 })
+                body: JSON.stringify({ model, messages, temperature: 0.7, max_tokens: 300 }),
+                signal: controller.signal
             });
+            clearTimeout(timeoutId);
             if (!resp.ok) throw new Error(`LM Studio HTTP Error ${resp.status}`);
             const data = await resp.json();
             return res.json({ success: true, content: data.choices[0].message.content });
         }
+        clearTimeout(timeoutId);
         return res.status(400).json({ success: false, error: "Unsupported provider" });
     } catch (err) {
-        return res.status(500).json({ success: false, error: err.message });
+        clearTimeout(timeoutId);
+        const isTimeout = err.name === 'AbortError';
+        const errorMsg = isTimeout 
+            ? `Timeout: Model '${model}' took too long. 12B+ models require 10GB+ VRAM. Recommend 7B-8B models (e.g., llama3.1:8b or qwen2.5:7b).`
+            : err.message;
+        return res.status(500).json({ success: false, error: errorMsg });
     }
 });
 
