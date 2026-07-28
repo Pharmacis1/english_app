@@ -5,7 +5,7 @@ class AIService {
         this.endpoint = localStorage.getItem("api_endpoint") || "http://localhost:11434";
         this.modelName = localStorage.getItem("model_name") || "llama3";
         this.systemPrompt = localStorage.getItem("system_prompt") || 
-            "You are an expert English tutor and tech conversation partner. Respond concisely in English. Briefly highlight any grammar mistakes.";
+            "You are an expert English tutor and conversation partner. Respond concisely in English. If the user makes any grammar or vocabulary mistake, ALWAYS explain the error in Russian at the end in this format: [Correction: 💡 Объяснение ошибки на русском языке].";
     }
 
     saveSettings(provider, endpoint, modelName, systemPrompt) {
