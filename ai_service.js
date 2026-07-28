@@ -87,12 +87,13 @@ Ask simple questions like these so the user can easily answer using their cheats
 
         try {
             const heroPrompt = this.buildHeroPrompt(targetHeroObjects);
-            const strictGuide = `\n[MANDATORY GRAMMAR & SPELLING EVALUATION DIRECTIVE:
-You MUST append a bracketed evaluation block in RUSSIAN at the very end of EVERY response:
-- If user's message is 100% correct without errors or typos:
-  [Correction: ✅ Отлично! Предложение написано полностью правильно!]
-- If user's message has ANY error or typo (e.g. "fihe" -> "fine", "I has" -> "I have"):
-  [Correction: 💡 Ошибка/опечатка: В слове "fihe" опечатка, должно быть "fine" (в порядке). Правильное предложение: "I am fine."]]`;
+            const strictGuide = `\n[MANDATORY EVALUATION & TRANSLATION DIRECTIVES:
+At the very end of EVERY response, you MUST append TWO bracketed blocks in RUSSIAN:
+1. Grammar Evaluation of user's input:
+   - If user's message is correct: [Correction: ✅ Отлично! Предложение написано полностью правильно!]
+   - If user's message has errors or typos (e.g. "fihe" -> "fine", "I so happi" -> "I am so happy"): [Correction: 💡 Ошибка/опечатка: В предложении "I so happi" опечатка, должно быть "I am happy" (в порядке). Правильное предложение: "I am happy."]
+2. Russian Translation of YOUR English message:
+   [Translation: Точный русский перевод вашего ответа на русский язык]]`;
 
             const systemMessage = { role: 'system', content: `${this.systemPrompt}\nContext/Scenario: ${scenario.systemPrompt}${strictGuide}${heroPrompt}` };
             const formattedMessages = [systemMessage, ...messagesHistory];
@@ -123,14 +124,21 @@ You MUST append a bracketed evaluation block in RUSSIAN at the very end of EVERY
     parseAIOutput(rawText) {
         let text = rawText;
         let correction = null;
+        let translation = null;
 
-        const correctionMatch = rawText.match(/\[Correction:\s*(.*?)\]/i);
+        const correctionMatch = text.match(/\[Correction:\s*([\s\S]*?)\]/i);
         if (correctionMatch) {
-            correction = correctionMatch[1];
-            text = rawText.replace(/\[Correction:\s*.*?\]/gi, '').trim();
+            correction = correctionMatch[1].trim();
+            text = text.replace(/\[Correction:\s*[\s\S]*?\]/gi, '').trim();
         }
 
-        return { text, correction };
+        const translationMatch = text.match(/\[Translation:\s*([\s\S]*?)\]/i);
+        if (translationMatch) {
+            translation = translationMatch[1].trim();
+            text = text.replace(/\[Translation:\s*[\s\S]*?\]/gi, '').trim();
+        }
+
+        return { text, correction, translation };
     }
 
     getSmartFallbackResponse(messagesHistory, scenario, targetHeroObjects = null) {

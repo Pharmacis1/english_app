@@ -494,7 +494,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return ru;
     }
 
-    function appendMessage(role, text) {
+    function appendMessage(role, text, customTranslation = null) {
         chatHistory.push({ role, content: text });
         const bubble = document.createElement("div");
         bubble.className = `message-bubble ${role}`;
@@ -527,7 +527,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 translateBtn.addEventListener("click", () => {
                     if (translationBox.classList.contains("hidden")) {
                         if (!translationBox.innerHTML) {
-                            translationBox.innerHTML = `<strong>🇷🇺 Перевод:</strong> ${translateA0TextToRussian(text)}`;
+                            const finalRuText = customTranslation || translateA0TextToRussian(text);
+                            translationBox.innerHTML = `<strong>🇷🇺 Перевод:</strong> ${finalRuText}`;
                         }
                         translationBox.classList.remove("hidden");
                     } else {
@@ -605,7 +606,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const aiResponse = await aiService.generateResponse(chatHistory, activeScenario, targetHeroObjects);
 
         chatMessagesBox.removeChild(typingBubble);
-        appendMessage("assistant", aiResponse.text);
+        appendMessage("assistant", aiResponse.text, aiResponse.translation);
 
         if (aiResponse.correction) {
             feedbackText.innerHTML = aiResponse.correction;
