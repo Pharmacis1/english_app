@@ -661,18 +661,21 @@ document.addEventListener("DOMContentLoaded", () => {
         appendMessage("assistant", aiResponse.text, aiResponse.translation);
 
         const clientEval = evaluateUserGrammarClientSide(text);
+        let aiCorr = (aiResponse.correction && !aiResponse.correction.includes("✅"))
+            ? aiResponse.correction.replace(/^💡\s*Ошибка\/опечатка:\s*/gi, '').replace(/^Ошибка\/опечатка:\s*/gi, '').trim()
+            : null;
 
-        if (clientEval) {
+        if (aiCorr && !aiCorr.startsWith('💡')) {
+            aiCorr = '💡 ' + aiCorr;
+        }
+
+        if (clientEval && aiCorr) {
+            // Display BOTH client rule tip and AI model explanation!
+            feedbackText.innerHTML = `${clientEval}<div style="margin-top:4px; padding-top:4px; border-top:1px solid rgba(255,255,255,0.15);">${aiCorr}</div>`;
+        } else if (clientEval) {
             feedbackText.innerHTML = clientEval;
-        } else if (aiResponse.correction && !aiResponse.correction.includes("✅")) {
-            let cleanCorr = aiResponse.correction
-                .replace(/^💡\s*Ошибка\/опечатка:\s*/gi, '💡 ')
-                .replace(/^Ошибка\/опечатка:\s*/gi, '💡 ')
-                .trim();
-            if (!cleanCorr.startsWith('💡')) {
-                cleanCorr = '💡 ' + cleanCorr;
-            }
-            feedbackText.innerHTML = cleanCorr;
+        } else if (aiCorr) {
+            feedbackText.innerHTML = aiCorr;
         } else if (aiResponse.correction && aiResponse.correction.includes("✅")) {
             feedbackText.innerHTML = aiResponse.correction;
         } else {
