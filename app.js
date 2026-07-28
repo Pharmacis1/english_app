@@ -645,7 +645,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 <div style="display:flex; justify-content:space-between; align-items:center;">
                     <div class="hero-heart-badge" title="Heart Stat Bonus (+${eff.heartMultiplier}% to all stats)"><i class="fa-solid fa-heart"></i> ${hero.affinityLevel}/100 💕 (+${eff.heartMultiplier}%)</div>
-                    ${hero.unlocked ? `<button class="btn btn-sm btn-outline affinity-btn" data-heroid="${hero.id}"><i class="fa-solid fa-heart"></i> Quest 💕</button>` : ''}
+                    ${hero.unlocked ? (hero.affinityLevel >= hero.level 
+                        ? `<button class="btn btn-sm btn-outline affinity-btn" style="opacity:0.65;" data-heroid="${hero.id}"><i class="fa-solid fa-lock"></i> Lvl ${hero.affinityLevel + 1} Needed</button>`
+                        : `<button class="btn btn-sm btn-outline affinity-btn" data-heroid="${hero.id}"><i class="fa-solid fa-heart"></i> Quest 💕</button>`) : ''}
                 </div>
 
                 ${hero.unlocked ? `
@@ -699,13 +701,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function renderSquadPicker() {
         squadChipsContainer.innerHTML = "";
-        const unlockedHeroes = rpgEngine.heroes.filter(h => h.unlocked);
-        squadCountText.textContent = rpgEngine.selectedSquad.length;
+        squadCountText.textContent = `(${rpgEngine.selectedSquad.length}/5 Selected)`;
 
-        unlockedHeroes.forEach(hero => {
+        rpgEngine.heroes.filter(h => h.unlocked).forEach(hero => {
             const isSelected = rpgEngine.selectedSquad.includes(hero.id);
-            const chip = document.createElement("button");
-            chip.className = `squad-chip ${isSelected ? 'selected' : ''}`;
+            const chip = document.createElement("div");
+            chip.className = `squad-chip ${isSelected ? 'active' : ''}`;
+            
             const avatarHtml = hero.image 
                 ? `<img src="${hero.image}" style="width:20px; height:20px; border-radius:50%; margin-right:4px;">` 
                 : `<i class="fa-solid ${hero.avatar}"></i>`;
@@ -723,6 +725,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function openAffinityQuestModal(hero) {
+        if (hero.affinityLevel >= hero.level) {
+            alert(`🔒 Level Up Required!\n\n${hero.name} is currently Level ${hero.level}.\nStudy English to level up ${hero.name} to Level ${hero.affinityLevel + 1} to unlock the next Affinity Quest 💕!`);
+            return;
+        }
+
         activeQuest = rpgEngine.generateAffinityQuest(hero, hero.affinityLevel + 1);
         
         affinityModalTitle.textContent = `💕 ${activeQuest.heroName} Affinity Quest (Lvl ${activeQuest.level})`;
@@ -754,10 +761,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const target = activeQuest.targetWord.toLowerCase();
 
         if (answer.includes(target)) {
-            alert(`🎉 Correct! You bonded with ${activeQuest.heroName}! Heart 💕 increased to Level ${activeQuest.level} (+${activeQuest.level * 2}% All Stats Bonus)!`);
             const heroObj = rpgEngine.heroes.find(h => h.id === activeQuest.heroId);
-            if (heroObj) heroObj.affinityLevel = Math.min(100, heroObj.affinityLevel + 1);
+            if (heroObj) heroObj.affinityLevel = Math.min(heroObj.level, heroObj.affinityLevel + 1);
             rpgEngine.save();
+            alert(`🎉 Correct! You bonded with ${activeQuest.heroName}! Heart 💕 increased to Level ${heroObj.affinityLevel} (+${heroObj.affinityLevel * 2}% All Stats Bonus)!`);
             affinityModal.classList.add("hidden");
             renderHeroesRoster();
             renderRPGHeader();

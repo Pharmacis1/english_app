@@ -718,12 +718,14 @@ class RPGEngine {
                 return HEROES_DATA.map(defaultHero => {
                     const savedHero = parsed.find(h => h.id === defaultHero.id);
                     if (savedHero) {
+                        const heroLevel = savedHero.level || defaultHero.level;
+                        const heroAffinity = Math.min(heroLevel, savedHero.affinityLevel !== undefined ? savedHero.affinityLevel : 0);
                         return {
                             ...defaultHero,
-                            level: savedHero.level || defaultHero.level,
+                            level: heroLevel,
                             xp: savedHero.xp || defaultHero.xp,
                             maxXp: savedHero.maxXp || defaultHero.maxXp,
-                            affinityLevel: savedHero.affinityLevel || defaultHero.affinityLevel,
+                            affinityLevel: heroAffinity,
                             unlocked: savedHero.unlocked !== undefined ? savedHero.unlocked : defaultHero.unlocked,
                             words: generateHeroWords(defaultHero.id) // Load official Oxford 50 CEFR words!
                         };
