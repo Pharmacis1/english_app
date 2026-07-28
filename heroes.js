@@ -420,8 +420,8 @@ class RPGEngine {
             targetArray = Array.isArray(targetHeroIds) ? targetHeroIds : [targetHeroIds];
         }
 
-        // Apply +50% Focus Bonus if 1 or 2 specific heroes are focused!
-        if (targetArray && targetArray.length > 0 && targetArray.length <= 2) {
+        // Apply +50% Focus Bonus if 1 or 2 specific heroes are focused in general practice (chat / shadowing)!
+        if (activityType !== "card" && targetArray && targetArray.length > 0 && targetArray.length <= 2) {
             xpAmount = Math.round(baseAmount * 1.5);
         }
 
