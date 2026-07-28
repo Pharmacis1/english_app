@@ -527,8 +527,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 translateBtn.addEventListener("click", () => {
                     if (translationBox.classList.contains("hidden")) {
                         if (!translationBox.innerHTML) {
-                            const finalRuText = customTranslation || translateA0TextToRussian(text);
-                            translationBox.innerHTML = `<strong>🇷🇺 Перевод:</strong> ${finalRuText}`;
+                            const rawRuText = customTranslation || translateA0TextToRussian(text);
+                            const cleanRuText = rawRuText
+                                .replace(/^Точный русский перевод.*?:\s*/i, '')
+                                .replace(/^Русский перевод.*?:\s*/i, '')
+                                .replace(/^Перевод:\s*/i, '')
+                                .trim();
+                            translationBox.innerHTML = `<strong>🇷🇺</strong> ${cleanRuText}`;
                         }
                         translationBox.classList.remove("hidden");
                     } else {
@@ -609,7 +614,14 @@ document.addEventListener("DOMContentLoaded", () => {
         appendMessage("assistant", aiResponse.text, aiResponse.translation);
 
         if (aiResponse.correction) {
-            feedbackText.innerHTML = aiResponse.correction;
+            let cleanCorr = aiResponse.correction
+                .replace(/^💡\s*Ошибка\/опечатка:\s*/gi, '💡 ')
+                .replace(/^Ошибка\/опечатка:\s*/gi, '💡 ')
+                .trim();
+            if (!cleanCorr.startsWith('💡') && !cleanCorr.startsWith('✅')) {
+                cleanCorr = '💡 ' + cleanCorr;
+            }
+            feedbackText.innerHTML = cleanCorr;
         } else {
             feedbackText.innerHTML = "✅ Отлично! Предложение написано полностью грамматически правильно!";
         }

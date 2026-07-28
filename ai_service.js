@@ -89,11 +89,11 @@ Ask simple questions like these so the user can easily answer using their cheats
             const heroPrompt = this.buildHeroPrompt(targetHeroObjects);
             const strictGuide = `\n[MANDATORY EVALUATION & TRANSLATION DIRECTIVES:
 At the very end of EVERY response, you MUST append TWO bracketed blocks in RUSSIAN:
-1. Grammar Evaluation of user's input:
+1. Grammar Evaluation of user's input (Start directly with bulb emoji 💡 or check emoji ✅, DO NOT write "Ошибка/опечатка:"):
    - If user's message is correct: [Correction: ✅ Отлично! Предложение написано полностью правильно!]
-   - If user's message has errors or typos (e.g. "fihe" -> "fine", "I so happi" -> "I am so happy"): [Correction: 💡 Ошибка/опечатка: В предложении "I so happi" опечатка, должно быть "I am happy" (в порядке). Правильное предложение: "I am happy."]
-2. Russian Translation of YOUR English message:
-   [Translation: Точный русский перевод вашего ответа на русский язык]]`;
+   - If user's message has errors or typos: [Correction: 💡 В предложении "I so happi" опечатка, должно быть "I am happy" (в порядке). Правильное предложение: "I am happy."]
+2. Direct Russian Translation of YOUR English message (DO NOT write prefixes like "Перевод:" or "Точный русский перевод ответа:"):
+   [Translation: Я рад видеть ваш энтузиазм! Скажите мне подробнее...]]`;
 
             const systemMessage = { role: 'system', content: `${this.systemPrompt}\nContext/Scenario: ${scenario.systemPrompt}${strictGuide}${heroPrompt}` };
             const formattedMessages = [systemMessage, ...messagesHistory];
