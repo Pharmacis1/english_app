@@ -831,7 +831,7 @@ class RPGEngine {
                         rewardedHeroNames.push(h.name);
                         if (h.xp >= h.maxXp) {
                             h.level = Math.min(100, h.level + 1);
-                            h.affinityLevel = Math.min(100, h.affinityLevel + 1);
+                            // Affinity Level 💕 is earned ONLY via Affinity Quests!
                             h.xp -= h.maxXp;
                             h.maxXp = Math.round(h.maxXp * 1.25);
                             h.maxHp = Math.round(h.maxHp * 1.15);
@@ -887,8 +887,8 @@ class RPGEngine {
         const isAudioMode = questLevel > 50;
         
         const dialogueText = isAudioMode 
-            ? `[Audio Dialogue]: "${hero.name} whispers: Listen carefully and say the word '${targetObj.word}' (${targetObj.translation}) out loud to unlock 💕 Heart Level ${questLevel}!"`
-            : `[Text Quest]: "${hero.name} asks: What is the English word for '${targetObj.translation}'? (Hint: ${targetObj.example})"`;
+            ? `💬 ${hero.name} (${hero.title}): "Listen carefully to my voice and say '${targetObj.word}' (${targetObj.translation}) out loud to unlock 💕 Heart Level ${questLevel}!"`
+            : `💬 ${hero.name} (${hero.title}): "Greetings, my friend! What is the English word for '${targetObj.translation}'? (Example sentence: ${targetObj.example})"`;
 
         return {
             heroId: hero.id,
