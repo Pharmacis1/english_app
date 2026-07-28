@@ -78,7 +78,8 @@ class AIService {
 
         try {
             const heroPrompt = this.buildHeroPrompt(targetHeroObjects);
-            const systemMessage = { role: 'system', content: `${this.systemPrompt}\nContext/Scenario: ${scenario.systemPrompt}${heroPrompt}` };
+            const strictGuide = "\n[CONVERSATION DIRECTIVE: Respond in 2-3 complete, engaging English sentences. Always ask a relevant follow-up question. NEVER echo or repeat the user's input back. If the user makes a grammar/vocabulary error, append [Correction: 💡 Пояснение ошибки на русском языке] at the end.]";
+            const systemMessage = { role: 'system', content: `${this.systemPrompt}\nContext/Scenario: ${scenario.systemPrompt}${strictGuide}${heroPrompt}` };
             const formattedMessages = [systemMessage, ...messagesHistory];
 
             const response = await fetch('/api/ai/chat', {

@@ -792,7 +792,7 @@ class RPGEngine {
         let baseAmount = customBaseXp !== null ? customBaseXp : 0;
         if (customBaseXp === null) {
             switch (activityType) {
-                case "chat": baseAmount = 20; break;
+                case "chat": baseAmount = 6; break;
                 case "card": baseAmount = 10; break;
                 case "quiz": baseAmount = 30; break;
                 case "shadowing": baseAmount = 30; break;

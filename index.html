@@ -98,7 +98,15 @@
                 <div class="tutor-grid">
                     <div class="scenarios-panel glass-card">
                         <h3><i class="fa-solid fa-masks-theater"></i> Practice Scenarios</h3>
-                        <p class="panel-desc">Choose a real-life situation to roleplay:</p>
+                        
+                        <div style="display:flex; gap:6px; margin-bottom:12px;">
+                            <button class="btn btn-sm btn-primary" id="scenarios-type-reallife-btn" style="flex:1; font-size:11px; padding:6px;">
+                                <i class="fa-solid fa-earth-americas"></i> Real-Life (5)
+                            </button>
+                            <button class="btn btn-sm btn-outline" id="scenarios-type-heroes-btn" style="flex:1; font-size:11px; padding:6px;">
+                                <i class="fa-solid fa-shield-halved"></i> Hero Dialogues
+                            </button>
+                        </div>
                         
                         <div class="hero-target-bar" style="margin-bottom:12px; padding:10px; border-radius:8px; background:rgba(255,255,255,0.03);">
                             <div style="font-size:11px; font-weight:600; margin-bottom:6px; color:var(--text-muted);">
@@ -124,6 +132,16 @@
                                     <i class="fa-solid fa-rotate-left"></i> Reset Chat
                                 </button>
                             </div>
+                        </div>
+
+                        <!-- DEDICATED HERO WORD & GRAMMAR HELPER PANEL -->
+                        <div id="hero-word-helper-box" class="hidden" style="margin:10px 15px 0 15px; padding:12px; border-radius:8px; background:rgba(15, 23, 42, 0.7); border:1px solid rgba(255,255,255,0.1);">
+                            <div style="font-size:12px; font-weight:700; color:var(--primary); margin-bottom:6px; display:flex; justify-content:space-between; align-items:center;">
+                                <span><i class="fa-solid fa-book-bookmark"></i> Hero Word & Rule Cheatsheet (Click word to insert, hover for translation)</span>
+                                <span style="font-size:10px; color:var(--text-muted);">💡 Hover over word for Russian translation & phonetics</span>
+                            </div>
+                            <div id="hero-grammar-rule-hint" style="font-size:11px; color:var(--warning); margin-bottom:8px; font-weight:600;"></div>
+                            <div id="hero-words-categories-container" style="display:flex; flex-direction:column; gap:6px;"></div>
                         </div>
 
                         <div class="chat-messages" id="chat-messages"></div>

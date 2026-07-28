@@ -151,6 +151,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     selectedTutorHeroIds.push(hero.id);
                 }
                 renderTutorHeroTargetChips();
+                renderHeroWordHelperPanel(activeScenario);
             });
 
             container.appendChild(chip);
@@ -203,9 +204,47 @@ document.addEventListener("DOMContentLoaded", () => {
     const feedbackText = document.getElementById("grammar-feedback-text");
     const closeFeedbackBtn = document.getElementById("close-feedback-btn");
 
+    let currentScenarioCategory = 'reallife'; // 'reallife' or 'heroes'
+
+    const scenariosTypeReallifeBtn = document.getElementById("scenarios-type-reallife-btn");
+    const scenariosTypeHeroesBtn = document.getElementById("scenarios-type-heroes-btn");
+    const heroWordHelperBox = document.getElementById("hero-word-helper-box");
+    const heroGrammarRuleHint = document.getElementById("hero-grammar-rule-hint");
+    const heroWordsCategoriesContainer = document.getElementById("hero-words-categories-container");
+
+    if (scenariosTypeReallifeBtn && scenariosTypeHeroesBtn) {
+        scenariosTypeReallifeBtn.addEventListener("click", () => {
+            currentScenarioCategory = 'reallife';
+            scenariosTypeReallifeBtn.className = "btn btn-sm btn-primary";
+            scenariosTypeHeroesBtn.className = "btn btn-sm btn-outline";
+            renderScenarios();
+        });
+
+        scenariosTypeHeroesBtn.addEventListener("click", () => {
+            currentScenarioCategory = 'heroes';
+            scenariosTypeHeroesBtn.className = "btn btn-sm btn-primary";
+            scenariosTypeReallifeBtn.className = "btn btn-sm btn-outline";
+            renderScenarios();
+        });
+    }
+
     function renderScenarios() {
         scenariosListContainer.innerHTML = "";
-        SCENARIOS.forEach(sc => {
+
+        let filteredList = [];
+        if (currentScenarioCategory === 'reallife') {
+            filteredList = SCENARIOS.filter(sc => !sc.isHeroScenario);
+        } else {
+            const unlockedHeroIds = rpgEngine.heroes.filter(h => h.unlocked).map(h => h.id);
+            filteredList = SCENARIOS.filter(sc => sc.isHeroScenario && unlockedHeroIds.includes(sc.heroId));
+        }
+
+        if (filteredList.length === 0 && currentScenarioCategory === 'heroes') {
+            scenariosListContainer.innerHTML = `<div style="font-size:12px; color:var(--text-muted); padding:10px; text-align:center;">Unlock heroes in Hero RPG to start dedicated hero dialogues!</div>`;
+            return;
+        }
+
+        filteredList.forEach(sc => {
             const item = document.createElement("div");
             item.className = `scenario-item ${sc.id === activeScenario.id ? 'active' : ''}`;
             item.innerHTML = `
@@ -226,7 +265,88 @@ document.addEventListener("DOMContentLoaded", () => {
         activeScenarioTitle.textContent = scenario.title;
         activeScenarioRole.textContent = scenario.role;
         scenarioIcon.innerHTML = `<i class="fa-solid ${scenario.icon}"></i>`;
+        renderHeroWordHelperPanel(scenario);
         resetChat();
+    }
+
+    function renderHeroWordHelperPanel(scenario) {
+        if (!heroWordHelperBox) return;
+
+        let targetHero = null;
+        if (scenario.isHeroScenario && scenario.heroId) {
+            targetHero = rpgEngine.heroes.find(h => h.id === scenario.heroId);
+        } else if (selectedTutorHeroIds && selectedTutorHeroIds.length > 0) {
+            targetHero = rpgEngine.heroes.find(h => h.id === selectedTutorHeroIds[0]);
+        }
+
+        if (!targetHero) {
+            heroWordHelperBox.classList.add("hidden");
+            return;
+        }
+
+        heroWordHelperBox.classList.remove("hidden");
+
+        // Grammar rule hint
+        const ruleText = targetHero.grammarRules ? targetHero.grammarRules.join(" | ") : "Grammar Practice";
+        heroGrammarRuleHint.innerHTML = `<i class="fa-solid fa-lightbulb"></i> <strong>Grammar Focus:</strong> ${ruleText}`;
+
+        // Categorize words into Nouns, Verbs, Adjectives, Expressions
+        const categorized = categorizeHeroWords(targetHero.words);
+        heroWordsCategoriesContainer.innerHTML = "";
+
+        const sections = [
+            { title: "🟦 Nouns (Существительные)", words: categorized.nouns, color: "var(--primary)" },
+            { title: "🟩 Verbs (Глаголы)", words: categorized.verbs, color: "var(--success)" },
+            { title: "🟨 Adjectives (Прилагательные)", words: categorized.adjectives, color: "var(--warning)" },
+            { title: "🟪 Expressions & Time (Выражения)", words: categorized.expressions, color: "var(--heart)" }
+        ];
+
+        sections.forEach(sec => {
+            if (!sec.words || sec.words.length === 0) return;
+
+            const row = document.createElement("div");
+            row.style.fontSize = "11px";
+            row.style.display = "flex";
+            row.style.flexDirection = "column";
+            row.style.gap = "4px";
+
+            const rowHeader = document.createElement("div");
+            rowHeader.style.fontWeight = "700";
+            rowHeader.style.color = sec.color;
+            rowHeader.textContent = sec.title;
+
+            const chipsWrap = document.createElement("div");
+            chipsWrap.style.display = "flex";
+            chipsWrap.style.flexWrap = "wrap";
+            chipsWrap.style.gap = "4px";
+
+            sec.words.forEach(wObj => {
+                const chip = document.createElement("button");
+                chip.type = "button";
+                chip.className = "btn btn-sm btn-outline";
+                chip.style.fontSize = "10px";
+                chip.style.padding = "1px 6px";
+                chip.style.borderRadius = "4px";
+                chip.style.borderColor = "rgba(255,255,255,0.15)";
+                chip.title = `${wObj.word} ${wObj.phonetic || ''} — ${wObj.translation || ''} (Click to insert into chat)`;
+                chip.innerHTML = `<strong>${wObj.word}</strong> <span style="opacity:0.75;">(${wObj.translation})</span>`;
+
+                chip.addEventListener("click", () => {
+                    if (userChatInput.value.length > 0 && !userChatInput.value.endsWith(" ")) {
+                        userChatInput.value += " " + wObj.word;
+                    } else {
+                        userChatInput.value += wObj.word;
+                    }
+                    userChatInput.focus();
+                });
+
+                chipsWrap.appendChild(chip);
+            });
+
+            row.appendChild(rowHeader);
+            row.appendChild(chipsWrap);
+            heroWordsCategoriesContainer.appendChild(row);
+        });
     }
 
     function resetChat() {
@@ -286,7 +406,7 @@ document.addEventListener("DOMContentLoaded", () => {
             feedbackBanner.classList.remove("hidden");
         }
 
-        addXP(10);
+        addXP(6);
         triggerRPGReward("chat", selectedTutorHeroIds, null);
     }
 
