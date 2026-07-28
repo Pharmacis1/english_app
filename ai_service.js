@@ -64,15 +64,20 @@ class AIService {
 
     buildHeroPrompt(targetHeroObjects) {
         if (!targetHeroObjects || targetHeroObjects.length === 0) return "";
-        const words = targetHeroObjects.flatMap(h => h.words.map(w => w.word)).slice(0, 30).join(", ");
+        const words = targetHeroObjects.flatMap(h => h.words.map(w => w.word)).slice(0, 40).join(", ");
         const rules = targetHeroObjects.flatMap(h => h.grammarRules).join("; ");
 
-        return `\n\n[CEFR A0 STRICT SIMPLICITY DIRECTIVE:
-You are speaking to a complete beginner (CEFR A0).
-1. USE ULTRA-SIMPLE, SHORT ENGLISH SENTENCES (4 to 6 words per sentence).
-2. ONLY USE BASIC A0 WORDS (such as: ${words}). DO NOT use complex words like 'duty', 'protect', 'allies', 'by the way', 'consequently', 'furthermore'.
-3. Reinforce these grammar rules: (${rules}).
-4. Always ask a simple A0 question at the end using these basic words.]`;
+        return `\n\n[CEFR A0/A1 STRICT SIMPLICITY & LEADING QUESTION DIRECTIVE:
+You are speaking to a complete beginner student (CEFR A0).
+1. USE VERY SHORT, ULTRA-SIMPLE ENGLISH SENTENCES (4 to 6 words per sentence).
+2. ONLY USE BASIC A0 WORDS (such as: ${words}). DO NOT use complex words like 'duty', 'protect', 'allies', 'by the way', 'consequently', 'furthermore', 'noble', 'proud'.
+3. CRITICAL LEADING QUESTION RULE: You MUST end your response with a simple LEADING QUESTION designed to guide the user into using their cheatsheet words (${words}) and grammar rules (${rules}).
+   Examples of leading questions to ask:
+   - "Are you happy or brave today?" (User can answer: "I am happy")
+   - "Do you have a brother or a sister?" (User can answer: "I have a brother")
+   - "Who is in your family? Is your father a leader?" (User can answer: "My father is a leader")
+   - "Do you have a sword or a shield?" (User can answer: "I have a shield")
+Ask simple questions like these so the user can easily answer using their cheatsheet words!]`;
     }
 
     async generateResponse(messagesHistory, scenario, targetHeroObjects = null) {
@@ -82,11 +87,11 @@ You are speaking to a complete beginner (CEFR A0).
 
         try {
             const heroPrompt = this.buildHeroPrompt(targetHeroObjects);
-            const strictGuide = `\n[GRAMMAR & SPELLING EVALUATION DIRECTIVE:
-At the very end of EVERY response, you MUST append a bracketed evaluation in RUSSIAN:
-- If the user's message is 100% correct without errors or typos:
+            const strictGuide = `\n[MANDATORY GRAMMAR & SPELLING EVALUATION DIRECTIVE:
+You MUST append a bracketed evaluation block in RUSSIAN at the very end of EVERY response:
+- If user's message is 100% correct without errors or typos:
   [Correction: ✅ Отлично! Предложение написано полностью правильно!]
-- If the user's message has any grammar errors or spelling typos (e.g. "fihe" -> "fine", "I has" -> "I have"):
+- If user's message has ANY error or typo (e.g. "fihe" -> "fine", "I has" -> "I have"):
   [Correction: 💡 Ошибка/опечатка: В слове "fihe" опечатка, должно быть "fine" (в порядке). Правильное предложение: "I am fine."]]`;
 
             const systemMessage = { role: 'system', content: `${this.systemPrompt}\nContext/Scenario: ${scenario.systemPrompt}${strictGuide}${heroPrompt}` };

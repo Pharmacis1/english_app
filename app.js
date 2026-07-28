@@ -454,6 +454,46 @@ document.addEventListener("DOMContentLoaded", () => {
         appendMessage("assistant", activeScenario.greeting);
     }
 
+    function translateA0TextToRussian(text) {
+        let ru = text;
+        const dict = {
+            "Greetings, my friend!": "Приветствую, мой друг!",
+            "I am Valerius, the Silver Paladin.": "Я Валериус, Серебряный Паладин.",
+            "Welcome to our Silver Outpost!": "Добро пожаловать в наш Серебряный Аванпост!",
+            "What is your name, and how are you feeling today?": "Как тебя зовут и как ты себя чувствуешь сегодня?",
+            "Thank you, my friend!": "Спасибо, мой друг!",
+            "I'm glad you think so!": "Я рад, что ты так думаешь!",
+            "I am proud to be a noble Silver Paladin.": "Я горжусь тем, что я благородный Паладин.",
+            "Who is the most important person in your family?": "Кто самый главный человек в твоей семье?",
+            "Nice to meet you!": "Приятно познакомиться!",
+            "Are you happy, brave, or strong today?": "Ты счастливый, храбрый или сильный сегодня?",
+            "Do you have a brother or a sister?": "У тебя есть брат или сестра?",
+            "Do you have a sword or a shield?": "У тебя есть меч или щит?",
+            "Is your father a leader?": "Твой отец — лидер?",
+            "May the light bless you!": "Пусть свет благословит тебя!",
+            "I am Astraea.": "Я Астрея.",
+            "Stay warm, my friend!": "Держись в тепле, мой друг!",
+            "I am Frostina.": "Я Фростина.",
+            "The wind whispers of adventure!": "Ветер шепчет о приключениях!",
+            "I am Zephyr.": "Я Зефир.",
+            "Hail, warrior!": "Приветствую, воин!",
+            "I am Thorin of the Iron Mines.": "Я Торин из Железных Шахт.",
+            "Shh... walk quietly in the shadows.": "Тшш... ходи тихо в тенях.",
+            "I am Selene.": "Я Селена.",
+            "Welcome to the Emerald Grove!": "Добро пожаловать в Изумрудную Рощу!",
+            "I am Oberon.": "Я Оберон.",
+            "Hail! I am Freya.": "Приветствую! Я Фрейя.",
+            "Welcome, master student!": "Добро пожаловать, ученик-мастер!",
+            "I am Eldrin.": "Я Элдрин."
+        };
+
+        Object.keys(dict).forEach(key => {
+            ru = ru.replace(key, dict[key]);
+        });
+
+        return ru;
+    }
+
     function appendMessage(role, text) {
         chatHistory.push({ role, content: text });
         const bubble = document.createElement("div");
@@ -463,17 +503,38 @@ document.addEventListener("DOMContentLoaded", () => {
             ? `<div class="message-avatar"><i class="fa-solid ${activeScenario.icon}"></i></div>` 
             : `<div class="message-avatar"><i class="fa-solid fa-user"></i></div>`;
         
+        const translateBtnHtml = role === 'assistant' 
+            ? `<button class="audio-play-link"><i class="fa-solid fa-volume-high"></i> Listen</button>
+               <button class="translate-msg-btn btn btn-sm btn-outline" style="font-size:10px; margin-left:8px; padding:1px 6px; border-radius:4px;"><i class="fa-solid fa-language"></i> 🇷🇺 Translate / Перевод</button>
+               <div class="msg-translation-box hidden" style="font-size:11px; color:#cbd5e1; margin-top:6px; padding:6px 10px; background:rgba(255,255,255,0.06); border-radius:6px; border-left:3px solid var(--primary);"></div>` 
+            : '';
+
         bubble.innerHTML = `
             ${avatar}
             <div class="message-content">
                 <div>${text}</div>
-                ${role === 'assistant' ? `<button class="audio-play-link"><i class="fa-solid fa-volume-high"></i> Listen</button>` : ''}
+                ${translateBtnHtml}
             </div>
         `;
 
         if (role === 'assistant') {
             const audioBtn = bubble.querySelector(".audio-play-link");
             if (audioBtn) audioBtn.addEventListener("click", () => flashcardEngine.speak(text));
+
+            const translateBtn = bubble.querySelector(".translate-msg-btn");
+            const translationBox = bubble.querySelector(".msg-translation-box");
+            if (translateBtn && translationBox) {
+                translateBtn.addEventListener("click", () => {
+                    if (translationBox.classList.contains("hidden")) {
+                        if (!translationBox.innerHTML) {
+                            translationBox.innerHTML = `<strong>🇷🇺 Перевод:</strong> ${translateA0TextToRussian(text)}`;
+                        }
+                        translationBox.classList.remove("hidden");
+                    } else {
+                        translationBox.classList.add("hidden");
+                    }
+                });
+            }
         }
 
         chatMessagesBox.appendChild(bubble);
@@ -548,8 +609,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (aiResponse.correction) {
             feedbackText.innerHTML = aiResponse.correction;
-            feedbackBanner.classList.remove("hidden");
+        } else {
+            feedbackText.innerHTML = "✅ Отлично! Предложение написано полностью грамматически правильно!";
         }
+        feedbackBanner.classList.remove("hidden");
     }
 
     sendChatBtn.addEventListener("click", handleUserSendMessage);
