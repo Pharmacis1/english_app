@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EnglishPulse AI - English Learning Hub & RPG</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark-theme">
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo-container">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-bolt-lightning"></i>
+                </div>
+                <div class="logo-text">
+                    <span class="brand-name">EnglishPulse</span>
+                    <span class="brand-badge">A0 → A1 RPG</span>
+                </div>
+            </div>
+
+            <nav class="nav-menu">
+                <button class="nav-item active" data-tab="tutor">
+                    <i class="fa-solid fa-comments"></i>
+                    <span>AI Tutor & Scenarios</span>
+                </button>
+                <button class="nav-item" data-tab="flashcards">
+                    <i class="fa-solid fa-layer-group"></i>
+                    <span>Vocabulary & Decks</span>
+                </button>
+                <button class="nav-item" data-tab="grammar">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <span>Grammar Lab</span>
+                </button>
+                <button class="nav-item" data-tab="speaking">
+                    <i class="fa-solid fa-microphone-lines"></i>
+                    <span>Voice Shadowing</span>
+                </button>
+                <button class="nav-item highlight-rpg" data-tab="rpg">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>Hero RPG (10 Heroes)</span>
+                </button>
+                <button class="nav-item" data-tab="settings">
+                    <i class="fa-solid fa-sliders"></i>
+                    <span>Local AI Settings</span>
+                </button>
+            </nav>
+
+            <div class="streak-widget">
+                <div class="streak-header">
+                    <div class="streak-flame"><i class="fa-solid fa-fire"></i></div>
+                    <div class="streak-info">
+                        <span class="streak-count" id="streak-days">1 Day</span>
+                        <span class="streak-label">Daily Streak</span>
+                    </div>
+                </div>
+                <div class="stats-mini font-mono">
+                    <div>Words: <strong id="stats-words-count">0</strong></div>
+                    <div>XP: <strong id="stats-xp-count">120</strong></div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Header Bar -->
+            <header class="top-header">
+                <div class="header-title">
+                    <h1 id="page-heading">AI Tutor & Roleplay Scenarios</h1>
+                    <p id="page-subheading" class="subtext">Practice real-world conversations with immediate AI corrections</p>
+                </div>
+
+                <div class="header-actions">
+                    <div class="rpg-header-stats font-mono">
+                        <div class="rpg-stat-pill" title="5-Hero Squad Power"><i class="fa-solid fa-khanda"></i> <span id="rpg-power-display">525</span></div>
+                    </div>
+
+                    <div class="llm-status-pill" id="llm-status-indicator" title="Click to test local connection">
+                        <span class="status-dot disconnected" id="status-dot"></span>
+                        <span class="status-text" id="status-text">Ollama / LM Studio: Checking...</span>
+                    </div>
+
+                    <button class="icon-btn" id="theme-toggle" title="Toggle Theme">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
+                </div>
+            </header>
+
+            <!-- TAB 1: AI TUTOR -->
+            <section class="tab-content active" id="tab-tutor">
+                <div class="tutor-grid">
+                    <div class="scenarios-panel glass-card">
+                        <h3><i class="fa-solid fa-masks-theater"></i> Practice Scenarios</h3>
+                        <p class="panel-desc">Choose a real-life situation to roleplay:</p>
+                        
+                        <div class="hero-target-bar" style="margin-bottom:12px; padding:10px; border-radius:8px; background:rgba(255,255,255,0.03);">
+                            <div style="font-size:11px; font-weight:600; margin-bottom:6px; color:var(--text-muted);">
+                                <i class="fa-solid fa-crosshairs" style="color:var(--heart);"></i> Target Heroes (+50% Focus XP):
+                            </div>
+                            <div id="tutor-hero-target-chips" style="display:flex; flex-wrap:wrap; gap:6px;"></div>
+                        </div>
+
+                        <div class="scenarios-list" id="scenarios-list"></div>
+                    </div>
+
+                    <div class="chat-container glass-card">
+                        <div class="chat-header">
+                            <div class="active-scenario-info">
+                                <div class="scenario-avatar" id="scenario-icon"><i class="fa-solid fa-user-tie"></i></div>
+                                <div>
+                                    <h4 id="active-scenario-title">Tech Job Interview</h4>
+                                    <span class="scenario-subtitle" id="active-scenario-role">Interviewer: Senior Tech Lead</span>
+                                </div>
+                            </div>
+                            <div class="chat-actions">
+                                <button class="btn btn-sm btn-outline" id="clear-chat-btn">
+                                    <i class="fa-solid fa-rotate-left"></i> Reset Chat
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="chat-messages" id="chat-messages"></div>
+
+                        <div class="feedback-banner hidden" id="grammar-feedback-banner">
+                            <div class="feedback-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                            <div class="feedback-content" id="grammar-feedback-text"></div>
+                            <button class="feedback-close" id="close-feedback-btn">&times;</button>
+                        </div>
+
+                        <div class="chat-input-wrapper">
+                            <button class="mic-btn" id="voice-input-btn" title="Speak via Microphone">
+                                <i class="fa-solid fa-microphone"></i>
+                            </button>
+                            <textarea id="user-chat-input" placeholder="Type your response in English..." rows="1"></textarea>
+                            <button class="send-btn" id="send-chat-btn">
+                                <i class="fa-solid fa-paper-plane"></i>
+                            </button>
+                        </div>
+                        <div class="input-hints">
+                            <span><i class="fa-solid fa-circle-info"></i> Press Enter to send, Shift+Enter for new line</span>
+                            <span class="speech-status" id="speech-status"></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 2: FLASHCARDS -->
+            <section class="tab-content" id="tab-flashcards">
+                <div class="flashcards-layout">
+                    <div class="deck-selector-bar glass-card">
+                        <div class="deck-tabs" id="deck-tabs-container"></div>
+                        <button class="btn btn-primary btn-sm" id="add-custom-card-btn">
+                            <i class="fa-solid fa-plus"></i> Add Word
+                        </button>
+                    </div>
+
+                    <div class="card-stage-container">
+                        <div class="flashcard-3d-wrapper" id="flashcard">
+                            <div class="card-face card-front glass-card">
+                                <span class="card-category-tag" id="card-tag">IT & Tech</span>
+                                <h2 class="card-word" id="card-word">Refactor</h2>
+                                <span class="card-phonetic font-mono" id="card-phonetic">/riːˈfæk.tər/</span>
+                                <button class="audio-pronounce-btn" id="card-speak-btn" title="Listen Pronunciation">
+                                    <i class="fa-solid fa-volume-high"></i>
+                                </button>
+                                <p class="flip-hint"><i class="fa-solid fa-rotate"></i> Click card to flip</p>
+                            </div>
+                            <div class="card-face card-back glass-card">
+                                <div class="card-translation" id="card-translation">Рефакторинг</div>
+                                <div class="card-definition" id="card-definition">Restructuring existing code...</div>
+                                <div class="card-example-box">
+                                    <div class="example-label"><i class="fa-solid fa-quote-left"></i> Example:</div>
+                                    <div class="example-text" id="card-example">"We need to refactor..."</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-controls">
+                            <button class="rate-btn btn-again" data-rating="again"><i class="fa-solid fa-xmark"></i> Again</button>
+                            <button class="rate-btn btn-hard" data-rating="hard"><i class="fa-solid fa-triangle-exclamation"></i> Hard</button>
+                            <button class="rate-btn btn-good" data-rating="good"><i class="fa-solid fa-thumbs-up"></i> Good</button>
+                            <button class="rate-btn btn-easy" data-rating="easy"><i class="fa-solid fa-star"></i> Easy</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 3: GRAMMAR LAB -->
+            <section class="tab-content" id="tab-grammar">
+                <div class="grammar-container glass-card">
+                    <div class="grammar-header">
+                        <div class="topics-pills" id="grammar-topics-nav"></div>
+                    </div>
+
+                    <div class="grammar-body">
+                        <div class="theory-card" id="grammar-theory-card"></div>
+                        <div class="quiz-card" id="grammar-quiz-card">
+                            <div class="quiz-header">
+                                <h3><i class="fa-solid fa-circle-question"></i> Practice Exercise</h3>
+                                <span class="quiz-progress font-mono" id="quiz-progress-text">Question 1 of 5</span>
+                            </div>
+                            <div class="quiz-question-box">
+                                <p class="quiz-question" id="quiz-question-text">Loading question...</p>
+                            </div>
+                            <div class="quiz-options" id="quiz-options-container"></div>
+                            <div class="quiz-feedback hidden" id="quiz-feedback-box"></div>
+                            <div class="quiz-footer">
+                                <button class="btn btn-primary" id="next-quiz-btn" style="display:none;">Next Question <i class="fa-solid fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 4: VOICE SHADOWING -->
+            <section class="tab-content" id="tab-speaking">
+                <div class="shadowing-container glass-card">
+                    <div class="shadowing-header">
+                        <h3><i class="fa-solid fa-repeat"></i> Shadowing & Accent Trainer</h3>
+                        <p class="panel-desc">Listen to a native sentence, repeat it out loud, and test your speech clarity.</p>
+                        
+                        <div class="hero-target-bar" style="margin-top:10px; padding:10px; border-radius:8px; background:rgba(255,255,255,0.03);">
+                            <div style="font-size:11px; font-weight:600; margin-bottom:6px; color:var(--text-muted);">
+                                <i class="fa-solid fa-crosshairs" style="color:var(--heart);"></i> Target Heroes (+50% Focus XP):
+                            </div>
+                            <div id="speaking-hero-target-chips" style="display:flex; flex-wrap:wrap; gap:6px;"></div>
+                        </div>
+                    </div>
+
+                    <div class="phrase-target-card">
+                        <div class="phrase-speaker-tag" id="shadow-speaker">Senior Software Engineer</div>
+                        <h2 class="phrase-text" id="shadow-text">"Could you please walk me through your solution for optimizing this database query?"</h2>
+                        <p class="phrase-translation" id="shadow-translation">«Не мог бы ты объяснить своё решение по оптимизации этого запроса к базе данных?»</p>
+
+                        <div class="audio-controls-row">
+                            <button class="btn btn-secondary" id="play-shadow-audio">
+                                <i class="fa-solid fa-play"></i> Listen Native Audio
+                            </button>
+                            <div class="speed-selector font-mono">
+                                Speed: 
+                                <button class="speed-btn active" data-speed="1.0">1.0x</button>
+                                <button class="speed-btn" data-speed="0.8">0.8x</button>
+                                <button class="speed-btn" data-speed="0.6">0.6x</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="recording-studio-card">
+                        <div class="visualizer-box">
+                            <div class="sound-wave" id="sound-wave">
+                                <span></span><span></span><span></span><span></span><span></span>
+                            </div>
+                            <span class="rec-timer font-mono" id="rec-status">Press record and speak out loud</span>
+                        </div>
+
+                        <div class="recording-actions">
+                            <button class="btn btn-record" id="start-rec-btn">
+                                <i class="fa-solid fa-microphone"></i> Start Recording
+                            </button>
+                        </div>
+
+                        <div class="speech-match-result hidden" id="speech-match-card">
+                            <div class="score-badge" id="match-score">92%</div>
+                            <div class="match-details">
+                                <h4>Speech Accuracy</h4>
+                                <p id="recognized-speech-text"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 5: HERO RPG & BATTLES -->
+            <section class="tab-content" id="tab-rpg">
+                <div class="rpg-layout">
+                    <div class="rpg-nav-bar glass-card">
+                        <button class="rpg-subnav-btn active" data-rpgview="guild">
+                            <i class="fa-solid fa-users-gear"></i> Hero Guild (10 Heroes A0→A1)
+                        </button>
+                        <button class="rpg-subnav-btn" data-rpgview="campaign">
+                            <i class="fa-solid fa-map-location-dot"></i> Campaign & Squad Setup
+                        </button>
+                    </div>
+
+                    <div class="rpg-subview active" id="rpgview-guild">
+                        <div class="heroes-grid" id="heroes-grid-container"></div>
+                    </div>
+
+                    <div class="rpg-subview" id="rpgview-campaign">
+                        <div class="campaign-container">
+                            <div class="stages-panel glass-card">
+                                <h3><i class="fa-solid fa-dungeon"></i> Campaign Chapters</h3>
+                                <div class="chapters-accordion" id="chapters-accordion"></div>
+                            </div>
+
+                            <div class="battle-arena glass-card">
+                                <div class="arena-header">
+                                    <div class="stage-info">
+                                        <h4 id="active-stage-title">Select a stage to battle</h4>
+                                        <span class="stage-desc" id="active-stage-desc">Beat bosses to unlock new heroes!</span>
+                                    </div>
+                                    <button class="btn btn-primary" id="start-battle-btn" disabled>
+                                        <i class="fa-solid fa-swords"></i> Start Battle
+                                    </button>
+                                </div>
+
+                                <div class="squad-picker-box">
+                                    <div style="font-size:12px; font-weight:700; color:var(--heart); margin-bottom:8px;">
+                                        ⚔️ Select 5 Heroes for Combat Squad (<span id="squad-count-text">0</span> / 5 Selected):
+                                    </div>
+                                    <div class="squad-chips-container" id="squad-chips-container"></div>
+                                </div>
+
+                                <div class="battle-field-stage" id="battle-field-stage">
+                                    <div class="party-side heroes-side" id="battle-heroes-side">
+                                        <div class="empty-arena-msg">Select your 5-Hero Squad and click "Start Battle"!</div>
+                                    </div>
+                                    <div class="vs-badge">VS</div>
+                                    <div class="party-side mobs-side" id="battle-mobs-side"></div>
+                                </div>
+
+                                <div class="ultimates-bar" id="ultimates-bar"></div>
+
+                                <div class="battle-log font-mono" id="battle-log-box">
+                                    <div>[Battle System]: Learn English to gain Hero XP! Battles do not drop XP.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 6: LOCAL AI SETTINGS -->
+            <section class="tab-content" id="tab-settings">
+                <div class="settings-container glass-card">
+                    <h3><i class="fa-solid fa-gears"></i> Local AI & System Configuration</h3>
+
+                    <form id="settings-form">
+                        <div class="setting-group">
+                            <label for="ai-provider">AI Provider</label>
+                            <select id="ai-provider" class="form-input">
+                                <option value="ollama">Ollama (Default: http://localhost:11434)</option>
+                                <option value="lmstudio">LM Studio (Default: http://localhost:1234)</option>
+                                <option value="fallback">Built-in Smart Offline Tutor (No server needed)</option>
+                            </select>
+                        </div>
+
+                        <div class="setting-group">
+                            <label for="api-endpoint">Server Endpoint URL</label>
+                            <input type="text" id="api-endpoint" class="form-input" value="http://localhost:11434">
+                        </div>
+
+                        <div class="setting-group">
+                            <label for="model-name">Model Name (Ollama / LM Studio)</label>
+                            <input type="text" id="model-name" class="form-input" value="llama3">
+                        </div>
+
+                        <div class="setting-group">
+                            <label for="system-prompt">System Prompt Customization</label>
+                            <textarea id="system-prompt" class="form-input" rows="4">You are an expert English tutor and conversation partner. Respond clearly in English, ask questions, and correct grammar errors.</textarea>
+                        </div>
+
+                        <div class="settings-buttons">
+                            <button type="button" class="btn btn-outline" id="test-connection-btn">
+                                <i class="fa-solid fa-plug"></i> Test Connection Now
+                            </button>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fa-solid fa-floppy-disk"></i> Save Settings
+                            </button>
+                        </div>
+                    </form>
+
+                    <div style="margin-top:24px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1);">
+                        <h4><i class="fa-solid fa-database"></i> PostgreSQL & Backup Management</h4>
+                        <p style="font-size:12px; color:var(--text-muted); margin-bottom:12px;">Export or restore your full hero RPG progress and SRS card memory to a JSON backup file anytime.</p>
+                        <div style="display:flex; gap:12px;">
+                            <button type="button" class="btn btn-secondary" id="export-backup-btn">
+                                <i class="fa-solid fa-download"></i> Export Save Backup (.json)
+                            </button>
+                            <button type="button" class="btn btn-outline" id="import-backup-trigger-btn">
+                                <i class="fa-solid fa-upload"></i> Restore Save Backup
+                            </button>
+                            <input type="file" id="import-backup-file-input" accept=".json" class="hidden">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal for Adding Custom Word Card -->
+    <div class="modal-backdrop hidden" id="add-card-modal">
+        <div class="modal-card glass-card">
+            <div class="modal-header">
+                <h3>Add Custom Flashcard</h3>
+                <button class="modal-close" id="close-modal-btn">&times;</button>
+            </div>
+            <form id="add-card-form">
+                <div class="setting-group">
+                    <label>English Word / Phrase</label>
+                    <input type="text" id="new-word-input" class="form-input" required placeholder="e.g. Immutable">
+                </div>
+                <div class="setting-group">
+                    <label>Phonetic / Pronunciation</label>
+                    <input type="text" id="new-phonetic-input" class="form-input" placeholder="e.g. /ɪˈmjuː.tə.bəl/">
+                </div>
+                <div class="setting-group">
+                    <label>Russian Translation</label>
+                    <input type="text" id="new-trans-input" class="form-input" required placeholder="e.g. Неизменяемый">
+                </div>
+                <div class="setting-group">
+                    <label>English Example Sentence</label>
+                    <input type="text" id="new-example-input" class="form-input" placeholder="e.g. Strings in JavaScript are immutable.">
+                </div>
+                <div class="setting-group">
+                    <label>Deck Category</label>
+                    <select id="new-category-select" class="form-input">
+                        <option value="IT & Tech">IT & Tech</option>
+                        <option value="Essential Verbs">Essential Verbs</option>
+                        <option value="Idioms & Expressions">Idioms & Expressions</option>
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Save Flashcard</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal for Hero Affinity 💕 Quest -->
+    <div class="modal-backdrop hidden" id="affinity-quest-modal">
+        <div class="modal-card glass-card">
+            <div class="modal-header">
+                <h3 id="affinity-modal-title">💕 Hero Affinity Quest</h3>
+                <button class="modal-close" id="close-affinity-modal-btn">&times;</button>
+            </div>
+            <div class="modal-body" style="display:flex; flex-direction:column; gap:16px;">
+                <div class="affinity-mode-badge font-mono" id="affinity-mode-badge">
+                    Text Mode (Level 1–50)
+                </div>
+
+                <div class="chat-messages" style="max-height:180px; background:rgba(0,0,0,0.3); border-radius:12px; padding:12px;">
+                    <div id="affinity-dialogue-prompt" style="line-height:1.5; font-size:14px;"></div>
+                </div>
+
+                <div id="audio-listening-controls" class="hidden" style="text-align:center;">
+                    <button class="btn btn-secondary" id="affinity-audio-listen-btn">
+                        <i class="fa-solid fa-volume-high"></i> Listen Hero Voice
+                    </button>
+                </div>
+
+                <div class="setting-group">
+                    <label id="affinity-answer-label">Your English Answer:</label>
+                    <div style="display:flex; gap:10px;">
+                        <input type="text" id="affinity-answer-input" class="form-input" style="flex:1;" placeholder="Type your answer...">
+                        <button class="mic-btn hidden" id="affinity-mic-btn" title="Speak Answer">
+                            <i class="fa-solid fa-microphone"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="submit-affinity-quest-btn">Submit Quest Answer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts: Note heroes.js is placed BEFORE flashcards.js to ensure HEROES_DATA is available -->
+    <script src="scenarios.js"></script>
+    <script src="heroes.js"></script>
+    <script src="flashcards.js"></script>
+    <script src="grammar.js"></script>
+    <script src="ai_service.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
