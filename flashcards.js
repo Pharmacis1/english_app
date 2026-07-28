@@ -58,7 +58,8 @@ class FlashcardEngine {
                     easeFactor: 2.5,
                     repetitions: 0,
                     nextReviewDate: 0,
-                    studied: false
+                    studied: false,
+                    learningInSession: false
                 }));
             });
         }
@@ -76,6 +77,7 @@ class FlashcardEngine {
                                 decks[cat][idx].interval = savedCard.interval || 1;
                                 decks[cat][idx].easeFactor = savedCard.easeFactor || 2.5;
                                 decks[cat][idx].nextReviewDate = savedCard.nextReviewDate || 0;
+                                decks[cat][idx].learningInSession = savedCard.learningInSession || false;
                             }
                         });
                     }
@@ -88,7 +90,8 @@ class FlashcardEngine {
         Object.keys(decks).forEach(cat => {
             if (cat === "🧠 Due for SRS Review") return;
             decks[cat].forEach(card => {
-                if (card.studied && card.nextReviewDate && card.nextReviewDate <= now) {
+                // A card is due for review ONLY if it was previously studied AND is NOT currently being actively learned in session!
+                if (card.studied && !card.learningInSession && card.nextReviewDate && card.nextReviewDate <= now) {
                     dueCards.push(card);
                 }
             });
@@ -102,13 +105,14 @@ class FlashcardEngine {
         localStorage.setItem("english_pulse_decks_srs_v10", JSON.stringify(this.decks));
     }
 
+    // Due cards count: excludes cards currently being learned in active session!
     getDueCardsCount() {
         const now = Date.now();
         let count = 0;
         Object.keys(this.decks).forEach(cat => {
             if (cat === "🧠 Due for SRS Review") return;
             this.decks[cat].forEach(c => {
-                if (c.studied && c.nextReviewDate && c.nextReviewDate <= now) count++;
+                if (c.studied && !c.learningInSession && c.nextReviewDate && c.nextReviewDate <= now) count++;
             });
         });
         return count;
@@ -133,7 +137,7 @@ class FlashcardEngine {
         for (let b = 0; b < totalBatches; b++) {
             const start = b * this.batchSize;
             const batchCards = allCards.slice(start, start + this.batchSize);
-            const activeCards = batchCards.filter(c => !c.studied || (c.nextReviewDate && c.nextReviewDate <= now));
+            const activeCards = batchCards.filter(c => !c.studied || c.learningInSession || (c.nextReviewDate && c.nextReviewDate <= now));
             
             if (activeCards.length > 0) {
                 this.batchIndex = b;
@@ -141,11 +145,10 @@ class FlashcardEngine {
             }
         }
 
-        // If all batches in this deck are completed, point to the last batch
         this.batchIndex = Math.max(0, totalBatches - 1);
     }
 
-    // Filter cards in current batch that still need study today (unstudied or due for review)
+    // Filter cards in current batch that still need study today (unstudied, learningInSession, or due for review)
     getCategoryCards() {
         const allCards = this.decks[this.currentCategory] || Object.values(this.decks)[0] || [];
         if (this.currentCategory === "🧠 Due for SRS Review") return allCards;
@@ -154,8 +157,8 @@ class FlashcardEngine {
         const start = this.batchIndex * this.batchSize;
         const batch = allCards.slice(start, start + this.batchSize);
 
-        // Active batch cards: cards NOT yet studied, OR cards rated 'Again' whose review is due <= now!
-        const activeBatchCards = batch.filter(c => !c.studied || (c.nextReviewDate && c.nextReviewDate <= now));
+        // Active batch cards: cards NOT yet studied, OR cards learningInSession, OR cards due <= now!
+        const activeBatchCards = batch.filter(c => !c.studied || c.learningInSession || (c.nextReviewDate && c.nextReviewDate <= now));
         return activeBatchCards;
     }
 
@@ -221,12 +224,14 @@ class FlashcardEngine {
                 card.repetitions = 0;
                 card.interval = 1;
                 card.easeFactor = Math.max(1.3, card.easeFactor - 0.2);
-                card.nextReviewDate = Date.now(); // Immediate re-test in active session!
+                card.learningInSession = true; // Mark as currently being repeated in session!
+                card.nextReviewDate = Date.now();
                 break;
             case 'hard':
                 card.repetitions = Math.max(1, card.repetitions);
                 card.interval = Math.max(1, Math.round(card.interval * 1.2));
                 card.easeFactor = Math.max(1.3, card.easeFactor - 0.15);
+                card.learningInSession = false; // Successfully passed session!
                 card.nextReviewDate = Date.now() + (card.interval * oneDayMs);
                 break;
             case 'good':
@@ -234,6 +239,7 @@ class FlashcardEngine {
                 if (card.repetitions === 1) card.interval = 1;
                 else if (card.repetitions === 2) card.interval = 6;
                 else card.interval = Math.round(card.interval * card.easeFactor);
+                card.learningInSession = false; // Successfully passed session!
                 card.nextReviewDate = Date.now() + (card.interval * oneDayMs);
                 break;
             case 'easy':
@@ -241,6 +247,7 @@ class FlashcardEngine {
                 card.easeFactor += 0.15;
                 if (card.repetitions === 1) card.interval = 4;
                 else card.interval = Math.round(card.interval * card.easeFactor * 1.3);
+                card.learningInSession = false; // Successfully passed session!
                 card.nextReviewDate = Date.now() + (card.interval * oneDayMs);
                 break;
         }
