@@ -362,13 +362,17 @@ document.addEventListener("DOMContentLoaded", () => {
             cardExample.textContent = `"${currentCard.example}"`;
         } else {
             cardTag.textContent = flashcardEngine.currentCategory;
-            cardWord.textContent = flashcardEngine.currentCategory === "🧠 Due for SRS Review" ? "🎉 No SRS Reviews Due!" : "🎉 Batch Complete!";
+            cardWord.textContent = flashcardEngine.currentCategory === "🧠 Due for SRS Review" ? "🎉 No SRS Reviews Due!" : `🎉 Batch ${flashcardEngine.batchIndex + 1} Complete!`;
             cardPhonetic.textContent = "/done/";
-            cardTranslation.textContent = flashcardEngine.currentCategory === "🧠 Due for SRS Review" ? "Нет карточек для повторения прямо сейчас." : "Порция из 10 слов изучена!";
+            cardTranslation.textContent = flashcardEngine.currentCategory === "🧠 Due for SRS Review" 
+                ? "Все накопленные карточки повторены!" 
+                : `Отлично! Все 10 слов Порции ${flashcardEngine.batchIndex + 1} успешно отложены алгоритмом SM-2 на будущее.`;
             cardDefinition.textContent = flashcardEngine.currentCategory === "🧠 Due for SRS Review" 
                 ? "Cards you study in hero decks will appear here automatically when their review date arrives!"
                 : "Great job! SuperMemo SM-2 algorithm scheduled these 10 words into your review loop.";
-            cardExample.textContent = flashcardEngine.currentCategory === "🧠 Due for SRS Review" ? "Select a hero deck to learn new words!" : "Click 'Batch ▶️' above to learn the next 10 words!";
+            cardExample.textContent = flashcardEngine.currentCategory === "🧠 Due for SRS Review" 
+                ? "Select a hero deck to learn new words!" 
+                : `Click 'Batch ${flashcardEngine.batchIndex + 2} ▶️' above to learn the next 10 words!`;
         }
 
         document.getElementById("stats-words-count").textContent = 

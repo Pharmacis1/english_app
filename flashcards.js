@@ -113,25 +113,33 @@ class FlashcardEngine {
         return count;
     }
 
+    // Filter cards in current batch that still need study today (unstudied or due for review)
     getCategoryCards() {
         const allCards = this.decks[this.currentCategory] || Object.values(this.decks)[0] || [];
         if (this.currentCategory === "🧠 Due for SRS Review") return allCards;
 
+        const now = Date.now();
         const start = this.batchIndex * this.batchSize;
         const batch = allCards.slice(start, start + this.batchSize);
-        return batch.length > 0 ? batch : allCards.slice(0, this.batchSize);
+
+        // Active batch cards: cards NOT yet studied, OR cards rated 'Again' whose review is due <= now!
+        const activeBatchCards = batch.filter(c => !c.studied || (c.nextReviewDate && c.nextReviewDate <= now));
+        return activeBatchCards;
     }
 
     getCurrentCard() {
-        const batch = this.getCategoryCards();
-        if (batch.length === 0) return null;
-        return batch[this.currentIndex % batch.length];
+        const activeCards = this.getCategoryCards();
+        if (activeCards.length === 0) return null;
+        return activeCards[this.currentIndex % activeCards.length];
     }
 
     nextCard() {
-        const batch = this.getCategoryCards();
-        if (batch.length === 0) return;
-        this.currentIndex = (this.currentIndex + 1) % batch.length;
+        const activeCards = this.getCategoryCards();
+        if (activeCards.length === 0) {
+            this.currentIndex = 0;
+            return;
+        }
+        this.currentIndex = (this.currentIndex + 1) % activeCards.length;
     }
 
     nextBatch() {
@@ -181,27 +189,30 @@ class FlashcardEngine {
                 card.repetitions = 0;
                 card.interval = 1;
                 card.easeFactor = Math.max(1.3, card.easeFactor - 0.2);
+                card.nextReviewDate = Date.now() + 60000; // 1 min for 'Again' in session
                 break;
             case 'hard':
                 card.repetitions = Math.max(1, card.repetitions);
                 card.interval = Math.max(1, Math.round(card.interval * 1.2));
                 card.easeFactor = Math.max(1.3, card.easeFactor - 0.15);
+                card.nextReviewDate = Date.now() + (card.interval * oneDayMs);
                 break;
             case 'good':
                 card.repetitions += 1;
                 if (card.repetitions === 1) card.interval = 1;
                 else if (card.repetitions === 2) card.interval = 6;
                 else card.interval = Math.round(card.interval * card.easeFactor);
+                card.nextReviewDate = Date.now() + (card.interval * oneDayMs);
                 break;
             case 'easy':
                 card.repetitions += 1;
                 card.easeFactor += 0.15;
                 if (card.repetitions === 1) card.interval = 4;
                 else card.interval = Math.round(card.interval * card.easeFactor * 1.3);
+                card.nextReviewDate = Date.now() + (card.interval * oneDayMs);
                 break;
         }
 
-        card.nextReviewDate = Date.now() + (card.interval * oneDayMs);
         this.saveDecks();
         this.nextCard();
         return { success: true };
