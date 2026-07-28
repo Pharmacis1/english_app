@@ -157,7 +157,8 @@ app.post('/api/backup/import', async (req, res) => {
 // 7. GET /api/ai/models — Proxy fetch installed models from Ollama / LM Studio (bypasses CORS)
 app.get('/api/ai/models', async (req, res) => {
     const provider = req.query.provider || 'ollama';
-    const endpoint = (req.query.endpoint || 'http://localhost:11434').replace(/\/$/, '');
+    const rawEndpoint = req.query.endpoint || 'http://127.0.0.1:11434';
+    const endpoint = rawEndpoint.replace(/\/$/, '').replace('localhost', '127.0.0.1');
 
     try {
         if (provider === 'ollama') {
@@ -183,12 +184,12 @@ app.get('/api/ai/models', async (req, res) => {
 
 // 8. POST /api/ai/chat — Proxy chat completion request to bypass CORS
 app.post('/api/ai/chat', async (req, res) => {
-    const { provider, endpoint, model, messages } = req.body;
-    const targetEndpoint = (endpoint || 'http://localhost:11434').replace(/\/$/, '');
+    const { provider, endpoint: rawEndpoint, model, messages } = req.body;
+    const endpoint = (rawEndpoint || 'http://127.0.0.1:11434').replace(/\/$/, '').replace('localhost', '127.0.0.1');
 
     try {
         if (provider === 'ollama') {
-            const resp = await fetch(`${targetEndpoint}/api/chat`, {
+            const resp = await fetch(`${endpoint}/api/chat`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ model, messages, stream: false })
@@ -197,7 +198,7 @@ app.post('/api/ai/chat', async (req, res) => {
             const data = await resp.json();
             return res.json({ success: true, content: data.message.content });
         } else if (provider === 'lmstudio') {
-            const resp = await fetch(`${targetEndpoint}/v1/chat/completions`, {
+            const resp = await fetch(`${endpoint}/v1/chat/completions`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ model, messages, temperature: 0.7, max_tokens: 300 })
