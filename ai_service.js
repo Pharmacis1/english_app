@@ -87,11 +87,14 @@ Ask simple questions like these so the user can easily answer using their cheats
 
         try {
             const heroPrompt = this.buildHeroPrompt(targetHeroObjects);
-            const strictGuide = `\n[MANDATORY GRAMMAR EVALUATION DIRECTIVE:
+            const strictGuide = `\n[MANDATORY GRAMMAR & SPELLING EVALUATION DIRECTIVE:
 At the very end of EVERY response, you MUST append a bracketed evaluation block in RUSSIAN for the user's input:
-- Check if user missed the verb 'to be' (am/is/are), misspelled words, or made grammar errors.
-- If user's input is 100% correct: [Correction: ✅ Отлично! Предложение написано полностью правильно!]
-- If user's input has errors or typos: [Correction: 💡 В предложении "X" опечатка/ошибка, должно быть "Y".]
+- Check for Russian words inserted into English (e.g. "умер" -> "dead" / "passed away").
+- Check for incorrect short answers (e.g. "Not" -> "No" or "No, I am not").
+- Check for missing articles or missing verbs (e.g. "I have sister" -> "I have a sister", "I happy" -> "I am happy").
+- Check for typos (e.g. "happi" -> "happy").
+- If user's input has ANY error: [Correction: 💡 В сообщении есть ошибка: ...]
+- ONLY if user's input is 100% perfect without any errors: [Correction: ✅ Отлично! Предложение написано полностью правильно!]
 DO NOT output any translation or extra brackets in the English text.]`;
 
             const systemMessage = { role: 'system', content: `${this.systemPrompt}\nContext/Scenario: ${scenario.systemPrompt}${strictGuide}${heroPrompt}` };

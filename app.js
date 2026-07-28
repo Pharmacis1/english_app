@@ -457,7 +457,26 @@ document.addEventListener("DOMContentLoaded", () => {
     function evaluateUserGrammarClientSide(text) {
         const lower = text.toLowerCase().trim();
         
-        // Check missing 'to be' verb before adjectives/nouns: e.g. "I happy", "Today I happy", "I fine", "I brave"
+        // 1. Detect Cyrillic / Russian words inserted in English text (e.g. "my father is умер")
+        const cyrillicMatch = text.match(/[а-яА-ЯёЁ]+/g);
+        if (cyrillicMatch) {
+            const ruWords = cyrillicMatch.join(", ");
+            return `💡 В сообщении обнаружено русское слово "${ruWords}". На английском следует использовать "dead" / "passed away" или английский аналог.`;
+        }
+
+        // 2. Detect incorrect short responses (e.g. "Not", "Not am")
+        if (/^(not|not am|no am)$/i.test(lower)) {
+            return `💡 Ответ "${text}" грамматически некорректен. Следует говорить "No, I am not" или просто "No".`;
+        }
+
+        // 3. Detect missing articles before family/hero nouns (e.g. "have sister", "have mother", "have brother")
+        const missingArticleMatch = lower.match(/\bhave\s+(sister|brother|mother|father|son|daughter|child|friend|sword|shield)\b/i);
+        if (missingArticleMatch) {
+            const noun = missingArticleMatch[1];
+            return `💡 В фразе "have ${noun}" пропущен артикль. Следует писать: "have a ${noun}".`;
+        }
+
+        // 4. Detect missing 'to be' verb before adjectives/nouns (e.g. "I happy", "Today I happy", "I fine", "I brave")
         const toBeMatch = lower.match(/\b(i|you|he|she|it|we|they)\s+(happy|fine|brave|strong|ready|good|paladin|knight|a hero)\b/i);
         if (toBeMatch) {
             const subject = toBeMatch[1];
@@ -469,14 +488,15 @@ document.addEventListener("DOMContentLoaded", () => {
             return `💡 В предложении "${toBeMatch[0]}" пропущен глагол 'to be' (${verb}). Правильно: "${subject} ${verb} ${word}".`;
         }
 
+        // 5. Typos
         if (lower.includes("happi")) {
-            return `💡 Описание опечатки: В слове "happi" опечатка, должно быть "happy".`;
+            return `💡 В слове "happi" опечатка, должно быть "happy".`;
         }
         if (lower.includes("fihe")) {
-            return `💡 Описание опечатки: В слове "fihe" опечатка, должно быть "fine".`;
+            return `💡 В слове "fihe" опечатка, должно быть "fine".`;
         }
 
-        return "✅ Отлично! Предложение написано полностью грамматически правильно!";
+        return null;
     }
 
     function translateA0TextToRussian(text) {
@@ -630,7 +650,11 @@ document.addEventListener("DOMContentLoaded", () => {
         chatMessagesBox.removeChild(typingBubble);
         appendMessage("assistant", aiResponse.text, aiResponse.translation);
 
-        if (aiResponse.correction && !aiResponse.correction.includes("✅")) {
+        const clientEval = evaluateUserGrammarClientSide(text);
+
+        if (clientEval) {
+            feedbackText.innerHTML = clientEval;
+        } else if (aiResponse.correction && !aiResponse.correction.includes("✅")) {
             let cleanCorr = aiResponse.correction
                 .replace(/^💡\s*Ошибка\/опечатка:\s*/gi, '💡 ')
                 .replace(/^Ошибка\/опечатка:\s*/gi, '💡 ')
@@ -639,8 +663,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 cleanCorr = '💡 ' + cleanCorr;
             }
             feedbackText.innerHTML = cleanCorr;
+        } else if (aiResponse.correction && aiResponse.correction.includes("✅")) {
+            feedbackText.innerHTML = aiResponse.correction;
         } else {
-            feedbackText.innerHTML = evaluateUserGrammarClientSide(text);
+            feedbackText.innerHTML = "✅ Отлично! Предложение написано полностью грамматически правильно!";
         }
         feedbackBanner.classList.remove("hidden");
     }
