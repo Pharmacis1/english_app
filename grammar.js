@@ -290,6 +290,7 @@ class GrammarSRSEngine {
                 repetition: 0,
                 easeFactor: 2.5,
                 dueDate: new Date().toISOString(),
+                studied: false,
                 learningInSession: false
             };
         }
@@ -317,8 +318,9 @@ class GrammarSRSEngine {
     getDueQuestions() {
         const now = new Date();
         return this.getAllQuestions().filter(q => {
+            if (!q.studied && q.repetition === 0) return false; // Unstudied new questions are NOT due!
             const due = new Date(q.dueDate);
-            return (due <= now || q.repetition === 0) && !q.learningInSession;
+            return due <= now || q.learningInSession;
         });
     }
 
@@ -328,6 +330,7 @@ class GrammarSRSEngine {
 
     rateQuestion(questionId, rating) {
         const state = this.getQuestionState(questionId);
+        state.studied = true;
         const now = new Date();
 
         if (rating === 'again') {
