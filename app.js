@@ -576,6 +576,18 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    function getShuffledQuestionOptions(q) {
+        const items = q.options.map((text, idx) => ({ text, isCorrect: idx === q.correct }));
+        for (let i = items.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [items[i], items[j]] = [items[j], items[i]];
+        }
+        return {
+            shuffledOptions: items.map(item => item.text),
+            correctIdx: items.findIndex(item => item.isCorrect)
+        };
+    }
+
     function renderQuizQuestion() {
         const qList = currentGrammarTopic.questions;
         if (currentQuizIndex >= qList.length) {
@@ -588,6 +600,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         const q = qList[currentQuizIndex];
+        const { shuffledOptions, correctIdx } = getShuffledQuestionOptions(q);
+
         quizProgressText.textContent = `Question ${currentQuizIndex + 1} of ${qList.length}`;
         quizQuestionText.textContent = q.text;
         quizOptionsContainer.innerHTML = "";
@@ -595,11 +609,11 @@ document.addEventListener("DOMContentLoaded", () => {
         nextQuizBtn.style.display = "none";
         grammarSrsRatingContainer.classList.add("hidden");
 
-        q.options.forEach((opt, idx) => {
+        shuffledOptions.forEach((opt, idx) => {
             const btn = document.createElement("button");
             btn.className = "quiz-opt-btn";
             btn.textContent = `${String.fromCharCode(65 + idx)}) ${opt}`;
-            btn.addEventListener("click", () => selectQuizOption(idx, q.correct, q.explanation));
+            btn.addEventListener("click", () => selectQuizOption(idx, correctIdx, q.explanation));
             quizOptionsContainer.appendChild(btn);
         });
     }
@@ -651,6 +665,8 @@ document.addEventListener("DOMContentLoaded", () => {
         activeReviewQuestion = q;
         collapsibleRuleContent.innerHTML = q.theory;
 
+        const { shuffledOptions, correctIdx } = getShuffledQuestionOptions(q);
+
         quizProgressText.textContent = `Due Review ${currentReviewIndex + 1} of ${currentReviewQueue.length} (${q.heroId.toUpperCase()})`;
         quizQuestionText.textContent = q.text;
         quizOptionsContainer.innerHTML = "";
@@ -658,11 +674,11 @@ document.addEventListener("DOMContentLoaded", () => {
         nextQuizBtn.style.display = "none";
         grammarSrsRatingContainer.classList.add("hidden");
 
-        q.options.forEach((opt, idx) => {
+        shuffledOptions.forEach((opt, idx) => {
             const btn = document.createElement("button");
             btn.className = "quiz-opt-btn";
             btn.textContent = `${String.fromCharCode(65 + idx)}) ${opt}`;
-            btn.addEventListener("click", () => selectReviewQuizOption(idx, q.correct, q.explanation));
+            btn.addEventListener("click", () => selectReviewQuizOption(idx, correctIdx, q.explanation));
             quizOptionsContainer.appendChild(btn);
         });
     }
