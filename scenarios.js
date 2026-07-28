@@ -172,19 +172,19 @@ function categorizeHeroWords(heroWords) {
     const adjectives = [];
     const expressions = [];
 
-    const verbKeywords = ["have", "want", "like", "need", "eat", "drink", "sleep", "walk", "run", "see", "hear", "listen", "read", "write", "speak", "learn", "help", "love", "give", "take", "make", "do", "open", "close", "start", "stop", "cook", "wash", "clean", "rest", "smile", "heal", "care", "swim", "play", "draw", "paint", "drive", "ride", "fly", "jump", "climb", "travel", "sneak", "hide", "strike", "dodge", "escape", "smash", "freeze", "visit", "study", "work", "achieve", "improve", "understand"];
+    const VERB_SET = new Set(["am", "is", "are", "have", "want", "like", "need", "eat", "drink", "sleep", "walk", "run", "see", "hear", "listen", "read", "write", "speak", "learn", "help", "love", "give", "take", "make", "do", "open", "close", "start", "stop", "cook", "wash", "clean", "rest", "smile", "heal", "care", "swim", "play", "draw", "paint", "drive", "ride", "fly", "jump", "climb", "travel", "sneak", "hide", "strike", "dodge", "escape", "smash", "freeze", "visit", "study", "work", "achieve", "improve", "understand"]);
     
-    const adjKeywords = ["good", "fine", "happy", "brave", "strong", "ready", "red", "blue", "green", "yellow", "black", "white", "brown", "orange", "cold", "hot", "warm", "cool", "early", "late", "big", "small", "fast", "slow", "heavy", "light", "weak", "hard", "soft", "high", "low", "long", "short", "wide", "narrow", "deep", "shallow", "old", "new", "young", "clean", "dirty", "full", "empty", "rich", "poor", "easy", "difficult", "great", "tough", "solid", "quiet", "silent", "quick", "agile", "peaceful", "fluent", "grand", "honest"];
+    const ADJ_SET = new Set(["good", "fine", "happy", "brave", "strong", "ready", "red", "blue", "green", "yellow", "black", "white", "brown", "orange", "cold", "hot", "warm", "cool", "early", "late", "big", "small", "fast", "slow", "heavy", "light", "weak", "hard", "soft", "high", "low", "long", "short", "wide", "narrow", "deep", "shallow", "old", "new", "young", "clean", "dirty", "full", "empty", "rich", "poor", "easy", "difficult", "great", "tough", "solid", "quiet", "silent", "quick", "agile", "peaceful", "fluent", "grand", "honest"]);
 
-    const exprKeywords = ["hello", "goodbye", "please", "thank you", "welcome", "yes", "no", "i", "you", "he", "she", "it", "we", "they", "my", "your", "his", "her", "our", "their", "this", "that", "these", "those", "today", "tomorrow", "yesterday", "now", "later", "soon", "always", "usually", "sometimes", "never", "often", "where", "when", "why", "how", "who", "what", "which", "in", "on", "at", "under", "behind", "near", "far", "can", "cannot", "was", "were", "ago", "last"];
+    const EXPR_SET = new Set(["hello", "goodbye", "please", "thank you", "welcome", "yes", "no", "i", "you", "he", "she", "it", "we", "they", "my", "your", "his", "her", "our", "their", "this", "that", "these", "those", "today", "tomorrow", "yesterday", "now", "later", "soon", "always", "usually", "sometimes", "never", "often", "where", "when", "why", "how", "who", "what", "which", "in", "on", "at", "under", "behind", "near", "far", "can", "cannot", "was", "were", "ago", "last"]);
 
     heroWords.forEach(wObj => {
-        const lower = wObj.word.toLowerCase();
-        if (verbKeywords.some(vk => lower.includes(vk))) {
+        const lower = wObj.word.toLowerCase().trim();
+        if (VERB_SET.has(lower)) {
             verbs.push(wObj);
-        } else if (adjKeywords.some(ak => lower.includes(ak))) {
+        } else if (ADJ_SET.has(lower)) {
             adjectives.push(wObj);
-        } else if (exprKeywords.some(ek => lower.includes(ek))) {
+        } else if (EXPR_SET.has(lower)) {
             expressions.push(wObj);
         } else {
             nouns.push(wObj);
