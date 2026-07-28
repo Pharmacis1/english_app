@@ -400,13 +400,15 @@ class RPGEngine {
     }
 
     // STRICT CEFR TIER XP GATING
-    rewardFromEnglish(activityType, targetHeroIds = null, materialSourceHeroId = null) {
-        let baseAmount = 0;
-        switch (activityType) {
-            case "chat": baseAmount = 20; break;
-            case "card": baseAmount = 10; break;
-            case "quiz": baseAmount = 30; break;
-            case "shadowing": baseAmount = 30; break;
+    rewardFromEnglish(activityType, targetHeroIds = null, materialSourceHeroId = null, customBaseXp = null) {
+        let baseAmount = customBaseXp !== null ? customBaseXp : 0;
+        if (customBaseXp === null) {
+            switch (activityType) {
+                case "chat": baseAmount = 20; break;
+                case "card": baseAmount = 10; break;
+                case "quiz": baseAmount = 30; break;
+                case "shadowing": baseAmount = 30; break;
+            }
         }
 
         let rewardedHeroNames = [];

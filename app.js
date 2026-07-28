@@ -86,8 +86,8 @@ document.addEventListener("DOMContentLoaded", () => {
         themeToggleBtn.innerHTML = isLight ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
     });
 
-    function triggerRPGReward(activity, targetHeroIds = null, materialSourceHeroId = null) {
-        const reward = rpgEngine.rewardFromEnglish(activity, targetHeroIds, materialSourceHeroId);
+    function triggerRPGReward(activity, targetHeroIds = null, materialSourceHeroId = null, customBaseXp = null) {
+        const reward = rpgEngine.rewardFromEnglish(activity, targetHeroIds, materialSourceHeroId, customBaseXp);
         renderRPGHeader();
         
         const toast = document.createElement("div");
@@ -455,9 +455,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
             flashcardEl.classList.remove("flipped");
             setTimeout(() => renderFlashcardsUI(), 200);
-            addXP(5);
-            
-            triggerRPGReward("card", targetHeroId, targetHeroId);
+
+            let cardXp = 0;
+            if (rating === 'hard') cardXp = 2;
+            else if (rating === 'good') cardXp = 4;
+            else if (rating === 'easy') cardXp = 8;
+
+            if (cardXp > 0) {
+                addXP(cardXp);
+                triggerRPGReward("card", targetHeroId, targetHeroId, cardXp);
+            }
         });
     });
 
