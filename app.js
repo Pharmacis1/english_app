@@ -348,8 +348,21 @@ document.addEventListener("DOMContentLoaded", () => {
             deckTabsContainer.appendChild(batchBtn);
         }
 
+        const cardControls = document.querySelector(".card-controls");
+        let batchActionBox = document.getElementById("batch-action-box");
+        if (!batchActionBox && cardControls) {
+            batchActionBox = document.createElement("div");
+            batchActionBox.id = "batch-action-box";
+            batchActionBox.style.marginTop = "16px";
+            batchActionBox.style.textAlign = "center";
+            cardControls.parentNode.insertBefore(batchActionBox, cardControls.nextSibling);
+        }
+
         const currentCard = flashcardEngine.getCurrentCard();
         if (currentCard) {
+            if (cardControls) cardControls.style.display = "flex";
+            if (batchActionBox) batchActionBox.style.display = "none";
+
             const intervalDays = currentCard.interval || 1;
             const easeFactor = (currentCard.easeFactor || 2.5).toFixed(2);
             const batchLabel = flashcardEngine.currentCategory === "🧠 Due for SRS Review" ? "SRS Queue" : `Batch ${flashcardEngine.batchIndex + 1} (Portion: 10 Words)`;
@@ -361,18 +374,50 @@ document.addEventListener("DOMContentLoaded", () => {
             cardDefinition.textContent = currentCard.definition;
             cardExample.textContent = `"${currentCard.example}"`;
         } else {
+            if (cardControls) cardControls.style.display = "none";
+            if (batchActionBox) {
+                batchActionBox.style.display = "block";
+                const isSrsQueue = flashcardEngine.currentCategory === "🧠 Due for SRS Review";
+                const nextBatchNum = flashcardEngine.batchIndex + 2;
+
+                if (isSrsQueue) {
+                    batchActionBox.innerHTML = `
+                        <button class="btn btn-primary btn-lg" style="padding:14px 28px; font-size:16px;">
+                            <i class="fa-solid fa-layer-group"></i> Return to Hero Decks
+                        </button>
+                    `;
+                    batchActionBox.querySelector("button").addEventListener("click", () => {
+                        const firstHeroDeck = Object.keys(flashcardEngine.decks).find(k => k !== "🧠 Due for SRS Review");
+                        flashcardEngine.currentCategory = firstHeroDeck || "Valerius's Pack (A0)";
+                        flashcardEngine.batchIndex = 0;
+                        flashcardEngine.currentIndex = 0;
+                        renderFlashcardsUI();
+                    });
+                } else {
+                    batchActionBox.innerHTML = `
+                        <button class="btn btn-primary btn-lg" style="padding:14px 28px; font-size:16px; box-shadow:0 0 20px rgba(236,72,153,0.4);">
+                            <i class="fa-solid fa-forward"></i> Learn Next 10 Words (Batch ${nextBatchNum}) ▶️
+                        </button>
+                    `;
+                    batchActionBox.querySelector("button").addEventListener("click", () => {
+                        flashcardEngine.nextBatch();
+                        renderFlashcardsUI();
+                    });
+                }
+            }
+
             cardTag.textContent = flashcardEngine.currentCategory;
             cardWord.textContent = flashcardEngine.currentCategory === "🧠 Due for SRS Review" ? "🎉 No SRS Reviews Due!" : `🎉 Batch ${flashcardEngine.batchIndex + 1} Complete!`;
             cardPhonetic.textContent = "/done/";
             cardTranslation.textContent = flashcardEngine.currentCategory === "🧠 Due for SRS Review" 
                 ? "Все накопленные карточки повторены!" 
-                : `Отлично! Все 10 слов Порции ${flashcardEngine.batchIndex + 1} успешно отложены алгоритмом SM-2 на будущее.`;
+                : `Отлично! Все 10 слов Порции ${flashcardEngine.batchIndex + 1} изучены и отложены на будущее.`;
             cardDefinition.textContent = flashcardEngine.currentCategory === "🧠 Due for SRS Review" 
                 ? "Cards you study in hero decks will appear here automatically when their review date arrives!"
                 : "Great job! SuperMemo SM-2 algorithm scheduled these 10 words into your review loop.";
             cardExample.textContent = flashcardEngine.currentCategory === "🧠 Due for SRS Review" 
                 ? "Select a hero deck to learn new words!" 
-                : `Click 'Batch ${flashcardEngine.batchIndex + 2} ▶️' above to learn the next 10 words!`;
+                : `Click the button below to start Batch ${flashcardEngine.batchIndex + 2}!`;
         }
 
         document.getElementById("stats-words-count").textContent = 
