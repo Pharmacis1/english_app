@@ -158,13 +158,19 @@ document.addEventListener("DOMContentLoaded", () => {
         const lvlupModal = document.getElementById("hero-level-up-modal");
         if (!lvlupModal) return;
 
-        if (levelUpQueue.length === 0) {
+        if (!levelUpQueue || levelUpQueue.length === 0) {
             lvlupModal.classList.add("hidden");
-            lvlupModal.style.display = "none";
+            lvlupModal.style.setProperty("display", "none", "important");
             return;
         }
 
         const data = levelUpQueue[0];
+        if (!data || !data.hero) {
+            levelUpQueue.shift();
+            displayNextLevelUpInQueue();
+            return;
+        }
+
         const hero = data.hero;
 
         const titleEl = document.getElementById("lvlup-title");
@@ -188,8 +194,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (atkEl) atkEl.textContent = `+${data.atkGain} ATK`;
         if (defEl) defEl.textContent = `+${data.defGain} DEF`;
 
-        lvlupModal.style.display = "flex";
         lvlupModal.classList.remove("hidden");
+        lvlupModal.style.setProperty("display", "flex", "important");
 
         if (window.voiceService) {
             voiceService.speak(`${hero.name} reached Level ${data.newLevel}!`, null, null, hero.voiceConfig || null);

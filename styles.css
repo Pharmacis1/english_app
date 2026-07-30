@@ -345,6 +345,41 @@ body {
 
 .modal-backdrop { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; z-index: 100; }
 .modal-backdrop.hidden { display: none; }
+
+/* HERO LEVEL UP CELEBRATION MODAL 👑 */
+#hero-level-up-modal {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background: rgba(15, 23, 42, 0.35) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    z-index: 99999 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#hero-level-up-modal.hidden {
+    display: none !important;
+}
+
+.level-up-modal-card {
+    background: rgba(15, 23, 42, 0.92) !important;
+    border: 2px solid #f59e0b !important;
+    box-shadow: 0 0 50px rgba(245, 158, 11, 0.6), 0 20px 40px rgba(0, 0, 0, 0.5) !important;
+    border-radius: 20px !important;
+    position: relative !important;
+    z-index: 100000 !important;
+    animation: modalPopIn 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes modalPopIn {
+    0% { transform: scale(0.7); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
 .modal-card { width: 520px; max-width: 90vw; }
 .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
 
