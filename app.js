@@ -1705,10 +1705,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 card.innerHTML = `
                     <div style="display:flex; justify-content:space-between; align-items:center;">
-                        <div>
-                            <strong style="font-size:14px; color:var(--text-main);">${item.word}</strong>
-                            <span class="font-mono" style="font-size:11px; color:var(--text-muted); margin-left:6px;">${item.phonetic || ''}</span>
-                            <span style="font-size:12px; color:#cbd5e1; margin-left:10px;">— ${item.translation || ''}</span>
+                        <div style="display:flex; align-items:center; gap:10px;">
+                            <button class="btn btn-sm btn-outline play-word-audio-btn" style="padding:4px 8px; font-size:12px; border-radius:6px; background:rgba(59,130,246,0.1); border:1px solid rgba(59,130,246,0.3); color:#60a5fa; cursor:pointer;" title="Listen word pronunciation with ${hero.name}'s voice">
+                                <i class="fa-solid fa-volume-high"></i>
+                            </button>
+                            <div>
+                                <strong style="font-size:14px; color:var(--text-main);">${item.word}</strong>
+                                <span class="font-mono" style="font-size:11px; color:var(--text-muted); margin-left:6px;">${item.phonetic || ''}</span>
+                                <span style="font-size:12px; color:#cbd5e1; margin-left:10px;">— ${item.translation || ''}</span>
+                            </div>
                         </div>
                         <div style="background:${badgeColor}; border:${badgeBorder}; color:${textColor}; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:700;" class="font-mono">
                             ${item.count}x (${item.percentage}%)
@@ -1721,6 +1726,20 @@ document.addEventListener("DOMContentLoaded", () => {
                         <span style="font-size:10px; color:${textColor}; font-weight:600;">${statusTag}</span>
                     </div>
                 `;
+
+                const audioBtn = card.querySelector(".play-word-audio-btn");
+                if (audioBtn) {
+                    audioBtn.addEventListener("click", () => {
+                        audioBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i>`;
+                        flashcardEngine.speak(
+                            item.word,
+                            () => { audioBtn.innerHTML = `<i class="fa-solid fa-wave-square fa-beat"></i>`; },
+                            () => { audioBtn.innerHTML = `<i class="fa-solid fa-volume-high"></i>`; },
+                            hero.voiceConfig || null
+                        );
+                    });
+                }
+
                 listEl.appendChild(card);
             });
         }
