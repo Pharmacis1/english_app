@@ -1814,6 +1814,106 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    // --- HERO LIFETIME WORD STATS MODAL CONTROLLER 📊 ---
+    function openHeroWordStatsModal(hero) {
+        const modal = document.getElementById("hero-word-stats-modal");
+        if (!modal) return;
+
+        const titleEl = document.getElementById("word-stats-modal-title");
+        const summaryEl = document.getElementById("word-stats-hero-summary");
+        const listEl = document.getElementById("word-stats-list-container");
+
+        if (titleEl) titleEl.innerHTML = `<i class="fa-solid fa-chart-pie"></i> ${hero.name}'s Lifetime Word Usage`;
+
+        const totalHeroWordsUsed = getHeroTotalAllTimeWordsCount(hero.id, hero.words);
+
+        if (summaryEl) {
+            summaryEl.innerHTML = `
+                <span><i class="fa-solid fa-book"></i> Vocabulary: <strong>${hero.words ? hero.words.length : 0} Words</strong></span>
+                <span><i class="fa-solid fa-fire"></i> Lifetime Uses: <strong style="color:#fbbf24;">${totalHeroWordsUsed} times</strong></span>
+            `;
+        }
+
+        if (listEl && hero.words) {
+            listEl.innerHTML = "";
+            
+            const wordStatsList = hero.words.map(wObj => {
+                const stats = getWordAllTimeStats(hero.id, wObj.word, hero.words);
+                return { ...wObj, count: stats.count, percentage: stats.percentage };
+            });
+
+            // Sort cold/rarely used words first (0-1 uses) so user can see what to practice!
+            wordStatsList.sort((a, b) => a.count - b.count);
+
+            wordStatsList.forEach(item => {
+                const card = document.createElement("div");
+                card.style.cssText = "background:rgba(15,23,42,0.7); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:10px 14px; display:flex; flex-direction:column; gap:6px;";
+                
+                const isCold = item.count <= 1;
+                const badgeColor = isCold ? "rgba(59,130,246,0.15)" : "rgba(245,158,11,0.15)";
+                const badgeBorder = isCold ? "1px solid rgba(59,130,246,0.4)" : "1px solid rgba(245,158,11,0.4)";
+                const textColor = isCold ? "#60a5fa" : "#fbbf24";
+                const statusTag = isCold ? "❄️ Rarely Used / Cold" : "🔥 Active Word";
+
+                card.innerHTML = `
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <div>
+                            <strong style="font-size:14px; color:var(--text-main);">${item.word}</strong>
+                            <span class="font-mono" style="font-size:11px; color:var(--text-muted); margin-left:6px;">${item.phonetic || ''}</span>
+                            <span style="font-size:12px; color:#cbd5e1; margin-left:10px;">— ${item.translation || ''}</span>
+                        </div>
+                        <div style="background:${badgeColor}; border:${badgeBorder}; color:${textColor}; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:700;" class="font-mono">
+                            ${item.count}x (${item.percentage}%)
+                        </div>
+                    </div>
+                    <div style="display:flex; align-items:center; gap:8px;">
+                        <div style="flex:1; height:6px; background:rgba(255,255,255,0.1); border-radius:3px; overflow:hidden;">
+                            <div style="height:100%; width:${Math.min(100, Math.max(item.percentage, item.count > 0 ? 5 : 0))}%; background:${isCold ? '#3b82f6' : '#f59e0b'}; border-radius:3px;"></div>
+                        </div>
+                        <span style="font-size:10px; color:${textColor}; font-weight:600;">${statusTag}</span>
+                    </div>
+                `;
+                listEl.appendChild(card);
+            });
+        }
+
+        modal.style.setProperty("display", "flex", "important");
+        modal.classList.remove("hidden");
+    }
+
+    const closeWordStatsBtn = document.getElementById("close-word-stats-btn");
+    const closeWordStatsModalBtn = document.getElementById("close-word-stats-modal-btn");
+
+    if (closeWordStatsBtn) {
+        closeWordStatsBtn.addEventListener("click", () => {
+            const modal = document.getElementById("hero-word-stats-modal");
+            if (modal) {
+                modal.classList.add("hidden");
+                modal.style.setProperty("display", "none", "important");
+            }
+        });
+    }
+
+    if (closeWordStatsModalBtn) {
+        closeWordStatsModalBtn.addEventListener("click", () => {
+            const modal = document.getElementById("hero-word-stats-modal");
+            if (modal) {
+                modal.classList.add("hidden");
+                modal.style.setProperty("display", "none", "important");
+            }
+        });
+    }
+
+    const heroWordStatsModalEl = document.getElementById("hero-word-stats-modal");
+    if (heroWordStatsModalEl) {
+        heroWordStatsModalEl.addEventListener("click", (e) => {
+            if (e.target === heroWordStatsModalEl) {
+                heroWordStatsModalEl.classList.add("hidden");
+                heroWordStatsModalEl.style.setProperty("display", "none", "important");
+            }
+        });
+    }
+
     function renderCampaignMap() {
         chaptersAccordion.innerHTML = "";
         rpgEngine.chapters.forEach(chap => {
