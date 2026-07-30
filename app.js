@@ -1662,15 +1662,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // --- HERO LIFETIME WORD STATS MODAL CONTROLLER 📊 ---
-    function openHeroWordStatsModal(heroOrId) {
-        let hero = heroOrId;
-        if (typeof heroOrId === "string") {
-            hero = rpgEngine.heroes.find(h => h.id === heroOrId);
-        }
-        if (!hero) return;
-
+    function openHeroWordStatsModal(hero) {
         const modal = document.getElementById("hero-word-stats-modal");
-        if (!modal) return;
+        if (!modal || !hero) return;
 
         const titleEl = document.getElementById("word-stats-modal-title");
         const summaryEl = document.getElementById("word-stats-hero-summary");
@@ -1732,41 +1726,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         modal.classList.remove("hidden");
-        modal.style.setProperty("display", "flex", "important");
-        modal.style.setProperty("z-index", "999999", "important");
     }
-    window.openHeroWordStatsModal = openHeroWordStatsModal;
 
     const closeWordStatsBtn = document.getElementById("close-word-stats-btn");
     const closeWordStatsModalBtn = document.getElementById("close-word-stats-modal-btn");
-    const heroWordStatsModalEl = document.getElementById("hero-word-stats-modal");
 
-    if (closeWordStatsBtn) {
-        closeWordStatsBtn.addEventListener("click", () => {
-            if (heroWordStatsModalEl) {
-                heroWordStatsModalEl.classList.add("hidden");
-                heroWordStatsModalEl.style.setProperty("display", "none", "important");
-            }
-        });
-    }
-
-    if (closeWordStatsModalBtn) {
-        closeWordStatsModalBtn.addEventListener("click", () => {
-            if (heroWordStatsModalEl) {
-                heroWordStatsModalEl.classList.add("hidden");
-                heroWordStatsModalEl.style.setProperty("display", "none", "important");
-            }
-        });
-    }
-
-    if (heroWordStatsModalEl) {
-        heroWordStatsModalEl.addEventListener("click", (e) => {
-            if (e.target === heroWordStatsModalEl) {
-                heroWordStatsModalEl.classList.add("hidden");
-                heroWordStatsModalEl.style.setProperty("display", "none", "important");
-            }
-        });
-    }
+    if (closeWordStatsBtn) closeWordStatsBtn.addEventListener("click", () => document.getElementById("hero-word-stats-modal")?.classList.add("hidden"));
+    if (closeWordStatsModalBtn) closeWordStatsModalBtn.addEventListener("click", () => document.getElementById("hero-word-stats-modal")?.classList.add("hidden"));
 
     function renderHeroesRoster() {
         heroesGridContainer.innerHTML = "";
@@ -1812,7 +1778,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <button class="btn btn-sm btn-secondary train-words-btn" style="flex:1;"><i class="fa-solid fa-layer-group"></i> Train Words (${hero.words.length})</button>
                     <button class="btn btn-sm btn-secondary train-grammar-btn" style="flex:1;"><i class="fa-solid fa-graduation-cap"></i> Train Grammar</button>
                 </div>
-                <button class="btn btn-sm btn-outline word-stats-btn" onclick="event.stopPropagation(); window.openHeroWordStatsModal('${hero.id}');" style="width:100%; margin-top:6px; font-size:11px; cursor:pointer; position:relative; z-index:10;"><i class="fa-solid fa-chart-pie"></i> Lifetime Word Stats (${hero.words ? hero.words.length : 0} Words)</button>
+                <button class="btn btn-sm btn-outline word-stats-btn" style="width:100%; margin-top:6px; font-size:11px;"><i class="fa-solid fa-chart-pie"></i> Lifetime Word Stats (${hero.words ? hero.words.length : 0} Words)</button>
                 ` : ''}
 
                 <div class="hero-stats-list font-mono" style="margin-top:8px;">
@@ -1836,7 +1802,9 @@ document.addEventListener("DOMContentLoaded", () => {
             `;
 
             if (hero.unlocked) {
-                card.querySelector(".affinity-btn").addEventListener("click", () => openAffinityQuestModal(hero));
+                const affinityBtn = card.querySelector(".affinity-btn");
+                if (affinityBtn) affinityBtn.addEventListener("click", () => openAffinityQuestModal(hero));
+
                 const statsBtn = card.querySelector(".word-stats-btn");
                 if (statsBtn) statsBtn.addEventListener("click", () => openHeroWordStatsModal(hero));
 
