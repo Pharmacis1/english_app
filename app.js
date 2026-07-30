@@ -522,6 +522,50 @@ document.addEventListener("DOMContentLoaded", () => {
         return map[key];
     }
 
+    // --- ALL-TIME HERO WORD USAGE TRACKER (LIFETIME STATS) ---
+    function loadAllTimeWordUsageMap() {
+        try {
+            return JSON.parse(localStorage.getItem("hero_word_usage_alltime") || "{}");
+        } catch (e) {
+            return {};
+        }
+    }
+
+    function saveAllTimeWordUsageMap(map) {
+        localStorage.setItem("hero_word_usage_alltime", JSON.stringify(map));
+    }
+
+    function getAllTimeWordUsageCount(heroId, word) {
+        const map = loadAllTimeWordUsageMap();
+        const key = `${heroId}_${word.toLowerCase()}`;
+        return map[key] || 0;
+    }
+
+    function incrementAllTimeWordUsageCount(heroId, word) {
+        const map = loadAllTimeWordUsageMap();
+        const key = `${heroId}_${word.toLowerCase()}`;
+        const current = map[key] || 0;
+        map[key] = current + 1;
+        saveAllTimeWordUsageMap(map);
+        return map[key];
+    }
+
+    function getHeroTotalAllTimeWordsCount(heroId, heroWordsList) {
+        if (!heroWordsList || heroWordsList.length === 0) return 0;
+        const map = loadAllTimeWordUsageMap();
+        return heroWordsList.reduce((acc, wObj) => {
+            const key = `${heroId}_${wObj.word.toLowerCase()}`;
+            return acc + (map[key] || 0);
+        }, 0);
+    }
+
+    function getWordAllTimeStats(heroId, word, heroWordsList) {
+        const count = getAllTimeWordUsageCount(heroId, word);
+        const total = getHeroTotalAllTimeWordsCount(heroId, heroWordsList);
+        const percentage = total > 0 ? parseFloat(((count / total) * 100).toFixed(1)) : 0.0;
+        return { count, percentage, total };
+    }
+
     function evaluateHeroDialogueXP(hero, text) {
         if (!hero || !hero.words || !text) return { totalXP: 0, matchedWordsInfo: [] };
 
@@ -549,6 +593,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
 
                 incrementWordUsageCount(hero.id, wObj.word);
+                incrementAllTimeWordUsageCount(hero.id, wObj.word);
                 totalXP += bonusXp;
                 matchedWordsInfo.push({ word: wObj.word, bonusXp, tierText });
             }
@@ -610,6 +655,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             sec.words.forEach(wObj => {
                 const currentUsage = getWordUsageCount(targetHero.id, wObj.word);
+                const allTimeStats = getWordAllTimeStats(targetHero.id, wObj.word, targetHero.words);
+                const rareTag = allTimeStats.count === 0 ? " ❄️" : (allTimeStats.count < 3 ? " 🧊" : "");
                 
                 let chipStyle = "border:1px solid rgba(255,255,255,0.15); color:var(--text-muted); background:transparent;";
                 let tierTooltip = "⚪ Mastered (+1 XP)";
@@ -632,8 +679,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 chip.style.padding = "2px 8px";
                 chip.style.borderRadius = "5px";
                 chip.style.cssText += chipStyle;
-                chip.title = `${wObj.word} ${wObj.phonetic || ''} — ${wObj.translation || ''} | ${tierTooltip} (Click to insert)`;
-                chip.innerHTML = `<strong>${wObj.word}</strong>`;
+                chip.title = `${wObj.word} ${wObj.phonetic || ''} — ${wObj.translation || ''} | ${tierTooltip} | Lifetime: ${allTimeStats.count} times (${allTimeStats.percentage}%) (Click to insert)`;
+                chip.innerHTML = `<strong>${wObj.word}</strong> <small style="font-size:9px; opacity:0.85; font-weight:600; margin-left:3px;">${allTimeStats.count}x (${allTimeStats.percentage}%)${rareTag}</small>`;
 
                 chip.addEventListener("click", () => {
                     if (userChatInput.value.length > 0 && !userChatInput.value.endsWith(" ")) {
@@ -1628,6 +1675,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <button class="btn btn-sm btn-secondary train-words-btn" style="flex:1;"><i class="fa-solid fa-layer-group"></i> Train Words (${hero.words.length})</button>
                     <button class="btn btn-sm btn-secondary train-grammar-btn" style="flex:1;"><i class="fa-solid fa-graduation-cap"></i> Train Grammar</button>
                 </div>
+                <button class="btn btn-sm btn-outline word-stats-btn" style="width:100%; margin-top:6px; font-size:11px;"><i class="fa-solid fa-chart-pie"></i> Lifetime Word Stats (${hero.words ? hero.words.length : 0} Words)</button>
                 ` : ''}
 
                 <div class="hero-stats-list font-mono" style="margin-top:8px;">
@@ -1652,6 +1700,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (hero.unlocked) {
                 card.querySelector(".affinity-btn").addEventListener("click", () => openAffinityQuestModal(hero));
+                const statsBtn = card.querySelector(".word-stats-btn");
+                if (statsBtn) statsBtn.addEventListener("click", () => openHeroWordStatsModal(hero));
+
                 card.querySelector(".train-words-btn").addEventListener("click", () => {
                     const deckName = `${hero.name}'s Pack (${hero.cefrLevel.split(' ')[0]})`;
                     flashcardEngine.currentCategory = deckName;

@@ -601,6 +601,25 @@
             </button>
         </div>
     </div>
+
+    <!-- HERO ALL-TIME WORD STATS MODAL 📊 -->
+    <div class="modal-backdrop hidden" id="hero-word-stats-modal" style="z-index:9999;">
+        <div class="modal-card glass-card" style="max-width:560px; padding:24px; border:1px solid rgba(255,255,255,0.15); border-radius:16px;">
+            <div class="modal-header">
+                <h3 style="font-size:18px; font-weight:700; color:var(--primary); margin:0;" id="word-stats-modal-title">
+                    <i class="fa-solid fa-chart-pie"></i> Lifetime Word Usage Statistics
+                </h3>
+                <button class="modal-close" id="close-word-stats-modal-btn">&times;</button>
+            </div>
+            <div id="word-stats-hero-summary" style="font-size:12px; color:var(--text-muted); margin-bottom:14px; background:rgba(15,23,42,0.6); padding:10px 14px; border-radius:10px; border:1px solid rgba(255,255,255,0.08); display:flex; justify-content:space-between; align-items:center;"></div>
+            
+            <div id="word-stats-list-container" style="max-height:360px; overflow-y:auto; display:flex; flex-direction:column; gap:8px; padding-right:4px;"></div>
+            
+            <div class="modal-footer" style="margin-top:16px;">
+                <button class="btn btn-secondary" id="close-word-stats-btn">Close</button>
+            </div>
+        </div>
+    </div>
     <script src="scenarios.js"></script>
     <script src="heroes.js"></script>
     <script src="flashcards.js"></script>
