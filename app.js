@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const aiService = new AIService();
     const flashcardEngine = new FlashcardEngine();
     const rpgEngine = new RPGEngine();
+    const voiceService = new VoiceService();
+    window.voiceService = voiceService;
 
     // App State
     let activeScenario = SCENARIOS[0];
@@ -87,22 +89,38 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     function showToast(msg, bg = "linear-gradient(135deg, #1e1b4b, #312e81)", borderColor = "#818cf8") {
+        let container = document.getElementById("toast-container");
+        if (!container) {
+            container = document.createElement("div");
+            container.id = "toast-container";
+            document.body.appendChild(container);
+        }
+
         const toast = document.createElement("div");
-        toast.className = "feedback-banner";
-        toast.style.position = "fixed";
-        toast.style.bottom = "24px";
-        toast.style.right = "24px";
-        toast.style.zIndex = "3000";
+        toast.className = "toast-notification";
         toast.style.background = bg;
-        toast.style.border = `2px solid ${borderColor}`;
+        toast.style.border = `1.5px solid ${borderColor}`;
         toast.style.color = "white";
-        toast.style.padding = "14px 20px";
+        toast.style.padding = "12px 18px";
         toast.style.borderRadius = "12px";
-        toast.style.boxShadow = "0 10px 30px rgba(0,0,0,0.6)";
-        toast.style.minWidth = "280px";
+        toast.style.boxShadow = "0 10px 25px rgba(0,0,0,0.5)";
+        toast.style.fontSize = "13px";
+        toast.style.fontWeight = "600";
+        toast.style.lineHeight = "1.4";
+        toast.style.pointerEvents = "auto";
         toast.innerHTML = msg;
-        document.body.appendChild(toast);
-        setTimeout(() => toast.remove(), 4500);
+
+        container.appendChild(toast);
+
+        while (container.children.length > 4) {
+            container.removeChild(container.firstChild);
+        }
+
+        setTimeout(() => {
+            toast.style.opacity = "0";
+            toast.style.transform = "translateX(100%)";
+            setTimeout(() => toast.remove(), 300);
+        }, 4000);
     }
 
     function triggerRPGReward(activity, targetHeroIds = null, materialSourceHeroId = null, customBaseXp = null) {
@@ -119,6 +137,183 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const bg = reward.isFocusBonus ? "linear-gradient(135deg, #ec4899, #8b5cf6)" : "rgba(236, 72, 153, 0.9)";
         showToast(`<i class="fa-solid fa-bolt"></i> ${heroNamesStr} Gained +${reward.xpAmount} XP!${bonusTag}${blockedMsg}`, bg);
+
+        if (reward.leveledUpHeroes && reward.leveledUpHeroes.length > 0) {
+            showHeroLevelUpModal(reward.leveledUpHeroes);
+        }
+    }
+
+    let levelUpQueue = [];
+
+    function showHeroLevelUpModal(leveledUpList) {
+        if (!leveledUpList || leveledUpList.length === 0) return;
+        const lvlupModal = document.getElementById("hero-level-up-modal");
+        if (!lvlupModal) return;
+
+        levelUpQueue.push(...leveledUpList);
+        displayNextLevelUpInQueue();
+    }
+
+    function displayNextLevelUpInQueue() {
+        const lvlupModal = document.getElementById("hero-level-up-modal");
+        if (!lvlupModal) return;
+
+        if (levelUpQueue.length === 0) {
+            lvlupModal.classList.add("hidden");
+            lvlupModal.style.display = "none";
+            return;
+        }
+
+        const data = levelUpQueue[0];
+        const hero = data.hero;
+
+        const titleEl = document.getElementById("lvlup-title");
+        const nameEl = document.getElementById("lvlup-hero-name");
+        if (titleEl) titleEl.textContent = `LEVEL UP! LEVEL ${data.newLevel} 🎉`;
+        if (nameEl) nameEl.textContent = `${hero.name} Reached Level ${data.newLevel}!`;
+        
+        const avatarBox = document.getElementById("lvlup-hero-avatar-box");
+        if (avatarBox) {
+            if (hero.image) {
+                avatarBox.innerHTML = `<img src="${hero.image}" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">`;
+            } else {
+                avatarBox.innerHTML = `<i class="fa-solid ${hero.avatar || 'fa-shield-halved'}" style="font-size:42px; color:${hero.color || '#3b82f6'};"></i>`;
+            }
+        }
+
+        const hpEl = document.getElementById("lvlup-hp-gain");
+        const atkEl = document.getElementById("lvlup-atk-gain");
+        const defEl = document.getElementById("lvlup-def-gain");
+        if (hpEl) hpEl.textContent = `+${data.hpGain} HP`;
+        if (atkEl) atkEl.textContent = `+${data.atkGain} ATK`;
+        if (defEl) defEl.textContent = `+${data.defGain} DEF`;
+
+        lvlupModal.style.display = "flex";
+        lvlupModal.classList.remove("hidden");
+
+        if (window.voiceService) {
+            voiceService.speak(`${hero.name} reached Level ${data.newLevel}!`, null, null, hero.voiceConfig || null);
+        }
+    }
+
+    const closeLvlUpBtn = document.getElementById("close-lvlup-modal-btn");
+    if (closeLvlUpBtn) {
+        closeLvlUpBtn.addEventListener("click", () => {
+            if (levelUpQueue.length > 0) {
+                levelUpQueue.shift();
+            }
+            displayNextLevelUpInQueue();
+        });
+    }
+
+    // --- PER-HERO AUDIO REWARD ENGINE ---
+    let usedMicInCurrentDraft = false;
+    let lastAiMessageContent = "";
+
+    function getTodayHeroAudioState(heroId) {
+        if (!heroId) return { micCount: 0, typedCount: 0, listenedMsgs: [], repeatedMsgs: [], comboMsgs: [], questClaimed: false };
+        const d = new Date();
+        const dateKey = `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`;
+        const storageKey = `english_pulse_audio_rewards_${dateKey}_${heroId}`;
+        try {
+            const saved = localStorage.getItem(storageKey);
+            if (saved) {
+                const parsed = JSON.parse(saved);
+                if (parsed.questClaimed === undefined) parsed.questClaimed = false;
+                return parsed;
+            }
+        } catch(e) {}
+        return { micCount: 0, typedCount: 0, listenedMsgs: [], repeatedMsgs: [], comboMsgs: [], questClaimed: false };
+    }
+
+    function saveTodayHeroAudioState(heroId, state) {
+        if (!heroId) return;
+        const d = new Date();
+        const dateKey = `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`;
+        const storageKey = `english_pulse_audio_rewards_${dateKey}_${heroId}`;
+        localStorage.setItem(storageKey, JSON.stringify(state));
+        updateHeroDailyBonusTracker();
+    }
+
+    function updateHeroDailyBonusTracker() {
+        const activeHeroId = (activeScenario && activeScenario.isHeroScenario && activeScenario.heroId) 
+            ? activeScenario.heroId 
+            : null;
+        
+        const trackerBar = document.getElementById("hero-daily-bonus-tracker");
+        if (!trackerBar) return;
+
+        if (!activeHeroId) {
+            trackerBar.style.display = "none";
+            return;
+        }
+        trackerBar.style.display = "flex";
+
+        const hero = rpgEngine.heroes.find(h => h.id === activeHeroId);
+        const state = getTodayHeroAudioState(activeHeroId);
+
+        const micXpNext = state.micCount < 10 ? "+50" : (state.micCount < 30 ? "+30" : "+10");
+        const textXpNext = state.typedCount < 10 ? "+30" : (state.typedCount < 30 ? "+20" : "+5");
+
+        const heroNameEl = document.getElementById("tracker-hero-name");
+        const micCountEl = document.getElementById("tracker-mic-count");
+        const textCountEl = document.getElementById("tracker-text-count");
+
+        let wordsUsedCount = 0;
+        let wordsTotalCount = 0;
+        if (hero && hero.words) {
+            wordsTotalCount = hero.words.length;
+            wordsUsedCount = hero.words.filter(wObj => getWordUsageCount(hero.id, wObj.word) >= 1).length;
+        }
+        const allHeroWordsUsed = wordsTotalCount > 0 && wordsUsedCount === wordsTotalCount;
+
+        const taskMicDone = state.micCount >= 10;
+        const taskTextDone = state.typedCount >= 10;
+        const taskListenDone = state.listenedMsgs.length >= 20;
+        const taskRepeatDone = state.repeatedMsgs.length >= 20;
+        const taskWordsDone = allHeroWordsUsed;
+
+        const completedTasksCount = 
+            (taskMicDone ? 1 : 0) + 
+            (taskTextDone ? 1 : 0) + 
+            (taskListenDone ? 1 : 0) + 
+            (taskRepeatDone ? 1 : 0) + 
+            (taskWordsDone ? 1 : 0);
+
+        if (heroNameEl) heroNameEl.innerHTML = `🛡️ Active Hero: <strong>${hero ? hero.name : activeHeroId}</strong>`;
+        if (micCountEl) micCountEl.innerHTML = `🎙️ Mic: <strong>${state.micCount}/10</strong> (${micXpNext} XP)`;
+        if (textCountEl) textCountEl.innerHTML = `⌨️ Text: <strong>${state.typedCount}/10</strong> (${textXpNext} XP)`;
+
+        let questTagEl = document.getElementById("tracker-daily-quest-tag");
+        if (!questTagEl) {
+            questTagEl = document.createElement("span");
+            questTagEl.id = "tracker-daily-quest-tag";
+            const trackerRight = trackerBar.querySelector("div");
+            if (trackerRight) trackerRight.appendChild(questTagEl);
+        }
+
+        if (state.questClaimed) {
+            questTagEl.innerHTML = `🏆 Daily Quest: <strong style="color:#34d399;">Claimed (+500 XP) ✅</strong>`;
+            questTagEl.title = `Daily Hero Quest (+500 XP Completed!): All 5 tasks completed today!`;
+        } else {
+            const colorStr = completedTasksCount === 5 ? "#fbbf24" : (completedTasksCount >= 3 ? "#60a5fa" : "#c084fc");
+            questTagEl.innerHTML = `🏆 Quest: <strong style="color:${colorStr};">${completedTasksCount}/5 Tasks</strong> (+500 XP)`;
+            questTagEl.style.cursor = "pointer";
+            questTagEl.title = `Daily Hero Quest Bonus (+500 XP):\n` +
+                `${taskMicDone ? '✅' : '❌'} 10 Voice Messages (${state.micCount}/10)\n` +
+                `${taskTextDone ? '✅' : '❌'} 10 Text Messages (${state.typedCount}/10)\n` +
+                `${taskListenDone ? '✅' : '❌'} 20 Message Listens (${state.listenedMsgs.length}/20)\n` +
+                `${taskRepeatDone ? '✅' : '❌'} 20 Message Repeats (${state.repeatedMsgs.length}/20)\n` +
+                `${taskWordsDone ? '✅' : '❌'} All Hero Words Used (${wordsUsedCount}/${wordsTotalCount})`;
+        }
+
+        if (completedTasksCount === 5 && !state.questClaimed) {
+            state.questClaimed = true;
+            saveTodayHeroAudioState(activeHeroId, state);
+            addXP(500);
+            triggerRPGReward("daily_quest", activeHeroId, activeHeroId, 500);
+            showToast(`🏆 <b>DAILY HERO QUEST COMPLETED!</b><br>+500 XP Bonus Awarded!`, "linear-gradient(135deg, #f59e0b, #ec4899)", "#fbbf24");
+        }
     }
 
     function renderRPGHeader() {
@@ -129,6 +324,16 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!catName || catName === "🧠 Due for SRS Review") return null;
         const matchedHero = rpgEngine.heroes.find(h => catName.includes(h.name));
         return matchedHero ? matchedHero.id : null;
+    }
+
+    function getHeroIdForCard(card) {
+        if (!card) return null;
+        if (card.heroId) return card.heroId;
+        if (typeof HEROES_DATA !== 'undefined' && Array.isArray(HEROES_DATA)) {
+            const hero = HEROES_DATA.find(h => h.words && h.words.some(w => w[0] === card.word || w.word === card.word));
+            if (hero) return hero.id;
+        }
+        return null;
     }
 
     // --- TARGET HERO CHIPS RENDERERS ---
@@ -274,6 +479,7 @@ document.addEventListener("DOMContentLoaded", () => {
         activeScenarioRole.textContent = scenario.role;
         scenarioIcon.innerHTML = `<i class="fa-solid ${scenario.icon}"></i>`;
         renderHeroWordHelperPanel(scenario);
+        updateHeroDailyBonusTracker();
         resetChat();
     }
 
@@ -543,6 +749,80 @@ document.addEventListener("DOMContentLoaded", () => {
         return ru;
     }
 
+    function getActiveHeroVoiceConfig() {
+        if (activeScenario && activeScenario.isHeroScenario && activeScenario.heroId) {
+            const hero = rpgEngine.heroes.find(h => h.id === activeScenario.heroId);
+            if (hero && hero.voiceConfig) return hero.voiceConfig;
+        }
+        return null;
+    }
+
+    function calculatePronunciationAccuracy(targetText, spokenText) {
+        if (!targetText || !spokenText) return 0;
+        const cleanTarget = targetText.toLowerCase().replace(/\[correction:[\s\S]*?\]/gi, '').replace(/[^a-z0-9\s]/gi, '').split(/\s+/).filter(Boolean);
+        const cleanSpoken = spokenText.toLowerCase().replace(/[^a-z0-9\s]/gi, '').split(/\s+/).filter(Boolean);
+        if (cleanTarget.length === 0) return 100;
+
+        let matchedCount = 0;
+        cleanTarget.forEach(w => {
+            if (cleanSpoken.includes(w)) matchedCount++;
+        });
+
+        const accuracy = Math.round((matchedCount / cleanTarget.length) * 100);
+        return Math.min(100, Math.max(0, accuracy));
+    }
+
+    function renderPronunciationBadge(bubble, accuracy, msgContent, heroId) {
+        let badgeClass = "perfect";
+        let badgeText = `🟢 ${accuracy}% Accuracy (Perfect!)`;
+        if (accuracy < 60) {
+            badgeClass = "retry";
+            badgeText = `🔴 ${accuracy}% Accuracy (Try Again!)`;
+        } else if (accuracy < 85) {
+            badgeClass = "good";
+            badgeText = `🟡 ${accuracy}% Accuracy (Good Job!)`;
+        }
+
+        let badgeEl = bubble.querySelector(".pronunciation-badge");
+        if (!badgeEl) {
+            badgeEl = document.createElement("div");
+            bubble.querySelector(".message-content").appendChild(badgeEl);
+        }
+        badgeEl.className = `pronunciation-badge ${badgeClass}`;
+        badgeEl.textContent = badgeText;
+
+        const repeatBtn = bubble.querySelector(".repeat-sentence-btn");
+        if (repeatBtn) {
+            repeatBtn.classList.remove("unrepeated-highlight");
+            repeatBtn.classList.add("repeated");
+        }
+
+        if (accuracy >= 60 && heroId) {
+            const msgId = msgContent.slice(0, 30);
+            const state = getTodayHeroAudioState(heroId);
+            if (!state.repeatedMsgs.includes(msgId)) {
+                state.repeatedMsgs.push(msgId);
+                saveTodayHeroAudioState(heroId, state);
+
+                triggerRPGReward("repeat", heroId, heroId, 20);
+                showToast(`🎯 +20 XP Pronunciation Repeat Bonus!`, "linear-gradient(135deg, #10b981, #059669)");
+            }
+        }
+    }
+
+    function checkAndAwardListeningBonus(text, heroId) {
+        if (!heroId) return;
+        const msgId = text.slice(0, 30);
+        const state = getTodayHeroAudioState(heroId);
+        if (!state.listenedMsgs.includes(msgId)) {
+            state.listenedMsgs.push(msgId);
+            saveTodayHeroAudioState(heroId, state);
+
+            triggerRPGReward("listen", heroId, heroId, 20);
+            showToast(`🔊 +20 XP AI Listening Bonus!`, "linear-gradient(135deg, #3b82f6, #1d4ed8)");
+        }
+    }
+
     function appendMessage(role, text, customTranslation = null) {
         chatHistory.push({ role, content: text });
         const bubble = document.createElement("div");
@@ -552,8 +832,15 @@ document.addEventListener("DOMContentLoaded", () => {
             ? `<div class="message-avatar"><i class="fa-solid ${activeScenario.icon}"></i></div>` 
             : `<div class="message-avatar"><i class="fa-solid fa-user"></i></div>`;
         
+        const activeHeroId = (activeScenario && activeScenario.isHeroScenario && activeScenario.heroId) ? activeScenario.heroId : null;
+        const msgId = text.slice(0, 30);
+        const heroState = activeHeroId ? getTodayHeroAudioState(activeHeroId) : null;
+        const isListened = heroState && heroState.listenedMsgs && heroState.listenedMsgs.includes(msgId);
+        const isRepeated = heroState && heroState.repeatedMsgs && heroState.repeatedMsgs.includes(msgId);
+
         const translateBtnHtml = role === 'assistant' 
-            ? `<button class="audio-play-link"><i class="fa-solid fa-volume-high"></i> Listen</button>
+            ? `<button class="audio-play-link ${isListened ? 'listened' : 'unheard-highlight'}"><i class="fa-solid fa-volume-high"></i> Listen</button>
+               <button class="repeat-sentence-btn ${isRepeated ? 'repeated' : 'unrepeated-highlight'}"><i class="fa-solid fa-microphone-lines"></i> Repeat & Rate</button>
                <button class="translate-msg-btn btn btn-sm btn-outline" style="font-size:10px; margin-left:8px; padding:1px 6px; border-radius:4px;"><i class="fa-solid fa-language"></i> 🇷🇺 Translate / Перевод</button>
                <div class="msg-translation-box hidden" style="font-size:11px; color:#cbd5e1; margin-top:6px; padding:6px 10px; background:rgba(255,255,255,0.06); border-radius:6px; border-left:3px solid var(--primary);"></div>` 
             : '';
@@ -568,7 +855,46 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (role === 'assistant') {
             const audioBtn = bubble.querySelector(".audio-play-link");
-            if (audioBtn) audioBtn.addEventListener("click", () => flashcardEngine.speak(text));
+            if (audioBtn) {
+                audioBtn.addEventListener("click", () => {
+                    checkAndAwardListeningBonus(text, activeHeroId);
+                    audioBtn.classList.remove("unheard-highlight");
+                    audioBtn.classList.add("listened");
+                    audioBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Speaking...`;
+                    voiceService.speak(
+                        text,
+                        () => { audioBtn.innerHTML = `<i class="fa-solid fa-volume-high"></i> Speaking...`; },
+                        () => { audioBtn.innerHTML = `<i class="fa-solid fa-volume-high"></i> Listen`; },
+                        getActiveHeroVoiceConfig()
+                    );
+                });
+            }
+
+            const repeatBtn = bubble.querySelector(".repeat-sentence-btn");
+            if (repeatBtn) {
+                repeatBtn.addEventListener("click", () => {
+                    if (voiceService.isRecording) {
+                        voiceService.stopListening();
+                        repeatBtn.classList.remove("listening");
+                        return;
+                    }
+
+                    voiceService.startListening(
+                        (spokenTranscript) => {
+                            const accuracy = calculatePronunciationAccuracy(text, spokenTranscript);
+                            renderPronunciationBadge(bubble, accuracy, text, activeHeroId);
+                        },
+                        (isListening, msg) => {
+                            if (isListening) repeatBtn.classList.add("listening");
+                            else repeatBtn.classList.remove("listening");
+                        },
+                        (err) => {
+                            repeatBtn.classList.remove("listening");
+                            showToast(`⚠️ ${err}`, "rgba(239, 68, 68, 0.9)");
+                        }
+                    );
+                });
+            }
 
             const translateBtn = bubble.querySelector(".translate-msg-btn");
             const translationBox = bubble.querySelector(".msg-translation-box");
@@ -642,6 +968,41 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
+        // PER-HERO AUDIO & TYPING REWARDS (Rule 1, Rule 3, Rule 5)
+        const activeHeroId = (activeScenario && activeScenario.isHeroScenario && activeScenario.heroId) ? activeScenario.heroId : null;
+
+        if (activeHeroId) {
+            const state = getTodayHeroAudioState(activeHeroId);
+            let xpGain = 0;
+
+            if (usedMicInCurrentDraft) {
+                // Rule 1: Mic Input
+                state.micCount++;
+                xpGain = state.micCount <= 10 ? 50 : (state.micCount <= 30 ? 30 : 10);
+                triggerRPGReward("mic", activeHeroId, activeHeroId, xpGain);
+                showToast(`🎙️ +${xpGain} XP Hero Mic Bonus! (Use ${state.micCount}/20)`, "linear-gradient(135deg, #ec4899, #be185d)");
+            } else {
+                // Rule 3: Typed Input
+                state.typedCount++;
+                xpGain = state.typedCount <= 10 ? 30 : (state.typedCount <= 30 ? 20 : 5);
+                triggerRPGReward("text", activeHeroId, activeHeroId, xpGain);
+                showToast(`⌨️ +${xpGain} XP Hero Typing Bonus! (Use ${state.typedCount}/20)`, "linear-gradient(135deg, #8b5cf6, #6d28d9)");
+            }
+
+            // Rule 5: Full Cycle Combo Check (If last AI message was Listened + Repeated + current message used Mic)
+            if (usedMicInCurrentDraft && lastAiMessageContent) {
+                const lastMsgId = lastAiMessageContent.slice(0, 30);
+                if (state.listenedMsgs.includes(lastMsgId) && state.repeatedMsgs.includes(lastMsgId) && !state.comboMsgs.includes(lastMsgId)) {
+                    state.comboMsgs.push(lastMsgId);
+                    triggerRPGReward("combo", activeHeroId, activeHeroId, 30);
+                    showToast(`🔥 +30 XP FULL CYCLE COMBO BONUS! (Listen + Repeat + Respond)`, "linear-gradient(135deg, #f59e0b, #d97706)");
+                }
+            }
+
+            saveTodayHeroAudioState(activeHeroId, state);
+        }
+        usedMicInCurrentDraft = false; // Reset flag for next draft!
+
         // Re-render hero word cheatsheet to update chip colors & tooltips live!
         renderHeroWordHelperPanel(activeScenario);
 
@@ -656,9 +1017,16 @@ document.addEventListener("DOMContentLoaded", () => {
             : [];
 
         const aiResponse = await aiService.generateResponse(chatHistory, activeScenario, targetHeroObjects);
+        lastAiMessageContent = aiResponse.text; // Store last AI response for combo tracking
 
         chatMessagesBox.removeChild(typingBubble);
         appendMessage("assistant", aiResponse.text, aiResponse.translation);
+
+        const autoSpeakToggle = document.getElementById("auto-speak-toggle");
+        if (autoSpeakToggle && autoSpeakToggle.checked) {
+            checkAndAwardListeningBonus(aiResponse.text, activeHeroId);
+            voiceService.speak(aiResponse.text, null, null, getActiveHeroVoiceConfig());
+        }
 
         const clientEval = evaluateUserGrammarClientSide(text);
         let aiCorr = (aiResponse.correction && !aiResponse.correction.includes("✅"))
@@ -762,7 +1130,11 @@ document.addEventListener("DOMContentLoaded", () => {
             const easeFactor = (currentCard.easeFactor || 2.5).toFixed(2);
             const batchLabel = flashcardEngine.currentCategory === "🧠 Due for SRS Review" ? "SRS Queue" : `Batch ${flashcardEngine.batchIndex + 1} (Portion: 10 Words)`;
 
-            cardTag.innerHTML = `${flashcardEngine.currentCategory} &bull; <small class="font-mono" style="color:var(--heart)">${batchLabel} | SRS: ${intervalDays}d</small>`;
+            const cardHeroId = getHeroIdForCard(currentCard);
+            const cardHeroObj = cardHeroId ? rpgEngine.heroes.find(h => h.id === cardHeroId) : null;
+            const categoryDisplay = cardHeroObj ? `🛡️ ${cardHeroObj.name}'s Word` : flashcardEngine.currentCategory;
+
+            cardTag.innerHTML = `${categoryDisplay} &bull; <small class="font-mono" style="color:var(--heart)">${batchLabel} | SRS: ${intervalDays}d</small>`;
             cardWord.textContent = currentCard.word;
             cardPhonetic.textContent = currentCard.phonetic;
             cardTranslation.textContent = currentCard.translation;
@@ -827,13 +1199,26 @@ document.addEventListener("DOMContentLoaded", () => {
     cardSpeakBtn.addEventListener("click", (e) => {
         e.stopPropagation();
         const card = flashcardEngine.getCurrentCard();
-        if (card) flashcardEngine.speak(card.word);
+        if (card) {
+            const cardHeroId = getHeroIdForCard(card) || getHeroIdFromCategory(flashcardEngine.currentCategory);
+            const heroObj = cardHeroId ? rpgEngine.heroes.find(h => h.id === cardHeroId) : null;
+            const heroVoiceConfig = heroObj?.voiceConfig || null;
+
+            cardSpeakBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i>`;
+            flashcardEngine.speak(
+                card.word,
+                () => { cardSpeakBtn.innerHTML = `<i class="fa-solid fa-wave-square fa-beat"></i>`; },
+                () => { cardSpeakBtn.innerHTML = `<i class="fa-solid fa-volume-high"></i>`; },
+                heroVoiceConfig
+            );
+        }
     });
 
     rateBtns.forEach(btn => {
         btn.addEventListener("click", () => {
             const rating = btn.getAttribute("data-rating");
-            const targetHeroId = getHeroIdFromCategory(flashcardEngine.currentCategory);
+            const currentCard = flashcardEngine.getCurrentCard();
+            const targetHeroId = getHeroIdForCard(currentCard) || getHeroIdFromCategory(flashcardEngine.currentCategory);
             
             const rateResult = flashcardEngine.rateCard(rating);
             if (!rateResult.success) {
@@ -1024,10 +1409,19 @@ document.addEventListener("DOMContentLoaded", () => {
             quizScore++;
             quizFeedbackBox.style.background = "rgba(16, 185, 129, 0.15)";
             quizFeedbackBox.style.border = "1px solid var(--success)";
-            quizFeedbackBox.innerHTML = `<strong>✅ Correct!</strong> ${explanation}`;
-            addXP(20);
 
-            triggerRPGReward("quiz", currentGrammarTopic.heroId, currentGrammarTopic.heroId);
+            const todayStr = new Date().toISOString().split('T')[0];
+            const topicKey = `quiz_xp_done_${todayStr}_${currentGrammarTopic ? currentGrammarTopic.id : 'general'}`;
+            const alreadyEarnedToday = localStorage.getItem(topicKey) === "true";
+
+            if (!alreadyEarnedToday) {
+                localStorage.setItem(topicKey, "true");
+                quizFeedbackBox.innerHTML = `<strong>✅ Correct! (+30 XP)</strong> ${explanation}`;
+                addXP(20);
+                triggerRPGReward("quiz", currentGrammarTopic ? currentGrammarTopic.heroId : null, currentGrammarTopic ? currentGrammarTopic.heroId : null);
+            } else {
+                quizFeedbackBox.innerHTML = `<strong>✅ Correct! (Practice mode — 0 XP, daily reward earned)</strong> ${explanation}`;
+            }
         } else {
             quizFeedbackBox.style.background = "rgba(239, 68, 68, 0.15)";
             quizFeedbackBox.style.border = "1px solid var(--danger)";
@@ -1143,7 +1537,13 @@ document.addEventListener("DOMContentLoaded", () => {
     if (playShadowAudioBtn) {
         playShadowAudioBtn.addEventListener("click", () => {
             const sentenceText = document.getElementById("shadow-text") ? document.getElementById("shadow-text").textContent : "Hello";
-            flashcardEngine.speak(sentenceText);
+            playShadowAudioBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i>`;
+            flashcardEngine.speak(
+                sentenceText,
+                () => { playShadowAudioBtn.innerHTML = `<i class="fa-solid fa-volume-high"></i> Speaking...`; },
+                () => { playShadowAudioBtn.innerHTML = `<i class="fa-solid fa-volume-high"></i> Listen Sentence`; },
+                null
+            );
         });
     }
 
@@ -1188,6 +1588,7 @@ document.addEventListener("DOMContentLoaded", () => {
         heroesGridContainer.innerHTML = "";
         rpgEngine.heroes.forEach(hero => {
             const eff = rpgEngine.getHeroEffectiveStats(hero);
+            const heroPower = rpgEngine.getHeroPower(hero);
             const card = document.createElement("div");
             card.className = `hero-card ${hero.unlocked ? '' : 'locked'}`;
 
@@ -1200,17 +1601,22 @@ document.addEventListener("DOMContentLoaded", () => {
                 : `<i class="fa-solid ${hero.avatar}"></i>`;
 
             card.innerHTML = `
-                <div class="hero-header-row">
-                    <div class="hero-avatar-box" style="background:${hero.color}; overflow:hidden;">
-                        ${avatarHtml}
+                <div class="hero-header-row" style="display:flex; justify-content:space-between; align-items:center;">
+                    <div style="display:flex; align-items:center; gap:10px;">
+                        <div class="hero-avatar-box" style="background:${hero.color}; overflow:hidden;">
+                            ${avatarHtml}
+                        </div>
+                        <div class="hero-title-group">
+                            <h4>${hero.name} <small class="font-mono">Lvl ${hero.level}/100</small></h4>
+                            <div class="hero-cefr-tag">${hero.cefrLevel} (100 Words)</div>
+                        </div>
                     </div>
-                    <div class="hero-title-group">
-                        <h4>${hero.name} <small class="font-mono">Lvl ${hero.level}/100</small></h4>
-                        <div class="hero-cefr-tag">${hero.cefrLevel} (100 Words)</div>
+                    <div class="hero-power-tag" style="background:rgba(245,158,11,0.18); border:1px solid rgba(245,158,11,0.4); color:#fbbf24; padding:3px 8px; border-radius:10px; font-weight:800; font-size:12px; display:inline-flex; align-items:center; gap:4px;" title="Hero Individual Power Rating">
+                        <i class="fa-solid fa-khanda" style="font-size:11px;"></i> ${heroPower} PWR
                     </div>
                 </div>
 
-                <div style="display:flex; justify-content:space-between; align-items:center;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px;">
                     <div class="hero-heart-badge" title="Heart Stat Bonus (+${eff.heartMultiplier}% to all stats)"><i class="fa-solid fa-heart"></i> ${hero.affinityLevel}/100 💕 (+${eff.heartMultiplier}%)</div>
                     ${hero.unlocked ? (hero.affinityLevel >= hero.level 
                         ? `<button class="btn btn-sm btn-outline affinity-btn" style="opacity:0.65;" data-heroid="${hero.id}"><i class="fa-solid fa-lock"></i> Lvl ${hero.affinityLevel + 1} Needed</button>`
@@ -1218,20 +1624,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
 
                 ${hero.unlocked ? `
-                <div style="display:flex; gap:8px;">
+                <div style="display:flex; gap:8px; margin-top:8px;">
                     <button class="btn btn-sm btn-secondary train-words-btn" style="flex:1;"><i class="fa-solid fa-layer-group"></i> Train Words (${hero.words.length})</button>
                     <button class="btn btn-sm btn-secondary train-grammar-btn" style="flex:1;"><i class="fa-solid fa-graduation-cap"></i> Train Grammar</button>
                 </div>
                 ` : ''}
 
-                <div class="hero-stats-list font-mono">
+                <div class="hero-stats-list font-mono" style="margin-top:8px;">
                     <div>HP: <strong>${eff.hp}</strong></div>
                     <div>ATK: <strong>${eff.atk}</strong></div>
                     <div>DEF: <strong>${eff.def}</strong></div>
                     <div>Role: <strong>${hero.role}</strong></div>
                 </div>
 
-                <div>
+                <div style="margin-top:8px;">
                     <div style="display:flex; justify-content:space-between; font-size:11px;" class="font-mono">
                         <span>XP (Earned by studying)</span>
                         <span>${hero.xp} / ${hero.maxXp}</span>
@@ -1272,6 +1678,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         rpgEngine.heroes.filter(h => h.unlocked).forEach(hero => {
             const isSelected = rpgEngine.selectedSquad.includes(hero.id);
+            const heroPower = rpgEngine.getHeroPower(hero);
             const chip = document.createElement("div");
             chip.className = `squad-chip ${isSelected ? 'active' : ''}`;
             
@@ -1279,7 +1686,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 ? `<img src="${hero.image}" style="width:20px; height:20px; border-radius:50%; margin-right:4px;">` 
                 : `<i class="fa-solid ${hero.avatar}"></i>`;
 
-            chip.innerHTML = `${avatarHtml} ${hero.name} (${hero.role})`;
+            chip.innerHTML = `${avatarHtml} ${hero.name} <small style="color:#fbbf24; font-weight:700; margin-left:3px;">(⚡${heroPower})</small>`;
             
             chip.addEventListener("click", () => {
                 rpgEngine.toggleSquadHero(hero.id);
@@ -1319,7 +1726,16 @@ document.addEventListener("DOMContentLoaded", () => {
     closeAffinityModalBtn.addEventListener("click", () => affinityModal.classList.add("hidden"));
 
     affinityAudioListenBtn.addEventListener("click", () => {
-        if (activeQuest) flashcardEngine.speak(activeQuest.dialogueText);
+        if (activeQuest) {
+            const heroObj = rpgEngine.heroes.find(h => h.id === activeQuest.heroId);
+            affinityAudioListenBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i>`;
+            flashcardEngine.speak(
+                activeQuest.dialogueText,
+                () => { affinityAudioListenBtn.innerHTML = `<i class="fa-solid fa-volume-high"></i> Speaking...`; },
+                () => { affinityAudioListenBtn.innerHTML = `<i class="fa-solid fa-volume-high"></i> Listen Hero Voice`; },
+                heroObj?.voiceConfig || null
+            );
+        }
     });
 
     submitAffinityQuestBtn.addEventListener("click", () => {
@@ -1641,6 +2057,49 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    const ttsEngineSelect = document.getElementById("tts-engine-select");
+    const ttsEndpointInput = document.getElementById("tts-endpoint-input");
+    const sttEngineSelect = document.getElementById("stt-engine-select");
+    const sttEndpointInput = document.getElementById("stt-endpoint-input");
+
+    if (ttsEngineSelect) ttsEngineSelect.value = voiceService.ttsEngine;
+    if (ttsEndpointInput) ttsEndpointInput.value = voiceService.ttsEndpoint;
+    if (sttEngineSelect) sttEngineSelect.value = voiceService.sttEngine;
+    if (sttEndpointInput) sttEndpointInput.value = voiceService.sttEndpoint;
+
+    const voiceInputBtn = document.getElementById("voice-input-btn");
+    const speechStatus = document.getElementById("speech-status");
+
+    if (voiceInputBtn) {
+        voiceInputBtn.addEventListener("click", () => {
+            if (voiceService.isRecording) {
+                voiceService.stopListening();
+                voiceInputBtn.classList.remove("recording");
+            } else {
+                voiceService.startListening(
+                    (transcript) => {
+                        if (userChatInput) {
+                            userChatInput.value = transcript;
+                            usedMicInCurrentDraft = true;
+                        }
+                    },
+                    (isListening, statusMsg) => {
+                        if (isListening) {
+                            voiceInputBtn.classList.add("recording");
+                        } else {
+                            voiceInputBtn.classList.remove("recording");
+                        }
+                        if (speechStatus) speechStatus.textContent = statusMsg;
+                    },
+                    (errorMsg) => {
+                        voiceInputBtn.classList.remove("recording");
+                        showToast(`⚠️ ${errorMsg}`, "rgba(239, 68, 68, 0.9)");
+                    }
+                );
+            }
+        });
+    }
+
     if (settingsForm) {
         settingsForm.addEventListener("submit", (e) => {
             e.preventDefault();
@@ -1650,7 +2109,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 modelNameInput.value,
                 systemPromptInput.value
             );
-            alert("💾 Local AI Settings Saved Successfully!");
+            if (ttsEngineSelect && ttsEndpointInput && sttEngineSelect && sttEndpointInput) {
+                voiceService.saveVoiceSettings(
+                    ttsEngineSelect.value,
+                    ttsEndpointInput.value,
+                    sttEngineSelect.value,
+                    sttEndpointInput.value
+                );
+            }
+            alert("💾 Local AI & Voice Settings Saved Successfully!");
         });
     }
 

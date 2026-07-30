@@ -139,8 +139,12 @@ body {
 .mic-btn, .send-btn { width: 44px; height: 44px; border-radius: 12px; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px; transition: var(--transition); flex-shrink: 0; }
 .mic-btn { background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-main); }
 .mic-btn:hover { border-color: var(--accent); color: var(--accent); }
-.mic-btn.listening { background: var(--danger); color: white; animation: pulse 1.5s infinite; }
+.mic-btn.listening, .mic-btn.recording { background: var(--danger); color: white; animation: pulse 1.5s infinite; }
 @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); } 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); } }
+.message-speak-btn { background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); color: var(--text-muted); width: 28px; height: 28px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 12px; cursor: pointer; transition: var(--transition); margin-left: 8px; vertical-align: middle; }
+.message-speak-btn:hover { background: var(--primary); color: white; border-color: var(--primary); transform: scale(1.1); }
+.message-speak-btn.playing { background: #10b981; color: white; border-color: #10b981; animation: pulse-green 1.2s infinite; }
+@keyframes pulse-green { 0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); } 70% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); } 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); } }
 .send-btn { background: linear-gradient(135deg, var(--primary), var(--accent)); color: white; box-shadow: 0 4px 12px var(--primary-glow); }
 .send-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 18px var(--primary-glow); }
 #user-chat-input { flex: 1; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 12px 16px; color: var(--text-main); font-family: var(--font-body); font-size: 14px; resize: none; outline: none; transition: var(--transition); }
@@ -343,6 +347,77 @@ body {
 .modal-backdrop.hidden { display: none; }
 .modal-card { width: 520px; max-width: 90vw; }
 .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+
+/* Pronunciation Repeat & Evaluation Badge */
+.repeat-sentence-btn { background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15); color: var(--text-muted); padding: 2px 10px; border-radius: 12px; font-size: 11px; cursor: pointer; transition: var(--transition); display: inline-flex; align-items: center; gap: 4px; margin-left: 8px; }
+.repeat-sentence-btn:hover { background: var(--accent); color: white; border-color: var(--accent); transform: scale(1.05); }
+.repeat-sentence-btn.listening { background: var(--danger); color: white; animation: pulse 1.2s infinite; }
+
+.pronunciation-badge { display: inline-block; margin-top: 6px; padding: 4px 10px; border-radius: 8px; font-size: 11px; font-weight: 700; font-family: var(--font-mono); }
+.pronunciation-badge.perfect { background: rgba(16, 185, 129, 0.2); border: 1px solid #10b981; color: #34d399; }
+.pronunciation-badge.good { background: rgba(245, 158, 11, 0.2); border: 1px solid #f59e0b; color: #fbbf24; }
+.pronunciation-badge.retry { background: rgba(239, 68, 68, 0.2); border: 1px solid #ef4444; color: #fca5a5; }
+
+@keyframes bounce { 0% { transform: translateY(0); } 100% { transform: translateY(-8px); } }
 .modal-close { background: none; border: none; color: var(--text-muted); font-size: 24px; cursor: pointer; }
 .modal-footer { display: flex; justify-content: flex-end; margin-top: 12px; }
 .hidden { display: none !important; }
+
+/* STACKED TOAST NOTIFICATIONS (Prevents Overlapping Clutter) */
+#toast-container {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 10px;
+    max-width: 380px;
+    width: calc(100% - 48px);
+    pointer-events: none;
+}
+
+.toast-notification {
+    pointer-events: auto;
+    font-family: var(--font-body);
+    animation: toastSlideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+@keyframes toastSlideIn {
+    from { opacity: 0; transform: translateX(100%) scale(0.9); }
+    to { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+/* AI TUTOR MESSAGE UNUSED BUTTON HIGHLIGHTS */
+.audio-play-link.unheard-highlight {
+    background: linear-gradient(135deg, rgba(14, 165, 233, 0.25), rgba(59, 130, 246, 0.35)) !important;
+    border: 1.5px solid #38bdf8 !important;
+    color: #38bdf8 !important;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+    animation: pulse-glow-blue 2s infinite alternate;
+}
+
+.repeat-sentence-btn.unrepeated-highlight {
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.25), rgba(236, 72, 153, 0.35)) !important;
+    border: 1.5px solid #c084fc !important;
+    color: #f472b6 !important;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+    animation: pulse-glow-purple 2s infinite alternate;
+}
+
+@keyframes pulse-glow-blue {
+    0% { box-shadow: 0 0 4px rgba(56, 189, 248, 0.3); }
+    100% { box-shadow: 0 0 14px rgba(56, 189, 248, 0.8); }
+}
+
+@keyframes pulse-glow-purple {
+    0% { box-shadow: 0 0 4px rgba(168, 85, 247, 0.3); }
+    100% { box-shadow: 0 0 14px rgba(168, 85, 247, 0.8); }
+}

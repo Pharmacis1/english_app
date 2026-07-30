@@ -120,10 +120,24 @@
                                     <span class="scenario-subtitle" id="active-scenario-role">Interviewer: Senior Tech Lead</span>
                                 </div>
                             </div>
-                            <div class="chat-actions">
+                            <div class="chat-actions" style="display:flex; align-items:center; gap:12px;">
+                                <label style="display:flex; align-items:center; gap:6px; font-size:12px; cursor:pointer; color:var(--text-muted); user-select:none;">
+                                    <input type="checkbox" id="auto-speak-toggle" style="cursor:pointer; accent-color:var(--primary);">
+                                    <span>🔊 Auto-read AI Voice</span>
+                                </label>
                                 <button class="btn btn-sm btn-outline" id="clear-chat-btn">
                                     <i class="fa-solid fa-rotate-left"></i> Reset Chat
                                 </button>
+                            </div>
+                        </div>
+
+                        <!-- LIVE DAILY HERO AUDIO BONUS TRACKER BAR -->
+                        <div id="hero-daily-bonus-tracker" style="padding:6px 16px; background:rgba(15,23,42,0.8); border-bottom:1px solid rgba(255,255,255,0.08); font-size:11px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+                            <span id="tracker-hero-name" style="font-weight:700; color:var(--primary);">🛡️ Active Hero: Valerius</span>
+                            <div style="display:flex; gap:12px; font-weight:600;">
+                                <span id="tracker-mic-count" title="Rule 1: Mic bonus (+50 XP for first 10/day)">🎙️ Mic: 0/10 (+50 XP)</span>
+                                <span id="tracker-text-count" title="Rule 3: Typed text bonus (+30 XP for first 10/day)">⌨️ Text: 0/10 (+30 XP)</span>
+                                <span id="tracker-combo-tag" style="color:#fbbf24;" title="Rule 5: Full Cycle Combo (+30 XP when Listen + Repeat + Mic Respond on same message!)">🔥 Full Cycle Combo Available</span>
                             </div>
                         </div>
 
@@ -418,7 +432,36 @@
 
                         <div class="setting-group">
                             <label for="system-prompt">System Prompt Customization</label>
-                            <textarea id="system-prompt" class="form-input" rows="4">You are an expert English tutor and conversation partner. Respond clearly in English, ask questions, and correct grammar errors.</textarea>
+                            <textarea id="system-prompt" class="form-input" rows="3">You are an expert English tutor and conversation partner. Respond clearly in English, ask questions, and correct grammar errors.</textarea>
+                        </div>
+
+                        <!-- VOICE AI ENGINE CONFIGURATION (KOKORO & WHISPER) -->
+                        <div style="margin-top:20px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.1);">
+                            <h4 style="font-size:14px; margin-bottom:12px; color:var(--primary);"><i class="fa-solid fa-microphone-lines"></i> Voice AI Engines (Kokoro TTS & Whisper STT)</h4>
+                            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px;">
+                                <div class="setting-group">
+                                    <label for="tts-engine-select">Text-to-Speech Engine (AI Voice)</label>
+                                    <select id="tts-engine-select" class="form-input">
+                                        <option value="native">Browser Native Synthesis (Fast)</option>
+                                        <option value="kokoro">Kokoro TTS (Local Studio AI Server)</option>
+                                    </select>
+                                </div>
+                                <div class="setting-group">
+                                    <label for="tts-endpoint-input">Kokoro TTS Server Endpoint</label>
+                                    <input type="text" id="tts-endpoint-input" class="form-input" value="http://localhost:8880">
+                                </div>
+                                <div class="setting-group">
+                                    <label for="stt-engine-select">Speech-to-Text Engine (Microphone)</label>
+                                    <select id="stt-engine-select" class="form-input">
+                                        <option value="native">Browser WebSpeech API (Instant)</option>
+                                        <option value="whisper">Whisper STT (Local AI Server)</option>
+                                    </select>
+                                </div>
+                                <div class="setting-group">
+                                    <label for="stt-endpoint-input">Whisper STT Server Endpoint</label>
+                                    <input type="text" id="stt-endpoint-input" class="form-input" value="http://localhost:8000">
+                                </div>
+                            </div>
                         </div>
 
                         <div class="settings-buttons">
@@ -524,9 +567,40 @@
                 <button class="btn btn-primary" id="submit-affinity-quest-btn">Submit Quest Answer</button>
             </div>
         </div>
-    </div>
+    <!-- HERO LEVEL UP CELEBRATION POPUP MODAL 🎉 -->
+    <div class="modal-backdrop hidden" id="hero-level-up-modal" style="z-index:9999;">
+        <div class="modal-card glass-card level-up-modal-card" style="text-align:center; max-width:440px; padding:28px 24px; border:2px solid #f59e0b; box-shadow:0 0 40px rgba(245,158,11,0.5);">
+            <div style="font-size:48px; margin-bottom:8px; animation:bounce 1s infinite alternate;">🎉 👑 ⚡</div>
+            <h2 style="font-size:26px; font-weight:900; color:#fbbf24; margin-bottom:4px; text-transform:uppercase; letter-spacing:1px;" id="lvlup-title">LEVEL UP!</h2>
+            <h3 style="font-size:18px; color:var(--text-main); margin-bottom:16px;" id="lvlup-hero-name">Valerius Reached Level 2!</h3>
+            
+            <div id="lvlup-hero-avatar-box" style="margin:0 auto 16px auto; width:90px; height:90px; border-radius:50%; border:3px solid #f59e0b; overflow:hidden; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,0.5); box-shadow:0 0 25px rgba(245,158,11,0.4);">
+                <i class="fa-solid fa-shield-halved" style="font-size:42px; color:#3b82f6;" id="lvlup-hero-icon"></i>
+            </div>
 
-    <!-- Scripts: Note heroes.js is placed BEFORE flashcards.js to ensure HEROES_DATA is available -->
+            <div style="background:rgba(15,23,42,0.8); border:1px solid rgba(255,255,255,0.1); border-radius:12px; padding:14px; margin-bottom:20px; text-align:left;">
+                <div style="font-size:12px; font-weight:700; color:var(--text-muted); margin-bottom:8px; text-transform:uppercase; letter-spacing:0.5px;">⚔️ Stat Improvements</div>
+                <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; text-align:center;">
+                    <div style="background:rgba(239,68,68,0.15); border:1px solid rgba(239,68,68,0.3); border-radius:8px; padding:8px 4px;">
+                        <div style="font-size:10px; color:#fca5a5;">MAX HP</div>
+                        <div style="font-size:14px; font-weight:800; color:#ef4444;" id="lvlup-hp-gain">+38 HP</div>
+                    </div>
+                    <div style="background:rgba(245,158,11,0.15); border:1px solid rgba(245,158,11,0.3); border-radius:8px; padding:8px 4px;">
+                        <div style="font-size:10px; color:#fde047;">ATK</div>
+                        <div style="font-size:14px; font-weight:800; color:#f59e0b;" id="lvlup-atk-gain">+3 ATK</div>
+                    </div>
+                    <div style="background:rgba(59,130,246,0.15); border:1px solid rgba(59,130,246,0.3); border-radius:8px; padding:8px 4px;">
+                        <div style="font-size:10px; color:#93c5fd;">DEF</div>
+                        <div style="font-size:14px; font-weight:800; color:#3b82f6;" id="lvlup-def-gain">+2 DEF</div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn-primary btn-lg" id="close-lvlup-modal-btn" style="width:100%; font-size:16px; padding:12px; box-shadow:0 0 20px rgba(245,158,11,0.5);">
+                <i class="fa-solid fa-circle-check"></i> Continue Training!
+            </button>
+        </div>
+    </div>
     <script src="scenarios.js"></script>
     <script src="heroes.js"></script>
     <script src="flashcards.js"></script>

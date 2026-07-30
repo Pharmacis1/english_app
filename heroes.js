@@ -546,83 +546,93 @@ function generateHeroWords(heroId) {
 const HEROES_DATA = [
     {
         id: "valerius", name: "Valerius", role: "Main Tank", cefrRank: 1, cefrLevel: "A0 (Greetings & Identity)", title: "The Silver Paladin",
-        avatar: "fa-shield-halved", color: "#3b82f6", image: "images/hero_valerius_1785227640124.jpg", unlocked: true, level: 1, xp: 0, maxXp: 100, affinityLevel: 0,
+        avatar: "fa-shield-halved", color: "#3b82f6", image: "images/hero_valerius_1785227640124.jpg", unlocked: true, level: 1, xp: 0, maxXp: 150, affinityLevel: 0,
         hp: 250, maxHp: 250, atk: 22, def: 18, skillName: "Aegis Shield", skillDesc: "Taunts all enemies & increases DEF.", skillIcon: "fa-shield",
         words: generateHeroWords("valerius"),
         sentenceTemplates: ["Hello, I am [Valerius].", "My name is [a hero].", "I am [happy / ready]."],
-        grammarRules: ["Глагол 'to be' (am, is, are)", "Личные местоимения (I, You, He, She, It)"]
+        grammarRules: ["Глагол 'to be' (am, is, are)", "Личные местоимения (I, You, He, She, It)"],
+        voiceConfig: { kokoroVoice: "am_adam", gender: "male", pitch: 0.9, rate: 0.95 }
     },
     {
         id: "astraea", name: "Astraea", role: "Healer", cefrRank: 1, cefrLevel: "A0 (Daily Actions & Food)", title: "High Priestess of Light",
-        avatar: "fa-wand-magic-sparkles", color: "#10b981", image: "images/hero_astraea_1785227651575.jpg", unlocked: false, level: 1, xp: 0, maxXp: 100, affinityLevel: 0,
+        avatar: "fa-wand-magic-sparkles", color: "#10b981", image: "images/hero_astraea_1785227651575.jpg", unlocked: false, level: 1, xp: 0, maxXp: 150, affinityLevel: 0,
         hp: 180, maxHp: 180, atk: 14, def: 6, skillName: "Holy Radiance", skillDesc: "Restores 140 HP.", skillIcon: "fa-hand-holding-medical",
         words: generateHeroWords("astraea"),
         sentenceTemplates: ["I have [a goal].", "I want to [eat / help].", "Do you like [tea]?"],
-        grammarRules: ["Глагол to have", "Глагол to want + to + verb"]
+        grammarRules: ["Глагол to have", "Глагол to want + to + verb"],
+        voiceConfig: { kokoroVoice: "af_heart", gender: "female", pitch: 1.1, rate: 0.9 }
     },
     {
         id: "ignis", name: "Ignis", role: "Main DD", cefrRank: 1, cefrLevel: "A0 (Objects, Colors & Clothes)", title: "Pyromancer Archmage",
-        avatar: "fa-fire-flame-curved", color: "#ef4444", image: "images/hero_ignis_1785227663250.jpg", unlocked: false, level: 1, xp: 0, maxXp: 100, affinityLevel: 0,
+        avatar: "fa-fire-flame-curved", color: "#ef4444", image: "images/hero_ignis_1785227663250.jpg", unlocked: false, level: 1, xp: 0, maxXp: 150, affinityLevel: 0,
         hp: 160, maxHp: 160, atk: 45, def: 5, skillName: "Flame Tempest", skillDesc: "Deals 200 AoE damage.", skillIcon: "fa-burst",
         words: generateHeroWords("ignis"),
         sentenceTemplates: ["This is my [red shirt].", "That is a [blue computer]."],
-        grammarRules: ["Указатели This / That / These / Those", "Цвета и артикли a / an"]
+        grammarRules: ["Указатели This / That / These / Those", "Цвета и артикли a / an"],
+        voiceConfig: { kokoroVoice: "am_fenrir", gender: "male", pitch: 1.15, rate: 1.05 }
     },
     {
         id: "frostina", name: "Frostina", role: "Control", cefrRank: 2, cefrLevel: "A0 (Time, Weather & Routines)", title: "Ice Sorceress",
-        avatar: "fa-snowflake", color: "#06b6d4", image: "images/hero_frostina_1785227676165.jpg", unlocked: false, level: 1, xp: 0, maxXp: 100, affinityLevel: 0,
+        avatar: "fa-snowflake", color: "#06b6d4", image: "images/hero_frostina_1785227676165.jpg", unlocked: false, level: 1, xp: 0, maxXp: 150, affinityLevel: 0,
         hp: 170, maxHp: 170, atk: 32, def: 6, skillName: "Deep Freeze", skillDesc: "Freezes enemies.", skillIcon: "fa-icicles",
         words: generateHeroWords("frostina"),
         sentenceTemplates: ["I [always / usually] wake up early.", "It is [cold / sunny] today."],
-        grammarRules: ["Present Simple", "Наречия частоты (always, usually, never)"]
+        grammarRules: ["Present Simple", "Наречия частоты (always, usually, never)"],
+        voiceConfig: { kokoroVoice: "af_bella", gender: "female", pitch: 0.95, rate: 0.85 }
     },
     {
         id: "zephyr", name: "Zephyr", role: "Buffer", cefrRank: 2, cefrLevel: "A0 (Places, Directions & Questions)", title: "Wind Marksman",
-        avatar: "fa-wind", color: "#f59e0b", image: "images/hero_zephyr_1785227690322.jpg", unlocked: false, level: 1, xp: 0, maxXp: 100, affinityLevel: 0,
+        avatar: "fa-wind", color: "#f59e0b", image: "images/hero_zephyr_1785227690322.jpg", unlocked: false, level: 1, xp: 0, maxXp: 150, affinityLevel: 0,
         hp: 190, maxHp: 190, atk: 38, def: 7, skillName: "Haste Wind", skillDesc: "Fills party energy.", skillIcon: "fa-feather",
         words: generateHeroWords("zephyr"),
         sentenceTemplates: ["Where is [the school]?", "It is [next to the park]."],
-        grammarRules: ["Вопросы Where, When, Why, How", "Предлоги in, on, at, next to, behind"]
+        grammarRules: ["Вопросы Where, When, Why, How", "Предлоги in, on, at, next to, behind"],
+        voiceConfig: { kokoroVoice: "am_echo", gender: "male", pitch: 1.1, rate: 1.1 }
     },
     {
         id: "thorin", name: "Thorin", role: "Melee DD", cefrRank: 2, cefrLevel: "A0/A1 (Descriptions & Opposites)", title: "Dwarven Berserker",
-        avatar: "fa-gavel", color: "#8b5cf6", image: null, unlocked: false, level: 1, xp: 0, maxXp: 100, affinityLevel: 0,
+        avatar: "fa-gavel", color: "#8b5cf6", image: null, unlocked: false, level: 1, xp: 0, maxXp: 150, affinityLevel: 0,
         hp: 280, maxHp: 280, atk: 48, def: 12, skillName: "Earthquake Smash", skillDesc: "Stuns target.", skillIcon: "fa-burst",
         words: generateHeroWords("thorin"),
         sentenceTemplates: ["This hammer is [big and heavy].", "A [strong] warrior."],
-        grammarRules: ["Прилагательные-антонимы (big/small, hot/cold)", "Порядок слов"]
+        grammarRules: ["Прилагательные-антонимы (big/small, hot/cold)", "Порядок слов"],
+        voiceConfig: { kokoroVoice: "bm_george", gender: "male", pitch: 0.75, rate: 0.9 }
     },
     {
         id: "selene", name: "Selene", role: "Assassin", cefrRank: 3, cefrLevel: "A1 (Ability Can/Cannot & Hobbies)", title: "Shadow Stalker",
-        avatar: "fa-user-ninja", color: "#ec4899", image: null, unlocked: false, level: 1, xp: 0, maxXp: 100, affinityLevel: 0,
+        avatar: "fa-user-ninja", color: "#ec4899", image: null, unlocked: false, level: 1, xp: 0, maxXp: 150, affinityLevel: 0,
         hp: 210, maxHp: 210, atk: 58, def: 8, skillName: "Shadow Strike", skillDesc: "Deals 300 crit damage.", skillIcon: "fa-skull",
         words: generateHeroWords("selene"),
         sentenceTemplates: ["Can you [play guitar]? -> Yes, I can.", "I cannot [swim]."],
-        grammarRules: ["Модальный глагол Can / Cannot", "Глаголы хобби и спорта"]
+        grammarRules: ["Модальный глагол Can / Cannot", "Глаголы хобби и спорта"],
+        voiceConfig: { kokoroVoice: "af_sarah", gender: "female", pitch: 0.85, rate: 0.95 }
     },
     {
         id: "oberon", name: "Oberon", role: "Druid", cefrRank: 3, cefrLevel: "A1 (Present Continuous & Nature)", title: "Arch-Druid of Nature",
-        avatar: "fa-leaf", color: "#84cc16", image: null, unlocked: false, level: 1, xp: 0, maxXp: 100, affinityLevel: 0,
+        avatar: "fa-leaf", color: "#84cc16", image: null, unlocked: false, level: 1, xp: 0, maxXp: 150, affinityLevel: 0,
         hp: 230, maxHp: 230, atk: 28, def: 10, skillName: "Rejuvenation Vine", skillDesc: "Heals party.", skillIcon: "fa-seedling",
         words: generateHeroWords("oberon"),
         sentenceTemplates: ["I am [walking in the forest] right now.", "Birds are [singing]."],
-        grammarRules: ["Present Continuous (be + V-ing)", "Природа и животные"]
+        grammarRules: ["Present Continuous (be + V-ing)", "Природа и животные"],
+        voiceConfig: { kokoroVoice: "bm_lewis", gender: "male", pitch: 0.85, rate: 0.88 }
     },
     {
         id: "freya", name: "Freya", role: "Valkyrie Sub-Tank", cefrRank: 4, cefrLevel: "A1 (Past Simple & Travel)", title: "Shieldmaiden Valkyrie",
-        avatar: "fa-shield-heart", color: "#f43f5e", image: null, unlocked: false, level: 1, xp: 0, maxXp: 100, affinityLevel: 0,
+        avatar: "fa-shield-heart", color: "#f43f5e", image: null, unlocked: false, level: 1, xp: 0, maxXp: 150, affinityLevel: 0,
         hp: 310, maxHp: 310, atk: 35, def: 15, skillName: "Valkyrie Charge", skillDesc: "Knocks back enemies.", skillIcon: "fa-person-through-window",
         words: generateHeroWords("freya"),
         sentenceTemplates: ["Yesterday I [visited a museum].", "We [went by train]."],
-        grammarRules: ["Past Simple (was/were, visited, went)", "Путешествия и транспорт"]
+        grammarRules: ["Past Simple (was/were, visited, went)", "Путешествия и транспорт"],
+        voiceConfig: { kokoroVoice: "bf_emma", gender: "female", pitch: 1.05, rate: 1.0 }
     },
     {
         id: "eldrin", name: "Eldrin", role: "Grand Archmage", cefrRank: 5, cefrLevel: "A1 (A1 Graduation Mastery)", title: "Grand Archmage",
-        avatar: "fa-hat-wizard", color: "#a855f7", image: null, unlocked: false, level: 1, xp: 0, maxXp: 100, affinityLevel: 0,
+        avatar: "fa-hat-wizard", color: "#a855f7", image: null, unlocked: false, level: 1, xp: 0, maxXp: 150, affinityLevel: 0,
         hp: 260, maxHp: 260, atk: 65, def: 14, skillName: "Arcane Nova", skillDesc: "Deals 500 massive damage.", skillIcon: "fa-meteor",
         words: generateHeroWords("eldrin"),
         sentenceTemplates: ["I have [achieved A1 mastery].", "I can speak English with confidence."],
-        grammarRules: ["Комплексное повторение всей грамматики и речи уровня A1"]
+        grammarRules: ["Комплексное повторение всей грамматики и речи уровня A1"],
+        voiceConfig: { kokoroVoice: "am_michael", gender: "male", pitch: 0.95, rate: 0.92 }
     }
 ];
 
@@ -717,19 +727,21 @@ class RPGEngine {
                 const parsed = JSON.parse(saved);
                 return HEROES_DATA.map(defaultHero => {
                     const savedHero = parsed.find(h => h.id === defaultHero.id);
-                    if (savedHero) {
                         const heroLevel = savedHero.level || defaultHero.level;
                         const heroAffinity = Math.min(heroLevel, savedHero.affinityLevel !== undefined ? savedHero.affinityLevel : 0);
+                        const calculatedMaxXp = Math.round(150 + (heroLevel - 1) * 3);
+                        let heroXp = savedHero.xp || defaultHero.xp;
+                        if (heroXp >= calculatedMaxXp) heroXp = calculatedMaxXp - 1; // Prevent overflow
+
                         return {
                             ...defaultHero,
                             level: heroLevel,
-                            xp: savedHero.xp || defaultHero.xp,
-                            maxXp: savedHero.maxXp || defaultHero.maxXp,
+                            xp: heroXp,
+                            maxXp: calculatedMaxXp,
                             affinityLevel: heroAffinity,
                             unlocked: savedHero.unlocked !== undefined ? savedHero.unlocked : defaultHero.unlocked,
                             words: generateHeroWords(defaultHero.id) // Load official Oxford 50 CEFR words!
                         };
-                    }
                     return defaultHero;
                 });
             } catch (e) {}
@@ -779,12 +791,15 @@ class RPGEngine {
         return this.heroes.filter(h => h.unlocked && this.selectedSquad.includes(h.id));
     }
 
+    getHeroPower(h) {
+        if (!h) return 0;
+        const eff = this.getHeroEffectiveStats(h);
+        return Math.round(eff.hp + eff.atk * 3 + eff.def * 2 + h.level * 25);
+    }
+
     getPartyPower() {
         return this.getSelectedHeroes()
-            .reduce((acc, h) => {
-                const eff = this.getHeroEffectiveStats(h);
-                return acc + (eff.hp + eff.atk * 3 + eff.def * 2 + h.level * 25);
-            }, 0);
+            .reduce((acc, h) => acc + this.getHeroPower(h), 0);
     }
 
     // STRICT CEFR TIER XP GATING
@@ -801,6 +816,7 @@ class RPGEngine {
 
         let rewardedHeroNames = [];
         let blockedHeroNames = [];
+        let leveledUpHeroes = [];
         let xpAmount = baseAmount;
 
         let targetArray = null;
@@ -826,15 +842,28 @@ class RPGEngine {
                     if (h.level < 100) {
                         h.xp += xpAmount;
                         rewardedHeroNames.push(h.name);
-                        if (h.xp >= h.maxXp) {
+                        while (h.xp >= h.maxXp && h.level < 100) {
+                            const oldLevel = h.level;
+                            const oldHp = h.maxHp;
+                            const oldAtk = h.atk;
+                            const oldDef = h.def;
+
                             h.level = Math.min(100, h.level + 1);
-                            // Affinity Level 💕 is earned ONLY via Affinity Quests!
                             h.xp -= h.maxXp;
-                            h.maxXp = Math.round(h.maxXp * 1.25);
-                            h.maxHp = Math.round(h.maxHp * 1.15);
+                            h.maxXp = Math.round(150 + (h.level - 1) * 3);
+                            h.maxHp = Math.round(h.maxHp * 1.03);
                             h.hp = h.maxHp;
-                            h.atk = Math.round(h.atk * 1.12);
-                            h.def = Math.round(h.def * 1.10);
+                            h.atk = Math.round(h.atk * 1.02);
+                            h.def = Math.round(h.def * 1.02);
+
+                            leveledUpHeroes.push({
+                                hero: h,
+                                oldLevel,
+                                newLevel: h.level,
+                                hpGain: h.maxHp - oldHp,
+                                atkGain: h.atk - oldAtk,
+                                defGain: h.def - oldDef
+                            });
                         }
                     }
                 }
@@ -845,6 +874,7 @@ class RPGEngine {
         return { 
             rewardedHeroNames, 
             blockedHeroNames, 
+            leveledUpHeroes,
             xpAmount,
             isFocusBonus: false
         };

@@ -9,7 +9,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors());
-app.use(express.json());
+app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ limit: '50mb', extended: true }));
 app.use(express.static(path.join(__dirname))); // Serve static web application
 
 // Initialize Database Connection
@@ -228,6 +229,66 @@ app.post('/api/ai/chat', async (req, res) => {
             ? `Timeout: Model '${model}' took too long. 12B+ models require 10GB+ VRAM. Recommend 7B-8B models (e.g., llama3.1:8b or qwen2.5:7b).`
             : err.message;
         return res.status(500).json({ success: false, error: errorMsg });
+    }
+});
+
+// 9. POST /api/ai/tts — Proxy request to local Kokoro/Piper TTS FastAPI server (OpenAI-compatible)
+app.post('/api/ai/tts', async (req, res) => {
+    const { text, voice, endpoint: rawEndpoint } = req.body;
+    if (!text) return res.status(400).json({ success: false, error: "Text payload missing" });
+
+    const endpoint = (rawEndpoint || 'http://127.0.0.1:8880').replace(/\/$/, '').replace('localhost', '127.0.0.1');
+
+    try {
+        const resp = await fetch(`${endpoint}/v1/audio/speech`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                model: 'kokoro',
+                input: text,
+                voice: voice || 'af_heart',
+                response_format: 'mp3'
+            })
+        });
+
+        if (resp.ok) {
+            const buffer = await resp.arrayBuffer();
+            res.setHeader('Content-Type', 'audio/mpeg');
+            return res.send(Buffer.from(buffer));
+        }
+        return res.status(200).json({ fallback: true, error: `Local Kokoro TTS returned ${resp.status}` });
+    } catch (err) {
+        return res.status(200).json({ fallback: true, error: `Kokoro TTS connection offline` });
+    }
+});
+
+// 10. POST /api/ai/stt — Proxy request to local Whisper STT server (OpenAI-compatible)
+app.post('/api/ai/stt', async (req, res) => {
+    const { audioBase64, endpoint: rawEndpoint } = req.body;
+    if (!audioBase64) return res.status(400).json({ success: false, error: "Audio data missing" });
+
+    const endpoint = (rawEndpoint || 'http://127.0.0.1:8000').replace(/\/$/, '').replace('localhost', '127.0.0.1');
+
+    try {
+        const audioBuffer = Buffer.from(audioBase64.replace(/^data:audio\/\w+;base64,/, ''), 'base64');
+        const formData = new FormData();
+        const blob = new Blob([audioBuffer], { type: 'audio/wav' });
+        formData.append('file', blob, 'speech.wav');
+        formData.append('model', 'whisper-1');
+        formData.append('language', 'en');
+
+        const resp = await fetch(`${endpoint}/v1/audio/transcriptions`, {
+            method: 'POST',
+            body: formData
+        });
+
+        if (resp.ok) {
+            const data = await resp.json();
+            return res.json({ success: true, text: data.text });
+        }
+        return res.status(502).json({ success: false, fallback: true, error: `Local Whisper STT returned ${resp.status}` });
+    } catch (err) {
+        return res.status(502).json({ success: false, fallback: true, error: `Whisper STT connection failed at ${endpoint}: ${err.message}` });
     }
 });
 

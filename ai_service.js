@@ -214,3 +214,266 @@ DO NOT output any translation or extra brackets in the English text.]`;
         return { text: replyText, correction };
     }
 }
+
+class VoiceService {
+    constructor() {
+        this.synth = window.speechSynthesis;
+        this.recognition = null;
+        this.mediaRecorder = null;
+        this.audioChunks = [];
+        this.isRecording = false;
+
+        this.ttsEngine = localStorage.getItem("tts_engine") || "kokoro"; // 'kokoro', 'native'
+        this.ttsEndpoint = localStorage.getItem("tts_endpoint") || "http://127.0.0.1:8880";
+        this.sttEngine = localStorage.getItem("stt_engine") || "whisper"; // 'whisper', 'native'
+        this.sttEndpoint = localStorage.getItem("stt_endpoint") || "http://127.0.0.1:8000";
+
+        this.initRecognition();
+    }
+
+    initRecognition() {
+        if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            this.recognition = new SpeechRecognition();
+            this.recognition.continuous = true;
+            this.recognition.interimResults = true;
+            this.recognition.lang = 'en-US';
+        }
+    }
+
+    saveVoiceSettings(ttsEngine, ttsEndpoint, sttEngine, sttEndpoint) {
+        this.ttsEngine = ttsEngine;
+        this.ttsEndpoint = ttsEndpoint;
+        this.sttEngine = sttEngine;
+        this.sttEndpoint = sttEndpoint;
+
+        localStorage.setItem("tts_engine", ttsEngine);
+        localStorage.setItem("tts_endpoint", ttsEndpoint);
+        localStorage.setItem("stt_engine", sttEngine);
+        localStorage.setItem("stt_endpoint", sttEndpoint);
+    }
+
+    async speak(text, onStart = null, onEnd = null, heroVoiceConfig = null) {
+        this.stopSpeech();
+
+        const cleanText = text.replace(/[*_#`]/g, '').trim();
+        if (!cleanText) return;
+
+        const kokoroVoice = heroVoiceConfig?.kokoroVoice || 'am_adam';
+        const pitch = heroVoiceConfig?.pitch || 1.0;
+        const rate = heroVoiceConfig?.rate || 0.95;
+        const gender = heroVoiceConfig?.gender || null;
+
+        if (this.ttsEngine === 'kokoro') {
+            try {
+                const res = await fetch('/api/ai/tts', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        text: cleanText,
+                        voice: kokoroVoice,
+                        endpoint: this.ttsEndpoint
+                    })
+                });
+
+                const contentType = res.headers.get('Content-Type') || '';
+                if (res.ok && contentType.includes('audio')) {
+                    if (onStart) onStart();
+                    const blob = await res.blob();
+                    const audioUrl = URL.createObjectURL(blob);
+                    this.currentAudio = new Audio(audioUrl);
+                    this.currentAudio.onended = () => {
+                        URL.revokeObjectURL(audioUrl);
+                        if (onEnd) onEnd();
+                    };
+                    this.currentAudio.onerror = () => {
+                        URL.revokeObjectURL(audioUrl);
+                        this.speakNative(cleanText, onStart, onEnd, pitch, rate, gender);
+                    };
+                    await this.currentAudio.play();
+                    return;
+                } else {
+                    console.warn("Kokoro TTS endpoint returned non-200. Falling back seamlessly to Browser Native Speech Synthesis.");
+                }
+            } catch (e) {
+                console.warn("Kokoro TTS endpoint failed, falling back to Native Speech Synthesis:", e);
+            }
+        }
+
+        this.speakNative(cleanText, onStart, onEnd, pitch, rate, gender);
+    }
+
+    speakNative(cleanText, onStart = null, onEnd = null, pitch = 1.0, rate = 0.95, gender = null) {
+        if ('speechSynthesis' in window) {
+            const utterance = new SpeechSynthesisUtterance(cleanText);
+            utterance.lang = 'en-US';
+            utterance.rate = rate;
+            utterance.pitch = pitch;
+
+            const playUtterance = () => {
+                const voices = window.speechSynthesis.getVoices();
+                if (voices.length > 0) {
+                    let voice = null;
+                    if (gender === 'female') {
+                        voice = voices.find(v => v.lang.includes('en') && (v.name.includes('Zira') || v.name.includes('Samantha') || v.name.includes('Jenny') || v.name.includes('Female') || v.name.includes('Google US')));
+                    } else if (gender === 'male') {
+                        voice = voices.find(v => v.lang.includes('en') && (v.name.includes('David') || v.name.includes('Guy') || v.name.includes('George') || v.name.includes('Male')));
+                    }
+                    if (!voice) {
+                        voice = voices.find(v => v.lang.includes('en') && (v.name.includes('Natural') || v.name.includes('Google') || v.name.includes('Samantha') || v.name.includes('Jenny') || v.name.includes('Guy')));
+                    }
+                    if (!voice) {
+                        voice = voices.find(v => v.lang.startsWith('en'));
+                    }
+                    if (voice) utterance.voice = voice;
+                }
+
+                if (onStart) utterance.onstart = onStart;
+                if (onEnd) {
+                    utterance.onend = onEnd;
+                    utterance.onerror = onEnd;
+                }
+
+                window.speechSynthesis.speak(utterance);
+            };
+
+            if (window.speechSynthesis.getVoices().length === 0) {
+                window.speechSynthesis.onvoiceschanged = () => {
+                    window.speechSynthesis.onvoiceschanged = null;
+                    playUtterance();
+                };
+            } else {
+                playUtterance();
+            }
+        }
+    }
+
+    stopSpeech() {
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.cancel();
+        }
+        if (this.currentAudio) {
+            this.currentAudio.pause();
+            this.currentAudio = null;
+        }
+    }
+
+    async startListening(onResult, onStatusChange, onError) {
+        if (this.isRecording) {
+            this.stopListening();
+            return;
+        }
+
+        // If Whisper STT engine is selected
+        if (this.sttEngine === 'whisper') {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                this.audioChunks = [];
+                this.mediaRecorder = new MediaRecorder(stream);
+
+                this.mediaRecorder.ondataavailable = (e) => {
+                    if (e.data.size > 0) this.audioChunks.push(e.data);
+                };
+
+                this.mediaRecorder.onstart = () => {
+                    this.isRecording = true;
+                    if (onStatusChange) onStatusChange(true, "🎙️ [Whisper AI] Recording... Click mic button when done!");
+                };
+
+                this.mediaRecorder.onstop = async () => {
+                    this.isRecording = false;
+                    stream.getTracks().forEach(track => track.stop());
+
+                    if (onStatusChange) onStatusChange(true, "⏳ [Whisper AI] Transcribing audio with neural network...");
+
+                    const audioBlob = new Blob(this.audioChunks, { type: 'audio/webm' });
+                    const reader = new FileReader();
+                    reader.readAsDataURL(audioBlob);
+                    reader.onloadend = async () => {
+                        const base64Data = reader.result;
+                        try {
+                            const res = await fetch('/api/ai/stt', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({
+                                    audioBase64: base64Data,
+                                    endpoint: this.sttEndpoint
+                                })
+                            });
+
+                            const data = await res.json();
+                            if (res.ok && data.success && data.text) {
+                                if (onStatusChange) onStatusChange(false, "");
+                                if (onResult) onResult(data.text);
+                            } else {
+                                console.warn("Whisper STT failed, falling back to Browser Recognition:", data.error);
+                                if (onStatusChange) onStatusChange(false, "Whisper STT fallback to Browser Speech");
+                                this.startListeningNative(onResult, onStatusChange, onError);
+                            }
+                        } catch (err) {
+                            console.warn("Whisper STT network error:", err);
+                            this.startListeningNative(onResult, onStatusChange, onError);
+                        }
+                    };
+                };
+
+                this.mediaRecorder.start();
+                return;
+            } catch (err) {
+                console.warn("Microphone access error for Whisper STT:", err);
+                // Fallback to Native
+            }
+        }
+
+        this.startListeningNative(onResult, onStatusChange, onError);
+    }
+
+    startListeningNative(onResult, onStatusChange, onError) {
+        if (!this.recognition) {
+            if (onError) onError("Browser Speech Recognition is not supported.");
+            return;
+        }
+
+        this.recognition.onstart = () => {
+            this.isRecording = true;
+            if (onStatusChange) onStatusChange(true, "🎙️ [Browser Native] Listening...");
+        };
+
+        this.recognition.onresult = (event) => {
+            let transcript = "";
+            for (let i = event.resultIndex; i < event.results.length; i++) {
+                transcript += event.results[i][0].transcript;
+            }
+            if (onResult) onResult(transcript);
+        };
+
+        this.recognition.onerror = (event) => {
+            this.isRecording = false;
+            if (onStatusChange) onStatusChange(false, "Microphone error: " + event.error);
+            if (onError) onError(event.error);
+        };
+
+        this.recognition.onend = () => {
+            this.isRecording = false;
+            if (onStatusChange) onStatusChange(false, "");
+        };
+
+        try {
+            this.recognition.start();
+        } catch (e) {
+            this.stopListening();
+        }
+    }
+
+    stopListening() {
+        if (this.mediaRecorder && this.mediaRecorder.state !== 'inactive') {
+            this.mediaRecorder.stop();
+            this.isRecording = false;
+            return;
+        }
+        if (this.recognition && this.isRecording) {
+            this.recognition.stop();
+            this.isRecording = false;
+        }
+    }
+}

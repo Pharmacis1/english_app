@@ -53,6 +53,7 @@ class FlashcardEngine {
                     translation: w.translation,
                     definition: `Hero Pack: ${h.name} (${h.cefrLevel})`,
                     example: w.example,
+                    heroId: h.id,
                     rating: 0,
                     interval: 1,
                     easeFactor: 2.5,
@@ -78,6 +79,7 @@ class FlashcardEngine {
                                 decks[cat][idx].easeFactor = savedCard.easeFactor || 2.5;
                                 decks[cat][idx].nextReviewDate = savedCard.nextReviewDate || 0;
                                 decks[cat][idx].learningInSession = savedCard.learningInSession || false;
+                                if (savedCard.heroId) decks[cat][idx].heroId = savedCard.heroId;
                             }
                         });
                     }
@@ -92,6 +94,10 @@ class FlashcardEngine {
             decks[cat].forEach(card => {
                 // A card is due for review ONLY if it was previously studied AND is NOT currently being actively learned in session!
                 if (card.studied && !card.learningInSession && card.nextReviewDate && card.nextReviewDate <= now) {
+                    if (!card.heroId && typeof HEROES_DATA !== 'undefined') {
+                        const hero = HEROES_DATA.find(h => cat.includes(h.name));
+                        if (hero) card.heroId = hero.id;
+                    }
                     dueCards.push(card);
                 }
             });
@@ -257,12 +263,21 @@ class FlashcardEngine {
         return { success: true };
     }
 
-    speak(text) {
+    speak(text, onStart = null, onEnd = null, heroVoiceConfig = null) {
+        if (window.voiceService) {
+            window.voiceService.speak(text, onStart, onEnd, heroVoiceConfig);
+            return;
+        }
         if ('speechSynthesis' in window) {
             window.speechSynthesis.cancel();
             const utterance = new SpeechSynthesisUtterance(text);
             utterance.lang = 'en-US';
             utterance.rate = 0.9;
+            if (onStart) utterance.onstart = onStart;
+            if (onEnd) {
+                utterance.onend = onEnd;
+                utterance.onerror = onEnd;
+            }
             window.speechSynthesis.speak(utterance);
         }
     }
