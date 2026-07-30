@@ -542,6 +542,24 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // --- ALL-TIME HERO WORD USAGE TRACKER (LIFETIME STATS) ---
+    function getWordProps(wObj) {
+        if (!wObj) return { word: "", phonetic: "", translation: "", example: "" };
+        if (Array.isArray(wObj)) {
+            return {
+                word: wObj[0] || "",
+                phonetic: wObj[1] || "",
+                translation: wObj[2] || "",
+                example: wObj[3] || ""
+            };
+        }
+        return {
+            word: wObj.word || "",
+            phonetic: wObj.phonetic || "",
+            translation: wObj.translation || "",
+            example: wObj.example || ""
+        };
+    }
+
     function loadAllTimeWordUsageMap() {
         try {
             return JSON.parse(localStorage.getItem("hero_word_usage_alltime") || "{}");
@@ -573,7 +591,9 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!heroWordsList || heroWordsList.length === 0) return 0;
         const map = loadAllTimeWordUsageMap();
         return heroWordsList.reduce((acc, wObj) => {
-            const key = `${heroId}_${wObj.word.toLowerCase()}`;
+            const w = getWordProps(wObj);
+            if (!w.word) return acc;
+            const key = `${heroId}_${w.word.toLowerCase()}`;
             return acc + (map[key] || 0);
         }, 0);
     }
@@ -593,10 +613,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const matchedWordsInfo = [];
 
         hero.words.forEach(wObj => {
-            const wordLower = wObj.word.toLowerCase();
+            const w = getWordProps(wObj);
+            if (!w.word) return;
+            const wordLower = w.word.toLowerCase();
             const regex = new RegExp(`\\b${wordLower.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')}\\b`, 'i');
             if (regex.test(lowerText)) {
-                const currentUsage = getWordUsageCount(hero.id, wObj.word);
+                const currentUsage = getWordUsageCount(hero.id, w.word);
                 let bonusXp = 1;
                 let tierText = "Mastered (+1 XP)";
 
@@ -611,10 +633,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     tierText = "3rd Use (+5 XP)";
                 }
 
-                incrementWordUsageCount(hero.id, wObj.word);
-                incrementAllTimeWordUsageCount(hero.id, wObj.word);
+                incrementWordUsageCount(hero.id, w.word);
+                incrementAllTimeWordUsageCount(hero.id, w.word);
                 totalXP += bonusXp;
-                matchedWordsInfo.push({ word: wObj.word, bonusXp, tierText });
+                matchedWordsInfo.push({ word: w.word, bonusXp, tierText });
             }
         });
 
@@ -673,8 +695,9 @@ document.addEventListener("DOMContentLoaded", () => {
             chipsWrap.style.gap = "4px";
 
             sec.words.forEach(wObj => {
-                const currentUsage = getWordUsageCount(targetHero.id, wObj.word);
-                const allTimeStats = getWordAllTimeStats(targetHero.id, wObj.word, targetHero.words);
+                const w = getWordProps(wObj);
+                const currentUsage = getWordUsageCount(targetHero.id, w.word);
+                const allTimeStats = getWordAllTimeStats(targetHero.id, w.word, targetHero.words);
                 
                 let chipStyle = "border:1px solid rgba(255,255,255,0.15); color:var(--text-muted); background:transparent;";
                 let tierTooltip = "⚪ Mastered (+1 XP)";
@@ -697,14 +720,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 chip.style.padding = "2px 8px";
                 chip.style.borderRadius = "5px";
                 chip.style.cssText += chipStyle;
-                chip.title = `${wObj.word} ${wObj.phonetic || ''} — ${wObj.translation || ''} | ${tierTooltip} | Lifetime: ${allTimeStats.count} times (${allTimeStats.percentage}%) (Click to insert)`;
-                chip.innerHTML = `<strong>${wObj.word}</strong>`;
+                chip.title = `${w.word} ${w.phonetic || ''} — ${w.translation || ''} | ${tierTooltip} | Lifetime: ${allTimeStats.count} times (${allTimeStats.percentage}%) (Click to insert)`;
+                chip.innerHTML = `<strong>${w.word}</strong>`;
 
                 chip.addEventListener("click", () => {
                     if (userChatInput.value.length > 0 && !userChatInput.value.endsWith(" ")) {
-                        userChatInput.value += " " + wObj.word;
+                        userChatInput.value += " " + w.word;
                     } else {
-                        userChatInput.value += wObj.word;
+                        userChatInput.value += w.word;
                     }
                     userChatInput.focus();
                 });
@@ -1662,8 +1685,9 @@ document.addEventListener("DOMContentLoaded", () => {
             listEl.innerHTML = "";
             
             const wordStatsList = hero.words.map(wObj => {
-                const stats = getWordAllTimeStats(hero.id, wObj.word, hero.words);
-                return { ...wObj, count: stats.count, percentage: stats.percentage };
+                const w = getWordProps(wObj);
+                const stats = getWordAllTimeStats(hero.id, w.word, hero.words);
+                return { ...w, count: stats.count, percentage: stats.percentage };
             });
 
             // Sort cold/rarely used words first (0-1 uses) so user can see what to practice!
