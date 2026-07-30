@@ -1733,6 +1733,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         modal.classList.remove("hidden");
         modal.style.setProperty("display", "flex", "important");
+        modal.style.setProperty("z-index", "999999", "important");
     }
     window.openHeroWordStatsModal = openHeroWordStatsModal;
 
@@ -1811,7 +1812,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <button class="btn btn-sm btn-secondary train-words-btn" style="flex:1;"><i class="fa-solid fa-layer-group"></i> Train Words (${hero.words.length})</button>
                     <button class="btn btn-sm btn-secondary train-grammar-btn" style="flex:1;"><i class="fa-solid fa-graduation-cap"></i> Train Grammar</button>
                 </div>
-                <button class="btn btn-sm btn-outline word-stats-btn" onclick="window.openHeroWordStatsModal('${hero.id}')" style="width:100%; margin-top:6px; font-size:11px; cursor:pointer;"><i class="fa-solid fa-chart-pie"></i> Lifetime Word Stats (${hero.words ? hero.words.length : 0} Words)</button>
+                <button class="btn btn-sm btn-outline word-stats-btn" onclick="event.stopPropagation(); window.openHeroWordStatsModal('${hero.id}');" style="width:100%; margin-top:6px; font-size:11px; cursor:pointer; position:relative; z-index:10;"><i class="fa-solid fa-chart-pie"></i> Lifetime Word Stats (${hero.words ? hero.words.length : 0} Words)</button>
                 ` : ''}
 
                 <div class="hero-stats-list font-mono" style="margin-top:8px;">

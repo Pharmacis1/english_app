@@ -721,12 +721,14 @@ class RPGEngine {
     }
 
     loadHeroes() {
-        const saved = localStorage.getItem("rpg_heroes_10_v9");
+        let saved = null;
+        if (typeof localStorage !== 'undefined') saved = localStorage.getItem("rpg_heroes_10_v9");
         if (saved) {
             try {
                 const parsed = JSON.parse(saved);
                 return HEROES_DATA.map(defaultHero => {
                     const savedHero = parsed.find(h => h.id === defaultHero.id);
+                    if (savedHero) {
                         const heroLevel = savedHero.level || defaultHero.level;
                         const heroAffinity = Math.min(heroLevel, savedHero.affinityLevel !== undefined ? savedHero.affinityLevel : 0);
                         const calculatedMaxXp = Math.round(150 + (heroLevel - 1) * 3);
@@ -742,6 +744,7 @@ class RPGEngine {
                             unlocked: savedHero.unlocked !== undefined ? savedHero.unlocked : defaultHero.unlocked,
                             words: generateHeroWords(defaultHero.id) // Load official Oxford 50 CEFR words!
                         };
+                    }
                     return defaultHero;
                 });
             } catch (e) {}
@@ -750,21 +753,25 @@ class RPGEngine {
     }
 
     loadChapters() {
-        const saved = localStorage.getItem("rpg_chapters_10_v9");
+        let saved = null;
+        if (typeof localStorage !== 'undefined') saved = localStorage.getItem("rpg_chapters_10_v9");
         if (saved) return JSON.parse(saved);
         return JSON.parse(JSON.stringify(CAMPAIGN_CHAPTERS));
     }
 
     loadSquad() {
-        const saved = localStorage.getItem("rpg_squad_ids_v9");
+        let saved = null;
+        if (typeof localStorage !== 'undefined') saved = localStorage.getItem("rpg_squad_ids_v9");
         if (saved) return JSON.parse(saved);
         return this.heroes.filter(h => h.unlocked).slice(0, 5).map(h => h.id);
     }
 
     save() {
-        localStorage.setItem("rpg_heroes_10_v9", JSON.stringify(this.heroes));
-        localStorage.setItem("rpg_chapters_10_v9", JSON.stringify(this.chapters));
-        localStorage.setItem("rpg_squad_ids_v9", JSON.stringify(this.selectedSquad));
+        if (typeof localStorage !== 'undefined') {
+            localStorage.setItem("rpg_heroes_10_v9", JSON.stringify(this.heroes));
+            localStorage.setItem("rpg_chapters_10_v9", JSON.stringify(this.chapters));
+            localStorage.setItem("rpg_squad_ids_v9", JSON.stringify(this.selectedSquad));
+        }
     }
 
     getHeroEffectiveStats(hero) {
@@ -947,3 +954,7 @@ class RPGEngine {
         };
     }
 }
+
+const rpgEngine = new RPGEngine();
+if (typeof window !== 'undefined') window.rpgEngine = rpgEngine;
+if (typeof module !== 'undefined') module.exports = rpgEngine;
