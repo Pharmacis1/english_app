@@ -197,12 +197,25 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const closeLvlUpBtn = document.getElementById("close-lvlup-modal-btn");
+    const lvlupModalEl = document.getElementById("hero-level-up-modal");
+
     if (closeLvlUpBtn) {
         closeLvlUpBtn.addEventListener("click", () => {
             if (levelUpQueue.length > 0) {
                 levelUpQueue.shift();
             }
             displayNextLevelUpInQueue();
+        });
+    }
+
+    if (lvlupModalEl) {
+        lvlupModalEl.addEventListener("click", (e) => {
+            if (e.target === lvlupModalEl) {
+                if (levelUpQueue.length > 0) {
+                    levelUpQueue.shift();
+                }
+                displayNextLevelUpInQueue();
+            }
         });
     }
 
@@ -979,19 +992,8 @@ document.addEventListener("DOMContentLoaded", () => {
             if (heroObj) {
                 const evalResult = evaluateHeroDialogueXP(heroObj, text);
                 if (evalResult.totalXP > 0) {
-                    heroObj.xp += evalResult.totalXP;
-                    if (heroObj.xp >= heroObj.maxXp) {
-                        heroObj.level = Math.min(100, heroObj.level + 1);
-                        heroObj.xp -= heroObj.maxXp;
-                        heroObj.maxXp = Math.round(heroObj.maxXp * 1.25);
-                        heroObj.maxHp = Math.round(heroObj.maxHp * 1.15);
-                        heroObj.hp = heroObj.maxHp;
-                        heroObj.atk = Math.round(heroObj.atk * 1.12);
-                        heroObj.def = Math.round(heroObj.def * 1.10);
-                    }
-                    rpgEngine.save();
+                    triggerRPGReward("chat", heroObj.id, heroObj.id, evalResult.totalXP);
                     addXP(evalResult.totalXP);
-                    renderRPGHeader();
 
                     const wordsDetailHtml = evalResult.matchedWordsInfo.map(m => 
                         `<span style="display:inline-block; margin:2px; padding:1px 6px; background:rgba(255,255,255,0.1); border-radius:4px; font-size:10px;">${m.word} (${m.tierText})</span>`

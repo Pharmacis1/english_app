@@ -850,19 +850,25 @@ class RPGEngine {
 
                             h.level = Math.min(100, h.level + 1);
                             h.xp -= h.maxXp;
-                            h.maxXp = Math.round(150 + (h.level - 1) * 3);
-                            h.maxHp = Math.round(h.maxHp * 1.03);
+                            h.maxXp = Math.round(150 + (h.level - 1) * 5);
+                            
+                            // Guaranteed robust stat growth per level up!
+                            const hpInc = Math.max(35, Math.round(h.maxHp * 0.04));
+                            const atkInc = Math.max(4, Math.round(h.atk * 0.04));
+                            const defInc = Math.max(3, Math.round(h.def * 0.04));
+
+                            h.maxHp += hpInc;
                             h.hp = h.maxHp;
-                            h.atk = Math.round(h.atk * 1.02);
-                            h.def = Math.round(h.def * 1.02);
+                            h.atk += atkInc;
+                            h.def += defInc;
 
                             leveledUpHeroes.push({
                                 hero: h,
                                 oldLevel,
                                 newLevel: h.level,
-                                hpGain: h.maxHp - oldHp,
-                                atkGain: h.atk - oldAtk,
-                                defGain: h.def - oldDef
+                                hpGain: hpInc,
+                                atkGain: atkInc,
+                                defGain: defInc
                             });
                         }
                     }
