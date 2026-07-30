@@ -656,7 +656,6 @@ document.addEventListener("DOMContentLoaded", () => {
             sec.words.forEach(wObj => {
                 const currentUsage = getWordUsageCount(targetHero.id, wObj.word);
                 const allTimeStats = getWordAllTimeStats(targetHero.id, wObj.word, targetHero.words);
-                const rareTag = allTimeStats.count === 0 ? " ❄️" : (allTimeStats.count < 3 ? " 🧊" : "");
                 
                 let chipStyle = "border:1px solid rgba(255,255,255,0.15); color:var(--text-muted); background:transparent;";
                 let tierTooltip = "⚪ Mastered (+1 XP)";
@@ -680,7 +679,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 chip.style.borderRadius = "5px";
                 chip.style.cssText += chipStyle;
                 chip.title = `${wObj.word} ${wObj.phonetic || ''} — ${wObj.translation || ''} | ${tierTooltip} | Lifetime: ${allTimeStats.count} times (${allTimeStats.percentage}%) (Click to insert)`;
-                chip.innerHTML = `<strong>${wObj.word}</strong> <small style="font-size:9px; opacity:0.85; font-weight:600; margin-left:3px;">${allTimeStats.count}x (${allTimeStats.percentage}%)${rareTag}</small>`;
+                chip.innerHTML = `<strong>${wObj.word}</strong>`;
 
                 chip.addEventListener("click", () => {
                     if (userChatInput.value.length > 0 && !userChatInput.value.endsWith(" ")) {
