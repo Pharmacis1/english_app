@@ -1731,10 +1731,41 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
 
-        modal.style.setProperty("display", "flex", "important");
         modal.classList.remove("hidden");
+        modal.style.setProperty("display", "flex", "important");
     }
     window.openHeroWordStatsModal = openHeroWordStatsModal;
+
+    const closeWordStatsBtn = document.getElementById("close-word-stats-btn");
+    const closeWordStatsModalBtn = document.getElementById("close-word-stats-modal-btn");
+    const heroWordStatsModalEl = document.getElementById("hero-word-stats-modal");
+
+    if (closeWordStatsBtn) {
+        closeWordStatsBtn.addEventListener("click", () => {
+            if (heroWordStatsModalEl) {
+                heroWordStatsModalEl.classList.add("hidden");
+                heroWordStatsModalEl.style.setProperty("display", "none", "important");
+            }
+        });
+    }
+
+    if (closeWordStatsModalBtn) {
+        closeWordStatsModalBtn.addEventListener("click", () => {
+            if (heroWordStatsModalEl) {
+                heroWordStatsModalEl.classList.add("hidden");
+                heroWordStatsModalEl.style.setProperty("display", "none", "important");
+            }
+        });
+    }
+
+    if (heroWordStatsModalEl) {
+        heroWordStatsModalEl.addEventListener("click", (e) => {
+            if (e.target === heroWordStatsModalEl) {
+                heroWordStatsModalEl.classList.add("hidden");
+                heroWordStatsModalEl.style.setProperty("display", "none", "important");
+            }
+        });
+    }
 
     function renderHeroesRoster() {
         heroesGridContainer.innerHTML = "";
