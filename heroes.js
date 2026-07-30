@@ -915,11 +915,17 @@ class RPGEngine {
 
     generateAffinityQuest(hero, questLevel) {
         const wordPool = hero.words;
-        const targetObj = wordPool[Math.floor(Math.random() * wordPool.length)] || wordPool[0];
+        const rawTarget = wordPool[Math.floor(Math.random() * wordPool.length)] || wordPool[0];
+        const targetObj = Array.isArray(rawTarget) ? {
+            word: rawTarget[0] || "",
+            phonetic: rawTarget[1] || "",
+            translation: rawTarget[2] || "",
+            example: rawTarget[3] || ""
+        } : rawTarget;
         
         const isAudioMode = questLevel > 50;
 
-        let exampleWithBlank = targetObj.example;
+        let exampleWithBlank = targetObj.example || "I like ____.";
         if (targetObj.word) {
             const escapedWord = targetObj.word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
             const reg = new RegExp(`\\b${escapedWord}\\b`, 'gi');
