@@ -347,10 +347,20 @@
                         </div>
                     </div>
 
+                    <!-- LIVE VOICE HELP & SHORTCUT HINTS -->
+                    <div style="margin-top:16px; padding:10px 14px; background:rgba(99,102,241,0.08); border:1px solid rgba(99,102,241,0.2); border-radius:10px; font-size:11px; color:#cbd5e1; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px;">
+                        <span><i class="fa-solid fa-circle-question" style="color:var(--heart);"></i> <strong>Не поняли вопрос?</strong> Произнесите герою вслух или нажмите 🇷🇺 Translate на строчке ниже:</span>
+                        <div style="display:flex; gap:6px; flex-wrap:wrap;">
+                            <span style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.12); padding:2px 6px; border-radius:6px; color:#fbbf24;" class="font-mono">"Please repeat!"</span>
+                            <span style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.12); padding:2px 6px; border-radius:6px; color:#38bdf8;" class="font-mono">"Translate to Russian please!"</span>
+                            <span style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.12); padding:2px 6px; border-radius:6px; color:#c084fc;" class="font-mono">"What does [word] mean?"</span>
+                        </div>
+                    </div>
+
                     <!-- LIVE FEEDBACK & TRANSCRIPT LOG -->
-                    <div id="live-transcript-box" style="margin-top:20px; background:rgba(15,23,42,0.6); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:16px; max-height:180px; overflow-y:auto; font-size:13px; color:#cbd5e1;">
+                    <div id="live-transcript-box" style="margin-top:12px; background:rgba(15,23,42,0.6); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:16px; max-height:220px; overflow-y:auto; font-size:13px; color:#cbd5e1;">
                         <div style="font-weight:700; font-size:11px; color:var(--text-muted); margin-bottom:6px;" class="font-mono">
-                            <i class="fa-solid fa-comments"></i> LIVE CONVERSATION TRANSCRIPT & GRAMMAR FEEDBACK:
+                            <i class="fa-solid fa-comments"></i> LIVE CONVERSATION TRANSCRIPT & INSTANT TRANSLATIONS:
                         </div>
                         <div id="live-transcript-log" style="display:flex; flex-direction:column; gap:6px;">
                             <em style="color:var(--text-muted);">Your real-time speech and hero responses will appear here live...</em>

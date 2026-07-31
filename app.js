@@ -1772,14 +1772,47 @@ document.addEventListener("DOMContentLoaded", () => {
     function addLiveTranscriptMsg(sender, text) {
         if (!liveTranscriptLog) return;
         const msgDiv = document.createElement("div");
-        msgDiv.style.margin = "2px 0";
+        msgDiv.style.margin = "4px 0";
 
         if (sender === "user") {
             msgDiv.innerHTML = `<strong style="color:#60a5fa;">You:</strong> ${text}`;
+        } else if (sender === "system") {
+            msgDiv.innerHTML = `<em style="color:#9ca3af;">${text}</em>`;
         } else {
             const activeHero = rpgEngine.heroes.find(h => h.id === activeLiveHeroId);
             const heroName = activeHero ? activeHero.name : "Hero";
-            msgDiv.innerHTML = `<strong style="color:#f472b6;">${heroName}:</strong> ${text}`;
+            const msgId = "live_tr_" + Math.random().toString(36).slice(2, 8);
+
+            msgDiv.innerHTML = `
+                <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:8px; width:100%;">
+                    <div style="flex:1;">
+                        <strong style="color:#f472b6;">${heroName}:</strong> ${text}
+                        <div id="${msgId}_trans" class="hidden" style="font-size:11px; color:#cbd5e1; margin-top:4px; padding:4px 8px; background:rgba(255,255,255,0.06); border-radius:6px; border-left:3px solid var(--primary);"></div>
+                    </div>
+                    <button class="btn btn-sm btn-outline live-translate-btn" style="font-size:10px; padding:1px 6px; border-radius:4px; white-space:nowrap; flex-shrink:0;">
+                        <i class="fa-solid fa-language"></i> 🇷🇺 Translate
+                    </button>
+                </div>
+            `;
+
+            const translateBtn = msgDiv.querySelector(".live-translate-btn");
+            const transBox = msgDiv.querySelector(`#${msgId}_trans`);
+            if (translateBtn && transBox) {
+                translateBtn.addEventListener("click", async () => {
+                    if (transBox.classList.contains("hidden")) {
+                        if (!transBox.innerHTML) {
+                            transBox.innerHTML = `<em><i class="fa-solid fa-spinner fa-spin"></i> Перевожу...</em>`;
+                            transBox.classList.remove("hidden");
+                            const ruText = await aiService.translateText(text);
+                            transBox.innerHTML = `<strong>🇷🇺</strong> ${ruText}`;
+                        } else {
+                            transBox.classList.remove("hidden");
+                        }
+                    } else {
+                        transBox.classList.add("hidden");
+                    }
+                });
+            }
         }
 
         liveTranscriptLog.appendChild(msgDiv);
