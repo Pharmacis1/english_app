@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 4000);
     }
 
-    function triggerRPGReward(activity, targetHeroIds = null, materialSourceHeroId = null, customBaseXp = null) {
+    function triggerRPGReward(activity, targetHeroIds = null, materialSourceHeroId = null, customBaseXp = null, customToastMsg = null, customBg = null) {
         const reward = rpgEngine.rewardFromEnglish(activity, targetHeroIds, materialSourceHeroId, customBaseXp);
         renderRPGHeader();
         
@@ -135,8 +135,10 @@ document.addEventListener("DOMContentLoaded", () => {
             blockedMsg = `<br><small style="color:#fcd34d">🚫 Material too simple for: ${reward.blockedHeroNames.join(", ")} (0 XP earned)</small>`;
         }
 
-        const bg = reward.isFocusBonus ? "linear-gradient(135deg, #ec4899, #8b5cf6)" : "rgba(236, 72, 153, 0.9)";
-        showToast(`<i class="fa-solid fa-bolt"></i> ${heroNamesStr} Gained +${reward.xpAmount} XP!${bonusTag}${blockedMsg}`, bg);
+        const bg = customBg || (reward.isFocusBonus ? "linear-gradient(135deg, #ec4899, #8b5cf6)" : "rgba(236, 72, 153, 0.9)");
+        const toastMsg = customToastMsg || `<i class="fa-solid fa-bolt"></i> ${heroNamesStr} Gained +${reward.xpAmount} XP!${bonusTag}${blockedMsg}`;
+
+        showToast(toastMsg, bg);
 
         if (reward.leveledUpHeroes && reward.leveledUpHeroes.length > 0) {
             showHeroLevelUpModal(reward.leveledUpHeroes);
@@ -892,8 +894,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 state.repeatedMsgs.push(msgId);
                 saveTodayHeroAudioState(heroId, state);
 
-                triggerRPGReward("repeat", heroId, heroId, 20);
-                showToast(`🎯 +20 XP Pronunciation Repeat Bonus!`, "linear-gradient(135deg, #10b981, #059669)");
+                triggerRPGReward("repeat", heroId, heroId, 20, `🎯 +20 XP Pronunciation Repeat Bonus!`, "linear-gradient(135deg, #10b981, #059669)");
             }
         }
     }
@@ -906,8 +907,7 @@ document.addEventListener("DOMContentLoaded", () => {
             state.listenedMsgs.push(msgId);
             saveTodayHeroAudioState(heroId, state);
 
-            triggerRPGReward("listen", heroId, heroId, 20);
-            showToast(`🔊 +20 XP AI Listening Bonus!`, "linear-gradient(135deg, #3b82f6, #1d4ed8)");
+            triggerRPGReward("listen", heroId, heroId, 20, `🔊 +20 XP AI Listening Bonus!`, "linear-gradient(135deg, #3b82f6, #1d4ed8)");
         }
     }
 
@@ -1056,14 +1056,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Rule 1: Mic Input
                 state.micCount++;
                 xpGain = state.micCount <= 10 ? 50 : (state.micCount <= 30 ? 30 : 10);
-                triggerRPGReward("mic", activeHeroId, activeHeroId, xpGain);
-                showToast(`🎙️ +${xpGain} XP Hero Mic Bonus! (Use ${state.micCount}/20)`, "linear-gradient(135deg, #ec4899, #be185d)");
+                triggerRPGReward("mic", activeHeroId, activeHeroId, xpGain, `🎙️ +${xpGain} XP Hero Mic Bonus! (Use ${state.micCount}/10)`, "linear-gradient(135deg, #ec4899, #be185d)");
             } else {
                 // Rule 3: Typed Input
                 state.typedCount++;
                 xpGain = state.typedCount <= 10 ? 30 : (state.typedCount <= 30 ? 20 : 5);
-                triggerRPGReward("text", activeHeroId, activeHeroId, xpGain);
-                showToast(`⌨️ +${xpGain} XP Hero Typing Bonus! (Use ${state.typedCount}/20)`, "linear-gradient(135deg, #8b5cf6, #6d28d9)");
+                triggerRPGReward("text", activeHeroId, activeHeroId, xpGain, `⌨️ +${xpGain} XP Hero Typing Bonus! (Use ${state.typedCount}/10)`, "linear-gradient(135deg, #8b5cf6, #6d28d9)");
             }
 
             // Rule 5: Full Cycle Combo Check (If last AI message was Listened + Repeated + current message used Mic)
@@ -1071,8 +1069,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const lastMsgId = lastAiMessageContent.slice(0, 30);
                 if (state.listenedMsgs.includes(lastMsgId) && state.repeatedMsgs.includes(lastMsgId) && !state.comboMsgs.includes(lastMsgId)) {
                     state.comboMsgs.push(lastMsgId);
-                    triggerRPGReward("combo", activeHeroId, activeHeroId, 30);
-                    showToast(`🔥 +30 XP FULL CYCLE COMBO BONUS! (Listen + Repeat + Respond)`, "linear-gradient(135deg, #f59e0b, #d97706)");
+                    triggerRPGReward("combo", activeHeroId, activeHeroId, 30, `🔥 +30 XP FULL CYCLE COMBO BONUS! (Listen + Repeat + Respond)`, "linear-gradient(135deg, #f59e0b, #d97706)");
                 }
             }
 
