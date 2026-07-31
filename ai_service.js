@@ -1,23 +1,26 @@
 /* AI Service Integration for LM Studio, Ollama, & Offline Fallback with Target Hero Vocabulary & Grammar Injection */
 class AIService {
     constructor() {
-        this.provider = localStorage.getItem("ai_provider") || "ollama"; // 'ollama', 'lmstudio', 'fallback'
+        this.provider = localStorage.getItem("ai_provider") || "ollama"; // 'ollama', 'lmstudio', 'gemini', 'fallback'
         this.endpoint = localStorage.getItem("api_endpoint") || "http://localhost:11434";
         this.modelName = localStorage.getItem("model_name") || "llama3";
+        this.geminiApiKey = localStorage.getItem("gemini_api_key") || "";
         this.systemPrompt = localStorage.getItem("system_prompt") || 
             "You are an expert English tutor and conversation partner. Respond concisely in English. If the user makes any grammar or vocabulary mistake, ALWAYS explain the error in Russian at the end in this format: [Correction: 💡 Объяснение ошибки на русском языке].";
     }
 
-    saveSettings(provider, endpoint, modelName, systemPrompt) {
+    saveSettings(provider, endpoint, modelName, systemPrompt, geminiApiKey = "") {
         this.provider = provider;
         this.endpoint = endpoint.replace(/\/$/, ''); // Trim trailing slash
         this.modelName = modelName;
         this.systemPrompt = systemPrompt;
+        this.geminiApiKey = geminiApiKey;
 
         localStorage.setItem("ai_provider", provider);
         localStorage.setItem("api_endpoint", this.endpoint);
         localStorage.setItem("model_name", modelName);
         localStorage.setItem("system_prompt", systemPrompt);
+        localStorage.setItem("gemini_api_key", geminiApiKey);
     }
 
     async fetchInstalledModels() {
@@ -107,6 +110,7 @@ DO NOT output any translation or extra brackets in the English text.]`;
                     provider: this.provider,
                     endpoint: this.endpoint,
                     model: this.modelName,
+                    apiKey: this.geminiApiKey,
                     messages: formattedMessages
                 })
             });
@@ -141,6 +145,7 @@ DO NOT output any translation or extra brackets in the English text.]`;
                     provider: this.provider,
                     endpoint: this.endpoint,
                     model: this.modelName,
+                    apiKey: this.geminiApiKey,
                     messages: formattedMessages
                 })
             });

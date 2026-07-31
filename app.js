@@ -2223,11 +2223,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // --- LOCAL AI SETTINGS & AUTO-DETECT MODELS ---
     const settingsForm = document.getElementById("settings-form");
     const aiProviderSelect = document.getElementById("ai-provider");
     const apiEndpointInput = document.getElementById("api-endpoint");
     const modelNameInput = document.getElementById("model-name");
+    const geminiApiKeyInput = document.getElementById("gemini-api-key");
     const modelSelectDropdown = document.getElementById("model-select-dropdown");
     const autoDetectModelsBtn = document.getElementById("auto-detect-models-btn");
     const systemPromptInput = document.getElementById("system-prompt");
@@ -2236,6 +2236,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (aiProviderSelect) aiProviderSelect.value = aiService.provider;
     if (apiEndpointInput) apiEndpointInput.value = aiService.endpoint;
     if (modelNameInput) modelNameInput.value = aiService.modelName;
+    if (geminiApiKeyInput) geminiApiKeyInput.value = aiService.geminiApiKey || "";
     if (systemPromptInput) systemPromptInput.value = aiService.systemPrompt;
 
     if (autoDetectModelsBtn) {
@@ -2349,7 +2350,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 aiProviderSelect.value,
                 apiEndpointInput.value,
                 modelNameInput.value,
-                systemPromptInput.value
+                systemPromptInput.value,
+                geminiApiKeyInput ? geminiApiKeyInput.value.trim() : ""
             );
             if (ttsEngineSelect && ttsEndpointInput && sttEngineSelect && sttEndpointInput) {
                 voiceService.saveVoiceSettings(

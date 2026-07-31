@@ -406,26 +406,32 @@
                         <div class="setting-group">
                             <label for="ai-provider">AI Provider</label>
                             <select id="ai-provider" class="form-input">
+                                <option value="gemini">Google Gemini Cloud API (Gemini 3.5 Flash Lite & Gemma 4 31B)</option>
                                 <option value="ollama">Ollama (Default: http://localhost:11434)</option>
                                 <option value="lmstudio">LM Studio (Default: http://localhost:1234)</option>
                                 <option value="fallback">Built-in Smart Offline Tutor (No server needed)</option>
                             </select>
                         </div>
 
+                        <div class="setting-group" id="gemini-api-key-group">
+                            <label for="gemini-api-key">Google Gemini API Key <small style="color:var(--heart)">(Google AI Studio Free Tier Key)</small></label>
+                            <input type="password" id="gemini-api-key" class="form-input" placeholder="AIzaSy..." value="">
+                        </div>
+
                         <div class="setting-group">
-                            <label for="api-endpoint">Server Endpoint URL</label>
+                            <label for="api-endpoint">Server Endpoint URL (Local AI)</label>
                             <input type="text" id="api-endpoint" class="form-input" value="http://localhost:11434">
                         </div>
 
                         <div class="setting-group">
                             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
-                                <label for="model-name" style="margin-bottom:0;">Model Name (Ollama / LM Studio)</label>
+                                <label for="model-name" style="margin-bottom:0;">Model Name (Primary / Fallback)</label>
                                 <button type="button" class="btn btn-sm btn-outline" id="auto-detect-models-btn" style="font-size:11px; padding:2px 8px;">
                                     <i class="fa-solid fa-arrows-rotate"></i> Auto-Detect Installed Models
                                 </button>
                             </div>
                             <div style="display:flex; gap:8px;">
-                                <input type="text" id="model-name" class="form-input" value="llama3" style="flex:1;">
+                                <input type="text" id="model-name" class="form-input" value="gemini-3.5-flash-lite" style="flex:1;">
                                 <select id="model-select-dropdown" class="form-input hidden" style="flex:1;"></select>
                             </div>
                         </div>

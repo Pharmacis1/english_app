@@ -219,6 +219,56 @@ app.post('/api/ai/chat', async (req, res) => {
             if (!resp.ok) throw new Error(`LM Studio HTTP Error ${resp.status}`);
             const data = await resp.json();
             return res.json({ success: true, content: data.choices[0].message.content });
+        } else if (provider === 'gemini') {
+            const apiKey = req.body.apiKey || process.env.GEMINI_API_KEY || '';
+            if (!apiKey) throw new Error("Gemini API Key missing. Please provide API Key in Local AI Settings.");
+
+            const primaryModel = model || 'gemini-3.5-flash-lite';
+            const fallbackModel = 'gemma-4-31b';
+
+            async function callGeminiApi(targetModel) {
+                const contents = [];
+                let systemInstruction = null;
+
+                messages.forEach(msg => {
+                    if (msg.role === 'system') {
+                        systemInstruction = { parts: [{ text: msg.content }] };
+                    } else {
+                        const role = msg.role === 'assistant' ? 'model' : 'user';
+                        contents.push({ role, parts: [{ text: msg.content }] });
+                    }
+                });
+
+                const payload = { contents };
+                if (systemInstruction) payload.systemInstruction = systemInstruction;
+
+                const url = `https://generativelanguage.googleapis.com/v1beta/models/${targetModel}:generateContent?key=${apiKey}`;
+                return await fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload),
+                    signal: controller.signal
+                });
+            }
+
+            let resp = await callGeminiApi(primaryModel);
+
+            // Auto-switch to Gemma 4 31B if primary Gemini model hits Rate Limit (429)!
+            if (resp.status === 429 && primaryModel !== fallbackModel) {
+                console.warn(`[Gemini Proxy] Model ${primaryModel} rate limited (429). Auto-switching to ${fallbackModel}...`);
+                resp = await callGeminiApi(fallbackModel);
+            }
+
+            clearTimeout(timeoutId);
+            if (!resp.ok) {
+                const errData = await resp.json().catch(() => ({}));
+                const msg = errData.error?.message || `Gemini API Error ${resp.status}`;
+                throw new Error(msg);
+            }
+
+            const data = await resp.json();
+            const textContent = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+            return res.json({ success: true, content: textContent });
         }
         clearTimeout(timeoutId);
         return res.status(400).json({ success: false, error: "Unsupported provider" });
