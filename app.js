@@ -146,9 +146,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     let levelUpQueue = [];
+    let pendingLiveLevelUps = [];
 
     function showHeroLevelUpModal(leveledUpList) {
         if (!leveledUpList || leveledUpList.length === 0) return;
+
+        // If Live Realtime Audio Call is active, defer Level Up modal & audio until call ends!
+        if (typeof isLiveCallActive !== 'undefined' && isLiveCallActive) {
+            pendingLiveLevelUps.push(...leveledUpList);
+            return;
+        }
+
         const lvlupModal = document.getElementById("hero-level-up-modal");
         if (!lvlupModal) return;
 
@@ -1909,6 +1917,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 try { liveRecognition.stop(); } catch (e) {}
             }
             voiceService.stop();
+
+            // Display any pending Level Up modals now that the live audio call has cleanly ended!
+            if (pendingLiveLevelUps.length > 0) {
+                const deferredList = [...pendingLiveLevelUps];
+                pendingLiveLevelUps = [];
+                showHeroLevelUpModal(deferredList);
+            }
         });
     }
 
