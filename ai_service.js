@@ -67,20 +67,29 @@ class AIService {
 
     buildHeroPrompt(targetHeroObjects) {
         if (!targetHeroObjects || targetHeroObjects.length === 0) return "";
-        const words = targetHeroObjects.flatMap(h => h.words.map(w => w.word)).slice(0, 40).join(", ");
-        const rules = targetHeroObjects.flatMap(h => h.grammarRules).join("; ");
 
-        return `\n\n[CEFR A0/A1 STRICT SIMPLICITY & LEADING QUESTION DIRECTIVE:
-You are speaking to a complete beginner student (CEFR A0).
-1. USE VERY SHORT, ULTRA-SIMPLE ENGLISH SENTENCES (4 to 6 words per sentence).
-2. ONLY USE BASIC A0 WORDS (such as: ${words}). DO NOT use complex words like 'duty', 'protect', 'allies', 'by the way', 'consequently', 'furthermore', 'noble', 'proud'.
-3. CRITICAL LEADING QUESTION RULE: You MUST end your response with a simple LEADING QUESTION designed to guide the user into using their cheatsheet words (${words}) and grammar rules (${rules}).
-   Examples of leading questions to ask:
-   - "Are you happy or brave today?" (User can answer: "I am happy")
-   - "Do you have a brother or a sister?" (User can answer: "I have a brother")
-   - "Who is in your family? Is your father a leader?" (User can answer: "My father is a leader")
-   - "Do you have a sword or a shield?" (User can answer: "I have a shield")
-Ask simple questions like these so the user can easily answer using their cheatsheet words!]`;
+        const heroPrompts = targetHeroObjects.map(hero => {
+            const wordsList = hero.words ? hero.words.map(w => typeof w === 'string' ? w : w.word).slice(0, 30).join(", ") : "";
+            const rules = hero.grammarRules ? hero.grammarRules.join("; ") : "";
+
+            return `--- HERO ROLEPLAY: ${hero.name} (${hero.title}) ---
+Hero Persona: ${hero.role}
+Target Vocabulary to Use: ${wordsList}
+Grammar Focus: ${rules}
+Topic Theme: Ask about ${hero.name}'s specific realm and target words (${wordsList}).`;
+        }).join("\n\n");
+
+        return `\n\n[HERO PERSONALITY & TARGET VOCABULARY DIRECTIVE:
+You are roleplaying strictly as the active hero.
+1. USE VERY SHORT, ULTRA-SIMPLE ENGLISH SENTENCES (4 to 7 words per sentence, suitable for CEFR A0/A1 beginner).
+2. Match the hero's unique personality and topic:
+   - Astraea (Temple of Light): Focus on healing, home, food, water, tea, resting, and daily needs.
+   - Valerius (Silver Paladin): Focus on knights, shields, honor, leaders, duty, and courage.
+   - Ignis (Flame Archmage): Focus on fire, magic, spells, power, and flames.
+   - Other heroes: Focus strictly on their own domain and target words.
+3. CRITICAL LEADING QUESTION RULE: You MUST end your response with a simple, unique LEADING QUESTION asking about THAT HERO'S SPECIFIC TOPIC and target words. DO NOT ask generic "happy or brave" questions for every hero!
+
+${heroPrompts}]`;
     }
 
     async generateResponse(messagesHistory, scenario, targetHeroObjects = null) {
