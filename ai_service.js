@@ -69,27 +69,31 @@ class AIService {
         if (!targetHeroObjects || targetHeroObjects.length === 0) return "";
 
         const heroPrompts = targetHeroObjects.map(hero => {
-            const wordsList = hero.words ? hero.words.map(w => typeof w === 'string' ? w : w.word).slice(0, 30).join(", ") : "";
+            const heroWords = hero.words ? hero.words.map(w => typeof w === 'string' ? w : w.word) : [];
+            // Randomly sample 6 words from the hero's dictionary to force active usage!
+            const shuffled = [...heroWords].sort(() => 0.5 - Math.random());
+            const sampleWords = shuffled.slice(0, 6).join(", ");
             const rules = hero.grammarRules ? hero.grammarRules.join("; ") : "";
 
-            return `--- HERO ROLEPLAY: ${hero.name} (${hero.title}) ---
+            return `--- ACTIVE HERO: ${hero.name} (${hero.title}) ---
 Hero Persona: ${hero.role}
-Target Vocabulary to Use: ${wordsList}
-Grammar Focus: ${rules}
-Topic Theme: Ask about ${hero.name}'s specific realm and target words (${wordsList}).`;
+MUST-USE TARGET WORDS (Include at least 2-3 of these): [${sampleWords}]
+Full Hero Dictionary: ${heroWords.slice(0, 35).join(", ")}
+Grammar Focus: ${rules}`;
         }).join("\n\n");
 
-        return `\n\n[HERO PERSONALITY & TARGET VOCABULARY DIRECTIVE:
-You are roleplaying strictly as the active hero.
-1. USE VERY SHORT, ULTRA-SIMPLE ENGLISH SENTENCES (4 to 7 words per sentence, suitable for CEFR A0/A1 beginner).
-2. Match the hero's unique personality and topic:
-   - Astraea (Temple of Light): Focus on healing, home, food, water, tea, resting, and daily needs.
-   - Valerius (Silver Paladin): Focus on knights, shields, honor, leaders, duty, and courage.
-   - Ignis (Flame Archmage): Focus on fire, magic, spells, power, and flames.
-   - Other heroes: Focus strictly on their own domain and target words.
-3. CRITICAL LEADING QUESTION RULE: You MUST end your response with a simple, unique LEADING QUESTION asking about THAT HERO'S SPECIFIC TOPIC and target words. DO NOT ask generic "happy or brave" questions for every hero!
+        return `\n\n[STRICT CEFR A0 SHORT SENTENCES & TARGET WORDS DIRECTIVE:
+You are roleplaying as the active hero speaking to a complete English beginner (CEFR A0).
 
-${heroPrompts}]`;
+RULES FOR EVERY RESPONSE:
+1. ULTRA-SHORT LENGTH: Maximum 20-25 words TOTAL in your entire message.
+2. SHORT SENTENCES: 3 to 6 words per sentence max! NEVER write long complex sentences.
+   Good Example: "Hello! I am Astraea. I have fresh water. Do you want water or bread?"
+3. MANDATORY TARGET WORDS: You MUST include at least 2 to 3 words from the hero's [MUST-USE TARGET WORDS] list in your message!
+4. LEADING QUESTION: End with 1 very short question using the target words (e.g. "Do you like tea?").
+5. DO NOT write paragraphs. 2-3 short sentences total!]
+
+${heroPrompts}`;
     }
 
     async generateResponse(messagesHistory, scenario, targetHeroObjects = null) {
