@@ -1089,52 +1089,62 @@ document.addEventListener("DOMContentLoaded", () => {
         // Re-render hero word cheatsheet to update chip colors & tooltips live!
         renderHeroWordHelperPanel(activeScenario);
 
+        const heroObj = (activeScenario && activeScenario.isHeroScenario && activeScenario.heroId)
+            ? rpgEngine.heroes.find(h => h.id === activeScenario.heroId)
+            : null;
+        const heroName = heroObj ? heroObj.name : (activeScenario ? activeScenario.title : "AI");
+        const avatarHtml = heroObj && heroObj.image 
+            ? `<img src="${heroObj.image}" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">`
+            : `<i class="fa-solid ${activeScenario.icon}"></i>`;
+
         const typingBubble = document.createElement("div");
         typingBubble.className = "message-bubble assistant typing";
-        typingBubble.innerHTML = `<div class="message-avatar"><i class="fa-solid ${activeScenario.icon}"></i></div><div class="message-content"><em>AI is typing...</em></div>`;
+        typingBubble.innerHTML = `<div class="message-avatar">${avatarHtml}</div><div class="message-content"><em>${heroName} is typing...</em></div>`;
         chatMessagesBox.appendChild(typingBubble);
         chatMessagesBox.scrollTop = chatMessagesBox.scrollHeight;
 
-        const targetHeroObjects = activeScenario.isHeroScenario && activeScenario.heroId 
-            ? rpgEngine.heroes.filter(h => h.id === activeScenario.heroId) 
-            : [];
+        try {
+            const targetHeroObjects = heroObj ? [heroObj] : [];
+            const aiResponse = await aiService.generateResponse(chatHistory, activeScenario, targetHeroObjects);
+            lastAiMessageContent = aiResponse.text; // Store last AI response for combo tracking
 
-        const aiResponse = await aiService.generateResponse(chatHistory, activeScenario, targetHeroObjects);
-        lastAiMessageContent = aiResponse.text; // Store last AI response for combo tracking
+            const autoSpeakToggle = document.getElementById("auto-speak-toggle");
+            if (autoSpeakToggle && autoSpeakToggle.checked) {
+                checkAndAwardListeningBonus(aiResponse.text, activeHeroId);
+            }
 
-        const autoSpeakToggle = document.getElementById("auto-speak-toggle");
-        if (autoSpeakToggle && autoSpeakToggle.checked) {
-            checkAndAwardListeningBonus(aiResponse.text, activeHeroId);
+            appendMessage("assistant", aiResponse.text, aiResponse.translation);
+
+            if (autoSpeakToggle && autoSpeakToggle.checked) {
+                voiceService.speak(aiResponse.text, null, null, getActiveHeroVoiceConfig());
+            }
+
+            const clientEval = evaluateUserGrammarClientSide(text);
+            let aiCorr = (aiResponse.correction && !aiResponse.correction.includes("✅"))
+                ? aiResponse.correction.replace(/^💡\s*Ошибка\/опечатка:\s*/gi, '').replace(/^Ошибка\/опечатка:\s*/gi, '').trim()
+                : null;
+
+            if (aiCorr && !aiCorr.startsWith('💡')) {
+                aiCorr = '💡 ' + aiCorr;
+            }
+
+            if (clientEval && aiCorr) {
+                feedbackText.innerHTML = `${clientEval}<div style="margin-top:4px; padding-top:4px; border-top:1px solid rgba(255,255,255,0.15);">${aiCorr}</div>`;
+            } else if (clientEval) {
+                feedbackText.innerHTML = clientEval;
+            } else if (aiCorr) {
+                feedbackText.innerHTML = aiCorr;
+            } else if (aiResponse.correction && aiResponse.correction.includes("✅")) {
+                feedbackText.innerHTML = aiResponse.correction;
+            } else {
+                feedbackText.innerHTML = "✅ Отлично! Предложение написано полностью грамматически правильно!";
+            }
+            feedbackBanner.classList.remove("hidden");
+        } finally {
+            if (typingBubble.parentNode === chatMessagesBox) {
+                chatMessagesBox.removeChild(typingBubble);
+            }
         }
-
-        appendMessage("assistant", aiResponse.text, aiResponse.translation);
-
-        if (autoSpeakToggle && autoSpeakToggle.checked) {
-            voiceService.speak(aiResponse.text, null, null, getActiveHeroVoiceConfig());
-        }
-
-        const clientEval = evaluateUserGrammarClientSide(text);
-        let aiCorr = (aiResponse.correction && !aiResponse.correction.includes("✅"))
-            ? aiResponse.correction.replace(/^💡\s*Ошибка\/опечатка:\s*/gi, '').replace(/^Ошибка\/опечатка:\s*/gi, '').trim()
-            : null;
-
-        if (aiCorr && !aiCorr.startsWith('💡')) {
-            aiCorr = '💡 ' + aiCorr;
-        }
-
-        if (clientEval && aiCorr) {
-            // Display BOTH client rule tip and AI model explanation!
-            feedbackText.innerHTML = `${clientEval}<div style="margin-top:4px; padding-top:4px; border-top:1px solid rgba(255,255,255,0.15);">${aiCorr}</div>`;
-        } else if (clientEval) {
-            feedbackText.innerHTML = clientEval;
-        } else if (aiCorr) {
-            feedbackText.innerHTML = aiCorr;
-        } else if (aiResponse.correction && aiResponse.correction.includes("✅")) {
-            feedbackText.innerHTML = aiResponse.correction;
-        } else {
-            feedbackText.innerHTML = "✅ Отлично! Предложение написано полностью грамматически правильно!";
-        }
-        feedbackBanner.classList.remove("hidden");
     }
 
     sendChatBtn.addEventListener("click", handleUserSendMessage);
