@@ -120,7 +120,33 @@ DO NOT output any translation or extra brackets in the English text.]`;
             if (!data.success) throw new Error(data.error || "Proxy call failed");
             return this.parseAIOutput(data.content);
         } catch (err) {
-            console.warn("Local AI call failed, using fallback:", err);
+            console.warn("Primary AI call failed:", err);
+            
+            // If local AI (Ollama/LM Studio) failed, but Gemini API Key is available, automatically route to Gemini Cloud API!
+            if (this.provider !== 'gemini' && this.geminiApiKey) {
+                try {
+                    console.log("Auto-switching fallback to Google Gemini Cloud API...");
+                    const resp = await fetch('/api/ai/chat', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            provider: 'gemini',
+                            model: 'gemini-3.5-flash-lite',
+                            apiKey: this.geminiApiKey,
+                            messages: formattedMessages
+                        })
+                    });
+                    if (resp.ok) {
+                        const data = await resp.json();
+                        if (data.success && data.content) {
+                            return this.parseAIOutput(data.content);
+                        }
+                    }
+                } catch (geminiErr) {
+                    console.warn("Gemini Cloud fallback also failed:", geminiErr);
+                }
+            }
+
             const fallback = this.getSmartFallbackResponse(messagesHistory, scenario, targetHeroObjects);
             fallback.text = `[Notice: Switched to offline tutor due to connection issue: ${err.message}]\n\n` + fallback.text;
             return fallback;
