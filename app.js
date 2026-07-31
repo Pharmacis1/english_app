@@ -645,6 +645,42 @@ document.addEventListener("DOMContentLoaded", () => {
         return { totalXP, matchedWordsInfo };
     }
 
+    function processAllUnlockedHeroesWordXP(text) {
+        if (!text) return [];
+        const unlockedHeroes = rpgEngine.heroes.filter(h => h.unlocked);
+        const results = [];
+
+        unlockedHeroes.forEach(heroObj => {
+            const evalResult = evaluateHeroDialogueXP(heroObj, text);
+            if (evalResult.totalXP > 0) {
+                triggerRPGReward("chat", heroObj.id, heroObj.id, evalResult.totalXP);
+                addXP(evalResult.totalXP);
+
+                const wordsDetailHtml = evalResult.matchedWordsInfo.map(m => 
+                    `<span style="display:inline-block; margin:2px; padding:1px 6px; background:rgba(255,255,255,0.1); border-radius:4px; font-size:10px;">${m.word} (${m.tierText})</span>`
+                ).join("");
+
+                showToast(`
+                    <div style="display:flex; flex-direction:column; gap:4px;">
+                        <div style="font-size:15px; font-weight:800; color:#fbbf24; display:flex; align-items:center; gap:6px;">
+                            <i class="fa-solid fa-bolt" style="color:#f59e0b;"></i> +${evalResult.totalXP} XP WORD BONUS!
+                        </div>
+                        <div style="font-size:12px; font-weight:600; color:#e2e8f0;">
+                            ⚔️ Hero <strong>${heroObj.name}</strong> Gained +${evalResult.totalXP} XP
+                        </div>
+                        <div style="font-size:11px; margin-top:4px; border-top:1px solid rgba(255,255,255,0.1); padding-top:4px;">
+                            ${wordsDetailHtml}
+                        </div>
+                    </div>
+                `, "linear-gradient(135deg, #1e1b4b, #312e81)", "#818cf8");
+
+                results.push({ hero: heroObj, evalResult });
+            }
+        });
+
+        return results;
+    }
+
     function renderHeroWordHelperPanel(scenario) {
         if (!heroWordHelperBox) return;
 
@@ -1015,35 +1051,8 @@ document.addEventListener("DOMContentLoaded", () => {
         userChatInput.value = "";
         appendMessage("user", text);
 
-        // HERO DIALOGUE ONLY XP EVALUATION & LEVELING
-        if (activeScenario.isHeroScenario && activeScenario.heroId) {
-            const heroObj = rpgEngine.heroes.find(h => h.id === activeScenario.heroId);
-            if (heroObj) {
-                const evalResult = evaluateHeroDialogueXP(heroObj, text);
-                if (evalResult.totalXP > 0) {
-                    triggerRPGReward("chat", heroObj.id, heroObj.id, evalResult.totalXP);
-                    addXP(evalResult.totalXP);
-
-                    const wordsDetailHtml = evalResult.matchedWordsInfo.map(m => 
-                        `<span style="display:inline-block; margin:2px; padding:1px 6px; background:rgba(255,255,255,0.1); border-radius:4px; font-size:10px;">${m.word} (${m.tierText})</span>`
-                    ).join("");
-
-                    showToast(`
-                        <div style="display:flex; flex-direction:column; gap:4px;">
-                            <div style="font-size:18px; font-weight:800; color:#fbbf24; display:flex; align-items:center; gap:8px;">
-                                <i class="fa-solid fa-trophy" style="color:#f59e0b;"></i> +${evalResult.totalXP} TOTAL XP EARNED!
-                            </div>
-                            <div style="font-size:12px; font-weight:600; color:#e2e8f0;">
-                                ⚔️ Hero <strong>${heroObj.name}</strong> Gained +${evalResult.totalXP} XP
-                            </div>
-                            <div style="font-size:11px; margin-top:4px; border-top:1px solid rgba(255,255,255,0.1); padding-top:4px;">
-                                ${wordsDetailHtml}
-                            </div>
-                        </div>
-                    `, "linear-gradient(135deg, #1e1b4b, #312e81)", "#818cf8");
-                }
-            }
-        }
+        // ALL UNLOCKED HEROES WORD XP EVALUATION & LEVELING
+        processAllUnlockedHeroesWordXP(text);
 
         // PER-HERO AUDIO & TYPING REWARDS (Rule 1, Rule 3, Rule 5)
         const activeHeroId = (activeScenario && activeScenario.isHeroScenario && activeScenario.heroId) ? activeScenario.heroId : null;
@@ -1827,6 +1836,10 @@ document.addEventListener("DOMContentLoaded", () => {
                         if (transcriptText.length > 0) {
                             hasUserSpokenThisMinute = true; // Registered active user speech!
                             addLiveTranscriptMsg("user", transcriptText);
+
+                            // Evaluate word XP for ALL unlocked heroes based on spoken transcript!
+                            processAllUnlockedHeroesWordXP(transcriptText);
+
                             if (liveAudioSubtitle) liveAudioSubtitle.textContent = `${activeHero.name} is thinking...`;
 
                             // Fetch AI response in character for the active live hero
