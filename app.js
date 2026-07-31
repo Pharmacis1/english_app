@@ -1813,6 +1813,8 @@ document.addEventListener("DOMContentLoaded", () => {
         hasUserSpokenThisMinute = false;
     }
 
+    let liveChatHistory = [];
+
     if (startLiveVoiceBtn && stopLiveVoiceBtn) {
         startLiveVoiceBtn.addEventListener("click", () => {
             const activeHero = rpgEngine.heroes.find(h => h.id === activeLiveHeroId);
@@ -1820,6 +1822,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             isLiveCallActive = true;
             hasUserSpokenThisMinute = false;
+            liveChatHistory = []; // Reset conversation context for new call!
             startLiveVoiceBtn.classList.add("hidden");
             stopLiveVoiceBtn.classList.remove("hidden");
 
@@ -1847,20 +1850,26 @@ document.addEventListener("DOMContentLoaded", () => {
                             hasUserSpokenThisMinute = true; // Registered active user speech!
                             addLiveTranscriptMsg("user", transcriptText);
 
+                            // Add user message to Live Chat History!
+                            liveChatHistory.push({ role: 'user', content: transcriptText });
+                            if (liveChatHistory.length > 10) liveChatHistory = liveChatHistory.slice(-8);
+
                             // Evaluate word XP for ALL unlocked heroes based on spoken transcript!
                             processAllUnlockedHeroesWordXP(transcriptText);
 
                             if (liveAudioSubtitle) liveAudioSubtitle.textContent = `${activeHero.name} is thinking...`;
 
-                            // Fetch AI response in character for the active live hero
+                            // Fetch AI response in character for the active live hero with CONVERSATION HISTORY!
                             const heroScenario = {
                                 title: activeHero.name,
                                 heroId: activeHero.id,
                                 isHeroScenario: true,
-                                systemPrompt: `You are ${activeHero.name} (${activeHero.title}, ${activeHero.role}). CEFR Level: ${activeHero.cefrLevel}. Respond in concise English. If the user makes a mistake, append [Correction: 💡 Объяснение] in Russian.`
+                                systemPrompt: `You are ${activeHero.name} (${activeHero.title}, ${activeHero.role}). CEFR Level: ${activeHero.cefrLevel}. Respond in concise English. Do NOT repeat greetings ("Hello", "I am Valerius") after the first message.`
                             };
 
-                            const aiResp = await aiService.generateResponse([{ role: 'user', content: transcriptText }], heroScenario, [activeHero]);
+                            const aiResp = await aiService.generateResponse(liveChatHistory, heroScenario, [activeHero]);
+                            liveChatHistory.push({ role: 'assistant', content: aiResp.text });
+
                             addLiveTranscriptMsg("hero", aiResp.text);
 
                             // Speak response using voice engine
