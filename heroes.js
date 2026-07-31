@@ -729,30 +729,36 @@ class RPGEngine {
                 return HEROES_DATA.map(defaultHero => {
                     const savedHero = parsed.find(h => h.id === defaultHero.id);
                     if (savedHero) {
-                        const heroLevel = savedHero.level || defaultHero.level;
-                        const heroAffinity = Math.min(heroLevel, savedHero.affinityLevel !== undefined ? savedHero.affinityLevel : 0);
+                        let heroLevel = parseInt(savedHero.level, 10);
+                        if (isNaN(heroLevel) || heroLevel < 1) heroLevel = defaultHero.level;
+                        heroLevel = Math.min(100, Math.max(1, heroLevel));
+
+                        let heroAffinity = parseInt(savedHero.affinityLevel, 10);
+                        if (isNaN(heroAffinity)) heroAffinity = 0;
+                        heroAffinity = Math.min(heroLevel, Math.max(0, heroAffinity));
+
                         const calculatedMaxXp = Math.round(150 + (heroLevel - 1) * 5);
-                        let heroXp = savedHero.xp !== undefined ? savedHero.xp : defaultHero.xp;
+                        let heroXp = parseInt(savedHero.xp, 10);
+                        if (isNaN(heroXp)) heroXp = defaultHero.xp;
                         if (heroXp >= calculatedMaxXp) heroXp = calculatedMaxXp - 1; // Prevent overflow
 
-                        // Restore or retroactively calculate stat growth for hero level
-                        let baseMaxHp = savedHero.maxHp;
-                        let baseAtk = savedHero.atk;
-                        let baseDef = savedHero.def;
+                        // Restore or calculate stat growth for hero level
+                        let baseMaxHp = defaultHero.maxHp;
+                        let baseAtk = defaultHero.atk;
+                        let baseDef = defaultHero.def;
 
-                        if (!baseMaxHp || (baseMaxHp <= defaultHero.maxHp && heroLevel > 1)) {
-                            baseMaxHp = defaultHero.maxHp;
-                            baseAtk = defaultHero.atk;
-                            baseDef = defaultHero.def;
-                            for (let l = 1; l < heroLevel; l++) {
-                                const hpInc = Math.max(35, Math.round(baseMaxHp * 0.04));
-                                const atkInc = Math.max(4, Math.round(baseAtk * 0.04));
-                                const defInc = Math.max(3, Math.round(baseDef * 0.04));
-                                baseMaxHp += hpInc;
-                                baseAtk += atkInc;
-                                baseDef += defInc;
-                            }
+                        for (let l = 1; l < heroLevel; l++) {
+                            const hpInc = Math.max(35, Math.round(baseMaxHp * 0.04));
+                            const atkInc = Math.max(4, Math.round(baseAtk * 0.04));
+                            const defInc = Math.max(3, Math.round(baseDef * 0.04));
+                            baseMaxHp += hpInc;
+                            baseAtk += atkInc;
+                            baseDef += defInc;
                         }
+
+                        if (typeof savedHero.maxHp === 'number' && savedHero.maxHp > baseMaxHp) baseMaxHp = savedHero.maxHp;
+                        if (typeof savedHero.atk === 'number' && savedHero.atk > baseAtk) baseAtk = savedHero.atk;
+                        if (typeof savedHero.def === 'number' && savedHero.def > baseDef) baseDef = savedHero.def;
 
                         return {
                             ...defaultHero,
