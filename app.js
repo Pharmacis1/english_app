@@ -1540,16 +1540,17 @@ document.addEventListener("DOMContentLoaded", () => {
             quizFeedbackBox.style.border = "1px solid var(--success)";
 
             const todayStr = new Date().toISOString().split('T')[0];
-            const topicKey = `quiz_xp_done_${todayStr}_${currentGrammarTopic ? currentGrammarTopic.id : 'general'}`;
-            const alreadyEarnedToday = localStorage.getItem(topicKey) === "true";
+            const topicId = currentGrammarTopic ? currentGrammarTopic.id : 'general';
+            const questionKey = `quiz_xp_done_${todayStr}_${topicId}_q${currentQuizIndex}`;
+            const alreadyEarnedToday = localStorage.getItem(questionKey) === "true";
 
             if (!alreadyEarnedToday) {
-                localStorage.setItem(topicKey, "true");
-                quizFeedbackBox.innerHTML = `<strong>✅ Correct! (+30 XP)</strong> ${explanation}`;
-                addXP(20);
-                triggerRPGReward("quiz", currentGrammarTopic ? currentGrammarTopic.heroId : null, currentGrammarTopic ? currentGrammarTopic.heroId : null);
+                localStorage.setItem(questionKey, "true");
+                quizFeedbackBox.innerHTML = `<strong>✅ Correct! (+6 Hero XP)</strong> ${explanation}`;
+                addXP(10);
+                triggerRPGReward("quiz", currentGrammarTopic ? currentGrammarTopic.heroId : null, currentGrammarTopic ? currentGrammarTopic.heroId : null, 6);
             } else {
-                quizFeedbackBox.innerHTML = `<strong>✅ Correct! (Practice mode — 0 XP, daily reward earned)</strong> ${explanation}`;
+                quizFeedbackBox.innerHTML = `<strong>✅ Correct! (Practice mode — 0 XP, daily question completed)</strong> ${explanation}`;
             }
         } else {
             quizFeedbackBox.style.background = "rgba(239, 68, 68, 0.15)";
