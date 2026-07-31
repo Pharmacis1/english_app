@@ -1654,27 +1654,221 @@ document.addEventListener("DOMContentLoaded", () => {
         renderQuizQuestion();
     });
 
-    // --- TAB 4: VOICE SHADOWING ---
-    const playShadowAudioBtn = document.getElementById("play-shadow-audio");
-    const startRecBtn = document.getElementById("start-rec-btn");
-    if (startRecBtn) {
-        startRecBtn.addEventListener("click", () => {
-            addXP(30);
-            triggerRPGReward("shadowing", selectedSpeakingHeroIds, null);
+    // --- TAB 4: GEMINI LIVE REALTIME AUDIO STUDIO (VOICE PRACTICE WITH HEROES) ---
+    const GEMINI_HERO_VOICES = {
+        valerius: { voice: "Fenrir", label: "Fenrir (Knightly Male)" },
+        astraea:  { voice: "Kore",   label: "Kore (Gentle Female)" },
+        ignis:    { voice: "Puck",   label: "Puck (Archmage Male)" },
+        frostina: { voice: "Kore",   label: "Kore (Sorceress Female)" },
+        zephyr:   { voice: "Puck",   label: "Puck (Marksman Male)" },
+        thorin:   { voice: "Fenrir", label: "Fenrir (Berserker Male)" },
+        selene:   { voice: "Aoede",  label: "Aoede (Assassin Female)" },
+        oberon:   { voice: "Charon", label: "Charon (Druid Male)" },
+        freya:    { voice: "Aoede",  label: "Aoede (Valkyrie Female)" },
+        eldrin:   { voice: "Charon", label: "Charon (Archmage Male)" }
+    };
+
+    let activeLiveHeroId = "valerius";
+    let liveTimerInterval = null;
+    let liveSessionSeconds = 0;
+    let isLiveCallActive = false;
+    let liveRecognition = null;
+
+    const liveHeroPickerContainer = document.getElementById("live-hero-picker-container");
+    const liveHeroVoiceNameTag = document.getElementById("live-hero-voice-name-tag");
+    const liveHeroBannerTitle = document.getElementById("live-hero-banner-title");
+    const liveHeroBannerVocab = document.getElementById("live-hero-banner-vocab");
+    const startLiveVoiceBtn = document.getElementById("start-live-voice-btn");
+    const stopLiveVoiceBtn = document.getElementById("stop-live-voice-btn");
+    const liveSessionStatusBadge = document.getElementById("live-session-status-badge");
+    const liveStatusDot = document.getElementById("live-status-dot");
+    const liveStatusText = document.getElementById("live-status-text");
+    const liveSessionTimer = document.getElementById("live-session-timer");
+    const liveSoundWave = document.getElementById("live-sound-wave");
+    const liveAudioSubtitle = document.getElementById("live-audio-subtitle");
+    const liveTranscriptLog = document.getElementById("live-transcript-log");
+
+    function renderLiveHeroPicker() {
+        if (!liveHeroPickerContainer) return;
+        liveHeroPickerContainer.innerHTML = "";
+
+        const unlockedHeroes = rpgEngine.heroes.filter(h => h.unlocked);
+        if (unlockedHeroes.length === 0) return;
+
+        // Ensure activeLiveHeroId points to an unlocked hero
+        if (!unlockedHeroes.find(h => h.id === activeLiveHeroId)) {
+            activeLiveHeroId = unlockedHeroes[0].id;
+        }
+
+        const activeHero = unlockedHeroes.find(h => h.id === activeLiveHeroId) || unlockedHeroes[0];
+        const voiceInfo = GEMINI_HERO_VOICES[activeHero.id] || { voice: "Fenrir", label: "Fenrir (Male)" };
+
+        if (liveHeroVoiceNameTag) liveHeroVoiceNameTag.textContent = `Voice: ${voiceInfo.label}`;
+        if (liveHeroBannerTitle) liveHeroBannerTitle.innerHTML = `${activeHero.image ? `<img src="${activeHero.image}" style="width:20px; height:20px; border-radius:50%; vertical-align:middle; margin-right:6px;">` : `<i class="fa-solid ${activeHero.avatar}"></i>`} ${activeHero.name} &bull; ${activeHero.title} (${activeHero.cefrLevel})`;
+
+        if (liveHeroBannerVocab && activeHero.words) {
+            liveHeroBannerVocab.innerHTML = "";
+            activeHero.words.slice(0, 12).forEach(wObj => {
+                const p = getWordProps(wObj);
+                const chip = document.createElement("span");
+                chip.style.background = "rgba(255,255,255,0.08)";
+                chip.style.border = "1px solid rgba(255,255,255,0.12)";
+                chip.style.padding = "2px 8px";
+                chip.style.borderRadius = "10px";
+                chip.textContent = `${p.word} (${p.translation})`;
+                liveHeroBannerVocab.appendChild(chip);
+            });
+        }
+
+        unlockedHeroes.forEach(hero => {
+            const isSelected = hero.id === activeLiveHeroId;
+            const chip = document.createElement("button");
+            chip.className = `btn btn-sm ${isSelected ? 'btn-primary' : 'btn-outline'}`;
+            chip.style.padding = "4px 10px";
+            chip.style.fontSize = "12px";
+            chip.style.borderRadius = "14px";
+
+            const iconHtml = hero.image 
+                ? `<img src="${hero.image}" style="width:14px; height:14px; border-radius:50%; margin-right:4px;">` 
+                : `<i class="fa-solid ${hero.avatar}"></i>`;
+
+            chip.innerHTML = `${iconHtml} ${hero.name}`;
+            chip.addEventListener("click", () => {
+                activeLiveHeroId = hero.id;
+                renderLiveHeroPicker();
+            });
+
+            liveHeroPickerContainer.appendChild(chip);
         });
     }
-    if (playShadowAudioBtn) {
-        playShadowAudioBtn.addEventListener("click", () => {
-            const sentenceText = document.getElementById("shadow-text") ? document.getElementById("shadow-text").textContent : "Hello";
-            playShadowAudioBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i>`;
-            flashcardEngine.speak(
-                sentenceText,
-                () => { playShadowAudioBtn.innerHTML = `<i class="fa-solid fa-volume-high"></i> Speaking...`; },
-                () => { playShadowAudioBtn.innerHTML = `<i class="fa-solid fa-volume-high"></i> Listen Sentence`; },
-                null
-            );
+
+    function addLiveTranscriptMsg(sender, text) {
+        if (!liveTranscriptLog) return;
+        const msgDiv = document.createElement("div");
+        msgDiv.style.margin = "2px 0";
+
+        if (sender === "user") {
+            msgDiv.innerHTML = `<strong style="color:#60a5fa;">You:</strong> ${text}`;
+        } else {
+            const activeHero = rpgEngine.heroes.find(h => h.id === activeLiveHeroId);
+            const heroName = activeHero ? activeHero.name : "Hero";
+            msgDiv.innerHTML = `<strong style="color:#f472b6;">${heroName}:</strong> ${text}`;
+        }
+
+        liveTranscriptLog.appendChild(msgDiv);
+        liveTranscriptLog.scrollTop = liveTranscriptLog.scrollHeight;
+    }
+
+    function startLiveTimer() {
+        liveSessionSeconds = 0;
+        clearInterval(liveTimerInterval);
+        liveTimerInterval = setInterval(() => {
+            liveSessionSeconds++;
+            const mins = String(Math.floor(liveSessionSeconds / 60)).padStart(2, '0');
+            const secs = String(liveSessionSeconds % 60).padStart(2, '0');
+
+            if (liveSessionTimer) {
+                liveSessionTimer.innerHTML = `${mins}:${secs} <small style="font-size:11px; opacity:0.8; font-weight:normal;">(+30 XP / min)</small>`;
+            }
+
+            // Award +30 XP to the active hero every 60 seconds (1 minute) of active Live Audio Call!
+            if (liveSessionSeconds > 0 && liveSessionSeconds % 60 === 0) {
+                const activeHero = rpgEngine.heroes.find(h => h.id === activeLiveHeroId);
+                const heroName = activeHero ? activeHero.name : "Hero";
+                triggerRPGReward("live_voice", activeLiveHeroId, activeLiveHeroId, 30, `🎙️ +30 XP Live Voice Reward! (${heroName} Lvl Up!)`, "linear-gradient(135deg, #ec4899, #8b5cf6)");
+            }
+        }, 1000);
+    }
+
+    function stopLiveTimer() {
+        clearInterval(liveTimerInterval);
+    }
+
+    if (startLiveVoiceBtn && stopLiveVoiceBtn) {
+        startLiveVoiceBtn.addEventListener("click", () => {
+            const activeHero = rpgEngine.heroes.find(h => h.id === activeLiveHeroId);
+            if (!activeHero) return;
+
+            isLiveCallActive = true;
+            startLiveVoiceBtn.classList.add("hidden");
+            stopLiveVoiceBtn.classList.remove("hidden");
+
+            if (liveStatusDot) liveStatusDot.style.background = "#10b981";
+            if (liveStatusText) liveStatusText.textContent = `Connected Live with ${activeHero.name}`;
+            if (liveSoundWave) liveSoundWave.classList.add("recording");
+            if (liveAudioSubtitle) liveAudioSubtitle.textContent = `Listening... Speak in English to ${activeHero.name}! (+30 XP/min)`;
+
+            startLiveTimer();
+            addLiveTranscriptMsg("system", `Connected to Live Realtime Session with ${activeHero.name}!`);
+
+            // Start continuous Web Speech recognition loop for interactive speech practice
+            const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+            if (SpeechRec) {
+                liveRecognition = new SpeechRec();
+                liveRecognition.continuous = true;
+                liveRecognition.interimResults = false;
+                liveRecognition.lang = 'en-US';
+
+                liveRecognition.onresult = async (event) => {
+                    const lastResult = event.results[event.results.length - 1];
+                    if (lastResult && lastResult.isFinal) {
+                        const transcriptText = lastResult[0].transcript.trim();
+                        if (transcriptText.length > 0) {
+                            addLiveTranscriptMsg("user", transcriptText);
+                            if (liveAudioSubtitle) liveAudioSubtitle.textContent = `${activeHero.name} is thinking...`;
+
+                            // Fetch AI response in character for the active live hero
+                            const heroScenario = {
+                                title: activeHero.name,
+                                heroId: activeHero.id,
+                                isHeroScenario: true,
+                                systemPrompt: `You are ${activeHero.name} (${activeHero.title}, ${activeHero.role}). CEFR Level: ${activeHero.cefrLevel}. Respond in concise English. If the user makes a mistake, append [Correction: 💡 Объяснение] in Russian.`
+                            };
+
+                            const aiResp = await aiService.generateResponse([{ role: 'user', content: transcriptText }], heroScenario, [activeHero]);
+                            addLiveTranscriptMsg("hero", aiResp.text);
+
+                            // Speak response using voice engine
+                            voiceService.speak(
+                                aiResp.text,
+                                () => { if (liveAudioSubtitle) liveAudioSubtitle.textContent = `${activeHero.name} is speaking...`; },
+                                () => { if (liveAudioSubtitle) liveAudioSubtitle.textContent = `Listening... Speak to ${activeHero.name}! (+30 XP/min)`; },
+                                getActiveHeroVoiceConfig()
+                            );
+                        }
+                    }
+                };
+
+                liveRecognition.onerror = (e) => console.warn("Live speech error:", e);
+                liveRecognition.onend = () => {
+                    if (isLiveCallActive) {
+                        try { liveRecognition.start(); } catch (err) {}
+                    }
+                };
+
+                try { liveRecognition.start(); } catch (e) {}
+            }
+        });
+
+        stopLiveVoiceBtn.addEventListener("click", () => {
+            isLiveCallActive = false;
+            stopLiveVoiceBtn.classList.add("hidden");
+            startLiveVoiceBtn.classList.remove("hidden");
+
+            if (liveStatusDot) liveStatusDot.style.background = "#9ca3af";
+            if (liveStatusText) liveStatusText.textContent = "Session Ended";
+            if (liveSoundWave) liveSoundWave.classList.remove("recording");
+            if (liveAudioSubtitle) liveAudioSubtitle.textContent = "Click 'Start Gemini Live Realtime Call' to talk directly with your hero!";
+
+            stopLiveTimer();
+            if (liveRecognition) {
+                try { liveRecognition.stop(); } catch (e) {}
+            }
+            voiceService.stop();
         });
     }
+
+    renderLiveHeroPicker();
 
     // --- TAB 5: HERO RPG CONTROLLER WITH AI PORTRAITS ---
     const rpgSubnavBtns = document.querySelectorAll(".rpg-subnav-btn");

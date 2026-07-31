@@ -279,59 +279,81 @@
                 </div>
             </section>
 
-            <!-- TAB 4: VOICE SHADOWING -->
+            <!-- TAB 4: GEMINI LIVE REALTIME VOICE STUDIO -->
             <section class="tab-content" id="tab-speaking">
-                <div class="shadowing-container glass-card">
-                    <div class="shadowing-header">
-                        <h3><i class="fa-solid fa-repeat"></i> Shadowing & Accent Trainer</h3>
-                        <p class="panel-desc">Listen to a native sentence, repeat it out loud, and test your speech clarity.</p>
+                <div class="shadowing-container glass-card" style="padding:24px;">
+                    <div class="shadowing-header" style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:20px;">
+                        <div>
+                            <h3 style="display:flex; align-items:center; gap:10px; font-size:20px;">
+                                <i class="fa-solid fa-microphone-lines" style="color:#ec4899;"></i> 
+                                Gemini Live Realtime Audio Studio
+                                <span class="badge" style="background:rgba(16,185,129,0.2); color:#34d399; border:1px solid rgba(16,185,129,0.4); font-size:11px;">
+                                    ⚡ Realtime Voice Stream &bull; Unlimited RPD
+                                </span>
+                            </h3>
+                            <p class="panel-desc" style="margin-top:4px; color:var(--text-muted);">
+                                Live real-time voice conversation with heroes. Practice speaking continuously to earn <strong style="color:#fbbf24;">+30 XP every minute</strong>!
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- HERO LIVE PARTNER SELECTOR -->
+                    <div style="background:rgba(15,23,42,0.6); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:16px; margin-bottom:20px;">
+                        <div style="font-size:12px; font-weight:700; color:var(--heart); margin-bottom:10px; display:flex; align-items:center; justify-content:space-between;">
+                            <span><i class="fa-solid fa-users-viewfinder"></i> Select Hero Partner for Live Voice Practice:</span>
+                            <span id="live-hero-voice-name-tag" class="font-mono" style="font-size:11px; color:#818cf8;">Voice: Fenrir</span>
+                        </div>
+                        <div id="live-hero-picker-container" style="display:flex; flex-wrap:wrap; gap:8px;"></div>
+                    </div>
+
+                    <!-- LIVE REALTIME AUDIO STUDIO CARD -->
+                    <div class="recording-studio-card" style="background:rgba(15,23,42,0.8); border:1px solid rgba(236,72,153,0.3); border-radius:18px; padding:28px; text-align:center; position:relative; overflow:hidden;">
                         
-                        <div class="hero-target-bar" style="margin-top:10px; padding:10px; border-radius:8px; background:rgba(255,255,255,0.03);">
-                            <div style="font-size:11px; font-weight:600; margin-bottom:6px; color:var(--text-muted);">
-                                <i class="fa-solid fa-crosshairs" style="color:var(--heart);"></i> Target Heroes (Receive Practice XP):
+                        <!-- LIVE STATUS BADGE & TIMER -->
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+                            <div id="live-session-status-badge" style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); padding:4px 12px; border-radius:20px; font-size:12px; font-weight:600; display:inline-flex; align-items:center; gap:6px;">
+                                <span style="width:8px; height:8px; border-radius:50%; background:#9ca3af;" id="live-status-dot"></span>
+                                <span id="live-status-text">Ready to Connect</span>
                             </div>
-                            <div id="speaking-hero-target-chips" style="display:flex; flex-wrap:wrap; gap:6px;"></div>
-                        </div>
-                    </div>
-
-                    <div class="phrase-target-card">
-                        <div class="phrase-speaker-tag" id="shadow-speaker">Senior Software Engineer</div>
-                        <h2 class="phrase-text" id="shadow-text">"Could you please walk me through your solution for optimizing this database query?"</h2>
-                        <p class="phrase-translation" id="shadow-translation">«Не мог бы ты объяснить своё решение по оптимизации этого запроса к базе данных?»</p>
-
-                        <div class="audio-controls-row">
-                            <button class="btn btn-secondary" id="play-shadow-audio">
-                                <i class="fa-solid fa-play"></i> Listen Native Audio
-                            </button>
-                            <div class="speed-selector font-mono">
-                                Speed: 
-                                <button class="speed-btn active" data-speed="1.0">1.0x</button>
-                                <button class="speed-btn" data-speed="0.8">0.8x</button>
-                                <button class="speed-btn" data-speed="0.6">0.6x</button>
+                            <div class="font-mono" style="font-size:16px; font-weight:700; color:#fbbf24;" id="live-session-timer">
+                                00:00 <small style="font-size:11px; opacity:0.8; font-weight:normal;">(+30 XP / min)</small>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="recording-studio-card">
-                        <div class="visualizer-box">
-                            <div class="sound-wave" id="sound-wave">
+                        <!-- ACTIVE HERO TITLE & CHEATSHEET QUICK VOCAB -->
+                        <div id="live-active-hero-card-banner" style="margin-bottom:20px; padding:12px; background:rgba(99,102,241,0.1); border:1px solid rgba(99,102,241,0.25); border-radius:12px;">
+                            <h4 id="live-hero-banner-title" style="margin:0; font-size:16px; color:var(--text-main);">🛡️ Valerius &bull; The Silver Paladin</h4>
+                            <div id="live-hero-banner-vocab" style="font-size:11px; color:#cbd5e1; margin-top:8px; display:flex; flex-wrap:wrap; gap:6px; justify-content:center;"></div>
+                        </div>
+
+                        <!-- LIVE AUDIO VISUALIZER & ANIMATED SOUND WAVE -->
+                        <div class="visualizer-box" style="margin:20px 0;">
+                            <div class="sound-wave" id="live-sound-wave">
                                 <span></span><span></span><span></span><span></span><span></span>
                             </div>
-                            <span class="rec-timer font-mono" id="rec-status">Press record and speak out loud</span>
+                            <div style="font-size:13px; color:var(--text-muted); margin-top:12px;" id="live-audio-subtitle">
+                                Click "Start Gemini Live Realtime Call" to talk directly with your hero!
+                            </div>
                         </div>
 
-                        <div class="recording-actions">
-                            <button class="btn btn-record" id="start-rec-btn">
-                                <i class="fa-solid fa-microphone"></i> Start Recording
+                        <!-- LIVE ACTION BUTTONS -->
+                        <div class="recording-actions" style="margin-top:24px; display:flex; justify-content:center; gap:12px;">
+                            <button class="btn btn-record btn-lg" id="start-live-voice-btn" style="padding:14px 32px; font-size:16px; box-shadow:0 0 25px rgba(236,72,153,0.5); cursor:pointer;">
+                                <i class="fa-solid fa-microphone"></i> Start Gemini Live Realtime Call
+                            </button>
+                            <button class="btn btn-danger btn-lg hidden" id="stop-live-voice-btn" style="padding:14px 32px; font-size:16px; cursor:pointer;">
+                                <i class="fa-solid fa-phone-slash"></i> End Call
                             </button>
                         </div>
+                    </div>
 
-                        <div class="speech-match-result hidden" id="speech-match-card">
-                            <div class="score-badge" id="match-score">92%</div>
-                            <div class="match-details">
-                                <h4>Speech Accuracy</h4>
-                                <p id="recognized-speech-text"></p>
-                            </div>
+                    <!-- LIVE FEEDBACK & TRANSCRIPT LOG -->
+                    <div id="live-transcript-box" style="margin-top:20px; background:rgba(15,23,42,0.6); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:16px; max-height:180px; overflow-y:auto; font-size:13px; color:#cbd5e1;">
+                        <div style="font-weight:700; font-size:11px; color:var(--text-muted); margin-bottom:6px;" class="font-mono">
+                            <i class="fa-solid fa-comments"></i> LIVE CONVERSATION TRANSCRIPT & GRAMMAR FEEDBACK:
+                        </div>
+                        <div id="live-transcript-log" style="display:flex; flex-direction:column; gap:6px;">
+                            <em style="color:var(--text-muted);">Your real-time speech and hero responses will appear here live...</em>
                         </div>
                     </div>
                 </div>
