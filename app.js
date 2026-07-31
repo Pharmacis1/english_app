@@ -883,9 +883,10 @@ document.addEventListener("DOMContentLoaded", () => {
         return ru;
     }
 
-    function getActiveHeroVoiceConfig() {
-        if (activeScenario && activeScenario.isHeroScenario && activeScenario.heroId) {
-            const hero = rpgEngine.heroes.find(h => h.id === activeScenario.heroId);
+    function getActiveHeroVoiceConfig(customHeroId = null) {
+        const targetId = customHeroId || (activeScenario && activeScenario.isHeroScenario ? activeScenario.heroId : null);
+        if (targetId) {
+            const hero = rpgEngine.heroes.find(h => h.id === targetId);
             if (hero && hero.voiceConfig) return hero.voiceConfig;
         }
         return null;
@@ -1918,7 +1919,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 aiResp.text,
                                 () => { if (liveAudioSubtitle) liveAudioSubtitle.textContent = `${activeHero.name} is speaking...`; },
                                 () => { if (liveAudioSubtitle) liveAudioSubtitle.textContent = `Listening... Speak to ${activeHero.name}! (+30 XP/min)`; },
-                                getActiveHeroVoiceConfig()
+                                getActiveHeroVoiceConfig(activeLiveHeroId)
                             );
                         }
                     }

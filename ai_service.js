@@ -362,14 +362,19 @@ class VoiceService {
             const playUtterance = () => {
                 const voices = window.speechSynthesis.getVoices();
                 if (voices.length > 0) {
-                    let voice = null;
                     if (gender === 'female') {
-                        voice = voices.find(v => v.lang.includes('en') && (v.name.includes('Zira') || v.name.includes('Samantha') || v.name.includes('Jenny') || v.name.includes('Female') || v.name.includes('Google US')));
+                        voice = voices.find(v => v.lang.startsWith('en') && (v.name.includes('Zira') || v.name.includes('Hazel') || v.name.includes('Susan') || v.name.includes('Samantha') || v.name.includes('Jenny') || v.name.includes('Aria') || v.name.includes('Ana') || v.name.includes('Female') || v.name.includes('Google UK English Female')));
+                        if (!voice) {
+                            utterance.pitch = pitch ? pitch * 1.25 : 1.25;
+                        }
                     } else if (gender === 'male') {
-                        voice = voices.find(v => v.lang.includes('en') && (v.name.includes('David') || v.name.includes('Guy') || v.name.includes('George') || v.name.includes('Male')));
+                        voice = voices.find(v => v.lang.startsWith('en') && (v.name.includes('David') || v.name.includes('George') || v.name.includes('Mark') || v.name.includes('Guy') || v.name.includes('Stefan') || v.name.includes('Male') || v.name.includes('Google US English')));
+                        if (!voice) {
+                            utterance.pitch = pitch ? pitch * 0.85 : 0.85;
+                        }
                     }
                     if (!voice) {
-                        voice = voices.find(v => v.lang.includes('en') && (v.name.includes('Natural') || v.name.includes('Google') || v.name.includes('Samantha') || v.name.includes('Jenny') || v.name.includes('Guy')));
+                        voice = voices.find(v => v.lang.startsWith('en') && (v.name.includes('Natural') || v.name.includes('Google') || v.name.includes('Samantha') || v.name.includes('Jenny') || v.name.includes('Guy')));
                     }
                     if (!voice) {
                         voice = voices.find(v => v.lang.startsWith('en'));
