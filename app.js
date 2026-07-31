@@ -1906,7 +1906,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 title: activeHero.name,
                                 heroId: activeHero.id,
                                 isHeroScenario: true,
-                                systemPrompt: `You are ${activeHero.name} (${activeHero.title}, ${activeHero.role}). CEFR Level: ${activeHero.cefrLevel}. Respond in concise English. Do NOT repeat greetings ("Hello", "I am Valerius") after the first message.`
+                                systemPrompt: `You are ${activeHero.name} (${activeHero.title}, ${activeHero.role}). CEFR Level: ${activeHero.cefrLevel}. Speak in clear, complete English. Actively use your target vocabulary words in conversation. Do NOT repeat greetings ("Hello", "I am Valerius") after the first message.`
                             };
 
                             const aiResp = await aiService.generateResponse(liveChatHistory, heroScenario, [activeHero]);
