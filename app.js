@@ -1093,12 +1093,14 @@ document.addEventListener("DOMContentLoaded", () => {
         const aiResponse = await aiService.generateResponse(chatHistory, activeScenario, targetHeroObjects);
         lastAiMessageContent = aiResponse.text; // Store last AI response for combo tracking
 
-        chatMessagesBox.removeChild(typingBubble);
-        appendMessage("assistant", aiResponse.text, aiResponse.translation);
-
         const autoSpeakToggle = document.getElementById("auto-speak-toggle");
         if (autoSpeakToggle && autoSpeakToggle.checked) {
             checkAndAwardListeningBonus(aiResponse.text, activeHeroId);
+        }
+
+        appendMessage("assistant", aiResponse.text, aiResponse.translation);
+
+        if (autoSpeakToggle && autoSpeakToggle.checked) {
             voiceService.speak(aiResponse.text, null, null, getActiveHeroVoiceConfig());
         }
 
