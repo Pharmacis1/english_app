@@ -1152,6 +1152,24 @@ document.addEventListener("DOMContentLoaded", () => {
     const cardExample = document.getElementById("card-example");
     const rateBtns = document.querySelectorAll(".rate-btn");
 
+    function formatTimeUntilReview(nextReviewDate, studied) {
+        if (!studied || !nextReviewDate) return "✨ New Word";
+        const diffMs = nextReviewDate - Date.now();
+        if (diffMs <= 0) return "🔥 Due Now!";
+        
+        const diffMins = Math.round(diffMs / (60 * 1000));
+        if (diffMins < 60) return `⏳ in ${Math.max(1, diffMins)}m`;
+        
+        const diffHours = Math.round(diffMs / (60 * 60 * 1000));
+        if (diffHours < 24) return `⏳ in ${diffHours}h`;
+        
+        const diffDays = Math.round(diffMs / (24 * 60 * 60 * 1000));
+        if (diffDays < 30) return `⏳ in ${diffDays}d`;
+        
+        const diffMonths = Math.round(diffDays / 30);
+        return `⏳ in ${diffMonths}mo`;
+    }
+
     function renderFlashcardsUI() {
         deckTabsContainer.innerHTML = "";
         flashcardEngine.decks = flashcardEngine.loadDecks();
@@ -1205,13 +1223,47 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const intervalDays = currentCard.interval || 1;
             const easeFactor = (currentCard.easeFactor || 2.5).toFixed(2);
-            const batchLabel = flashcardEngine.currentCategory === "🧠 Due for SRS Review" ? "SRS Queue" : `Batch ${flashcardEngine.batchIndex + 1} (Portion: 10 Words)`;
+            const batchLabel = flashcardEngine.currentCategory === "🧠 Due for SRS Review" ? "SRS Queue" : `Batch ${flashcardEngine.batchIndex + 1}`;
 
             const cardHeroId = getHeroIdForCard(currentCard);
             const cardHeroObj = cardHeroId ? rpgEngine.heroes.find(h => h.id === cardHeroId) : null;
             const categoryDisplay = cardHeroObj ? `🛡️ ${cardHeroObj.name}'s Word` : flashcardEngine.currentCategory;
+            const nextReviewStr = formatTimeUntilReview(currentCard.nextReviewDate, currentCard.studied);
 
-            cardTag.innerHTML = `${categoryDisplay} &bull; <small class="font-mono" style="color:var(--heart)">${batchLabel} | SRS: ${intervalDays}d</small>`;
+            cardTag.innerHTML = `
+                ${categoryDisplay} &bull; <small class="font-mono" style="color:var(--heart)">${batchLabel}</small>
+                &nbsp;&bull;&nbsp; 
+                <span style="background:rgba(99,102,241,0.2); color:#818cf8; border:1px solid rgba(99,102,241,0.4); padding:2px 8px; border-radius:10px; font-size:11px; font-weight:700;" class="font-mono" title="Next SRS Review Date">
+                    <i class="fa-solid fa-clock"></i> ${nextReviewStr}
+                </span>
+            `;
+
+            // Dynamic SRS interval preview on rating buttons (Again, Hard, Good, Easy)
+            const againBtn = document.querySelector(".rate-btn.btn-again");
+            const hardBtn = document.querySelector(".rate-btn.btn-hard");
+            const goodBtn = document.querySelector(".rate-btn.btn-good");
+            const easyBtn = document.querySelector(".rate-btn.btn-easy");
+
+            const curInterval = currentCard.interval || 1;
+            const curEase = currentCard.easeFactor || 2.5;
+            const curReps = currentCard.repetitions || 0;
+
+            const hardDays = Math.max(1, Math.round(curInterval * 1.2));
+            
+            let goodDays = 1;
+            if (curReps + 1 === 1) goodDays = 1;
+            else if (curReps + 1 === 2) goodDays = 6;
+            else goodDays = Math.round(curInterval * curEase);
+
+            let easyDays = 4;
+            if (curReps + 1 === 1) easyDays = 4;
+            else easyDays = Math.round(curInterval * (curEase + 0.15) * 1.3);
+
+            if (againBtn) againBtn.innerHTML = `<i class="fa-solid fa-xmark"></i> Again <small class="font-mono" style="opacity:0.85; font-size:10px;">(&lt;10m)</small>`;
+            if (hardBtn) hardBtn.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> Hard <small class="font-mono" style="opacity:0.85; font-size:10px;">(${hardDays}d)</small>`;
+            if (goodBtn) goodBtn.innerHTML = `<i class="fa-solid fa-thumbs-up"></i> Good <small class="font-mono" style="opacity:0.85; font-size:10px;">(${goodDays}d)</small>`;
+            if (easyBtn) easyBtn.innerHTML = `<i class="fa-solid fa-star"></i> Easy <small class="font-mono" style="opacity:0.85; font-size:10px;">(${easyDays}d)</small>`;
+
             cardWord.textContent = currentCard.word;
             cardPhonetic.textContent = currentCard.phonetic;
             cardTranslation.textContent = currentCard.translation;
@@ -1693,6 +1745,8 @@ document.addEventListener("DOMContentLoaded", () => {
             // Sort cold/rarely used words first (0-1 uses) so user can see what to practice!
             wordStatsList.sort((a, b) => a.count - b.count);
 
+            const allDeckCards = Object.values(flashcardEngine.decks).flat();
+
             wordStatsList.forEach(item => {
                 const card = document.createElement("div");
                 card.style.cssText = "background:rgba(15,23,42,0.7); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:10px 14px; display:flex; flex-direction:column; gap:6px;";
@@ -1702,6 +1756,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 const badgeBorder = isCold ? "1px solid rgba(59,130,246,0.4)" : "1px solid rgba(245,158,11,0.4)";
                 const textColor = isCold ? "#60a5fa" : "#fbbf24";
                 const statusTag = isCold ? "❄️ Rarely Used / Cold" : "🔥 Active Word";
+
+                const srsCard = allDeckCards.find(c => c.word && c.word.toLowerCase() === item.word.toLowerCase());
+                const nextReviewTimerStr = srsCard ? formatTimeUntilReview(srsCard.nextReviewDate, srsCard.studied) : "✨ New Word";
 
                 card.innerHTML = `
                     <div style="display:flex; justify-content:space-between; align-items:center;">
@@ -1715,8 +1772,13 @@ document.addEventListener("DOMContentLoaded", () => {
                                 <span style="font-size:12px; color:#cbd5e1; margin-left:10px;">— ${item.translation || ''}</span>
                             </div>
                         </div>
-                        <div style="background:${badgeColor}; border:${badgeBorder}; color:${textColor}; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:700;" class="font-mono">
-                            ${item.count}x (${item.percentage}%)
+                        <div style="display:flex; align-items:center; gap:6px;">
+                            <span class="font-mono" style="font-size:10px; background:rgba(99,102,241,0.15); border:1px solid rgba(99,102,241,0.3); color:#a5b4fc; padding:2px 6px; border-radius:8px; font-weight:600;" title="SuperMemo SRS Review Schedule">
+                                <i class="fa-solid fa-clock"></i> ${nextReviewTimerStr}
+                            </span>
+                            <div style="background:${badgeColor}; border:${badgeBorder}; color:${textColor}; padding:2px 8px; border-radius:10px; font-size:11px; font-weight:700;" class="font-mono">
+                                ${item.count}x (${item.percentage}%)
+                            </div>
                         </div>
                     </div>
                     <div style="display:flex; align-items:center; gap:8px;">
@@ -2065,8 +2127,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 clearInterval(rpgEngine.battleTimer);
                 rpgEngine.inBattle = false;
                 startBattleBtn.disabled = false;
-                logBattle(`🎉 VICTORY! Stage ${stage.id} Cleared! Next stage unlocked!`);
-                rpgEngine.completeStage(stage.id);
+                const unlockedHeroName = rpgEngine.completeStage(stage.id);
+                let msg = `🎉 VICTORY! Stage ${stage.id} Cleared!`;
+                if (unlockedHeroName) {
+                    msg += ` 👑 NEW HERO UNLOCKED: ${unlockedHeroName}! (Packs & Quests Available!)`;
+                    alert(`👑 CONGRATULATIONS!\n\nYou defeated the Boss of Stage ${stage.id}!\nNEW HERO UNLOCKED: ${unlockedHeroName}! 💕\n\nCheck the Hero Guild to train words & start Affinity Quests with ${unlockedHeroName}!`);
+                }
+                logBattle(msg);
                 renderCampaignMap();
                 renderHeroesRoster();
                 renderSquadPicker();

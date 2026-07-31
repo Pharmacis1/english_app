@@ -713,11 +713,28 @@ const CAMPAIGN_CHAPTERS = [
 
 class RPGEngine {
     constructor() {
-        this.heroes = this.loadHeroes();
         this.chapters = this.loadChapters();
+        this.heroes = this.loadHeroes();
         this.selectedSquad = this.loadSquad();
+        this.syncClearedBossHeroUnlocks();
         this.inBattle = false;
         this.battleTimer = null;
+    }
+
+    syncClearedBossHeroUnlocks() {
+        if (!this.chapters || !this.heroes) return;
+        this.chapters.forEach(c => {
+            const defaultChap = CAMPAIGN_CHAPTERS.find(ch => ch.id === c.id);
+            c.stages.forEach(st => {
+                const defaultStage = defaultChap ? defaultChap.stages.find(s => s.id === st.id) : null;
+                const heroIdToUnlock = st.unlockHeroId || (defaultStage ? defaultStage.unlockHeroId : null);
+                if (st.boss && st.cleared && heroIdToUnlock) {
+                    const h = this.heroes.find(hero => hero.id === heroIdToUnlock);
+                    if (h) h.unlocked = true;
+                }
+            });
+        });
+        this.save();
     }
 
     loadHeroes() {
@@ -924,14 +941,24 @@ class RPGEngine {
 
     completeStage(stageId) {
         let stageFound = false;
+        let unlockedHeroName = null;
         for (let c of this.chapters) {
             for (let i = 0; i < c.stages.length; i++) {
                 if (c.stages[i].id === stageId) {
                     c.stages[i].cleared = true;
-                    if (c.stages[i].boss && c.stages[i].unlockHeroId) {
-                        const heroToUnlock = this.heroes.find(h => h.id === c.stages[i].unlockHeroId);
-                        if (heroToUnlock) heroToUnlock.unlocked = true;
+
+                    const defaultChap = CAMPAIGN_CHAPTERS.find(ch => ch.id === c.id);
+                    const defaultStage = defaultChap ? defaultChap.stages.find(st => st.id === stageId) : null;
+                    const heroIdToUnlock = c.stages[i].unlockHeroId || (defaultStage ? defaultStage.unlockHeroId : null);
+
+                    if (c.stages[i].boss && heroIdToUnlock) {
+                        const heroToUnlock = this.heroes.find(h => h.id === heroIdToUnlock);
+                        if (heroToUnlock) {
+                            heroToUnlock.unlocked = true;
+                            unlockedHeroName = heroToUnlock.name;
+                        }
                     }
+
                     if (i + 1 < c.stages.length) {
                         c.stages[i + 1].unlocked = true;
                     } else {
@@ -947,6 +974,7 @@ class RPGEngine {
             if (stageFound) break;
         }
         this.save();
+        return unlockedHeroName;
     }
 
     generateAffinityQuest(hero, questLevel) {
