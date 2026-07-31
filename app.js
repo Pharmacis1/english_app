@@ -1736,13 +1736,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (liveHeroBannerVocab && activeHero.words) {
             liveHeroBannerVocab.innerHTML = "";
-            activeHero.words.slice(0, 12).forEach(wObj => {
+            activeHero.words.forEach(wObj => {
                 const p = getWordProps(wObj);
+                const currentUsage = getWordUsageCount(activeHero.id, p.word);
+
+                let chipStyle = "background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); color:#cbd5e1;";
+                if (currentUsage === 0) {
+                    chipStyle = "background:rgba(245,158,11,0.15); border:1px solid #f59e0b; color:#fbbf24;";
+                } else if (currentUsage === 1) {
+                    chipStyle = "background:rgba(168,85,247,0.15); border:1px solid #a855f7; color:#c084fc;";
+                } else if (currentUsage === 2) {
+                    chipStyle = "background:rgba(59,130,246,0.15); border:1px solid #3b82f6; color:#60a5fa;";
+                }
+
                 const chip = document.createElement("span");
-                chip.style.background = "rgba(255,255,255,0.08)";
-                chip.style.border = "1px solid rgba(255,255,255,0.12)";
-                chip.style.padding = "2px 8px";
-                chip.style.borderRadius = "10px";
+                chip.style.cssText = `padding:2px 8px; border-radius:10px; font-size:11px; display:inline-block; ${chipStyle}`;
+                chip.title = `${p.word} — ${p.translation} (Today: ${currentUsage} uses)`;
                 chip.textContent = `${p.word} (${p.translation})`;
                 liveHeroBannerVocab.appendChild(chip);
             });
