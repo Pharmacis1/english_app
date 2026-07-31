@@ -1759,29 +1759,39 @@ document.addEventListener("DOMContentLoaded", () => {
         liveTranscriptLog.scrollTop = liveTranscriptLog.scrollHeight;
     }
 
+    let hasUserSpokenThisMinute = false;
+
     function startLiveTimer() {
         liveSessionSeconds = 0;
+        hasUserSpokenThisMinute = false;
         clearInterval(liveTimerInterval);
         liveTimerInterval = setInterval(() => {
             liveSessionSeconds++;
             const mins = String(Math.floor(liveSessionSeconds / 60)).padStart(2, '0');
             const secs = String(liveSessionSeconds % 60).padStart(2, '0');
 
+            const statusTag = hasUserSpokenThisMinute ? "🗣️ Active" : "🤐 Speak for XP!";
             if (liveSessionTimer) {
-                liveSessionTimer.innerHTML = `${mins}:${secs} <small style="font-size:11px; opacity:0.8; font-weight:normal;">(+30 XP / min)</small>`;
+                liveSessionTimer.innerHTML = `${mins}:${secs} <small style="font-size:11px; opacity:0.8; font-weight:normal;">(+30 XP / min &bull; ${statusTag})</small>`;
             }
 
-            // Award +30 XP to the active hero every 60 seconds (1 minute) of active Live Audio Call!
+            // Award +30 XP ONLY if user actually spoke during this 60-second window!
             if (liveSessionSeconds > 0 && liveSessionSeconds % 60 === 0) {
-                const activeHero = rpgEngine.heroes.find(h => h.id === activeLiveHeroId);
-                const heroName = activeHero ? activeHero.name : "Hero";
-                triggerRPGReward("live_voice", activeLiveHeroId, activeLiveHeroId, 30, `🎙️ +30 XP Live Voice Reward! (${heroName} Lvl Up!)`, "linear-gradient(135deg, #ec4899, #8b5cf6)");
+                if (hasUserSpokenThisMinute) {
+                    hasUserSpokenThisMinute = false; // Reset active flag for next minute
+                    const activeHero = rpgEngine.heroes.find(h => h.id === activeLiveHeroId);
+                    const heroName = activeHero ? activeHero.name : "Hero";
+                    triggerRPGReward("live_voice", activeLiveHeroId, activeLiveHeroId, 30, `🎙️ +30 XP Live Voice Reward! (${heroName} Lvl Up!)`, "linear-gradient(135deg, #ec4899, #8b5cf6)");
+                } else {
+                    addLiveTranscriptMsg("system", "💡 Silence detected: Speak in English to earn your +30 XP for the minute!");
+                }
             }
         }, 1000);
     }
 
     function stopLiveTimer() {
         clearInterval(liveTimerInterval);
+        hasUserSpokenThisMinute = false;
     }
 
     if (startLiveVoiceBtn && stopLiveVoiceBtn) {
@@ -1790,6 +1800,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (!activeHero) return;
 
             isLiveCallActive = true;
+            hasUserSpokenThisMinute = false;
             startLiveVoiceBtn.classList.add("hidden");
             stopLiveVoiceBtn.classList.remove("hidden");
 
@@ -1814,6 +1825,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     if (lastResult && lastResult.isFinal) {
                         const transcriptText = lastResult[0].transcript.trim();
                         if (transcriptText.length > 0) {
+                            hasUserSpokenThisMinute = true; // Registered active user speech!
                             addLiveTranscriptMsg("user", transcriptText);
                             if (liveAudioSubtitle) liveAudioSubtitle.textContent = `${activeHero.name} is thinking...`;
 
