@@ -130,7 +130,7 @@ DO NOT output any translation or extra brackets in the English text.]`;
         }
         try {
             const formattedMessages = [
-                { role: 'system', content: "You are a direct, professional English-to-Russian translator. Return ONLY the clear Russian translation text without explanations, greetings, quotes, or original English." },
+                { role: 'system', content: "You are a strict, direct English-to-Russian translator. Translate the given text into natural Russian ONLY. Do NOT output Chinese, Japanese, or any extra commentary or conversational questions." },
                 { role: 'user', content: `Translate this text to Russian: "${englishText}"` }
             ];
 
@@ -148,11 +148,14 @@ DO NOT output any translation or extra brackets in the English text.]`;
             if (!response.ok) throw new Error("Translation proxy error");
             const data = await response.json();
             if (data.success && data.content) {
-                return data.content
+                let cleaned = data.content
+                    .replace(/[\u4e00-\u9fff\u3400-\u4dbf\u3000-\u303f\uff00-\uffef]+/g, '') // Remove any CJK Chinese/Asian characters
                     .replace(/^Translation:\s*/gi, '')
                     .replace(/^Перевод:\s*/gi, '')
                     .replace(/^["']|["']$/g, '')
                     .trim();
+
+                if (cleaned.length > 0) return cleaned;
             }
         } catch (e) {
             console.warn("Dedicated AI translation failed, using fallback:", e);
@@ -170,7 +173,8 @@ DO NOT output any translation or extra brackets in the English text.]`;
             text = text.replace(/\[Correction:\s*[\s\S]*?\]/gi, '').trim();
         }
 
-        // Clean any leftover 'Translation:' text that vision or small models might leak
+        // Clean CJK characters & leftover 'Translation:' text that small models might leak
+        text = text.replace(/[\u4e00-\u9fff\u3400-\u4dbf\u3000-\u303f\uff00-\uffef]+/g, '');
         text = text.replace(/Translation:\s*.*$/gi, '').trim();
 
         return { text, correction };
