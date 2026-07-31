@@ -1776,7 +1776,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             ${avatarHtml}
                         </div>
                         <div class="hero-title-group">
-                            <h4>${hero.name} <small class="font-mono">Lvl ${hero.level}/100</small></h4>
+                            <h4>${hero.name} <small class="font-mono" style="color:var(--primary); font-weight:700;">Lvl ${hero.level} / 100</small></h4>
                             <div class="hero-cefr-tag">${hero.cefrLevel} (100 Words)</div>
                         </div>
                     </div>

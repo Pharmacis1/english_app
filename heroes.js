@@ -731,9 +731,28 @@ class RPGEngine {
                     if (savedHero) {
                         const heroLevel = savedHero.level || defaultHero.level;
                         const heroAffinity = Math.min(heroLevel, savedHero.affinityLevel !== undefined ? savedHero.affinityLevel : 0);
-                        const calculatedMaxXp = Math.round(150 + (heroLevel - 1) * 3);
-                        let heroXp = savedHero.xp || defaultHero.xp;
+                        const calculatedMaxXp = Math.round(150 + (heroLevel - 1) * 5);
+                        let heroXp = savedHero.xp !== undefined ? savedHero.xp : defaultHero.xp;
                         if (heroXp >= calculatedMaxXp) heroXp = calculatedMaxXp - 1; // Prevent overflow
+
+                        // Restore or retroactively calculate stat growth for hero level
+                        let baseMaxHp = savedHero.maxHp;
+                        let baseAtk = savedHero.atk;
+                        let baseDef = savedHero.def;
+
+                        if (!baseMaxHp || (baseMaxHp <= defaultHero.maxHp && heroLevel > 1)) {
+                            baseMaxHp = defaultHero.maxHp;
+                            baseAtk = defaultHero.atk;
+                            baseDef = defaultHero.def;
+                            for (let l = 1; l < heroLevel; l++) {
+                                const hpInc = Math.max(35, Math.round(baseMaxHp * 0.04));
+                                const atkInc = Math.max(4, Math.round(baseAtk * 0.04));
+                                const defInc = Math.max(3, Math.round(baseDef * 0.04));
+                                baseMaxHp += hpInc;
+                                baseAtk += atkInc;
+                                baseDef += defInc;
+                            }
+                        }
 
                         return {
                             ...defaultHero,
@@ -742,6 +761,10 @@ class RPGEngine {
                             maxXp: calculatedMaxXp,
                             affinityLevel: heroAffinity,
                             unlocked: savedHero.unlocked !== undefined ? savedHero.unlocked : defaultHero.unlocked,
+                            maxHp: baseMaxHp,
+                            hp: baseMaxHp,
+                            atk: baseAtk,
+                            def: baseDef,
                             words: generateHeroWords(defaultHero.id) // Load official Oxford 50 CEFR words!
                         };
                     }
