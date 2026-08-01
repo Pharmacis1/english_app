@@ -953,9 +953,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function resetChat() {
         chatHistory = [];
-        chatMessagesBox.innerHTML = "";
-        feedbackBanner.classList.add("hidden");
-        appendMessage("assistant", activeScenario.greeting);
+        if (chatMessagesBox) chatMessagesBox.innerHTML = "";
+        if (feedbackBanner) feedbackBanner.classList.add("hidden");
+
+        // For Hero Scenarios, let the user initiate the conversation first!
+        if (activeScenario && !activeScenario.isHeroScenario && activeScenario.greeting) {
+            appendMessage("assistant", activeScenario.greeting);
+        }
     }
 
     function evaluateUserGrammarClientSide(text) {
