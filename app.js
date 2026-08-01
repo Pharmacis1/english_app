@@ -1103,6 +1103,10 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
+        if (results.length > 0) {
+            try { renderLiveHeroPicker(); } catch (e) {}
+        }
+
         return results;
     }
 

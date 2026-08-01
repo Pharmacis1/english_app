@@ -545,4 +545,9 @@ class VoiceService {
             this.isRecording = false;
         }
     }
+
+    stop() {
+        this.stopSpeech();
+        this.stopListening();
+    }
 }
