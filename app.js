@@ -1293,16 +1293,18 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    sendChatBtn.addEventListener("click", handleUserSendMessage);
-    userChatInput.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" && !e.shiftKey) {
-            e.preventDefault();
-            handleUserSendMessage();
-        }
-    });
+    if (sendChatBtn) sendChatBtn.addEventListener("click", handleUserSendMessage);
+    if (userChatInput) {
+        userChatInput.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" && !e.shiftKey) {
+                e.preventDefault();
+                handleUserSendMessage();
+            }
+        });
+    }
 
-    clearChatBtn.addEventListener("click", resetChat);
-    closeFeedbackBtn.addEventListener("click", () => feedbackBanner.classList.add("hidden"));
+    if (clearChatBtn) clearChatBtn.addEventListener("click", resetChat);
+    if (closeFeedbackBtn) closeFeedbackBtn.addEventListener("click", () => feedbackBanner?.classList.add("hidden"));
 
     // --- TAB 2: FLASHCARDS (ANKI SM-2 SRS & STRICT CEFR GATING) ---
     const deckTabsContainer = document.getElementById("deck-tabs-container");
@@ -2396,38 +2398,42 @@ document.addEventListener("DOMContentLoaded", () => {
         affinityModal.classList.remove("hidden");
     }
 
-    closeAffinityModalBtn.addEventListener("click", () => affinityModal.classList.add("hidden"));
+    if (closeAffinityModalBtn) closeAffinityModalBtn.addEventListener("click", () => affinityModal?.classList.add("hidden"));
 
-    affinityAudioListenBtn.addEventListener("click", () => {
-        if (activeQuest) {
-            const heroObj = rpgEngine.heroes.find(h => h.id === activeQuest.heroId);
-            affinityAudioListenBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i>`;
-            flashcardEngine.speak(
-                activeQuest.dialogueText,
-                () => { affinityAudioListenBtn.innerHTML = `<i class="fa-solid fa-volume-high"></i> Speaking...`; },
-                () => { affinityAudioListenBtn.innerHTML = `<i class="fa-solid fa-volume-high"></i> Listen Hero Voice`; },
-                heroObj?.voiceConfig || null
-            );
-        }
-    });
+    if (affinityAudioListenBtn) {
+        affinityAudioListenBtn.addEventListener("click", () => {
+            if (activeQuest) {
+                const heroObj = rpgEngine.heroes.find(h => h.id === activeQuest.heroId);
+                affinityAudioListenBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i>`;
+                flashcardEngine.speak(
+                    activeQuest.dialogueText,
+                    () => { affinityAudioListenBtn.innerHTML = `<i class="fa-solid fa-volume-high"></i> Speaking...`; },
+                    () => { affinityAudioListenBtn.innerHTML = `<i class="fa-solid fa-volume-high"></i> Listen Hero Voice`; },
+                    heroObj?.voiceConfig || null
+                );
+            }
+        });
+    }
 
-    submitAffinityQuestBtn.addEventListener("click", () => {
-        if (!activeQuest) return;
-        const answer = affinityAnswerInput.value.trim().toLowerCase();
-        const target = activeQuest.targetWord.toLowerCase();
+    if (submitAffinityQuestBtn) {
+        submitAffinityQuestBtn.addEventListener("click", () => {
+            if (!activeQuest) return;
+            const answer = affinityAnswerInput.value.trim().toLowerCase();
+            const target = activeQuest.targetWord.toLowerCase();
 
-        if (answer.includes(target)) {
-            const heroObj = rpgEngine.heroes.find(h => h.id === activeQuest.heroId);
-            if (heroObj) heroObj.affinityLevel = Math.min(heroObj.level, heroObj.affinityLevel + 1);
-            rpgEngine.save();
-            alert(`🎉 Correct! You bonded with ${activeQuest.heroName}! Heart 💕 increased to Level ${heroObj.affinityLevel} (+${heroObj.affinityLevel * 2}% All Stats Bonus)!`);
-            affinityModal.classList.add("hidden");
-            renderHeroesRoster();
-            renderRPGHeader();
-        } else {
-            alert(`❌ Not quite! Target word was "${activeQuest.targetWord}". Example: ${activeQuest.hintExample}`);
-        }
-    });
+            if (answer.includes(target)) {
+                const heroObj = rpgEngine.heroes.find(h => h.id === activeQuest.heroId);
+                if (heroObj) heroObj.affinityLevel = Math.min(heroObj.level, heroObj.affinityLevel + 1);
+                rpgEngine.save();
+                alert(`🎉 Correct! You bonded with ${activeQuest.heroName}! Heart 💕 increased to Level ${heroObj.affinityLevel} (+${heroObj.affinityLevel * 2}% All Stats Bonus)!`);
+                affinityModal?.classList.add("hidden");
+                renderHeroesRoster();
+                renderRPGHeader();
+            } else {
+                alert(`❌ Not quite! Target word was "${activeQuest.targetWord}". Example: ${activeQuest.hintExample}`);
+            }
+        });
+    }
 
     function renderCampaignMap() {
         chaptersAccordion.innerHTML = "";
