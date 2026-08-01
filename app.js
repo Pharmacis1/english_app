@@ -434,7 +434,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function renderRPGHeader() {
-        document.getElementById("rpg-power-display").textContent = rpgEngine.getPartyPower();
+        const powerEl = document.getElementById("rpg-power-display");
+        if (powerEl) powerEl.textContent = rpgEngine.getPartyPower();
+        const squadEl = document.getElementById("rpg-squad-power");
+        if (squadEl) squadEl.textContent = rpgEngine.getPartyPower();
     }
 
     function getHeroIdFromCategory(catName) {
@@ -2752,12 +2755,12 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    renderScenarios();
-    selectScenario(SCENARIOS[0]);
-    renderTutorHeroTargetChips();
-    renderSpeakingHeroTargetChips();
-    renderFlashcardsUI();
-    renderGrammarUI();
-    renderRPGHeader();
-    renderHeroShowcase(rpgEngine.heroes[0].id);
+    try { renderScenarios(); } catch (e) {}
+    try { selectScenario(SCENARIOS[0]); } catch (e) {}
+    try { renderTutorHeroTargetChips(); } catch (e) {}
+    try { renderSpeakingHeroTargetChips(); } catch (e) {}
+    try { renderFlashcardsUI(); } catch (e) {}
+    try { renderGrammarUI(); } catch (e) {}
+    try { renderRPGHeader(); } catch (e) {}
+    try { renderHeroShowcase(rpgEngine.heroes[0].id); } catch (e) { console.error("Hero Showcase Render Error:", e); }
 });
