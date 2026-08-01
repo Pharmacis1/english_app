@@ -167,7 +167,9 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!track) return;
         track.innerHTML = "";
 
-        rpgEngine.heroes.forEach(h => {
+        const totalCompletedQuests = getTotalCompletedDailyQuests();
+
+        rpgEngine.heroes.forEach((h, idx) => {
             const isActive = h.id === activeShowcaseHeroId;
             const chip = document.createElement("div");
             chip.className = `hero-card-chip ${isActive ? 'active' : ''}`;
@@ -176,18 +178,25 @@ document.addEventListener("DOMContentLoaded", () => {
                 ? `<img src="${chipImgSrc}" class="chip-avatar" alt="${h.name}" onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';">
                    <div class="chip-avatar" style="display:none; align-items:center; justify-content:center; background:${h.color || 'var(--primary)'}; color:#fff; font-size:14px;"><i class="fa-solid ${h.avatar || 'fa-shield-halved'}"></i></div>`
                 : `<div class="chip-avatar" style="display:flex; align-items:center; justify-content:center; background:${h.color || 'var(--primary)'}; color:#fff; font-size:14px;"><i class="fa-solid ${h.avatar || 'fa-shield-halved'}"></i></div>`;
+            
+            const reqQuests = HERO_UNLOCK_QUEST_THRESHOLDS[idx] !== undefined ? HERO_UNLOCK_QUEST_THRESHOLDS[idx] : (idx * 8);
+            const remainingQuests = Math.max(0, reqQuests - totalCompletedQuests);
+            const statusLabel = h.unlocked ? `Lvl ${h.level || 1}` : `🔒 Ещё ${remainingQuests} кв.`;
+
+            chip.title = h.unlocked ? `${h.name} (Lvl ${h.level || 1})` : `🔒 ${h.name}: Завершите ещё ${remainingQuests} квестов дня (+500 XP), чтобы открыть!`;
+
             chip.innerHTML = `
                 ${avatarHtml}
                 <div class="chip-info">
                     <span class="chip-name">${h.name}</span>
-                    <span class="chip-lvl font-mono">${h.unlocked ? `Lvl ${h.level || 1}` : '🔒 Locked'}</span>
+                    <span class="chip-lvl font-mono" style="${h.unlocked ? '' : 'color:#fbbf24; font-size:10px; font-weight:700;'}">${statusLabel}</span>
                 </div>
             `;
             chip.addEventListener("click", () => {
                 if (h.unlocked) {
                     renderHeroShowcase(h.id);
                 } else {
-                    showToast(`🔒 ${h.name} is locked! Reach higher level to unlock!`, "rgba(239, 68, 68, 0.8)", "#ef4444");
+                    showToast(`🔒 <b>${h.name} заблокирован!</b><br>Завершите ещё <b>${remainingQuests}</b> квестов дня (+500 XP), чтобы открыть героиню/героя!`, "linear-gradient(135deg, #f59e0b, #ec4899)", "#fbbf24");
                 }
             });
             track.appendChild(chip);
