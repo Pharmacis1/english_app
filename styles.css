@@ -1009,11 +1009,14 @@ body {
 }
 
 .chip-avatar {
-    width: 36px;
-    height: 36px;
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    object-position: top center;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    background: rgba(15, 23, 42, 0.6);
+    flex-shrink: 0;
 }
 
 .chip-info {

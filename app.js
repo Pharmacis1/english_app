@@ -171,8 +171,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const isActive = h.id === activeShowcaseHeroId;
             const chip = document.createElement("div");
             chip.className = `hero-card-chip ${isActive ? 'active' : ''}`;
-            const avatarHtml = h.image
-                ? `<img src="${h.image}" class="chip-avatar" alt="${h.name}" onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';">
+            const chipImgSrc = h.faceImage || h.image;
+            const avatarHtml = chipImgSrc
+                ? `<img src="${chipImgSrc}" class="chip-avatar" alt="${h.name}" onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';">
                    <div class="chip-avatar" style="display:none; align-items:center; justify-content:center; background:${h.color || 'var(--primary)'}; color:#fff; font-size:14px;"><i class="fa-solid ${h.avatar || 'fa-shield-halved'}"></i></div>`
                 : `<div class="chip-avatar" style="display:flex; align-items:center; justify-content:center; background:${h.color || 'var(--primary)'}; color:#fff; font-size:14px;"><i class="fa-solid ${h.avatar || 'fa-shield-halved'}"></i></div>`;
             chip.innerHTML = `
