@@ -862,13 +862,12 @@ body {
 .hero-position-toolbar {
     position: absolute;
     top: 14px;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 14px;
     z-index: 30;
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 6px 12px;
+    padding: 6px;
     background: rgba(15, 23, 42, 0.85);
     backdrop-filter: blur(16px);
     border: 1px solid rgba(255, 255, 255, 0.15);
@@ -879,6 +878,16 @@ body {
 
 .hero-position-toolbar:hover {
     border-color: var(--primary);
+}
+
+.hero-pos-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.hero-pos-controls.hidden {
+    display: none !important;
 }
 
 .hero-image-wrapper {

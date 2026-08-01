@@ -213,11 +213,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function initHeroPositioningController() {
         const stageArt = document.getElementById("hero-stage-art");
+        const btnTogglePosMenu = document.getElementById("btn-toggle-pos-menu");
+        const posControls = document.getElementById("hero-pos-controls");
         const btnToggleDrag = document.getElementById("btn-toggle-hero-drag");
         const lblDrag = document.getElementById("lbl-hero-drag");
         const scaleSlider = document.getElementById("hero-scale-slider");
         const btnReset = document.getElementById("btn-reset-hero-pos");
         const btnSave = document.getElementById("btn-save-hero-pos");
+
+        if (btnTogglePosMenu && posControls) {
+            btnTogglePosMenu.addEventListener("click", () => {
+                posControls.classList.toggle("hidden");
+            });
+        }
 
         if (btnToggleDrag) {
             btnToggleDrag.addEventListener("click", () => {
