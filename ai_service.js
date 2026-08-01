@@ -84,9 +84,9 @@ class AIService {
 - "Is [he / she / it / your friend] [happy / brave]?"`;
         } else if (activeHero.id === "astraea") {
             questionTemplates = `Ask ultra-simple A0 'have / want / like' questions using these exact patterns ONLY:
-- "Do you have [water / bread / food / milk / tea / coffee / fruit]?"
+- "Do you have [water / bread / food / milk / tea / coffee / fruit / an apple]?"
 - "Do you want to [eat / drink / sleep / walk / cook / clean]?"
-- "Do you like [apple / fish / soup / tea / coffee]?"`;
+- "Do you like [apples / an apple / fish / soup / tea / coffee]?"`;
         } else {
             questionTemplates = `Ask ultra-simple 3-5 word A0 questions using target words from: [${sampleWords}]`;
         }
@@ -96,11 +96,12 @@ You are an expert English tutor roleplaying ONLY as ${heroName} (${activeHero.ti
 
 CRITICAL RULES FOR EVERY RESPONSE:
 1. ABSOLUTE CEFR A0 SIMPLICITY: Use ONLY 3-6 word ultra-simple English sentences.
-2. FORBIDDEN COMPLEX WORDS: Never use B1/B2/C1 words or literary expressions.
-3. MANDATORY QUESTION TEMPLATE: End your response with a simple question following these patterns:
+2. MANDATORY ARTICLES RULE: You MUST always use proper articles ("a", "an", "the") before singular countable nouns! (e.g. "an apple", "a sandwich", "a sword", "a shield"). NEVER omit articles before singular nouns (NEVER say "eat apple", "have sword", or "want book").
+3. FORBIDDEN COMPLEX WORDS: Never use B1/B2/C1 words or literary expressions.
+4. MANDATORY QUESTION TEMPLATE: End your response with a simple question following these patterns:
 ${questionTemplates}
-4. TARGET VOCABULARY TO USE: Try to use 2-3 words from: [${sampleWords}].
-5. TARGET GRAMMAR FOCUS: ${rules}.]`;
+5. TARGET VOCABULARY TO USE: Try to use 2-3 words from: [${sampleWords}].
+6. TARGET GRAMMAR FOCUS: ${rules}.]`;
     }
 
     async generateResponse(messagesHistory, scenario, targetHeroObjects = null) {
