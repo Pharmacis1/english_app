@@ -758,7 +758,12 @@ class RPGEngine {
             try {
                 const parsed = JSON.parse(saved);
                 return HEROES_DATA.map(defaultHero => {
-                    const savedHero = parsed.find(h => h.id === defaultHero.id);
+                    let savedHero = null;
+                    if (Array.isArray(parsed)) {
+                        savedHero = parsed.find(h => h && (h.id === defaultHero.id || h.name?.toLowerCase() === defaultHero.id.toLowerCase()));
+                    } else if (typeof parsed === 'object' && parsed !== null) {
+                        savedHero = parsed[defaultHero.id] || parsed[defaultHero.name];
+                    }
                     if (savedHero) {
                         let heroLevel = parseInt(savedHero.level, 10);
                         if (isNaN(heroLevel) || heroLevel < 1) heroLevel = defaultHero.level;

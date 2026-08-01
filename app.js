@@ -46,7 +46,10 @@ document.addEventListener("DOMContentLoaded", () => {
         if (displayPower) displayPower.textContent = heroPower;
         if (displayAffection) displayAffection.textContent = `Lv. ${hero.affinityLevel || 0}`;
         
-        const masteredCount = hero.words ? hero.words.filter(w => (getWordUsageCount(hero.id, typeof w === 'string' ? w : w.word) >= 3)).length : 0;
+        const masteredCount = hero.words ? hero.words.filter(w => {
+            const wordStr = Array.isArray(w) ? w[0] : (typeof w === 'string' ? w : w.word);
+            return getWordUsageCount(hero.id, wordStr) >= 3;
+        }).length : 0;
         if (displayVocab) displayVocab.textContent = `${masteredCount}/50`;
 
         // 2. Update Combat Stats (ATK, DEF, HP)
