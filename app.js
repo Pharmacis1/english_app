@@ -322,6 +322,89 @@ document.addEventListener("DOMContentLoaded", () => {
 
     initHeroPositioningController();
 
+    // 6. ATMOSPHERIC MAGICAL DUST & EMBERS CANVAS EFFECT
+    function initHeroDustEffect() {
+        const canvas = document.getElementById("hero-dust-canvas");
+        const container = document.getElementById("hero-artwork-container");
+        if (!canvas || !container) return;
+
+        const ctx = canvas.getContext("2d");
+        let width = 0, height = 0;
+        let particles = [];
+        const PARTICLE_COUNT = 55;
+
+        const colors = [
+            "rgba(251, 191, 36, ",   // Warm Torch Ember Gold
+            "rgba(56, 189, 248, ",   // Cyan Mana Sparkle
+            "rgba(192, 132, 252, ",  // Arcane Purple Mote
+            "rgba(255, 255, 255, "   // Floating Castle Dust Mote
+        ];
+
+        function resize() {
+            width = canvas.width = container.clientWidth;
+            height = canvas.height = container.clientHeight;
+        }
+
+        function createParticle() {
+            return {
+                x: Math.random() * (width || 800),
+                y: Math.random() * (height || 600),
+                radius: Math.random() * 2.2 + 0.8,
+                colorPrefix: colors[Math.floor(Math.random() * colors.length)],
+                baseAlpha: Math.random() * 0.6 + 0.2,
+                alphaPhase: Math.random() * Math.PI * 2,
+                alphaSpeed: Math.random() * 0.02 + 0.005,
+                vy: -(Math.random() * 0.45 + 0.15),
+                vxSwing: Math.random() * 0.4 + 0.1,
+                swingPhase: Math.random() * Math.PI * 2
+            };
+        }
+
+        function initParticles() {
+            resize();
+            particles = [];
+            for (let i = 0; i < PARTICLE_COUNT; i++) {
+                particles.push(createParticle());
+            }
+        }
+
+        window.addEventListener("resize", resize);
+        initParticles();
+
+        function render() {
+            if (!width || !height) resize();
+            ctx.clearRect(0, 0, width, height);
+
+            const now = Date.now() * 0.001;
+
+            particles.forEach(p => {
+                p.y += p.vy;
+                p.x += Math.sin(now + p.swingPhase) * p.vxSwing * 0.5;
+                p.alphaPhase += p.alphaSpeed;
+
+                const currentAlpha = Math.max(0.05, p.baseAlpha + Math.sin(p.alphaPhase) * 0.25);
+
+                if (p.y < -10 || p.x < -10 || p.x > width + 10) {
+                    p.y = height + Math.random() * 20;
+                    p.x = Math.random() * width;
+                }
+
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `${p.colorPrefix}${currentAlpha.toFixed(2)})`;
+                ctx.shadowBlur = 6;
+                ctx.shadowColor = `${p.colorPrefix}0.8)`;
+                ctx.fill();
+            });
+
+            requestAnimationFrame(render);
+        }
+
+        requestAnimationFrame(render);
+    }
+
+    initHeroDustEffect();
+
     if (btnAffinity) {
         btnAffinity.addEventListener("click", () => {
             const hero = rpgEngine.heroes.find(h => h.id === activeShowcaseHeroId) || rpgEngine.heroes[0];
