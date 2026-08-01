@@ -59,13 +59,31 @@
                         <span class="meta-label">⚔️ Power</span>
                         <span class="meta-value text-pink" id="hero-display-power">105</span>
                     </div>
-                    <div class="hero-meta-box">
-                        <span class="meta-label">❤️ Affection</span>
-                        <span class="meta-value text-amber" id="hero-display-affection">Lv. 1</span>
+                    <div class="hero-meta-box" style="display:flex; flex-direction:column; justify-content:space-between;">
+                        <div style="display:flex; justify-content:space-between; align-items:center;">
+                            <span class="meta-label">❤️ Affection</span>
+                        </div>
+                        <div style="display:flex; align-items:center; justify-content:space-between; margin-top:2px;">
+                            <span class="meta-value text-amber" id="hero-display-affection">Lv. 1</span>
+                            <button class="btn btn-sm btn-outline" id="btn-hero-affinity" style="padding:2px 8px; font-size:10px; border-color:var(--heart); color:var(--heart); font-weight:700;">
+                                💕 Квест
+                            </button>
+                        </div>
                     </div>
                     <div class="hero-meta-box">
                         <span class="meta-label">📚 Vocab Mastery</span>
                         <span class="meta-value text-cyan" id="hero-display-vocab-count">0/50</span>
+                    </div>
+                </div>
+
+                <!-- Hero XP Progress Bar -->
+                <div class="hero-xp-card-section" style="background:rgba(0,0,0,0.25); border:1px solid rgba(255,255,255,0.06); padding:10px 14px; border-radius:14px; margin-top:-6px;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; font-size:11px; margin-bottom:6px;" class="font-mono">
+                        <span style="color:var(--gold); font-weight:700;"><i class="fa-solid fa-star"></i> HERO XP (LEVEL PROGRESS)</span>
+                        <span id="hero-display-xp-text" style="color:#fff; font-weight:800;">0 / 150</span>
+                    </div>
+                    <div class="attr-bar" style="height:10px; background:rgba(255,255,255,0.08); border-radius:10px; overflow:hidden;">
+                        <div class="attr-fill" id="hero-display-xp-fill" style="width:0%; background:linear-gradient(90deg, #f59e0b, #fbbf24); height:100%;"></div>
                     </div>
                 </div>
 
@@ -151,24 +169,24 @@
                 </div>
                 <button class="modal-close-btn">&times;</button>
             </div>
-            <div class="rpg-modal-body" style="padding:0; display:flex; flex-direction:column; height:70vh;">
-                <!-- HERO DIALOGUES SCENARIOS LIST -->
-                <div style="padding:12px 16px; background:rgba(15,23,42,0.8); border-bottom:1px solid rgba(255,255,255,0.08);">
-                    <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
-                        <button class="btn btn-sm btn-primary" id="toggle-scenarios-btn">
-                            <i class="fa-solid fa-shield-halved"></i> Hero Dialogues
+            <div class="rpg-modal-body" style="padding:0; display:flex; flex-direction:column; height:82vh; max-height:82vh; overflow:hidden;">
+                <!-- HERO DIALOGUES SCENARIOS SELECTOR DROPDOWN -->
+                <div style="padding:10px 16px; background:rgba(15,23,42,0.8); border-bottom:1px solid rgba(255,255,255,0.08);">
+                    <div style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
+                        <button class="btn btn-sm btn-outline" id="toggle-scenarios-btn">
+                            <i class="fa-solid fa-users"></i> Все диалоги / Переключить сценарий <i class="fa-solid fa-chevron-down" style="font-size:10px; margin-left:4px;"></i>
                         </button>
                     </div>
-                    <div class="scenarios-list" id="scenarios-list"></div>
+                    <div class="scenarios-list hidden" id="scenarios-list" style="max-height:160px; margin-top:8px;"></div>
                 </div>
 
                 <div class="chat-container" style="flex:1; display:flex; flex-direction:column; overflow:hidden;">
                     <div class="chat-header">
                         <div class="active-scenario-info">
-                            <div class="scenario-avatar" id="scenario-icon"><i class="fa-solid fa-user-tie"></i></div>
+                            <div class="scenario-avatar" id="scenario-icon"><i class="fa-solid fa-shield-halved"></i></div>
                             <div>
-                                <h4 id="active-scenario-title">Tech Job Interview</h4>
-                                <span class="scenario-subtitle" id="active-scenario-role">Interviewer: Senior Tech Lead</span>
+                                <h4 id="active-scenario-title">Valerius: Paladin's Oath</h4>
+                                <span class="scenario-subtitle" id="active-scenario-role">Valerius (The Silver Paladin)</span>
                             </div>
                         </div>
                         <div class="chat-actions" style="display:flex; align-items:center; gap:12px;">
@@ -193,21 +211,20 @@
                     </div>
 
                     <!-- DEDICATED HERO WORD & GRAMMAR HELPER PANEL -->
-                    <div id="hero-word-helper-box" class="hidden" style="margin:10px 15px 0 15px; padding:12px; border-radius:8px; background:rgba(15, 23, 42, 0.7); border:1px solid rgba(255,255,255,0.1);">
-                        <div style="font-size:12px; font-weight:700; color:var(--primary); margin-bottom:6px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
-                            <span><i class="fa-solid fa-book-bookmark"></i> Hero Curriculum Cheatsheet & Daily Word Bonus Tracker (Resets Daily 🔄)</span>
-                            <div style="display:flex; gap:6px; font-size:10px;">
-                                <span style="padding:1px 5px; border-radius:4px; border:1px solid #f59e0b; color:#fbbf24; background:rgba(245,158,11,0.1);">🟡 1st Use Today (+20 XP)</span>
-                                <span style="padding:1px 5px; border-radius:4px; border:1px solid #a855f7; color:#c084fc; background:rgba(168,85,247,0.1);">🟣 2nd Use Today (+10 XP)</span>
-                                <span style="padding:1px 5px; border-radius:4px; border:1px solid #3b82f6; color:#60a5fa; background:rgba(59,130,246,0.1);">🔵 3rd Use Today (+5 XP)</span>
-                                <span style="padding:1px 5px; border-radius:4px; border:1px solid rgba(255,255,255,0.2); color:var(--text-muted);">⚪ Mastered Today (+1 XP)</span>
+                    <div id="hero-word-helper-box" class="hidden" style="margin:8px 15px 0 15px; padding:10px; border-radius:8px; background:rgba(15, 23, 42, 0.7); border:1px solid rgba(255,255,255,0.1); max-height:120px; overflow-y:auto;">
+                        <div style="font-size:11px; font-weight:700; color:var(--primary); margin-bottom:4px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:6px;">
+                            <span><i class="fa-solid fa-book-bookmark"></i> Hero Curriculum Cheatsheet & Daily Word Bonus Tracker</span>
+                            <div style="display:flex; gap:4px; font-size:9px;">
+                                <span style="padding:1px 4px; border-radius:4px; border:1px solid #f59e0b; color:#fbbf24; background:rgba(245,158,11,0.1);">🟡 1st (+20 XP)</span>
+                                <span style="padding:1px 4px; border-radius:4px; border:1px solid #a855f7; color:#c084fc; background:rgba(168,85,247,0.1);">🟣 2nd (+10 XP)</span>
+                                <span style="padding:1px 4px; border-radius:4px; border:1px solid #3b82f6; color:#60a5fa; background:rgba(59,130,246,0.1);">🔵 3rd (+5 XP)</span>
                             </div>
                         </div>
-                        <div id="hero-grammar-rule-hint" style="font-size:11px; color:var(--warning); margin-bottom:8px; font-weight:600;"></div>
-                        <div id="hero-words-categories-container" style="display:flex; flex-direction:column; gap:6px;"></div>
+                        <div id="hero-grammar-rule-hint" style="font-size:11px; color:var(--warning); margin-bottom:6px; font-weight:600;"></div>
+                        <div id="hero-words-categories-container" style="display:flex; flex-direction:column; gap:4px;"></div>
                     </div>
 
-                    <div class="chat-messages" id="chat-messages" style="flex:1; overflow-y:auto;"></div>
+                    <div class="chat-messages" id="chat-messages" style="flex:1; min-height:180px; overflow-y:auto;"></div>
 
                     <div class="feedback-banner hidden" id="grammar-feedback-banner">
                         <div class="feedback-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
@@ -215,7 +232,7 @@
                         <button class="feedback-close" id="close-feedback-btn">&times;</button>
                     </div>
 
-                    <div class="chat-input-wrapper">
+                    <div class="chat-input-wrapper" style="flex-shrink:0;">
                         <button class="mic-btn" id="voice-input-btn" title="Speak via Microphone">
                             <i class="fa-solid fa-microphone"></i>
                         </button>
@@ -224,7 +241,7 @@
                             <i class="fa-solid fa-paper-plane"></i>
                         </button>
                     </div>
-                    <div class="input-hints">
+                    <div class="input-hints" style="flex-shrink:0;">
                         <span><i class="fa-solid fa-circle-info"></i> Press Enter to send, Shift+Enter for new line</span>
                         <span class="speech-status" id="speech-status"></span>
                     </div>
@@ -693,11 +710,11 @@
         </div>
     </div>
 
-    <script src="scenarios.js?v=10.2"></script>
-    <script src="heroes.js?v=10.2"></script>
-    <script src="flashcards.js?v=10.2"></script>
-    <script src="grammar.js?v=10.2"></script>
-    <script src="ai_service.js?v=10.2"></script>
-    <script src="app.js?v=10.2"></script>
+    <script src="scenarios.js?v=10.3"></script>
+    <script src="heroes.js?v=10.3"></script>
+    <script src="flashcards.js?v=10.3"></script>
+    <script src="grammar.js?v=10.3"></script>
+    <script src="ai_service.js?v=10.3"></script>
+    <script src="app.js?v=10.3"></script>
 </body>
 </html>

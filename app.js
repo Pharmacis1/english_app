@@ -52,6 +52,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }).length : 0;
         if (displayVocab) displayVocab.textContent = `${masteredCount}/50`;
 
+        // 1.5 Update Hero XP Progress Bar
+        const xpText = document.getElementById("hero-display-xp-text");
+        const xpFill = document.getElementById("hero-display-xp-fill");
+        if (xpText) xpText.textContent = `${hero.xp || 0} / ${hero.maxXp || 150}`;
+        if (xpFill) xpFill.style.width = `${Math.min(100, ((hero.xp || 0) / (hero.maxXp || 150)) * 100)}%`;
+
         // 2. Update Combat Stats (ATK, DEF, HP)
         const atkFill = document.getElementById("attr-atk-fill");
         const defFill = document.getElementById("attr-def-fill");
@@ -154,18 +160,33 @@ document.addEventListener("DOMContentLoaded", () => {
     const btnCall = document.getElementById("btn-hero-call");
     const btnReviewAll = document.getElementById("btn-review-all-cards");
     const btnSettings = document.getElementById("settings-toggle-btn");
+    const btnAffinity = document.getElementById("btn-hero-affinity");
+    const toggleScenariosBtn = document.getElementById("toggle-scenarios-btn");
+
+    if (btnAffinity) {
+        btnAffinity.addEventListener("click", () => {
+            const hero = rpgEngine.heroes.find(h => h.id === activeShowcaseHeroId) || rpgEngine.heroes[0];
+            openAffinityQuestModal(hero);
+        });
+    }
+
+    if (toggleScenariosBtn) {
+        toggleScenariosBtn.addEventListener("click", () => {
+            const scListContainer = document.getElementById("scenarios-list");
+            if (scListContainer) scListContainer.classList.toggle("hidden");
+        });
+    }
 
     if (btnChat) {
         btnChat.addEventListener("click", () => {
-            const heroScenario = {
-                id: activeShowcaseHeroId,
-                title: rpgEngine.heroes.find(h => h.id === activeShowcaseHeroId)?.name || "Hero",
-                heroId: activeShowcaseHeroId,
-                isHeroScenario: true,
-                icon: "fa-shield-halved"
-            };
-            activeScenario = heroScenario;
-            renderHeroWordHelperPanel(activeScenario);
+            currentScenarioCategory = 'heroes';
+            const heroScenario = SCENARIOS.find(sc => sc.isHeroScenario && sc.heroId === activeShowcaseHeroId) || SCENARIOS.find(sc => sc.isHeroScenario);
+            if (heroScenario) {
+                selectScenario(heroScenario);
+            }
+            const scListContainer = document.getElementById("scenarios-list");
+            if (scListContainer) scListContainer.classList.add("hidden");
+
             const chatModal = document.getElementById("modal-hero-chat");
             if (chatModal) chatModal.classList.remove("hidden");
         });
