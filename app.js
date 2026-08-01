@@ -36,24 +36,38 @@ document.addEventListener("DOMContentLoaded", () => {
         const displayAffection = document.getElementById("hero-display-affection");
         const displayVocab = document.getElementById("hero-display-vocab-count");
 
+        const effStats = rpgEngine.getHeroEffectiveStats(hero);
+        const heroPower = rpgEngine.getHeroPower(hero);
+
         if (roleBadge) roleBadge.textContent = hero.role || "Hero";
         if (displayName) displayName.textContent = hero.name;
         if (displayTitle) displayTitle.textContent = `${hero.title} (${hero.cefrLevel})`;
         if (displayLevel) displayLevel.textContent = `Lvl ${hero.level || 1}`;
-        if (displayPower) displayPower.textContent = hero.power || 105;
-        if (displayAffection) displayAffection.textContent = `Lv. ${hero.affectionLevel || 1}`;
+        if (displayPower) displayPower.textContent = heroPower;
+        if (displayAffection) displayAffection.textContent = `Lv. ${hero.affinityLevel || 0}`;
         
         const masteredCount = hero.words ? hero.words.filter(w => (getWordUsageCount(hero.id, typeof w === 'string' ? w : w.word) >= 3)).length : 0;
         if (displayVocab) displayVocab.textContent = `${masteredCount}/50`;
 
-        // 2. Update Attributes
-        const bFill = document.getElementById("attr-bravery-fill");
-        const hFill = document.getElementById("attr-honor-fill");
-        const mFill = document.getElementById("attr-magic-fill");
+        // 2. Update Combat Stats (ATK, DEF, HP)
+        const atkFill = document.getElementById("attr-atk-fill");
+        const defFill = document.getElementById("attr-def-fill");
+        const hpFill = document.getElementById("attr-hp-fill");
+        const atkVal = document.getElementById("attr-atk-val");
+        const defVal = document.getElementById("attr-def-val");
+        const hpVal = document.getElementById("attr-hp-val");
 
-        if (bFill) bFill.style.width = `${Math.min(100, (hero.level || 1) * 12 + 40)}%`;
-        if (hFill) hFill.style.width = `${Math.min(100, (hero.level || 1) * 10 + 50)}%`;
-        if (mFill) mFill.style.width = `${Math.min(100, (hero.level || 1) * 15 + 30)}%`;
+        // Max possible stat for bar scaling (rough estimate for level 100)
+        const maxAtkRef = 300;
+        const maxDefRef = 200;
+        const maxHpRef = 5000;
+
+        if (atkFill) atkFill.style.width = `${Math.min(100, (effStats.atk / maxAtkRef) * 100)}%`;
+        if (defFill) defFill.style.width = `${Math.min(100, (effStats.def / maxDefRef) * 100)}%`;
+        if (hpFill) hpFill.style.width = `${Math.min(100, (effStats.hp / maxHpRef) * 100)}%`;
+        if (atkVal) atkVal.textContent = effStats.atk;
+        if (defVal) defVal.textContent = effStats.def;
+        if (hpVal) hpVal.textContent = effStats.hp;
 
         // 3. Update Skills / Grammar Rules Chips
         const skillsList = document.getElementById("hero-skills-list");
@@ -64,10 +78,25 @@ document.addEventListener("DOMContentLoaded", () => {
         // 4. Update Stage Artwork & Quote
         const stageArt = document.getElementById("hero-stage-art");
         const stageQuote = document.getElementById("hero-stage-quote");
-        if (stageArt) stageArt.src = hero.image || "";
+        if (stageArt) {
+            if (hero.image) {
+                stageArt.src = hero.image;
+                stageArt.style.display = "";
+            } else {
+                stageArt.style.display = "none";
+            }
+        }
         if (stageQuote) stageQuote.textContent = `"${hero.quote || 'I am ready to shield our realm!'}"`;
 
-        // 5. Highlight bottom carousel card
+        // 5. Update header stats
+        const squadPowerEl = document.getElementById("rpg-squad-power");
+        if (squadPowerEl) squadPowerEl.textContent = rpgEngine.getPartyPower();
+        const headerXpEl = document.getElementById("rpg-header-xp");
+        if (headerXpEl) headerXpEl.textContent = xpPoints;
+        const headerStreakEl = document.getElementById("rpg-header-streak");
+        if (headerStreakEl) headerStreakEl.textContent = parseInt(localStorage.getItem("english_pulse_streak") || "0");
+
+        // 6. Highlight bottom carousel card
         renderBottomHeroCarousel();
     }
 
@@ -80,8 +109,11 @@ document.addEventListener("DOMContentLoaded", () => {
             const isActive = h.id === activeShowcaseHeroId;
             const chip = document.createElement("div");
             chip.className = `hero-card-chip ${isActive ? 'active' : ''}`;
+            const avatarHtml = h.image
+                ? `<img src="${h.image}" class="chip-avatar" alt="${h.name}">`
+                : `<div class="chip-avatar" style="display:flex; align-items:center; justify-content:center; background:${h.color || 'var(--primary)'}; color:#fff; font-size:16px;"><i class="fa-solid ${h.avatar || 'fa-shield-halved'}"></i></div>`;
             chip.innerHTML = `
-                <img src="${h.image}" class="chip-avatar" alt="${h.name}">
+                ${avatarHtml}
                 <div class="chip-info">
                     <span class="chip-name">${h.name}</span>
                     <span class="chip-lvl font-mono">${h.unlocked ? `Lvl ${h.level || 1}` : '🔒 Locked'}</span>
