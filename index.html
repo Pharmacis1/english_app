@@ -109,9 +109,28 @@
             </div>
 
             <!-- CENTER HERO ARTWORK STAGE -->
-            <div class="hero-artwork-container">
+            <div class="hero-artwork-container" id="hero-artwork-container">
                 <div class="hero-aura-glow" id="hero-aura-glow"></div>
-                <div class="hero-image-wrapper">
+
+                <!-- POSITION & SCALE EDIT TOOLBAR -->
+                <div class="hero-position-toolbar" id="hero-position-toolbar">
+                    <button class="btn btn-sm btn-outline" id="btn-toggle-hero-drag" title="Enable Mouse Dragging">
+                        <i class="fa-solid fa-up-down-left-right"></i> <span id="lbl-hero-drag">✋ Передвинуть</span>
+                    </button>
+                    <div style="display:flex; align-items:center; gap:6px; background:rgba(0,0,0,0.5); padding:2px 8px; border-radius:8px; border:1px solid rgba(255,255,255,0.1);">
+                        <span style="font-size:10px; color:var(--text-muted); font-weight:700;">Размер:</span>
+                        <input type="range" id="hero-scale-slider" min="30" max="100" value="65" style="width:70px; cursor:pointer; accent-color:var(--primary);">
+                        <span id="hero-scale-val" class="font-mono" style="font-size:10px; font-weight:700; color:#fff;">65%</span>
+                    </div>
+                    <button class="btn btn-sm btn-outline" id="btn-reset-hero-pos" title="Reset Position" style="padding:2px 8px; font-size:10px;">
+                        <i class="fa-solid fa-rotate-left"></i> Сброс
+                    </button>
+                    <button class="btn btn-sm btn-primary" id="btn-save-hero-pos" title="Save Position to LocalStorage" style="padding:2px 10px; font-size:10px; font-weight:700;">
+                        <i class="fa-solid fa-floppy-disk"></i> Сохранить 💾
+                    </button>
+                </div>
+
+                <div class="hero-image-wrapper" id="hero-image-wrapper">
                     <img src="" alt="Hero" class="hero-stage-img" id="hero-stage-art" onerror="this.style.display='none'; document.getElementById('hero-stage-icon-fallback').style.display='flex';">
                     <div id="hero-stage-icon-fallback" style="display:none; width:280px; height:280px; border-radius:50%; background:linear-gradient(135deg, rgba(99,102,241,0.3), rgba(236,72,153,0.3)); border:3px solid rgba(255,255,255,0.15); align-items:center; justify-content:center; box-shadow:0 0 60px rgba(99,102,241,0.3);">
                         <i class="fa-solid fa-shield-halved" id="hero-stage-icon-fa" style="font-size:120px; color:rgba(255,255,255,0.7);"></i>
@@ -716,11 +735,11 @@
         </div>
     </div>
 
-    <script src="scenarios.js?v=10.13"></script>
-    <script src="heroes.js?v=10.13"></script>
-    <script src="flashcards.js?v=10.13"></script>
-    <script src="grammar.js?v=10.13"></script>
-    <script src="ai_service.js?v=10.13"></script>
-    <script src="app.js?v=10.13"></script>
+    <script src="scenarios.js?v=10.14"></script>
+    <script src="heroes.js?v=10.14"></script>
+    <script src="flashcards.js?v=10.14"></script>
+    <script src="grammar.js?v=10.14"></script>
+    <script src="ai_service.js?v=10.14"></script>
+    <script src="app.js?v=10.14"></script>
 </body>
 </html>

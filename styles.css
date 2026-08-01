@@ -859,6 +859,28 @@ body {
     100% { transform: scale(1.1); opacity: 1; }
 }
 
+.hero-position-toolbar {
+    position: absolute;
+    top: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 30;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 30px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    transition: var(--transition);
+}
+
+.hero-position-toolbar:hover {
+    border-color: var(--primary);
+}
+
 .hero-image-wrapper {
     position: relative;
     z-index: 5;
@@ -876,6 +898,19 @@ body {
     object-fit: contain;
     filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.8));
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-origin: bottom center;
+}
+
+.hero-stage-img.draggable-active {
+    cursor: grab !important;
+    outline: 2px dashed #fbbf24;
+    outline-offset: 4px;
+    border-radius: 12px;
+}
+
+.hero-stage-img.dragging {
+    cursor: grabbing !important;
+    transition: none !important;
 }
 
 .hero-quote-overlay {

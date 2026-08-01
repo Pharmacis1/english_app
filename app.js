@@ -22,6 +22,42 @@ document.addEventListener("DOMContentLoaded", () => {
     // Active Showcase Hero State
     let activeShowcaseHeroId = rpgEngine.heroes[0].id; // "valerius"
 
+    // HERO STAGE DRAG & SCALE POSITIONING CONTROLLER
+    function loadHeroStagePositions() {
+        try {
+            return JSON.parse(localStorage.getItem("hero_stage_positions_v1") || "{}");
+        } catch (e) {
+            return {};
+        }
+    }
+
+    function saveHeroStagePositions(map) {
+        localStorage.setItem("hero_stage_positions_v1", JSON.stringify(map));
+    }
+
+    function getHeroStagePos(heroId) {
+        const map = loadHeroStagePositions();
+        return map[heroId] || { x: 0, y: 0, scale: 65 };
+    }
+
+    let currentHeroPosState = { x: 0, y: 0, scale: 65 };
+    let isHeroDragEnabled = false;
+
+    function applyHeroStageTransform() {
+        const stageArt = document.getElementById("hero-stage-art");
+        const scaleValEl = document.getElementById("hero-scale-val");
+        const scaleSlider = document.getElementById("hero-scale-slider");
+        if (!stageArt) return;
+
+        const scale = currentHeroPosState.scale || 65;
+        const x = currentHeroPosState.x || 0;
+        const y = currentHeroPosState.y || 0;
+
+        stageArt.style.transform = `translate(${x}px, ${y}px) scale(${scale / 100})`;
+        if (scaleValEl) scaleValEl.textContent = `${scale}%`;
+        if (scaleSlider && parseInt(scaleSlider.value) !== scale) scaleSlider.value = scale;
+    }
+
     function renderHeroShowcase(heroId) {
         if (!heroId) heroId = activeShowcaseHeroId;
         const hero = rpgEngine.heroes.find(h => h.id === heroId) || rpgEngine.heroes[0];
@@ -110,6 +146,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         if (stageQuote) stageQuote.textContent = `"${hero.quote || 'I am ready to shield our realm!'}"`;
 
+        // 4.5 Apply saved stage position & scale
+        currentHeroPosState = getHeroStagePos(hero.id);
+        applyHeroStageTransform();
+
         // 5. Update header stats
         const squadPowerEl = document.getElementById("rpg-squad-power");
         if (squadPowerEl) squadPowerEl.textContent = rpgEngine.getPartyPower();
@@ -170,6 +210,109 @@ document.addEventListener("DOMContentLoaded", () => {
             openHeroWordStatsModal(hero);
         });
     }
+
+    function initHeroPositioningController() {
+        const stageArt = document.getElementById("hero-stage-art");
+        const btnToggleDrag = document.getElementById("btn-toggle-hero-drag");
+        const lblDrag = document.getElementById("lbl-hero-drag");
+        const scaleSlider = document.getElementById("hero-scale-slider");
+        const btnReset = document.getElementById("btn-reset-hero-pos");
+        const btnSave = document.getElementById("btn-save-hero-pos");
+
+        if (btnToggleDrag) {
+            btnToggleDrag.addEventListener("click", () => {
+                isHeroDragEnabled = !isHeroDragEnabled;
+                if (stageArt) {
+                    if (isHeroDragEnabled) {
+                        stageArt.classList.add("draggable-active");
+                        if (lblDrag) lblDrag.textContent = "✋ Зажмите и тяните";
+                        btnToggleDrag.classList.add("btn-primary");
+                        showToast("✋ Зажмите мышь на герое и передвиньте в нужную точку!", "rgba(99,102,241,0.9)", "#6366f1");
+                    } else {
+                        stageArt.classList.remove("draggable-active");
+                        if (lblDrag) lblDrag.textContent = "✋ Передвинуть";
+                        btnToggleDrag.classList.remove("btn-primary");
+                    }
+                }
+            });
+        }
+
+        if (scaleSlider) {
+            scaleSlider.addEventListener("input", (e) => {
+                currentHeroPosState.scale = parseInt(e.target.value, 10);
+                applyHeroStageTransform();
+            });
+        }
+
+        if (btnReset) {
+            btnReset.addEventListener("click", () => {
+                currentHeroPosState = { x: 0, y: 0, scale: 65 };
+                applyHeroStageTransform();
+                const map = loadHeroStagePositions();
+                delete map[activeShowcaseHeroId];
+                saveHeroStagePositions(map);
+                showToast("🔄 Позиция и размер сброшены", "rgba(107,114,128,0.8)", "#9ca3af");
+            });
+        }
+
+        if (btnSave) {
+            btnSave.addEventListener("click", () => {
+                const map = loadHeroStagePositions();
+                map[activeShowcaseHeroId] = currentHeroPosState;
+                saveHeroStagePositions(map);
+                const hero = rpgEngine.heroes.find(h => h.id === activeShowcaseHeroId);
+                showToast(`💾 Позиция ${hero ? hero.name : 'героя'} успешно сохранена!`, "linear-gradient(135deg, #10b981, #059669)", "#10b981");
+            });
+        }
+
+        let isDragging = false;
+        let startX = 0, startY = 0;
+        let initialX = 0, initialY = 0;
+
+        function startDrag(e) {
+            if (!isHeroDragEnabled || !stageArt) return;
+            isDragging = true;
+            stageArt.classList.add("dragging");
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+            startX = clientX;
+            startY = clientY;
+            initialX = currentHeroPosState.x || 0;
+            initialY = currentHeroPosState.y || 0;
+
+            e.preventDefault();
+        }
+
+        function doDrag(e) {
+            if (!isDragging) return;
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+            const dx = clientX - startX;
+            const dy = clientY - startY;
+
+            currentHeroPosState.x = initialX + dx;
+            currentHeroPosState.y = initialY + dy;
+            applyHeroStageTransform();
+        }
+
+        function stopDrag() {
+            if (isDragging && stageArt) {
+                isDragging = false;
+                stageArt.classList.remove("dragging");
+            }
+        }
+
+        if (stageArt) {
+            stageArt.addEventListener("mousedown", startDrag);
+            stageArt.addEventListener("touchstart", startDrag, { passive: false });
+            window.addEventListener("mousemove", doDrag);
+            window.addEventListener("touchmove", doDrag, { passive: false });
+            window.addEventListener("mouseup", stopDrag);
+            window.addEventListener("touchend", stopDrag);
+        }
+    }
+
+    initHeroPositioningController();
 
     if (btnAffinity) {
         btnAffinity.addEventListener("click", () => {
