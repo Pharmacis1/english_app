@@ -1286,6 +1286,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function renderFlashcardsUI() {
+        if (!deckTabsContainer) return;
         deckTabsContainer.innerHTML = "";
         flashcardEngine.decks = flashcardEngine.loadDecks();
 
@@ -1431,8 +1432,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 : `Click the button below to start Batch ${flashcardEngine.batchIndex + 2}!`;
         }
 
-        document.getElementById("stats-words-count").textContent = 
-            Object.values(flashcardEngine.decks).reduce((acc, curr) => acc + curr.length, 0);
+        const statsWordsEl = document.getElementById("stats-words-count");
+        if (statsWordsEl) {
+            statsWordsEl.textContent = Object.values(flashcardEngine.decks).reduce((acc, curr) => acc + curr.length, 0);
+        }
     }
 
     flashcardEl.addEventListener("click", (e) => {
