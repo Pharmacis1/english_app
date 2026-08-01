@@ -871,21 +871,7 @@ body {
 }
 
 .hero-quote-overlay {
-    position: absolute;
-    bottom: 30px;
-    right: 40px;
-    background: rgba(15, 23, 42, 0.85);
-    backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-left: 4px solid var(--primary);
-    padding: 14px 20px;
-    border-radius: 14px;
-    font-size: 14px;
-    font-style: italic;
-    color: #f8fafc;
-    max-width: 320px;
-    z-index: 10;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    display: none !important;
 }
 
 /* BOTTOM HERO CAROUSEL BAR */
@@ -897,18 +883,19 @@ body {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 16px;
+    justify-content: center;
+    position: relative;
     z-index: 20;
 }
 
 .hero-carousel-track {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 12px;
     overflow-x: auto;
     padding: 6px 0;
-    flex: 1;
+    max-width: calc(100% - 240px);
     scrollbar-width: thin;
 }
 
@@ -955,6 +942,8 @@ body {
 .chip-lvl { font-size: 10px; color: var(--gold); }
 
 .btn-repeat-all {
+    position: absolute;
+    right: 24px;
     display: flex;
     align-items: center;
     gap: 10px;
