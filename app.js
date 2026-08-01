@@ -2499,15 +2499,17 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    startBattleBtn.addEventListener("click", () => {
-        if (!selectedStage || !selectedStage.unlocked) return;
-        startBattleSimulation(selectedStage);
-    });
+    if (startBattleBtn) {
+        startBattleBtn.addEventListener("click", () => {
+            if (!selectedStage || !selectedStage.unlocked) return;
+            startBattleSimulation(selectedStage);
+        });
+    }
 
     function startBattleSimulation(stage) {
         if (rpgEngine.inBattle) return;
         rpgEngine.inBattle = true;
-        startBattleBtn.disabled = true;
+        if (startBattleBtn) startBattleBtn.disabled = true;
 
         const battleHeroes = rpgEngine.getSelectedHeroes().map(h => {
             const eff = rpgEngine.getHeroEffectiveStats(h);
@@ -2518,54 +2520,60 @@ document.addEventListener("DOMContentLoaded", () => {
         logBattle(`⚔️ Battle Started on Stage ${stage.id} with Squad Power: ${rpgEngine.getPartyPower()}!`);
 
         function renderArenaState() {
-            battleHeroesSide.innerHTML = "";
-            battleHeroes.forEach(h => {
-                const c = document.createElement("div");
-                c.className = "combatant-card";
-                const avatarHtml = h.image 
-                    ? `<img src="${h.image}" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">` 
-                    : `<i class="fa-solid ${h.avatar}"></i>`;
+            if (battleHeroesSide) {
+                battleHeroesSide.innerHTML = "";
+                battleHeroes.forEach(h => {
+                    const c = document.createElement("div");
+                    c.className = "combatant-card";
+                    const avatarHtml = h.image 
+                        ? `<img src="${h.image}" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">` 
+                        : `<i class="fa-solid ${h.avatar}"></i>`;
 
-                c.innerHTML = `
-                    <div class="combatant-avatar" style="background:${h.color}; overflow:hidden;">
-                        ${avatarHtml}
-                    </div>
-                    <div class="combatant-name">${h.name}</div>
-                    <div class="bar-wrap"><div class="hp-fill" style="width:${Math.max(0, (h.currentHp/h.maxHp)*100)}%"></div></div>
-                    <div class="bar-wrap"><div class="mp-fill" style="width:${Math.max(0, (h.currentMp/h.maxHp)*100)}%"></div></div>
-                `;
-                battleHeroesSide.appendChild(c);
-            });
-
-            battleMobsSide.innerHTML = "";
-            battleMobs.forEach(m => {
-                const c = document.createElement("div");
-                c.className = "combatant-card";
-                c.innerHTML = `
-                    <div class="combatant-avatar" style="background:#ef4444">
-                        <i class="fa-solid ${m.avatar}"></i>
-                    </div>
-                    <div class="combatant-name">${m.name}</div>
-                    <div class="bar-wrap"><div class="hp-fill" style="width:${Math.max(0, (m.currentHp/m.maxHp)*100)}%"></div></div>
-                `;
-                battleMobsSide.appendChild(c);
-            });
-
-            ultimatesBar.innerHTML = "";
-            battleHeroes.forEach(h => {
-                const isReady = h.currentMp >= h.maxMp && h.currentHp > 0;
-                const ultBtn = document.createElement("button");
-                ultBtn.className = `ult-btn ${isReady ? 'ready' : ''}`;
-                ultBtn.disabled = !isReady;
-                ultBtn.innerHTML = `<i class="fa-solid ${h.skillIcon}"></i> ${h.name}: ${h.skillName}`;
-                ultBtn.addEventListener("click", () => {
-                    h.currentMp = 0;
-                    logBattle(`💥 ${h.name} cast ${h.skillName}!`);
-                    battleMobs.forEach(m => m.currentHp = Math.max(0, m.currentHp - 150));
-                    renderArenaState();
+                    c.innerHTML = `
+                        <div class="combatant-avatar" style="background:${h.color}; overflow:hidden;">
+                            ${avatarHtml}
+                        </div>
+                        <div class="combatant-name">${h.name}</div>
+                        <div class="bar-wrap"><div class="hp-fill" style="width:${Math.max(0, (h.currentHp/h.maxHp)*100)}%"></div></div>
+                        <div class="bar-wrap"><div class="mp-fill" style="width:${Math.max(0, (h.currentMp/h.maxHp)*100)}%"></div></div>
+                    `;
+                    battleHeroesSide.appendChild(c);
                 });
-                ultimatesBar.appendChild(ultBtn);
-            });
+            }
+
+            if (battleMobsSide) {
+                battleMobsSide.innerHTML = "";
+                battleMobs.forEach(m => {
+                    const c = document.createElement("div");
+                    c.className = "combatant-card";
+                    c.innerHTML = `
+                        <div class="combatant-avatar" style="background:#ef4444">
+                            <i class="fa-solid ${m.avatar}"></i>
+                        </div>
+                        <div class="combatant-name">${m.name}</div>
+                        <div class="bar-wrap"><div class="hp-fill" style="width:${Math.max(0, (m.currentHp/m.maxHp)*100)}%"></div></div>
+                    `;
+                    battleMobsSide.appendChild(c);
+                });
+            }
+
+            if (ultimatesBar) {
+                ultimatesBar.innerHTML = "";
+                battleHeroes.forEach(h => {
+                    const isReady = h.currentMp >= h.maxMp && h.currentHp > 0;
+                    const ultBtn = document.createElement("button");
+                    ultBtn.className = `ult-btn ${isReady ? 'ready' : ''}`;
+                    ultBtn.disabled = !isReady;
+                    ultBtn.innerHTML = `<i class="fa-solid ${h.skillIcon}"></i> ${h.name}: ${h.skillName}`;
+                    ultBtn.addEventListener("click", () => {
+                        h.currentMp = 0;
+                        logBattle(`💥 ${h.name} cast ${h.skillName}!`);
+                        battleMobs.forEach(m => m.currentHp = Math.max(0, m.currentHp - 150));
+                        renderArenaState();
+                    });
+                    ultimatesBar.appendChild(ultBtn);
+                });
+            }
         }
 
         renderArenaState();
@@ -2577,7 +2585,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (aliveMobs.length === 0) {
                 clearInterval(rpgEngine.battleTimer);
                 rpgEngine.inBattle = false;
-                startBattleBtn.disabled = false;
+                if (startBattleBtn) startBattleBtn.disabled = false;
                 const unlockedHeroName = rpgEngine.completeStage(stage.id);
                 let msg = `🎉 VICTORY! Stage ${stage.id} Cleared!`;
                 if (unlockedHeroName) {
@@ -2594,7 +2602,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (aliveHeroes.length === 0) {
                 clearInterval(rpgEngine.battleTimer);
                 rpgEngine.inBattle = false;
-                startBattleBtn.disabled = false;
+                if (startBattleBtn) startBattleBtn.disabled = false;
                 logBattle(`💀 DEFEAT! Recommended Power was ${stage.recPower}. Study English in AI Tutor or Flashcards to level up your heroes!`);
                 return;
             }
@@ -2622,6 +2630,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function logBattle(msg) {
+        if (!battleLogBox) return;
         const line = document.createElement("div");
         line.textContent = `[${new Date().toLocaleTimeString()}] ${msg}`;
         battleLogBox.appendChild(line);
