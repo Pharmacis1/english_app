@@ -162,6 +162,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const btnSettings = document.getElementById("settings-toggle-btn");
     const btnAffinity = document.getElementById("btn-hero-affinity");
     const toggleScenariosBtn = document.getElementById("toggle-scenarios-btn");
+    const btnWordStats = document.getElementById("btn-hero-word-stats");
+
+    if (btnWordStats) {
+        btnWordStats.addEventListener("click", () => {
+            const hero = rpgEngine.heroes.find(h => h.id === activeShowcaseHeroId) || rpgEngine.heroes[0];
+            openHeroWordStatsModal(hero);
+        });
+    }
 
     if (btnAffinity) {
         btnAffinity.addEventListener("click", () => {

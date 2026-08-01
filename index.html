@@ -106,14 +106,31 @@
                         <span class="font-mono" style="min-width:36px; text-align:right; font-weight:700; color:#f472b6;" id="attr-hp-val">250</span>
                     </div>
                 </div>
+            </div>
 
+            <!-- CENTER HERO ARTWORK STAGE -->
+            <div class="hero-artwork-container">
+                <div class="hero-aura-glow" id="hero-aura-glow"></div>
+                <div class="hero-image-wrapper">
+                    <img src="" alt="Hero" class="hero-stage-img" id="hero-stage-art" onerror="this.style.display='none'; document.getElementById('hero-stage-icon-fallback').style.display='flex';">
+                    <div id="hero-stage-icon-fallback" style="display:none; width:280px; height:280px; border-radius:50%; background:linear-gradient(135deg, rgba(99,102,241,0.3), rgba(236,72,153,0.3)); border:3px solid rgba(255,255,255,0.15); align-items:center; justify-content:center; box-shadow:0 0 60px rgba(99,102,241,0.3);">
+                        <i class="fa-solid fa-shield-halved" id="hero-stage-icon-fa" style="font-size:120px; color:rgba(255,255,255,0.7);"></i>
+                    </div>
+                </div>
+                <div class="hero-quote-overlay" id="hero-stage-quote">
+                    "I am ready to shield our realm!"
+                </div>
+            </div>
+
+            <!-- RIGHT HERO SKILLS & ACTIONS PANEL -->
+            <div class="hero-right-panel glass-panel">
                 <!-- Skills / Grammar Rules -->
                 <div class="hero-skills-section">
                     <div class="section-label-sm">GRAMMAR SKILLS</div>
                     <div class="hero-skills-chips" id="hero-skills-list"></div>
                 </div>
 
-                <!-- 4 Action Buttons -->
+                <!-- 5 Action Buttons -->
                 <div class="hero-actions-grid">
                     <button class="hero-btn action-btn-words" id="btn-hero-words">
                         <i class="fa-solid fa-book-open"></i> Изучать слова
@@ -127,20 +144,9 @@
                     <button class="hero-btn action-btn-call" id="btn-hero-call">
                         <i class="fa-solid fa-phone"></i> Звонок герою
                     </button>
-                </div>
-            </div>
-
-            <!-- CENTER / RIGHT HERO ARTWORK STAGE -->
-            <div class="hero-artwork-container">
-                <div class="hero-aura-glow" id="hero-aura-glow"></div>
-                <div class="hero-image-wrapper">
-                    <img src="" alt="Hero" class="hero-stage-img" id="hero-stage-art" onerror="this.style.display='none'; document.getElementById('hero-stage-icon-fallback').style.display='flex';">
-                    <div id="hero-stage-icon-fallback" style="display:none; width:280px; height:280px; border-radius:50%; background:linear-gradient(135deg, rgba(99,102,241,0.3), rgba(236,72,153,0.3)); border:3px solid rgba(255,255,255,0.15); align-items:center; justify-content:center; box-shadow:0 0 60px rgba(99,102,241,0.3);">
-                        <i class="fa-solid fa-shield-halved" id="hero-stage-icon-fa" style="font-size:120px; color:rgba(255,255,255,0.7);"></i>
-                    </div>
-                </div>
-                <div class="hero-quote-overlay" id="hero-stage-quote">
-                    "I am ready to shield our realm!"
+                    <button class="hero-btn action-btn-stats" id="btn-hero-word-stats" style="grid-column: span 2; background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(59, 130, 246, 0.2)); border-color: rgba(6, 182, 212, 0.4);">
+                        <i class="fa-solid fa-chart-pie" style="color: var(--accent);"></i> 📊 Статистика слов
+                    </button>
                 </div>
             </div>
         </div>
@@ -710,11 +716,11 @@
         </div>
     </div>
 
-    <script src="scenarios.js?v=10.6"></script>
-    <script src="heroes.js?v=10.6"></script>
-    <script src="flashcards.js?v=10.6"></script>
-    <script src="grammar.js?v=10.6"></script>
-    <script src="ai_service.js?v=10.6"></script>
-    <script src="app.js?v=10.6"></script>
+    <script src="scenarios.js?v=10.7"></script>
+    <script src="heroes.js?v=10.7"></script>
+    <script src="flashcards.js?v=10.7"></script>
+    <script src="grammar.js?v=10.7"></script>
+    <script src="ai_service.js?v=10.7"></script>
+    <script src="app.js?v=10.7"></script>
 </body>
 </html>
