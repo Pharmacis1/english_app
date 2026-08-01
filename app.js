@@ -779,16 +779,19 @@ document.addEventListener("DOMContentLoaded", () => {
     function evaluateHeroDialogueXP(hero, text) {
         if (!hero || !hero.words || !text) return { totalXP: 0, matchedWordsInfo: [] };
 
-        const lowerText = text.toLowerCase();
+        const lowerText = text.toLowerCase().trim();
+        const cleanText = lowerText.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, " ");
+        const wordsInText = cleanText.split(/\s+/);
         let totalXP = 0;
         const matchedWordsInfo = [];
 
         hero.words.forEach(wObj => {
             const w = getWordProps(wObj);
             if (!w.word) return;
-            const wordLower = w.word.toLowerCase();
-            const regex = new RegExp(`\\b${wordLower.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')}\\b`, 'i');
-            if (regex.test(lowerText)) {
+            const wordLower = w.word.toLowerCase().trim();
+            const isMatched = wordsInText.includes(wordLower) || (wordLower.length > 3 && cleanText.includes(wordLower));
+
+            if (isMatched) {
                 const currentUsage = getWordUsageCount(hero.id, w.word);
                 let bonusXp = 1;
                 let tierText = "Mastered (+1 XP)";
@@ -1253,6 +1256,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             saveTodayHeroAudioState(activeHeroId, state);
+            updateHeroDailyBonusTracker();
         }
         usedMicInCurrentDraft = false; // Reset flag for next draft!
 

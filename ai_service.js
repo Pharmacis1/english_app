@@ -117,6 +117,7 @@ ${heroPrompts}`;
             return this.getSmartFallbackResponse(messagesHistory, scenario, targetHeroObjects);
         }
 
+        let formattedMessages = [];
         try {
             const heroPrompt = this.buildHeroPrompt(targetHeroObjects);
             const strictGuide = `\n[MANDATORY GRAMMAR & SPELLING EVALUATION DIRECTIVE:
@@ -130,7 +131,7 @@ At the very end of EVERY response, you MUST append a bracketed evaluation block 
 DO NOT output any translation or extra brackets in the English text.]`;
 
             const systemMessage = { role: 'system', content: `${this.systemPrompt}\nContext/Scenario: ${scenario.systemPrompt}${strictGuide}${heroPrompt}` };
-            const formattedMessages = [systemMessage, ...messagesHistory];
+            formattedMessages = [systemMessage, ...messagesHistory];
 
             const response = await fetch('/api/ai/chat', {
                 method: 'POST',
@@ -152,7 +153,7 @@ DO NOT output any translation or extra brackets in the English text.]`;
             console.warn("Primary AI call failed:", err);
             
             // If local AI (Ollama/LM Studio) failed, but Gemini API Key is available, automatically route to Gemini Cloud API!
-            if (this.provider !== 'gemini' && this.geminiApiKey) {
+            if (this.provider !== 'gemini' && this.geminiApiKey && formattedMessages.length > 0) {
                 try {
                     console.log("Auto-switching fallback to Google Gemini Cloud API...");
                     const resp = await fetch('/api/ai/chat', {
@@ -177,7 +178,6 @@ DO NOT output any translation or extra brackets in the English text.]`;
             }
 
             const fallback = this.getSmartFallbackResponse(messagesHistory, scenario, targetHeroObjects);
-            fallback.text = `[Notice: Switched to offline tutor due to connection issue: ${err.message}]\n\n` + fallback.text;
             return fallback;
         }
     }
