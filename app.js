@@ -322,16 +322,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     initHeroPositioningController();
 
-    // 6. ATMOSPHERIC MAGICAL DUST & EMBERS CANVAS EFFECT
+    // 6. DUAL-LAYER ATMOSPHERIC MAGICAL DUST & EMBERS (BACKGROUND + FOREGROUND DEPTH)
     function initHeroDustEffect() {
-        const canvas = document.getElementById("hero-dust-canvas");
+        const bgCanvas = document.getElementById("hero-dust-bg-canvas");
+        const fgCanvas = document.getElementById("hero-dust-fg-canvas");
         const container = document.getElementById("hero-artwork-container");
-        if (!canvas || !container) return;
+        if (!container) return;
 
-        const ctx = canvas.getContext("2d");
+        const bgCtx = bgCanvas ? bgCanvas.getContext("2d") : null;
+        const fgCtx = fgCanvas ? fgCanvas.getContext("2d") : null;
+
         let width = 0, height = 0;
-        let particles = [];
-        const PARTICLE_COUNT = 55;
+        let bgParticles = [];
+        let fgParticles = [];
 
         const colors = [
             "rgba(251, 191, 36, ",   // Warm Torch Ember Gold
@@ -341,20 +344,22 @@ document.addEventListener("DOMContentLoaded", () => {
         ];
 
         function resize() {
-            width = canvas.width = container.clientWidth;
-            height = canvas.height = container.clientHeight;
+            width = container.clientWidth;
+            height = container.clientHeight;
+            if (bgCanvas) { bgCanvas.width = width; bgCanvas.height = height; }
+            if (fgCanvas) { fgCanvas.width = width; fgCanvas.height = height; }
         }
 
-        function createParticle() {
+        function createParticle(isForeground) {
             return {
                 x: Math.random() * (width || 800),
                 y: Math.random() * (height || 600),
-                radius: Math.random() * 2.2 + 0.8,
+                radius: isForeground ? (Math.random() * 2.8 + 1.2) : (Math.random() * 1.8 + 0.6),
                 colorPrefix: colors[Math.floor(Math.random() * colors.length)],
-                baseAlpha: Math.random() * 0.6 + 0.2,
+                baseAlpha: isForeground ? (Math.random() * 0.7 + 0.3) : (Math.random() * 0.45 + 0.15),
                 alphaPhase: Math.random() * Math.PI * 2,
                 alphaSpeed: Math.random() * 0.02 + 0.005,
-                vy: -(Math.random() * 0.45 + 0.15),
+                vy: -(Math.random() * (isForeground ? 0.6 : 0.35) + 0.15),
                 vxSwing: Math.random() * 0.4 + 0.1,
                 swingPhase: Math.random() * Math.PI * 2
             };
@@ -362,17 +367,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
         function initParticles() {
             resize();
-            particles = [];
-            for (let i = 0; i < PARTICLE_COUNT; i++) {
-                particles.push(createParticle());
-            }
+            bgParticles = [];
+            fgParticles = [];
+            for (let i = 0; i < 35; i++) bgParticles.push(createParticle(false));
+            for (let i = 0; i < 25; i++) fgParticles.push(createParticle(true));
         }
 
         window.addEventListener("resize", resize);
         initParticles();
 
-        function render() {
-            if (!width || !height) resize();
+        function renderLayer(ctx, particles) {
+            if (!ctx) return;
             ctx.clearRect(0, 0, width, height);
 
             const now = Date.now() * 0.001;
@@ -396,11 +401,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 ctx.shadowColor = `${p.colorPrefix}0.8)`;
                 ctx.fill();
             });
-
-            requestAnimationFrame(render);
         }
 
-        requestAnimationFrame(render);
+        function loop() {
+            if (!width || !height) resize();
+            renderLayer(bgCtx, bgParticles);
+            renderLayer(fgCtx, fgParticles);
+            requestAnimationFrame(loop);
+        }
+
+        requestAnimationFrame(loop);
     }
 
     initHeroDustEffect();
