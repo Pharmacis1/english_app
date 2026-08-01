@@ -78,13 +78,26 @@ document.addEventListener("DOMContentLoaded", () => {
         // 4. Update Stage Artwork & Quote
         const stageArt = document.getElementById("hero-stage-art");
         const stageQuote = document.getElementById("hero-stage-quote");
+        const iconFallback = document.getElementById("hero-stage-icon-fallback");
+        const iconFa = document.getElementById("hero-stage-icon-fa");
         if (stageArt) {
             if (hero.image) {
                 stageArt.src = hero.image;
                 stageArt.style.display = "";
+                if (iconFallback) iconFallback.style.display = "none";
+                // Reset onerror for new image load
+                stageArt.onerror = function() {
+                    this.style.display = "none";
+                    if (iconFallback) iconFallback.style.display = "flex";
+                };
             } else {
                 stageArt.style.display = "none";
+                if (iconFallback) iconFallback.style.display = "flex";
             }
+        }
+        if (iconFa) {
+            iconFa.className = `fa-solid ${hero.avatar || 'fa-shield-halved'}`;
+            iconFa.style.color = hero.color || "rgba(255,255,255,0.7)";
         }
         if (stageQuote) stageQuote.textContent = `"${hero.quote || 'I am ready to shield our realm!'}"`;
 
