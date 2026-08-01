@@ -12,85 +12,322 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
-                                <i class="fa-solid fa-shield-halved"></i> Hero Dialogues
-                            </button>
-                        </div>
+<body class="hero-rpg-body">
 
-                        <div class="scenarios-list" id="scenarios-list"></div>
+    <!-- ===== FULL-SCREEN RPG VIEWPORT ===== -->
+    <div class="rpg-app-viewport">
+
+        <!-- ===== TOP GAME HEADER BAR ===== -->
+        <header class="rpg-header">
+            <div class="rpg-brand">
+                <div class="rpg-logo-icon"><i class="fa-solid fa-bolt"></i></div>
+                <div class="rpg-brand-titles">
+                    <span class="rpg-game-title">ENGLISH PULSE</span>
+                    <span class="rpg-game-sub">RPG HERO ACADEMY</span>
+                </div>
+            </div>
+            <div class="rpg-top-stats">
+                <div class="rpg-header-stat-pill"><span class="text-pink">⚔️</span> Power <span class="text-pink font-mono" id="rpg-squad-power">0</span></div>
+                <div class="rpg-header-stat-pill"><span class="text-amber">🔥</span> Streak <span class="text-amber font-mono" id="rpg-header-streak">0</span></div>
+                <div class="rpg-header-stat-pill"><span class="text-cyan">💬</span> Words <span class="text-cyan font-mono" id="rpg-header-words">0</span></div>
+                <div class="rpg-header-stat-pill"><span class="text-gold">⭐</span> XP <span class="text-gold font-mono" id="rpg-header-xp">0</span></div>
+            </div>
+            <div class="rpg-header-actions">
+                <button class="icon-btn-game" id="theme-toggle" title="Toggle Theme"><i class="fa-solid fa-moon"></i></button>
+                <button class="icon-btn-game" id="settings-toggle-btn" title="Settings"><i class="fa-solid fa-gear"></i></button>
+            </div>
+        </header>
+
+        <!-- ===== HERO SHOWCASE STAGE ===== -->
+        <div class="hero-showcase-stage">
+
+            <!-- LEFT HERO PROFILE PANEL -->
+            <div class="hero-left-panel glass-panel">
+                <div class="hero-identity-block">
+                    <span class="hero-role-badge" id="hero-role-badge">Paladin</span>
+                    <h1 class="hero-name-heading" id="hero-display-name">Valerius</h1>
+                    <p class="hero-sub-title" id="hero-display-title">The Silver Paladin (A0)</p>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="hero-meta-grid">
+                    <div class="hero-meta-box">
+                        <span class="meta-label">⭐ Level</span>
+                        <span class="meta-value text-gold" id="hero-display-level">Lvl 1</span>
                     </div>
-
-                    <div class="chat-container glass-card">
-                        <div class="chat-header">
-                            <div class="active-scenario-info">
-                                <div class="scenario-avatar" id="scenario-icon"><i class="fa-solid fa-user-tie"></i></div>
-                                <div>
-                                    <h4 id="active-scenario-title">Tech Job Interview</h4>
-                                    <span class="scenario-subtitle" id="active-scenario-role">Interviewer: Senior Tech Lead</span>
-                                </div>
-                            </div>
-                            <div class="chat-actions" style="display:flex; align-items:center; gap:12px;">
-                                <label style="display:flex; align-items:center; gap:6px; font-size:12px; cursor:pointer; color:var(--text-muted); user-select:none;">
-                                    <input type="checkbox" id="auto-speak-toggle" style="cursor:pointer; accent-color:var(--primary);">
-                                    <span>🔊 Auto-read AI Voice</span>
-                                </label>
-                                <button class="btn btn-sm btn-outline" id="clear-chat-btn">
-                                    <i class="fa-solid fa-rotate-left"></i> Reset Chat
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- LIVE DAILY HERO AUDIO BONUS TRACKER BAR -->
-                        <div id="hero-daily-bonus-tracker" style="padding:6px 16px; background:rgba(15,23,42,0.8); border-bottom:1px solid rgba(255,255,255,0.08); font-size:11px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
-                            <span id="tracker-hero-name" style="font-weight:700; color:var(--primary);">🛡️ Active Hero: Valerius</span>
-                            <div style="display:flex; gap:12px; font-weight:600;">
-                                <span id="tracker-mic-count" title="Rule 1: Mic bonus (+50 XP for first 10/day)">🎙️ Mic: 0/10 (+50 XP)</span>
-                                <span id="tracker-text-count" title="Rule 3: Typed text bonus (+30 XP for first 10/day)">⌨️ Text: 0/10 (+30 XP)</span>
-                                <span id="tracker-combo-tag" style="color:#fbbf24;" title="Rule 5: Full Cycle Combo (+30 XP when Listen + Repeat + Mic Respond on same message!)">🔥 Full Cycle Combo Available</span>
-                            </div>
-                        </div>
-
-                        <!-- DEDICATED HERO WORD & GRAMMAR HELPER PANEL -->
-                        <div id="hero-word-helper-box" class="hidden" style="margin:10px 15px 0 15px; padding:12px; border-radius:8px; background:rgba(15, 23, 42, 0.7); border:1px solid rgba(255,255,255,0.1);">
-                            <div style="font-size:12px; font-weight:700; color:var(--primary); margin-bottom:6px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
-                                <span><i class="fa-solid fa-book-bookmark"></i> Hero Curriculum Cheatsheet & Daily Word Bonus Tracker (Resets Daily 🔄)</span>
-                                <div style="display:flex; gap:6px; font-size:10px;">
-                                    <span style="padding:1px 5px; border-radius:4px; border:1px solid #f59e0b; color:#fbbf24; background:rgba(245,158,11,0.1);">🟡 1st Use Today (+20 XP)</span>
-                                    <span style="padding:1px 5px; border-radius:4px; border:1px solid #a855f7; color:#c084fc; background:rgba(168,85,247,0.1);">🟣 2nd Use Today (+10 XP)</span>
-                                    <span style="padding:1px 5px; border-radius:4px; border:1px solid #3b82f6; color:#60a5fa; background:rgba(59,130,246,0.1);">🔵 3rd Use Today (+5 XP)</span>
-                                    <span style="padding:1px 5px; border-radius:4px; border:1px solid rgba(255,255,255,0.2); color:var(--text-muted);">⚪ Mastered Today (+1 XP)</span>
-                                </div>
-                            </div>
-                            <div id="hero-grammar-rule-hint" style="font-size:11px; color:var(--warning); margin-bottom:8px; font-weight:600;"></div>
-                            <div id="hero-words-categories-container" style="display:flex; flex-direction:column; gap:6px;"></div>
-                        </div>
-
-                        <div class="chat-messages" id="chat-messages"></div>
-
-                        <div class="feedback-banner hidden" id="grammar-feedback-banner">
-                            <div class="feedback-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-                            <div class="feedback-content" id="grammar-feedback-text"></div>
-                            <button class="feedback-close" id="close-feedback-btn">&times;</button>
-                        </div>
-
-                        <div class="chat-input-wrapper">
-                            <button class="mic-btn" id="voice-input-btn" title="Speak via Microphone">
-                                <i class="fa-solid fa-microphone"></i>
-                            </button>
-                            <textarea id="user-chat-input" placeholder="Type your response in English..." rows="1"></textarea>
-                            <button class="send-btn" id="send-chat-btn">
-                                <i class="fa-solid fa-paper-plane"></i>
-                            </button>
-                        </div>
-                        <div class="input-hints">
-                            <span><i class="fa-solid fa-circle-info"></i> Press Enter to send, Shift+Enter for new line</span>
-                            <span class="speech-status" id="speech-status"></span>
-                        </div>
+                    <div class="hero-meta-box">
+                        <span class="meta-label">⚔️ Power</span>
+                        <span class="meta-value text-pink" id="hero-display-power">105</span>
+                    </div>
+                    <div class="hero-meta-box">
+                        <span class="meta-label">❤️ Affection</span>
+                        <span class="meta-value text-amber" id="hero-display-affection">Lv. 1</span>
+                    </div>
+                    <div class="hero-meta-box">
+                        <span class="meta-label">📚 Vocab Mastery</span>
+                        <span class="meta-value text-cyan" id="hero-display-vocab-count">0/50</span>
                     </div>
                 </div>
-            </section>
 
-            <!-- TAB 2: FLASHCARDS -->
-            <section class="tab-content" id="tab-flashcards">
+                <!-- Attributes Progress Bars -->
+                <div class="hero-attributes-section">
+                    <div class="section-label-sm">RPG ATTRIBUTES</div>
+                    <div class="attr-row">
+                        <span>🗡️ Храбрость</span>
+                        <div class="attr-bar"><div class="attr-fill fill-bravery" id="attr-bravery-fill" style="width:52%"></div></div>
+                    </div>
+                    <div class="attr-row">
+                        <span>🛡️ Честь</span>
+                        <div class="attr-bar"><div class="attr-fill fill-honor" id="attr-honor-fill" style="width:60%"></div></div>
+                    </div>
+                    <div class="attr-row">
+                        <span>✨ Магия</span>
+                        <div class="attr-bar"><div class="attr-fill fill-magic" id="attr-magic-fill" style="width:45%"></div></div>
+                    </div>
+                </div>
+
+                <!-- Skills / Grammar Rules -->
+                <div class="hero-skills-section">
+                    <div class="section-label-sm">GRAMMAR SKILLS</div>
+                    <div class="hero-skills-chips" id="hero-skills-list"></div>
+                </div>
+
+                <!-- 4 Action Buttons -->
+                <div class="hero-actions-grid">
+                    <button class="hero-btn action-btn-words" id="btn-hero-words">
+                        <i class="fa-solid fa-book-open"></i> Изучать слова
+                    </button>
+                    <button class="hero-btn action-btn-grammar" id="btn-hero-rules">
+                        <i class="fa-solid fa-scroll"></i> Правила
+                    </button>
+                    <button class="hero-btn action-btn-chat" id="btn-hero-chat">
+                        <i class="fa-solid fa-comments"></i> Чат с героем
+                    </button>
+                    <button class="hero-btn action-btn-call" id="btn-hero-call">
+                        <i class="fa-solid fa-phone"></i> Звонок герою
+                    </button>
+                </div>
+            </div>
+
+            <!-- CENTER / RIGHT HERO ARTWORK STAGE -->
+            <div class="hero-artwork-container">
+                <div class="hero-aura-glow" id="hero-aura-glow"></div>
+                <div class="hero-image-wrapper">
+                    <img src="" alt="Hero Artwork" class="hero-stage-img" id="hero-stage-art">
+                </div>
+                <div class="hero-quote-overlay" id="hero-stage-quote">
+                    "I am ready to shield our realm!"
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== BOTTOM HERO CAROUSEL BAR ===== -->
+        <div class="hero-bottom-bar">
+            <div class="hero-carousel-track" id="hero-carousel-track"></div>
+            <button class="btn-repeat-all" id="btn-review-all-cards">
+                <span class="repeat-icon"><i class="fa-solid fa-layer-group"></i></span>
+                🎴 Карточки всех героев
+            </button>
+        </div>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- ===== MODAL OVERLAYS (opened by action buttons) ===== -->
+    <!-- ===================================================================== -->
+
+    <!-- MODAL: HERO CHAT (Text Dialogue) -->
+    <div class="rpg-modal-overlay hidden" id="modal-hero-chat">
+        <div class="rpg-modal-content modal-lg">
+            <div class="rpg-modal-header">
+                <div class="modal-header-title">
+                    <i class="fa-solid fa-comments" style="font-size:20px; color:var(--primary);"></i>
+                    <h3>💬 Чат с Героем</h3>
+                </div>
+                <button class="modal-close-btn">&times;</button>
+            </div>
+            <div class="rpg-modal-body" style="padding:0; display:flex; flex-direction:column; height:70vh;">
+                <!-- HERO DIALOGUES SCENARIOS LIST -->
+                <div style="padding:12px 16px; background:rgba(15,23,42,0.8); border-bottom:1px solid rgba(255,255,255,0.08);">
+                    <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+                        <button class="btn btn-sm btn-primary" id="toggle-scenarios-btn">
+                            <i class="fa-solid fa-shield-halved"></i> Hero Dialogues
+                        </button>
+                    </div>
+                    <div class="scenarios-list" id="scenarios-list"></div>
+                </div>
+
+                <div class="chat-container" style="flex:1; display:flex; flex-direction:column; overflow:hidden;">
+                    <div class="chat-header">
+                        <div class="active-scenario-info">
+                            <div class="scenario-avatar" id="scenario-icon"><i class="fa-solid fa-user-tie"></i></div>
+                            <div>
+                                <h4 id="active-scenario-title">Tech Job Interview</h4>
+                                <span class="scenario-subtitle" id="active-scenario-role">Interviewer: Senior Tech Lead</span>
+                            </div>
+                        </div>
+                        <div class="chat-actions" style="display:flex; align-items:center; gap:12px;">
+                            <label style="display:flex; align-items:center; gap:6px; font-size:12px; cursor:pointer; color:var(--text-muted); user-select:none;">
+                                <input type="checkbox" id="auto-speak-toggle" style="cursor:pointer; accent-color:var(--primary);">
+                                <span>🔊 Auto-read AI Voice</span>
+                            </label>
+                            <button class="btn btn-sm btn-outline" id="clear-chat-btn">
+                                <i class="fa-solid fa-rotate-left"></i> Reset Chat
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- LIVE DAILY HERO AUDIO BONUS TRACKER BAR -->
+                    <div id="hero-daily-bonus-tracker" style="padding:6px 16px; background:rgba(15,23,42,0.8); border-bottom:1px solid rgba(255,255,255,0.08); font-size:11px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+                        <span id="tracker-hero-name" style="font-weight:700; color:var(--primary);">🛡️ Active Hero: Valerius</span>
+                        <div style="display:flex; gap:12px; font-weight:600;">
+                            <span id="tracker-mic-count" title="Rule 1: Mic bonus (+50 XP for first 10/day)">🎙️ Mic: 0/10 (+50 XP)</span>
+                            <span id="tracker-text-count" title="Rule 3: Typed text bonus (+30 XP for first 10/day)">⌨️ Text: 0/10 (+30 XP)</span>
+                            <span id="tracker-combo-tag" style="color:#fbbf24;" title="Rule 5: Full Cycle Combo (+30 XP when Listen + Repeat + Mic Respond on same message!)">🔥 Full Cycle Combo Available</span>
+                        </div>
+                    </div>
+
+                    <!-- DEDICATED HERO WORD & GRAMMAR HELPER PANEL -->
+                    <div id="hero-word-helper-box" class="hidden" style="margin:10px 15px 0 15px; padding:12px; border-radius:8px; background:rgba(15, 23, 42, 0.7); border:1px solid rgba(255,255,255,0.1);">
+                        <div style="font-size:12px; font-weight:700; color:var(--primary); margin-bottom:6px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+                            <span><i class="fa-solid fa-book-bookmark"></i> Hero Curriculum Cheatsheet & Daily Word Bonus Tracker (Resets Daily 🔄)</span>
+                            <div style="display:flex; gap:6px; font-size:10px;">
+                                <span style="padding:1px 5px; border-radius:4px; border:1px solid #f59e0b; color:#fbbf24; background:rgba(245,158,11,0.1);">🟡 1st Use Today (+20 XP)</span>
+                                <span style="padding:1px 5px; border-radius:4px; border:1px solid #a855f7; color:#c084fc; background:rgba(168,85,247,0.1);">🟣 2nd Use Today (+10 XP)</span>
+                                <span style="padding:1px 5px; border-radius:4px; border:1px solid #3b82f6; color:#60a5fa; background:rgba(59,130,246,0.1);">🔵 3rd Use Today (+5 XP)</span>
+                                <span style="padding:1px 5px; border-radius:4px; border:1px solid rgba(255,255,255,0.2); color:var(--text-muted);">⚪ Mastered Today (+1 XP)</span>
+                            </div>
+                        </div>
+                        <div id="hero-grammar-rule-hint" style="font-size:11px; color:var(--warning); margin-bottom:8px; font-weight:600;"></div>
+                        <div id="hero-words-categories-container" style="display:flex; flex-direction:column; gap:6px;"></div>
+                    </div>
+
+                    <div class="chat-messages" id="chat-messages" style="flex:1; overflow-y:auto;"></div>
+
+                    <div class="feedback-banner hidden" id="grammar-feedback-banner">
+                        <div class="feedback-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                        <div class="feedback-content" id="grammar-feedback-text"></div>
+                        <button class="feedback-close" id="close-feedback-btn">&times;</button>
+                    </div>
+
+                    <div class="chat-input-wrapper">
+                        <button class="mic-btn" id="voice-input-btn" title="Speak via Microphone">
+                            <i class="fa-solid fa-microphone"></i>
+                        </button>
+                        <textarea id="user-chat-input" placeholder="Type your response in English..." rows="1"></textarea>
+                        <button class="send-btn" id="send-chat-btn">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </div>
+                    <div class="input-hints">
+                        <span><i class="fa-solid fa-circle-info"></i> Press Enter to send, Shift+Enter for new line</span>
+                        <span class="speech-status" id="speech-status"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: HERO LIVE VOICE CALL (Gemini Live) -->
+    <div class="rpg-modal-overlay hidden" id="modal-hero-live">
+        <div class="rpg-modal-content modal-lg">
+            <div class="rpg-modal-header">
+                <div class="modal-header-title">
+                    <i class="fa-solid fa-microphone-lines" style="font-size:20px; color:#ec4899;"></i>
+                    <h3>📞 Gemini Live Realtime Audio Studio</h3>
+                    <span class="badge" style="background:rgba(16,185,129,0.2); color:#34d399; border:1px solid rgba(16,185,129,0.4); font-size:11px;">
+                        ⚡ Realtime Voice Stream &bull; Unlimited RPD
+                    </span>
+                </div>
+                <button class="modal-close-btn">&times;</button>
+            </div>
+            <div class="rpg-modal-body" style="padding:24px;">
+                <p style="margin-bottom:16px; color:var(--text-muted); font-size:13px;">
+                    Live real-time voice conversation with heroes. Practice speaking continuously to earn <strong style="color:#fbbf24;">+30 XP every minute</strong>!
+                </p>
+
+                <!-- HERO LIVE PARTNER SELECTOR -->
+                <div style="background:rgba(15,23,42,0.6); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:16px; margin-bottom:20px;">
+                    <div style="font-size:12px; font-weight:700; color:var(--heart); margin-bottom:10px; display:flex; align-items:center; justify-content:space-between;">
+                        <span><i class="fa-solid fa-users-viewfinder"></i> Select Hero Partner for Live Voice Practice:</span>
+                        <span id="live-hero-voice-name-tag" class="font-mono" style="font-size:11px; color:#818cf8;">Voice: Fenrir</span>
+                    </div>
+                    <div id="live-hero-picker-container" style="display:flex; flex-wrap:wrap; gap:8px;"></div>
+                </div>
+
+                <!-- LIVE REALTIME AUDIO STUDIO CARD -->
+                <div class="recording-studio-card" style="background:rgba(15,23,42,0.8); border:1px solid rgba(236,72,153,0.3); border-radius:18px; padding:28px; text-align:center; position:relative; overflow:hidden;">
+                    <!-- LIVE STATUS BADGE & TIMER -->
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+                        <div id="live-session-status-badge" style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); padding:4px 12px; border-radius:20px; font-size:12px; font-weight:600; display:inline-flex; align-items:center; gap:6px;">
+                            <span style="width:8px; height:8px; border-radius:50%; background:#9ca3af;" id="live-status-dot"></span>
+                            <span id="live-status-text">Ready to Connect</span>
+                        </div>
+                        <div class="font-mono" style="font-size:16px; font-weight:700; color:#fbbf24;" id="live-session-timer">
+                            00:00 <small style="font-size:11px; opacity:0.8; font-weight:normal;">(+30 XP / min)</small>
+                        </div>
+                    </div>
+
+                    <!-- ACTIVE HERO TITLE & CHEATSHEET QUICK VOCAB -->
+                    <div id="live-active-hero-card-banner" style="margin-bottom:20px; padding:12px; background:rgba(99,102,241,0.1); border:1px solid rgba(99,102,241,0.25); border-radius:12px;">
+                        <h4 id="live-hero-banner-title" style="margin:0; font-size:16px; color:var(--text-main);">🛡️ Valerius &bull; The Silver Paladin</h4>
+                        <div id="live-hero-banner-vocab" style="font-size:11px; color:#cbd5e1; margin-top:8px; display:flex; flex-wrap:wrap; gap:6px; justify-content:center;"></div>
+                    </div>
+
+                    <!-- LIVE AUDIO VISUALIZER & ANIMATED SOUND WAVE -->
+                    <div class="visualizer-box" style="margin:20px 0;">
+                        <div class="sound-wave" id="live-sound-wave">
+                            <span></span><span></span><span></span><span></span><span></span>
+                        </div>
+                        <div style="font-size:13px; color:var(--text-muted); margin-top:12px;" id="live-audio-subtitle">
+                            Click "Start Gemini Live Realtime Call" to talk directly with your hero!
+                        </div>
+                    </div>
+
+                    <!-- LIVE ACTION BUTTONS -->
+                    <div class="recording-actions" style="margin-top:24px; display:flex; justify-content:center; gap:12px;">
+                        <button class="btn btn-record btn-lg" id="start-live-voice-btn" style="padding:14px 32px; font-size:16px; box-shadow:0 0 25px rgba(236,72,153,0.5); cursor:pointer;">
+                            <i class="fa-solid fa-microphone"></i> Start Gemini Live Realtime Call
+                        </button>
+                        <button class="btn btn-danger btn-lg hidden" id="stop-live-voice-btn" style="padding:14px 32px; font-size:16px; cursor:pointer;">
+                            <i class="fa-solid fa-phone-slash"></i> End Call
+                        </button>
+                    </div>
+                </div>
+
+                <!-- LIVE VOICE HELP & SHORTCUT HINTS -->
+                <div style="margin-top:16px; padding:10px 14px; background:rgba(99,102,241,0.08); border:1px solid rgba(99,102,241,0.2); border-radius:10px; font-size:11px; color:#cbd5e1; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px;">
+                    <span><i class="fa-solid fa-circle-question" style="color:var(--heart);"></i> <strong>Не поняли вопрос?</strong> Произнесите герою вслух или нажмите 🇷🇺 Translate на строчке ниже:</span>
+                    <div style="display:flex; gap:6px; flex-wrap:wrap;">
+                        <span style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.12); padding:2px 6px; border-radius:6px; color:#fbbf24;" class="font-mono">"Please repeat!"</span>
+                        <span style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.12); padding:2px 6px; border-radius:6px; color:#38bdf8;" class="font-mono">"Translate to Russian please!"</span>
+                        <span style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.12); padding:2px 6px; border-radius:6px; color:#c084fc;" class="font-mono">"What does [word] mean?"</span>
+                    </div>
+                </div>
+
+                <!-- LIVE FEEDBACK & TRANSCRIPT LOG -->
+                <div id="live-transcript-box" style="margin-top:12px; background:rgba(15,23,42,0.6); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:16px; max-height:220px; overflow-y:auto; font-size:13px; color:#cbd5e1;">
+                    <div style="font-weight:700; font-size:11px; color:var(--text-muted); margin-bottom:6px;" class="font-mono">
+                        <i class="fa-solid fa-comments"></i> LIVE CONVERSATION TRANSCRIPT & INSTANT TRANSLATIONS:
+                    </div>
+                    <div id="live-transcript-log" style="display:flex; flex-direction:column; gap:6px;">
+                        <em style="color:var(--text-muted);">Your real-time speech and hero responses will appear here live...</em>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: HERO WORDS (Flashcards Deck) -->
+    <div class="rpg-modal-overlay hidden" id="modal-hero-words">
+        <div class="rpg-modal-content modal-lg">
+            <div class="rpg-modal-header">
+                <div class="modal-header-title">
+                    <i class="fa-solid fa-book-open" style="font-size:20px; color:var(--gold);"></i>
+                    <h3>📖 Изучать слова героя</h3>
+                </div>
+                <button class="modal-close-btn">&times;</button>
+            </div>
+            <div class="rpg-modal-body">
                 <div class="flashcards-layout">
                     <div class="deck-selector-bar glass-card">
                         <div class="deck-tabs" id="deck-tabs-container"></div>
@@ -128,11 +365,22 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </div>
+    </div>
 
-            <!-- TAB 3: GRAMMAR LAB -->
-            <section class="tab-content" id="tab-grammar">
-                <div class="grammar-container glass-card">
+    <!-- MODAL: HERO GRAMMAR RULES -->
+    <div class="rpg-modal-overlay hidden" id="modal-hero-grammar">
+        <div class="rpg-modal-content modal-lg">
+            <div class="rpg-modal-header">
+                <div class="modal-header-title">
+                    <i class="fa-solid fa-scroll" style="font-size:20px; color:var(--accent);"></i>
+                    <h3>📜 Правила грамматики героя</h3>
+                </div>
+                <button class="modal-close-btn">&times;</button>
+            </div>
+            <div class="rpg-modal-body">
+                <div class="grammar-container">
                     <div class="grammar-header">
                         <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:12px;">
                             <div class="topics-pills" id="grammar-topics-nav"></div>
@@ -185,257 +433,130 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </div>
+    </div>
 
-            <!-- TAB 4: GEMINI LIVE REALTIME VOICE STUDIO -->
-            <section class="tab-content" id="tab-speaking">
-                <div class="shadowing-container glass-card" style="padding:24px;">
-                    <div class="shadowing-header" style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:20px;">
-                        <div>
-                            <h3 style="display:flex; align-items:center; gap:10px; font-size:20px;">
-                                <i class="fa-solid fa-microphone-lines" style="color:#ec4899;"></i> 
-                                Gemini Live Realtime Audio Studio
-                                <span class="badge" style="background:rgba(16,185,129,0.2); color:#34d399; border:1px solid rgba(16,185,129,0.4); font-size:11px;">
-                                    ⚡ Realtime Voice Stream &bull; Unlimited RPD
-                                </span>
-                            </h3>
-                            <p class="panel-desc" style="margin-top:4px; color:var(--text-muted);">
-                                Live real-time voice conversation with heroes. Practice speaking continuously to earn <strong style="color:#fbbf24;">+30 XP every minute</strong>!
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- HERO LIVE PARTNER SELECTOR -->
-                    <div style="background:rgba(15,23,42,0.6); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:16px; margin-bottom:20px;">
-                        <div style="font-size:12px; font-weight:700; color:var(--heart); margin-bottom:10px; display:flex; align-items:center; justify-content:space-between;">
-                            <span><i class="fa-solid fa-users-viewfinder"></i> Select Hero Partner for Live Voice Practice:</span>
-                            <span id="live-hero-voice-name-tag" class="font-mono" style="font-size:11px; color:#818cf8;">Voice: Fenrir</span>
-                        </div>
-                        <div id="live-hero-picker-container" style="display:flex; flex-wrap:wrap; gap:8px;"></div>
-                    </div>
-
-                    <!-- LIVE REALTIME AUDIO STUDIO CARD -->
-                    <div class="recording-studio-card" style="background:rgba(15,23,42,0.8); border:1px solid rgba(236,72,153,0.3); border-radius:18px; padding:28px; text-align:center; position:relative; overflow:hidden;">
-                        
-                        <!-- LIVE STATUS BADGE & TIMER -->
-                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
-                            <div id="live-session-status-badge" style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); padding:4px 12px; border-radius:20px; font-size:12px; font-weight:600; display:inline-flex; align-items:center; gap:6px;">
-                                <span style="width:8px; height:8px; border-radius:50%; background:#9ca3af;" id="live-status-dot"></span>
-                                <span id="live-status-text">Ready to Connect</span>
-                            </div>
-                            <div class="font-mono" style="font-size:16px; font-weight:700; color:#fbbf24;" id="live-session-timer">
-                                00:00 <small style="font-size:11px; opacity:0.8; font-weight:normal;">(+30 XP / min)</small>
-                            </div>
-                        </div>
-
-                        <!-- ACTIVE HERO TITLE & CHEATSHEET QUICK VOCAB -->
-                        <div id="live-active-hero-card-banner" style="margin-bottom:20px; padding:12px; background:rgba(99,102,241,0.1); border:1px solid rgba(99,102,241,0.25); border-radius:12px;">
-                            <h4 id="live-hero-banner-title" style="margin:0; font-size:16px; color:var(--text-main);">🛡️ Valerius &bull; The Silver Paladin</h4>
-                            <div id="live-hero-banner-vocab" style="font-size:11px; color:#cbd5e1; margin-top:8px; display:flex; flex-wrap:wrap; gap:6px; justify-content:center;"></div>
-                        </div>
-
-                        <!-- LIVE AUDIO VISUALIZER & ANIMATED SOUND WAVE -->
-                        <div class="visualizer-box" style="margin:20px 0;">
-                            <div class="sound-wave" id="live-sound-wave">
-                                <span></span><span></span><span></span><span></span><span></span>
-                            </div>
-                            <div style="font-size:13px; color:var(--text-muted); margin-top:12px;" id="live-audio-subtitle">
-                                Click "Start Gemini Live Realtime Call" to talk directly with your hero!
-                            </div>
-                        </div>
-
-                        <!-- LIVE ACTION BUTTONS -->
-                        <div class="recording-actions" style="margin-top:24px; display:flex; justify-content:center; gap:12px;">
-                            <button class="btn btn-record btn-lg" id="start-live-voice-btn" style="padding:14px 32px; font-size:16px; box-shadow:0 0 25px rgba(236,72,153,0.5); cursor:pointer;">
-                                <i class="fa-solid fa-microphone"></i> Start Gemini Live Realtime Call
-                            </button>
-                            <button class="btn btn-danger btn-lg hidden" id="stop-live-voice-btn" style="padding:14px 32px; font-size:16px; cursor:pointer;">
-                                <i class="fa-solid fa-phone-slash"></i> End Call
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- LIVE VOICE HELP & SHORTCUT HINTS -->
-                    <div style="margin-top:16px; padding:10px 14px; background:rgba(99,102,241,0.08); border:1px solid rgba(99,102,241,0.2); border-radius:10px; font-size:11px; color:#cbd5e1; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px;">
-                        <span><i class="fa-solid fa-circle-question" style="color:var(--heart);"></i> <strong>Не поняли вопрос?</strong> Произнесите герою вслух или нажмите 🇷🇺 Translate на строчке ниже:</span>
-                        <div style="display:flex; gap:6px; flex-wrap:wrap;">
-                            <span style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.12); padding:2px 6px; border-radius:6px; color:#fbbf24;" class="font-mono">"Please repeat!"</span>
-                            <span style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.12); padding:2px 6px; border-radius:6px; color:#38bdf8;" class="font-mono">"Translate to Russian please!"</span>
-                            <span style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.12); padding:2px 6px; border-radius:6px; color:#c084fc;" class="font-mono">"What does [word] mean?"</span>
-                        </div>
-                    </div>
-
-                    <!-- LIVE FEEDBACK & TRANSCRIPT LOG -->
-                    <div id="live-transcript-box" style="margin-top:12px; background:rgba(15,23,42,0.6); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:16px; max-height:220px; overflow-y:auto; font-size:13px; color:#cbd5e1;">
-                        <div style="font-weight:700; font-size:11px; color:var(--text-muted); margin-bottom:6px;" class="font-mono">
-                            <i class="fa-solid fa-comments"></i> LIVE CONVERSATION TRANSCRIPT & INSTANT TRANSLATIONS:
-                        </div>
-                        <div id="live-transcript-log" style="display:flex; flex-direction:column; gap:6px;">
-                            <em style="color:var(--text-muted);">Your real-time speech and hero responses will appear here live...</em>
-                        </div>
-                    </div>
+    <!-- MODAL: ALL HEROES CARD REVIEW -->
+    <div class="rpg-modal-overlay hidden" id="modal-all-cards">
+        <div class="rpg-modal-content modal-lg">
+            <div class="rpg-modal-header">
+                <div class="modal-header-title">
+                    <i class="fa-solid fa-layer-group" style="font-size:20px; color:var(--heart);"></i>
+                    <h3>🎴 Карточки всех героев — SRS Review</h3>
                 </div>
-            </section>
+                <button class="modal-close-btn">&times;</button>
+            </div>
+            <div class="rpg-modal-body">
+                <p style="color:var(--text-muted); font-size:13px;">Review all due SRS flashcards from every unlocked hero. Coming soon!</p>
+            </div>
+        </div>
+    </div>
 
-            <!-- TAB 5: HERO RPG & BATTLES -->
-            <section class="tab-content" id="tab-rpg">
-                <div class="rpg-layout">
-                    <div class="rpg-nav-bar glass-card">
-                        <button class="rpg-subnav-btn active" data-rpgview="guild">
-                            <i class="fa-solid fa-users-gear"></i> Hero Guild (10 Heroes A0→A1)
+    <!-- MODAL: SETTINGS -->
+    <div class="rpg-modal-overlay hidden" id="modal-settings">
+        <div class="rpg-modal-content modal-lg">
+            <div class="rpg-modal-header">
+                <div class="modal-header-title">
+                    <i class="fa-solid fa-gears" style="font-size:20px; color:var(--text-muted);"></i>
+                    <h3>⚙️ Local AI & System Configuration</h3>
+                </div>
+                <button class="modal-close-btn">&times;</button>
+            </div>
+            <div class="rpg-modal-body">
+                <form id="settings-form">
+                    <div class="setting-group">
+                        <label for="ai-provider">AI Provider</label>
+                        <select id="ai-provider" class="form-input">
+                            <option value="gemini">Google Gemini Cloud API (Gemini 3.5 Flash Lite & Gemma 4 31B)</option>
+                            <option value="ollama">Ollama (Default: http://localhost:11434)</option>
+                            <option value="lmstudio">LM Studio (Default: http://localhost:1234)</option>
+                            <option value="fallback">Built-in Smart Offline Tutor (No server needed)</option>
+                        </select>
+                    </div>
+
+                    <div class="setting-group" id="gemini-api-key-group">
+                        <label for="gemini-api-key">Google Gemini API Key <small style="color:var(--heart)">(Google AI Studio Free Tier Key)</small></label>
+                        <input type="password" id="gemini-api-key" class="form-input" placeholder="AIzaSy..." value="">
+                    </div>
+
+                    <div class="setting-group">
+                        <label for="api-endpoint">Server Endpoint URL (Local AI)</label>
+                        <input type="text" id="api-endpoint" class="form-input" value="http://localhost:11434">
+                    </div>
+
+                    <div class="setting-group">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+                            <label for="model-name" style="margin-bottom:0;">Model Name (Primary / Fallback)</label>
+                            <button type="button" class="btn btn-sm btn-outline" id="auto-detect-models-btn" style="font-size:11px; padding:2px 8px;">
+                                <i class="fa-solid fa-arrows-rotate"></i> Auto-Detect Installed Models
+                            </button>
+                        </div>
+                        <div style="display:flex; gap:8px;">
+                            <input type="text" id="model-name" class="form-input" value="gemini-3.5-flash-lite" style="flex:1;">
+                            <select id="model-select-dropdown" class="form-input hidden" style="flex:1;"></select>
+                        </div>
+                    </div>
+
+                    <div class="setting-group">
+                        <label for="system-prompt">System Prompt Customization</label>
+                        <textarea id="system-prompt" class="form-input" rows="3">You are an expert English tutor and conversation partner. Respond clearly in English, ask questions, and correct grammar errors.</textarea>
+                    </div>
+
+                    <!-- VOICE AI ENGINE CONFIGURATION (KOKORO & WHISPER) -->
+                    <div style="margin-top:20px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.1);">
+                        <h4 style="font-size:14px; margin-bottom:12px; color:var(--primary);"><i class="fa-solid fa-microphone-lines"></i> Voice AI Engines (Kokoro TTS & Whisper STT)</h4>
+                        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px;">
+                            <div class="setting-group">
+                                <label for="tts-engine-select">Text-to-Speech Engine (AI Voice)</label>
+                                <select id="tts-engine-select" class="form-input">
+                                    <option value="native">Browser Native Synthesis (Fast)</option>
+                                    <option value="kokoro">Kokoro TTS (Local Studio AI Server)</option>
+                                </select>
+                            </div>
+                            <div class="setting-group">
+                                <label for="tts-endpoint-input">Kokoro TTS Server Endpoint</label>
+                                <input type="text" id="tts-endpoint-input" class="form-input" value="http://localhost:8880">
+                            </div>
+                            <div class="setting-group">
+                                <label for="stt-engine-select">Speech-to-Text Engine (Microphone)</label>
+                                <select id="stt-engine-select" class="form-input">
+                                    <option value="native">Browser WebSpeech API (Instant)</option>
+                                    <option value="whisper">Whisper STT (Local AI Server)</option>
+                                </select>
+                            </div>
+                            <div class="setting-group">
+                                <label for="stt-endpoint-input">Whisper STT Server Endpoint</label>
+                                <input type="text" id="stt-endpoint-input" class="form-input" value="http://localhost:8000">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="settings-buttons">
+                        <button type="button" class="btn btn-outline" id="test-connection-btn">
+                            <i class="fa-solid fa-plug"></i> Test Connection Now
                         </button>
-                        <button class="rpg-subnav-btn" data-rpgview="campaign">
-                            <i class="fa-solid fa-map-location-dot"></i> Campaign & Squad Setup
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fa-solid fa-floppy-disk"></i> Save Settings
                         </button>
                     </div>
+                </form>
 
-                    <div class="rpg-subview active" id="rpgview-guild">
-                        <div class="heroes-grid" id="heroes-grid-container"></div>
-                    </div>
-
-                    <div class="rpg-subview" id="rpgview-campaign">
-                        <div class="campaign-container">
-                            <div class="stages-panel glass-card">
-                                <h3><i class="fa-solid fa-dungeon"></i> Campaign Chapters</h3>
-                                <div class="chapters-accordion" id="chapters-accordion"></div>
-                            </div>
-
-                            <div class="battle-arena glass-card">
-                                <div class="arena-header">
-                                    <div class="stage-info">
-                                        <h4 id="active-stage-title">Select a stage to battle</h4>
-                                        <span class="stage-desc" id="active-stage-desc">Beat bosses to unlock new heroes!</span>
-                                    </div>
-                                    <button class="btn btn-primary" id="start-battle-btn" disabled>
-                                        <i class="fa-solid fa-swords"></i> Start Battle
-                                    </button>
-                                </div>
-
-                                <div class="squad-picker-box">
-                                    <div style="font-size:12px; font-weight:700; color:var(--heart); margin-bottom:8px;">
-                                        ⚔️ Select 5 Heroes for Combat Squad (<span id="squad-count-text">0</span> / 5 Selected):
-                                    </div>
-                                    <div class="squad-chips-container" id="squad-chips-container"></div>
-                                </div>
-
-                                <div class="battle-field-stage" id="battle-field-stage">
-                                    <div class="party-side heroes-side" id="battle-heroes-side">
-                                        <div class="empty-arena-msg">Select your 5-Hero Squad and click "Start Battle"!</div>
-                                    </div>
-                                    <div class="vs-badge">VS</div>
-                                    <div class="party-side mobs-side" id="battle-mobs-side"></div>
-                                </div>
-
-                                <div class="ultimates-bar" id="ultimates-bar"></div>
-
-                                <div class="battle-log font-mono" id="battle-log-box">
-                                    <div>[Battle System]: Learn English to gain Hero XP! Battles do not drop XP.</div>
-                                </div>
-                            </div>
-                        </div>
+                <div style="margin-top:24px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1);">
+                    <h4><i class="fa-solid fa-database"></i> PostgreSQL & Backup Management</h4>
+                    <p style="font-size:12px; color:var(--text-muted); margin-bottom:12px;">Export or restore your full hero RPG progress and SRS card memory to a JSON backup file anytime.</p>
+                    <div style="display:flex; gap:12px;">
+                        <button type="button" class="btn btn-secondary" id="export-backup-btn">
+                            <i class="fa-solid fa-download"></i> Export Save Backup (.json)
+                        </button>
+                        <button type="button" class="btn btn-outline" id="import-backup-trigger-btn">
+                            <i class="fa-solid fa-upload"></i> Restore Save Backup
+                        </button>
+                        <input type="file" id="import-backup-file-input" accept=".json" class="hidden">
                     </div>
                 </div>
-            </section>
-
-            <!-- TAB 6: LOCAL AI SETTINGS -->
-            <section class="tab-content" id="tab-settings">
-                <div class="settings-container glass-card">
-                    <h3><i class="fa-solid fa-gears"></i> Local AI & System Configuration</h3>
-
-                    <form id="settings-form">
-                        <div class="setting-group">
-                            <label for="ai-provider">AI Provider</label>
-                            <select id="ai-provider" class="form-input">
-                                <option value="gemini">Google Gemini Cloud API (Gemini 3.5 Flash Lite & Gemma 4 31B)</option>
-                                <option value="ollama">Ollama (Default: http://localhost:11434)</option>
-                                <option value="lmstudio">LM Studio (Default: http://localhost:1234)</option>
-                                <option value="fallback">Built-in Smart Offline Tutor (No server needed)</option>
-                            </select>
-                        </div>
-
-                        <div class="setting-group" id="gemini-api-key-group">
-                            <label for="gemini-api-key">Google Gemini API Key <small style="color:var(--heart)">(Google AI Studio Free Tier Key)</small></label>
-                            <input type="password" id="gemini-api-key" class="form-input" placeholder="AIzaSy..." value="">
-                        </div>
-
-                        <div class="setting-group">
-                            <label for="api-endpoint">Server Endpoint URL (Local AI)</label>
-                            <input type="text" id="api-endpoint" class="form-input" value="http://localhost:11434">
-                        </div>
-
-                        <div class="setting-group">
-                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
-                                <label for="model-name" style="margin-bottom:0;">Model Name (Primary / Fallback)</label>
-                                <button type="button" class="btn btn-sm btn-outline" id="auto-detect-models-btn" style="font-size:11px; padding:2px 8px;">
-                                    <i class="fa-solid fa-arrows-rotate"></i> Auto-Detect Installed Models
-                                </button>
-                            </div>
-                            <div style="display:flex; gap:8px;">
-                                <input type="text" id="model-name" class="form-input" value="gemini-3.5-flash-lite" style="flex:1;">
-                                <select id="model-select-dropdown" class="form-input hidden" style="flex:1;"></select>
-                            </div>
-                        </div>
-
-                        <div class="setting-group">
-                            <label for="system-prompt">System Prompt Customization</label>
-                            <textarea id="system-prompt" class="form-input" rows="3">You are an expert English tutor and conversation partner. Respond clearly in English, ask questions, and correct grammar errors.</textarea>
-                        </div>
-
-                        <!-- VOICE AI ENGINE CONFIGURATION (KOKORO & WHISPER) -->
-                        <div style="margin-top:20px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.1);">
-                            <h4 style="font-size:14px; margin-bottom:12px; color:var(--primary);"><i class="fa-solid fa-microphone-lines"></i> Voice AI Engines (Kokoro TTS & Whisper STT)</h4>
-                            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px;">
-                                <div class="setting-group">
-                                    <label for="tts-engine-select">Text-to-Speech Engine (AI Voice)</label>
-                                    <select id="tts-engine-select" class="form-input">
-                                        <option value="native">Browser Native Synthesis (Fast)</option>
-                                        <option value="kokoro">Kokoro TTS (Local Studio AI Server)</option>
-                                    </select>
-                                </div>
-                                <div class="setting-group">
-                                    <label for="tts-endpoint-input">Kokoro TTS Server Endpoint</label>
-                                    <input type="text" id="tts-endpoint-input" class="form-input" value="http://localhost:8880">
-                                </div>
-                                <div class="setting-group">
-                                    <label for="stt-engine-select">Speech-to-Text Engine (Microphone)</label>
-                                    <select id="stt-engine-select" class="form-input">
-                                        <option value="native">Browser WebSpeech API (Instant)</option>
-                                        <option value="whisper">Whisper STT (Local AI Server)</option>
-                                    </select>
-                                </div>
-                                <div class="setting-group">
-                                    <label for="stt-endpoint-input">Whisper STT Server Endpoint</label>
-                                    <input type="text" id="stt-endpoint-input" class="form-input" value="http://localhost:8000">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="settings-buttons">
-                            <button type="button" class="btn btn-outline" id="test-connection-btn">
-                                <i class="fa-solid fa-plug"></i> Test Connection Now
-                            </button>
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fa-solid fa-floppy-disk"></i> Save Settings
-                            </button>
-                        </div>
-                    </form>
-
-                    <div style="margin-top:24px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1);">
-                        <h4><i class="fa-solid fa-database"></i> PostgreSQL & Backup Management</h4>
-                        <p style="font-size:12px; color:var(--text-muted); margin-bottom:12px;">Export or restore your full hero RPG progress and SRS card memory to a JSON backup file anytime.</p>
-                        <div style="display:flex; gap:12px;">
-                            <button type="button" class="btn btn-secondary" id="export-backup-btn">
-                                <i class="fa-solid fa-download"></i> Export Save Backup (.json)
-                            </button>
-                            <button type="button" class="btn btn-outline" id="import-backup-trigger-btn">
-                                <i class="fa-solid fa-upload"></i> Restore Save Backup
-                            </button>
-                            <input type="file" id="import-backup-file-input" accept=".json" class="hidden">
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
+            </div>
+        </div>
     </div>
 
     <!-- Modal for Adding Custom Word Card -->
@@ -488,17 +609,14 @@
                 <div class="affinity-mode-badge font-mono" id="affinity-mode-badge">
                     Text Mode (Level 1–50)
                 </div>
-
                 <div class="chat-messages" style="max-height:180px; background:rgba(0,0,0,0.3); border-radius:12px; padding:12px;">
                     <div id="affinity-dialogue-prompt" style="line-height:1.5; font-size:14px;"></div>
                 </div>
-
                 <div id="audio-listening-controls" class="hidden" style="text-align:center;">
                     <button class="btn btn-secondary" id="affinity-audio-listen-btn">
                         <i class="fa-solid fa-volume-high"></i> Listen Hero Voice
                     </button>
                 </div>
-
                 <div class="setting-group">
                     <label id="affinity-answer-label">Your English Answer:</label>
                     <div style="display:flex; gap:10px;">
@@ -568,6 +686,7 @@
             </div>
         </div>
     </div>
+
     <script src="scenarios.js"></script>
     <script src="heroes.js"></script>
     <script src="flashcards.js"></script>
