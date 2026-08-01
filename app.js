@@ -720,7 +720,14 @@ document.addEventListener("DOMContentLoaded", () => {
             (taskRepeatDone ? 1 : 0) + 
             (taskWordsDone ? 1 : 0);
 
-        if (heroNameEl) heroNameEl.innerHTML = `🛡️ Active Hero: <strong>${hero ? hero.name : activeHeroId}</strong>`;
+        if (heroNameEl) {
+            if (hero && hero.level >= 50) {
+                heroNameEl.innerHTML = `🛡️ Active Hero: <strong>${hero.name}</strong> <span style="color:#ef4444; font-weight:800;">[MAX LEVEL 50]</span>`;
+            } else {
+                heroNameEl.innerHTML = `🛡️ Active Hero: <strong>${hero ? hero.name : activeHeroId}</strong>`;
+            }
+        }
+
         if (micCountEl) micCountEl.innerHTML = `🎙️ Mic: <strong>${state.micCount}/10</strong> (${micXpNext} XP)`;
         if (textCountEl) textCountEl.innerHTML = `⌨️ Text: <strong>${state.typedCount}/10</strong> (${textXpNext} XP)`;
 
@@ -730,6 +737,13 @@ document.addEventListener("DOMContentLoaded", () => {
             questTagEl.id = "tracker-daily-quest-tag";
             const trackerRight = trackerBar.querySelector("div");
             if (trackerRight) trackerRight.appendChild(questTagEl);
+        }
+
+        if (hero && hero.level >= 50) {
+            questTagEl.innerHTML = `🏆 Daily Quest: <strong style="color:#ef4444;">Max Level 50 Reached (No Quest) 🔒</strong>`;
+            questTagEl.style.cursor = "default";
+            questTagEl.title = `Hero ${hero.name} has reached Max Level 50! Daily quests and XP bonuses are disabled for max-level heroes.`;
+            return;
         }
 
         if (state.questClaimed) {
@@ -747,12 +761,27 @@ document.addEventListener("DOMContentLoaded", () => {
                 `${taskWordsDone ? '✅' : '❌'} All Hero Words Used (${wordsUsedCount}/${wordsTotalCount})`;
         }
 
-        if (completedTasksCount === 5 && !state.questClaimed) {
+        if (completedTasksCount === 5 && !state.questClaimed && hero && hero.level < 50) {
             state.questClaimed = true;
             saveTodayHeroAudioState(activeHeroId, state);
+
+            let totalQuests = getTotalCompletedDailyQuests();
+            totalQuests += 1;
+            localStorage.setItem("total_completed_daily_quests", totalQuests);
+
             addXP(500);
             triggerRPGReward("daily_quest", activeHeroId, activeHeroId, 500);
-            showToast(`🏆 <b>DAILY HERO QUEST COMPLETED!</b><br>+500 XP Bonus Awarded!`, "linear-gradient(135deg, #f59e0b, #ec4899)", "#fbbf24");
+
+            const newlyUnlocked = checkAndUpdateHeroUnlocks(rpgEngine);
+            let unlockToastMsg = "";
+            if (newlyUnlocked && newlyUnlocked.length > 0) {
+                unlockToastMsg = `<br>🔓 <b>NEW HERO UNLOCKED: ${newlyUnlocked.join(", ")}!</b>`;
+            }
+
+            showToast(`🏆 <b>DAILY HERO QUEST COMPLETED!</b><br>+500 XP Bonus Awarded! (Total Quests: ${totalQuests})${unlockToastMsg}`, "linear-gradient(135deg, #f59e0b, #ec4899)", "#fbbf24");
+            
+            renderHeroShowcase();
+            renderBottomHeroCarousel();
         }
     }
 
@@ -2545,15 +2574,20 @@ document.addEventListener("DOMContentLoaded", () => {
     function renderHeroesRoster() {
         if (!heroesGridContainer) return;
         heroesGridContainer.innerHTML = "";
-        rpgEngine.heroes.forEach(hero => {
+        rpgEngine.heroes.forEach((hero, idx) => {
             const eff = rpgEngine.getHeroEffectiveStats(hero);
             const heroPower = rpgEngine.getHeroPower(hero);
             const card = document.createElement("div");
             card.className = `hero-card ${hero.unlocked ? '' : 'locked'}`;
 
+            const reqQuests = (HERO_UNLOCK_QUEST_THRESHOLDS[idx] !== undefined) ? HERO_UNLOCK_QUEST_THRESHOLDS[idx] : 0;
+            const totalQuests = getTotalCompletedDailyQuests();
+
             const unlockMsg = hero.unlocked 
-                ? `<span style="color:var(--success); font-weight:600;"><i class="fa-solid fa-check"></i> Unlocked Hero (Packs Unlocked)</span>` 
-                : `<span style="color:var(--warning); font-size:11px;"><i class="fa-solid fa-lock"></i> Defeat Boss to Unlock Hero & Packs</span>`;
+                ? (hero.level >= 50 
+                    ? `<span style="color:#ef4444; font-weight:700;"><i class="fa-solid fa-crown"></i> Max Level 50 Reached (XP Cap)</span>` 
+                    : `<span style="color:var(--success); font-weight:600;"><i class="fa-solid fa-check"></i> Unlocked Hero</span>`) 
+                : `<span style="color:var(--warning); font-size:11px; font-weight:700;"><i class="fa-solid fa-lock"></i> Requires ${reqQuests} Daily Quests (${totalQuests}/${reqQuests})</span>`;
 
             const avatarHtml = hero.image 
                 ? `<img src="${hero.image}" alt="${hero.name}" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">` 
@@ -2566,7 +2600,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             ${avatarHtml}
                         </div>
                         <div class="hero-title-group">
-                            <h4>${hero.name} <small class="font-mono" style="color:var(--primary); font-weight:700;">Lvl ${hero.level} / 100</small></h4>
+                            <h4>${hero.name} <small class="font-mono" style="color:var(--primary); font-weight:700;">Lvl ${hero.level} / 50</small></h4>
                             <div class="hero-cefr-tag">${hero.cefrLevel} (100 Words)</div>
                         </div>
                     </div>

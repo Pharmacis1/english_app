@@ -543,6 +543,24 @@ function generateHeroWords(heroId) {
     }));
 }
 
+const HERO_UNLOCK_QUEST_THRESHOLDS = [0, 3, 7, 12, 18, 25, 33, 42, 52, 63];
+const HERO_MAX_LEVEL = 50;
+
+function getTotalCompletedDailyQuests() {
+    try {
+        if (typeof localStorage !== 'undefined') {
+            const val = localStorage.getItem("total_completed_daily_quests");
+            if (val !== null) {
+                return Math.max(3, parseInt(val, 10) || 3);
+            } else {
+                localStorage.setItem("total_completed_daily_quests", "3");
+                return 3;
+            }
+        }
+    } catch (e) {}
+    return 3;
+}
+
 const HEROES_DATA = [
     {
         id: "valerius", name: "Valerius", role: "Main Tank", cefrRank: 1, cefrLevel: "A0 (Greetings & Identity)", title: "The Silver Paladin",
@@ -754,20 +772,26 @@ class RPGEngine {
                 }
             }
         }
+        const totalCompletedQuests = getTotalCompletedDailyQuests();
+
         if (saved) {
             try {
                 const parsed = JSON.parse(saved);
-                return HEROES_DATA.map(defaultHero => {
+                return HEROES_DATA.map((defaultHero, idx) => {
                     let savedHero = null;
                     if (Array.isArray(parsed)) {
                         savedHero = parsed.find(h => h && (h.id === defaultHero.id || h.name?.toLowerCase() === defaultHero.id.toLowerCase()));
                     } else if (typeof parsed === 'object' && parsed !== null) {
                         savedHero = parsed[defaultHero.id] || parsed[defaultHero.name];
                     }
+
+                    const reqQuests = HERO_UNLOCK_QUEST_THRESHOLDS[idx] !== undefined ? HERO_UNLOCK_QUEST_THRESHOLDS[idx] : 0;
+                    const isUnlockedByQuest = (totalCompletedQuests >= reqQuests);
+
                     if (savedHero) {
                         let heroLevel = parseInt(savedHero.level, 10);
                         if (isNaN(heroLevel) || heroLevel < 1) heroLevel = defaultHero.level;
-                        heroLevel = Math.min(100, Math.max(1, heroLevel));
+                        heroLevel = Math.min(50, Math.max(1, heroLevel));
 
                         let heroAffinity = parseInt(savedHero.affinityLevel || savedHero.affinity || 0, 10);
                         if (isNaN(heroAffinity)) heroAffinity = 0;
@@ -776,7 +800,8 @@ class RPGEngine {
                         const calculatedMaxXp = Math.round(150 + (heroLevel - 1) * 5);
                         let heroXp = parseInt(savedHero.xp, 10);
                         if (isNaN(heroXp)) heroXp = defaultHero.xp;
-                        if (heroXp >= calculatedMaxXp) heroXp = calculatedMaxXp - 1; // Prevent overflow
+                        if (heroLevel >= 50) heroXp = calculatedMaxXp; // Max Level cap
+                        else if (heroXp >= calculatedMaxXp) heroXp = calculatedMaxXp - 1; // Prevent overflow
 
                         // Restore or calculate stat growth for hero level
                         let baseMaxHp = defaultHero.maxHp;
@@ -802,7 +827,7 @@ class RPGEngine {
                             xp: heroXp,
                             maxXp: calculatedMaxXp,
                             affinityLevel: heroAffinity,
-                            unlocked: savedHero.unlocked !== undefined ? savedHero.unlocked : defaultHero.unlocked,
+                            unlocked: (idx <= 1) ? true : isUnlockedByQuest,
                             maxHp: baseMaxHp,
                             hp: baseMaxHp,
                             atk: baseAtk,
@@ -810,11 +835,18 @@ class RPGEngine {
                             words: generateHeroWords(defaultHero.id) // Load official Oxford 50 CEFR words!
                         };
                     }
-                    return defaultHero;
+
+                    return {
+                        ...defaultHero,
+                        unlocked: (idx <= 1) ? true : isUnlockedByQuest
+                    };
                 });
             } catch (e) {}
         }
-        return HEROES_DATA;
+        return HEROES_DATA.map((defaultHero, idx) => ({
+            ...defaultHero,
+            unlocked: (idx <= 1) ? true : (totalCompletedQuests >= (HERO_UNLOCK_QUEST_THRESHOLDS[idx] || 0))
+        }));
     }
 
     loadChapters() {
@@ -926,18 +958,26 @@ class RPGEngine {
                 // STRICT TIER GATE RULE: If material tier is LOWER than hero's tier -> BLOCKED (0 XP)!
                 if (materialSourceHeroId && targetRank > sourceRank) {
                     blockedHeroNames.push(h.name);
+                } else if (h.level >= HERO_MAX_LEVEL) {
+                    h.level = HERO_MAX_LEVEL;
+                    h.xp = h.maxXp;
+                    blockedHeroNames.push(`${h.name} (Max Level 50)`);
                 } else {
-                    if (h.level < 100) {
+                    if (h.level < HERO_MAX_LEVEL) {
                         h.xp += xpAmount;
                         rewardedHeroNames.push(h.name);
-                        while (h.xp >= h.maxXp && h.level < 100) {
+                        while (h.xp >= h.maxXp && h.level < HERO_MAX_LEVEL) {
                             const oldLevel = h.level;
                             const oldHp = h.maxHp;
                             const oldAtk = h.atk;
                             const oldDef = h.def;
 
-                            h.level = Math.min(100, h.level + 1);
-                            h.xp -= h.maxXp;
+                            h.level = Math.min(HERO_MAX_LEVEL, h.level + 1);
+                            if (h.level >= HERO_MAX_LEVEL) {
+                                h.xp = h.maxXp;
+                            } else {
+                                h.xp -= h.maxXp;
+                            }
                             h.maxXp = Math.round(150 + (h.level - 1) * 5);
                             
                             // Guaranteed robust stat growth per level up!
