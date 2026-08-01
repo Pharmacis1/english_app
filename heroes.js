@@ -546,7 +546,7 @@ function generateHeroWords(heroId) {
 const HEROES_DATA = [
     {
         id: "valerius", name: "Valerius", role: "Main Tank", cefrRank: 1, cefrLevel: "A0 (Greetings & Identity)", title: "The Silver Paladin",
-        avatar: "fa-shield-halved", color: "#3b82f6", image: "images/valerius_castle_composite.png", unlocked: true, level: 1, xp: 0, maxXp: 150, affinityLevel: 0,
+        avatar: "fa-shield-halved", color: "#3b82f6", image: "images/valerius_castle_clean_composite.png", unlocked: true, level: 1, xp: 0, maxXp: 150, affinityLevel: 0,
         hp: 250, maxHp: 250, atk: 22, def: 18, skillName: "Aegis Shield", skillDesc: "Taunts all enemies & increases DEF.", skillIcon: "fa-shield",
         words: generateHeroWords("valerius"),
         sentenceTemplates: ["Hello, I am [Valerius].", "My name is [a hero].", "I am [happy / ready]."],
