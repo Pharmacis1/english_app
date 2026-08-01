@@ -2665,7 +2665,10 @@ document.addEventListener("DOMContentLoaded", () => {
     function addXP(amount) {
         xpPoints += amount;
         localStorage.setItem("english_pulse_xp", xpPoints);
-        document.getElementById("stats-xp-count").textContent = xpPoints;
+        const statsXp = document.getElementById("stats-xp-count");
+        if (statsXp) statsXp.textContent = xpPoints;
+        const headerXp = document.getElementById("rpg-header-xp");
+        if (headerXp) headerXp.textContent = xpPoints;
     }
 
     // --- BACKUP EXPORT & IMPORT HANDLERS ---
