@@ -555,7 +555,7 @@ const HEROES_DATA = [
     },
     {
         id: "astraea", name: "Astraea", role: "Healer", cefrRank: 1, cefrLevel: "A0 (Daily Actions & Food)", title: "High Priestess of Light",
-        avatar: "fa-wand-magic-sparkles", color: "#10b981", image: "images/hero_astraea_1785227651575.jpg", unlocked: false, level: 1, xp: 0, maxXp: 150, affinityLevel: 0,
+        avatar: "fa-wand-magic-sparkles", color: "#10b981", image: "images/astraea_hero_standalone.png", unlocked: false, level: 1, xp: 0, maxXp: 150, affinityLevel: 0,
         hp: 180, maxHp: 180, atk: 14, def: 6, skillName: "Holy Radiance", skillDesc: "Restores 140 HP.", skillIcon: "fa-hand-holding-medical",
         words: generateHeroWords("astraea"),
         sentenceTemplates: ["I have [a goal].", "I want to [eat / help].", "Do you like [tea]?"],
