@@ -739,7 +739,21 @@ class RPGEngine {
 
     loadHeroes() {
         let saved = null;
-        if (typeof localStorage !== 'undefined') saved = localStorage.getItem("rpg_heroes_10_v9");
+        if (typeof localStorage !== 'undefined') {
+            const possibleKeys = [
+                "rpg_heroes_10_v9", "rpg_heroes_10_v8", "rpg_heroes_10_v7",
+                "rpg_heroes_10_v6", "rpg_heroes_10_v5", "rpg_heroes_10_v4",
+                "rpg_heroes_v4", "rpg_heroes_v3", "rpg_heroes_v2", "rpg_heroes",
+                "english_pulse_heroes"
+            ];
+            for (const key of possibleKeys) {
+                const val = localStorage.getItem(key);
+                if (val) {
+                    saved = val;
+                    break;
+                }
+            }
+        }
         if (saved) {
             try {
                 const parsed = JSON.parse(saved);
@@ -750,7 +764,7 @@ class RPGEngine {
                         if (isNaN(heroLevel) || heroLevel < 1) heroLevel = defaultHero.level;
                         heroLevel = Math.min(100, Math.max(1, heroLevel));
 
-                        let heroAffinity = parseInt(savedHero.affinityLevel, 10);
+                        let heroAffinity = parseInt(savedHero.affinityLevel || savedHero.affinity || 0, 10);
                         if (isNaN(heroAffinity)) heroAffinity = 0;
                         heroAffinity = Math.min(heroLevel, Math.max(0, heroAffinity));
 
@@ -800,15 +814,31 @@ class RPGEngine {
 
     loadChapters() {
         let saved = null;
-        if (typeof localStorage !== 'undefined') saved = localStorage.getItem("rpg_chapters_10_v9");
-        if (saved) return JSON.parse(saved);
+        if (typeof localStorage !== 'undefined') {
+            const possibleKeys = ["rpg_chapters_10_v9", "rpg_chapters_10_v8", "rpg_chapters_10_v7", "rpg_chapters_10_v6", "rpg_chapters_v4", "rpg_chapters"];
+            for (const key of possibleKeys) {
+                const val = localStorage.getItem(key);
+                if (val) { saved = val; break; }
+            }
+        }
+        if (saved) {
+            try { return JSON.parse(saved); } catch (e) {}
+        }
         return JSON.parse(JSON.stringify(CAMPAIGN_CHAPTERS));
     }
 
     loadSquad() {
         let saved = null;
-        if (typeof localStorage !== 'undefined') saved = localStorage.getItem("rpg_squad_ids_v9");
-        if (saved) return JSON.parse(saved);
+        if (typeof localStorage !== 'undefined') {
+            const possibleKeys = ["rpg_squad_ids_v9", "rpg_squad_ids_v8", "rpg_squad_ids_v7", "rpg_squad_ids"];
+            for (const key of possibleKeys) {
+                const val = localStorage.getItem(key);
+                if (val) { saved = val; break; }
+            }
+        }
+        if (saved) {
+            try { return JSON.parse(saved); } catch (e) {}
+        }
         return this.heroes.filter(h => h.unlocked).slice(0, 5).map(h => h.id);
     }
 
