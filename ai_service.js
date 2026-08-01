@@ -67,49 +67,40 @@ class AIService {
 
     buildHeroPrompt(targetHeroObjects) {
         if (!targetHeroObjects || targetHeroObjects.length === 0) return "";
+        const activeHero = targetHeroObjects[0];
+        const heroName = activeHero.name;
 
-        const heroPrompts = targetHeroObjects.map(hero => {
-            const heroWords = hero.words ? hero.words.map(w => typeof w === 'string' ? w : w.word) : [];
-            const shuffled = [...heroWords].sort(() => 0.5 - Math.random());
-            const sampleWords = shuffled.slice(0, 6).join(", ");
-            const rules = hero.grammarRules ? hero.grammarRules.join("; ") : "";
+        const heroWords = activeHero.words ? activeHero.words.map(w => typeof w === 'string' ? w : w.word) : [];
+        const shuffled = [...heroWords].sort(() => 0.5 - Math.random());
+        const sampleWords = shuffled.slice(0, 6).join(", ");
+        const rules = activeHero.grammarRules ? activeHero.grammarRules.join("; ") : "";
 
-            let questionTemplates = "";
-            if (hero.id === "valerius") {
-                questionTemplates = `Ask ultra-simple A0 'to be' questions using these exact patterns ONLY:
+        let questionTemplates = "";
+        if (activeHero.id === "valerius") {
+            questionTemplates = `Ask ultra-simple A0 'to be' questions using these exact patterns ONLY:
 - "Are you [brave / happy / strong / ready]?"
 - "Is your [father / mother / brother / sister / friend] a [knight / leader]?"
 - "Is your [shield / sword] [good / strong / ready]?"
 - "Is [he / she / it / your friend] [happy / brave]?"`;
-            } else if (hero.id === "astraea") {
-                questionTemplates = `Ask ultra-simple A0 'have / want / like' questions using these exact patterns ONLY:
+        } else if (activeHero.id === "astraea") {
+            questionTemplates = `Ask ultra-simple A0 'have / want / like' questions using these exact patterns ONLY:
 - "Do you have [water / bread / food / milk / tea / coffee / fruit]?"
 - "Do you want to [eat / drink / sleep / walk / cook / clean]?"
 - "Do you like [apple / fish / soup / tea / coffee]?"`;
-            } else {
-                questionTemplates = `Ask ultra-simple 3-5 word A0 questions using target words from: [${sampleWords}]`;
-            }
+        } else {
+            questionTemplates = `Ask ultra-simple 3-5 word A0 questions using target words from: [${sampleWords}]`;
+        }
 
-            return `--- ACTIVE HERO: ${hero.name} (${hero.title}) ---
-Hero Persona: ${hero.role}
-MUST-USE TARGET WORDS (Include at least 2-3 of these): [${sampleWords}]
-Target Grammar Focus: ${rules}
-MANDATORY QUESTION PATTERNS TO ASK:
-${questionTemplates}`;
-        }).join("\n\n");
+        return `\n\n[STRICT CEFR A0 TUTOR DIRECTIVE:
+You are an expert English tutor roleplaying ONLY as ${heroName} (${activeHero.title || 'Hero'}).
 
-        return `\n\n[STRICT CEFR A0 BEGINNER DIRECTIVE:
-You are an expert English tutor roleplaying as ${targetHeroObjects[0]?.name || 'the hero'}.
-
-CRITICAL RULES FOR EVERY SINGLE RESPONSE:
-1. FORBIDDEN COMPLEX WORDS & PHRASES: NEVER use B1/B2/C1 words or literary expressions like "challenges that lie ahead", "face whatever comes our way", "prepared for", "protect the kingdom", "furthermore", "nevertheless".
-2. ABSOLUTE CEFR A0 SIMPLICITY: Use ONLY 3-6 word ultra-simple, complete English sentences! (e.g. "I am strong. My shield is good.")
-3. MANDATORY QUESTION TEMPLATE: You MUST end your message with a simple question following the [MANDATORY QUESTION PATTERNS TO ASK] for your hero!
-   - Valerius questions MUST be simple 'to be' questions (e.g. "Are you brave today?", "Is your shield strong?", "Is your father a knight?").
-   - Astraea questions MUST be simple 'have/want/like' questions (e.g. "Do you want bread?", "Do you have water?").
-4. NO REPEATED GREETINGS OR NAME INTROS: Do NOT say "Hello", "Hi", or "I am Valerius" / "I am Astraea" after turn 1.]
-
-${heroPrompts}`;
+CRITICAL RULES FOR EVERY RESPONSE:
+1. ABSOLUTE CEFR A0 SIMPLICITY: Use ONLY 3-6 word ultra-simple English sentences.
+2. FORBIDDEN COMPLEX WORDS: Never use B1/B2/C1 words or literary expressions.
+3. MANDATORY QUESTION TEMPLATE: End your response with a simple question following these patterns:
+${questionTemplates}
+4. TARGET VOCABULARY TO USE: Try to use 2-3 words from: [${sampleWords}].
+5. TARGET GRAMMAR FOCUS: ${rules}.]`;
     }
 
     async generateResponse(messagesHistory, scenario, targetHeroObjects = null) {
