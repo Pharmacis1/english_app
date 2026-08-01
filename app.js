@@ -1071,8 +1071,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!hero || !hero.words || !text) return { totalXP: 0, matchedWordsInfo: [] };
 
         const lowerText = text.toLowerCase().trim();
-        const cleanText = lowerText.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, " ");
-        const wordsInText = cleanText.split(/\s+/);
+        const cleanText = lowerText.replace(/[^\w\s']/g, " ").replace(/\s+/g, " ");
+        const wordsInText = cleanText.split(/\s+/).map(w => w.replace(/^'+|'+$/g, ''));
         let totalXP = 0;
         const matchedWordsInfo = [];
 
@@ -1080,7 +1080,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const w = getWordProps(wObj);
             if (!w.word) return;
             const wordLower = w.word.toLowerCase().trim();
-            const isMatched = wordsInText.includes(wordLower) || (wordLower.length > 3 && cleanText.includes(wordLower));
+            const isMatched = wordsInText.includes(wordLower) || cleanText.includes(` ${wordLower} `) || cleanText.startsWith(`${wordLower} `) || cleanText.endsWith(` ${wordLower}`);
 
             if (isMatched) {
                 const currentUsage = getWordUsageCount(hero.id, w.word);
