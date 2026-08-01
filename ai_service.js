@@ -126,8 +126,9 @@ At the very end of EVERY response, you MUST append a bracketed evaluation block 
 - Check for incorrect short answers (e.g. "Not" -> "No" or "No, I am not").
 - Check for missing articles or missing verbs (e.g. "I have sister" -> "I have a sister", "I happy" -> "I am happy").
 - Check for typos (e.g. "happi" -> "happy").
-- If user's input has ANY error: [Correction: 💡 В сообщении есть ошибка: ...]
-- ONLY if user's input is 100% perfect without any errors: [Correction: ✅ Отлично! Предложение написано полностью правильно!]
+- CRITICAL: Greetings like "Hello, Astraea!", "Hi Astraea!", "Hello Valerius!", "Good morning" are 100% CORRECT natural English expressions! NEVER claim a greeting is an error, and NEVER demand that the user introduce themselves as "Valerius" or any other name!
+- If user's input has a REAL grammar/spelling error: [Correction: 💡 В сообщении есть ошибка: <explain exact error in Russian>]
+- ONLY if user's input is 100% grammatically correct (including natural greetings): [Correction: ✅ Отлично! Предложение написано полностью правильно!]
 DO NOT output any translation or extra brackets in the English text.]`;
 
             const systemMessage = { role: 'system', content: `${this.systemPrompt}\nContext/Scenario: ${scenario.systemPrompt}${strictGuide}${heroPrompt}` };
