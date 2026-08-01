@@ -19,74 +19,162 @@ document.addEventListener("DOMContentLoaded", () => {
     let selectedTutorHeroIds = rpgEngine.heroes.filter(h => h.unlocked).map(h => h.id);
     let selectedSpeakingHeroIds = rpgEngine.heroes.filter(h => h.unlocked).map(h => h.id);
 
-    // RPG State
-    let selectedStage = rpgEngine.chapters[0].stages[0];
-    let activeQuest = null;
+    // Active Showcase Hero State
+    let activeShowcaseHeroId = rpgEngine.heroes[0].id; // "valerius"
 
-    // DOM Elements
-    const navItems = document.querySelectorAll(".nav-item");
-    const tabContents = document.querySelectorAll(".tab-content");
-    const pageHeading = document.getElementById("page-heading");
-    const pageSubheading = document.getElementById("page-subheading");
-    const themeToggleBtn = document.getElementById("theme-toggle");
+    function renderHeroShowcase(heroId) {
+        if (!heroId) heroId = activeShowcaseHeroId;
+        const hero = rpgEngine.heroes.find(h => h.id === heroId) || rpgEngine.heroes[0];
+        activeShowcaseHeroId = hero.id;
 
-    // UI Navigation Router
-    function switchTab(targetTab) {
-        navItems.forEach(i => i.classList.remove("active"));
-        tabContents.forEach(t => t.classList.remove("active"));
+        // 1. Update Left Panel Info
+        const roleBadge = document.getElementById("hero-role-badge");
+        const displayName = document.getElementById("hero-display-name");
+        const displayTitle = document.getElementById("hero-display-title");
+        const displayLevel = document.getElementById("hero-display-level");
+        const displayPower = document.getElementById("hero-display-power");
+        const displayAffection = document.getElementById("hero-display-affection");
+        const displayVocab = document.getElementById("hero-display-vocab-count");
 
-        const navBtn = Array.from(navItems).find(b => b.getAttribute("data-tab") === targetTab);
-        if (navBtn) navBtn.classList.add("active");
-        document.getElementById(`tab-${targetTab}`).classList.add("active");
+        if (roleBadge) roleBadge.textContent = hero.role || "Hero";
+        if (displayName) displayName.textContent = hero.name;
+        if (displayTitle) displayTitle.textContent = `${hero.title} (${hero.cefrLevel})`;
+        if (displayLevel) displayLevel.textContent = `Lvl ${hero.level || 1}`;
+        if (displayPower) displayPower.textContent = hero.power || 105;
+        if (displayAffection) displayAffection.textContent = `Lv. ${hero.affectionLevel || 1}`;
+        
+        const masteredCount = hero.words ? hero.words.filter(w => (getWordUsageCount(hero.id, typeof w === 'string' ? w : w.word) >= 3)).length : 0;
+        if (displayVocab) displayVocab.textContent = `${masteredCount}/50`;
 
-        switch(targetTab) {
-            case "tutor":
-                pageHeading.textContent = "AI Tutor & Target Hero Scenarios";
-                pageSubheading.textContent = "Practice conversations featuring target heroes' vocabulary & grammar rules!";
-                renderTutorHeroTargetChips();
-                break;
-            case "flashcards":
-                pageHeading.textContent = "Vocabulary & Batched SRS (10 Words Per Dose)";
-                pageSubheading.textContent = "Master 1,000 words in 10-card daily batches with SuperMemo SM-2 algorithm";
-                flashcardEngine.decks = flashcardEngine.loadDecks();
-                flashcardEngine.autoAdvanceBatch();
-                renderFlashcardsUI();
-                break;
-            case "grammar":
-                pageHeading.textContent = "Grammar Lab";
-                pageSubheading.textContent = "Master English rules through concise theory and interactive quizzes";
-                renderGrammarUI();
-                break;
-            case "speaking":
-                pageHeading.textContent = "Voice Shadowing & Accent Trainer";
-                pageSubheading.textContent = "Train pronunciation using target heroes' vocabulary and sentences";
-                renderSpeakingHeroTargetChips();
-                break;
-            case "rpg":
-                pageHeading.textContent = "Hero RPG & CEFR A0 → A1 Campaign";
-                pageSubheading.textContent = "Study English to level up your 10 heroes (1-100) and unlock Campaign Chapters!";
-                renderRPGHeader();
-                renderHeroesRoster();
-                renderCampaignMap();
-                renderSquadPicker();
-                break;
-            case "settings":
-                pageHeading.textContent = "Local AI Settings";
-                pageSubheading.textContent = "Configure LM Studio, Ollama, or fallback offline model";
-                break;
+        // 2. Update Attributes
+        const bFill = document.getElementById("attr-bravery-fill");
+        const hFill = document.getElementById("attr-honor-fill");
+        const mFill = document.getElementById("attr-magic-fill");
+
+        if (bFill) bFill.style.width = `${Math.min(100, (hero.level || 1) * 12 + 40)}%`;
+        if (hFill) hFill.style.width = `${Math.min(100, (hero.level || 1) * 10 + 50)}%`;
+        if (mFill) mFill.style.width = `${Math.min(100, (hero.level || 1) * 15 + 30)}%`;
+
+        // 3. Update Skills / Grammar Rules Chips
+        const skillsList = document.getElementById("hero-skills-list");
+        if (skillsList && hero.grammarRules) {
+            skillsList.innerHTML = hero.grammarRules.map(r => `<span class="skill-chip"><i class="fa-solid fa-sparkles"></i> ${r}</span>`).join("");
         }
+
+        // 4. Update Stage Artwork & Quote
+        const stageArt = document.getElementById("hero-stage-art");
+        const stageQuote = document.getElementById("hero-stage-quote");
+        if (stageArt) stageArt.src = hero.image || "";
+        if (stageQuote) stageQuote.textContent = `"${hero.quote || 'I am ready to shield our realm!'}"`;
+
+        // 5. Highlight bottom carousel card
+        renderBottomHeroCarousel();
     }
 
-    navItems.forEach(btn => {
-        btn.addEventListener("click", () => switchTab(btn.getAttribute("data-tab")));
+    function renderBottomHeroCarousel() {
+        const track = document.getElementById("hero-carousel-track");
+        if (!track) return;
+        track.innerHTML = "";
+
+        rpgEngine.heroes.forEach(h => {
+            const isActive = h.id === activeShowcaseHeroId;
+            const chip = document.createElement("div");
+            chip.className = `hero-card-chip ${isActive ? 'active' : ''}`;
+            chip.innerHTML = `
+                <img src="${h.image}" class="chip-avatar" alt="${h.name}">
+                <div class="chip-info">
+                    <span class="chip-name">${h.name}</span>
+                    <span class="chip-lvl font-mono">${h.unlocked ? `Lvl ${h.level || 1}` : '🔒 Locked'}</span>
+                </div>
+            `;
+            chip.addEventListener("click", () => {
+                if (h.unlocked) {
+                    renderHeroShowcase(h.id);
+                } else {
+                    showToast(`🔒 ${h.name} is locked! Reach higher level to unlock!`, "rgba(239, 68, 68, 0.8)", "#ef4444");
+                }
+            });
+            track.appendChild(chip);
+        });
+    }
+
+    // Wire Action Buttons
+    const btnWords = document.getElementById("btn-hero-words");
+    const btnRules = document.getElementById("btn-hero-rules");
+    const btnChat = document.getElementById("btn-hero-chat");
+    const btnCall = document.getElementById("btn-hero-call");
+    const btnReviewAll = document.getElementById("btn-review-all-cards");
+    const btnSettings = document.getElementById("settings-toggle-btn");
+
+    if (btnChat) {
+        btnChat.addEventListener("click", () => {
+            const heroScenario = {
+                id: activeShowcaseHeroId,
+                title: rpgEngine.heroes.find(h => h.id === activeShowcaseHeroId)?.name || "Hero",
+                heroId: activeShowcaseHeroId,
+                isHeroScenario: true,
+                icon: "fa-shield-halved"
+            };
+            activeScenario = heroScenario;
+            renderHeroWordHelperPanel(activeScenario);
+            const chatModal = document.getElementById("modal-hero-chat");
+            if (chatModal) chatModal.classList.remove("hidden");
+        });
+    }
+
+    if (btnCall) {
+        btnCall.addEventListener("click", () => {
+            activeLiveHeroId = activeShowcaseHeroId;
+            renderLiveHeroPicker();
+            const liveModal = document.getElementById("modal-hero-live");
+            if (liveModal) liveModal.classList.remove("hidden");
+        });
+    }
+
+    if (btnWords) {
+        btnWords.addEventListener("click", () => {
+            const wordsModal = document.getElementById("modal-hero-words");
+            if (wordsModal) wordsModal.classList.remove("hidden");
+        });
+    }
+
+    if (btnRules) {
+        btnRules.addEventListener("click", () => {
+            const grammarModal = document.getElementById("modal-hero-grammar");
+            if (grammarModal) grammarModal.classList.remove("hidden");
+        });
+    }
+
+    if (btnReviewAll) {
+        btnReviewAll.addEventListener("click", () => {
+            const allModal = document.getElementById("modal-all-cards");
+            if (allModal) allModal.classList.remove("hidden");
+        });
+    }
+
+    if (btnSettings) {
+        btnSettings.addEventListener("click", () => {
+            const settingsModal = document.getElementById("modal-settings");
+            if (settingsModal) settingsModal.classList.remove("hidden");
+        });
+    }
+
+    // Modal Close Buttons
+    document.querySelectorAll(".modal-close-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+            btn.closest(".rpg-modal-overlay").classList.add("hidden");
+        });
     });
 
     // Theme Toggle
-    themeToggleBtn.addEventListener("click", () => {
-        document.body.classList.toggle("light-theme");
-        const isLight = document.body.classList.contains("light-theme");
-        themeToggleBtn.innerHTML = isLight ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
-    });
+    const themeToggleBtn = document.getElementById("theme-toggle");
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener("click", () => {
+            document.body.classList.toggle("light-theme");
+            const isLight = document.body.classList.contains("light-theme");
+            themeToggleBtn.innerHTML = isLight ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
+        });
+    }
 
     function showToast(msg, bg = "linear-gradient(135deg, #1e1b4b, #312e81)", borderColor = "#818cf8") {
         let container = document.getElementById("toast-container");
@@ -2668,4 +2756,5 @@ document.addEventListener("DOMContentLoaded", () => {
     renderFlashcardsUI();
     renderGrammarUI();
     renderRPGHeader();
+    renderHeroShowcase(rpgEngine.heroes[0].id);
 });

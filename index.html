@@ -3,107 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EnglishPulse AI - English Learning Hub & RPG</title>
+    <title>EnglishPulse RPG - Hero Showcase Hub</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="dark-theme">
-    <div class="app-container">
-        <!-- Sidebar Navigation -->
-        <aside class="sidebar">
-            <div class="logo-container">
-                <div class="logo-icon">
-                    <i class="fa-solid fa-bolt-lightning"></i>
-                </div>
-                <div class="logo-text">
-                    <span class="brand-name">EnglishPulse</span>
-                    <span class="brand-badge">A0 → A1 RPG</span>
-                </div>
-            </div>
-
-            <nav class="nav-menu">
-                <button class="nav-item active" data-tab="tutor">
-                    <i class="fa-solid fa-comments"></i>
-                    <span>AI Tutor & Scenarios</span>
-                </button>
-                <button class="nav-item" data-tab="flashcards">
-                    <i class="fa-solid fa-layer-group"></i>
-                    <span>Vocabulary & Decks</span>
-                </button>
-                <button class="nav-item" data-tab="grammar">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                    <span>Grammar Lab</span>
-                </button>
-                <button class="nav-item" data-tab="speaking">
-                    <i class="fa-solid fa-microphone-lines"></i>
-                    <span>Voice Shadowing</span>
-                </button>
-                <button class="nav-item highlight-rpg" data-tab="rpg">
-                    <i class="fa-solid fa-shield-halved"></i>
-                    <span>Hero RPG (10 Heroes)</span>
-                </button>
-                <button class="nav-item" data-tab="settings">
-                    <i class="fa-solid fa-sliders"></i>
-                    <span>Local AI Settings</span>
-                </button>
-            </nav>
-
-            <div class="streak-widget">
-                <div class="streak-header">
-                    <div class="streak-flame"><i class="fa-solid fa-fire"></i></div>
-                    <div class="streak-info">
-                        <span class="streak-count" id="streak-days">1 Day</span>
-                        <span class="streak-label">Daily Streak</span>
-                    </div>
-                </div>
-                <div class="stats-mini font-mono">
-                    <div>Words: <strong id="stats-words-count">0</strong></div>
-                    <div>XP: <strong id="stats-xp-count">120</strong></div>
-                </div>
-            </div>
-        </aside>
-
-        <!-- Main Content Area -->
-        <main class="main-content">
-            <!-- Header Bar -->
-            <header class="top-header">
-                <div class="header-title">
-                    <h1 id="page-heading">AI Tutor & Roleplay Scenarios</h1>
-                    <p id="page-subheading" class="subtext">Practice real-world conversations with immediate AI corrections</p>
-                </div>
-
-                <div class="header-actions">
-                    <div class="rpg-header-stats font-mono">
-                        <div class="rpg-stat-pill" title="5-Hero Squad Power"><i class="fa-solid fa-khanda"></i> <span id="rpg-power-display">525</span></div>
-                    </div>
-
-                    <div class="llm-status-pill" id="llm-status-indicator" title="Click to test local connection">
-                        <span class="status-dot disconnected" id="status-dot"></span>
-                        <span class="status-text" id="status-text">Ollama / LM Studio: Checking...</span>
-                    </div>
-
-                    <button class="icon-btn" id="theme-toggle" title="Toggle Theme">
-                        <i class="fa-solid fa-moon"></i>
-                    </button>
-                </div>
-            </header>
-
-            <!-- TAB 1: AI TUTOR -->
-            <section class="tab-content active" id="tab-tutor">
-                <div class="tutor-grid">
-                    <div class="scenarios-panel glass-card">
-                        <h3><i class="fa-solid fa-masks-theater"></i> Practice Scenarios</h3>
-                        
-                        <div style="display:flex; gap:6px; margin-bottom:12px;">
-                            <button class="btn btn-sm btn-primary" id="scenarios-type-reallife-btn" style="flex:1; font-size:11px; padding:6px;">
-                                <i class="fa-solid fa-earth-americas"></i> Real-Life (5)
-                            </button>
-                            <button class="btn btn-sm btn-outline" id="scenarios-type-heroes-btn" style="flex:1; font-size:11px; padding:6px;">
                                 <i class="fa-solid fa-shield-halved"></i> Hero Dialogues
                             </button>
                         </div>
