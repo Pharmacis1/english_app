@@ -2257,6 +2257,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (closeWordStatsModalBtn) closeWordStatsModalBtn.addEventListener("click", () => document.getElementById("hero-word-stats-modal")?.classList.add("hidden"));
 
     function renderHeroesRoster() {
+        if (!heroesGridContainer) return;
         heroesGridContainer.innerHTML = "";
         rpgEngine.heroes.forEach(hero => {
             const eff = rpgEngine.getHeroEffectiveStats(hero);
@@ -2328,22 +2329,27 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (affinityBtn) affinityBtn.addEventListener("click", () => openAffinityQuestModal(hero));
 
                 const statsBtn = card.querySelector(".word-stats-btn");
-                if (statsBtn) statsBtn.addEventListener("click", () => openHeroWordStatsModal(hero));
-
-                card.querySelector(".train-words-btn").addEventListener("click", () => {
-                    const deckName = `${hero.name}'s Pack (${hero.cefrLevel.split(' ')[0]})`;
-                    flashcardEngine.currentCategory = deckName;
-                    flashcardEngine.batchIndex = 0;
-                    flashcardEngine.currentIndex = 0;
-                    flashcardEl.classList.remove("flipped");
-                    switchTab("flashcards");
-                });
-                card.querySelector(".train-grammar-btn").addEventListener("click", () => {
-                    const gTopic = GRAMMAR_TOPICS.find(t => t.heroId === hero.id) || GRAMMAR_TOPICS[0];
-                    currentGrammarTopic = gTopic;
-                    currentQuizIndex = 0;
-                    switchTab("grammar");
-                });
+                const trainWordsBtn = card.querySelector(".train-words-btn");
+                if (trainWordsBtn) {
+                    trainWordsBtn.addEventListener("click", () => {
+                        const deckName = `${hero.name}'s Pack (${hero.cefrLevel.split(' ')[0]})`;
+                        flashcardEngine.currentCategory = deckName;
+                        flashcardEngine.batchIndex = 0;
+                        flashcardEngine.currentIndex = 0;
+                        if (flashcardEl) flashcardEl.classList.remove("flipped");
+                        renderHeroShowcase(hero.id);
+                        const modalWords = document.getElementById("modal-hero-words");
+                        if (modalWords) modalWords.classList.remove("hidden");
+                    });
+                }
+                const trainGrammarBtn = card.querySelector(".train-grammar-btn");
+                if (trainGrammarBtn) {
+                    trainGrammarBtn.addEventListener("click", () => {
+                        renderHeroShowcase(hero.id);
+                        const modalGrammar = document.getElementById("modal-hero-grammar");
+                        if (modalGrammar) modalGrammar.classList.remove("hidden");
+                    });
+                }
             }
 
             heroesGridContainer.appendChild(card);
