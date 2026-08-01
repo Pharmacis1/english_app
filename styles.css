@@ -836,12 +836,18 @@ body {
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    background-image: url('images/castle_hall_bg.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    margin: 12px 0;
+    box-shadow: inset 0 0 50px rgba(0,0,0,0.8), 0 10px 40px rgba(0,0,0,0.6);
 }
 
 .hero-aura-glow {
     position: absolute;
-    width: 600px;
-    height: 600px;
+    width: 500px;
+    height: 500px;
     border-radius: 50%;
     background: radial-gradient(circle, rgba(99, 102, 241, 0.25) 0%, rgba(236, 72, 153, 0.15) 40%, transparent 70%);
     filter: blur(40px);
@@ -859,16 +865,16 @@ body {
     width: 100%;
     height: 100%;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
+    padding-bottom: 10px;
 }
 
 .hero-stage-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    max-height: 68vh;
+    max-width: 65%;
+    object-fit: contain;
+    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.8));
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
