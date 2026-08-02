@@ -1290,7 +1290,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const maximizeChatBtn = document.getElementById("maximize-chat-modal-btn");
     if (maximizeChatBtn) {
         maximizeChatBtn.addEventListener("click", () => {
-            const chatModalContent = document.querySelector("#chat-modal .rpg-modal-content") || document.querySelector("#chat-modal .modal-content");
+            const chatModalContent = document.querySelector("#modal-hero-chat .rpg-modal-content") || document.querySelector("#modal-hero-chat .modal-content");
             if (!chatModalContent) return;
             chatModalContent.classList.toggle("maximized");
             const isMax = chatModalContent.classList.contains("maximized");

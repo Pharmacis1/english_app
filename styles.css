@@ -117,8 +117,8 @@ body {
 .chat-container { display: flex; flex-direction: column; height: 100%; padding: 0; overflow: hidden; }
 
 /* Ergonomic 2-Column Chat Modal & Hero Word Sidebar */
-#chat-modal .modal-content,
-#chat-modal .rpg-modal-content {
+#modal-hero-chat .modal-content,
+#modal-hero-chat .rpg-modal-content {
     width: 95%;
     max-width: 1240px;
     height: 88vh;
@@ -134,15 +134,15 @@ body {
 }
 
 /* Custom corner resizer handle styling */
-#chat-modal .modal-content::-webkit-resizer,
-#chat-modal .rpg-modal-content::-webkit-resizer {
+#modal-hero-chat .modal-content::-webkit-resizer,
+#modal-hero-chat .rpg-modal-content::-webkit-resizer {
     background-color: var(--primary);
     border-radius: 4px;
     outline: 2px solid rgba(255, 255, 255, 0.4);
 }
 
-#chat-modal .rpg-modal-content.maximized,
-#chat-modal .modal-content.maximized {
+#modal-hero-chat .rpg-modal-content.maximized,
+#modal-hero-chat .modal-content.maximized {
     width: 98vw !important;
     max-width: 98vw !important;
     height: 96vh !important;
@@ -193,7 +193,8 @@ body {
 }
 
 @media (max-width: 960px) {
-    #chat-modal .modal-content {
+    #modal-hero-chat .modal-content,
+    #modal-hero-chat .rpg-modal-content {
         width: 98%;
         max-width: 100%;
         height: 96vh;
