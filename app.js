@@ -924,6 +924,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function renderScenarios() {
+        if (!scenariosListContainer) return;
         scenariosListContainer.innerHTML = "";
 
         let filteredList = [];
