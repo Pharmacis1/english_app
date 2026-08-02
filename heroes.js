@@ -791,17 +791,24 @@ class RPGEngine {
                     if (savedHero) {
                         let heroLevel = parseInt(savedHero.level, 10);
                         if (isNaN(heroLevel) || heroLevel < 1) heroLevel = defaultHero.level;
-                        heroLevel = Math.min(50, Math.max(1, heroLevel));
+                        heroLevel = Math.min(HERO_MAX_LEVEL, Math.max(1, heroLevel));
 
                         let heroAffinity = parseInt(savedHero.affinityLevel || savedHero.affinity || 0, 10);
                         if (isNaN(heroAffinity)) heroAffinity = 0;
                         heroAffinity = Math.min(heroLevel, Math.max(0, heroAffinity));
 
-                        const calculatedMaxXp = Math.round(150 + (heroLevel - 1) * 5);
+                        let calculatedMaxXp = Math.round(150 + (heroLevel - 1) * 5);
                         let heroXp = parseInt(savedHero.xp, 10);
                         if (isNaN(heroXp)) heroXp = defaultHero.xp;
+
+                        // If hero had overflow XP while clamped at 50, advance level to 51
+                        while (heroXp >= calculatedMaxXp && heroLevel < HERO_MAX_LEVEL) {
+                            heroXp -= calculatedMaxXp;
+                            heroLevel++;
+                            calculatedMaxXp = Math.round(150 + (heroLevel - 1) * 5);
+                        }
+
                         if (heroLevel >= HERO_MAX_LEVEL) heroXp = calculatedMaxXp; // Max Level cap
-                        else if (heroXp >= calculatedMaxXp) heroXp = calculatedMaxXp - 1; // Prevent overflow
 
                         // Restore or calculate stat growth for hero level
                         let baseMaxHp = defaultHero.maxHp;
