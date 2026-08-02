@@ -150,13 +150,36 @@ document.addEventListener("DOMContentLoaded", () => {
         currentHeroPosState = getHeroStagePos(hero.id);
         applyHeroStageTransform();
 
-        // 5. Update header stats
+        // 5. Update header stats & Global A0 -> A1 Progress Bar (1000 Hero Levels = 100%)
         const squadPowerEl = document.getElementById("rpg-squad-power");
         if (squadPowerEl) squadPowerEl.textContent = rpgEngine.getPartyPower();
         const headerXpEl = document.getElementById("rpg-header-xp");
         if (headerXpEl) headerXpEl.textContent = xpPoints;
+
+        // Calculate total combined level of all 10 heroes (Max 1000 = 100%)
+        const totalHeroLevels = rpgEngine.heroes.reduce((sum, h) => sum + (h.level || 1), 0);
+        const progressPct = Math.min(100, Math.max(0.1, (totalHeroLevels / 1000) * 100)).toFixed(1);
+
+        const globalTitleEl = document.getElementById("global-progress-title-text");
+        if (globalTitleEl) {
+            globalTitleEl.textContent = `Hero Levels: ${totalHeroLevels} / 1000 (${progressPct}%)`;
+        }
+        const globalFillEl = document.getElementById("global-progress-bar-fill");
+        if (globalFillEl) {
+            globalFillEl.style.width = `${progressPct}%`;
+        }
+
+        // Streak Flame (Ударный режим)
+        let currentStreak = parseInt(localStorage.getItem("english_pulse_streak") || "0", 10);
+        if (currentStreak === 0) {
+            const totalQuests = getTotalCompletedDailyQuests();
+            if (totalQuests > 0) {
+                currentStreak = totalQuests;
+                localStorage.setItem("english_pulse_streak", currentStreak);
+            }
+        }
         const headerStreakEl = document.getElementById("rpg-header-streak");
-        if (headerStreakEl) headerStreakEl.textContent = parseInt(localStorage.getItem("english_pulse_streak") || "0");
+        if (headerStreakEl) headerStreakEl.textContent = currentStreak;
 
         // 6. Highlight bottom carousel card
         renderBottomHeroCarousel();
@@ -780,6 +803,25 @@ document.addEventListener("DOMContentLoaded", () => {
             totalQuests += 1;
             localStorage.setItem("total_completed_daily_quests", totalQuests);
 
+            // Update Streak 🔥 (Ударный режим: 1 Daily Quest per day = 1 flame day!)
+            const todayStr = new Date().toISOString().split('T')[0];
+            const yesterdayDate = new Date();
+            yesterdayDate.setDate(yesterdayDate.getDate() - 1);
+            const yesterdayStr = yesterdayDate.toISOString().split('T')[0];
+
+            const lastQuestDate = localStorage.getItem("english_pulse_last_quest_date");
+            let currentStreak = parseInt(localStorage.getItem("english_pulse_streak") || "0", 10);
+
+            if (lastQuestDate !== todayStr) {
+                if (lastQuestDate === yesterdayStr) {
+                    currentStreak += 1;
+                } else {
+                    currentStreak = Math.max(1, currentStreak + 1);
+                }
+                localStorage.setItem("english_pulse_last_quest_date", todayStr);
+                localStorage.setItem("english_pulse_streak", currentStreak);
+            }
+
             addXP(500);
             triggerRPGReward("daily_quest", activeHeroId, activeHeroId, 500);
 
@@ -789,7 +831,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 unlockToastMsg = `<br>🔓 <b>NEW HERO UNLOCKED: ${newlyUnlocked.join(", ")}!</b>`;
             }
 
-            showToast(`🏆 <b>DAILY HERO QUEST COMPLETED!</b><br>+500 XP Bonus Awarded! (Total Quests: ${totalQuests})${unlockToastMsg}`, "linear-gradient(135deg, #f59e0b, #ec4899)", "#fbbf24");
+            showToast(`🔥 <b>УДАРНЫЙ РЕЖИМ (${currentStreak} дн.)!</b><br>🏆 <b>DAILY QUEST COMPLETED!</b> +500 XP Awarded!${unlockToastMsg}`, "linear-gradient(135deg, #f59e0b, #ec4899)", "#fbbf24");
             
             renderHeroShowcase();
             renderBottomHeroCarousel();

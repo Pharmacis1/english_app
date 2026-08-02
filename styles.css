@@ -88,6 +88,70 @@ body {
 .rpg-header-stats { display: flex; gap: 10px; }
 .rpg-stat-pill { background: rgba(236, 72, 153, 0.15); border: 1px solid rgba(236, 72, 153, 0.3); padding: 6px 14px; border-radius: 20px; color: var(--heart); font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 6px; }
 
+/* ===== GLOBAL A0 -> A1 PROGRESS BAR ===== */
+.global-a0-a1-progress-container {
+    flex: 1;
+    max-width: 340px;
+    margin: 0 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.global-progress-labels {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.rank-tag-a0 {
+    background: linear-gradient(135deg, #3b82f6, #6366f1);
+    color: #ffffff;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.rank-tag-a1 {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: #ffffff;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
+}
+
+.progress-title-text {
+    color: var(--text-muted, #94a3b8);
+    font-family: var(--font-mono, monospace);
+    font-size: 11px;
+}
+
+.global-progress-track {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.global-progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899, #10b981);
+    background-size: 200% 100%;
+    animation: gradientShift 4s ease infinite;
+    border-radius: 999px;
+    transition: width 0.5s ease-out;
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.6);
+}
+
 .llm-status-pill { display: flex; align-items: center; gap: 8px; background: var(--bg-card); border: 1px solid var(--border-color); padding: 8px 16px; border-radius: 30px; font-size: 13px; cursor: pointer; transition: var(--transition); }
 .llm-status-pill:hover { border-color: var(--primary); }
 .status-dot { width: 10px; height: 10px; border-radius: 50%; }
