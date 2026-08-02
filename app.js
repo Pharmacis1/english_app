@@ -610,8 +610,9 @@ document.addEventListener("DOMContentLoaded", () => {
         
         const avatarBox = document.getElementById("lvlup-hero-avatar-box");
         if (avatarBox) {
-            if (hero.image) {
-                avatarBox.innerHTML = `<img src="${hero.image}" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">`;
+            const avatarSrc = hero.faceImage || hero.image;
+            if (avatarSrc) {
+                avatarBox.innerHTML = `<img src="${avatarSrc}" style="width:100%; height:100%; object-fit:cover; object-position:top center; border-radius:50%;">`;
             } else {
                 avatarBox.innerHTML = `<i class="fa-solid ${hero.avatar || 'fa-shield-halved'}" style="font-size:42px; color:${hero.color || '#3b82f6'};"></i>`;
             }
@@ -832,8 +833,8 @@ document.addEventListener("DOMContentLoaded", () => {
             chip.style.fontSize = "11px";
             chip.style.borderRadius = "12px";
 
-            const iconHtml = hero.image 
-                ? `<img src="${hero.image}" style="width:14px; height:14px; border-radius:50%; margin-right:4px;">` 
+            const iconHtml = (hero.faceImage || hero.image) 
+                ? `<img src="${hero.faceImage || hero.image}" style="width:14px; height:14px; border-radius:50%; margin-right:4px; object-fit:cover;">` 
                 : `<i class="fa-solid ${hero.avatar}"></i>`;
 
             chip.innerHTML = `${iconHtml} ${hero.name}`;
@@ -866,8 +867,8 @@ document.addEventListener("DOMContentLoaded", () => {
             chip.style.fontSize = "11px";
             chip.style.borderRadius = "12px";
 
-            const iconHtml = hero.image 
-                ? `<img src="${hero.image}" style="width:14px; height:14px; border-radius:50%; margin-right:4px;">` 
+            const iconHtml = (hero.faceImage || hero.image) 
+                ? `<img src="${hero.faceImage || hero.image}" style="width:14px; height:14px; border-radius:50%; margin-right:4px; object-fit:cover;">` 
                 : `<i class="fa-solid ${hero.avatar}"></i>`;
 
             chip.innerHTML = `${iconHtml} ${hero.name}`;
@@ -2234,8 +2235,8 @@ document.addEventListener("DOMContentLoaded", () => {
             chip.style.fontSize = "12px";
             chip.style.borderRadius = "14px";
 
-            const iconHtml = hero.image 
-                ? `<img src="${hero.image}" style="width:14px; height:14px; border-radius:50%; margin-right:4px;">` 
+            const iconHtml = (hero.faceImage || hero.image) 
+                ? `<img src="${hero.faceImage || hero.image}" style="width:14px; height:14px; border-radius:50%; margin-right:4px; object-fit:cover;">` 
                 : `<i class="fa-solid ${hero.avatar}"></i>`;
 
             chip.innerHTML = `${iconHtml} ${hero.name}`;
@@ -2598,8 +2599,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     : `<span style="color:var(--success); font-weight:600;"><i class="fa-solid fa-check"></i> Unlocked Hero</span>`) 
                 : `<span style="color:var(--warning); font-size:11px; font-weight:700;"><i class="fa-solid fa-lock"></i> Requires ${reqQuests} Daily Quests (${totalQuests}/${reqQuests})</span>`;
 
-            const avatarHtml = hero.image 
-                ? `<img src="${hero.image}" alt="${hero.name}" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">` 
+            const avatarHtml = (hero.faceImage || hero.image) 
+                ? `<img src="${hero.faceImage || hero.image}" alt="${hero.name}" style="width:100%; height:100%; object-fit:cover; object-position:top center; border-radius:50%;">` 
                 : `<i class="fa-solid ${hero.avatar}"></i>`;
 
             card.innerHTML = `
@@ -2695,8 +2696,8 @@ document.addEventListener("DOMContentLoaded", () => {
             const chip = document.createElement("div");
             chip.className = `squad-chip ${isSelected ? 'active' : ''}`;
             
-            const avatarHtml = hero.image 
-                ? `<img src="${hero.image}" style="width:20px; height:20px; border-radius:50%; margin-right:4px;">` 
+            const avatarHtml = (hero.faceImage || hero.image) 
+                ? `<img src="${hero.faceImage || hero.image}" style="width:20px; height:20px; border-radius:50%; margin-right:4px; object-fit:cover;">` 
                 : `<i class="fa-solid ${hero.avatar}"></i>`;
 
             chip.innerHTML = `${avatarHtml} ${hero.name} <small style="color:#fbbf24; font-weight:700; margin-left:3px;">(⚡${heroPower})</small>`;

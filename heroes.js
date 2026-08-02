@@ -582,7 +582,7 @@ const HEROES_DATA = [
     },
     {
         id: "ignis", name: "Ignis", role: "Main DD", cefrRank: 1, cefrLevel: "A0 (Objects, Colors & Clothes)", title: "Pyromancer Archmage",
-        avatar: "fa-fire-flame-curved", color: "#ef4444", image: "images/hero_ignis_1785227663250.jpg", unlocked: false, level: 1, xp: 0, maxXp: 150, affinityLevel: 0,
+        avatar: "fa-fire-flame-curved", color: "#ef4444", image: "images/ignis_hero_standalone.png", faceImage: "images/ignis_face.png", unlocked: false, level: 1, xp: 0, maxXp: 150, affinityLevel: 0,
         hp: 160, maxHp: 160, atk: 45, def: 5, skillName: "Flame Tempest", skillDesc: "Deals 200 AoE damage.", skillIcon: "fa-burst",
         words: generateHeroWords("ignis"),
         sentenceTemplates: ["This is my [red shirt].", "That is a [blue computer]."],
