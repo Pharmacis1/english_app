@@ -959,7 +959,15 @@ document.addEventListener("DOMContentLoaded", () => {
         renderScenarios();
         activeScenarioTitle.textContent = scenario.title;
         activeScenarioRole.textContent = scenario.role;
-        scenarioIcon.innerHTML = `<i class="fa-solid ${scenario.icon}"></i>`;
+        
+        const targetHero = (scenario.isHeroScenario && scenario.heroId) ? rpgEngine.heroes.find(h => h.id === scenario.heroId) : null;
+        const avatarSrc = targetHero ? (targetHero.faceImage || targetHero.image) : null;
+        if (avatarSrc) {
+            scenarioIcon.innerHTML = `<img src="${avatarSrc}" style="width:100%; height:100%; object-fit:cover; object-position:top center; border-radius:50%;">`;
+        } else {
+            scenarioIcon.innerHTML = `<i class="fa-solid ${scenario.icon}"></i>`;
+        }
+
         renderHeroWordHelperPanel(scenario);
         updateHeroDailyBonusTracker();
         resetChat();
@@ -1238,16 +1246,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 chip.style.padding = "2px 8px";
                 chip.style.borderRadius = "5px";
                 chip.style.cssText += chipStyle;
-                chip.title = `${w.word} ${w.phonetic || ''} — ${w.translation || ''} | ${tierTooltip} | Lifetime: ${allTimeStats.count} times (${allTimeStats.percentage}%) (Click to insert)`;
+                chip.title = `${w.word} ${w.phonetic || ''} — ${w.translation || ''} | ${tierTooltip} | Lifetime: ${allTimeStats.count} times (${allTimeStats.percentage}%) (Click to listen 🔊)`;
                 chip.innerHTML = `<strong>${w.word}</strong>`;
 
                 chip.addEventListener("click", () => {
-                    if (userChatInput.value.length > 0 && !userChatInput.value.endsWith(" ")) {
-                        userChatInput.value += " " + w.word;
+                    if (window.voiceService) {
+                        voiceService.speak(w.word, null, null, targetHero.voiceConfig || null);
                     } else {
-                        userChatInput.value += w.word;
+                        const uttr = new SpeechSynthesisUtterance(w.word);
+                        uttr.lang = "en-US";
+                        window.speechSynthesis.speak(uttr);
                     }
-                    userChatInput.focus();
+                    showToast(`🔊 <b>Pronounce:</b> ${w.word} (${w.translation || ''})`, "linear-gradient(135deg, #3b82f6, #1d4ed8)", "#60a5fa");
                 });
 
                 chipsWrap.appendChild(chip);
@@ -1470,9 +1480,19 @@ document.addEventListener("DOMContentLoaded", () => {
         const bubble = document.createElement("div");
         bubble.className = `message-bubble ${role}`;
         
-        const avatar = role === 'assistant' 
-            ? `<div class="message-avatar"><i class="fa-solid ${activeScenario.icon}"></i></div>` 
-            : `<div class="message-avatar"><i class="fa-solid fa-user"></i></div>`;
+        const heroObj = (activeScenario && activeScenario.isHeroScenario && activeScenario.heroId) 
+            ? rpgEngine.heroes.find(h => h.id === activeScenario.heroId) 
+            : null;
+        const heroAvatarSrc = heroObj ? (heroObj.faceImage || heroObj.image) : null;
+        
+        let avatar = `<div class="message-avatar"><i class="fa-solid fa-user"></i></div>`;
+        if (role === 'assistant') {
+            if (heroAvatarSrc) {
+                avatar = `<div class="message-avatar" style="overflow:hidden;"><img src="${heroAvatarSrc}" style="width:100%; height:100%; object-fit:cover; object-position:top center; border-radius:50%;"></div>`;
+            } else {
+                avatar = `<div class="message-avatar"><i class="fa-solid ${activeScenario.icon}"></i></div>`;
+            }
+        }
         
         const activeHeroId = (activeScenario && activeScenario.isHeroScenario && activeScenario.heroId) ? activeScenario.heroId : null;
         const msgId = text.slice(0, 30);
@@ -1612,8 +1632,9 @@ document.addEventListener("DOMContentLoaded", () => {
             ? rpgEngine.heroes.find(h => h.id === activeScenario.heroId)
             : null;
         const heroName = heroObj ? heroObj.name : (activeScenario ? activeScenario.title : "AI");
-        const avatarHtml = heroObj && heroObj.image 
-            ? `<img src="${heroObj.image}" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">`
+        const avatarSrc = heroObj ? (heroObj.faceImage || heroObj.image) : null;
+        const avatarHtml = avatarSrc 
+            ? `<img src="${avatarSrc}" style="width:100%; height:100%; object-fit:cover; object-position:top center; border-radius:50%;">`
             : `<i class="fa-solid ${activeScenario.icon}"></i>`;
 
         const typingBubble = document.createElement("div");
