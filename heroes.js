@@ -561,6 +561,36 @@ function getTotalCompletedDailyQuests() {
     return 3;
 }
 
+function checkAndUpdateHeroUnlocks(engine) {
+    if (!engine || !engine.heroes) {
+        if (typeof rpgEngine !== 'undefined' && rpgEngine.heroes) {
+            engine = rpgEngine;
+        } else {
+            return [];
+        }
+    }
+    const totalCompletedQuests = getTotalCompletedDailyQuests();
+    const newlyUnlockedNames = [];
+
+    engine.heroes.forEach((h, idx) => {
+        if (idx <= 1) {
+            h.unlocked = true;
+            return;
+        }
+        const reqQuests = (HERO_UNLOCK_QUEST_THRESHOLDS[idx] !== undefined) ? HERO_UNLOCK_QUEST_THRESHOLDS[idx] : 0;
+        if (!h.unlocked && totalCompletedQuests >= reqQuests) {
+            h.unlocked = true;
+            newlyUnlockedNames.push(h.name);
+        }
+    });
+
+    if (newlyUnlockedNames.length > 0 && typeof engine.saveHeroes === 'function') {
+        engine.saveHeroes();
+    }
+
+    return newlyUnlockedNames;
+}
+
 const HEROES_DATA = [
     {
         id: "valerius", name: "Valerius", role: "Main Tank", cefrRank: 1, cefrLevel: "A0 (Greetings & Identity)", title: "The Silver Paladin",
@@ -854,6 +884,30 @@ class RPGEngine {
             ...defaultHero,
             unlocked: (idx <= 1) ? true : (totalCompletedQuests >= (HERO_UNLOCK_QUEST_THRESHOLDS[idx] || 0))
         }));
+    }
+
+    checkAndUpdateHeroUnlocks(engine = this) {
+        if (!engine || !engine.heroes) return [];
+        const totalCompletedQuests = getTotalCompletedDailyQuests();
+        const newlyUnlockedNames = [];
+
+        engine.heroes.forEach((h, idx) => {
+            if (idx <= 1) {
+                h.unlocked = true;
+                return;
+            }
+            const reqQuests = (HERO_UNLOCK_QUEST_THRESHOLDS[idx] !== undefined) ? HERO_UNLOCK_QUEST_THRESHOLDS[idx] : 0;
+            if (!h.unlocked && totalCompletedQuests >= reqQuests) {
+                h.unlocked = true;
+                newlyUnlockedNames.push(h.name);
+            }
+        });
+
+        if (newlyUnlockedNames.length > 0 && typeof engine.saveHeroes === 'function') {
+            engine.saveHeroes();
+        }
+
+        return newlyUnlockedNames;
     }
 
     loadChapters() {
