@@ -87,6 +87,42 @@ class AIService {
 - "Do you have [water / bread / food / milk / tea / coffee / fruit / an apple]?"
 - "Do you want to [eat / drink / sleep / walk / cook / clean]?"
 - "Do you like [apples / an apple / fish / soup / tea / coffee]?"`;
+        } else if (activeHero.id === "ignis") {
+            questionTemplates = `Ask ultra-simple A0 'this/that/these/those' & object/color questions using these exact patterns ONLY:
+- "Is this [a red magic book / a glowing staff / a sword / a ring]?"
+- "Is that [a blue shield / a green potion / an old hat] on the table over there?"
+- "Are these [your boots / your magic books]?"
+- "What color is [this book / that staff / your shirt]?"`;
+        } else if (activeHero.id === "frostina") {
+            questionTemplates = `Ask ultra-simple A0/A1 weather, routines, and time questions using these exact patterns ONLY:
+- "What time is it in your town right now?"
+- "Do you usually wake up early on [Monday / Friday]?"
+- "Is it [cold / hot / rainy / snowy] today?"`;
+        } else if (activeHero.id === "zephyr") {
+            questionTemplates = `Ask ultra-simple A0 places, prepositions, and question-word questions using these exact patterns ONLY:
+- "Where are you going today?"
+- "Is the key [on the table / in the room / near the door]?"
+- "When do you study English?"`;
+        } else if (activeHero.id === "thorin") {
+            questionTemplates = `Ask ultra-simple A0/A1 adjectives and plural questions using these exact patterns ONLY:
+- "Do you carry [a heavy hammer / a strong shield / a big axe]?"
+- "Are there two [books / boxes / men] on the table?"`;
+        } else if (activeHero.id === "selene") {
+            questionTemplates = `Ask ultra-simple A1 modal 'can/can't' and hobby questions using these exact patterns ONLY:
+- "Can you [play the guitar / swim / drive a car / speak English]?"
+- "Can your friend [sing / run fast / cook good food]?"`;
+        } else if (activeHero.id === "oberon") {
+            questionTemplates = `Ask ultra-simple A1 Present Continuous ('is/are -ing') questions using these exact patterns ONLY:
+- "What are you doing right now?"
+- "Is the sun shining over your town today?"`;
+        } else if (activeHero.id === "freya") {
+            questionTemplates = `Ask ultra-simple A1 Past Simple ('was/were', '-ed', 'went') questions using these exact patterns ONLY:
+- "Did you [travel / visit a friend / walk in the park] yesterday?"
+- "Were you [happy / tired / busy] yesterday?"`;
+        } else if (activeHero.id === "eldrin") {
+            questionTemplates = `Ask ultra-simple A1 future ('be going to') and mastery questions using these exact patterns ONLY:
+- "Are you going to [study English / travel / read a book] tomorrow?"
+- "What is your main goal for English learning?"`;
         } else {
             questionTemplates = `Ask ultra-simple 3-5 word A0 questions using target words from: [${sampleWords}]`;
         }
