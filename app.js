@@ -749,10 +749,11 @@ document.addEventListener("DOMContentLoaded", () => {
             if (trackerRight) trackerRight.appendChild(questTagEl);
         }
 
-        if (hero && hero.level >= 50) {
-            questTagEl.innerHTML = `🏆 Daily Quest: <strong style="color:#ef4444;">Max Level 50 Reached (No Quest) 🔒</strong>`;
+        const maxLvlCap = (typeof HERO_MAX_LEVEL !== 'undefined') ? HERO_MAX_LEVEL : 100;
+        if (hero && hero.level >= maxLvlCap) {
+            questTagEl.innerHTML = `🏆 Daily Quest: <strong style="color:#ef4444;">Max Level ${maxLvlCap} Reached (No Quest) 🔒</strong>`;
             questTagEl.style.cursor = "default";
-            questTagEl.title = `Hero ${hero.name} has reached Max Level 50! Daily quests and XP bonuses are disabled for max-level heroes.`;
+            questTagEl.title = `Hero ${hero.name} has reached Max Level ${maxLvlCap}! Daily quests and XP bonuses are disabled for max-level heroes.`;
             return;
         }
 
@@ -2808,9 +2809,10 @@ document.addEventListener("DOMContentLoaded", () => {
             const reqQuests = (HERO_UNLOCK_QUEST_THRESHOLDS[idx] !== undefined) ? HERO_UNLOCK_QUEST_THRESHOLDS[idx] : 0;
             const totalQuests = getTotalCompletedDailyQuests();
 
+            const maxLvlCap = (typeof HERO_MAX_LEVEL !== 'undefined') ? HERO_MAX_LEVEL : 100;
             const unlockMsg = hero.unlocked 
-                ? (hero.level >= 50 
-                    ? `<span style="color:#ef4444; font-weight:700;"><i class="fa-solid fa-crown"></i> Max Level 50 Reached (XP Cap)</span>` 
+                ? (hero.level >= maxLvlCap 
+                    ? `<span style="color:#ef4444; font-weight:700;"><i class="fa-solid fa-crown"></i> Max Level ${maxLvlCap} Reached (XP Cap)</span>` 
                     : `<span style="color:var(--success); font-weight:600;"><i class="fa-solid fa-check"></i> Unlocked Hero</span>`) 
                 : `<span style="color:var(--warning); font-size:11px; font-weight:700;"><i class="fa-solid fa-lock"></i> Requires ${reqQuests} Daily Quests (${totalQuests}/${reqQuests})</span>`;
 

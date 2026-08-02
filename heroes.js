@@ -544,7 +544,7 @@ function generateHeroWords(heroId) {
 }
 
 const HERO_UNLOCK_QUEST_THRESHOLDS = [0, 3, 7, 12, 18, 25, 33, 42, 52, 63];
-const HERO_MAX_LEVEL = 50;
+const HERO_MAX_LEVEL = 100;
 
 function getTotalCompletedDailyQuests() {
     try {
@@ -800,7 +800,7 @@ class RPGEngine {
                         const calculatedMaxXp = Math.round(150 + (heroLevel - 1) * 5);
                         let heroXp = parseInt(savedHero.xp, 10);
                         if (isNaN(heroXp)) heroXp = defaultHero.xp;
-                        if (heroLevel >= 50) heroXp = calculatedMaxXp; // Max Level cap
+                        if (heroLevel >= HERO_MAX_LEVEL) heroXp = calculatedMaxXp; // Max Level cap
                         else if (heroXp >= calculatedMaxXp) heroXp = calculatedMaxXp - 1; // Prevent overflow
 
                         // Restore or calculate stat growth for hero level
@@ -961,7 +961,7 @@ class RPGEngine {
                 } else if (h.level >= HERO_MAX_LEVEL) {
                     h.level = HERO_MAX_LEVEL;
                     h.xp = h.maxXp;
-                    blockedHeroNames.push(`${h.name} (Max Level 50)`);
+                    blockedHeroNames.push(`${h.name} (Max Level ${HERO_MAX_LEVEL})`);
                 } else {
                     if (h.level < HERO_MAX_LEVEL) {
                         h.xp += xpAmount;
