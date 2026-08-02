@@ -730,9 +730,10 @@ document.addEventListener("DOMContentLoaded", () => {
             (taskRepeatDone ? 1 : 0) + 
             (taskWordsDone ? 1 : 0);
 
+        const maxLvlCap = (typeof HERO_MAX_LEVEL !== 'undefined') ? HERO_MAX_LEVEL : 100;
         if (heroNameEl) {
-            if (hero && hero.level >= 50) {
-                heroNameEl.innerHTML = `🛡️ Active Hero: <strong>${hero.name}</strong> <span style="color:#ef4444; font-weight:800;">[MAX LEVEL 50]</span>`;
+            if (hero && hero.level >= maxLvlCap) {
+                heroNameEl.innerHTML = `🛡️ Active Hero: <strong>${hero.name}</strong> <span style="color:#ef4444; font-weight:800;">[MAX LEVEL ${maxLvlCap}]</span>`;
             } else {
                 heroNameEl.innerHTML = `🛡️ Active Hero: <strong>${hero ? hero.name : activeHeroId}</strong>`;
             }
@@ -749,7 +750,6 @@ document.addEventListener("DOMContentLoaded", () => {
             if (trackerRight) trackerRight.appendChild(questTagEl);
         }
 
-        const maxLvlCap = (typeof HERO_MAX_LEVEL !== 'undefined') ? HERO_MAX_LEVEL : 100;
         if (hero && hero.level >= maxLvlCap) {
             questTagEl.innerHTML = `🏆 Daily Quest: <strong style="color:#ef4444;">Max Level ${maxLvlCap} Reached (No Quest) 🔒</strong>`;
             questTagEl.style.cursor = "default";
@@ -772,7 +772,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 `${taskWordsDone ? '✅' : '❌'} All Hero Words Used (${wordsUsedCount}/${wordsTotalCount})`;
         }
 
-        if (completedTasksCount === 5 && !state.questClaimed && hero && hero.level < 50) {
+        if (completedTasksCount === 5 && !state.questClaimed && hero && hero.level < maxLvlCap) {
             state.questClaimed = true;
             saveTodayHeroAudioState(activeHeroId, state);
 
@@ -2827,7 +2827,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             ${avatarHtml}
                         </div>
                         <div class="hero-title-group">
-                            <h4>${hero.name} <small class="font-mono" style="color:var(--primary); font-weight:700;">Lvl ${hero.level} / 50</small></h4>
+                            <h4>${hero.name} <small class="font-mono" style="color:var(--primary); font-weight:700;">Lvl ${hero.level} / ${maxLvlCap}</small></h4>
                             <div class="hero-cefr-tag">${hero.cefrLevel} (100 Words)</div>
                         </div>
                     </div>
@@ -2946,7 +2946,8 @@ document.addEventListener("DOMContentLoaded", () => {
             audioListeningControls.classList.remove("hidden");
             affinityMicBtn.classList.remove("hidden");
         } else {
-            affinityModeBadge.textContent = "✍️ Written Text Mode (Level 1–50)";
+            const maxLvlCap = (typeof HERO_MAX_LEVEL !== 'undefined') ? HERO_MAX_LEVEL : 100;
+            affinityModeBadge.textContent = `✍️ Written Text Mode (Level 1–${maxLvlCap})`;
             audioListeningControls.classList.add("hidden");
             affinityMicBtn.classList.add("hidden");
         }
