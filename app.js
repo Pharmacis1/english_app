@@ -1155,16 +1155,25 @@ document.addEventListener("DOMContentLoaded", () => {
         // Show cheatsheet EXCLUSIVELY in dedicated Hero Roleplay Dialogues!
         if (!scenario.isHeroScenario || !scenario.heroId) {
             heroWordHelperBox.classList.add("hidden");
+            const headerVocabBtn = document.getElementById("header-toggle-vocab-btn");
+            if (headerVocabBtn) headerVocabBtn.style.display = "none";
             return;
         }
 
         const targetHero = rpgEngine.heroes.find(h => h.id === scenario.heroId);
         if (!targetHero) {
             heroWordHelperBox.classList.add("hidden");
+            const headerVocabBtn = document.getElementById("header-toggle-vocab-btn");
+            if (headerVocabBtn) headerVocabBtn.style.display = "none";
             return;
         }
 
         heroWordHelperBox.classList.remove("hidden");
+        const headerVocabBtn = document.getElementById("header-toggle-vocab-btn");
+        if (headerVocabBtn) {
+            headerVocabBtn.style.display = "inline-flex";
+            headerVocabBtn.innerHTML = `<i class="fa-solid fa-book-bookmark"></i> Words (${targetHero.words ? targetHero.words.length : 50})`;
+        }
 
         // Grammar rule hint
         const ruleText = targetHero.grammarRules ? targetHero.grammarRules.join(" | ") : "Grammar Practice";
@@ -1185,6 +1194,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (!sec.words || sec.words.length === 0) return;
 
             const row = document.createElement("div");
+            row.className = "sidebar-vocab-section";
             row.style.fontSize = "11px";
             row.style.display = "flex";
             row.style.flexDirection = "column";
@@ -1193,7 +1203,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const rowHeader = document.createElement("div");
             rowHeader.style.fontWeight = "700";
             rowHeader.style.color = sec.color;
-            rowHeader.textContent = sec.title;
+            rowHeader.textContent = `${sec.title} (${sec.words.length})`;
 
             const chipsWrap = document.createElement("div");
             chipsWrap.style.display = "flex";
@@ -1221,7 +1231,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 const chip = document.createElement("button");
                 chip.type = "button";
-                chip.className = "btn btn-sm";
+                chip.className = "btn btn-sm word-chip-item";
+                chip.dataset.word = w.word.toLowerCase();
+                chip.dataset.translation = (w.translation || '').toLowerCase();
                 chip.style.fontSize = "11px";
                 chip.style.padding = "2px 8px";
                 chip.style.borderRadius = "5px";
@@ -1244,6 +1256,39 @@ document.addEventListener("DOMContentLoaded", () => {
             row.appendChild(rowHeader);
             row.appendChild(chipsWrap);
             heroWordsCategoriesContainer.appendChild(row);
+        });
+    }
+
+    // Vocabulary Sidebar Toggle & Search Listeners
+    const toggleWordSidebarBtn = document.getElementById("toggle-word-sidebar-btn");
+    const headerToggleVocabBtn = document.getElementById("header-toggle-vocab-btn");
+    const heroVocabSearch = document.getElementById("hero-vocab-search");
+
+    function toggleHeroWordSidebar() {
+        if (!heroWordHelperBox) return;
+        heroWordHelperBox.classList.toggle("collapsed");
+        const isCollapsed = heroWordHelperBox.classList.contains("collapsed");
+        if (toggleWordSidebarBtn) {
+            toggleWordSidebarBtn.innerHTML = isCollapsed ? `<i class="fa-solid fa-angles-left"></i> Show` : `<i class="fa-solid fa-angles-right"></i> Hide`;
+        }
+    }
+
+    if (toggleWordSidebarBtn) toggleWordSidebarBtn.addEventListener("click", toggleHeroWordSidebar);
+    if (headerToggleVocabBtn) headerToggleVocabBtn.addEventListener("click", toggleHeroWordSidebar);
+
+    if (heroVocabSearch) {
+        heroVocabSearch.addEventListener("input", (e) => {
+            const query = e.target.value.toLowerCase().trim();
+            const chips = heroWordsCategoriesContainer.querySelectorAll(".word-chip-item");
+            chips.forEach(chip => {
+                const w = chip.dataset.word || "";
+                const tr = chip.dataset.translation || "";
+                if (!query || w.includes(query) || tr.includes(query)) {
+                    chip.style.display = "inline-block";
+                } else {
+                    chip.style.display = "none";
+                }
+            });
         });
     }
 
