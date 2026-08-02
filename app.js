@@ -1077,6 +1077,59 @@ document.addEventListener("DOMContentLoaded", () => {
         return { count, percentage, total };
     }
 
+    function getWordVariants(baseWord) {
+        if (!baseWord) return new Set();
+        const lower = baseWord.toLowerCase().trim();
+        const set = new Set([lower]);
+
+        // Standard plural and verb inflections
+        set.add(lower + "s");
+        set.add(lower + "es");
+        set.add(lower + "ed");
+        set.add(lower + "ing");
+        if (lower.endsWith("e")) {
+            set.add(lower + "d");
+            set.add(lower.slice(0, -1) + "ing");
+        }
+        if (lower.endsWith("y")) {
+            set.add(lower.slice(0, -1) + "ies");
+            set.add(lower.slice(0, -1) + "ied");
+        }
+
+        // Irregular plurals & common forms
+        const IRREGULARS = {
+            "man": ["men"],
+            "woman": ["women"],
+            "child": ["children"],
+            "person": ["people", "persons"],
+            "foot": ["feet"],
+            "tooth": ["teeth"],
+            "mouse": ["mice"],
+            "goose": ["geese"],
+            "leaf": ["leaves"],
+            "knife": ["knives"],
+            "life": ["lives"],
+            "half": ["halves"],
+            "shelf": ["shelves"],
+            "wolf": ["wolves"],
+            "city": ["cities"],
+            "hero": ["heroes"],
+            "country": ["countries"],
+            "family": ["families"],
+            "story": ["stories"],
+            "activity": ["activities"],
+            "party": ["parties"],
+            "body": ["bodies"],
+            "baby": ["babies"]
+        };
+
+        if (IRREGULARS[lower]) {
+            IRREGULARS[lower].forEach(v => set.add(v));
+        }
+
+        return set;
+    }
+
     function evaluateHeroDialogueXP(hero, text) {
         if (!hero || !hero.words || !text) return { totalXP: 0, matchedWordsInfo: [] };
 
@@ -1090,7 +1143,28 @@ document.addEventListener("DOMContentLoaded", () => {
             const w = getWordProps(wObj);
             if (!w.word) return;
             const wordLower = w.word.toLowerCase().trim();
-            const isMatched = wordsInText.includes(wordLower) || cleanText.includes(` ${wordLower} `) || cleanText.startsWith(`${wordLower} `) || cleanText.endsWith(` ${wordLower}`);
+            const variants = getWordVariants(wordLower);
+
+            let isMatched = false;
+            for (const v of variants) {
+                if (wordsInText.includes(v) || cleanText.includes(` ${v} `) || cleanText.startsWith(`${v} `) || cleanText.endsWith(` ${v}`)) {
+                    isMatched = true;
+                    break;
+                }
+            }
+
+            // Stemming fallback: check if any word in user text stems to target wordLower
+            if (!isMatched) {
+                isMatched = wordsInText.some(userW => {
+                    if (userW === wordLower) return true;
+                    if (userW.endsWith("s") && userW.slice(0, -1) === wordLower) return true;
+                    if (userW.endsWith("es") && userW.slice(0, -2) === wordLower) return true;
+                    if (userW.endsWith("ies") && userW.slice(0, -3) + "y" === wordLower) return true;
+                    if (userW.endsWith("ing") && (userW.slice(0, -3) === wordLower || userW.slice(0, -3) + "e" === wordLower)) return true;
+                    if (userW.endsWith("ed") && (userW.slice(0, -2) === wordLower || userW.slice(0, -1) === wordLower)) return true;
+                    return false;
+                });
+            }
 
             if (isMatched) {
                 const currentUsage = getWordUsageCount(hero.id, w.word);
