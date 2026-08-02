@@ -1286,6 +1286,19 @@ document.addEventListener("DOMContentLoaded", () => {
     if (toggleWordSidebarBtn) toggleWordSidebarBtn.addEventListener("click", toggleHeroWordSidebar);
     if (headerToggleVocabBtn) headerToggleVocabBtn.addEventListener("click", toggleHeroWordSidebar);
 
+    // Modal Maximize / Restore Handler
+    const maximizeChatBtn = document.getElementById("maximize-chat-modal-btn");
+    if (maximizeChatBtn) {
+        maximizeChatBtn.addEventListener("click", () => {
+            const chatModalContent = document.querySelector("#chat-modal .rpg-modal-content") || document.querySelector("#chat-modal .modal-content");
+            if (!chatModalContent) return;
+            chatModalContent.classList.toggle("maximized");
+            const isMax = chatModalContent.classList.contains("maximized");
+            maximizeChatBtn.innerHTML = isMax ? `<i class="fa-solid fa-compress"></i>` : `<i class="fa-solid fa-expand"></i>`;
+            maximizeChatBtn.title = isMax ? "Restore Window Size" : "Maximize Window";
+        });
+    }
+
     if (heroVocabSearch) {
         heroVocabSearch.addEventListener("input", (e) => {
             const query = e.target.value.toLowerCase().trim();
