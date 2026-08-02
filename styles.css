@@ -334,7 +334,46 @@ body {
 .active-scenario-info { display: flex; align-items: center; gap: 14px; }
 .scenario-avatar { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--accent)); display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; }
 .scenario-subtitle { font-size: 12px; color: var(--text-muted); }
-.chat-messages { flex: 1; padding: 24px; overflow-y: auto; display: flex; flex-direction: column; gap: 16px; }
+.chat-messages { flex: 1; padding: 24px; overflow-y: auto; display: flex; flex-direction: column; gap: 16px; scrollbar-width: thin; scrollbar-color: var(--primary) rgba(15, 23, 42, 0.4); }
+
+/* Sleek Glowing Custom Scrollbar */
+.chat-messages::-webkit-scrollbar,
+#chat-messages::-webkit-scrollbar,
+.sidebar-words-list::-webkit-scrollbar,
+.chat-left-hero-sidebar::-webkit-scrollbar,
+#modal-hero-chat ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.chat-messages::-webkit-scrollbar-track,
+#chat-messages::-webkit-scrollbar-track,
+.sidebar-words-list::-webkit-scrollbar-track,
+.chat-left-hero-sidebar::-webkit-scrollbar-track,
+#modal-hero-chat ::-webkit-scrollbar-track {
+    background: rgba(15, 23, 42, 0.5);
+    border-radius: 10px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb,
+#chat-messages::-webkit-scrollbar-thumb,
+.sidebar-words-list::-webkit-scrollbar-thumb,
+.chat-left-hero-sidebar::-webkit-scrollbar-thumb,
+#modal-hero-chat ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--primary), var(--accent));
+    border-radius: 10px;
+    box-shadow: 0 0 8px var(--primary-glow);
+    transition: all 0.2s ease;
+}
+
+.chat-messages::-webkit-scrollbar-thumb:hover,
+#chat-messages::-webkit-scrollbar-thumb:hover,
+.sidebar-words-list::-webkit-scrollbar-thumb:hover,
+.chat-left-hero-sidebar::-webkit-scrollbar-thumb:hover,
+#modal-hero-chat ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #818cf8, #a855f7);
+    box-shadow: 0 0 12px rgba(168, 85, 247, 0.6);
+}
 .message-bubble { display: flex; gap: 12px; max-width: 80%; animation: fadeIn 0.3s ease; }
 .message-bubble.user { align-self: flex-end; flex-direction: row-reverse; }
 .message-bubble.assistant { align-self: flex-start; }
