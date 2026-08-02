@@ -1157,8 +1157,44 @@ document.addEventListener("DOMContentLoaded", () => {
         return results;
     }
 
+    let activeVocabHeroId = null;
+
+    function renderLeftChatHeroSidebar() {
+        const leftSidebar = document.getElementById("chat-left-hero-sidebar");
+        if (!leftSidebar) return;
+
+        const unlockedHeroes = rpgEngine.heroes.filter(h => h.unlocked);
+        leftSidebar.innerHTML = "";
+
+        unlockedHeroes.forEach(hero => {
+            const avatarSrc = hero.faceImage || hero.image;
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = `chat-hero-avatar-btn ${activeScenario && activeScenario.heroId === hero.id ? 'active' : ''}`;
+            btn.title = `Chat with ${hero.name} (${hero.title || hero.role})`;
+            
+            if (avatarSrc) {
+                btn.innerHTML = `<img src="${avatarSrc}" alt="${hero.name}">`;
+            } else {
+                btn.innerHTML = `<i class="fa-solid fa-user-shield" style="font-size:18px; color:var(--primary);"></i>`;
+            }
+
+            btn.addEventListener("click", () => {
+                const heroScenario = SCENARIOS.find(sc => sc.isHeroScenario && sc.heroId === hero.id);
+                if (heroScenario) {
+                    activeVocabHeroId = hero.id;
+                    selectScenario(heroScenario);
+                }
+            });
+
+            leftSidebar.appendChild(btn);
+        });
+    }
+
     function renderHeroWordHelperPanel(scenario) {
         if (!heroWordHelperBox) return;
+
+        renderLeftChatHeroSidebar();
 
         // Show cheatsheet EXCLUSIVELY in dedicated Hero Roleplay Dialogues!
         if (!scenario.isHeroScenario || !scenario.heroId) {
@@ -1168,7 +1204,11 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        const targetHero = rpgEngine.heroes.find(h => h.id === scenario.heroId);
+        if (!activeVocabHeroId) {
+            activeVocabHeroId = scenario.heroId;
+        }
+
+        const targetHero = rpgEngine.heroes.find(h => h.id === activeVocabHeroId) || rpgEngine.heroes.find(h => h.id === scenario.heroId);
         if (!targetHero) {
             heroWordHelperBox.classList.add("hidden");
             const headerVocabBtn = document.getElementById("header-toggle-vocab-btn");
@@ -1181,6 +1221,11 @@ document.addEventListener("DOMContentLoaded", () => {
         if (headerVocabBtn) {
             headerVocabBtn.style.display = "inline-flex";
             headerVocabBtn.innerHTML = `<i class="fa-solid fa-book-bookmark"></i> Words (${targetHero.words ? targetHero.words.length : 50})`;
+        }
+
+        const deckNameEl = document.getElementById("vocab-deck-hero-name");
+        if (deckNameEl) {
+            deckNameEl.textContent = `${targetHero.name}'s Deck`;
         }
 
         // Grammar rule hint
@@ -1223,29 +1268,25 @@ document.addEventListener("DOMContentLoaded", () => {
                 const currentUsage = getWordUsageCount(targetHero.id, w.word);
                 const allTimeStats = getWordAllTimeStats(targetHero.id, w.word, targetHero.words);
                 
-                let chipStyle = "border:1px solid rgba(255,255,255,0.15); color:var(--text-muted); background:transparent;";
+                let tierClass = "tier-mastered";
                 let tierTooltip = "⚪ Mastered (+1 XP)";
 
                 if (currentUsage === 0) {
-                    chipStyle = "border:1px solid #f59e0b; color:#fbbf24; background:rgba(245,158,11,0.12);";
+                    tierClass = "tier-1st";
                     tierTooltip = "🟡 1st Use Today Bonus: +20 XP!";
                 } else if (currentUsage === 1) {
-                    chipStyle = "border:1px solid #a855f7; color:#c084fc; background:rgba(168,85,247,0.12);";
+                    tierClass = "tier-2nd";
                     tierTooltip = "🟣 2nd Use Today Bonus: +10 XP!";
                 } else if (currentUsage === 2) {
-                    chipStyle = "border:1px solid #3b82f6; color:#60a5fa; background:rgba(59,130,246,0.12);";
+                    tierClass = "tier-3rd";
                     tierTooltip = "🔵 3rd Use Today Bonus: +5 XP!";
                 }
 
                 const chip = document.createElement("button");
                 chip.type = "button";
-                chip.className = "btn btn-sm word-chip-item";
+                chip.className = `btn btn-sm word-chip-item ${tierClass}`;
                 chip.dataset.word = w.word.toLowerCase();
                 chip.dataset.translation = (w.translation || '').toLowerCase();
-                chip.style.fontSize = "11px";
-                chip.style.padding = "2px 8px";
-                chip.style.borderRadius = "5px";
-                chip.style.cssText += chipStyle;
                 chip.title = `${w.word} ${w.phonetic || ''} — ${w.translation || ''} | ${tierTooltip} | Lifetime: ${allTimeStats.count} times (${allTimeStats.percentage}%) (Click to listen 🔊)`;
                 chip.innerHTML = `<strong>${w.word}</strong>`;
 
@@ -1257,7 +1298,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         uttr.lang = "en-US";
                         window.speechSynthesis.speak(uttr);
                     }
-                    showToast(`🔊 <b>Pronounce:</b> ${w.word} (${w.translation || ''})`, "linear-gradient(135deg, #3b82f6, #1d4ed8)", "#60a5fa");
+                    showToast(`🔊 <b>Pronounced:</b> ${w.word} (${w.translation || ''})`, "linear-gradient(135deg, #3b82f6, #1d4ed8)", "#60a5fa");
                 });
 
                 chipsWrap.appendChild(chip);
@@ -1269,10 +1310,30 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Vocabulary Sidebar Toggle & Search Listeners
+    // Vocabulary Sidebar Toggle, Search & Deck Switcher Listeners
     const toggleWordSidebarBtn = document.getElementById("toggle-word-sidebar-btn");
     const headerToggleVocabBtn = document.getElementById("header-toggle-vocab-btn");
     const heroVocabSearch = document.getElementById("hero-vocab-search");
+    const prevHeroVocabBtn = document.getElementById("prev-hero-vocab-btn");
+    const nextHeroVocabBtn = document.getElementById("next-hero-vocab-btn");
+
+    function cycleVocabDeck(direction) {
+        const unlockedHeroes = rpgEngine.heroes.filter(h => h.unlocked);
+        if (unlockedHeroes.length === 0) return;
+
+        let currentIndex = unlockedHeroes.findIndex(h => h.id === activeVocabHeroId);
+        if (currentIndex === -1) currentIndex = 0;
+
+        let newIndex = currentIndex + direction;
+        if (newIndex < 0) newIndex = unlockedHeroes.length - 1;
+        if (newIndex >= unlockedHeroes.length) newIndex = 0;
+
+        activeVocabHeroId = unlockedHeroes[newIndex].id;
+        renderHeroWordHelperPanel(activeScenario);
+    }
+
+    if (prevHeroVocabBtn) prevHeroVocabBtn.addEventListener("click", () => cycleVocabDeck(-1));
+    if (nextHeroVocabBtn) nextHeroVocabBtn.addEventListener("click", () => cycleVocabDeck(1));
 
     function toggleHeroWordSidebar() {
         if (!heroWordHelperBox) return;
