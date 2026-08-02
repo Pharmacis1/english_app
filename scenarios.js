@@ -51,6 +51,16 @@ const SCENARIOS = [
         greeting: "Hey man! Did you watch the latest tech conference stream yesterday? Or did you end up grinding on that bug all night?",
         systemPrompt: "You are Chris, a friendly developer colleague. Use casual expressions and tech banter. Respond in 2-3 sentences and ask a question. If the user makes a grammar error, append [Correction: 💡 Пояснение ошибки на русском языке] at the end."
     },
+    {
+        id: "schedule-appointment",
+        title: "Schedule & Telling Time (A1)",
+        role: "Receptionist: Emma (Time & Schedule Assistant)",
+        level: "A1 Dates, Days, Months & Telling Time",
+        icon: "fa-clock",
+        isHeroScenario: false,
+        greeting: "Hello! Welcome to the City Center Clinic. I can help you schedule your appointment or check the time. What day and what time works best for you?",
+        systemPrompt: "You are Emma, a helpful receptionist. Practice numbers (1-100), days of the week (Monday-Sunday), months (January-December), and telling time ('at 5 o'clock', 'half past 4', 'quarter to 6') with the user. Respond in 2-3 friendly sentences and ask a time-related question. If the user makes a grammar error, append [Correction: 💡 Пояснение ошибки на русском языке] at the end."
+    },
 
     // --- DEDICATED HERO ROLEPLAY SCENARIOS ---
     {

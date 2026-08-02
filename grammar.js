@@ -87,6 +87,44 @@ const GRAMMAR_TOPICS = [
         ]
     },
     {
+        id: "time-numbers-grammar",
+        heroId: "frostina",
+        title: "⏰ Numbers, Time, Days, Months & Telling Time (A1)",
+        level: "A1 Numbers & Telling Time",
+        theory: `
+            <h3>⏰ Module: Числа от 1 до 100+, Дни недели, Месяцы и Время по часам</h3>
+            <p><strong>1. Числа (Numbers):</strong></p>
+            <ul>
+                <li><code>1-12: one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve</code></li>
+                <li><code>13-19 (-teen): thirteen, fourteen, fifteen, sixteen, seventeen, eighteen, nineteen</code></li>
+                <li><code>20-100 (-ty): twenty, thirty, forty, fifty, sixty, seventy, eighty, ninety, hundred</code> (например: <code>twenty-five (25)</code>, <code>one hundred (100)</code>)</li>
+            </ul>
+            <p><strong>2. Дни недели, Месяцы и Времена года (Days, Months & Seasons):</strong></p>
+            <ul>
+                <li><strong>Дни недели (с предлогом ON):</strong> <code>on Monday, on Tuesday, on Wednesday, on Thursday, on Friday, on Saturday, on Sunday</code></li>
+                <li><strong>Месяцы и Времена года (с предлогом IN):</strong> <code>in January, in July, in December | in spring, in summer, in autumn, in winter</code></li>
+            </ul>
+            <p><strong>3. Как назвать время по часам (Telling Time with AT):</strong></p>
+            <ul>
+                <li><code>What time is it? -> It is 5 o'clock (5:00).</code></li>
+                <li><code>It is half past 4 (4:30).</code> | <code>It is quarter past 6 (6:15).</code> | <code>It is quarter to 7 (6:45).</code></li>
+                <li><code>At 8 o'clock / at 8:30 AM.</code> (Предлог времени с точным временем — <strong>AT</strong>).</li>
+            </ul>
+        `,
+        questions: [
+            { id: "num1", text: "Asking time: '_____ time is it?' -> 'It is 4 o'clock.'", options: ["What", "Where", "When", "Who"], correct: 0, explanation: "'What time is it?' — Который час?" },
+            { id: "num2", text: "Preposition with days: 'I play tennis _____ Monday.'", options: ["on", "in", "at", "to"], correct: 0, explanation: "С днями недели используется предлог 'ON' ('on Monday')." },
+            { id: "num3", text: "Preposition with exact time: 'The meeting starts _____ 5 o'clock.'", options: ["at", "on", "in", "by"], correct: 0, explanation: "С точным временем используется предлог 'AT' ('at 5 o'clock')." },
+            { id: "num4", text: "Preposition with months: 'My birthday is _____ July.'", options: ["in", "on", "at", "with"], correct: 0, explanation: "С месяцами используется предлог 'IN' ('in July')." },
+            { id: "num5", text: "Telling time (4:30): 'It is _____ past four.'", options: ["half", "quarter", "thirty", "clock"], correct: 0, explanation: "4:30 — 'half past four' (половина пятого)." },
+            { id: "num6", text: "Select correct number (70): 'There are _____ students.'", options: ["seventy", "seventeen", "seven", "seventh"], correct: 0, explanation: "70 — 'seventy'." },
+            { id: "num7", text: "Telling time (6:15): 'It is _____ past six.'", options: ["quarter", "half", "fifteen", "clock"], correct: 0, explanation: "6:15 — 'quarter past six' (четверть седьмого)." },
+            { id: "num8", text: "Preposition with seasons: 'It is very cold _____ winter.'", options: ["in", "on", "at", "for"], correct: 0, explanation: "С временами года используется предлог 'IN' ('in winter')." },
+            { id: "num9", text: "Select correct day of week: 'The day after Friday is _____.'", options: ["Saturday", "Sunday", "Thursday", "Wednesday"], correct: 0, explanation: "Суббота — 'Saturday'." },
+            { id: "num10", text: "Select correct number (100): 'One _____ gold coins.'", options: ["hundred", "thousand", "million", "tenth"], correct: 0, explanation: "100 — 'hundred'." }
+        ]
+    },
+    {
         id: "frostina-grammar",
         heroId: "frostina",
         title: "❄️ Frostina: Present Simple Tense (A0)",
