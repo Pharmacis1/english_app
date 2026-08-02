@@ -811,12 +811,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const lastQuestDate = localStorage.getItem("english_pulse_last_quest_date");
             let currentStreak = parseInt(localStorage.getItem("english_pulse_streak") || "0", 10);
+            let freezeCount = parseInt(localStorage.getItem("english_pulse_freeze_count") || "1", 10);
+            let usedFreezeThisTime = false;
 
             if (lastQuestDate !== todayStr) {
-                if (lastQuestDate === yesterdayStr) {
+                if (lastQuestDate === yesterdayStr || !lastQuestDate) {
                     currentStreak += 1;
+                } else if (freezeCount > 0) {
+                    // STREAK FREEZE ACTIVATED! Save user's hard-earned streak!
+                    freezeCount -= 1;
+                    currentStreak += 1;
+                    usedFreezeThisTime = true;
+                    localStorage.setItem("english_pulse_freeze_count", freezeCount);
                 } else {
-                    currentStreak = Math.max(1, currentStreak + 1);
+                    // Reset streak if missed day without freeze
+                    currentStreak = 1;
                 }
                 localStorage.setItem("english_pulse_last_quest_date", todayStr);
                 localStorage.setItem("english_pulse_streak", currentStreak);
@@ -831,7 +840,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 unlockToastMsg = `<br>🔓 <b>NEW HERO UNLOCKED: ${newlyUnlocked.join(", ")}!</b>`;
             }
 
-            showToast(`🔥 <b>УДАРНЫЙ РЕЖИМ (${currentStreak} дн.)!</b><br>🏆 <b>DAILY QUEST COMPLETED!</b> +500 XP Awarded!${unlockToastMsg}`, "linear-gradient(135deg, #f59e0b, #ec4899)", "#fbbf24");
+            let freezeNotice = usedFreezeThisTime ? `<br>❄️ <b>ЗАМОРОЗКА СЕРИИ СПАСЛА ОГОНЕК!</b> Пропущенный день заморожен!` : "";
+            showToast(`🔥 <b>УДАРНЫЙ РЕЖИМ (${currentStreak} дн.)!</b><br>🏆 <b>DAILY QUEST COMPLETED!</b> +500 XP Awarded!${freezeNotice}${unlockToastMsg}`, "linear-gradient(135deg, #f59e0b, #ec4899)", "#fbbf24");
             
             renderHeroShowcase();
             renderBottomHeroCarousel();
