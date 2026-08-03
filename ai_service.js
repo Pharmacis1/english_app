@@ -131,22 +131,25 @@ class AIService {
 You are an expert English tutor roleplaying ONLY as ${heroName} (${activeHero.title || 'Hero'}).
 CRITICAL IDENTITY RULE: You are ${heroName}. You are speaking to the USER (a human student/companion). NEVER call the user "${heroName}", "Astraea", "Valerius", or any other hero name! Address the user as "my friend" or "friend".
 
-CRITICAL RESPONSE LENGTH & STYLE RULES FOR EVERY RESPONSE:
-1. STRICT LENGTH LIMIT (EXACTLY 2 SHORT SENTENCES TOTAL):
+CRITICAL CONVERSATIONAL RELEVANCE & RESPONSE RULES:
+1. MANDATORY CONVERSATIONAL RELEVANCE (READ & ANSWER USER'S INPUT):
+   - You MUST read, acknowledge, and directly answer or react to what the user just wrote in their previous message!
+   - If the user answers "No", acknowledge it. If the user asks a question (e.g. "Do you have paper and a table?"), you MUST answer their question directly ("Yes, I have paper on a table." or "No, I do not.").
+   - NEVER ignore the user's message and NEVER jump to random, unrelated objects or topics!
+2. STRICT LENGTH LIMIT (EXACTLY 2 SHORT SENTENCES TOTAL):
    - Your response MUST contain EXACTLY 2 SHORT SENTENCES (10-14 words total)!
-   - Sentence 1: A short, simple statement (e.g., "That map is very useful.").
-   - Sentence 2: Exactly ONE simple question ending your response (e.g., "Is it inside your bag?").
+   - Sentence 1: A direct answer or simple reaction to the user's message.
+   - Sentence 2: Exactly ONE simple, relevant question ending your response.
    - NEVER write 3 sentences! NEVER ask more than ONE question in a single message!
-2. FULL NATURAL SENTENCES (NO CAVEMAN ENGLISH & NO LITERARY WORDS):
+3. FULL NATURAL SENTENCES (NO CAVEMAN ENGLISH & NO LITERARY WORDS):
    - Write complete, simple A0/A1 sentences with subjects ("I", "you", "this") and verbs!
    - NEVER drop subjects/verbs (NEVER say "Open door" or "Have clock").
-   - FORBIDDEN LITERARY WORDS: NEVER use complex words like "parchment", "scroll", "treasures hidden within", "window sill", "sturdy", "lies within". Use basic A0 words ONLY!
-3. MANDATORY ARTICLES RULE:
+   - FORBIDDEN LITERARY WORDS: Use basic A0 words ONLY!
+4. MANDATORY ARTICLES RULE:
    - You MUST ALWAYS use proper articles ("a", "an", "the") or possessive pronouns ("my", "your") before singular countable nouns! (e.g. "a map", "the bag", "a book").
-4. MANDATORY SINGLE QUESTION TEMPLATE: End your response with ONE simple question following these patterns:
-${questionTemplates}
-5. TARGET VOCABULARY TO USE: Try to use 2-3 words from: [${sampleWords}].
-6. TARGET GRAMMAR FOCUS: ${rules}.]`;
+5. TARGET VOCABULARY & GRAMMAR FOCUS (${rules}):
+   - Incorporate 2-3 target words from [${sampleWords}] and practice target grammar while answering the user's question.
+   - Suggested question styles: ${questionTemplates}.]`;
     }
 
     async generateResponse(messagesHistory, scenario, targetHeroObjects = null) {
@@ -169,7 +172,8 @@ At the very end of EVERY response, you MUST append a bracketed evaluation block 
 DO NOT output any translation or extra brackets in the English text.]`;
 
             const systemMessage = { role: 'system', content: `${this.systemPrompt}\nContext/Scenario: ${scenario.systemPrompt}${strictGuide}${heroPrompt}` };
-            formattedMessages = [systemMessage, ...messagesHistory];
+            const recentHistory = (messagesHistory || []).slice(-8); // Keep last 8 messages for sharp context!
+            formattedMessages = [systemMessage, ...recentHistory];
 
             const response = await fetch('/api/ai/chat', {
                 method: 'POST',
