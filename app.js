@@ -2020,7 +2020,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             let easyDays = 4;
             if (curReps + 1 === 1) easyDays = 4;
-            else easyDays = Math.round(curInterval * (curEase + 0.15) * 1.3);
+            else if (curReps + 1 === 2) easyDays = 10;
+            else easyDays = Math.max(goodDays + 2, Math.round(curInterval * (curEase + 0.15) * 1.3));
 
             if (againBtn) againBtn.innerHTML = `<i class="fa-solid fa-xmark"></i> Again <small class="font-mono" style="opacity:0.85; font-size:10px;">(&lt;10m)</small>`;
             if (hardBtn) hardBtn.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> Hard <small class="font-mono" style="opacity:0.85; font-size:10px;">(${hardDays}d)</small>`;

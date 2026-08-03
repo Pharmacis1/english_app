@@ -252,7 +252,11 @@ class FlashcardEngine {
                 card.repetitions += 1;
                 card.easeFactor += 0.15;
                 if (card.repetitions === 1) card.interval = 4;
-                else card.interval = Math.round(card.interval * card.easeFactor * 1.3);
+                else if (card.repetitions === 2) card.interval = 10;
+                else {
+                    const baseGood = Math.round(card.interval * card.easeFactor);
+                    card.interval = Math.max(baseGood + 2, Math.round(card.interval * card.easeFactor * 1.3));
+                }
                 card.learningInSession = false; // Successfully passed session!
                 card.nextReviewDate = Date.now() + (card.interval * oneDayMs);
                 break;
