@@ -1414,8 +1414,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
         renderLeftChatHeroSidebar();
 
+        if (!scenario || !scenario.isHeroScenario) {
+            scenario = activeScenario;
+        }
+
         // Show cheatsheet EXCLUSIVELY in dedicated Hero Roleplay Dialogues!
-        if (!scenario.isHeroScenario || !scenario.heroId) {
+        if (!scenario || !scenario.isHeroScenario || !scenario.heroId) {
             heroWordHelperBox.classList.add("hidden");
             const headerVocabBtn = document.getElementById("header-toggle-vocab-btn");
             if (headerVocabBtn) headerVocabBtn.style.display = "none";
@@ -1575,12 +1579,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function toggleVocabDeckMode() {
         activeVocabViewMode = activeVocabViewMode === "focus" ? "all" : "focus";
-        const currentHero = (typeof HEROES_DATA !== 'undefined' && Array.isArray(HEROES_DATA)) ? HEROES_DATA.find(h => h.id === activeVocabHeroId) : null;
-        if (currentHero) {
-            renderHeroWordHelperPanel(currentHero);
-        } else if (activeScenario) {
-            renderHeroWordHelperPanel(activeScenario);
-        }
+        renderHeroWordHelperPanel(activeScenario);
     }
 
     if (prevHeroVocabModeBtn) prevHeroVocabModeBtn.addEventListener("click", toggleVocabDeckMode);
