@@ -44,7 +44,7 @@ class FlashcardEngine {
                 try { localHeroes = JSON.parse(savedRPG); } catch(e){}
             }
 
-            localHeroes.forEach(h => {
+            localHeroes.filter(h => h.unlocked).forEach(h => {
                 const cefrLabel = h.cefrLevel.split(' ')[0];
                 const deckName = `${h.name}'s Pack (${cefrLabel})`;
                 decks[deckName] = h.words.map(w => ({

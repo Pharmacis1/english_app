@@ -1992,10 +1992,47 @@ document.addEventListener("DOMContentLoaded", () => {
             const btn = document.createElement("button");
             const isSrsTab = cat === "🧠 Due for SRS Review";
             const badgeCount = isSrsTab ? dueCount : flashcardEngine.decks[cat].length;
-            
-            btn.className = `deck-tab-btn ${cat === flashcardEngine.currentCategory ? 'active' : ''} ${isSrsTab ? 'srs-tab' : ''}`;
-            btn.innerHTML = `${cat} <span class="badge" style="background:${isSrsTab ? '#ec4899' : 'rgba(255,255,255,0.1)'}; padding:2px 6px; border-radius:10px; font-size:11px;">${badgeCount}</span>`;
-            
+            const isActive = cat === flashcardEngine.currentCategory;
+
+            let hero = null;
+            if (typeof rpgEngine !== 'undefined' && rpgEngine.heroes) {
+                hero = rpgEngine.heroes.find(h => cat.toLowerCase().includes(h.name.toLowerCase()));
+            }
+
+            let heroName = cat;
+            let avatarContent = `<i class="fa-solid fa-layer-group"></i>`;
+            let accentColor = "#6366f1";
+
+            if (hero) {
+                heroName = hero.name;
+                accentColor = hero.color || "#6366f1";
+                const avatarSrc = hero.faceImage || hero.image;
+                if (avatarSrc) {
+                    avatarContent = `<img src="${avatarSrc}" class="tab-avatar-img" alt="${hero.name}">`;
+                } else {
+                    avatarContent = `<i class="fa-solid ${hero.avatar || 'fa-user'}"></i>`;
+                }
+            } else if (isSrsTab) {
+                heroName = "SRS Review";
+                accentColor = "#ec4899";
+                avatarContent = `<i class="fa-solid fa-brain" style="color:#ec4899;"></i>`;
+            } else if (cat.includes("IT")) {
+                heroName = "IT & Tech";
+                accentColor = "#06b6d4";
+                avatarContent = `<i class="fa-solid fa-laptop-code" style="color:#06b6d4;"></i>`;
+            }
+
+            btn.className = `hero-avatar-tab-chip ${isActive ? 'active' : ''} ${isSrsTab ? 'srs-tab' : ''}`;
+            btn.style.setProperty("--hero-color", accentColor);
+            btn.title = cat;
+            btn.innerHTML = `
+                <div class="avatar-circle-wrapper">
+                    ${avatarContent}
+                    <span class="badge-count" style="background:${isSrsTab ? '#ec4899' : accentColor};">${badgeCount}</span>
+                </div>
+                <span class="tab-hero-name">${heroName}</span>
+            `;
+
             btn.addEventListener("click", () => {
                 flashcardEngine.currentCategory = cat;
                 flashcardEngine.autoAdvanceBatch();

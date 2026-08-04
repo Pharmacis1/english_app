@@ -816,7 +816,7 @@ class RPGEngine {
                     }
 
                     const reqQuests = HERO_UNLOCK_QUEST_THRESHOLDS[idx] !== undefined ? HERO_UNLOCK_QUEST_THRESHOLDS[idx] : 0;
-                    const isUnlockedByQuest = (totalCompletedQuests >= reqQuests);
+                    const isUnlockedByQuest = (savedHero && savedHero.unlocked) || (totalCompletedQuests >= reqQuests);
 
                     if (savedHero) {
                         let heroLevel = parseInt(savedHero.level, 10);
