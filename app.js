@@ -784,8 +784,9 @@ document.addEventListener("DOMContentLoaded", () => {
         let wordsUsedCount = 0;
         let wordsTotalCount = 0;
         if (hero && hero.words) {
-            wordsTotalCount = hero.words.length;
-            wordsUsedCount = hero.words.filter(wObj => getWordUsageCount(hero.id, getWordProps(wObj).word) >= 1).length;
+            const dailyFocus = getHeroAntiRatingFocusWords(hero, 50);
+            wordsTotalCount = dailyFocus.length;
+            wordsUsedCount = dailyFocus.filter(wObj => getWordUsageCount(hero.id, getWordProps(wObj).word) >= 1).length;
         }
         const allHeroWordsUsed = wordsTotalCount > 0 && wordsUsedCount === wordsTotalCount;
 
@@ -841,7 +842,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 `${taskTextDone ? '✅' : '❌'} 10 Text Messages (${state.typedCount}/10)\n` +
                 `${taskListenDone ? '✅' : '❌'} 20 Message Listens (${state.listenedMsgs.length}/20)\n` +
                 `${taskRepeatDone ? '✅' : '❌'} 20 Message Repeats (${state.repeatedMsgs.length}/20)\n` +
-                `${taskWordsDone ? '✅' : '❌'} All Hero Words Used (${wordsUsedCount}/${wordsTotalCount})`;
+                `${taskWordsDone ? '✅' : '❌'} 50 Focus Words Used (${wordsUsedCount}/${wordsTotalCount})`;
         }
 
         if (completedTasksCount === 5 && !state.questClaimed && hero && hero.level < maxLvlCap) {
@@ -1179,6 +1180,46 @@ document.addEventListener("DOMContentLoaded", () => {
         return { count, percentage, total };
     }
 
+    function getHeroAntiRatingFocusWords(hero, targetCount = 50) {
+        if (!hero || !hero.words || hero.words.length === 0) return [];
+        
+        const wordsList = [...hero.words];
+        const dateSeedStr = new Date().toISOString().split('T')[0];
+        
+        function getWordDateHash(wordStr) {
+            let hash = 0;
+            const str = `${hero.id}_${wordStr.toLowerCase()}_${dateSeedStr}`;
+            for (let i = 0; i < str.length; i++) {
+                hash = (hash << 5) - hash + str.charCodeAt(i);
+                hash |= 0;
+            }
+            return Math.abs(hash);
+        }
+        
+        wordsList.sort((a, b) => {
+            const pA = getWordProps(a);
+            const pB = getWordProps(b);
+            
+            const allTimeA = getAllTimeWordUsageCount(hero.id, pA.word);
+            const allTimeB = getAllTimeWordUsageCount(hero.id, pB.word);
+            
+            if (allTimeA !== allTimeB) {
+                return allTimeA - allTimeB;
+            }
+            
+            const todayA = getWordUsageCount(hero.id, pA.word);
+            const todayB = getWordUsageCount(hero.id, pB.word);
+            
+            if (todayA !== todayB) {
+                return todayA - todayB;
+            }
+            
+            return getWordDateHash(pA.word) - getWordDateHash(pB.word);
+        });
+        
+        return wordsList.slice(0, Math.min(targetCount, wordsList.length));
+    }
+
     function getWordVariants(baseWord) {
         if (!baseWord) return new Set();
         const lower = baseWord.toLowerCase().trim();
@@ -1410,7 +1451,24 @@ document.addEventListener("DOMContentLoaded", () => {
         heroGrammarRuleHint.innerHTML = `<i class="fa-solid fa-lightbulb"></i> <strong>Grammar Focus:</strong> ${ruleText}`;
 
         // Categorize words into Nouns, Verbs, Adjectives, Expressions
-        const categorized = categorizeHeroWords(targetHero.words);
+        const focusWords = getHeroAntiRatingFocusWords(targetHero, 50);
+        const usedFocusCount = focusWords.filter(wObj => getWordUsageCount(targetHero.id, getWordProps(wObj).word) >= 1).length;
+
+        const modeTitleEl = document.getElementById("vocab-deck-mode-title");
+        if (modeTitleEl) {
+            if (activeVocabViewMode === "focus") {
+                modeTitleEl.innerHTML = `🎯 Focus Words (${usedFocusCount}/50)`;
+                modeTitleEl.style.color = "#60a5fa";
+                modeTitleEl.title = "Showing 50 least-used Focus Words for today's Daily Quest (Click to show All 110 words)";
+            } else {
+                modeTitleEl.innerHTML = `📚 All Words (${targetHero.words ? targetHero.words.length : 110})`;
+                modeTitleEl.style.color = "#fbbf24";
+                modeTitleEl.title = "Showing All Hero Words (Click to show 50 Focus Words)";
+            }
+        }
+
+        const wordsToDisplay = activeVocabViewMode === "focus" ? focusWords : targetHero.words;
+        const categorized = categorizeHeroWords(wordsToDisplay);
         heroWordsCategoriesContainer.innerHTML = "";
 
         const sections = [
@@ -1508,6 +1566,26 @@ document.addEventListener("DOMContentLoaded", () => {
         activeVocabHeroId = unlockedHeroes[newIndex].id;
         renderHeroWordHelperPanel(activeScenario);
     }
+
+    let activeVocabViewMode = "focus"; // "focus" (50 words) or "all" (110 words)
+
+    const prevHeroVocabModeBtn = document.getElementById("prev-hero-vocab-mode-btn");
+    const nextHeroVocabModeBtn = document.getElementById("next-hero-vocab-mode-btn");
+    const vocabDeckModeTitle = document.getElementById("vocab-deck-mode-title");
+
+    function toggleVocabDeckMode() {
+        activeVocabViewMode = activeVocabViewMode === "focus" ? "all" : "focus";
+        const currentHero = (typeof HEROES_DATA !== 'undefined' && Array.isArray(HEROES_DATA)) ? HEROES_DATA.find(h => h.id === activeVocabHeroId) : null;
+        if (currentHero) {
+            renderHeroWordHelperPanel(currentHero);
+        } else if (activeScenario) {
+            renderHeroWordHelperPanel(activeScenario);
+        }
+    }
+
+    if (prevHeroVocabModeBtn) prevHeroVocabModeBtn.addEventListener("click", toggleVocabDeckMode);
+    if (nextHeroVocabModeBtn) nextHeroVocabModeBtn.addEventListener("click", toggleVocabDeckMode);
+    if (vocabDeckModeTitle) vocabDeckModeTitle.addEventListener("click", toggleVocabDeckMode);
 
     if (prevHeroVocabBtn) prevHeroVocabBtn.addEventListener("click", () => cycleVocabDeck(-1));
     if (nextHeroVocabBtn) nextHeroVocabBtn.addEventListener("click", () => cycleVocabDeck(1));
