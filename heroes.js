@@ -83,8 +83,6 @@ function generateHeroWords(heroId) {
             ["Am", "/æm/", "Есть (я)", "I am Valerius."],
             ["Is", "/ɪz/", "Есть (он/она/оно)", "He is ready."],
             ["Are", "/ɑːr/", "Есть (ты/мы/они)", "They are knights."],
-            ["Was", "/wɒz/", "Был", "He was a hero."],
-            ["Were", "/wɜːr/", "Были", "We were friends."],
             ["Become", "/bɪˈkʌm/", "Становиться", "Become a paladin."],
             ["Live", "/lɪv/", "Жить", "We live in peace."],
             ["Life", "/laɪf/", "Жизнь", "A good life."],
@@ -113,7 +111,9 @@ function generateHeroWords(heroId) {
             ["Girlfriend", "/ˈɡɜːl.frend/", "Девушка", "A happy girlfriend."],
             ["Partner", "/ˈpɑːt.nər/", "Партнёр / Соратник", "A brave battle partner."],
             ["Member", "/ˈmem.bər/", "Член команды / гильдии", "A member of the squad."],
-            ["Companion", "/kəmˈpæn.jən/", "Спутник", "A trusted companion."]
+            ["Companion", "/kəmˈpæn.jən/", "Спутник", "A trusted companion."],
+            ["Cooking", "/cooking/", "Cooking", "A1 core word: Cooking."],
+            ["Conversation", "/conversation/", "Conversation", "A1 core word: Conversation."]
         ],
         astraea: [
             ["Have", "/hæv/", "Иметь", "I have a magic wand."],
@@ -900,6 +900,8 @@ function generateHeroWords(heroId) {
             ["Cd", "/cd/", "Cd", "A1 core word: Cd."]
         ],
         freya: [
+            ["Was", "/wɒz/", "Был", "He was a hero."],
+            ["Were", "/wɜːr/", "Были", "We were friends."],
             ["Did", "/dɪd/", "Делал (Past Simple)", "Did you travel yesterday?"],
             ["Went", "/went/", "Пошёл / Поехал", "I went to the city."],
             ["Came", "/keɪm/", "Пришёл", "He came home late."],
@@ -1007,9 +1009,7 @@ function generateHeroWords(heroId) {
             ["Common", "/common/", "Common", "A1 core word: Common."],
             ["Company", "/company/", "Company", "A1 core word: Company."],
             ["Compare", "/compare/", "Compare", "A1 core word: Compare."],
-            ["Concert", "/concert/", "Concert", "A1 core word: Concert."],
-            ["Conversation", "/conversation/", "Conversation", "A1 core word: Conversation."],
-            ["Cooking", "/cooking/", "Cooking", "A1 core word: Cooking."]
+            ["Concert", "/concert/", "Concert", "A1 core word: Concert."]
         ],
         eldrin: [
             ["Going to", "/ˈɡəʊ.ɪŋ tuː/", "Собираться (сделать)", "I am going to study."],
