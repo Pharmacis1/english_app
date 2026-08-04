@@ -37,25 +37,27 @@ const GRAMMAR_TOPICS = [
         title: "💖 Astraea: Verbs 'have', 'want', 'like' (A0)",
         level: "A0 Essential Verbs & Infinitives",
         theory: `
-            <h3>💖 Astraea's Module: Глаголы Have, Want, Like + Инфинитив</h3>
-            <p>Основные глаголы состояния и желаний:</p>
+            <h3>💖 Astraea's Module: Глаголы Have, Want, Like + Инфинитив и Союзы (because, but, so, or)</h3>
+            <p>Основные глаголы состояния, желаний и связующие союзы:</p>
             <ul>
                 <li><code>I have a potion.</code> (У меня есть зелье)</li>
                 <li><code>I want to learn English.</code> (Я хочу учить английский — <em>want + to + verb</em>)</li>
-                <li><code>She likes music.</code> (Ей нравится музыка)</li>
+                <li><code>I study English because I love it.</code> (<em>because</em> = потому что)</li>
+                <li><code>It is cold, but I am warm.</code> (<em>but</em> = но)</li>
+                <li><code>Do you want tea or coffee?</code> (<em>or</em> = или)</li>
             </ul>
         `,
         questions: [
             { id: "a1", text: "Complete: 'I want _____ learn English.'", options: ["to", "for", "in", "at"], correct: 0, explanation: "После 'want' перед следующим глаголом ставится 'to'." },
             { id: "a2", text: "Choose form: 'He _____ a new book.'", options: ["has", "have", "having", "is have"], correct: 0, explanation: "Для 'He/She/It' используется 'has'." },
-            { id: "a3", text: "Complete: 'She likes _____ healthy food.'", options: ["to eat", "eat", "eating to", "eats to"], correct: 0, explanation: "После 'like' используется 'to eat'." },
+            { id: "a3", text: "Complete: 'I study English _____ I want to travel.'", options: ["because", "but", "or", "so"], correct: 0, explanation: "'Because' означает 'потому что' и указывает на причину." },
             { id: "a4", text: "Select: 'We _____ a big house.'", options: ["have", "has", "having", "are have"], correct: 0, explanation: "С местоимением 'We' используется 'have'." },
-            { id: "a5", text: "Complete: 'Do you want _____ help me?'", options: ["to", "for", "with", "at"], correct: 0, explanation: "Конструкция 'want to help'." },
-            { id: "a6", text: "Choose: 'I _____ to rest after work.'", options: ["need", "needing", "needs", "is need"], correct: 0, explanation: "С местоимением 'I' глагол 'need'." },
+            { id: "a5", text: "Complete: 'I am tired, _____ I am very happy.'", options: ["but", "because", "or", "so"], correct: 0, explanation: "'But' означает 'но' для противопоставления." },
+            { id: "a6", text: "Choose: 'Do you want tea _____ coffee?'", options: ["or", "because", "but", "so"], correct: 0, explanation: "'Or' означает 'или' при выборе." },
             { id: "a7", text: "Complete: 'Astraea _____ a magic wand.'", options: ["has", "have", "haves", "is has"], correct: 0, explanation: "Astraea = She -> 'has'." },
-            { id: "a8", text: "Select: 'They _____ to play games in the evening.'", options: ["like", "likes", "liking", "are like"], correct: 0, explanation: "Для 'They' используем 'like'." },
+            { id: "a8", text: "Select: 'I am hungry, _____ I eat a sandwich.'", options: ["so", "because", "but", "or"], correct: 0, explanation: "'So' означает 'поэтому' (следствие)." },
             { id: "a9", text: "Fill in: 'Do you _____ water?'", options: ["need", "needs", "needing", "to need"], correct: 0, explanation: "Вопрос с 'Do' требует начальную форму 'need'." },
-            { id: "a10", text: "Complete: 'I _____ a goal to speak English fluently.'", options: ["have", "has", "am have", "having"], correct: 0, explanation: "'I have a goal'." }
+            { id: "a10", text: "Complete: 'I am here _____ I want to help you.'", options: ["because", "or", "but", "so"], correct: 0, explanation: "'Because' объясняет причину появления." }
         ]
     },
     {

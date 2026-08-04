@@ -933,8 +933,8 @@ const HEROES_DATA = [
         avatar: "fa-wand-magic-sparkles", color: "#10b981", image: "images/astraea_hero_standalone.png", faceImage: "images/astraea_face.png", unlocked: false, level: 1, xp: 0, maxXp: 150, affinityLevel: 0,
         hp: 180, maxHp: 180, atk: 14, def: 6, skillName: "Holy Radiance", skillDesc: "Restores 140 HP.", skillIcon: "fa-hand-holding-medical",
         words: generateHeroWords("astraea"),
-        sentenceTemplates: ["I have [a goal].", "I want to [eat / help].", "Do you like [tea]?"],
-        grammarRules: ["Глагол to have", "Глагол to want + to + verb"],
+        sentenceTemplates: ["I have [a goal].", "I want to [eat / help].", "I study because [I love it]."],
+        grammarRules: ["Глаголы have, want, like", "Союзы because, but, so, or"],
         voiceConfig: { kokoroVoice: "af_heart", gender: "female", pitch: 1.1, rate: 0.9 }
     },
     {
