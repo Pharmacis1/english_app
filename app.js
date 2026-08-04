@@ -528,6 +528,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (btnWords) {
         btnWords.addEventListener("click", () => {
+            const hero = rpgEngine.heroes.find(h => h.id === activeShowcaseHeroId) || rpgEngine.heroes[0];
+            if (hero) {
+                const cefrLabel = hero.cefrLevel.split(' ')[0];
+                const deckName = `${hero.name}'s Pack (${cefrLabel})`;
+                flashcardEngine.currentCategory = deckName;
+                flashcardEngine.batchIndex = 0;
+                flashcardEngine.currentIndex = 0;
+            }
+            renderFlashcardsUI();
             const wordsModal = document.getElementById("modal-hero-words");
             if (wordsModal) wordsModal.classList.remove("hidden");
         });
