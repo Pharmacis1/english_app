@@ -181,8 +181,48 @@ document.addEventListener("DOMContentLoaded", () => {
         const headerStreakEl = document.getElementById("rpg-header-streak");
         if (headerStreakEl) headerStreakEl.textContent = currentStreak;
 
+        // Player total dictionary words count across unlocked heroes & decks
+        const headerWordsEl = document.getElementById("rpg-header-words");
+        if (headerWordsEl) {
+            headerWordsEl.textContent = getPlayerTotalDictionaryWordsCount();
+        }
+
         // 6. Highlight bottom carousel card
         renderBottomHeroCarousel();
+    }
+
+    function getPlayerTotalDictionaryWordsCount() {
+        let totalWords = 0;
+        if (typeof rpgEngine !== 'undefined' && rpgEngine.heroes) {
+            rpgEngine.heroes.forEach(h => {
+                if (h.unlocked && h.words) {
+                    totalWords += h.words.length;
+                }
+            });
+        }
+        if (typeof flashcardEngine !== 'undefined' && flashcardEngine.decks) {
+            const heroWordSet = new Set();
+            if (rpgEngine && rpgEngine.heroes) {
+                rpgEngine.heroes.forEach(h => {
+                    if (h.words) {
+                        h.words.forEach(w => {
+                            const wordStr = typeof w === 'string' ? w : w.word;
+                            if (wordStr) heroWordSet.add(wordStr.toLowerCase());
+                        });
+                    }
+                });
+            }
+            Object.values(flashcardEngine.decks).forEach(deck => {
+                if (Array.isArray(deck)) {
+                    deck.forEach(card => {
+                        if (card && card.word && !heroWordSet.has(card.word.toLowerCase())) {
+                            totalWords += 1;
+                        }
+                    });
+                }
+            });
+        }
+        return totalWords || 100;
     }
 
     function renderBottomHeroCarousel() {
