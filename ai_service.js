@@ -70,7 +70,7 @@ class AIService {
         const activeHero = targetHeroObjects[0];
         const heroName = activeHero.name;
 
-        const heroWords = activeHero.words ? activeHero.words.map(w => typeof w === 'string' ? w : w.word) : [];
+        const heroWords = activeHero.words ? activeHero.words.map(w => typeof w === 'string' ? w : (Array.isArray(w) ? w[0] : (w.word || ""))) : [];
         const shuffled = [...heroWords].sort(() => 0.5 - Math.random());
         const sampleWords = shuffled.slice(0, 6).join(", ");
         const rules = activeHero.grammarRules ? activeHero.grammarRules.join("; ") : "";
@@ -296,8 +296,8 @@ DO NOT output any translation or extra brackets in the English text.]`;
 
         let heroPrefix = "";
         if (targetHeroObjects && targetHeroObjects.length > 0) {
-            const firstHero = targetHeroObjects[0];
-            const sampleWord = firstHero.words[0] ? firstHero.words[0].word : "friend";
+            const firstWordObj = firstHero.words && firstHero.words[0];
+            const sampleWord = firstWordObj ? (Array.isArray(firstWordObj) ? firstWordObj[0] : (firstWordObj.word || "friend")) : "friend";
             heroPrefix = `[Using ${firstHero.name}'s word "${sampleWord}"] `;
         }
 
@@ -362,6 +362,7 @@ class VoiceService {
     async speak(text, onStart = null, onEnd = null, heroVoiceConfig = null) {
         this.stopSpeech();
 
+        if (!text || typeof text !== 'string') return;
         const cleanText = text.replace(/[*_#`]/g, '').trim();
         if (!cleanText) return;
 

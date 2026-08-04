@@ -206,7 +206,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 rpgEngine.heroes.forEach(h => {
                     if (h.words) {
                         h.words.forEach(w => {
-                            const wordStr = typeof w === 'string' ? w : w.word;
+                            const wordStr = typeof w === 'string' ? w : (Array.isArray(w) ? w[0] : (w.word || ""));
                             if (wordStr) heroWordSet.add(wordStr.toLowerCase());
                         });
                     }
@@ -785,7 +785,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let wordsTotalCount = 0;
         if (hero && hero.words) {
             wordsTotalCount = hero.words.length;
-            wordsUsedCount = hero.words.filter(wObj => getWordUsageCount(hero.id, wObj.word) >= 1).length;
+            wordsUsedCount = hero.words.filter(wObj => getWordUsageCount(hero.id, getWordProps(wObj).word) >= 1).length;
         }
         const allHeroWordsUsed = wordsTotalCount > 0 && wordsUsedCount === wordsTotalCount;
 

@@ -47,21 +47,27 @@ class FlashcardEngine {
             localHeroes.filter(h => h.unlocked).forEach(h => {
                 const cefrLabel = h.cefrLevel.split(' ')[0];
                 const deckName = `${h.name}'s Pack (${cefrLabel})`;
-                decks[deckName] = h.words.map(w => ({
-                    word: w.word,
-                    phonetic: w.phonetic,
-                    translation: w.translation,
-                    definition: `Hero Pack: ${h.name} (${h.cefrLevel})`,
-                    example: w.example,
-                    heroId: h.id,
-                    rating: 0,
-                    interval: 1,
-                    easeFactor: 2.5,
-                    repetitions: 0,
-                    nextReviewDate: 0,
-                    studied: false,
-                    learningInSession: false
-                }));
+                decks[deckName] = (h.words || []).map(w => {
+                    const wWord = Array.isArray(w) ? w[0] : (w.word || "");
+                    const wPhonetic = Array.isArray(w) ? w[1] : (w.phonetic || "");
+                    const wTranslation = Array.isArray(w) ? w[2] : (w.translation || "");
+                    const wExample = Array.isArray(w) ? w[3] : (w.example || "");
+                    return {
+                        word: wWord,
+                        phonetic: wPhonetic,
+                        translation: wTranslation,
+                        definition: `Hero Pack: ${h.name} (${h.cefrLevel})`,
+                        example: wExample,
+                        heroId: h.id,
+                        rating: 0,
+                        interval: 1,
+                        easeFactor: 2.5,
+                        repetitions: 0,
+                        nextReviewDate: 0,
+                        studied: false,
+                        learningInSession: false
+                    };
+                }).filter(c => c.word && c.word.length > 0);
             });
         }
 
