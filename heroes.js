@@ -621,7 +621,7 @@ const HEROES_DATA = [
     },
     {
         id: "frostina", name: "Frostina", role: "Control", cefrRank: 2, cefrLevel: "A0 (Time, Weather & Routines)", title: "Ice Sorceress",
-        avatar: "fa-snowflake", color: "#06b6d4", image: "images/hero_frostina_1785227676165.jpg", unlocked: false, level: 1, xp: 0, maxXp: 150, affinityLevel: 0,
+        avatar: "fa-snowflake", color: "#06b6d4", image: "images/frostina_hero_standalone.png", faceImage: "images/frostina_face.png", unlocked: false, level: 1, xp: 0, maxXp: 150, affinityLevel: 0,
         hp: 170, maxHp: 170, atk: 32, def: 6, skillName: "Deep Freeze", skillDesc: "Freezes enemies.", skillIcon: "fa-icicles",
         words: generateHeroWords("frostina"),
         sentenceTemplates: ["I [always / usually] wake up early.", "It is [cold / sunny] today."],
