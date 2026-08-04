@@ -175,8 +175,28 @@ const SCENARIOS = [
     }
 ];
 
-// Helper function to categorize a hero's 50 words into Parts of Speech (Nouns, Verbs, Adjectives, Expressions)
+function getWordProps(wObj) {
+    if (!wObj) return { word: "", phonetic: "", translation: "", example: "" };
+    if (Array.isArray(wObj)) {
+        return {
+            word: wObj[0] || "",
+            phonetic: wObj[1] || "",
+            translation: wObj[2] || "",
+            example: wObj[3] || ""
+        };
+    }
+    return {
+        word: wObj.word || "",
+        phonetic: wObj.phonetic || "",
+        translation: wObj.translation || "",
+        example: wObj.example || ""
+    };
+}
+
+// Helper function to categorize a hero's words into Parts of Speech (Nouns, Verbs, Adjectives, Expressions)
 function categorizeHeroWords(heroWords) {
+    if (!heroWords || !Array.isArray(heroWords)) return { nouns: [], verbs: [], adjectives: [], expressions: [] };
+
     const nouns = [];
     const verbs = [];
     const adjectives = [];
@@ -189,15 +209,17 @@ function categorizeHeroWords(heroWords) {
     const EXPR_SET = new Set(["hello", "goodbye", "please", "thank you", "welcome", "yes", "no", "i", "you", "he", "she", "it", "we", "they", "my", "your", "his", "her", "our", "their", "this", "that", "these", "those", "today", "tomorrow", "yesterday", "now", "later", "soon", "always", "usually", "sometimes", "never", "often", "where", "when", "why", "how", "who", "what", "which", "in", "on", "at", "under", "behind", "near", "far", "can", "cannot", "was", "were", "ago", "last"]);
 
     heroWords.forEach(wObj => {
-        const lower = wObj.word.toLowerCase().trim();
+        const p = getWordProps(wObj);
+        if (!p.word) return;
+        const lower = p.word.toLowerCase().trim();
         if (VERB_SET.has(lower)) {
-            verbs.push(wObj);
+            verbs.push(p);
         } else if (ADJ_SET.has(lower)) {
-            adjectives.push(wObj);
+            adjectives.push(p);
         } else if (EXPR_SET.has(lower)) {
-            expressions.push(wObj);
+            expressions.push(p);
         } else {
-            nouns.push(wObj);
+            nouns.push(p);
         }
     });
 
