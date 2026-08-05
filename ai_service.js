@@ -70,9 +70,31 @@ class AIService {
         const activeHero = targetHeroObjects[0];
         const heroName = activeHero.name;
 
-        const heroWords = activeHero.words ? activeHero.words.map(w => typeof w === 'string' ? w : (Array.isArray(w) ? w[0] : (w.word || ""))) : [];
-        const shuffled = [...heroWords].sort(() => 0.5 - Math.random());
-        const sampleWords = shuffled.slice(0, 6).join(", ");
+        let focusWords = [];
+        if (typeof window !== 'undefined' && typeof window.getHeroAntiRatingFocusWords === 'function') {
+            const focusObjs = window.getHeroAntiRatingFocusWords(activeHero, 50);
+            if (focusObjs && focusObjs.length > 0) {
+                focusWords = focusObjs.map(w => typeof w === 'string' ? w : (Array.isArray(w) ? w[0] : (w.word || "")));
+            }
+        }
+        if (!focusWords || focusWords.length === 0) {
+            focusWords = activeHero.words ? activeHero.words.map(w => typeof w === 'string' ? w : (Array.isArray(w) ? w[0] : (w.word || ""))) : [];
+        }
+
+        // Prioritize Focus Words that have 0 usage today!
+        const unUsedFocusWords = focusWords.filter(w => {
+            if (typeof window !== 'undefined' && typeof window.getWordUsageCount === 'function') {
+                return window.getWordUsageCount(activeHero.id, w) === 0;
+            }
+            return true;
+        });
+
+        const shuffledUnused = [...unUsedFocusWords].sort(() => 0.5 - Math.random());
+        const shuffledAllFocus = [...focusWords].sort(() => 0.5 - Math.random());
+        
+        const selectedFocusPool = [...shuffledUnused, ...shuffledAllFocus];
+        const uniqueSelected = Array.from(new Set(selectedFocusPool)).slice(0, 8);
+        const sampleWords = uniqueSelected.join(", ");
         const rules = activeHero.grammarRules ? activeHero.grammarRules.join("; ") : "";
 
         let questionTemplates = "";
@@ -147,8 +169,9 @@ CRITICAL CONVERSATIONAL RELEVANCE & RESPONSE RULES:
    - FORBIDDEN LITERARY WORDS: Use basic A0 words ONLY!
 4. MANDATORY ARTICLES RULE:
    - You MUST ALWAYS use proper articles ("a", "an", "the") or possessive pronouns ("my", "your") before singular countable nouns! (e.g. "a map", "the bag", "a book").
-5. TARGET VOCABULARY & GRAMMAR FOCUS (${rules}):
-   - Incorporate 2-3 target words from [${sampleWords}] and practice target grammar while answering the user's question.
+5. TARGET VOCABULARY FOCUS FOR TODAY'S QUEST (${rules}):
+   - Prioritize using 2-3 target words from today's Daily Focus list: [${sampleWords}].
+   - Use these words naturally when answering and asking questions so the user can practice them and complete their daily quest!
    - Suggested question styles: ${questionTemplates}.]`;
     }
 

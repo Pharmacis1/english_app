@@ -1220,6 +1220,9 @@ document.addEventListener("DOMContentLoaded", () => {
         return wordsList.slice(0, Math.min(targetCount, wordsList.length));
     }
 
+    window.getWordUsageCount = getWordUsageCount;
+    window.getHeroAntiRatingFocusWords = getHeroAntiRatingFocusWords;
+
     function getWordVariants(baseWord) {
         if (!baseWord) return new Set();
         const lower = baseWord.toLowerCase().trim();
