@@ -1201,17 +1201,15 @@ document.addEventListener("DOMContentLoaded", () => {
             const pB = getWordProps(b);
             
             const allTimeA = getAllTimeWordUsageCount(hero.id, pA.word);
-            const allTimeB = getAllTimeWordUsageCount(hero.id, pB.word);
-            
-            if (allTimeA !== allTimeB) {
-                return allTimeA - allTimeB;
-            }
-            
             const todayA = getWordUsageCount(hero.id, pA.word);
+            const priorA = Math.max(0, allTimeA - todayA);
+
+            const allTimeB = getAllTimeWordUsageCount(hero.id, pB.word);
             const todayB = getWordUsageCount(hero.id, pB.word);
+            const priorB = Math.max(0, allTimeB - todayB);
             
-            if (todayA !== todayB) {
-                return todayA - todayB;
+            if (priorA !== priorB) {
+                return priorA - priorB;
             }
             
             return getWordDateHash(pA.word) - getWordDateHash(pB.word);
