@@ -1933,21 +1933,21 @@ document.addEventListener("DOMContentLoaded", () => {
         userChatInput.disabled = false;
         if (sendChatBtn) sendChatBtn.disabled = false;
 
-        if (!checkResult.isValid) {
-            // Error found! DO NOT SEND MESSAGE! Keep text in input field so user can fix it!
+        // Non-blocking grammar evaluation: show tip if error detected, but ALWAYS SEND MESSAGE!
+        if (!checkResult.isValid && checkResult.feedback) {
             if (feedbackText) {
                 feedbackText.innerHTML = checkResult.feedback.startsWith("💡") ? checkResult.feedback : `💡 ${checkResult.feedback}`;
             }
             if (feedbackBanner) {
                 feedbackBanner.classList.remove("hidden");
             }
-            userChatInput.focus();
-            userChatInput.style.borderColor = "#f59e0b";
-            setTimeout(() => { userChatInput.style.borderColor = ""; }, 2500);
-            return; // STOP! Message is NOT sent to chat!
+        } else {
+            if (feedbackBanner) {
+                feedbackBanner.classList.add("hidden");
+            }
         }
 
-        // Message is 100% VALID! Proceed to send!
+        // ALWAYS SEND MESSAGE TO CHAT IN ALL CASES!
         userChatInput.style.borderColor = "";
         userChatInput.value = "";
         appendMessage("user", text);
