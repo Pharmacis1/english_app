@@ -116,83 +116,16 @@ class AIService {
         const sampleWords = targetFiveWords.join(", ");
         const rules = activeHero.grammarRules ? activeHero.grammarRules.join("; ") : "";
 
-        let questionTemplates = "";
-        if (activeHero.id === "valerius") {
-            questionTemplates = `Ask ultra-simple A0 'to be' questions using these exact patterns ONLY:
-- "Are you [brave / happy / strong / ready]?"
-- "Is your [father / mother / brother / sister / friend] a [knight / leader]?"
-- "Is your [shield / sword] [good / strong / ready]?"
-- "Is [he / she / it / your friend] [happy / brave]?"`;
-        } else if (activeHero.id === "astraea") {
-            questionTemplates = `Ask ultra-simple A0 'have / want / like' questions using these exact patterns ONLY:
-- "Do you have [water / bread / food / milk / tea / coffee / fruit / an apple]?"
-- "Do you want to [eat / drink / sleep / walk / cook / clean]?"
-- "Do you like [apples / an apple / fish / soup / tea / coffee]?"`;
-        } else if (activeHero.id === "ignis") {
-            questionTemplates = `Ask ultra-simple A0 'this/that/these/those' & object/color questions using these exact patterns ONLY:
-- "Is this [a red magic book / a glowing staff / a sword / a ring]?"
-- "Is that [a blue shield / a green potion / an old hat] on the table over there?"
-- "Are these [your boots / your magic books]?"
-- "What color is [this book / that staff / your shirt]?"`;
-        } else if (activeHero.id === "frostina") {
-            questionTemplates = `Ask ultra-simple A0/A1 weather, routines, and time questions using these exact patterns ONLY:
-- "What time is it in your town right now?"
-- "Do you usually wake up early on [Monday / Friday]?"
-- "Is it [cold / hot / rainy / snowy] today?"`;
-        } else if (activeHero.id === "zephyr") {
-            questionTemplates = `Ask ultra-simple A0 places, prepositions, and question-word questions using these exact patterns ONLY:
-- "Where are you going today?"
-- "Is the key [on the table / in the room / near the door]?"
-- "When do you study English?"`;
-        } else if (activeHero.id === "thorin") {
-            questionTemplates = `Ask ultra-simple A0/A1 adjectives and plural questions using these exact patterns ONLY:
-- "Do you carry [a heavy hammer / a strong shield / a big axe]?"
-- "Are there two [books / boxes / men] on the table?"`;
-        } else if (activeHero.id === "selene") {
-            questionTemplates = `Ask ultra-simple A1 modal 'can/can't' and hobby questions using these exact patterns ONLY:
-- "Can you [play the guitar / swim / drive a car / speak English]?"
-- "Can your friend [sing / run fast / cook good food]?"`;
-        } else if (activeHero.id === "oberon") {
-            questionTemplates = `Ask ultra-simple A1 Present Continuous ('is/are -ing') questions using these exact patterns ONLY:
-- "What are you doing right now?"
-- "Is the sun shining over your town today?"`;
-        } else if (activeHero.id === "freya") {
-            questionTemplates = `Ask ultra-simple A1 Past Simple ('was/were', '-ed', 'went') questions using these exact patterns ONLY:
-- "Did you [travel / visit a friend / walk in the park] yesterday?"
-- "Were you [happy / tired / busy] yesterday?"`;
-        } else if (activeHero.id === "eldrin") {
-            questionTemplates = `Ask ultra-simple A1 future ('be going to') and mastery questions using these exact patterns ONLY:
-- "Are you going to [study English / travel / read a book] tomorrow?"
-- "What is your main goal for English learning?"`;
-        } else {
-            questionTemplates = `Ask ultra-simple 3-5 word A0 questions using target words from: [${sampleWords}]`;
-        }
+        return `You are roleplaying as ${heroName} (${activeHero.title || 'Hero'}), an English tutor. Address the user as "friend".
 
-        return `\n\n[STRICT CEFR A0/A1 TUTOR DIRECTIVE:
-You are an expert English tutor roleplaying ONLY as ${heroName} (${activeHero.title || 'Hero'}).
-CRITICAL IDENTITY RULE: You are ${heroName}. You are speaking to the USER (a human student/companion). NEVER call the user "${heroName}", "Astraea", "Valerius", or any other hero name! Address the user as "my friend" or "friend".
-
-CRITICAL CONVERSATIONAL RELEVANCE & RESPONSE RULES:
-1. MANDATORY CONVERSATIONAL RELEVANCE (READ & ANSWER USER'S INPUT):
-   - You MUST read, acknowledge, and directly answer or react to what the user just wrote in their previous message!
-   - If the user answers "No", acknowledge it. If the user asks a question (e.g. "Do you have paper and a table?"), you MUST answer their question directly ("Yes, I have paper on a table." or "No, I do not.").
-   - NEVER ignore the user's message and NEVER jump to random, unrelated objects or topics!
-2. STRICT LENGTH LIMIT (EXACTLY 2 SHORT SENTENCES TOTAL):
-   - Your response MUST contain EXACTLY 2 SHORT SENTENCES (10-14 words total)!
-   - Sentence 1: A direct answer or simple reaction to the user's message.
-   - Sentence 2: Exactly ONE simple, relevant question ending your response.
-   - NEVER write 3 sentences! NEVER ask more than ONE question in a single message!
-3. FULL NATURAL SENTENCES (NO CAVEMAN ENGLISH & NO LITERARY WORDS):
-   - Write complete, simple A0/A1 sentences with subjects ("I", "you", "this") and verbs!
-   - NEVER drop subjects/verbs (NEVER say "Open door" or "Have clock").
-   - FORBIDDEN LITERARY WORDS: Use basic A0 words ONLY!
-4. MANDATORY ARTICLES RULE:
-   - You MUST ALWAYS use proper articles ("a", "an", "the") or possessive pronouns ("my", "your") before singular countable nouns! (e.g. "a map", "the bag", "a book").
-5. TARGET VOCABULARY & USER NUDGE DIRECTIVE (${rules}):
-   - You are given EXACTLY 5 MICRO-FOCUS target words for this conversation turn: [${sampleWords}].
-   - MANDATORY: You MUST incorporate 1 or 2 of these target words ([${sampleWords}]) into your response!
-   - MANDATORY USER NUDGE: Your ending question (Sentence 2) MUST gently prompt/nudge the user to use one of these target words ([${sampleWords}]) in their next reply!
-   - Suggested question styles: ${questionTemplates}.]`;
+RULES:
+1. Answer the user's message directly in simple A0/A1 English.
+2. Reply in EXACTLY 2 short sentences total (Sentence 1: Answer/reaction. Sentence 2: One simple question).
+3. Practice target grammar (${rules}) and use 1-2 words from these 5 target words: [${sampleWords}]. Ask a question that nudges the user to use one of these target words in their answer!
+4. At the very end of your response, add a Russian grammar check for the user's message:
+   - Greetings (e.g. "Hello!", "Hi!") are 100% correct! Never mark greetings as errors.
+   - If user made a real error: [Correction: 💡 В сообщении есть ошибка: <краткое пояснение на русском>]
+   - If user's message is correct: [Correction: ✅ Отлично! Сообщение написано правильно!]`;
     }
 
     async generateResponse(messagesHistory, scenario, targetHeroObjects = null) {
@@ -202,19 +135,18 @@ CRITICAL CONVERSATIONAL RELEVANCE & RESPONSE RULES:
 
         let formattedMessages = [];
         try {
-            const heroPrompt = this.buildHeroPrompt(targetHeroObjects);
-            const strictGuide = `\n[MANDATORY GRAMMAR & SPELLING EVALUATION DIRECTIVE:
-At the very end of EVERY response, you MUST append a bracketed evaluation block in RUSSIAN for the user's input:
-- Check for Russian words inserted into English (e.g. "умер" -> "dead" / "passed away").
-- Check for incorrect short answers (e.g. "Not" -> "No" or "No, I am not").
-- Check for missing articles or missing verbs (e.g. "I have sister" -> "I have a sister", "I happy" -> "I am happy").
-- Check for typos (e.g. "happi" -> "happy").
-- CRITICAL: Greetings like "Hello!", "Hi!", "Hello Valerius!", "Good morning" are 100% CORRECT natural English expressions! NEVER claim a greeting is an error, and NEVER demand that the user introduce themselves as "Valerius" or any other name!
-- If user's input has a REAL grammar/spelling error: [Correction: 💡 В сообщении есть ошибка: <explain exact error in Russian>]
-- ONLY if user's input is 100% grammatically correct (including natural greetings): [Correction: ✅ Отлично! Предложение написано полностью правильно!]
-DO NOT output any translation or extra brackets in the English text.]`;
+            let systemPromptContent = "";
+            if (targetHeroObjects && targetHeroObjects.length > 0) {
+                systemPromptContent = this.buildHeroPrompt(targetHeroObjects);
+            } else {
+                systemPromptContent = `${(scenario && scenario.systemPrompt) ? scenario.systemPrompt : this.systemPrompt}
 
-            const systemMessage = { role: 'system', content: `${this.systemPrompt}\nContext/Scenario: ${scenario.systemPrompt}${strictGuide}${heroPrompt}` };
+RULES:
+1. Respond in 2-3 concise, natural English sentences.
+2. At the end, add Russian error check: [Correction: 💡 <пояснение ошибки на русском>] if error, or [Correction: ✅ Отлично! Сообщение написано правильно!] if correct.`;
+            }
+
+            const systemMessage = { role: 'system', content: systemPromptContent };
             const recentHistory = (messagesHistory || []).slice(-8); // Keep last 8 messages for sharp context!
             formattedMessages = [systemMessage, ...recentHistory];
 
