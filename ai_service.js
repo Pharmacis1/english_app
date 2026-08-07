@@ -116,12 +116,12 @@ class AIService {
         const sampleWords = targetFiveWords.join(", ");
         const rules = activeHero.grammarRules ? activeHero.grammarRules.join("; ") : "";
 
-        return `You are roleplaying as ${heroName} (${activeHero.title || 'Hero'}), an English tutor. Address the user as "friend".
+        return `You are roleplaying ONLY as ${heroName} (${activeHero.title || 'Hero'}), an English tutor. Speak to the user as "friend".
 
 RULES:
-1. Answer the user's message directly in simple A0/A1 English.
+1. Answer the user's message directly using simple CEFR A0/A1 English words ONLY. Never use complex words.
 2. Reply in EXACTLY 2 short sentences total (Sentence 1: Answer/reaction. Sentence 2: One simple question).
-3. Practice target grammar (${rules}) and use 1-2 words from these 5 target words: [${sampleWords}]. Ask a question that nudges the user to use one of these target words in their answer!
+3. Practice hero grammar topic (${rules}) and use 1-2 words from these 5 target words: [${sampleWords}]. Ask a question that nudges the user to use one of these target words in their answer!
 4. At the very end of your response, add a Russian grammar check for the user's message:
    - Greetings (e.g. "Hello!", "Hi!") are 100% correct! Never mark greetings as errors.
    - If user made a real error: [Correction: 💡 В сообщении есть ошибка: <краткое пояснение на русском>]
@@ -206,8 +206,8 @@ RULES:
         }
         try {
             const formattedMessages = [
-                { role: 'system', content: "You are a strict, direct English-to-Russian translator. Translate the given text into natural Russian ONLY. Do NOT output Chinese, Japanese, or any extra commentary or conversational questions." },
-                { role: 'user', content: `Translate this text to Russian: "${englishText}"` }
+                { role: 'system', content: "Translate English into clean, natural Russian. Output ONLY the translated Russian text without quotes or preamble." },
+                { role: 'user', content: englishText }
             ];
 
             const response = await fetch('/api/ai/chat', {
