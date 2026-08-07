@@ -156,7 +156,7 @@ Student English text: "${userText}"
 
 CRITICAL RULES:
 1. The student MUST write in English. Natural English answers (e.g. "Yes, I do", "I have a group", "Yes, I am", "No", "Hi") are 100% CORRECT!
-2. NEVER tell the student to write in Russian! NEVER ask for Russian translation!
+2. DO NOT suggest changes if the student ALREADY has the correct preposition or phrase in their text!
 3. ONLY flag REAL English grammar errors (e.g. "I has", "I happy", "No, I not", Russian words mixed inside English).
 
 OUTPUT INSTRUCTION:
@@ -189,11 +189,20 @@ OUTPUT INSTRUCTION:
 
                 let cleanFeedback = raw.replace(/^ERROR:\s*/gi, '').replace(/^VALID/gi, '').replace(/^\[Correction:\s*/gi, '').replace(/\]$/g, '').trim();
 
-                // SANITY FILTER AGAINST FALSE RUSSIAN TRANSLATION HALLUCINATIONS:
-                // If model tells user to replace English with Russian text (e.g. `на "Да...` or mentions translation/Russian):
+                // SANITY FILTER 1: If model tells user to replace English with Russian text
                 if (/на\s+["'«][а-яА-ЯёЁ\s,!.?]+["'»]/i.test(cleanFeedback) || /на\s+русск/i.test(cleanFeedback) || /перевод/i.test(cleanFeedback)) {
                     console.warn("Ignored false Russian translation hallucination from model:", cleanFeedback);
                     return { isValid: true, feedback: null };
+                }
+
+                // SANITY FILTER 2: If model suggested replacing "A" with "B", but user's text ALREADY contains "B":
+                const replaceMatch = cleanFeedback.match(/замените\s+["'«]?([^"'»]+)["'»]?\s+на\s+["'«]?([^"'»]+)["'»]?/i);
+                if (replaceMatch) {
+                    const correctPart = replaceMatch[2].trim().toLowerCase();
+                    if (correctPart && userText.toLowerCase().includes(correctPart)) {
+                        console.warn("Ignored redundant suggestion because user text already contains:", correctPart);
+                        return { isValid: true, feedback: null };
+                    }
                 }
 
                 if (!cleanFeedback) cleanFeedback = "Пожалуйста, проверьте грамматику предложения.";
