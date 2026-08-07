@@ -144,24 +144,24 @@ RULES:
 
         try {
             const heroContextPrompt = lastHeroMessageText 
-                ? `The AI tutor/hero just asked: "${lastHeroMessageText}"` 
-                : "Starting a new conversation.";
+                ? `Hero asked: "${lastHeroMessageText}"` 
+                : "New conversation.";
 
             const messages = [
                 {
                     role: 'system',
-                    content: `You are a strict English grammar checker for A0/A1 students.
-Context: ${heroContextPrompt}
-Student input: "${userText}"
+                    content: `You are an English grammar evaluator for A0/A1 students learning English.
+Hero question: "${heroContextPrompt}"
+Student English text: "${userText}"
 
-RULES:
-1. Natural greetings ("Hello!", "Hi!", "Good morning", "Hi Valerius!") are 100% CORRECT!
-2. Natural short answers ("Yes", "No", "Yes, I do", "No, I am not", "I am fine", "Yes, I am") are 100% CORRECT in context!
-3. Check for REAL errors: Russian words inserted, missing verbs ("I happy"), wrong subject-verb agreement ("I has"), bad grammar, or broken short answers ("No, I not").
+CRITICAL RULES:
+1. The student MUST write in English. Natural English answers (e.g. "Yes, I do", "I have a group", "Yes, I am", "No", "Hi") are 100% CORRECT!
+2. NEVER tell the student to write in Russian! NEVER ask for Russian translation!
+3. ONLY flag REAL English grammar errors (e.g. "I has", "I happy", "No, I not", Russian words mixed inside English).
 
-OUTPUT FORMAT:
-- If student input is 100% CORRECT: Output EXACTLY the word "VALID"
-- If student input has an ERROR: Output ONLY a short explanation of the error in RUSSIAN (e.g. "Замените 'I has' на 'I have'"). Do NOT output "VALID" if there is an error.`
+OUTPUT INSTRUCTION:
+- If English text is grammatically CORRECT: Output EXACTLY "VALID" (nothing else!).
+- If REAL English grammar error: Output "ERROR: <Short Russian explanation showing the corrected ENGLISH sentence, e.g. Замените 'I has' на 'I have'>".`
                 }
             ];
 
@@ -181,13 +181,23 @@ OUTPUT FORMAT:
             const data = await response.json();
             if (data.success && data.content) {
                 const raw = data.content.trim();
-                if (raw.toUpperCase().startsWith("VALID") && !raw.includes("ошибк") && !raw.includes("Замените") && !raw.includes("следует")) {
+                
+                // If response starts with VALID or does NOT explicitly specify ERROR:
+                if (raw.toUpperCase().startsWith("VALID") || (!raw.startsWith("ERROR:") && !raw.includes("ошибк") && !raw.includes("Замените"))) {
                     return { isValid: true, feedback: null };
-                } else {
-                    let cleanFeedback = raw.replace(/^VALID/gi, '').replace(/^\[Correction:\s*/gi, '').replace(/\]$/g, '').trim();
-                    if (!cleanFeedback) cleanFeedback = "Пожалуйста, проверьте грамматику предложения.";
-                    return { isValid: false, feedback: cleanFeedback };
                 }
+
+                let cleanFeedback = raw.replace(/^ERROR:\s*/gi, '').replace(/^VALID/gi, '').replace(/^\[Correction:\s*/gi, '').replace(/\]$/g, '').trim();
+
+                // SANITY FILTER AGAINST FALSE RUSSIAN TRANSLATION HALLUCINATIONS:
+                // If model tells user to replace English with Russian text (e.g. `на "Да...` or mentions translation/Russian):
+                if (/на\s+["'«][а-яА-ЯёЁ\s,!.?]+["'»]/i.test(cleanFeedback) || /на\s+русск/i.test(cleanFeedback) || /перевод/i.test(cleanFeedback)) {
+                    console.warn("Ignored false Russian translation hallucination from model:", cleanFeedback);
+                    return { isValid: true, feedback: null };
+                }
+
+                if (!cleanFeedback) cleanFeedback = "Пожалуйста, проверьте грамматику предложения.";
+                return { isValid: false, feedback: cleanFeedback };
             }
         } catch (err) {
             console.warn("Pre-flight AI grammar check failed, proceeding:", err);
