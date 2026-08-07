@@ -1219,6 +1219,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     window.getWordUsageCount = getWordUsageCount;
+    window.getAllTimeWordUsageCount = getAllTimeWordUsageCount;
     window.getHeroAntiRatingFocusWords = getHeroAntiRatingFocusWords;
 
     function getWordVariants(baseWord) {

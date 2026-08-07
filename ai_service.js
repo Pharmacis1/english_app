@@ -81,7 +81,7 @@ class AIService {
             focusWords = activeHero.words ? activeHero.words.map(w => typeof w === 'string' ? w : (Array.isArray(w) ? w[0] : (w.word || ""))) : [];
         }
 
-        // Prioritize Focus Words that have 0 usage today!
+        // 1. Get Focus Words that have 0 usage TODAY
         const unUsedFocusWords = focusWords.filter(w => {
             if (typeof window !== 'undefined' && typeof window.getWordUsageCount === 'function') {
                 return window.getWordUsageCount(activeHero.id, w) === 0;
@@ -89,12 +89,31 @@ class AIService {
             return true;
         });
 
-        const shuffledUnused = [...unUsedFocusWords].sort(() => 0.5 - Math.random());
-        const shuffledAllFocus = [...focusWords].sort(() => 0.5 - Math.random());
-        
-        const selectedFocusPool = [...shuffledUnused, ...shuffledAllFocus];
-        const uniqueSelected = Array.from(new Set(selectedFocusPool)).slice(0, 8);
-        const sampleWords = uniqueSelected.join(", ");
+        let targetFiveWords = [];
+
+        if (unUsedFocusWords.length >= 5) {
+            // Case 1: Pick 5 random un-used words from today's 50 Focus Words
+            const shuffledUnused = [...unUsedFocusWords].sort(() => 0.5 - Math.random());
+            targetFiveWords = shuffledUnused.slice(0, 5);
+        } else if (unUsedFocusWords.length > 0) {
+            // Case 1b: Take all remaining un-used focus words, top up to 5 with other focus words
+            const shuffledUnused = [...unUsedFocusWords].sort(() => 0.5 - Math.random());
+            const usedFocusWords = focusWords.filter(w => !unUsedFocusWords.includes(w));
+            const shuffledUsed = [...usedFocusWords].sort(() => 0.5 - Math.random());
+            targetFiveWords = Array.from(new Set([...shuffledUnused, ...shuffledUsed])).slice(0, 5);
+        } else {
+            // Case 2: ALL 50 Focus Words of the day have ALREADY been used today!
+            // Fallback: Pick 5 words from the overall anti-top (least used in lifetime history for this hero)
+            let allWords = activeHero.words ? activeHero.words.map(w => typeof w === 'string' ? w : (Array.isArray(w) ? w[0] : (w.word || ""))) : [];
+            allWords.sort((wA, wB) => {
+                const countA = (typeof window !== 'undefined' && typeof window.getAllTimeWordUsageCount === 'function') ? window.getAllTimeWordUsageCount(activeHero.id, wA) : 0;
+                const countB = (typeof window !== 'undefined' && typeof window.getAllTimeWordUsageCount === 'function') ? window.getAllTimeWordUsageCount(activeHero.id, wB) : 0;
+                return countA - countB;
+            });
+            targetFiveWords = allWords.slice(0, 5);
+        }
+
+        const sampleWords = targetFiveWords.join(", ");
         const rules = activeHero.grammarRules ? activeHero.grammarRules.join("; ") : "";
 
         let questionTemplates = "";
@@ -169,9 +188,10 @@ CRITICAL CONVERSATIONAL RELEVANCE & RESPONSE RULES:
    - FORBIDDEN LITERARY WORDS: Use basic A0 words ONLY!
 4. MANDATORY ARTICLES RULE:
    - You MUST ALWAYS use proper articles ("a", "an", "the") or possessive pronouns ("my", "your") before singular countable nouns! (e.g. "a map", "the bag", "a book").
-5. TARGET VOCABULARY FOCUS FOR TODAY'S QUEST (${rules}):
-   - Prioritize using 2-3 target words from today's Daily Focus list: [${sampleWords}].
-   - Use these words naturally when answering and asking questions so the user can practice them and complete their daily quest!
+5. TARGET VOCABULARY & USER NUDGE DIRECTIVE (${rules}):
+   - You are given EXACTLY 5 MICRO-FOCUS target words for this conversation turn: [${sampleWords}].
+   - MANDATORY: You MUST incorporate 1 or 2 of these target words ([${sampleWords}]) into your response!
+   - MANDATORY USER NUDGE: Your ending question (Sentence 2) MUST gently prompt/nudge the user to use one of these target words ([${sampleWords}]) in their next reply!
    - Suggested question styles: ${questionTemplates}.]`;
     }
 
