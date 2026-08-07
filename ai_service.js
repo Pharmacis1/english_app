@@ -293,8 +293,8 @@ RULES:
         }
         try {
             const formattedMessages = [
-                { role: 'system', content: "Translate English into clean, natural Russian. Output ONLY the translated Russian text without quotes or preamble." },
-                { role: 'user', content: englishText }
+                { role: 'system', content: "Ты — профессиональный переводчик. Твоя задача: переведи данный текст с английского на русский язык. Выведи ТОЛЬКО русский перевод без кавычек, вступлений, пояснений и английских слов." },
+                { role: 'user', content: `Переведи на русский: "${englishText}"` }
             ];
 
             const response = await fetch('/api/ai/chat', {
@@ -316,8 +316,18 @@ RULES:
                     .replace(/[\u4e00-\u9fff\u3400-\u4dbf\u3000-\u303f\uff00-\uffef]+/g, '') // Remove any CJK Chinese/Asian characters
                     .replace(/^Translation:\s*/gi, '')
                     .replace(/^Перевод:\s*/gi, '')
+                    .replace(/^Переведи на русский:\s*/gi, '')
                     .replace(/^["']|["']$/g, '')
                     .trim();
+
+                // Clean out rogue standalone English words inserted in the middle of Russian text (e.g. "какой child А ты")
+                cleaned = cleaned.replace(/([а-яА-ЯёЁ]+)\s+[a-zA-Z]{2,}\s+([а-яА-ЯёЁ]+)/g, '$1 $2');
+
+                // Deduplicate repeated sentences/phrases if small LLM doubled them
+                const parts = cleaned.split(/(?<=[.!?])\s+/);
+                if (parts.length > 1) {
+                    cleaned = Array.from(new Set(parts)).join(" ");
+                }
 
                 if (cleaned.length > 0) return cleaned;
             }
