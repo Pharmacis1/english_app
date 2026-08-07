@@ -200,10 +200,11 @@ class FlashcardEngine {
         const card = this.getCurrentCard();
         if (!card) return { success: true };
 
+        const isSrsMode = this.currentCategory === "🧠 Due for SRS Review";
         const isNewWord = !card.studied;
 
         // CHECK LIMIT 1: Must clear SRS review queue before rating new cards!
-        if (isNewWord && this.getDueCardsCount() > 0) {
+        if (isNewWord && !isSrsMode && this.getDueCardsCount() > 0) {
             return {
                 success: false,
                 reason: "review_required",
@@ -212,7 +213,7 @@ class FlashcardEngine {
         }
 
         // CHECK LIMIT 2: Daily new words limit (100 words/day)!
-        if (isNewWord && this.getDailyNewWordsCount() >= this.maxDailyNewWords) {
+        if (isNewWord && !isSrsMode && this.getDailyNewWordsCount() >= this.maxDailyNewWords) {
             return {
                 success: false,
                 reason: "daily_limit_reached",
@@ -236,23 +237,50 @@ class FlashcardEngine {
                 card.repetitions = 0;
                 card.interval = 1;
                 card.easeFactor = Math.max(1.3, card.easeFactor - 0.2);
-                card.learningInSession = true; // Mark as currently being repeated in session!
                 card.nextReviewDate = Date.now();
+                if (isSrsMode) {
+                    card.learningInSession = false; // Stay in SRS Due queue!
+                    const dueList = this.decks["🧠 Due for SRS Review"];
+                    if (dueList && Array.isArray(dueList)) {
+                        const idx = dueList.indexOf(card);
+                        if (idx !== -1) {
+                            dueList.splice(idx, 1);
+                            dueList.push(card); // Re-queue failed card to end of SRS review queue!
+                        }
+                    }
+                } else {
+                    card.learningInSession = true; // Repeat in Hero Batch!
+                }
                 break;
             case 'hard':
                 card.repetitions = Math.max(1, card.repetitions);
                 card.interval = Math.max(1, Math.round(card.interval * 1.2));
                 card.easeFactor = Math.max(1.3, card.easeFactor - 0.15);
-                card.learningInSession = false; // Successfully passed session!
+                card.learningInSession = false;
                 card.nextReviewDate = Date.now() + (card.interval * oneDayMs);
+                if (isSrsMode) {
+                    const dueList = this.decks["🧠 Due for SRS Review"];
+                    if (dueList && Array.isArray(dueList)) {
+                        const idx = dueList.indexOf(card);
+                        if (idx !== -1) dueList.splice(idx, 1);
+                    }
+                }
                 break;
             case 'good':
                 card.repetitions += 1;
                 if (card.repetitions === 1) card.interval = 1;
                 else if (card.repetitions === 2) card.interval = 6;
                 else card.interval = Math.round(card.interval * card.easeFactor);
-                card.learningInSession = false; // Successfully passed session!
+                card.easeFactor = Math.max(1.3, card.easeFactor);
+                card.learningInSession = false;
                 card.nextReviewDate = Date.now() + (card.interval * oneDayMs);
+                if (isSrsMode) {
+                    const dueList = this.decks["🧠 Due for SRS Review"];
+                    if (dueList && Array.isArray(dueList)) {
+                        const idx = dueList.indexOf(card);
+                        if (idx !== -1) dueList.splice(idx, 1);
+                    }
+                }
                 break;
             case 'easy':
                 card.repetitions += 1;
@@ -263,13 +291,24 @@ class FlashcardEngine {
                     const baseGood = Math.round(card.interval * card.easeFactor);
                     card.interval = Math.max(baseGood + 2, Math.round(card.interval * card.easeFactor * 1.3));
                 }
-                card.learningInSession = false; // Successfully passed session!
+                card.learningInSession = false;
                 card.nextReviewDate = Date.now() + (card.interval * oneDayMs);
+                if (isSrsMode) {
+                    const dueList = this.decks["🧠 Due for SRS Review"];
+                    if (dueList && Array.isArray(dueList)) {
+                        const idx = dueList.indexOf(card);
+                        if (idx !== -1) dueList.splice(idx, 1);
+                    }
+                }
                 break;
         }
 
         this.saveDecks();
-        this.nextCard();
+        if (!isSrsMode) {
+            this.nextCard();
+        } else {
+            this.currentIndex = 0;
+        }
         return { success: true };
     }
 
