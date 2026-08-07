@@ -122,10 +122,78 @@ RULES:
 1. Answer the user's message directly using simple CEFR A0/A1 English words ONLY. Never use complex words.
 2. Reply in EXACTLY 2 short sentences total (Sentence 1: Answer/reaction. Sentence 2: One simple question).
 3. Practice hero grammar topic (${rules}) and use 1-2 words from these 5 target words: [${sampleWords}]. Ask a question that nudges the user to use one of these target words in their answer!
-4. At the very end of your response, add a Russian grammar check for the user's message:
-   - Greetings (e.g. "Hello!", "Hi!") are 100% correct! Never mark greetings as errors.
-   - If user made a real error: [Correction: 💡 В сообщении есть ошибка: <краткое пояснение на русском>]
-   - If user's message is correct: [Correction: ✅ Отлично! Сообщение написано правильно!]`;
+4. Output ONLY your hero's 2-sentence English reply. Never output translations, corrections, brackets, or system notes.`;
+    }
+
+    async checkGrammarBeforeSending(userText, lastHeroMessageText = "") {
+        if (!userText || !userText.trim()) {
+            return { isValid: true, feedback: null };
+        }
+
+        // Instant local heuristic check
+        if (typeof window !== 'undefined' && typeof window.evaluateUserGrammarClientSide === 'function') {
+            const clientErr = window.evaluateUserGrammarClientSide(userText);
+            if (clientErr) {
+                return { isValid: false, feedback: clientErr };
+            }
+        }
+
+        if (this.provider === 'fallback') {
+            return { isValid: true, feedback: null };
+        }
+
+        try {
+            const heroContextPrompt = lastHeroMessageText 
+                ? `The AI tutor/hero just asked: "${lastHeroMessageText}"` 
+                : "Starting a new conversation.";
+
+            const messages = [
+                {
+                    role: 'system',
+                    content: `You are a strict English grammar checker for A0/A1 students.
+Context: ${heroContextPrompt}
+Student input: "${userText}"
+
+RULES:
+1. Natural greetings ("Hello!", "Hi!", "Good morning", "Hi Valerius!") are 100% CORRECT!
+2. Natural short answers ("Yes", "No", "Yes, I do", "No, I am not", "I am fine", "Yes, I am") are 100% CORRECT in context!
+3. Check for REAL errors: Russian words inserted, missing verbs ("I happy"), wrong subject-verb agreement ("I has"), bad grammar, or broken short answers ("No, I not").
+
+OUTPUT FORMAT:
+- If student input is 100% CORRECT: Output EXACTLY the word "VALID"
+- If student input has an ERROR: Output ONLY a short explanation of the error in RUSSIAN (e.g. "Замените 'I has' на 'I have'"). Do NOT output "VALID" if there is an error.`
+                }
+            ];
+
+            const response = await fetch('/api/ai/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    provider: this.provider,
+                    endpoint: this.endpoint,
+                    model: this.modelName,
+                    apiKey: this.geminiApiKey,
+                    messages: messages
+                })
+            });
+
+            if (!response.ok) throw new Error("Grammar check call failed");
+            const data = await response.json();
+            if (data.success && data.content) {
+                const raw = data.content.trim();
+                if (raw.toUpperCase().startsWith("VALID") && !raw.includes("ошибк") && !raw.includes("Замените") && !raw.includes("следует")) {
+                    return { isValid: true, feedback: null };
+                } else {
+                    let cleanFeedback = raw.replace(/^VALID/gi, '').replace(/^\[Correction:\s*/gi, '').replace(/\]$/g, '').trim();
+                    if (!cleanFeedback) cleanFeedback = "Пожалуйста, проверьте грамматику предложения.";
+                    return { isValid: false, feedback: cleanFeedback };
+                }
+            }
+        } catch (err) {
+            console.warn("Pre-flight AI grammar check failed, proceeding:", err);
+        }
+
+        return { isValid: true, feedback: null };
     }
 
     async generateResponse(messagesHistory, scenario, targetHeroObjects = null) {
@@ -143,7 +211,7 @@ RULES:
 
 RULES:
 1. Respond in 2-3 concise, natural English sentences.
-2. At the end, add Russian error check: [Correction: 💡 <пояснение ошибки на русском>] if error, or [Correction: ✅ Отлично! Сообщение написано правильно!] if correct.`;
+2. Output ONLY response text. Do not output notes or brackets.`;
             }
 
             const systemMessage = { role: 'system', content: systemPromptContent };

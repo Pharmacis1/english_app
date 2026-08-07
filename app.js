@@ -1698,6 +1698,8 @@ document.addEventListener("DOMContentLoaded", () => {
         return null;
     }
 
+    window.evaluateUserGrammarClientSide = evaluateUserGrammarClientSide;
+
     function translateA0TextToRussian(text) {
         if (!text) return "";
         let ru = text;
@@ -1916,6 +1918,37 @@ document.addEventListener("DOMContentLoaded", () => {
         const text = userChatInput.value.trim();
         if (!text) return;
 
+        // Get last hero message for contextual grammar check
+        const lastHeroMsgObj = [...chatHistory].reverse().find(m => m.role === 'assistant');
+        const lastHeroMessageText = lastHeroMsgObj ? lastHeroMsgObj.content : "";
+
+        // UI loading state
+        userChatInput.disabled = true;
+        if (sendChatBtn) sendChatBtn.disabled = true;
+        if (feedbackBanner) feedbackBanner.classList.add("hidden");
+
+        // 1. PRE-FLIGHT GRAMMAR CHECK (DO Send Check)
+        const checkResult = await aiService.checkGrammarBeforeSending(text, lastHeroMessageText);
+
+        userChatInput.disabled = false;
+        if (sendChatBtn) sendChatBtn.disabled = false;
+
+        if (!checkResult.isValid) {
+            // Error found! DO NOT SEND MESSAGE! Keep text in input field so user can fix it!
+            if (feedbackText) {
+                feedbackText.innerHTML = checkResult.feedback.startsWith("💡") ? checkResult.feedback : `💡 ${checkResult.feedback}`;
+            }
+            if (feedbackBanner) {
+                feedbackBanner.classList.remove("hidden");
+            }
+            userChatInput.focus();
+            userChatInput.style.borderColor = "#f59e0b";
+            setTimeout(() => { userChatInput.style.borderColor = ""; }, 2500);
+            return; // STOP! Message is NOT sent to chat!
+        }
+
+        // Message is 100% VALID! Proceed to send!
+        userChatInput.style.borderColor = "";
         userChatInput.value = "";
         appendMessage("user", text);
 
