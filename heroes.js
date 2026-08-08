@@ -1127,7 +1127,7 @@ function generateHeroWords(heroId) {
     return wordLists[heroId] || wordLists.valerius;
 }
 
-const HERO_UNLOCK_QUEST_THRESHOLDS = [0, 3, 7, 12, 15, 18, 25, 33, 42, 52];
+const HERO_UNLOCK_QUEST_THRESHOLDS = [0, 3, 7, 12, 18, 25, 33, 42, 52, 63];
 const HERO_MAX_LEVEL = 100;
 
 function getTotalCompletedDailyQuests() {
