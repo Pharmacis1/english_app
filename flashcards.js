@@ -93,21 +93,26 @@ class FlashcardEngine {
             } catch(e) {}
         }
 
-        const dueCards = [];
-        const now = Date.now();
-        Object.keys(decks).forEach(cat => {
-            if (cat === "🧠 Due for SRS Review") return;
-            decks[cat].forEach(card => {
-                // A card is due for review ONLY if it was previously studied AND is NOT currently being actively learned in session!
-                if (card.studied && !card.learningInSession && card.nextReviewDate && card.nextReviewDate <= now) {
-                    if (!card.heroId && typeof HEROES_DATA !== 'undefined') {
-                        const hero = HEROES_DATA.find(h => cat.includes(h.name));
-                        if (hero) card.heroId = hero.id;
+        let dueCards = [];
+        // Preserve active SRS review queue if SRS review session is currently active
+        if (this.currentCategory === "🧠 Due for SRS Review" && this.decks && Array.isArray(this.decks["🧠 Due for SRS Review"]) && this.decks["🧠 Due for SRS Review"].length > 0) {
+            dueCards = this.decks["🧠 Due for SRS Review"];
+        } else {
+            const now = Date.now();
+            Object.keys(decks).forEach(cat => {
+                if (cat === "🧠 Due for SRS Review") return;
+                decks[cat].forEach(card => {
+                    // A card is due for review ONLY if it was previously studied AND is NOT currently being actively learned in session!
+                    if (card.studied && !card.learningInSession && card.nextReviewDate && card.nextReviewDate <= now) {
+                        if (!card.heroId && typeof HEROES_DATA !== 'undefined') {
+                            const hero = HEROES_DATA.find(h => cat.includes(h.name));
+                            if (hero) card.heroId = hero.id;
+                        }
+                        dueCards.push(card);
                     }
-                    dueCards.push(card);
-                }
+                });
             });
-        });
+        }
 
         decks["🧠 Due for SRS Review"] = dueCards;
         return decks;
@@ -117,8 +122,11 @@ class FlashcardEngine {
         localStorage.setItem("english_pulse_decks_srs_v10", JSON.stringify(this.decks));
     }
 
-    // Due cards count: excludes cards currently being learned in active session!
+    // Due cards count: returns active SRS queue length if in SRS mode, otherwise computes remaining due cards
     getDueCardsCount() {
+        if (this.currentCategory === "🧠 Due for SRS Review" && this.decks && Array.isArray(this.decks["🧠 Due for SRS Review"])) {
+            return this.decks["🧠 Due for SRS Review"].length;
+        }
         const now = Date.now();
         let count = 0;
         Object.keys(this.decks).forEach(cat => {
