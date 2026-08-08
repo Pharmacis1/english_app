@@ -336,7 +336,7 @@ function generateHeroWords(heroId) {
             ["Receipt", "/rɪˈsiːt/", "Чек (покупка)", "Keep the receipt."],
             ["Trade", "/treɪd/", "Торговать / Торговля", "Trade magic items."],
             ["Merchant", "/ˈmɜː.tʃənt/", "Купец", "A wealthy merchant."],
-            ["A lamp", "/ə læmp/", "Лампа / Светильник", "Turn on the desk lamp."],
+            ["Lamp", "/læmp/", "Лампа / Светильник", "Turn on the desk lamp."],
             ["About", "/əˈbaʊt/", "О / Около", "Tell me about your quest."]
         ],
         frostina: [
