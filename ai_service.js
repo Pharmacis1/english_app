@@ -90,17 +90,20 @@ class AIService {
         });
 
         let targetFiveWords = [];
+        let priorityWord = "";
 
         if (unUsedFocusWords.length >= 5) {
             // Case 1: Pick 5 random un-used words from today's 50 Focus Words
             const shuffledUnused = [...unUsedFocusWords].sort(() => 0.5 - Math.random());
             targetFiveWords = shuffledUnused.slice(0, 5);
+            priorityWord = targetFiveWords[0];
         } else if (unUsedFocusWords.length > 0) {
             // Case 1b: Take all remaining un-used focus words, top up to 5 with other focus words
             const shuffledUnused = [...unUsedFocusWords].sort(() => 0.5 - Math.random());
             const usedFocusWords = focusWords.filter(w => !unUsedFocusWords.includes(w));
             const shuffledUsed = [...usedFocusWords].sort(() => 0.5 - Math.random());
             targetFiveWords = Array.from(new Set([...shuffledUnused, ...shuffledUsed])).slice(0, 5);
+            priorityWord = shuffledUnused[0]; // Guaranteed unused word!
         } else {
             // Case 2: ALL 50 Focus Words of the day have ALREADY been used today!
             // Fallback: Pick 5 words from the overall anti-top (least used in lifetime history for this hero)
@@ -111,10 +114,10 @@ class AIService {
                 return countA - countB;
             });
             targetFiveWords = allWords.slice(0, 5);
+            priorityWord = targetFiveWords[0];
         }
 
-        const sampleWords = targetFiveWords.join(", ");
-        const firstTarget = targetFiveWords[0] || "item";
+        const firstTarget = priorityWord || targetFiveWords[0] || "item";
 
         return `You are roleplaying as ${heroName} (${activeHero.title || 'Hero'}), a friendly English tutor. Speak to the user as "friend".
 
@@ -122,7 +125,7 @@ INSTRUCTIONS:
 1. Speak in simple A0/A1 English with 100% perfect grammar.
 2. Reply in EXACTLY 2 short, natural sentences:
    - Sentence 1: React to the user's message.
-   - Sentence 2: Ask a simple question using 1 word from [${sampleWords}] (e.g. "Do you like this ${firstTarget}?").
+   - Sentence 2: Ask a simple question using the target word "${firstTarget}" (e.g. "Do you have a ${firstTarget}?").
 3. Output ONLY ${heroName}'s 2 English sentences. Do not output translations, brackets, or notes.`;
     }
 
