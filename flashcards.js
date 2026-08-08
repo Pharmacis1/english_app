@@ -34,9 +34,27 @@ class FlashcardEngine {
         localStorage.setItem(key, current + 1);
     }
 
+    computeDueCards(targetDecks = null) {
+        const sourceDecks = targetDecks || this.decks || {};
+        const dueCards = [];
+        const now = Date.now();
+        Object.keys(sourceDecks).forEach(cat => {
+            if (cat === "🧠 Due for SRS Review") return;
+            (sourceDecks[cat] || []).forEach(card => {
+                if (card.studied && !card.learningInSession && card.nextReviewDate && card.nextReviewDate <= now) {
+                    if (!card.heroId && typeof HEROES_DATA !== 'undefined') {
+                        const hero = HEROES_DATA.find(h => cat.includes(h.name));
+                        if (hero) card.heroId = hero.id;
+                    }
+                    dueCards.push(card);
+                }
+            });
+        });
+        return dueCards;
+    }
+
     loadDecks() {
         const decks = { ...GENERAL_DECKS };
-        
         if (typeof HEROES_DATA !== 'undefined' && Array.isArray(HEROES_DATA)) {
             let localHeroes = HEROES_DATA;
             const savedRPG = localStorage.getItem("rpg_heroes_10_v9");
@@ -93,29 +111,13 @@ class FlashcardEngine {
             } catch(e) {}
         }
 
-        let dueCards = [];
-        // Preserve active SRS review queue if SRS review session is currently active
-        if (this.currentCategory === "🧠 Due for SRS Review" && this.decks && Array.isArray(this.decks["🧠 Due for SRS Review"]) && this.decks["🧠 Due for SRS Review"].length > 0) {
-            dueCards = this.decks["🧠 Due for SRS Review"];
-        } else {
-            const now = Date.now();
-            Object.keys(decks).forEach(cat => {
-                if (cat === "🧠 Due for SRS Review") return;
-                decks[cat].forEach(card => {
-                    // A card is due for review ONLY if it was previously studied AND is NOT currently being actively learned in session!
-                    if (card.studied && !card.learningInSession && card.nextReviewDate && card.nextReviewDate <= now) {
-                        if (!card.heroId && typeof HEROES_DATA !== 'undefined') {
-                            const hero = HEROES_DATA.find(h => cat.includes(h.name));
-                            if (hero) card.heroId = hero.id;
-                        }
-                        dueCards.push(card);
-                    }
-                });
-            });
-        }
-
-        decks["🧠 Due for SRS Review"] = dueCards;
+        decks["🧠 Due for SRS Review"] = this.computeDueCards(decks);
         return decks;
+    }
+
+    refreshDueCards() {
+        if (!this.decks) return;
+        this.decks["🧠 Due for SRS Review"] = this.computeDueCards(this.decks);
     }
 
     saveDecks() {
@@ -127,15 +129,7 @@ class FlashcardEngine {
         if (this.currentCategory === "🧠 Due for SRS Review" && this.decks && Array.isArray(this.decks["🧠 Due for SRS Review"])) {
             return this.decks["🧠 Due for SRS Review"].length;
         }
-        const now = Date.now();
-        let count = 0;
-        Object.keys(this.decks).forEach(cat => {
-            if (cat === "🧠 Due for SRS Review") return;
-            this.decks[cat].forEach(c => {
-                if (c.studied && !c.learningInSession && c.nextReviewDate && c.nextReviewDate <= now) count++;
-            });
-        });
-        return count;
+        return this.computeDueCards(this.decks).length;
     }
 
     // Automatically find the first uncompleted batch for the current deck

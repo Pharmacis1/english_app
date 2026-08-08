@@ -2096,7 +2096,9 @@ document.addEventListener("DOMContentLoaded", () => {
     function renderFlashcardsUI() {
         if (!deckTabsContainer) return;
         deckTabsContainer.innerHTML = "";
-        flashcardEngine.decks = flashcardEngine.loadDecks();
+        if (!flashcardEngine.decks) {
+            flashcardEngine.decks = flashcardEngine.loadDecks();
+        }
 
         const dueCount = flashcardEngine.getDueCardsCount();
 
@@ -2147,7 +2149,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
             btn.addEventListener("click", () => {
                 flashcardEngine.currentCategory = cat;
-                flashcardEngine.autoAdvanceBatch();
+                if (isSrsTab) {
+                    flashcardEngine.refreshDueCards();
+                } else {
+                    flashcardEngine.autoAdvanceBatch();
+                }
                 flashcardEngine.currentIndex = 0;
                 flashcardEl.classList.remove("flipped");
                 renderFlashcardsUI();
