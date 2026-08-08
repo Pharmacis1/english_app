@@ -55,16 +55,24 @@ class FlashcardEngine {
 
     loadDecks() {
         const decks = { ...GENERAL_DECKS };
-        if (typeof HEROES_DATA !== 'undefined' && Array.isArray(HEROES_DATA)) {
-            let localHeroes = HEROES_DATA;
+        let localHeroes = [];
+        if (typeof rpgEngine !== 'undefined' && rpgEngine.heroes) {
+            localHeroes = rpgEngine.heroes;
+        } else if (typeof HEROES_DATA !== 'undefined' && Array.isArray(HEROES_DATA)) {
+            localHeroes = HEROES_DATA;
             const savedRPG = localStorage.getItem("rpg_heroes_10_v9");
             if (savedRPG) {
                 try { localHeroes = JSON.parse(savedRPG); } catch(e){}
             }
+        }
 
-            localHeroes.filter(h => h.unlocked).forEach(h => {
-                const cefrLabel = h.cefrLevel.split(' ')[0];
-                const deckName = `${h.name}'s Pack (${cefrLabel})`;
+        localHeroes.filter(h => h && h.unlocked).forEach(h => {
+            const cefrLabel = h.cefrLevel ? h.cefrLevel.split(' ')[0] : 'A0';
+            const deckName = `${h.name}'s Pack (${cefrLabel})`;
+
+            if (this.decks && this.decks[deckName]) {
+                decks[deckName] = this.decks[deckName];
+            } else {
                 decks[deckName] = (h.words || []).map(w => {
                     const wWord = Array.isArray(w) ? w[0] : (w.word || "");
                     const wPhonetic = Array.isArray(w) ? w[1] : (w.phonetic || "");
@@ -74,7 +82,7 @@ class FlashcardEngine {
                         word: wWord,
                         phonetic: wPhonetic,
                         translation: wTranslation,
-                        definition: `Hero Pack: ${h.name} (${h.cefrLevel})`,
+                        definition: `Hero Pack: ${h.name} (${h.cefrLevel || 'A0'})`,
                         example: wExample,
                         heroId: h.id,
                         rating: 0,
@@ -86,8 +94,8 @@ class FlashcardEngine {
                         learningInSession: false
                     };
                 }).filter(c => c.word && c.word.length > 0);
-            });
-        }
+            }
+        });
 
         const savedSrs = localStorage.getItem("english_pulse_decks_srs_v10");
         if (savedSrs) {
@@ -111,7 +119,11 @@ class FlashcardEngine {
             } catch(e) {}
         }
 
-        decks["🧠 Due for SRS Review"] = this.computeDueCards(decks);
+        if (this.currentCategory === "🧠 Due for SRS Review" && this.decks && Array.isArray(this.decks["🧠 Due for SRS Review"]) && this.decks["🧠 Due for SRS Review"].length > 0) {
+            decks["🧠 Due for SRS Review"] = this.decks["🧠 Due for SRS Review"];
+        } else {
+            decks["🧠 Due for SRS Review"] = this.computeDueCards(decks);
+        }
         return decks;
     }
 

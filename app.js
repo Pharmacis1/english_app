@@ -2096,9 +2096,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function renderFlashcardsUI() {
         if (!deckTabsContainer) return;
         deckTabsContainer.innerHTML = "";
-        if (!flashcardEngine.decks) {
-            flashcardEngine.decks = flashcardEngine.loadDecks();
-        }
+        flashcardEngine.decks = flashcardEngine.loadDecks();
 
         const dueCount = flashcardEngine.getDueCardsCount();
 
