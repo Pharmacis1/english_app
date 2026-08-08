@@ -1214,7 +1214,7 @@ const HEROES_DATA = [
     },
     {
         id: "zephyr", name: "Zephyr", role: "Buffer", cefrRank: 2, cefrLevel: "A0 (Places, Directions & Questions)", title: "Wind Marksman",
-        avatar: "fa-wind", color: "#f59e0b", image: "images/hero_zephyr_1785227690322.jpg", unlocked: false, level: 1, xp: 0, maxXp: 150, affinityLevel: 0,
+        avatar: "fa-wind", color: "#f59e0b", image: "images/zephyr_hero_standalone.png", faceImage: "images/zephyr_face.png", unlocked: true, level: 1, xp: 0, maxXp: 150, affinityLevel: 0,
         hp: 190, maxHp: 190, atk: 38, def: 7, skillName: "Haste Wind", skillDesc: "Fills party energy.", skillIcon: "fa-feather",
         words: generateHeroWords("zephyr"),
         sentenceTemplates: ["Where is [the school]?", "It is [next to the park]."],
@@ -1448,7 +1448,9 @@ class RPGEngine {
                             xp: heroXp,
                             maxXp: calculatedMaxXp,
                             affinityLevel: heroAffinity,
-                            unlocked: (idx <= 1) ? true : isUnlockedByQuest,
+                            unlocked: (defaultHero.id === 'zephyr' || idx <= 1) ? true : isUnlockedByQuest,
+                            image: defaultHero.image,
+                            faceImage: defaultHero.faceImage,
                             maxHp: baseMaxHp,
                             hp: baseMaxHp,
                             atk: baseAtk,
@@ -1459,14 +1461,14 @@ class RPGEngine {
 
                     return {
                         ...defaultHero,
-                        unlocked: (idx <= 1) ? true : isUnlockedByQuest
+                        unlocked: (defaultHero.id === 'zephyr' || idx <= 1) ? true : isUnlockedByQuest
                     };
                 });
             } catch (e) {}
         }
         return HEROES_DATA.map((defaultHero, idx) => ({
             ...defaultHero,
-            unlocked: (idx <= 1) ? true : (totalCompletedQuests >= (HERO_UNLOCK_QUEST_THRESHOLDS[idx] || 0))
+            unlocked: (defaultHero.id === 'zephyr' || idx <= 1) ? true : (totalCompletedQuests >= (HERO_UNLOCK_QUEST_THRESHOLDS[idx] || 0))
         }));
     }
 
