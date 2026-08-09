@@ -125,7 +125,7 @@ INSTRUCTIONS:
 1. Speak in simple A0/A1 English with 100% perfect grammar.
 2. Reply in EXACTLY 2 short, natural sentences:
    - Sentence 1: React to the user's message.
-   - Sentence 2: Ask a simple question using the target word "${firstTarget}" (e.g. "Do you have a ${firstTarget}?").
+   - Sentence 2: Ask a simple, natural question using the target word "${firstTarget}". Use "${firstTarget}" grammatically according to its part of speech (e.g. for prepositions: "Is your desk next to the window?", for nouns: "Do you have a ${firstTarget}?").
 3. Output ONLY ${heroName}'s 2 English sentences. Do not output translations, brackets, or notes.`;
     }
 
@@ -354,6 +354,9 @@ RULES:
         // Clean CJK characters & leftover 'Translation:' text that small models might leak
         text = text.replace(/[\u4e00-\u9fff\u3400-\u4dbf\u3000-\u303f\uff00-\uffef]+/g, '');
         text = text.replace(/Translation:\s*.*$/gi, '').trim();
+
+        // Clean unnatural article + preposition/question word artifacts like "a next to", "a where", "a behind", etc.
+        text = text.replace(/\ba\s+(next to|under|in|on|at|behind|near|where|when|why|how)\b/gi, '$1').trim();
 
         return { text, correction };
     }
