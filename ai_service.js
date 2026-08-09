@@ -138,13 +138,13 @@ class AIService {
 CRITICAL GRAMMAR RULES (STRICT A0 LEVEL):
 1. Use ONLY simple Present Simple / Present Continuous tenses (is/are/am, do/does, have/like/want/see).
 2. STRICTLY FORBIDDEN: NEVER use Present Perfect ("has been", "have done"), NEVER use complex idioms ("as bright as"), NEVER use passive voice.
-3. Keep sentences VERY SHORT and ultra-simple (max 5-7 words per sentence).
+3. Write complete, grammatically 100% correct natural sentences. Always include proper articles (a/an/the) and auxiliary verbs.
 
-REPLY FORMAT (EXACTLY 2 SHORT SENTENCES):
+REPLY FORMAT (EXACTLY 2 NATURAL SENTENCES):
 - Sentence 1: React simply to the user's message (e.g. "I am glad to see you!").
 - Sentence 2: Ask a simple A0 question using the target word "${firstTarget}"${targetHint} (e.g. "Do you like the ${firstTarget}?").
 
-Output ONLY ${heroName}'s 2 short English sentences. Do not output translations, brackets, or notes.`;
+Output ONLY ${heroName}'s 2 English sentences. Do not output translations, brackets, or notes.`;
     }
 
     async checkGrammarBeforeSending(userText, lastHeroMessageText = "") {
