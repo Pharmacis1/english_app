@@ -118,6 +118,20 @@ class AIService {
         }
 
         const firstTarget = priorityWord || targetFiveWords[0] || "item";
+        let targetHint = "";
+        if (activeHero && activeHero.words) {
+            const wordEntry = activeHero.words.find(w => {
+                const wStr = Array.isArray(w) ? w[0] : (w.word || "");
+                return wStr.toLowerCase() === firstTarget.toLowerCase();
+            });
+            if (wordEntry) {
+                const trans = Array.isArray(wordEntry) ? wordEntry[2] : (wordEntry.translation || "");
+                const ex = Array.isArray(wordEntry) ? wordEntry[3] : (wordEntry.example || "");
+                if (trans || ex) {
+                    targetHint = ` (meaning: ${trans}${ex ? `, example: "${ex}"` : ''})`;
+                }
+            }
+        }
 
         return `You are roleplaying as ${heroName} (${activeHero.title || 'Hero'}), a friendly English tutor. Speak to the user as "friend".
 
@@ -125,7 +139,7 @@ INSTRUCTIONS:
 1. Speak in simple A0/A1 English with 100% perfect grammar.
 2. Reply in EXACTLY 2 short, natural sentences:
    - Sentence 1: React to the user's message.
-   - Sentence 2: Ask a simple, natural question using the target word "${firstTarget}". Use "${firstTarget}" grammatically according to its part of speech (e.g. for prepositions: "Is your desk next to the window?", for nouns: "Do you have a ${firstTarget}?").
+   - Sentence 2: Ask a simple, natural question using the target word "${firstTarget}"${targetHint}. Use "${firstTarget}" grammatically in its natural A0/A1 sense.
 3. Output ONLY ${heroName}'s 2 English sentences. Do not output translations, brackets, or notes.`;
     }
 
