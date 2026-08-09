@@ -133,14 +133,18 @@ class AIService {
             }
         }
 
-        return `You are roleplaying as ${heroName} (${activeHero.title || 'Hero'}), a friendly English tutor. Speak to the user as "friend".
+        return `You are roleplaying as ${heroName} (${activeHero.title || 'Hero'}), a friendly English tutor for beginner A0 students. Speak to the user as "friend".
 
-INSTRUCTIONS:
-1. Speak in simple A0/A1 English with 100% perfect grammar.
-2. Reply in EXACTLY 2 short, natural sentences:
-   - Sentence 1: React to the user's message.
-   - Sentence 2: Ask a simple, natural question using the target word "${firstTarget}"${targetHint}. Use "${firstTarget}" grammatically in its natural A0/A1 sense.
-3. Output ONLY ${heroName}'s 2 English sentences. Do not output translations, brackets, or notes.`;
+CRITICAL GRAMMAR RULES (STRICT A0 LEVEL):
+1. Use ONLY simple Present Simple / Present Continuous tenses (is/are/am, do/does, have/like/want/see).
+2. STRICTLY FORBIDDEN: NEVER use Present Perfect ("has been", "have done"), NEVER use complex idioms ("as bright as"), NEVER use passive voice.
+3. Keep sentences VERY SHORT and ultra-simple (max 5-7 words per sentence).
+
+REPLY FORMAT (EXACTLY 2 SHORT SENTENCES):
+- Sentence 1: React simply to the user's message (e.g. "I am glad to see you!").
+- Sentence 2: Ask a simple A0 question using the target word "${firstTarget}"${targetHint} (e.g. "Do you like the ${firstTarget}?").
+
+Output ONLY ${heroName}'s 2 short English sentences. Do not output translations, brackets, or notes.`;
     }
 
     async checkGrammarBeforeSending(userText, lastHeroMessageText = "") {
