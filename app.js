@@ -1279,7 +1279,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!hero || !hero.words || !text) return { totalXP: 0, matchedWordsInfo: [] };
 
         const lowerText = text.toLowerCase().trim();
-        const cleanText = lowerText.replace(/[^\w\s']/g, " ").replace(/\s+/g, " ");
+        const cleanText = lowerText.replace(/[^\w\s'-]/g, " ").replace(/\s+/g, " ");
         const wordsInText = cleanText.split(/\s+/).map(w => w.replace(/^'+|'+$/g, ''));
         let totalXP = 0;
         const matchedWordsInfo = [];
@@ -1298,17 +1298,25 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
 
-            // Stemming fallback: check if any word in user text stems to target wordLower
+            // Stemming & Hyphenation fallback: check if any word in user text matches target word
             if (!isMatched) {
-                isMatched = wordsInText.some(userW => {
-                    if (userW === wordLower) return true;
-                    if (userW.endsWith("s") && userW.slice(0, -1) === wordLower) return true;
-                    if (userW.endsWith("es") && userW.slice(0, -2) === wordLower) return true;
-                    if (userW.endsWith("ies") && userW.slice(0, -3) + "y" === wordLower) return true;
-                    if (userW.endsWith("ing") && (userW.slice(0, -3) === wordLower || userW.slice(0, -3) + "e" === wordLower)) return true;
-                    if (userW.endsWith("ed") && (userW.slice(0, -2) === wordLower || userW.slice(0, -1) === wordLower)) return true;
-                    return false;
-                });
+                const unhyphenatedWord = wordLower.replace(/-/g, "");
+                const spaceWord = wordLower.replace(/-/g, " ");
+
+                if (cleanText.includes(spaceWord) || cleanText.includes(unhyphenatedWord)) {
+                    isMatched = true;
+                } else {
+                    isMatched = wordsInText.some(userW => {
+                        const cleanUserW = userW.replace(/-/g, "");
+                        if (userW === wordLower || cleanUserW === unhyphenatedWord || userW === spaceWord) return true;
+                        if (userW.endsWith("s") && (userW.slice(0, -1) === wordLower || userW.slice(0, -1) === unhyphenatedWord)) return true;
+                        if (userW.endsWith("es") && (userW.slice(0, -2) === wordLower || userW.slice(0, -2) === unhyphenatedWord)) return true;
+                        if (userW.endsWith("ies") && (userW.slice(0, -3) + "y" === wordLower || userW.slice(0, -3) + "y" === unhyphenatedWord)) return true;
+                        if (userW.endsWith("ing") && (userW.slice(0, -3) === wordLower || userW.slice(0, -3) + "e" === wordLower)) return true;
+                        if (userW.endsWith("ed") && (userW.slice(0, -2) === wordLower || userW.slice(0, -1) === wordLower)) return true;
+                        return false;
+                    });
+                }
             }
 
             if (isMatched) {
@@ -1954,6 +1962,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // ALL UNLOCKED HEROES WORD XP EVALUATION & LEVELING
         processAllUnlockedHeroesWordXP(text);
+
+        // Real-time sidebar update for chip colors and daily quest counters (e.g. 43/50 -> 50/50)!
+        try { renderHeroWordsSidebar(); } catch(e) {}
 
         // PER-HERO AUDIO & TYPING REWARDS (Rule 1, Rule 3, Rule 5)
         const activeHeroId = (activeScenario && activeScenario.isHeroScenario && activeScenario.heroId) ? activeScenario.heroId : null;
