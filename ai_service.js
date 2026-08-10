@@ -117,18 +117,18 @@ class AIService {
             priorityWord = targetFiveWords[0];
         }
 
-        const firstTarget = priorityWord || targetFiveWords[0] || "item";
+        const firstTargetLower = (priorityWord || targetFiveWords[0] || "item").toLowerCase();
         let targetHint = "";
         if (activeHero && activeHero.words) {
             const wordEntry = activeHero.words.find(w => {
                 const wStr = Array.isArray(w) ? w[0] : (w.word || "");
-                return wStr.toLowerCase() === firstTarget.toLowerCase();
+                return wStr.toLowerCase() === firstTargetLower;
             });
             if (wordEntry) {
                 const trans = Array.isArray(wordEntry) ? wordEntry[2] : (wordEntry.translation || "");
                 const ex = Array.isArray(wordEntry) ? wordEntry[3] : (wordEntry.example || "");
                 if (trans || ex) {
-                    targetHint = ` (meaning: ${trans}${ex ? `, example: "${ex}"` : ''})`;
+                    targetHint = ` (meaning: "${trans}"${ex ? `, example: "${ex}"` : ''})`;
                 }
             }
         }
@@ -139,10 +139,12 @@ CRITICAL GRAMMAR RULES (STRICT A0 LEVEL):
 1. Use ONLY simple Present Simple / Present Continuous tenses (is/are/am, do/does, have/like/want/see).
 2. STRICTLY FORBIDDEN: NEVER use Present Perfect ("has been", "have done"), NEVER use complex idioms ("as bright as"), NEVER use passive voice.
 3. Write complete, grammatically 100% correct natural sentences. Always include proper articles (a/an/the) and auxiliary verbs.
+4. DO NOT capitalize target words in the middle of sentences (e.g. write "are you thirsty", NOT "are you Thirsty").
+5. ENSURE SEMANTIC CONTEXT: Only use "${firstTargetLower}" in its true logical context (e.g. "thirsty" is ONLY for drinks/water, NOT for pizza/food!).
 
 REPLY FORMAT (EXACTLY 2 NATURAL SENTENCES):
-- Sentence 1: React simply to the user's message (e.g. "I am glad to see you!").
-- Sentence 2: Ask a simple A0 question using the target word "${firstTarget}"${targetHint} (e.g. "Do you like the ${firstTarget}?").
+- Sentence 1: React simply to the user's message (e.g. "I am glad to hear that!").
+- Sentence 2: Ask a simple A0 question using the target word "${firstTargetLower}" in natural context${targetHint} (e.g. "Do you want water when you are ${firstTargetLower}?").
 
 Output ONLY ${heroName}'s 2 English sentences. Do not output translations, brackets, or notes.`;
     }
@@ -375,6 +377,16 @@ RULES:
 
         // Clean unnatural article + preposition/question word artifacts like "a next to", "a where", "a behind", etc.
         text = text.replace(/\ba\s+(next to|under|in|on|at|behind|near|where|when|why|how)\b/gi, '$1').trim();
+
+        // Clean mid-sentence random capitalization like "Are you Thirsty for..." -> "Are you thirsty for..."
+        text = text.replace(/([a-z,;:\s])\s+([A-Z][a-z]+)\b/g, (match, p1, p2) => {
+            const properNouns = ["I", "English", "Astraea", "Ignis", "Valerius", "Frostina", "Zephyr", "Thorin", "Selene", "Aria", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            if (properNouns.includes(p2)) return match;
+            return p1 + " " + p2.toLowerCase();
+        });
+
+        // Clean semantic hallucinations like "thirsty for pizza" -> "hungry for pizza" or "thirsty for water"
+        text = text.replace(/\bthirsty\s+for\s+(some\s+)?(pizza|food|bread|cake|cheese|sandwich|meat|burger|apple)\b/gi, 'hungry for $1$2');
 
         return { text, correction };
     }
