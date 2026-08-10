@@ -122,15 +122,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // 4. Update Stage Artwork & Quote
         const stageArt = document.getElementById("hero-stage-art");
+        const stageVideo = document.getElementById("hero-stage-video");
+        const stageChromaCanvas = document.getElementById("hero-stage-chroma-canvas");
         const stageQuote = document.getElementById("hero-stage-quote");
         const iconFallback = document.getElementById("hero-stage-icon-fallback");
         const iconFa = document.getElementById("hero-stage-icon-fa");
-        if (stageArt) {
+
+        if (hero.videoIdleAlpha || hero.videoIdle) {
+            if (stageVideo && (hero.videoIdleAlpha || hero.videoIdle)) {
+                stageVideo.src = hero.videoIdleAlpha || hero.videoIdle;
+                stageVideo.classList.remove("hidden");
+                stageVideo.play().catch(e => {});
+            }
+            if (stageArt) stageArt.style.display = "none";
+            if (iconFallback) iconFallback.style.display = "none";
+        } else if (stageArt) {
+            if (stageVideo) {
+                stageVideo.pause();
+                stageVideo.classList.add("hidden");
+            }
             if (hero.image) {
                 stageArt.src = hero.image;
                 stageArt.style.display = "";
                 if (iconFallback) iconFallback.style.display = "none";
-                // Reset onerror for new image load
                 stageArt.onerror = function() {
                     this.style.display = "none";
                     if (iconFallback) iconFallback.style.display = "flex";
@@ -3104,6 +3118,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (container && story.paragraphs) {
             container.innerHTML = "";
+
+            if (hero.videoIntro) {
+                const videoBox = document.createElement("div");
+                videoBox.style.cssText = "width: 100%; margin-bottom: 14px; border-radius: 14px; overflow: hidden; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 10px 30px rgba(0,0,0,0.5);";
+                videoBox.innerHTML = `
+                    <video src="${hero.videoIntro}" controls autoplay loop playsinline style="width: 100%; display: block; max-height: 280px; object-fit: cover;"></video>
+                `;
+                container.appendChild(videoBox);
+            }
             story.paragraphs.forEach((p, idx) => {
                 const card = document.createElement("div");
                 card.style.cssText = "background: rgba(15,23,42,0.8); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 14px 18px; display: flex; flex-direction: column; gap: 8px;";
