@@ -1,8 +1,7 @@
 import os
 from PIL import Image
 
-full_body_path = r'C:\Users\Анастасия\Desktop\English RPG\Gemini_Generated_Image_b70ajlb70ajlb70a.png'
-avatar_path = r'C:\Users\Анастасия\Desktop\English RPG\Gemini_Generated_Image_b70ajlb70ajlb70a - Copy.png'
+full_body_path = r'C:\Users\Анастасия\Desktop\English RPG\Gemini_Generated_Image_enl8j3enl8j3enl8.png'
 
 dest_dir = r'c:\dev\english_app'
 images_dir = r'c:\dev\english_app\images'
@@ -28,7 +27,7 @@ def remove_green_background(img_path):
     img.putdata(new_data)
     return img
 
-print("Processing full body Thorin image...")
+print("Processing clean full body Thorin image (no ground shadow)...")
 full_img = remove_green_background(full_body_path)
 
 # Crop bounding box of character
@@ -44,29 +43,15 @@ if bbox:
 else:
     cropped_full = full_img
 
-print("Processing avatar Thorin image...")
-avatar_img = remove_green_background(avatar_path)
-avatar_bbox = avatar_img.getbbox()
-if avatar_bbox:
-    avatar_cropped = avatar_img.crop(avatar_bbox)
-else:
-    avatar_cropped = avatar_img
-
 # Save outputs to workspace root and images/ directory
 full_out_root = os.path.join(dest_dir, "thorin_hero_standalone.png")
-avatar_out_root = os.path.join(dest_dir, "thorin_face.png")
 full_out_img = os.path.join(images_dir, "thorin_hero_standalone.png")
-avatar_out_img = os.path.join(images_dir, "thorin_face.png")
 
 cropped_full.save(full_out_root, "PNG")
 cropped_full.save(full_out_img, "PNG")
-avatar_cropped.save(avatar_out_root, "PNG")
-avatar_cropped.save(avatar_out_img, "PNG")
 
 # Save outputs to artifacts directory for preview
 cropped_full.save(os.path.join(artifacts_dir, "thorin_hero_standalone.png"), "PNG")
-avatar_cropped.save(os.path.join(artifacts_dir, "thorin_face.png"), "PNG")
 
-print("Thorin images processed successfully!")
+print("Clean Thorin standalone image processed successfully!")
 print(f"Full body: {full_out_img}")
-print(f"Avatar: {avatar_out_img}")
