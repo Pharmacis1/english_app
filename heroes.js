@@ -1228,7 +1228,29 @@ const HEROES_DATA = [
         words: generateHeroWords("thorin"),
         sentenceTemplates: ["This hammer is [big and heavy].", "A [strong] warrior."],
         grammarRules: ["Прилагательные-антонимы (big/small, hot/cold)", "Порядок слов"],
-        voiceConfig: { kokoroVoice: "bm_george", gender: "male", pitch: 0.75, rate: 0.9 }
+        voiceConfig: { kokoroVoice: "bm_george", gender: "male", pitch: 0.75, rate: 0.9 },
+        storyCutscene: {
+            title: "🔨 Thorin: The Hammer of the Iron Mountain",
+            subtitle: "A1 Story Cutscene • История появления Торина",
+            paragraphs: [
+                {
+                    en: "Deep inside the Iron Mountain lives Thorin. He is a brave dwarven warrior with a big beard and a heavy stone hammer.",
+                    ru: "Глубоко внутри Железной Горы живёт Торин. Он храбрый дварфийский воин с большой бородой и тяжёлым каменным молотом."
+                },
+                {
+                    en: "Every day, Thorin works in the hot forge. The iron is hot, but his hands are strong!",
+                    ru: "Каждый день Торин работает в горячей кузнице. Железо горячее, но его руки крепкие!"
+                },
+                {
+                    en: "One dark night, a glowing red gem shines on the cave wall. Thorin hits the gem with his heavy hammer. BOOM! Bright golden sparks light up the dark cavern.",
+                    ru: "Одной тёмной ночью на стене пещеры засиял красный светящийся самоцвет. Торин бьёт по самоцвету своим тяжёлым молотом. БУМ! Яркие золотые искры освещают тёмную пещеру."
+                },
+                {
+                    en: "Thorin smiles and says: 'My hammer is ready for battle! Welcome to my forge, my friend!'",
+                    ru: "Торин улыбается и говорит: 'Мой молот готов к бою! Добро пожаловать в мою кузницу, мой друг!'"
+                }
+            ]
+        }
     },
     {
         id: "selene", name: "Selene", role: "Assassin", cefrRank: 3, cefrLevel: "A1 (Ability Can/Cannot & Hobbies)", title: "Shadow Stalker",
