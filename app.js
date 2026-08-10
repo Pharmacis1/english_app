@@ -640,6 +640,8 @@ document.addEventListener("DOMContentLoaded", () => {
     function triggerRPGReward(activity, targetHeroIds = null, materialSourceHeroId = null, customBaseXp = null, customToastMsg = null, customBg = null) {
         const reward = rpgEngine.rewardFromEnglish(activity, targetHeroIds, materialSourceHeroId, customBaseXp);
         renderRPGHeader();
+        updateHeroDailyBonusTracker();
+        if (typeof renderHeroShowcase === 'function') renderHeroShowcase();
         
         const heroNamesStr = reward.rewardedHeroNames.length > 0 ? reward.rewardedHeroNames.join(", ") : "None";
         const bonusTag = reward.isFocusBonus ? " 🔥 (+50% Focus Bonus!)" : "";
@@ -780,9 +782,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function updateHeroDailyBonusTracker() {
-        const activeHeroId = (activeScenario && activeScenario.isHeroScenario && activeScenario.heroId) 
+        const activeHeroId = (activeScenario && activeScenario.heroId) 
             ? activeScenario.heroId 
-            : null;
+            : (activeShowcaseHeroId || (rpgEngine.heroes[0] && rpgEngine.heroes[0].id));
         
         const trackerBar = document.getElementById("hero-daily-bonus-tracker");
         if (!trackerBar) return;
