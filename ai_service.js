@@ -117,8 +117,10 @@ class AIService {
             priorityWord = targetFiveWords[0];
         }
 
+        const firstTargetLower = (priorityWord || targetFiveWords[0] || "item").toLowerCase();
         let wordCategory = "noun";
         let sampleQuestion = `Do you like ${firstTargetLower}?`;
+        let targetHint = "";
 
         if (activeHero && activeHero.words) {
             const wordEntry = activeHero.words.find(w => {
@@ -427,6 +429,7 @@ RULES:
 
         let heroPrefix = "";
         if (targetHeroObjects && targetHeroObjects.length > 0) {
+            const firstHero = targetHeroObjects[0];
             const firstWordObj = firstHero.words && firstHero.words[0];
             const sampleWord = firstWordObj ? (Array.isArray(firstWordObj) ? firstWordObj[0] : (firstWordObj.word || "friend")) : "friend";
             heroPrefix = `[Using ${firstHero.name}'s word "${sampleWord}"] `;
