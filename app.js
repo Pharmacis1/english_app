@@ -1817,7 +1817,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const targetHeroId = heroId || (activeScenario && activeScenario.heroId) || activeShowcaseHeroId || (rpgEngine.heroes[0] && rpgEngine.heroes[0].id);
         if (accuracy >= 60 && targetHeroId) {
-            const msgId = msgContent.slice(0, 30);
+            const msgId = msgContent.trim().toLowerCase();
             const state = getTodayHeroAudioState(targetHeroId);
             if (!state.repeatedMsgs.includes(msgId)) {
                 state.repeatedMsgs.push(msgId);
@@ -1832,7 +1832,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function checkAndAwardListeningBonus(text, heroId) {
         const targetHeroId = heroId || (activeScenario && activeScenario.heroId) || activeShowcaseHeroId || (rpgEngine.heroes[0] && rpgEngine.heroes[0].id);
         if (!targetHeroId) return;
-        const msgId = text.slice(0, 30);
+        const msgId = text.trim().toLowerCase();
         const state = getTodayHeroAudioState(targetHeroId);
         if (!state.listenedMsgs.includes(msgId)) {
             state.listenedMsgs.push(msgId);
@@ -1861,7 +1861,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
         
-        const msgId = text.slice(0, 30);
+        const msgId = text.trim().toLowerCase();
         const heroState = activeHeroId ? getTodayHeroAudioState(activeHeroId) : null;
         const isListened = heroState && heroState.listenedMsgs && heroState.listenedMsgs.includes(msgId);
         const isRepeated = heroState && heroState.repeatedMsgs && heroState.repeatedMsgs.includes(msgId);
@@ -2013,7 +2013,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Rule 5: Full Cycle Combo Check (If last AI message was Listened + Repeated + current message used Mic)
             if (usedMicInCurrentDraft && lastAiMessageContent) {
-                const lastMsgId = lastAiMessageContent.slice(0, 30);
+                const lastMsgId = lastAiMessageContent.trim().toLowerCase();
                 if (state.listenedMsgs.includes(lastMsgId) && state.repeatedMsgs.includes(lastMsgId) && !state.comboMsgs.includes(lastMsgId)) {
                     state.comboMsgs.push(lastMsgId);
                     triggerRPGReward("combo", activeHeroId, activeHeroId, 30, `🔥 +30 XP FULL CYCLE COMBO BONUS! (Listen + Repeat + Respond)`, "linear-gradient(135deg, #f59e0b, #d97706)");
