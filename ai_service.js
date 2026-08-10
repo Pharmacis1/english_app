@@ -117,8 +117,9 @@ class AIService {
             priorityWord = targetFiveWords[0];
         }
 
-        const firstTargetLower = (priorityWord || targetFiveWords[0] || "item").toLowerCase();
-        let targetHint = "";
+        let wordCategory = "noun";
+        let sampleQuestion = `Do you like ${firstTargetLower}?`;
+
         if (activeHero && activeHero.words) {
             const wordEntry = activeHero.words.find(w => {
                 const wStr = Array.isArray(w) ? w[0] : (w.word || "");
@@ -133,6 +134,23 @@ class AIService {
             }
         }
 
+        if (typeof window !== 'undefined' && typeof window.categorizeHeroWords === 'function') {
+            const categorized = window.categorizeHeroWords([{ word: firstTargetLower }]);
+            if (categorized.verbs && categorized.verbs.length > 0) {
+                wordCategory = "verb";
+                sampleQuestion = `Do you want to ${firstTargetLower}?`;
+            } else if (categorized.adjectives && categorized.adjectives.length > 0) {
+                wordCategory = "adjective";
+                sampleQuestion = `Are you ${firstTargetLower} today?`;
+            } else if (categorized.expressions && categorized.expressions.length > 0) {
+                wordCategory = "expression";
+                sampleQuestion = `Have a great ${firstTargetLower}!`;
+            } else {
+                wordCategory = "noun";
+                sampleQuestion = `Do you like ${firstTargetLower}?`;
+            }
+        }
+
         return `You are roleplaying as ${heroName} (${activeHero.title || 'Hero'}), a friendly English tutor for beginner A0 students. Speak to the user as "friend".
 
 CRITICAL GRAMMAR RULES (STRICT A0 LEVEL):
@@ -140,11 +158,12 @@ CRITICAL GRAMMAR RULES (STRICT A0 LEVEL):
 2. STRICTLY FORBIDDEN: NEVER use Present Perfect ("has been", "have done"), NEVER use complex idioms ("as bright as"), NEVER use passive voice.
 3. Write complete, grammatically 100% correct natural sentences. Always include proper articles (a/an/the) and auxiliary verbs.
 4. DO NOT capitalize target words in the middle of sentences (e.g. write "are you thirsty", NOT "are you Thirsty").
-5. ENSURE SEMANTIC CONTEXT: Only use "${firstTargetLower}" in its true logical context (e.g. "thirsty" is ONLY for drinks/water, NOT for pizza/food!).
+5. ENSURE SEMANTIC CONTEXT: Only use "${firstTargetLower}" in its true logical context. NEVER write nonsense phrases like "when you are ${firstTargetLower}" for nouns/objects!
 
 REPLY FORMAT (EXACTLY 2 NATURAL SENTENCES):
-- Sentence 1: React simply to the user's message (e.g. "I am glad to hear that!").
-- Sentence 2: Ask a simple A0 question using the target word "${firstTargetLower}" in natural context${targetHint} (e.g. "Do you want water when you are ${firstTargetLower}?").
+- Sentence 1: React simply and warmly to the user's message (e.g. "I am glad to hear that!").
+- Sentence 2: Ask a simple A0 question using target word "${firstTargetLower}" (${wordCategory})${targetHint}.
+  * Natural structure example for this word: "${sampleQuestion}".
 
 Output ONLY ${heroName}'s 2 English sentences. Do not output translations, brackets, or notes.`;
     }
@@ -387,6 +406,9 @@ RULES:
 
         // Clean semantic hallucinations like "thirsty for pizza" -> "hungry for pizza" or "thirsty for water"
         text = text.replace(/\bthirsty\s+for\s+(some\s+)?(pizza|food|bread|cake|cheese|sandwich|meat|burger|apple)\b/gi, 'hungry for $1$2');
+
+        // Clean nonsense LLM template hallucinations: "when you are <noun/food>" -> "with <noun>" (e.g. "when you are pepper" -> "with pepper")
+        text = text.replace(/\bwhen\s+you\s+are\s+(pepper|pizza|food|bread|cheese|table|chair|shirt|coat|shoe|hat|hammer|car|dog|cat|house|money)\b/gi, 'with $1');
 
         return { text, correction };
     }
