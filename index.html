@@ -187,8 +187,11 @@
                     <button class="hero-btn action-btn-call" id="btn-hero-call">
                         <i class="fa-solid fa-phone"></i> Звонок герою
                     </button>
-                    <button class="hero-btn action-btn-stats" id="btn-hero-word-stats" style="grid-column: span 2; background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(59, 130, 246, 0.2)); border-color: rgba(6, 182, 212, 0.4);">
+                    <button class="hero-btn action-btn-stats" id="btn-hero-word-stats" style="background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(59, 130, 246, 0.2)); border-color: rgba(6, 182, 212, 0.4);">
                         <i class="fa-solid fa-chart-pie" style="color: var(--accent);"></i> 📊 Статистика слов
+                    </button>
+                    <button class="hero-btn action-btn-story" id="btn-hero-story" style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(217, 119, 6, 0.2)); border-color: rgba(245, 158, 11, 0.4);">
+                        <i class="fa-solid fa-scroll" style="color: var(--warning);"></i> 📜 История (A1 Story)
                     </button>
                 </div>
             </div>
@@ -560,6 +563,45 @@
             <div class="rpg-modal-body">
                 <p style="color:var(--text-muted); font-size:13px;">Review all due SRS flashcards from every unlocked hero. Coming soon!</p>
             </div>
+    <!-- MODAL: HERO A1 STORY CUTSCENE -->
+    <div class="rpg-modal-overlay hidden" id="modal-hero-story">
+        <div class="rpg-modal-content modal-lg" style="max-width: 900px; width: 95vw;">
+            <div class="rpg-modal-header">
+                <div class="modal-header-title">
+                    <i class="fa-solid fa-scroll" style="font-size:22px; color:var(--warning);"></i>
+                    <div>
+                        <h3 id="hero-story-modal-title" style="margin:0; font-size:18px; font-weight:800; color:var(--warning);">📜 Hero Story Lore Cutscene</h3>
+                        <div id="hero-story-modal-subtitle" style="font-size:12px; color:var(--text-muted); font-weight:500;">A1 Story • История появления героя</div>
+                    </div>
+                </div>
+                <button class="modal-close-btn" id="close-hero-story-modal-btn">&times;</button>
+            </div>
+            <div class="rpg-modal-body" style="padding: 20px; display: flex; flex-direction: row; gap: 24px; max-height: 75vh; overflow-y: auto;">
+                <div style="flex: 0 0 280px; display: flex; flex-direction: column; align-items: center; background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 16px; position: relative;">
+                    <img id="hero-story-portrait" src="images/thorin_hero_standalone.png" alt="Hero Portrait" style="max-width: 100%; height: auto; max-height: 380px; object-fit: contain; filter: drop-shadow(0 10px 25px rgba(0,0,0,0.5));">
+                    <div id="hero-story-badge" style="margin-top: 12px; padding: 4px 12px; background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.4); border-radius: 20px; font-size: 12px; font-weight: 700; color: #f59e0b;">
+                        🔨 Dwarven Berserker
+                    </div>
+                </div>
+                <div style="flex: 1; display: flex; flex-direction: column; gap: 16px;">
+                    <div id="hero-story-paragraphs-container" style="display: flex; flex-direction: column; gap: 14px;">
+                        <!-- Story paragraphs inserted dynamically -->
+                    </div>
+                </div>
+            </div>
+            <div class="rpg-modal-footer" style="padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.3); border-top: 1px solid rgba(255,255,255,0.08);">
+                <button class="btn btn-outline" id="toggle-all-story-translations-btn" style="gap: 6px;">
+                    <i class="fa-solid fa-eye"></i> <span id="toggle-story-trans-text">Показать весь перевод</span>
+                </button>
+                <div style="display:flex; gap:10px;">
+                    <button class="btn btn-warning" id="read-full-story-audio-btn" style="gap: 6px;">
+                        <i class="fa-solid fa-volume-high"></i> Прослушать историю
+                    </button>
+                    <button class="btn btn-primary" id="open-chat-from-story-btn" style="gap: 6px;">
+                        <i class="fa-solid fa-comments"></i> Чат с героем
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -797,11 +839,11 @@
         </div>
     </div>
 
-    <script src="scenarios.js?v=10.96"></script>
-    <script src="heroes.js?v=10.96"></script>
-    <script src="flashcards.js?v=10.96"></script>
-    <script src="grammar.js?v=10.96"></script>
-    <script src="ai_service.js?v=10.96"></script>
-    <script src="app.js?v=10.96"></script>
+    <script src="scenarios.js?v=10.97"></script>
+    <script src="heroes.js?v=10.97"></script>
+    <script src="flashcards.js?v=10.97"></script>
+    <script src="grammar.js?v=10.97"></script>
+    <script src="ai_service.js?v=10.97"></script>
+    <script src="app.js?v=10.97"></script>
 </body>
 </html>

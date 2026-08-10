@@ -276,11 +276,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const btnAffinity = document.getElementById("btn-hero-affinity");
     const toggleScenariosBtn = document.getElementById("toggle-scenarios-btn");
     const btnWordStats = document.getElementById("btn-hero-word-stats");
+    const btnStory = document.getElementById("btn-hero-story");
 
     if (btnWordStats) {
         btnWordStats.addEventListener("click", () => {
             const hero = rpgEngine.heroes.find(h => h.id === activeShowcaseHeroId) || rpgEngine.heroes[0];
             openHeroWordStatsModal(hero);
+        });
+    }
+
+    if (btnStory) {
+        btnStory.addEventListener("click", () => {
+            const hero = rpgEngine.heroes.find(h => h.id === activeShowcaseHeroId) || rpgEngine.heroes[0];
+            openHeroStoryModal(hero);
         });
     }
 
@@ -3062,6 +3070,134 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (closeWordStatsBtn) closeWordStatsBtn.addEventListener("click", () => document.getElementById("hero-word-stats-modal")?.classList.add("hidden"));
     if (closeWordStatsModalBtn) closeWordStatsModalBtn.addEventListener("click", () => document.getElementById("hero-word-stats-modal")?.classList.add("hidden"));
+
+    // --- HERO A1 STORY LORE CUTSCENE MODAL CONTROLLER 📜 ---
+    let areStoryTranslationsVisible = false;
+
+    function openHeroStoryModal(hero) {
+        const modal = document.getElementById("modal-hero-story");
+        if (!modal || !hero) return;
+
+        const story = hero.storyCutscene || {
+            title: `📜 ${hero.name}'s Story`,
+            subtitle: `A1 Story Cutscene • История появления ${hero.name}`,
+            paragraphs: [
+                {
+                    en: `${hero.name} is a brave hero. Welcome to the RPG journey!`,
+                    ru: `${hero.name} — храбрый герой. Добро пожаловать в RPG-путешествие!`
+                }
+            ]
+        };
+
+        const titleEl = document.getElementById("hero-story-modal-title");
+        const subtitleEl = document.getElementById("hero-story-modal-subtitle");
+        const portraitEl = document.getElementById("hero-story-portrait");
+        const badgeEl = document.getElementById("hero-story-badge");
+        const container = document.getElementById("hero-story-paragraphs-container");
+
+        if (titleEl) titleEl.textContent = story.title;
+        if (subtitleEl) subtitleEl.textContent = story.subtitle;
+        if (portraitEl) portraitEl.src = hero.image || hero.faceImage || "images/thorin_hero_standalone.png";
+        if (badgeEl) badgeEl.innerHTML = `<i class="fa-solid ${hero.avatar || 'fa-user'}"></i> ${hero.title || hero.name} (${hero.role || 'Hero'})`;
+
+        areStoryTranslationsVisible = false;
+
+        if (container && story.paragraphs) {
+            container.innerHTML = "";
+            story.paragraphs.forEach((p, idx) => {
+                const card = document.createElement("div");
+                card.style.cssText = "background: rgba(15,23,42,0.8); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 14px 18px; display: flex; flex-direction: column; gap: 8px;";
+
+                card.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;">
+                        <div style="font-size: 15px; font-weight: 600; color: #f8fafc; line-height: 1.5; flex: 1;">
+                            <span style="color: var(--warning); font-weight: 800; margin-right: 6px;">#${idx + 1}</span> ${p.en}
+                        </div>
+                        <button class="btn btn-sm btn-outline story-listen-p-btn" style="padding: 4px 10px; font-size: 11px; flex-shrink: 0;" data-text="${p.en.replace(/"/g, '&quot;')}">
+                            <i class="fa-solid fa-volume-high"></i> Listen
+                        </button>
+                    </div>
+                    <div class="story-paragraph-ru hidden" style="font-size: 13px; color: #94a3b8; border-top: 1px dashed rgba(255,255,255,0.1); padding-top: 6px; font-style: italic;">
+                        💡 ${p.ru}
+                    </div>
+                `;
+
+                container.appendChild(card);
+            });
+
+            // Bind per-paragraph Listen buttons with Kokoro TTS audio
+            container.querySelectorAll(".story-listen-p-btn").forEach(btn => {
+                btn.addEventListener("click", () => {
+                    const textToRead = btn.getAttribute("data-text");
+                    if (textToRead && typeof playTextKokoroAudio === "function") {
+                        playTextKokoroAudio(textToRead, hero.id);
+                    }
+                });
+            });
+        }
+
+        // Setup translation toggle button text
+        const toggleTransText = document.getElementById("toggle-story-trans-text");
+        if (toggleTransText) toggleTransText.textContent = "Показать весь перевод";
+
+        modal.classList.remove("hidden");
+    }
+
+    // Modal close & footer buttons
+    const closeStoryModalBtn = document.getElementById("close-hero-story-modal-btn");
+    if (closeStoryModalBtn) {
+        closeStoryModalBtn.addEventListener("click", () => {
+            const modal = document.getElementById("modal-hero-story");
+            if (modal) modal.classList.add("hidden");
+        });
+    }
+
+    const toggleStoryTransBtn = document.getElementById("toggle-all-story-translations-btn");
+    if (toggleStoryTransBtn) {
+        toggleStoryTransBtn.addEventListener("click", () => {
+            areStoryTranslationsVisible = !areStoryTranslationsVisible;
+            const container = document.getElementById("hero-story-paragraphs-container");
+            const toggleTransText = document.getElementById("toggle-story-trans-text");
+            if (container) {
+                container.querySelectorAll(".story-paragraph-ru").forEach(el => {
+                    if (areStoryTranslationsVisible) {
+                        el.classList.remove("hidden");
+                    } else {
+                        el.classList.add("hidden");
+                    }
+                });
+            }
+            if (toggleTransText) {
+                toggleTransText.textContent = areStoryTranslationsVisible ? "Скрыть перевод" : "Показать весь перевод";
+            }
+        });
+    }
+
+    const readFullStoryBtn = document.getElementById("read-full-story-audio-btn");
+    if (readFullStoryBtn) {
+        readFullStoryBtn.addEventListener("click", () => {
+            const hero = rpgEngine.heroes.find(h => h.id === activeShowcaseHeroId) || rpgEngine.heroes[0];
+            if (hero && hero.storyCutscene && hero.storyCutscene.paragraphs) {
+                const fullText = hero.storyCutscene.paragraphs.map(p => p.en).join(" ");
+                if (typeof playTextKokoroAudio === "function") {
+                    playTextKokoroAudio(fullText, hero.id);
+                }
+            }
+        });
+    }
+
+    const openChatFromStoryBtn = document.getElementById("open-chat-from-story-btn");
+    if (openChatFromStoryBtn) {
+        openChatFromStoryBtn.addEventListener("click", () => {
+            const modal = document.getElementById("modal-hero-story");
+            if (modal) modal.classList.add("hidden");
+            const hero = rpgEngine.heroes.find(h => h.id === activeShowcaseHeroId) || rpgEngine.heroes[0];
+            const chatModal = document.getElementById("modal-hero-chat");
+            if (chatModal) {
+                openHeroChatModal(hero);
+            }
+        });
+    }
 
     function renderHeroesRoster() {
         if (!heroesGridContainer) return;

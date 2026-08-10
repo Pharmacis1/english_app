@@ -1183,7 +1183,25 @@ const HEROES_DATA = [
         words: generateHeroWords("valerius"),
         sentenceTemplates: ["Hello, I am [Valerius].", "My name is [a hero].", "I am [happy / ready]."],
         grammarRules: ["Глагол 'to be' (am, is, are)", "Личные местоимения (I, You, He, She, It)"],
-        voiceConfig: { kokoroVoice: "am_adam", gender: "male", pitch: 0.9, rate: 0.95 }
+        voiceConfig: { kokoroVoice: "am_adam", gender: "male", pitch: 0.9, rate: 0.95 },
+        storyCutscene: {
+            title: "🛡️ Valerius: The Silver Oath",
+            subtitle: "A1 Story Cutscene • История Валериуса",
+            paragraphs: [
+                {
+                    en: "Valerius is a brave silver paladin. He wears shiny armor and holds a big shield.",
+                    ru: "Валериус — храбрый серебряный паладин. Он носит сияющие доспехи и держит большой щит."
+                },
+                {
+                    en: "He protects the Silver Outpost every day. Valerius is kind, strong, and friendly.",
+                    ru: "Он защищает Серебряный Пост каждый день. Валериус добрый, сильный и дружелюбный."
+                },
+                {
+                    en: "Valerius smiles and says: 'Hello, my friend! We stand together in battle!'",
+                    ru: "Валериус улыбается и говорит: 'Привет, мой друг! Вместе мы стоим в бою!'"
+                }
+            ]
+        }
     },
     {
         id: "astraea", name: "Astraea", role: "Healer", cefrRank: 1, cefrLevel: "A0 (Daily Actions & Food)", title: "High Priestess of Light",
@@ -1192,7 +1210,25 @@ const HEROES_DATA = [
         words: generateHeroWords("astraea"),
         sentenceTemplates: ["I have [a goal].", "I want to [eat / help].", "I study because [I love it]."],
         grammarRules: ["Глаголы have, want, like", "Союзы because, but, so, or"],
-        voiceConfig: { kokoroVoice: "af_heart", gender: "female", pitch: 1.1, rate: 0.9 }
+        voiceConfig: { kokoroVoice: "af_heart", gender: "female", pitch: 1.1, rate: 0.9 },
+        storyCutscene: {
+            title: "💖 Astraea: The Light of the Temple",
+            subtitle: "A1 Story Cutscene • История Астреи",
+            paragraphs: [
+                {
+                    en: "Astraea is a high priestess of light. She lives in a peaceful holy temple.",
+                    ru: "Астрея — верховная жрица света. Она живёт в мирном священном храме."
+                },
+                {
+                    en: "She helps tired travelers with magic food, water, and warm light.",
+                    ru: "Она помогает уставшим путникам волшебной едой, водой и тёплым светом."
+                },
+                {
+                    en: "Astraea smiles: 'May the bright light bless your journey today!'",
+                    ru: "Астрея улыбается: 'Пусть яркий свет благословит ваше путешествие сегодня!'"
+                }
+            ]
+        }
     },
     {
         id: "ignis", name: "Ignis", role: "Main DD", cefrRank: 1, cefrLevel: "A0 (Objects, Colors & Clothes)", title: "Pyromancer Archmage",
@@ -1201,7 +1237,25 @@ const HEROES_DATA = [
         words: generateHeroWords("ignis"),
         sentenceTemplates: ["This is my [red shirt].", "That is a [blue computer]."],
         grammarRules: ["Указатели This / That / These / Those", "Цвета и артикли a / an"],
-        voiceConfig: { kokoroVoice: "am_fenrir", gender: "male", pitch: 1.15, rate: 1.05 }
+        voiceConfig: { kokoroVoice: "am_fenrir", gender: "male", pitch: 1.15, rate: 1.05 },
+        storyCutscene: {
+            title: "🪄 Ignis: The Fire of the Forge",
+            subtitle: "A1 Story Cutscene • История Игниса",
+            paragraphs: [
+                {
+                    en: "Ignis is a pyromancer archmage. He wears a red cloak and holds a glowing magic staff.",
+                    ru: "Игнис — архимаг пиромантии. Он носит красный плащ и держит светящийся магический посох."
+                },
+                {
+                    en: "He reads ancient books and plays with warm fiery magic.",
+                    ru: "Он читает древние книги и играет с тёплой огненной магией."
+                },
+                {
+                    en: "Ignis laughs: 'Magic is everywhere! Let us practice new words together!'",
+                    ru: "Игнис смеётся: 'Магия повсюду! Давайте практиковать новые слова вместе!'"
+                }
+            ]
+        }
     },
     {
         id: "frostina", name: "Frostina", role: "Control", cefrRank: 2, cefrLevel: "A0 (Time, Weather & Routines)", title: "Ice Sorceress",
@@ -1210,7 +1264,25 @@ const HEROES_DATA = [
         words: generateHeroWords("frostina"),
         sentenceTemplates: ["I [always / usually] wake up early.", "It is [cold / sunny] today."],
         grammarRules: ["Present Simple", "Наречия частоты (always, usually, never)"],
-        voiceConfig: { kokoroVoice: "af_bella", gender: "female", pitch: 0.95, rate: 0.85 }
+        voiceConfig: { kokoroVoice: "af_bella", gender: "female", pitch: 0.95, rate: 0.85 },
+        storyCutscene: {
+            title: "❄️ Frostina: The Heart of the Ice Cavern",
+            subtitle: "A1 Story Cutscene • История Фростины",
+            paragraphs: [
+                {
+                    en: "Frostina is an ice sorceress. She lives in a quiet glacier cavern.",
+                    ru: "Фростина — ледяная волшебница. Она живёт в тихой ледниковой пещере."
+                },
+                {
+                    en: "She loves snowy weather and cold winter mornings.",
+                    ru: "Она любит снежную погоду и холодные зимние утра."
+                },
+                {
+                    en: "Frostina says: 'Stay warm, my friend! Cold weather makes us strong!'",
+                    ru: "Фростина говорит: 'Согревайся, мой друг! Холодная погода делает нас сильными!'"
+                }
+            ]
+        }
     },
     {
         id: "zephyr", name: "Zephyr", role: "Buffer", cefrRank: 2, cefrLevel: "A0 (Places, Directions & Questions)", title: "Wind Marksman",
@@ -1219,7 +1291,25 @@ const HEROES_DATA = [
         words: generateHeroWords("zephyr"),
         sentenceTemplates: ["Where is [the school]?", "It is [next to the park]."],
         grammarRules: ["Вопросы Where, When, Why, How", "Предлоги in, on, at, next to, behind"],
-        voiceConfig: { kokoroVoice: "am_echo", gender: "male", pitch: 1.1, rate: 1.1 }
+        voiceConfig: { kokoroVoice: "am_echo", gender: "male", pitch: 1.1, rate: 1.1 },
+        storyCutscene: {
+            title: "🏹 Zephyr: The Wind of the High Peaks",
+            subtitle: "A1 Story Cutscene • История Зефира",
+            paragraphs: [
+                {
+                    en: "Zephyr is a swift wind marksman. He stands on the high mountain tower.",
+                    ru: "Зефир — быстрый стрелок ветра. Он стоит на высокой горной башне."
+                },
+                {
+                    en: "He carries a long bow and sharp arrows. The wind tells him ancient secrets.",
+                    ru: "Он носит длинный лук и острые стрелы. Ветер рассказывает ему древние секреты."
+                },
+                {
+                    en: "Zephyr smiles: 'The wind calls us to adventure! Where do you want to go today?'",
+                    ru: "Зефир улыбается: 'Ветер зовёт нас к приключениям! Куда ты хочешь пойти сегодня?'"
+                }
+            ]
+        }
     },
     {
         id: "thorin", name: "Thorin", role: "Melee DD", cefrRank: 2, cefrLevel: "A0/A1 (Descriptions & Opposites)", title: "Dwarven Berserker",
