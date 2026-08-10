@@ -1813,27 +1813,31 @@ document.addEventListener("DOMContentLoaded", () => {
             repeatBtn.classList.add("repeated");
         }
 
-        if (accuracy >= 60 && heroId) {
+        const targetHeroId = heroId || (activeScenario && activeScenario.heroId) || activeShowcaseHeroId || (rpgEngine.heroes[0] && rpgEngine.heroes[0].id);
+        if (accuracy >= 60 && targetHeroId) {
             const msgId = msgContent.slice(0, 30);
-            const state = getTodayHeroAudioState(heroId);
+            const state = getTodayHeroAudioState(targetHeroId);
             if (!state.repeatedMsgs.includes(msgId)) {
                 state.repeatedMsgs.push(msgId);
-                saveTodayHeroAudioState(heroId, state);
+                saveTodayHeroAudioState(targetHeroId, state);
 
-                triggerRPGReward("repeat", heroId, heroId, 20, `🎯 +20 XP Pronunciation Repeat Bonus!`, "linear-gradient(135deg, #10b981, #059669)");
+                triggerRPGReward("repeat", targetHeroId, targetHeroId, 20, `🎯 +20 XP Pronunciation Repeat Bonus!`, "linear-gradient(135deg, #10b981, #059669)");
+                addXP(20);
             }
         }
     }
 
     function checkAndAwardListeningBonus(text, heroId) {
-        if (!heroId) return;
+        const targetHeroId = heroId || (activeScenario && activeScenario.heroId) || activeShowcaseHeroId || (rpgEngine.heroes[0] && rpgEngine.heroes[0].id);
+        if (!targetHeroId) return;
         const msgId = text.slice(0, 30);
-        const state = getTodayHeroAudioState(heroId);
+        const state = getTodayHeroAudioState(targetHeroId);
         if (!state.listenedMsgs.includes(msgId)) {
             state.listenedMsgs.push(msgId);
-            saveTodayHeroAudioState(heroId, state);
+            saveTodayHeroAudioState(targetHeroId, state);
 
-            triggerRPGReward("listen", heroId, heroId, 20, `🔊 +20 XP AI Listening Bonus!`, "linear-gradient(135deg, #3b82f6, #1d4ed8)");
+            triggerRPGReward("listen", targetHeroId, targetHeroId, 20, `🔊 +20 XP AI Listening Bonus!`, "linear-gradient(135deg, #3b82f6, #1d4ed8)");
+            addXP(20);
         }
     }
 
@@ -1842,9 +1846,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const bubble = document.createElement("div");
         bubble.className = `message-bubble ${role}`;
         
-        const heroObj = (activeScenario && activeScenario.isHeroScenario && activeScenario.heroId) 
-            ? rpgEngine.heroes.find(h => h.id === activeScenario.heroId) 
-            : null;
+        const activeHeroId = (activeScenario && activeScenario.heroId) ? activeScenario.heroId : (activeShowcaseHeroId || (rpgEngine.heroes[0] && rpgEngine.heroes[0].id));
+        const heroObj = activeHeroId ? rpgEngine.heroes.find(h => h.id === activeHeroId) : null;
         const heroAvatarSrc = heroObj ? (heroObj.faceImage || heroObj.image) : null;
         
         let avatar = `<div class="message-avatar"><i class="fa-solid fa-user"></i></div>`;
@@ -1852,11 +1855,10 @@ document.addEventListener("DOMContentLoaded", () => {
             if (heroAvatarSrc) {
                 avatar = `<div class="message-avatar" style="overflow:hidden;"><img src="${heroAvatarSrc}" style="width:100%; height:100%; object-fit:cover; object-position:top center; border-radius:50%;"></div>`;
             } else {
-                avatar = `<div class="message-avatar"><i class="fa-solid ${activeScenario.icon}"></i></div>`;
+                avatar = `<div class="message-avatar"><i class="fa-solid ${activeScenario ? activeScenario.icon : 'fa-robot'}"></i></div>`;
             }
         }
         
-        const activeHeroId = (activeScenario && activeScenario.isHeroScenario && activeScenario.heroId) ? activeScenario.heroId : null;
         const msgId = text.slice(0, 30);
         const heroState = activeHeroId ? getTodayHeroAudioState(activeHeroId) : null;
         const isListened = heroState && heroState.listenedMsgs && heroState.listenedMsgs.includes(msgId);
@@ -2044,14 +2046,12 @@ document.addEventListener("DOMContentLoaded", () => {
             const aiResponse = await aiService.generateResponse(chatHistory, activeScenario, targetHeroObjects);
             lastAiMessageContent = aiResponse.text; // Store last AI response for combo tracking
 
+            const activeHeroId = (activeScenario && activeScenario.heroId) ? activeScenario.heroId : (activeShowcaseHeroId || (rpgEngine.heroes[0] && rpgEngine.heroes[0].id));
+            appendMessage("assistant", aiResponse.text, aiResponse.translation);
+
             const autoSpeakToggle = document.getElementById("auto-speak-toggle");
             if (autoSpeakToggle && autoSpeakToggle.checked) {
                 checkAndAwardListeningBonus(aiResponse.text, activeHeroId);
-            }
-
-            appendMessage("assistant", aiResponse.text, aiResponse.translation);
-
-            if (autoSpeakToggle && autoSpeakToggle.checked) {
                 voiceService.speak(aiResponse.text, null, null, getActiveHeroVoiceConfig());
             }
 
