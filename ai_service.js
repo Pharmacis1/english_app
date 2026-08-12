@@ -161,7 +161,7 @@ Output ONLY your English response. Do not add Russian text, translations, bracke
             return { isValid: true, feedback: null };
         }
 
-        // Instant local heuristic check
+        // Instant local client-side heuristic check (0 API tokens used)
         if (typeof window !== 'undefined' && typeof window.evaluateUserGrammarClientSide === 'function') {
             const clientErr = window.evaluateUserGrammarClientSide(userText);
             if (clientErr) {
@@ -169,31 +169,25 @@ Output ONLY your English response. Do not add Russian text, translations, bracke
             }
         }
 
-        if (this.provider === 'fallback') {
-            return { isValid: true, feedback: null };
+        return { isValid: true, feedback: null };
+    }
+
+    async translateText(englishText) {
+        if (!englishText) return "";
+
+        // If provider is gemini or fallback, use instant offline translation to save 100% of tokens
+        if (this.provider === 'fallback' || this.provider === 'gemini') {
+            if (typeof window !== 'undefined' && typeof window.translateA0TextToRussian === 'function') {
+                return window.translateA0TextToRussian(englishText);
+            }
+            return englishText;
         }
 
+        // If local AI (ollama / lmstudio) is selected, send request to local AI server
         try {
-            const heroContextPrompt = lastHeroMessageText 
-                ? `Hero asked: "${lastHeroMessageText}"` 
-                : "New conversation.";
-
-            const messages = [
-                {
-                    role: 'system',
-                    content: `You are an English grammar evaluator for A0/A1 students learning English.
-Hero question: "${heroContextPrompt}"
-Student English text: "${userText}"
-
-CRITICAL RULES:
-1. The student MUST write in English. Natural English answers (e.g. "Yes, I do", "I have a group", "Yes, I am", "No", "Hi") are 100% CORRECT!
-2. DO NOT suggest changes if the student ALREADY has the correct preposition or phrase in their text!
-3. ONLY flag REAL English grammar errors (e.g. "I has", "I happy", "No, I not", Russian words mixed inside English).
-
-OUTPUT INSTRUCTION:
-- If English text is grammatically CORRECT: Output EXACTLY "VALID" (nothing else!).
-- If REAL English grammar error: Output "ERROR: <Short Russian explanation showing the corrected ENGLISH sentence, e.g. Замените 'I has' на 'I have'>".`
-                }
+            const formattedMessages = [
+                { role: 'system', content: "Ты — профессиональный переводчик. Твоя задача: переведи данный текст с английского на русский язык. Выведи ТОЛЬКО русский перевод без кавычек, вступлений, пояснений и английских слов." },
+                { role: 'user', content: `Переведи на русский: "${englishText}"` }
             ];
 
             const response = await fetch('/api/ai/chat', {
@@ -204,46 +198,33 @@ OUTPUT INSTRUCTION:
                     endpoint: this.endpoint,
                     model: this.modelName,
                     apiKey: this.geminiApiKey,
-                    messages: messages
+                    messages: formattedMessages
                 })
             });
 
-            if (!response.ok) throw new Error("Grammar check call failed");
+            if (!response.ok) throw new Error("Translation proxy error");
             const data = await response.json();
             if (data.success && data.content) {
-                const raw = data.content.trim();
-                
-                // If response starts with VALID or does NOT explicitly specify ERROR:
-                if (raw.toUpperCase().startsWith("VALID") || (!raw.startsWith("ERROR:") && !raw.includes("ошибк") && !raw.includes("Замените"))) {
-                    return { isValid: true, feedback: null };
+                let cleaned = data.content
+                    .replace(/[\u4e00-\u9fff\u3400-\u4dbf\u3000-\u303f\uff00-\uffef]+/g, '')
+                    .replace(/^Translation:\s*/gi, '')
+                    .replace(/^Перевод:\s*/gi, '')
+                    .replace(/^Переведи на русский:\s*/gi, '')
+                    .replace(/^["']|["']$/g, '')
+                    .trim();
+
+                cleaned = cleaned.replace(/([а-яА-ЯёЁ]+)\s+[a-zA-Z]{2,}\s+([а-яА-ЯёЁ]+)/g, '$1 $2');
+                const parts = cleaned.split(/(?<=[.!?])\s+/);
+                if (parts.length > 1) {
+                    cleaned = Array.from(new Set(parts)).join(" ");
                 }
 
-                let cleanFeedback = raw.replace(/^ERROR:\s*/gi, '').replace(/^VALID/gi, '').replace(/^\[Correction:\s*/gi, '').replace(/\]$/g, '').trim();
-
-                // SANITY FILTER 1: If model tells user to replace English with Russian text
-                if (/на\s+["'«][а-яА-ЯёЁ\s,!.?]+["'»]/i.test(cleanFeedback) || /на\s+русск/i.test(cleanFeedback) || /перевод/i.test(cleanFeedback)) {
-                    console.warn("Ignored false Russian translation hallucination from model:", cleanFeedback);
-                    return { isValid: true, feedback: null };
-                }
-
-                // SANITY FILTER 2: If model suggested replacing "A" with "B", but user's text ALREADY contains "B":
-                const replaceMatch = cleanFeedback.match(/замените\s+["'«]?([^"'»]+)["'»]?\s+на\s+["'«]?([^"'»]+)["'»]?/i);
-                if (replaceMatch) {
-                    const correctPart = replaceMatch[2].trim().toLowerCase();
-                    if (correctPart && userText.toLowerCase().includes(correctPart)) {
-                        console.warn("Ignored redundant suggestion because user text already contains:", correctPart);
-                        return { isValid: true, feedback: null };
-                    }
-                }
-
-                if (!cleanFeedback) cleanFeedback = "Пожалуйста, проверьте грамматику предложения.";
-                return { isValid: false, feedback: cleanFeedback };
+                if (cleaned.length > 0) return cleaned;
             }
-        } catch (err) {
-            console.warn("Pre-flight AI grammar check failed, proceeding:", err);
+        } catch (e) {
+            console.warn("Local AI translation failed, using fallback:", e);
         }
-
-        return { isValid: true, feedback: null };
+        return translateA0TextToRussian(englishText);
     }
 
     async generateResponse(messagesHistory, scenario, targetHeroObjects = null) {

@@ -1737,6 +1737,8 @@ document.addEventListener("DOMContentLoaded", () => {
         let ru = text;
 
         const phraseDict = {
+            "I am glad to hear that!": "Рад это слышать!",
+            "I'm glad to hear that!": "Рад это слышать!",
             "Nice to meet you!": "Приятно познакомиться!",
             "My name is": "Меня зовут",
             "I'm a noble Silver Paladin tank": "Я благородный Паладин-танк",
@@ -1755,13 +1757,37 @@ document.addEventListener("DOMContentLoaded", () => {
             "The wind whispers of adventure!": "Ветер шепчет о приключениях!",
             "Hail, warrior!": "Приветствую, воин!",
             "Shh... walk quietly in the shadows.": "Тшш... ходи тихо в тенях.",
-            "Welcome to the Emerald Grove!": "Добро пожаловать в Изумрудную Рощу!"
+            "Welcome to the Emerald Grove!": "Добро пожаловать в Изумрудную Рощу!",
+            "Do you like": "Тебе нравится",
+            "Do you want": "Ты хочешь",
+            "Do you have": "У тебя есть",
+            "Are you": "Ты",
+            "when you are": "когда ты",
+            "on your pizza": "на твоей пицце",
+            "for breakfast": "на завтрак",
+            "for lunch": "на обед",
+            "for dinner": "на ужин"
         };
 
         Object.keys(phraseDict).forEach(key => {
             const reg = new RegExp(key.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), 'gi');
             ru = ru.replace(reg, phraseDict[key]);
         });
+
+        if (typeof rpgEngine !== 'undefined' && rpgEngine.heroes) {
+            rpgEngine.heroes.forEach(hero => {
+                if (hero.words && Array.isArray(hero.words)) {
+                    hero.words.forEach(wObj => {
+                        const en = Array.isArray(wObj) ? wObj[0] : (wObj.word || "");
+                        const tr = Array.isArray(wObj) ? wObj[2] : (wObj.translation || "");
+                        if (en && tr && en.length > 2) {
+                            const reg = new RegExp(`\\b${en}\\b`, 'gi');
+                            ru = ru.replace(reg, tr);
+                        }
+                    });
+                }
+            });
+        }
 
         return ru;
     }
@@ -1956,30 +1982,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const lastHeroMsgObj = [...chatHistory].reverse().find(m => m.role === 'assistant');
         const lastHeroMessageText = lastHeroMsgObj ? lastHeroMsgObj.content : "";
 
-        // UI loading state
-        userChatInput.disabled = true;
-        if (sendChatBtn) sendChatBtn.disabled = true;
-        if (feedbackBanner) feedbackBanner.classList.add("hidden");
-
-        // 1. PRE-FLIGHT GRAMMAR CHECK (DO Send Check)
-        const checkResult = await aiService.checkGrammarBeforeSending(text, lastHeroMessageText);
-
         userChatInput.disabled = false;
         if (sendChatBtn) sendChatBtn.disabled = false;
-
-        // Non-blocking grammar evaluation: show tip if error detected, but ALWAYS SEND MESSAGE!
-        if (!checkResult.isValid && checkResult.feedback) {
-            if (feedbackText) {
-                feedbackText.innerHTML = checkResult.feedback.startsWith("💡") ? checkResult.feedback : `💡 ${checkResult.feedback}`;
-            }
-            if (feedbackBanner) {
-                feedbackBanner.classList.remove("hidden");
-            }
-        } else {
-            if (feedbackBanner) {
-                feedbackBanner.classList.add("hidden");
-            }
-        }
+        if (feedbackBanner) feedbackBanner.classList.add("hidden");
 
         // ALWAYS SEND MESSAGE TO CHAT IN ALL CASES!
         userChatInput.style.borderColor = "";
