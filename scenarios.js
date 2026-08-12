@@ -202,23 +202,33 @@ function categorizeHeroWords(heroWords) {
     const adjectives = [];
     const expressions = [];
 
+    const NOUN_SET = new Set([
+        "house", "home", "room", "flat", "apartment", "kitchen", "bedroom", "bathroom", "garden", "floor", "wall", "roof", 
+        "picture", "lamp", "television", "tv", "mirror", "towel", "sofa", "shelf", "hammer", "anvil", "forge", "metal", 
+        "iron", "gold", "silver", "stone", "wood", "smith", "mine", "ore", "lock", "thing", "object", "piece", "part", 
+        "top", "bottom", "side", "front", "back", "curtain", "carpet", "rug", "blanket", "pillow", "mattress", "sheet", 
+        "basement", "garage", "attic", "steel", "copper", "bronze", "clay", "glassware", "brick", "cement", "tool", 
+        "workbench", "chimney", "coal", "fireplace", "advice", "age", "water", "apple", "bread", "milk", "cheese", "table", 
+        "chair", "door", "window", "car", "city", "street", "park", "book", "pen", "paper", "phone", "time", "day", "night"
+    ]);
+
     const VERB_SET = new Set([
         "am", "is", "are", "have", "has", "had", "want", "like", "need", "eat", "drink", "sleep", "walk", "run", "see", "hear", 
         "listen", "read", "write", "speak", "learn", "help", "love", "give", "take", "make", "do", "open", "close", "start", 
         "stop", "cook", "wash", "clean", "rest", "smile", "heal", "care", "swim", "play", "draw", "paint", "drive", "ride", 
         "fly", "jump", "climb", "travel", "sneak", "hide", "strike", "dodge", "escape", "smash", "freeze", "visit", "study", 
-        "work", "achieve", "improve", "understand", "build", "fix", "break", "cut", "buy", "sell", "find", "lose", "bring", 
-        "send", "choose", "teach", "think", "know", "feel", "call", "wait", "ask", "answer", "try", "use", "agree"
+        "work", "achieve", "improve", "understand", "craft", "build", "fix", "break", "cut", "buy", "sell", "find", "lose", 
+        "bring", "send", "choose", "teach", "think", "know", "feel", "call", "wait", "ask", "answer", "try", "use", "agree"
     ]);
 
     const ADJ_SET = new Set([
         "good", "fine", "happy", "brave", "strong", "ready", "red", "blue", "green", "yellow", "black", "white", "brown", "orange", 
-        "cold", "hot", "warm", "cool", "early", "late", "big", "large", "small", "fast", "slow", "heavy", "light", "weak", "hard", 
-        "soft", "high", "low", "long", "short", "wide", "narrow", "deep", "shallow", "old", "new", "young", "clean", "dirty", 
-        "full", "empty", "rich", "poor", "easy", "difficult", "great", "tough", "solid", "quiet", "silent", "quick", "agile", 
-        "peaceful", "fluent", "grand", "honest", "awesome", "amazing", "afraid", "angry", "tall", "cozy", "nice", "funny", 
-        "beautiful", "smart", "kind", "cute", "bright", "dark", "sharp", "smooth", "safe", "dangerous", "tired", "hungry", 
-        "thirsty", "proud", "busy", "free", "sweet", "salty", "spicy", "sour", "tasty", "delicious", "expensive", "cheap"
+        "cold", "hot", "warm", "cool", "early", "late", "big", "large", "small", "little", "fast", "slow", "heavy", "light", 
+        "weak", "hard", "soft", "high", "low", "long", "short", "wide", "narrow", "deep", "shallow", "old", "new", "young", 
+        "clean", "dirty", "full", "empty", "rich", "poor", "easy", "difficult", "great", "tough", "solid", "quiet", "silent", 
+        "quick", "agile", "peaceful", "fluent", "grand", "honest", "awesome", "amazing", "afraid", "angry", "tall", "cozy", 
+        "nice", "funny", "beautiful", "smart", "kind", "cute", "bright", "dark", "sharp", "smooth", "safe", "dangerous", 
+        "tired", "hungry", "thirsty", "proud", "busy", "free", "sweet", "salty", "spicy", "sour", "tasty", "delicious", "expensive", "cheap"
     ]);
 
     const EXPR_SET = new Set([
@@ -226,7 +236,7 @@ function categorizeHeroWords(heroWords) {
         "your", "his", "her", "our", "their", "this", "that", "these", "those", "today", "tomorrow", "yesterday", "now", "later", 
         "soon", "always", "usually", "sometimes", "never", "often", "where", "when", "why", "how", "who", "what", "which", 
         "in", "on", "at", "under", "behind", "near", "far", "around", "can", "cannot", "was", "were", "ago", "last", "as", 
-        "again", "after", "before", "also", "too", "and", "or", "but", "so", "because", "if", "very", "quite", "really", "any", "advice"
+        "again", "after", "before", "also", "too", "and", "or", "but", "so", "because", "if", "very", "quite", "really", "any", "inside", "outside"
     ]);
 
     heroWords.forEach(wObj => {
@@ -236,17 +246,17 @@ function categorizeHeroWords(heroWords) {
         const trans = (p.translation || "").toLowerCase().trim();
         const mainTransWord = trans.split('/')[0].split('(')[0].split(',')[0].trim();
 
-        if (VERB_SET.has(lower)) {
+        if (NOUN_SET.has(lower)) {
+            nouns.push(p);
+        } else if (VERB_SET.has(lower)) {
             verbs.push(p);
         } else if (ADJ_SET.has(lower)) {
             adjectives.push(p);
         } else if (EXPR_SET.has(lower)) {
             expressions.push(p);
         } else if (/(ть|ти|ться|тся)$/i.test(mainTransWord)) {
-            // Russian verb ending heuristic
             verbs.push(p);
-        } else if (/(ый|ий|ой|ая|яя|ое|ее|ые|ие)$/i.test(mainTransWord)) {
-            // Russian adjective ending heuristic
+        } else if (/(ый|ий|ой|ая|яя|ое|ее|ые|ие)$/i.test(mainTransWord) && !/комната|кухня|спальня|прихожая|гостиная/i.test(mainTransWord)) {
             adjectives.push(p);
         } else {
             nouns.push(p);
