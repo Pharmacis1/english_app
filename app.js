@@ -45,25 +45,68 @@ document.addEventListener("DOMContentLoaded", () => {
     let heroActionAnimationTimer = null;
     let isHeroActionPlaying = false;
 
+    function getHeroStageTargetElements() {
+        return [
+            document.getElementById("hero-stage-art"),
+            document.getElementById("hero-stage-video"),
+            document.getElementById("hero-stage-action-video"),
+            document.getElementById("hero-stage-chroma-canvas")
+        ].filter(Boolean);
+    }
+
     function playHeroActionAnimation(hero) {
-        const stageVideo = document.getElementById("hero-stage-video");
-        if (!stageVideo || !hero || isHeroActionPlaying) return;
+        const idleVideo = document.getElementById("hero-stage-video");
+        const actionVideo = document.getElementById("hero-stage-action-video");
+        if (!hero || isHeroActionPlaying) return;
 
         const actionSrc = hero.videoActionAlpha || hero.videoAction;
-        const idleSrc = hero.videoIdleAlpha || hero.videoIdle;
         if (!actionSrc) return;
 
-        isHeroActionPlaying = true;
-        stageVideo.loop = false;
-        stageVideo.src = actionSrc;
-        stageVideo.play().catch(e => {});
+        if (!actionVideo) {
+            if (idleVideo) {
+                isHeroActionPlaying = true;
+                idleVideo.loop = false;
+                idleVideo.src = actionSrc;
+                idleVideo.play().catch(e => {});
+                idleVideo.onended = () => {
+                    isHeroActionPlaying = false;
+                    idleVideo.loop = true;
+                    idleVideo.src = hero.videoIdleAlpha || hero.videoIdle;
+                    idleVideo.play().catch(e => {});
+                };
+            }
+            return;
+        }
 
-        stageVideo.onended = () => {
+        isHeroActionPlaying = true;
+        actionVideo.src = actionSrc;
+        actionVideo.currentTime = 0;
+
+        let frameRevealed = false;
+        const revealActionVideo = () => {
+            if (frameRevealed) return;
+            frameRevealed = true;
+            actionVideo.classList.remove("hidden");
+            actionVideo.style.display = "block";
+        };
+
+        actionVideo.addEventListener("playing", revealActionVideo, { once: true });
+        actionVideo.addEventListener("timeupdate", revealActionVideo, { once: true });
+
+        actionVideo.play().then(() => {
+            applyHeroStageTransform();
+        }).catch(e => {
             isHeroActionPlaying = false;
-            if (idleSrc) {
-                stageVideo.loop = true;
-                stageVideo.src = idleSrc;
-                stageVideo.play().catch(e => {});
+            actionVideo.classList.add("hidden");
+            actionVideo.style.display = "none";
+        });
+
+        actionVideo.onended = () => {
+            isHeroActionPlaying = false;
+            actionVideo.classList.add("hidden");
+            actionVideo.style.display = "none";
+            if (idleVideo) {
+                idleVideo.play().catch(e => {});
             }
         };
     }
@@ -79,14 +122,6 @@ document.addEventListener("DOMContentLoaded", () => {
         heroActionAnimationTimer = setInterval(() => {
             playHeroActionAnimation(hero);
         }, 50000);
-    }
-
-    function getHeroStageTargetElements() {
-        return [
-            document.getElementById("hero-stage-art"),
-            document.getElementById("hero-stage-video"),
-            document.getElementById("hero-stage-chroma-canvas")
-        ].filter(Boolean);
     }
 
     function applyHeroStageTransform() {
