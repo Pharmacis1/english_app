@@ -1313,7 +1313,7 @@ const HEROES_DATA = [
     },
     {
         id: "thorin", name: "Thorin", role: "Melee DD", cefrRank: 2, cefrLevel: "A0/A1 (Descriptions & Opposites)", title: "Dwarven Berserker",
-        avatar: "fa-gavel", color: "#8b5cf6", image: "images/thorin_hero_standalone.png", faceImage: "images/thorin_face.png", videoIntro: "videos/thorin_intro.mp4", videoIdle: "videos/thorin_idle_chroma.mp4", videoIdleAlpha: "videos/thorin_idle_alpha.webm", videoAction: "videos/thorin_hammer_chroma.mp4", videoActionAlpha: "videos/thorin_hammer_alpha.webm", unlocked: false, level: 1, xp: 0, maxXp: 150, affinityLevel: 0,
+        avatar: "fa-gavel", color: "#8b5cf6", image: "images/thorin_hero_standalone.png", faceImage: "images/thorin_face.png", videoIntro: "videos/thorin_intro.mp4", videoIdle: "videos/thorin_idle_chroma.mp4", videoIdleAlpha: "videos/thorin_idle_alpha.webm", unlocked: false, level: 1, xp: 0, maxXp: 150, affinityLevel: 0,
         hp: 280, maxHp: 280, atk: 48, def: 12, skillName: "Earthquake Smash", skillDesc: "Stuns target.", skillIcon: "fa-burst",
         words: generateHeroWords("thorin"),
         sentenceTemplates: ["This hammer is [big and heavy].", "A [strong] warrior."],
