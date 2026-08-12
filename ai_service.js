@@ -136,6 +136,8 @@ class AIService {
         const fiveWordsList = targetFiveWords.map(w => w.toLowerCase()).join(", ");
         const primaryTarget = firstTargetLower;
 
+        console.log(`🎯 [AI Prompt] Target Focus Words for ${heroName}: [${fiveWordsList}] (Primary: "${primaryTarget}", Remaining unused today: ${unUsedFocusWords.length})`);
+
         return `You are roleplaying as ${heroName} (${activeHero.title || 'Hero'}), a warm and encouraging RPG companion helping a beginner student (Level A1 English) practice English.
 
 YOUR MISSION:
