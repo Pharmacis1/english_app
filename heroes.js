@@ -657,7 +657,7 @@ function generateHeroWords(heroId) {
             ["Cozy", "/ˈkəʊ.zi/", "Уютный", "Cozy dwarven home."],
             ["Solid", "/ˈsɒl.ɪd/", "Твёрдый / Прочный", "Solid stone wall."],
             ["Narrow", "/ˈnær.əʊ/", "Узкий", "Narrow path."],
-            ["Adj", "/ˈɔː.səm/", "Потрясающий (Awesome)", "An awesome hero adventure!"],
+            ["Awesome", "/ˈɔː.səm/", "Потрясающий", "An awesome hero adventure!"],
             ["Advice", "/ədˈvaɪs/", "Совет", "Wise advice from Eldrin."],
             ["Afraid", "/əˈfreɪd/", "Испуганный / Боящийся", "Do not be afraid of darkness."],
             ["After", "/ˈɑːf.tər/", "После", "Rest after the battle."],

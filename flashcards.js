@@ -74,10 +74,18 @@ class FlashcardEngine {
                 decks[deckName] = this.decks[deckName];
             } else {
                 decks[deckName] = (h.words || []).map(w => {
-                    const wWord = Array.isArray(w) ? w[0] : (w.word || "");
+                    let wWord = Array.isArray(w) ? w[0] : (w.word || "");
                     const wPhonetic = Array.isArray(w) ? w[1] : (w.phonetic || "");
-                    const wTranslation = Array.isArray(w) ? w[2] : (w.translation || "");
+                    let wTranslation = Array.isArray(w) ? w[2] : (w.translation || "");
                     const wExample = Array.isArray(w) ? w[3] : (w.example || "");
+
+                    if (/^(adj|noun|verb|expression|prep|pron|adv)$/i.test(wWord.trim())) {
+                        const match = wTranslation.match(/\(([a-zA-Z\s]+)\)/);
+                        if (match && match[1]) {
+                            wWord = match[1].trim();
+                            wTranslation = wTranslation.replace(/\s*\([a-zA-Z\s]+\)/, '').trim();
+                        }
+                    }
                     return {
                         word: wWord,
                         phonetic: wPhonetic,
