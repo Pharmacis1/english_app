@@ -42,6 +42,44 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let currentHeroPosState = { x: 0, y: 0, scale: 65 };
     let isHeroDragEnabled = false;
+    let heroActionAnimationTimer = null;
+    let isHeroActionPlaying = false;
+
+    function playHeroActionAnimation(hero) {
+        const stageVideo = document.getElementById("hero-stage-video");
+        if (!stageVideo || !hero || isHeroActionPlaying) return;
+
+        const actionSrc = hero.videoActionAlpha || hero.videoAction;
+        const idleSrc = hero.videoIdleAlpha || hero.videoIdle;
+        if (!actionSrc) return;
+
+        isHeroActionPlaying = true;
+        stageVideo.loop = false;
+        stageVideo.src = actionSrc;
+        stageVideo.play().catch(e => {});
+
+        stageVideo.onended = () => {
+            isHeroActionPlaying = false;
+            if (idleSrc) {
+                stageVideo.loop = true;
+                stageVideo.src = idleSrc;
+                stageVideo.play().catch(e => {});
+            }
+        };
+    }
+
+    function startPeriodicHeroActionAnimation(hero) {
+        if (heroActionAnimationTimer) {
+            clearInterval(heroActionAnimationTimer);
+            heroActionAnimationTimer = null;
+        }
+        if (!hero || (!hero.videoAction && !hero.videoActionAlpha)) return;
+
+        // Automatically trigger Thorin's hammer action animation once every ~50 seconds
+        heroActionAnimationTimer = setInterval(() => {
+            playHeroActionAnimation(hero);
+        }, 50000);
+    }
 
     function getHeroStageTargetElements() {
         return [
@@ -139,14 +177,20 @@ document.addEventListener("DOMContentLoaded", () => {
         const iconFa = document.getElementById("hero-stage-icon-fa");
 
         if (hero.videoIdleAlpha || hero.videoIdle) {
-            if (stageVideo && (hero.videoIdleAlpha || hero.videoIdle)) {
+            if (stageVideo) {
+                stageVideo.loop = true;
                 stageVideo.src = hero.videoIdleAlpha || hero.videoIdle;
                 stageVideo.classList.remove("hidden");
                 stageVideo.play().catch(e => {});
             }
             if (stageArt) stageArt.style.display = "none";
             if (iconFallback) iconFallback.style.display = "none";
+            startPeriodicHeroActionAnimation(hero);
         } else if (stageArt) {
+            if (heroActionAnimationTimer) {
+                clearInterval(heroActionAnimationTimer);
+                heroActionAnimationTimer = null;
+            }
             if (stageVideo) {
                 stageVideo.pause();
                 stageVideo.classList.add("hidden");
@@ -418,6 +462,12 @@ document.addEventListener("DOMContentLoaded", () => {
         getHeroStageTargetElements().forEach(el => {
             el.addEventListener("mousedown", startDrag);
             el.addEventListener("touchstart", startDrag, { passive: false });
+            el.addEventListener("click", () => {
+                if (!isHeroDragEnabled && !isDragging) {
+                    const hero = rpgEngine.heroes.find(h => h.id === activeShowcaseHeroId);
+                    if (hero) playHeroActionAnimation(hero);
+                }
+            });
         });
         window.addEventListener("mousemove", doDrag);
         window.addEventListener("touchmove", doDrag, { passive: false });
