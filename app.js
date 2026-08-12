@@ -43,19 +43,29 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentHeroPosState = { x: 0, y: 0, scale: 65 };
     let isHeroDragEnabled = false;
 
+    function getHeroStageTargetElements() {
+        return [
+            document.getElementById("hero-stage-art"),
+            document.getElementById("hero-stage-video"),
+            document.getElementById("hero-stage-chroma-canvas")
+        ].filter(Boolean);
+    }
+
     function applyHeroStageTransform() {
-        const stageArt = document.getElementById("hero-stage-art");
         const scaleValEl = document.getElementById("hero-scale-val");
         const scaleSlider = document.getElementById("hero-scale-slider");
-        if (!stageArt) return;
 
         const scale = currentHeroPosState.scale || 65;
         const x = currentHeroPosState.x || 0;
         const y = currentHeroPosState.y || 0;
+        const transformStr = `translate(${x}px, ${y}px) scale(${scale / 100})`;
 
-        stageArt.style.transform = `translate(${x}px, ${y}px) scale(${scale / 100})`;
+        getHeroStageTargetElements().forEach(el => {
+            el.style.transform = transformStr;
+        });
+
         if (scaleValEl) scaleValEl.textContent = `${scale}%`;
-        if (scaleSlider && parseInt(scaleSlider.value) !== scale) scaleSlider.value = scale;
+        if (scaleSlider && parseInt(scaleSlider.value, 10) !== scale) scaleSlider.value = scale;
     }
 
     function renderHeroShowcase(heroId) {
@@ -325,17 +335,17 @@ document.addEventListener("DOMContentLoaded", () => {
         if (btnToggleDrag) {
             btnToggleDrag.addEventListener("click", () => {
                 isHeroDragEnabled = !isHeroDragEnabled;
-                if (stageArt) {
-                    if (isHeroDragEnabled) {
-                        stageArt.classList.add("draggable-active");
-                        if (lblDrag) lblDrag.textContent = "✋ Зажмите и тяните";
-                        btnToggleDrag.classList.add("btn-primary");
-                        showToast("✋ Зажмите мышь на герое и передвиньте в нужную точку!", "rgba(99,102,241,0.9)", "#6366f1");
-                    } else {
-                        stageArt.classList.remove("draggable-active");
-                        if (lblDrag) lblDrag.textContent = "✋ Передвинуть";
-                        btnToggleDrag.classList.remove("btn-primary");
-                    }
+                getHeroStageTargetElements().forEach(el => {
+                    if (isHeroDragEnabled) el.classList.add("draggable-active");
+                    else el.classList.remove("draggable-active");
+                });
+                if (isHeroDragEnabled) {
+                    if (lblDrag) lblDrag.textContent = "✋ Зажмите и тяните";
+                    btnToggleDrag.classList.add("btn-primary");
+                    showToast("✋ Зажмите мышь на герое и передвиньте в нужную точку!", "rgba(99,102,241,0.9)", "#6366f1");
+                } else {
+                    if (lblDrag) lblDrag.textContent = "✋ Передвинуть";
+                    btnToggleDrag.classList.remove("btn-primary");
                 }
             });
         }
@@ -373,9 +383,9 @@ document.addEventListener("DOMContentLoaded", () => {
         let initialX = 0, initialY = 0;
 
         function startDrag(e) {
-            if (!isHeroDragEnabled || !stageArt) return;
+            if (!isHeroDragEnabled) return;
             isDragging = true;
-            stageArt.classList.add("dragging");
+            getHeroStageTargetElements().forEach(el => el.classList.add("dragging"));
             const clientX = e.touches ? e.touches[0].clientX : e.clientX;
             const clientY = e.touches ? e.touches[0].clientY : e.clientY;
             startX = clientX;
@@ -399,20 +409,20 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         function stopDrag() {
-            if (isDragging && stageArt) {
+            if (isDragging) {
                 isDragging = false;
-                stageArt.classList.remove("dragging");
+                getHeroStageTargetElements().forEach(el => el.classList.remove("dragging"));
             }
         }
 
-        if (stageArt) {
-            stageArt.addEventListener("mousedown", startDrag);
-            stageArt.addEventListener("touchstart", startDrag, { passive: false });
-            window.addEventListener("mousemove", doDrag);
-            window.addEventListener("touchmove", doDrag, { passive: false });
-            window.addEventListener("mouseup", stopDrag);
-            window.addEventListener("touchend", stopDrag);
-        }
+        getHeroStageTargetElements().forEach(el => {
+            el.addEventListener("mousedown", startDrag);
+            el.addEventListener("touchstart", startDrag, { passive: false });
+        });
+        window.addEventListener("mousemove", doDrag);
+        window.addEventListener("touchmove", doDrag, { passive: false });
+        window.addEventListener("mouseup", stopDrag);
+        window.addEventListener("touchend", stopDrag);
     }
 
     initHeroPositioningController();
