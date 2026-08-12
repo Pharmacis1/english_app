@@ -202,22 +202,52 @@ function categorizeHeroWords(heroWords) {
     const adjectives = [];
     const expressions = [];
 
-    const VERB_SET = new Set(["am", "is", "are", "have", "want", "like", "need", "eat", "drink", "sleep", "walk", "run", "see", "hear", "listen", "read", "write", "speak", "learn", "help", "love", "give", "take", "make", "do", "open", "close", "start", "stop", "cook", "wash", "clean", "rest", "smile", "heal", "care", "swim", "play", "draw", "paint", "drive", "ride", "fly", "jump", "climb", "travel", "sneak", "hide", "strike", "dodge", "escape", "smash", "freeze", "visit", "study", "work", "achieve", "improve", "understand"]);
-    
-    const ADJ_SET = new Set(["good", "fine", "happy", "brave", "strong", "ready", "red", "blue", "green", "yellow", "black", "white", "brown", "orange", "cold", "hot", "warm", "cool", "early", "late", "big", "small", "fast", "slow", "heavy", "light", "weak", "hard", "soft", "high", "low", "long", "short", "wide", "narrow", "deep", "shallow", "old", "new", "young", "clean", "dirty", "full", "empty", "rich", "poor", "easy", "difficult", "great", "tough", "solid", "quiet", "silent", "quick", "agile", "peaceful", "fluent", "grand", "honest"]);
+    const VERB_SET = new Set([
+        "am", "is", "are", "have", "has", "had", "want", "like", "need", "eat", "drink", "sleep", "walk", "run", "see", "hear", 
+        "listen", "read", "write", "speak", "learn", "help", "love", "give", "take", "make", "do", "open", "close", "start", 
+        "stop", "cook", "wash", "clean", "rest", "smile", "heal", "care", "swim", "play", "draw", "paint", "drive", "ride", 
+        "fly", "jump", "climb", "travel", "sneak", "hide", "strike", "dodge", "escape", "smash", "freeze", "visit", "study", 
+        "work", "achieve", "improve", "understand", "build", "fix", "break", "cut", "buy", "sell", "find", "lose", "bring", 
+        "send", "choose", "teach", "think", "know", "feel", "call", "wait", "ask", "answer", "try", "use", "agree"
+    ]);
 
-    const EXPR_SET = new Set(["hello", "goodbye", "please", "thank you", "welcome", "yes", "no", "i", "you", "he", "she", "it", "we", "they", "my", "your", "his", "her", "our", "their", "this", "that", "these", "those", "today", "tomorrow", "yesterday", "now", "later", "soon", "always", "usually", "sometimes", "never", "often", "where", "when", "why", "how", "who", "what", "which", "in", "on", "at", "under", "behind", "near", "far", "can", "cannot", "was", "were", "ago", "last"]);
+    const ADJ_SET = new Set([
+        "good", "fine", "happy", "brave", "strong", "ready", "red", "blue", "green", "yellow", "black", "white", "brown", "orange", 
+        "cold", "hot", "warm", "cool", "early", "late", "big", "large", "small", "fast", "slow", "heavy", "light", "weak", "hard", 
+        "soft", "high", "low", "long", "short", "wide", "narrow", "deep", "shallow", "old", "new", "young", "clean", "dirty", 
+        "full", "empty", "rich", "poor", "easy", "difficult", "great", "tough", "solid", "quiet", "silent", "quick", "agile", 
+        "peaceful", "fluent", "grand", "honest", "awesome", "amazing", "afraid", "angry", "tall", "cozy", "nice", "funny", 
+        "beautiful", "smart", "kind", "cute", "bright", "dark", "sharp", "smooth", "safe", "dangerous", "tired", "hungry", 
+        "thirsty", "proud", "busy", "free", "sweet", "salty", "spicy", "sour", "tasty", "delicious", "expensive", "cheap"
+    ]);
+
+    const EXPR_SET = new Set([
+        "hello", "goodbye", "please", "thank you", "welcome", "yes", "no", "i", "you", "he", "she", "it", "we", "they", "my", 
+        "your", "his", "her", "our", "their", "this", "that", "these", "those", "today", "tomorrow", "yesterday", "now", "later", 
+        "soon", "always", "usually", "sometimes", "never", "often", "where", "when", "why", "how", "who", "what", "which", 
+        "in", "on", "at", "under", "behind", "near", "far", "around", "can", "cannot", "was", "were", "ago", "last", "as", 
+        "again", "after", "before", "also", "too", "and", "or", "but", "so", "because", "if", "very", "quite", "really", "any", "advice"
+    ]);
 
     heroWords.forEach(wObj => {
         const p = getWordProps(wObj);
         if (!p.word) return;
         const lower = p.word.toLowerCase().trim();
+        const trans = (p.translation || "").toLowerCase().trim();
+        const mainTransWord = trans.split('/')[0].split('(')[0].split(',')[0].trim();
+
         if (VERB_SET.has(lower)) {
             verbs.push(p);
         } else if (ADJ_SET.has(lower)) {
             adjectives.push(p);
         } else if (EXPR_SET.has(lower)) {
             expressions.push(p);
+        } else if (/(ть|ти|ться|тся)$/i.test(mainTransWord)) {
+            // Russian verb ending heuristic
+            verbs.push(p);
+        } else if (/(ый|ий|ой|ая|яя|ое|ее|ые|ие)$/i.test(mainTransWord)) {
+            // Russian adjective ending heuristic
+            adjectives.push(p);
         } else {
             nouns.push(p);
         }
