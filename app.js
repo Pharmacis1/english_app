@@ -79,6 +79,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         isHeroActionPlaying = true;
+        applyHeroStageTransform();
+
         actionVideo.src = actionSrc;
         actionVideo.currentTime = 0;
 
@@ -88,6 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
             frameRevealed = true;
             actionVideo.classList.remove("hidden");
             actionVideo.style.display = "block";
+            if (idleVideo) idleVideo.style.opacity = "0";
         };
 
         actionVideo.addEventListener("playing", revealActionVideo, { once: true });
@@ -99,6 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
             isHeroActionPlaying = false;
             actionVideo.classList.add("hidden");
             actionVideo.style.display = "none";
+            if (idleVideo) idleVideo.style.opacity = "1";
         });
 
         actionVideo.onended = () => {
@@ -106,6 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
             actionVideo.classList.add("hidden");
             actionVideo.style.display = "none";
             if (idleVideo) {
+                idleVideo.style.opacity = "1";
                 idleVideo.play().catch(e => {});
             }
         };
