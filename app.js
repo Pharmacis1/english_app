@@ -2370,8 +2370,20 @@ document.addEventListener("DOMContentLoaded", () => {
                     flashcardEngine.autoAdvanceBatch();
                 }
                 flashcardEngine.currentIndex = 0;
-                flashcardEl.classList.remove("flipped");
-                renderFlashcardsUI();
+                
+                const wasFlipped = flashcardEl.classList.contains("flipped");
+                const cardBack = flashcardEl.querySelector(".card-back");
+
+                if (wasFlipped) {
+                    if (cardBack) cardBack.style.opacity = "0";
+                    flashcardEl.classList.remove("flipped");
+                    setTimeout(() => {
+                        renderFlashcardsUI();
+                        if (cardBack) cardBack.style.opacity = "1";
+                    }, 350);
+                } else {
+                    renderFlashcardsUI();
+                }
             });
             deckTabsContainer.appendChild(btn);
         });
@@ -2383,7 +2395,19 @@ document.addEventListener("DOMContentLoaded", () => {
             batchBtn.innerHTML = `<i class="fa-solid fa-forward"></i> Batch ${flashcardEngine.batchIndex + 1} (10 Words) ▶️`;
             batchBtn.addEventListener("click", () => {
                 flashcardEngine.nextBatch();
-                renderFlashcardsUI();
+                const wasFlipped = flashcardEl.classList.contains("flipped");
+                const cardBack = flashcardEl.querySelector(".card-back");
+
+                if (wasFlipped) {
+                    if (cardBack) cardBack.style.opacity = "0";
+                    flashcardEl.classList.remove("flipped");
+                    setTimeout(() => {
+                        renderFlashcardsUI();
+                        if (cardBack) cardBack.style.opacity = "1";
+                    }, 350);
+                } else {
+                    renderFlashcardsUI();
+                }
             });
             deckTabsContainer.appendChild(batchBtn);
         }
@@ -2546,8 +2570,19 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            flashcardEl.classList.remove("flipped");
-            setTimeout(() => renderFlashcardsUI(), 200);
+            const wasFlipped = flashcardEl.classList.contains("flipped");
+            const cardBack = flashcardEl.querySelector(".card-back");
+
+            if (wasFlipped) {
+                if (cardBack) cardBack.style.opacity = "0";
+                flashcardEl.classList.remove("flipped");
+                setTimeout(() => {
+                    renderFlashcardsUI();
+                    if (cardBack) cardBack.style.opacity = "1";
+                }, 350);
+            } else {
+                renderFlashcardsUI();
+            }
 
             let cardXp = 0;
             if (rating === 'hard') cardXp = 2;
