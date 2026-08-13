@@ -119,22 +119,33 @@ class AIService {
 
         const firstTargetLower = (priorityWord || targetFiveWords[0] || "item").toLowerCase();
         let targetHint = "";
+        let targetMeaning = "";
+        let targetExample = "";
         if (activeHero && activeHero.words) {
             const wordEntry = activeHero.words.find(w => {
                 const wStr = Array.isArray(w) ? w[0] : (w.word || "");
                 return wStr.toLowerCase() === firstTargetLower;
             });
             if (wordEntry) {
-                const trans = Array.isArray(wordEntry) ? wordEntry[2] : (wordEntry.translation || "");
-                const ex = Array.isArray(wordEntry) ? wordEntry[3] : (wordEntry.example || "");
-                if (trans || ex) {
-                    targetHint = ` (meaning: "${trans}"${ex ? `, example: "${ex}"` : ''})`;
+                targetMeaning = Array.isArray(wordEntry) ? wordEntry[2] : (wordEntry.translation || "");
+                targetExample = Array.isArray(wordEntry) ? wordEntry[3] : (wordEntry.example || "");
+                if (targetMeaning || targetExample) {
+                    targetHint = ` (meaning: "${targetMeaning}"${targetExample ? `, example: "${targetExample}"` : ''})`;
                 }
             }
         }
 
         const fiveWordsList = targetFiveWords.map(w => w.toLowerCase()).join(", ");
         const primaryTarget = firstTargetLower;
+
+        this.lastFocusInfo = {
+            heroName: heroName,
+            primary: primaryTarget,
+            meaning: targetMeaning,
+            example: targetExample,
+            fiveWords: targetFiveWords.map(w => w.toLowerCase()),
+            unusedCount: unUsedFocusWords.length
+        };
 
         console.log(`🎯 [AI Prompt] Target Focus Words for ${heroName}: [${fiveWordsList}] (Primary: "${primaryTarget}", Remaining unused today: ${unUsedFocusWords.length})`);
 
@@ -156,6 +167,10 @@ TARGET FOCUS WORDS FOR TODAY:
 - Integrate "${primaryTarget}" into your response ONLY if it makes 100% logical and grammatical sense. Never force a word into a nonsensical phrase.
 
 Output ONLY your English response. Do not add Russian text, translations, brackets, or meta-notes.`;
+    }
+
+    getLastFocusInfo() {
+        return this.lastFocusInfo;
     }
 
     async checkGrammarBeforeSending(userText, lastHeroMessageText = "") {

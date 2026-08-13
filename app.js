@@ -2003,7 +2003,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    function appendMessage(role, text, customTranslation = null) {
+    function appendMessage(role, text, customTranslation = null, focusInfo = null) {
         chatHistory.push({ role, content: text });
         const bubble = document.createElement("div");
         bubble.className = `message-bubble ${role}`;
@@ -2026,10 +2026,45 @@ document.addEventListener("DOMContentLoaded", () => {
         const isListened = heroState && heroState.listenedMsgs && heroState.listenedMsgs.includes(msgId);
         const isRepeated = heroState && heroState.repeatedMsgs && heroState.repeatedMsgs.includes(msgId);
 
+        let focusBtnHtml = '';
+        if (role === 'assistant') {
+            const currentFocusInfo = focusInfo || (typeof aiService !== 'undefined' && typeof aiService.getLastFocusInfo === 'function' ? aiService.getLastFocusInfo() : null);
+            if (currentFocusInfo && currentFocusInfo.primary) {
+                const pWord = currentFocusInfo.primary;
+                const fWords = currentFocusInfo.fiveWords || [];
+                const unused = currentFocusInfo.unusedCount !== undefined ? currentFocusInfo.unusedCount : 50;
+                const meaning = currentFocusInfo.meaning ? `("${currentFocusInfo.meaning}")` : '';
+
+                focusBtnHtml = `
+                    <button class="focus-msg-btn btn btn-sm" style="font-size:10px; margin-left:8px; padding:1px 6px; border-radius:4px; background:rgba(147, 51, 234, 0.2); border:1px solid rgba(168, 85, 247, 0.4); color:#e9d5ff; font-weight:600; cursor:pointer;" title="Посмотреть фокусные слова AI на этот ход">
+                        <i class="fa-solid fa-bullseye" style="color:#c084fc;"></i> 🎯 Target: <span style="text-transform:capitalize; color:#f0abfc;">${pWord}</span>
+                    </button>
+                    <div class="msg-focus-box hidden" style="font-size:11px; color:#e2e8f0; margin-top:8px; padding:8px 12px; background:linear-gradient(135deg, rgba(88, 28, 135, 0.45) 0%, rgba(59, 7, 100, 0.55) 100%); border-radius:8px; border:1px solid rgba(168, 85, 247, 0.4); box-shadow: 0 4px 12px rgba(0,0,0,0.25);">
+                        <div style="font-weight:700; color:#f0abfc; margin-bottom:6px; display:flex; align-items:center; gap:6px;">
+                            <i class="fa-solid fa-bullseye" style="color:#c084fc;"></i> 🎯 Фокусные слова AI на этот ход:
+                        </div>
+                        <div style="margin-bottom:4px;">
+                            <span style="color:#cbd5e1;">Главная цель хода:</span> 
+                            <strong style="background:#9333ea; color:#ffffff; padding:2px 7px; border-radius:4px; letter-spacing:0.5px; text-transform:capitalize;">${pWord}</strong> 
+                            ${meaning ? `<span style="color:#c084fc; font-style:italic;">${meaning}</span>` : ''}
+                        </div>
+                        <div style="margin-bottom:4px; display:flex; flex-wrap:wrap; align-items:center; gap:4px;">
+                            <span style="color:#cbd5e1;">5 фокусных слов для AI:</span> 
+                            ${fWords.map(w => `<span style="background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.2); padding:1px 6px; border-radius:4px; color:#f3e8ff; font-weight:500;">${w}</span>`).join(' ')}
+                        </div>
+                        <div style="color:#a855f7; font-size:10px; margin-top:4px;">
+                            <i class="fa-solid fa-clock-rotate-left"></i> Осталось неиспользованных слов сегодня: <b>${unused}</b> из 50
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
         const translateBtnHtml = role === 'assistant' 
             ? `<button class="audio-play-link ${isListened ? 'listened' : 'unheard-highlight'}"><i class="fa-solid fa-volume-high"></i> Listen</button>
                <button class="repeat-sentence-btn ${isRepeated ? 'repeated' : 'unrepeated-highlight'}"><i class="fa-solid fa-microphone-lines"></i> Repeat & Rate</button>
                <button class="translate-msg-btn btn btn-sm btn-outline" style="font-size:10px; margin-left:8px; padding:1px 6px; border-radius:4px;"><i class="fa-solid fa-language"></i> 🇷🇺 Translate / Перевод</button>
+               ${focusBtnHtml}
                <div class="msg-translation-box hidden" style="font-size:11px; color:#cbd5e1; margin-top:6px; padding:6px 10px; background:rgba(255,255,255,0.06); border-radius:6px; border-left:3px solid var(--primary);"></div>` 
             : '';
 
@@ -2100,6 +2135,14 @@ document.addEventListener("DOMContentLoaded", () => {
                     } else {
                         translationBox.classList.add("hidden");
                     }
+                });
+            }
+
+            const focusBtn = bubble.querySelector(".focus-msg-btn");
+            const focusBox = bubble.querySelector(".msg-focus-box");
+            if (focusBtn && focusBox) {
+                focusBtn.addEventListener("click", () => {
+                    focusBox.classList.toggle("hidden");
                 });
             }
         }
