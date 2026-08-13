@@ -159,7 +159,7 @@ LANGUAGE & LEVEL (STRICT A1):
 - Tenses: Use ONLY Present Simple and Present Continuous (e.g. "I like...", "Do you have...", "I am making...").
 - Strict prohibition: NEVER use Present Perfect ("have been"), Past Perfect, passive voice, or complex idioms.
 - Grammar: Write complete, 100% grammatically correct English with proper articles (a/an/the) and correct word order.
-- Length: Keep your response short (1 to 2 simple sentences).
+- STRICT LENGTH LIMIT: Write MAXIMUM 1 or 2 short sentences (UNDER 25 WORDS TOTAL). NEVER write 3 or more sentences or long paragraphs.
 
 TARGET FOCUS WORDS FOR TODAY:
 - Focus words for practice: ${fiveWordsList}.
@@ -397,6 +397,12 @@ RULES:
 
         // Clean nonsense LLM template hallucinations: "when you are <noun/food>" -> "with <noun>" (e.g. "when you are pepper" -> "with pepper")
         text = text.replace(/\bwhen\s+you\s+are\s+(pepper|pizza|food|bread|cheese|table|chair|shirt|coat|shoe|hat|hammer|car|dog|cat|house|money)\b/gi, 'with $1');
+
+        // Truncate response to maximum 2 sentences if LLM generates a long monologue
+        const sentences = text.match(/[^.!?]+[.!?]+/g);
+        if (sentences && sentences.length > 2) {
+            text = sentences.slice(0, 2).join(" ").trim();
+        }
 
         return { text, correction };
     }
