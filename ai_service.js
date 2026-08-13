@@ -224,6 +224,8 @@ Output ONLY your English response. Do not add Russian text, translations, bracke
             if (data.success && data.content) {
                 let cleaned = data.content
                     .replace(/[\u4e00-\u9fff\u3400-\u4dbf\u3000-\u303f\uff00-\uffef]+/g, '')
+                    .replace(/\s*\([^\)]*(?:примечание|note|перевед|китайск|оригинал|язык)[^\)]*\)/gi, '')
+                    .replace(/\s*\[[^\]]*(?:примечание|note|перевед|китайск|оригинал|язык)[^\]]*\]/gi, '')
                     .replace(/^Translation:\s*/gi, '')
                     .replace(/^Перевод:\s*/gi, '')
                     .replace(/^Переведи на русский:\s*/gi, '')
