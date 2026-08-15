@@ -286,7 +286,7 @@ RULES:
 
             let sourceModelInfo = this.modelName;
             if (this.provider === 'gemini') {
-                sourceModelInfo = 'Google Gemini Cloud API (gemini-2.0-flash)';
+                sourceModelInfo = `Google Gemini Cloud API (${data.activeModel || 'gemini-3.7-flash'})`;
             } else if (this.provider === 'ollama') {
                 sourceModelInfo = `${this.modelName || 'local'} (Local Ollama Server at ${this.endpoint})`;
             } else if (this.provider === 'lmstudio') {
@@ -307,7 +307,7 @@ RULES:
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
                             provider: 'gemini',
-                            model: 'gemini-2.0-flash',
+                            model: 'gemini-3.7-flash',
                             apiKey: this.geminiApiKey,
                             messages: formattedMessages
                         })
@@ -315,7 +315,7 @@ RULES:
                     if (resp.ok) {
                         const data = await resp.json();
                         if (data.success && data.content) {
-                            console.log(`🤖 [AI Response Source] Provider: "GEMINI (Auto-Fallback)" | Model: "Google Gemini Cloud API (gemini-2.0-flash)"`);
+                            console.log(`🤖 [AI Response Source] Provider: "GEMINI (Auto-Fallback)" | Model: "Google Gemini Cloud API (${data.activeModel || 'gemini-3.7-flash'})"`);
                             return this.parseAIOutput(data.content);
                         }
                     }
