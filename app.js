@@ -3899,8 +3899,8 @@ document.addEventListener("DOMContentLoaded", () => {
         aiProviderSelect.value = aiService.provider;
         aiProviderSelect.addEventListener("change", () => {
             if (aiProviderSelect.value === "gemini") {
-                if (modelNameInput && (modelNameInput.value.includes(":") || modelNameInput.value.includes("qwen") || modelNameInput.value.includes("llama") || modelNameInput.value.includes("1.5"))) {
-                    modelNameInput.value = "gemini-3.7-flash";
+                if (modelNameInput && (modelNameInput.value.includes(":") || modelNameInput.value.includes("qwen") || modelNameInput.value.includes("llama") || modelNameInput.value.includes("1.5") || modelNameInput.value.includes("3.7"))) {
+                    modelNameInput.value = "gemini-3.5-flash-lite";
                 }
             }
         });
