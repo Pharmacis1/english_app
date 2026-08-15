@@ -311,17 +311,7 @@ document.addEventListener("DOMContentLoaded", () => {
             globalFillEl.style.width = `${progressPct}%`;
         }
 
-        // Streak Flame (Ударный режим)
-        let currentStreak = parseInt(localStorage.getItem("english_pulse_streak") || "0", 10);
-        if (currentStreak === 0) {
-            const totalQuests = getTotalCompletedDailyQuests();
-            if (totalQuests > 0) {
-                currentStreak = totalQuests;
-                localStorage.setItem("english_pulse_streak", currentStreak);
-            }
-        }
-        const headerStreakEl = document.getElementById("rpg-header-streak");
-        if (headerStreakEl) headerStreakEl.textContent = currentStreak;
+        checkAndUpdateDailyStreak();
 
         // Player total dictionary words count across unlocked heroes & decks
         const headerWordsEl = document.getElementById("rpg-header-words");
@@ -1011,34 +1001,6 @@ document.addEventListener("DOMContentLoaded", () => {
             totalQuests += 1;
             localStorage.setItem("total_completed_daily_quests", totalQuests);
 
-            // Update Streak 🔥 (Ударный режим: 1 Daily Quest per day = 1 flame day!)
-            const todayStr = new Date().toISOString().split('T')[0];
-            const yesterdayDate = new Date();
-            yesterdayDate.setDate(yesterdayDate.getDate() - 1);
-            const yesterdayStr = yesterdayDate.toISOString().split('T')[0];
-
-            const lastQuestDate = localStorage.getItem("english_pulse_last_quest_date");
-            let currentStreak = parseInt(localStorage.getItem("english_pulse_streak") || "0", 10);
-            let freezeCount = parseInt(localStorage.getItem("english_pulse_freeze_count") || "1", 10);
-            let usedFreezeThisTime = false;
-
-            if (lastQuestDate !== todayStr) {
-                if (lastQuestDate === yesterdayStr || !lastQuestDate) {
-                    currentStreak += 1;
-                } else if (freezeCount > 0) {
-                    // STREAK FREEZE ACTIVATED! Save user's hard-earned streak!
-                    freezeCount -= 1;
-                    currentStreak += 1;
-                    usedFreezeThisTime = true;
-                    localStorage.setItem("english_pulse_freeze_count", freezeCount);
-                } else {
-                    // Reset streak if missed day without freeze
-                    currentStreak = 1;
-                }
-                localStorage.setItem("english_pulse_last_quest_date", todayStr);
-                localStorage.setItem("english_pulse_streak", currentStreak);
-            }
-
             addXP(500);
             triggerRPGReward("daily_quest", activeHeroId, activeHeroId, 500);
 
@@ -1048,11 +1010,120 @@ document.addEventListener("DOMContentLoaded", () => {
                 unlockToastMsg = `<br>🔓 <b>NEW HERO UNLOCKED: ${newlyUnlocked.join(", ")}!</b>`;
             }
 
-            let freezeNotice = usedFreezeThisTime ? `<br>❄️ <b>ЗАМОРОЗКА СЕРИИ СПАСЛА ОГОНЕК!</b> Пропущенный день заморожен!` : "";
-            showToast(`🔥 <b>УДАРНЫЙ РЕЖИМ (${currentStreak} дн.)!</b><br>🏆 <b>DAILY QUEST COMPLETED!</b> +500 XP Awarded!${freezeNotice}${unlockToastMsg}`, "linear-gradient(135deg, #f59e0b, #ec4899)", "#fbbf24");
+            showToast(`🏆 <b>HERO DAILY QUEST COMPLETED!</b> +500 XP Awarded!${unlockToastMsg}`, "linear-gradient(135deg, #f59e0b, #ec4899)", "#fbbf24");
             
             renderHeroShowcase();
             renderBottomHeroCarousel();
+            checkAndUpdateDailyStreak();
+        }
+    }
+
+    // --- NEW STREAMLINED STREAK ENGINE (УДАРНЫЙ РЕЖИМ) ---
+    // Condition:
+    // 1. 1 message to any non-100 lvl hero (text or voice)
+    // 2. 3 focus words of any non-100 lvl hero used today
+    // 3. Listen to AND repeat a message of any non-100 lvl hero
+    function getDailyStreakProgress() {
+        const maxLvlCap = (typeof HERO_MAX_LEVEL !== 'undefined') ? HERO_MAX_LEVEL : 100;
+        const nonMaxHeroes = (rpgEngine && rpgEngine.heroes) 
+            ? rpgEngine.heroes.filter(h => (h.level || 1) < maxLvlCap)
+            : [];
+
+        let totalMsgsSent = 0;
+        let totalListened = 0;
+        let totalRepeated = 0;
+        let totalFocusWordsUsed = 0;
+
+        nonMaxHeroes.forEach(h => {
+            const st = getTodayHeroAudioState(h.id);
+            totalMsgsSent += (st.micCount || 0) + (st.typedCount || 0);
+            totalListened += (st.listenedMsgs ? st.listenedMsgs.length : 0);
+            totalRepeated += (st.repeatedMsgs ? st.repeatedMsgs.length : 0);
+
+            if (h.words) {
+                const focus = getHeroAntiRatingFocusWords(h, 50);
+                const used = focus.filter(wObj => getWordUsageCount(h.id, getWordProps(wObj).word) >= 1).length;
+                totalFocusWordsUsed += used;
+            }
+        });
+
+        const isMsgDone = totalMsgsSent >= 1;
+        const isWordsDone = totalFocusWordsUsed >= 3;
+        const isListenRepeatDone = totalListened >= 1 && totalRepeated >= 1;
+        const isCompleted = isMsgDone && isWordsDone && isListenRepeatDone;
+
+        return {
+            totalMsgsSent,
+            totalFocusWordsUsed,
+            totalListened,
+            totalRepeated,
+            isMsgDone,
+            isWordsDone,
+            isListenRepeatDone,
+            isCompleted
+        };
+    }
+
+    function checkAndUpdateDailyStreak() {
+        const progress = getDailyStreakProgress();
+        const todayStr = new Date().toISOString().split('T')[0];
+        const yesterdayDate = new Date();
+        yesterdayDate.setDate(yesterdayDate.getDate() - 1);
+        const yesterdayStr = yesterdayDate.toISOString().split('T')[0];
+
+        const lastStreakDate = localStorage.getItem("english_pulse_last_streak_date") || localStorage.getItem("english_pulse_last_quest_date");
+        let currentStreak = parseInt(localStorage.getItem("english_pulse_streak") || "0", 10);
+        let freezeCount = parseInt(localStorage.getItem("english_pulse_freeze_count") || "1", 10);
+        let usedFreezeThisTime = false;
+
+        // Check if user missed days without freeze
+        if (lastStreakDate && lastStreakDate !== todayStr && lastStreakDate !== yesterdayStr && currentStreak > 0) {
+            const lastDateObj = new Date(lastStreakDate);
+            const todayDateObj = new Date(todayStr);
+            const diffDays = Math.floor((todayDateObj - lastDateObj) / (1000 * 60 * 60 * 24));
+            if (diffDays > 1) {
+                if (freezeCount > 0) {
+                    freezeCount -= 1;
+                    localStorage.setItem("english_pulse_freeze_count", freezeCount);
+                    usedFreezeThisTime = true;
+                } else {
+                    currentStreak = 0;
+                    localStorage.setItem("english_pulse_streak", 0);
+                }
+            }
+        }
+
+        if (progress.isCompleted && lastStreakDate !== todayStr) {
+            if (lastStreakDate === yesterdayStr || !lastStreakDate || currentStreak === 0) {
+                currentStreak += 1;
+            } else if (freezeCount > 0) {
+                freezeCount -= 1;
+                currentStreak += 1;
+                usedFreezeThisTime = true;
+                localStorage.setItem("english_pulse_freeze_count", freezeCount);
+            } else {
+                currentStreak = 1;
+            }
+            localStorage.setItem("english_pulse_last_streak_date", todayStr);
+            localStorage.setItem("english_pulse_last_quest_date", todayStr);
+            localStorage.setItem("english_pulse_streak", currentStreak);
+
+            addXP(100);
+            const freezeNotice = usedFreezeThisTime ? `<br>❄️ <b>ЗАМОРОЗКА СЕРИИ СПАСЛА ОГОНЕК!</b> Пропущенный день заморожен!` : "";
+            showToast(`🔥 <b>УДАРНЫЙ РЕЖИМ АКТИВИРОВАН (${currentStreak} дн.)!</b><br>🎯 <b>Цель дня выполнена (+100 XP)!</b>${freezeNotice}`, "linear-gradient(135deg, #f59e0b, #ec4899)", "#fbbf24");
+        }
+
+        const headerStreakEl = document.getElementById("rpg-header-streak");
+        if (headerStreakEl) headerStreakEl.textContent = currentStreak;
+
+        const streakPill = document.getElementById("rpg-header-streak-pill");
+        if (streakPill) {
+            const isDoneToday = (lastStreakDate === todayStr || progress.isCompleted);
+            streakPill.style.border = isDoneToday ? "1px solid #fbbf24" : "1px solid rgba(255,255,255,0.15)";
+            streakPill.title = `Ударный режим (Streak 🔥: ${currentStreak} дн.):\n` +
+                `${progress.isMsgDone ? '✅' : '❌'} 1 сообщение герою <100 lvl (${progress.totalMsgsSent}/1)\n` +
+                `${progress.isWordsDone ? '✅' : '❌'} 3 фокусных слова (${progress.totalFocusWordsUsed}/3)\n` +
+                `${progress.isListenRepeatDone ? '✅' : '❌'} 1 прослушивание и повторение (🎧 ${progress.totalListened}/1, 🗣️ ${progress.totalRepeated}/1)`;
         }
     }
 
@@ -1271,6 +1342,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const current = map[key] || 0;
         map[key] = current + 1;
         saveWordUsageMap(map);
+        try { checkAndUpdateDailyStreak(); } catch (e) {}
         return map[key];
     }
 
