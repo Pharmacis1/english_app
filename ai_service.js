@@ -148,8 +148,6 @@ class AIService {
             unusedCount: unUsedFocusWords.length
         };
 
-        console.log(`🎯 [AI Prompt] Target Focus Words for ${heroName}: [${fiveWordsList}] (Primary: "${primaryTarget}", Remaining unused today: ${unUsedFocusWords.length})`);
-
         return `You are roleplaying as ${heroName} (${activeHero.title || 'Hero'}), a warm and encouraging RPG companion helping a beginner student (Level A1 English) practice English.
 
 YOUR MISSION:
@@ -242,13 +240,14 @@ Output ONLY your English response. Do not add Russian text, translations, bracke
                 if (cleaned.length > 0) return cleaned;
             }
         } catch (e) {
-            console.warn("Local AI translation failed, using fallback:", e);
+            console.warn("Dedicated AI translation failed, using fallback:", e);
         }
         return translateA0TextToRussian(englishText);
     }
 
     async generateResponse(messagesHistory, scenario, targetHeroObjects = null) {
         if (this.provider === 'fallback') {
+            console.log(`🤖 [AI Response Source] Provider: "SMART OFFLINE FALLBACK" | Model: "Local Offline Simulator"`);
             return this.getSmartFallbackResponse(messagesHistory, scenario, targetHeroObjects);
         }
 
@@ -284,6 +283,17 @@ RULES:
             if (!response.ok) throw new Error(`AI Proxy Error ${response.status}`);
             const data = await response.json();
             if (!data.success) throw new Error(data.error || "Proxy call failed");
+
+            let sourceModelInfo = this.modelName;
+            if (this.provider === 'gemini') {
+                sourceModelInfo = 'Google Gemini Cloud API (gemini-3.5-flash-lite)';
+            } else if (this.provider === 'ollama') {
+                sourceModelInfo = `${this.modelName || 'local'} (Local Ollama Server at ${this.endpoint})`;
+            } else if (this.provider === 'lmstudio') {
+                sourceModelInfo = `${this.modelName || 'local'} (Local LM Studio Server at ${this.endpoint})`;
+            }
+            console.log(`🤖 [AI Response Source] Provider: "${this.provider.toUpperCase()}" | Model: "${sourceModelInfo}"`);
+
             return this.parseAIOutput(data.content);
         } catch (err) {
             console.warn("Primary AI call failed:", err);
@@ -305,6 +315,7 @@ RULES:
                     if (resp.ok) {
                         const data = await resp.json();
                         if (data.success && data.content) {
+                            console.log(`🤖 [AI Response Source] Provider: "GEMINI (Auto-Fallback)" | Model: "Google Gemini Cloud API (gemini-3.5-flash-lite)"`);
                             return this.parseAIOutput(data.content);
                         }
                     }
@@ -313,6 +324,7 @@ RULES:
                 }
             }
 
+            console.log(`🤖 [AI Response Source] Provider: "SMART OFFLINE FALLBACK (Error Fallback)" | Model: "Local Offline Simulator"`);
             const fallback = this.getSmartFallbackResponse(messagesHistory, scenario, targetHeroObjects);
             return fallback;
         }
