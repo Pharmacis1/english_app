@@ -227,7 +227,15 @@ app.post('/api/ai/chat', async (req, res) => {
             if (!primaryModel || primaryModel.includes(':') || primaryModel.includes('qwen') || primaryModel.includes('llama') || primaryModel.includes('mistral') || !primaryModel.startsWith('gemini') || primaryModel.includes('1.5')) {
                 primaryModel = 'gemini-3.5-flash-lite';
             }
-            const modelCascade = Array.from(new Set([primaryModel, 'gemini-3.5-flash-lite', 'gemini-2.5-flash', 'gemini-3.7-flash', 'gemini-3.5-flash']));
+            const modelCascade = Array.from(new Set([
+                primaryModel, 
+                'gemini-3.5-flash-lite', 
+                'gemini-2.5-flash', 
+                'gemini-2.5-flash-lite',
+                'gemini-3.5-flash',
+                'gemini-3.7-flash', 
+                'gemini-2.5-pro'
+            ]));
 
             async function callGeminiApi(targetModel) {
                 const contents = [];
@@ -257,15 +265,21 @@ app.post('/api/ai/chat', async (req, res) => {
             let resp = null;
             let lastErrorMsg = "";
 
-            for (const targetM of modelCascade) {
-                resp = await callGeminiApi(targetM);
-                if (resp.ok) {
-                    req.actualGeminiModel = targetM;
-                    break;
-                } else {
-                    const errData = await resp.json().catch(() => ({}));
-                    lastErrorMsg = errData.error?.message || `Gemini API Error ${resp.status}`;
-                    console.warn(`[Gemini Proxy] Model '${targetM}' returned ${resp.status}: ${lastErrorMsg}. Trying next in cascade...`);
+            // Attempt across model cascade (with 1 quick backoff pass if high demand)
+            for (let attempt = 0; attempt < 2 && (!resp || !resp.ok); attempt++) {
+                if (attempt > 0) {
+                    await new Promise(r => setTimeout(r, 900)); // 900ms backoff for high demand spikes
+                }
+                for (const targetM of modelCascade) {
+                    resp = await callGeminiApi(targetM);
+                    if (resp.ok) {
+                        req.actualGeminiModel = targetM;
+                        break;
+                    } else {
+                        const errData = await resp.json().catch(() => ({}));
+                        lastErrorMsg = errData.error?.message || `Gemini API Error ${resp.status}`;
+                        console.warn(`[Gemini Proxy] Model '${targetM}' returned ${resp.status}: ${lastErrorMsg}. Trying next in cascade...`);
+                    }
                 }
             }
 
