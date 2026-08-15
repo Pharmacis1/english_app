@@ -3895,7 +3895,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const systemPromptInput = document.getElementById("system-prompt");
     const testConnectionBtn = document.getElementById("test-connection-btn");
 
-    if (aiProviderSelect) aiProviderSelect.value = aiService.provider;
+    if (aiProviderSelect) {
+        aiProviderSelect.value = aiService.provider;
+        aiProviderSelect.addEventListener("change", () => {
+            if (aiProviderSelect.value === "gemini") {
+                if (modelNameInput && (modelNameInput.value.includes(":") || modelNameInput.value.includes("qwen") || modelNameInput.value.includes("llama"))) {
+                    modelNameInput.value = "gemini-1.5-flash";
+                }
+            }
+        });
+    }
     if (apiEndpointInput) apiEndpointInput.value = aiService.endpoint;
     if (modelNameInput) modelNameInput.value = aiService.modelName;
     if (geminiApiKeyInput) geminiApiKeyInput.value = aiService.geminiApiKey || "";
