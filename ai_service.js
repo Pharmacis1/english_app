@@ -286,7 +286,7 @@ RULES:
 
             let sourceModelInfo = this.modelName;
             if (this.provider === 'gemini') {
-                sourceModelInfo = 'Google Gemini Cloud API (gemini-3.5-flash-lite)';
+                sourceModelInfo = 'Google Gemini Cloud API (gemini-2.0-flash)';
             } else if (this.provider === 'ollama') {
                 sourceModelInfo = `${this.modelName || 'local'} (Local Ollama Server at ${this.endpoint})`;
             } else if (this.provider === 'lmstudio') {
@@ -307,7 +307,7 @@ RULES:
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
                             provider: 'gemini',
-                            model: 'gemini-3.5-flash-lite',
+                            model: 'gemini-2.0-flash',
                             apiKey: this.geminiApiKey,
                             messages: formattedMessages
                         })
@@ -315,7 +315,7 @@ RULES:
                     if (resp.ok) {
                         const data = await resp.json();
                         if (data.success && data.content) {
-                            console.log(`🤖 [AI Response Source] Provider: "GEMINI (Auto-Fallback)" | Model: "Google Gemini Cloud API (gemini-3.5-flash-lite)"`);
+                            console.log(`🤖 [AI Response Source] Provider: "GEMINI (Auto-Fallback)" | Model: "Google Gemini Cloud API (gemini-2.0-flash)"`);
                             return this.parseAIOutput(data.content);
                         }
                     }
@@ -332,8 +332,11 @@ RULES:
 
     async translateText(englishText) {
         if (!englishText) return "";
-        if (this.provider === 'fallback') {
-            return translateA0TextToRussian(englishText);
+        if (this.provider === 'fallback' || this.provider === 'gemini') {
+            if (typeof window !== 'undefined' && typeof window.translateA0TextToRussian === 'function') {
+                return window.translateA0TextToRussian(englishText);
+            }
+            return englishText;
         }
         try {
             const formattedMessages = [
@@ -357,17 +360,16 @@ RULES:
             const data = await response.json();
             if (data.success && data.content) {
                 let cleaned = data.content
-                    .replace(/[\u4e00-\u9fff\u3400-\u4dbf\u3000-\u303f\uff00-\uffef]+/g, '') // Remove any CJK Chinese/Asian characters
+                    .replace(/[\u4e00-\u9fff\u3400-\u4dbf\u3000-\u303f\uff00-\uffef]+/g, '')
+                    .replace(/\s*\([^\)]*(?:примечание|note|перевед|китайск|оригинал|язык)[^\)]*\)/gi, '')
+                    .replace(/\s*\[[^\]]*(?:примечание|note|перевед|китайск|оригинал|язык)[^\]]*\]/gi, '')
                     .replace(/^Translation:\s*/gi, '')
                     .replace(/^Перевод:\s*/gi, '')
                     .replace(/^Переведи на русский:\s*/gi, '')
                     .replace(/^["']|["']$/g, '')
                     .trim();
 
-                // Clean out rogue standalone English words inserted in the middle of Russian text (e.g. "какой child А ты")
                 cleaned = cleaned.replace(/([а-яА-ЯёЁ]+)\s+[a-zA-Z]{2,}\s+([а-яА-ЯёЁ]+)/g, '$1 $2');
-
-                // Deduplicate repeated sentences/phrases if small LLM doubled them
                 const parts = cleaned.split(/(?<=[.!?])\s+/);
                 if (parts.length > 1) {
                     cleaned = Array.from(new Set(parts)).join(" ");
@@ -378,7 +380,10 @@ RULES:
         } catch (e) {
             console.warn("Dedicated AI translation failed, using fallback:", e);
         }
-        return translateA0TextToRussian(englishText);
+        if (typeof window !== 'undefined' && typeof window.translateA0TextToRussian === 'function') {
+            return window.translateA0TextToRussian(englishText);
+        }
+        return englishText;
     }
 
     parseAIOutput(rawText) {
