@@ -280,7 +280,12 @@ RULES:
                 })
             });
 
-            if (!response.ok) throw new Error(`AI Proxy Error ${response.status}`);
+            if (!response.ok) {
+                const errData = await response.json().catch(() => ({}));
+                const detailedErr = errData.error || `AI Proxy Error ${response.status}`;
+                console.error(`❌ [AI Proxy Error Detail]:`, detailedErr);
+                throw new Error(detailedErr);
+            }
             const data = await response.json();
             if (!data.success) throw new Error(data.error || "Proxy call failed");
 

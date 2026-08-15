@@ -223,8 +223,8 @@ app.post('/api/ai/chat', async (req, res) => {
             const apiKey = req.body.apiKey || process.env.GEMINI_API_KEY || '';
             if (!apiKey) throw new Error("Gemini API Key missing. Please provide API Key in Local AI Settings.");
 
-            const primaryModel = model || 'gemini-3.7-flash';
-            const modelCascade = Array.from(new Set([primaryModel, 'gemini-3.7-flash', 'gemini-3.5-flash-lite', 'gemini-2.5-flash', 'gemini-1.5-flash']));
+            const primaryModel = (model && model !== 'gemini-3.5-flash-lite') ? model : 'gemini-1.5-flash';
+            const modelCascade = Array.from(new Set([primaryModel, 'gemini-1.5-flash', 'gemini-2.0-flash', 'gemini-2.5-flash', 'gemini-1.5-pro']));
 
             async function callGeminiApi(targetModel) {
                 const contents = [];
