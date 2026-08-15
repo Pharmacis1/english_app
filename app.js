@@ -1108,9 +1108,8 @@ document.addEventListener("DOMContentLoaded", () => {
             localStorage.setItem("english_pulse_last_quest_date", todayStr);
             localStorage.setItem("english_pulse_streak", currentStreak);
 
-            addXP(100);
             const freezeNotice = usedFreezeThisTime ? `<br>❄️ <b>ЗАМОРОЗКА СЕРИИ СПАСЛА ОГОНЕК!</b> Пропущенный день заморожен!` : "";
-            showToast(`🔥 <b>УДАРНЫЙ РЕЖИМ АКТИВИРОВАН (${currentStreak} дн.)!</b><br>🎯 <b>Цель дня выполнена (+100 XP)!</b>${freezeNotice}`, "linear-gradient(135deg, #f59e0b, #ec4899)", "#fbbf24");
+            showToast(`🔥 <b>УДАРНЫЙ РЕЖИМ ПРОДЛЕН (${currentStreak} дн.)!</b><br>🎯 <b>Все 3 условия дня выполнены!</b>${freezeNotice}`, "linear-gradient(135deg, #f59e0b, #ec4899)", "#fbbf24");
         }
 
         const headerStreakEl = document.getElementById("rpg-header-streak");
