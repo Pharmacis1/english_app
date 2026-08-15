@@ -5,7 +5,13 @@ class AIService {
         const savedProvider = localStorage.getItem("ai_provider");
         this.provider = savedProvider || (this.geminiApiKey ? "gemini" : "ollama"); // 'gemini', 'ollama', 'lmstudio', 'fallback'
         this.endpoint = localStorage.getItem("api_endpoint") || "http://localhost:11434";
-        this.modelName = localStorage.getItem("model_name") || "llama3";
+        this.modelName = localStorage.getItem("model_name") || "gemini-1.5-flash";
+        if (this.provider === 'gemini') {
+            if (!this.modelName || this.modelName.includes(':') || this.modelName.includes('qwen') || this.modelName.includes('llama') || this.modelName.includes('mistral')) {
+                this.modelName = 'gemini-1.5-flash';
+                localStorage.setItem("model_name", "gemini-1.5-flash");
+            }
+        }
         this.systemPrompt = localStorage.getItem("system_prompt") || 
             "You are an expert English tutor and conversation partner. Respond concisely in English. If the user makes any grammar or vocabulary mistake, ALWAYS explain the error in Russian at the end in this format: [Correction: 💡 Объяснение ошибки на русском языке].";
     }
@@ -268,13 +274,20 @@ RULES:
             const recentHistory = (messagesHistory || []).slice(-8); // Keep last 8 messages for sharp context!
             formattedMessages = [systemMessage, ...recentHistory];
 
+            let requestModel = this.modelName;
+            if (this.provider === 'gemini') {
+                if (!requestModel || requestModel.includes(':') || requestModel.includes('qwen') || requestModel.includes('llama') || requestModel.includes('mistral') || !requestModel.startsWith('gemini')) {
+                    requestModel = 'gemini-1.5-flash';
+                }
+            }
+
             const response = await fetch('/api/ai/chat', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     provider: this.provider,
                     endpoint: this.endpoint,
-                    model: this.modelName,
+                    model: requestModel,
                     apiKey: this.geminiApiKey,
                     messages: formattedMessages
                 })
