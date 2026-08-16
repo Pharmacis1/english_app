@@ -1849,6 +1849,128 @@ class RPGEngine {
     }
 }
 
+// --- STAGE GIFTS & REWARDS CATALOG (ФОНЫ И ОБРАЗЫ ЗА КВЕСТЫ ДНЯ) ---
+const STAGE_GIFTS_CATALOG = [
+    // 5 Backgrounds
+    {
+        id: "bg_white_forest",
+        type: "background",
+        name: "Белый лес",
+        nameEn: "White Forest",
+        description: "Таинственный заснеженный лес с мерцающими кронами деревьев",
+        image: "images/backgrounds/bg_white_forest.jpg",
+        previewImage: "images/backgrounds/bg_white_forest.jpg",
+        category: "Фоны"
+    },
+    {
+        id: "bg_mountains",
+        type: "background",
+        name: "Величественные горы",
+        nameEn: "Majestic Mountains",
+        description: "Суровые горные вершины под лучами рассветного солнца",
+        image: "images/backgrounds/bg_mountains.jpg",
+        previewImage: "images/backgrounds/bg_mountains.jpg",
+        category: "Фоны"
+    },
+    {
+        id: "bg_castle",
+        type: "background",
+        name: "Королевский замок",
+        nameEn: "Royal Castle",
+        description: "Величественный тронный зал древней цитадели паладинов",
+        image: "images/backgrounds/bg_castle.jpg",
+        previewImage: "images/backgrounds/bg_castle.jpg",
+        category: "Фоны"
+    },
+    {
+        id: "bg_forest",
+        type: "background",
+        name: "Изумрудный лес",
+        nameEn: "Emerald Forest",
+        description: "Густая дубрава древних хранителей природы",
+        image: "images/backgrounds/bg_forest.jpg",
+        previewImage: "images/backgrounds/bg_forest.jpg",
+        category: "Фоны"
+    },
+    {
+        id: "bg_panorama",
+        type: "background",
+        name: "Панорама королевства",
+        nameEn: "Kingdom Panorama",
+        description: "Захватывающий вид на просторы и башни королевства",
+        image: "images/backgrounds/bg_panorama.jpg",
+        previewImage: "images/backgrounds/bg_panorama.jpg",
+        category: "Фоны"
+    },
+
+    // 5 Hero Skins & Animations
+    {
+        id: "skin_astraea_starlight",
+        type: "skin",
+        heroId: "astraea",
+        name: "Астерия: Звёздная Воительница",
+        nameEn: "Astraea: Starlight Knight",
+        description: "Особый сияющий образ верховного паладина Астерии",
+        image: "images/skins/astraea_skin_1.jpg",
+        videoAlpha: "videos/skins/astraea_anim_1_alpha.webm",
+        previewImage: "images/skins/astraea_skin_1.jpg",
+        category: "Астерия"
+    },
+    {
+        id: "skin_valerius_guardian",
+        type: "skin",
+        heroId: "valerius",
+        name: "Валериус: Защитник Короны",
+        nameEn: "Valerius: Crown Guardian",
+        description: "Боевой доспех Серебряного Паладина в парадном облачении",
+        image: "images/skins/valerius_skin_1.jpg",
+        videoAlpha: "videos/skins/valerius_anim_1_alpha.webm",
+        previewImage: "images/skins/valerius_skin_1.jpg",
+        category: "Валериус"
+    },
+    {
+        id: "skin_zephyr_gale",
+        type: "skin",
+        heroId: "zephyr",
+        name: "Зефир: Штормовой Следопыт",
+        nameEn: "Zephyr: Gale Ranger",
+        description: "Анимированный образ мастера ветра с зачарованным луком",
+        image: "images/zephyr_hero_standalone.png",
+        videoAlpha: "videos/skins/zephyr_anim_1_alpha.webm",
+        previewImage: "images/zephyr_face.png",
+        category: "Зефир"
+    },
+    {
+        id: "skin_ignis_flame",
+        type: "skin",
+        heroId: "ignis",
+        name: "Игнис: Пламенный Лорд",
+        nameEn: "Ignis: Flame Lord",
+        description: "Огненное облачение мага пламени с живой анимацией огня",
+        image: "images/skins/ignis_skin_1.jpg",
+        videoAlpha: "videos/skins/ignis_anim_1_alpha.webm",
+        previewImage: "images/skins/ignis_skin_1.jpg",
+        category: "Игнис"
+    },
+    {
+        id: "skin_frostina_frost",
+        type: "skin",
+        heroId: "frostina",
+        name: "Фростина: Ледяная Владычица",
+        nameEn: "Frostina: Frost Queen",
+        description: "Магическое ледяное одеяние с танцующими кристаллами льда",
+        image: "images/skins/frostina_skin_1.jpg",
+        videoAlpha: "videos/skins/frostina_anim_1_alpha.webm",
+        previewImage: "images/skins/frostina_skin_1.jpg",
+        category: "Фростина"
+    }
+];
+
 const rpgEngine = new RPGEngine();
-if (typeof window !== 'undefined') window.rpgEngine = rpgEngine;
-if (typeof module !== 'undefined') module.exports = rpgEngine;
+if (typeof window !== 'undefined') {
+    window.rpgEngine = rpgEngine;
+    window.STAGE_GIFTS_CATALOG = STAGE_GIFTS_CATALOG;
+}
+if (typeof module !== 'undefined') {
+    module.exports = { rpgEngine, STAGE_GIFTS_CATALOG };
+}

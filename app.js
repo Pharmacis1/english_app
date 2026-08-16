@@ -129,21 +129,114 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 50000);
     }
 
-    function applyHeroStageTransform() {
-        const scaleValEl = document.getElementById("hero-scale-val");
-        const scaleSlider = document.getElementById("hero-scale-slider");
+    // --- HERO STAGE CUSTOMIZATION & GIFTS SYSTEM ---
+    function getHeroStageCustomization(heroId) {
+        if (!heroId) return { bgId: "default", skinId: "default", heroTransform: { scale: 65, x: 0, y: 0 }, bgTransform: { scale: 100, x: 0, y: 0 } };
+        try {
+            const saved = localStorage.getItem(`english_pulse_stage_custom_${heroId}`);
+            if (saved) {
+                const parsed = JSON.parse(saved);
+                if (!parsed.heroTransform) parsed.heroTransform = { scale: 65, x: 0, y: 0 };
+                if (!parsed.bgTransform) parsed.bgTransform = { scale: 100, x: 0, y: 0 };
+                if (!parsed.bgId) parsed.bgId = "default";
+                if (!parsed.skinId) parsed.skinId = "default";
+                return parsed;
+            }
+        } catch (e) {}
+        return { bgId: "default", skinId: "default", heroTransform: { scale: 65, x: 0, y: 0 }, bgTransform: { scale: 100, x: 0, y: 0 } };
+    }
 
-        const scale = currentHeroPosState.scale || 65;
-        const x = currentHeroPosState.x || 0;
-        const y = currentHeroPosState.y || 0;
-        const transformStr = `translate(${x}px, ${y}px) scale(${scale / 100})`;
+    function saveHeroStageCustomization(heroId, config) {
+        if (!heroId) return;
+        localStorage.setItem(`english_pulse_stage_custom_${heroId}`, JSON.stringify(config));
+        applyHeroStageCustomization(heroId);
+    }
 
-        getHeroStageTargetElements().forEach(el => {
-            el.style.transform = transformStr;
-        });
+    function getUnlockedStageGifts() {
+        try {
+            return JSON.parse(localStorage.getItem("english_pulse_unlocked_stage_gifts") || "[]");
+        } catch (e) {
+            return [];
+        }
+    }
 
-        if (scaleValEl) scaleValEl.textContent = `${scale}%`;
-        if (scaleSlider && parseInt(scaleSlider.value, 10) !== scale) scaleSlider.value = scale;
+    function unlockStageGift(giftId) {
+        const list = getUnlockedStageGifts();
+        if (!list.includes(giftId)) {
+            list.push(giftId);
+            localStorage.setItem("english_pulse_unlocked_stage_gifts", JSON.stringify(list));
+        }
+    }
+
+    function applyHeroStageCustomization(heroId) {
+        if (!heroId) heroId = activeShowcaseHeroId;
+        const hero = rpgEngine.heroes.find(h => h.id === heroId) || rpgEngine.heroes[0];
+        const custom = getHeroStageCustomization(hero.id);
+
+        const bgLayer = document.getElementById("hero-stage-bg-layer");
+        const heroWrapper = document.getElementById("hero-image-wrapper");
+        const stageArt = document.getElementById("hero-stage-art");
+        const stageVideo = document.getElementById("hero-stage-video");
+        const iconFallback = document.getElementById("hero-stage-icon-fallback");
+
+        // 1. Apply Background & Transform
+        if (bgLayer) {
+            if (custom.bgId && custom.bgId !== "default") {
+                const bgItem = (window.STAGE_GIFTS_CATALOG || []).find(g => g.id === custom.bgId);
+                if (bgItem && bgItem.image) {
+                    bgLayer.style.backgroundImage = `url('${bgItem.image}')`;
+                } else {
+                    bgLayer.style.backgroundImage = "url('images/castle_hall_bg.jpg')";
+                }
+            } else {
+                bgLayer.style.backgroundImage = "url('images/castle_hall_bg.jpg')";
+            }
+
+            const bgT = custom.bgTransform || { scale: 100, x: 0, y: 0 };
+            const bgScaleRatio = (bgT.scale || 100) / 100;
+            bgLayer.style.transform = `translate(${bgT.x || 0}px, ${bgT.y || 0}px) scale(${bgScaleRatio})`;
+        }
+
+        // 2. Apply Custom Skin / Animation if selected
+        if (custom.skinId && custom.skinId !== "default") {
+            const skinItem = (window.STAGE_GIFTS_CATALOG || []).find(g => g.id === custom.skinId);
+            if (skinItem) {
+                if (skinItem.videoAlpha && stageVideo) {
+                    if (heroActionAnimationTimer) {
+                        clearInterval(heroActionAnimationTimer);
+                        heroActionAnimationTimer = null;
+                    }
+                    stageVideo.loop = true;
+                    stageVideo.src = skinItem.videoAlpha;
+                    stageVideo.classList.remove("hidden");
+                    stageVideo.style.display = "";
+                    stageVideo.style.opacity = "1";
+                    stageVideo.play().catch(e => {});
+                    if (stageArt) stageArt.style.display = "none";
+                    if (iconFallback) iconFallback.style.display = "none";
+                } else if (skinItem.image && stageArt) {
+                    if (stageVideo) {
+                        stageVideo.pause();
+                        stageVideo.classList.add("hidden");
+                    }
+                    stageArt.src = skinItem.image;
+                    stageArt.style.display = "";
+                    if (iconFallback) iconFallback.style.display = "none";
+                }
+            }
+        }
+
+        // 3. Apply Hero Figure Transform
+        if (heroWrapper) {
+            const hT = custom.heroTransform || { scale: 65, x: 0, y: 0 };
+            const heroScaleRatio = (hT.scale || 65) / 100;
+            heroWrapper.style.transform = `translate(${hT.x || 0}px, ${hT.y || 0}px) scale(${heroScaleRatio})`;
+            
+            const floorShadow = document.getElementById("hero-stage-floor-shadow");
+            if (floorShadow) {
+                floorShadow.style.transform = `scale(${heroScaleRatio * 1.1})`;
+            }
+        }
     }
 
     function renderHeroShowcase(heroId) {
@@ -288,9 +381,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         if (stageQuote) stageQuote.textContent = `"${hero.quote || 'I am ready to shield our realm!'}"`;
 
-        // 4.5 Apply saved stage position & scale
-        currentHeroPosState = getHeroStagePos(hero.id);
-        applyHeroStageTransform();
+        // 4.5 Apply Stage Customization (Background, Skin, Transforms)
+        applyHeroStageCustomization(hero.id);
 
         // 5. Update header stats & Global A0 -> A1 Progress Bar (1000 Hero Levels = 100%)
         const squadPowerEl = document.getElementById("rpg-squad-power");
@@ -424,122 +516,374 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    function initHeroPositioningController() {
-        const stageArt = document.getElementById("hero-stage-art");
-        const btnTogglePosMenu = document.getElementById("btn-toggle-pos-menu");
-        const posControls = document.getElementById("hero-pos-controls");
-        const btnToggleDrag = document.getElementById("btn-toggle-hero-drag");
-        const lblDrag = document.getElementById("lbl-hero-drag");
-        const scaleSlider = document.getElementById("hero-scale-slider");
-        const btnReset = document.getElementById("btn-reset-hero-pos");
-        const btnSave = document.getElementById("btn-save-hero-pos");
+    // --- STAGE CUSTOMIZER CONTROLLER ---
+    function initStageCustomizerController() {
+        const btnOpenModal = document.getElementById("btn-open-stage-customizer");
+        const modalEl = document.getElementById("stage-customizer-modal");
+        const btnCloseModal = document.getElementById("close-stage-customizer-btn");
+        const btnSaveClose = document.getElementById("btn-save-stage-customizer");
+        const btnResetAll = document.getElementById("btn-reset-all-stage-customs");
 
-        if (btnTogglePosMenu && posControls) {
-            btnTogglePosMenu.addEventListener("click", () => {
-                posControls.classList.toggle("hidden");
-            });
-        }
+        const tabBtns = document.querySelectorAll(".stage-tab-btn");
+        const tabContents = document.querySelectorAll(".stage-tab-content");
 
-        if (btnToggleDrag) {
-            btnToggleDrag.addEventListener("click", () => {
-                isHeroDragEnabled = !isHeroDragEnabled;
-                getHeroStageTargetElements().forEach(el => {
-                    if (isHeroDragEnabled) el.classList.add("draggable-active");
-                    else el.classList.remove("draggable-active");
-                });
-                if (isHeroDragEnabled) {
-                    if (lblDrag) lblDrag.textContent = "✋ Зажмите и тяните";
-                    btnToggleDrag.classList.add("btn-primary");
-                    showToast("✋ Зажмите мышь на герое и передвиньте в нужную точку!", "rgba(99,102,241,0.9)", "#6366f1");
-                } else {
-                    if (lblDrag) lblDrag.textContent = "✋ Передвинуть";
-                    btnToggleDrag.classList.remove("btn-primary");
-                }
-            });
-        }
+        // Sliders
+        const sliderHeroScale = document.getElementById("slider-hero-scale");
+        const valHeroScale = document.getElementById("val-hero-scale");
+        const sliderHeroPosX = document.getElementById("slider-hero-pos-x");
+        const valHeroPosX = document.getElementById("val-hero-pos-x");
+        const sliderHeroPosY = document.getElementById("slider-hero-pos-y");
+        const valHeroPosY = document.getElementById("val-hero-pos-y");
 
-        if (scaleSlider) {
-            scaleSlider.addEventListener("input", (e) => {
-                currentHeroPosState.scale = parseInt(e.target.value, 10);
-                applyHeroStageTransform();
-            });
-        }
+        const sliderBgScale = document.getElementById("slider-bg-scale");
+        const valBgScale = document.getElementById("val-bg-scale");
+        const sliderBgPosX = document.getElementById("slider-bg-pos-x");
+        const valBgPosX = document.getElementById("val-bg-pos-x");
+        const sliderBgPosY = document.getElementById("slider-bg-pos-y");
+        const valBgPosY = document.getElementById("val-bg-pos-y");
 
-        if (btnReset) {
-            btnReset.addEventListener("click", () => {
-                currentHeroPosState = { x: 0, y: 0, scale: 65 };
-                applyHeroStageTransform();
-                const map = loadHeroStagePositions();
-                delete map[activeShowcaseHeroId];
-                saveHeroStagePositions(map);
-                showToast("🔄 Позиция и размер сброшены", "rgba(107,114,128,0.8)", "#9ca3af");
-            });
-        }
+        // Reset section buttons
+        const btnResetHeroTransform = document.getElementById("btn-reset-hero-transform");
+        const btnResetBgTransform = document.getElementById("btn-reset-bg-transform");
+        const btnResetHeroBg = document.getElementById("btn-reset-hero-bg");
+        const btnResetHeroSkin = document.getElementById("btn-reset-hero-skin");
 
-        if (btnSave) {
-            btnSave.addEventListener("click", () => {
-                const map = loadHeroStagePositions();
-                map[activeShowcaseHeroId] = currentHeroPosState;
-                saveHeroStagePositions(map);
-                const hero = rpgEngine.heroes.find(h => h.id === activeShowcaseHeroId);
-                showToast(`💾 Позиция ${hero ? hero.name : 'героя'} успешно сохранена!`, "linear-gradient(135deg, #10b981, #059669)", "#10b981");
-            });
-        }
-
-        let isDragging = false;
-        let startX = 0, startY = 0;
-        let initialX = 0, initialY = 0;
-
-        function startDrag(e) {
-            if (!isHeroDragEnabled) return;
-            isDragging = true;
-            getHeroStageTargetElements().forEach(el => el.classList.add("dragging"));
-            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-            startX = clientX;
-            startY = clientY;
-            initialX = currentHeroPosState.x || 0;
-            initialY = currentHeroPosState.y || 0;
-
-            e.preventDefault();
-        }
-
-        function doDrag(e) {
-            if (!isDragging) return;
-            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-            const dx = clientX - startX;
-            const dy = clientY - startY;
-
-            currentHeroPosState.x = initialX + dx;
-            currentHeroPosState.y = initialY + dy;
-            applyHeroStageTransform();
-        }
-
-        function stopDrag() {
-            if (isDragging) {
-                isDragging = false;
-                getHeroStageTargetElements().forEach(el => el.classList.remove("dragging"));
-            }
-        }
-
-        getHeroStageTargetElements().forEach(el => {
-            el.addEventListener("mousedown", startDrag);
-            el.addEventListener("touchstart", startDrag, { passive: false });
-            el.addEventListener("click", () => {
-                if (!isHeroDragEnabled && !isDragging) {
-                    const hero = rpgEngine.heroes.find(h => h.id === activeShowcaseHeroId);
-                    if (hero) playHeroActionAnimation(hero);
-                }
+        // Tab Switching
+        tabBtns.forEach(btn => {
+            btn.addEventListener("click", () => {
+                const targetTab = btn.getAttribute("data-tab");
+                tabBtns.forEach(b => b.classList.remove("active"));
+                tabContents.forEach(c => c.classList.remove("active"));
+                btn.classList.add("active");
+                const activeContent = document.getElementById(`stage-tab-${targetTab}`);
+                if (activeContent) activeContent.classList.add("active");
             });
         });
-        window.addEventListener("mousemove", doDrag);
-        window.addEventListener("touchmove", doDrag, { passive: false });
-        window.addEventListener("mouseup", stopDrag);
-        window.addEventListener("touchend", stopDrag);
+
+        function openModal() {
+            const hero = rpgEngine.heroes.find(h => h.id === activeShowcaseHeroId) || rpgEngine.heroes[0];
+            const titleEl = document.getElementById("stage-customizer-hero-title");
+            if (titleEl) titleEl.textContent = `Кастомизация Сцены: ${hero.name}`;
+
+            renderBackgroundsGallery(hero);
+            renderSkinsGallery(hero);
+            syncTransformSliders(hero);
+
+            if (modalEl) modalEl.classList.remove("hidden");
+        }
+
+        function closeModal() {
+            if (modalEl) modalEl.classList.add("hidden");
+        }
+
+        if (btnOpenModal) btnOpenModal.addEventListener("click", openModal);
+        if (btnCloseModal) btnCloseModal.addEventListener("click", closeModal);
+        if (btnSaveClose) {
+            btnSaveClose.addEventListener("click", () => {
+                closeModal();
+                showToast("💾 Настройки сцены успешно сохранены!", "linear-gradient(135deg, #10b981, #059669)", "#10b981");
+            });
+        }
+        if (modalEl) {
+            modalEl.addEventListener("click", (e) => {
+                if (e.target === modalEl) closeModal();
+            });
+        }
+
+        function renderBackgroundsGallery(hero) {
+            const grid = document.getElementById("stage-bg-gallery-grid");
+            if (!grid) return;
+            grid.innerHTML = "";
+
+            const custom = getHeroStageCustomization(hero.id);
+            const unlocked = getUnlockedStageGifts();
+
+            // Default Background Card
+            const defaultCard = document.createElement("div");
+            defaultCard.className = `stage-gallery-card ${custom.bgId === 'default' ? 'active' : ''}`;
+            defaultCard.innerHTML = `
+                <img src="images/castle_hall_bg.jpg" alt="Default Background" class="stage-gallery-thumb">
+                ${custom.bgId === 'default' ? '<div class="stage-badge-equipped">Выбрано</div>' : ''}
+                <div class="stage-gallery-info">
+                    <div class="stage-gallery-title">Зал Паладинов (По умолч.)</div>
+                    <div class="stage-gallery-desc">Оригинальный фон сцены героя</div>
+                </div>
+            `;
+            defaultCard.addEventListener("click", () => {
+                custom.bgId = "default";
+                saveHeroStageCustomization(hero.id, custom);
+                renderBackgroundsGallery(hero);
+            });
+            grid.appendChild(defaultCard);
+
+            // Catalog Backgrounds
+            const backgrounds = (window.STAGE_GIFTS_CATALOG || []).filter(g => g.type === "background");
+            backgrounds.forEach(bg => {
+                const isUnlocked = unlocked.includes(bg.id);
+                const isEquipped = custom.bgId === bg.id;
+
+                const card = document.createElement("div");
+                card.className = `stage-gallery-card ${isEquipped ? 'active' : ''} ${!isUnlocked ? 'locked' : ''}`;
+                card.innerHTML = `
+                    <img src="${bg.previewImage || bg.image}" alt="${bg.name}" class="stage-gallery-thumb">
+                    ${isEquipped ? '<div class="stage-badge-equipped">Выбрано</div>' : ''}
+                    ${!isUnlocked ? '<div class="stage-card-lock-overlay"><i class="fa-solid fa-lock"></i><span style="font-size:9px; font-weight:700;">КВЕСТ ДНЯ</span></div>' : ''}
+                    <div class="stage-gallery-info">
+                        <div class="stage-gallery-title">${bg.name}</div>
+                        <div class="stage-gallery-desc">${isUnlocked ? bg.description : '🔒 Открывается за завершение квеста дня'}</div>
+                    </div>
+                `;
+
+                if (isUnlocked) {
+                    card.addEventListener("click", () => {
+                        custom.bgId = bg.id;
+                        saveHeroStageCustomization(hero.id, custom);
+                        renderBackgroundsGallery(hero);
+                    });
+                } else {
+                    card.title = "Этот фон можно открыть случайным образом за выполнение Квеста Дня любого героя!";
+                }
+
+                grid.appendChild(card);
+            });
+        }
+
+        function renderSkinsGallery(hero) {
+            const grid = document.getElementById("stage-skin-gallery-grid");
+            if (!grid) return;
+            grid.innerHTML = "";
+
+            const custom = getHeroStageCustomization(hero.id);
+            const unlocked = getUnlockedStageGifts();
+
+            // Default Original Appearance Card
+            const defaultCard = document.createElement("div");
+            defaultCard.className = `stage-gallery-card ${custom.skinId === 'default' ? 'active' : ''}`;
+            const defaultThumb = hero.image || (hero.avatar ? `images/${hero.id}_face.png` : 'images/valerius_face.png');
+            defaultCard.innerHTML = `
+                <img src="${defaultThumb}" alt="Default Skin" class="stage-gallery-thumb" style="object-position:top center;">
+                ${custom.skinId === 'default' ? '<div class="stage-badge-equipped">Выбрано</div>' : ''}
+                <div class="stage-gallery-info">
+                    <div class="stage-gallery-title">Оригинальный образ</div>
+                    <div class="stage-gallery-desc">Стандартный вид персонажа</div>
+                </div>
+            `;
+            defaultCard.addEventListener("click", () => {
+                custom.skinId = "default";
+                saveHeroStageCustomization(hero.id, custom);
+                renderHeroShowcase(hero.id);
+                renderSkinsGallery(hero);
+            });
+            grid.appendChild(defaultCard);
+
+            // Catalog Skins for this Hero
+            const skins = (window.STAGE_GIFTS_CATALOG || []).filter(g => g.type === "skin" && g.heroId === hero.id);
+            if (skins.length === 0) {
+                const emptyNotice = document.createElement("div");
+                emptyNotice.style.gridColumn = "1 / -1";
+                emptyNotice.style.padding = "20px";
+                emptyNotice.style.textAlign = "center";
+                emptyNotice.style.color = "var(--text-muted)";
+                emptyNotice.style.fontSize = "12px";
+                emptyNotice.innerHTML = "✨ Для этого героя скоро появятся новые образы в подарках квестов дня!";
+                grid.appendChild(emptyNotice);
+                return;
+            }
+
+            skins.forEach(sk => {
+                const isUnlocked = unlocked.includes(sk.id);
+                const isEquipped = custom.skinId === sk.id;
+
+                const card = document.createElement("div");
+                card.className = `stage-gallery-card ${isEquipped ? 'active' : ''} ${!isUnlocked ? 'locked' : ''}`;
+                card.innerHTML = `
+                    <img src="${sk.previewImage || sk.image}" alt="${sk.name}" class="stage-gallery-thumb" style="object-position:top center;">
+                    ${isEquipped ? '<div class="stage-badge-equipped">Выбрано</div>' : ''}
+                    ${!isUnlocked ? '<div class="stage-card-lock-overlay"><i class="fa-solid fa-lock"></i><span style="font-size:9px; font-weight:700;">КВЕСТ ДНЯ</span></div>' : ''}
+                    <div class="stage-gallery-info">
+                        <div class="stage-gallery-title">${sk.name}</div>
+                        <div class="stage-gallery-desc">${isUnlocked ? (sk.videoAlpha ? '🎬 Живая анимация' : '🖼️ Новый арт') : '🔒 Открывается за квест дня'}</div>
+                    </div>
+                `;
+
+                if (isUnlocked) {
+                    card.addEventListener("click", () => {
+                        custom.skinId = sk.id;
+                        saveHeroStageCustomization(hero.id, custom);
+                        renderHeroShowcase(hero.id);
+                        renderSkinsGallery(hero);
+                    });
+                } else {
+                    card.title = "Этот образ можно открыть случайным образом за выполнение Квеста Дня любого героя!";
+                }
+
+                grid.appendChild(card);
+            });
+        }
+
+        function syncTransformSliders(hero) {
+            const custom = getHeroStageCustomization(hero.id);
+            const hT = custom.heroTransform || { scale: 65, x: 0, y: 0 };
+            const bT = custom.bgTransform || { scale: 100, x: 0, y: 0 };
+
+            if (sliderHeroScale) { sliderHeroScale.value = hT.scale; if (valHeroScale) valHeroScale.textContent = `${hT.scale}%`; }
+            if (sliderHeroPosX) { sliderHeroPosX.value = hT.x; if (valHeroPosX) valHeroPosX.textContent = `${hT.x}px`; }
+            if (sliderHeroPosY) { sliderHeroPosY.value = hT.y; if (valHeroPosY) valHeroPosY.textContent = `${hT.y}px`; }
+
+            if (sliderBgScale) { sliderBgScale.value = bT.scale; if (valBgScale) valBgScale.textContent = `${bT.scale}%`; }
+            if (sliderBgPosX) { sliderBgPosX.value = bT.x; if (valBgPosX) valBgPosX.textContent = `${bT.x}px`; }
+            if (sliderBgPosY) { sliderBgPosY.value = bT.y; if (valBgPosY) valBgPosY.textContent = `${bT.y}px`; }
+        }
+
+        function onHeroTransformSliderChange() {
+            const hero = rpgEngine.heroes.find(h => h.id === activeShowcaseHeroId) || rpgEngine.heroes[0];
+            const custom = getHeroStageCustomization(hero.id);
+            custom.heroTransform = {
+                scale: parseInt(sliderHeroScale ? sliderHeroScale.value : 65, 10),
+                x: parseInt(sliderHeroPosX ? sliderHeroPosX.value : 0, 10),
+                y: parseInt(sliderHeroPosY ? sliderHeroPosY.value : 0, 10)
+            };
+            if (valHeroScale) valHeroScale.textContent = `${custom.heroTransform.scale}%`;
+            if (valHeroPosX) valHeroPosX.textContent = `${custom.heroTransform.x}px`;
+            if (valHeroPosY) valHeroPosY.textContent = `${custom.heroTransform.y}px`;
+            saveHeroStageCustomization(hero.id, custom);
+        }
+
+        function onBgTransformSliderChange() {
+            const hero = rpgEngine.heroes.find(h => h.id === activeShowcaseHeroId) || rpgEngine.heroes[0];
+            const custom = getHeroStageCustomization(hero.id);
+            custom.bgTransform = {
+                scale: parseInt(sliderBgScale ? sliderBgScale.value : 100, 10),
+                x: parseInt(sliderBgPosX ? sliderBgPosX.value : 0, 10),
+                y: parseInt(sliderBgPosY ? sliderBgPosY.value : 0, 10)
+            };
+            if (valBgScale) valBgScale.textContent = `${custom.bgTransform.scale}%`;
+            if (valBgPosX) valBgPosX.textContent = `${custom.bgTransform.x}px`;
+            if (valBgPosY) valBgPosY.textContent = `${custom.bgTransform.y}px`;
+            saveHeroStageCustomization(hero.id, custom);
+        }
+
+        if (sliderHeroScale) sliderHeroScale.addEventListener("input", onHeroTransformSliderChange);
+        if (sliderHeroPosX) sliderHeroPosX.addEventListener("input", onHeroTransformSliderChange);
+        if (sliderHeroPosY) sliderHeroPosY.addEventListener("input", onHeroTransformSliderChange);
+
+        if (sliderBgScale) sliderBgScale.addEventListener("input", onBgTransformSliderChange);
+        if (sliderBgPosX) sliderBgPosX.addEventListener("input", onBgTransformSliderChange);
+        if (sliderBgPosY) sliderBgPosY.addEventListener("input", onBgTransformSliderChange);
+
+        if (btnResetHeroTransform) {
+            btnResetHeroTransform.addEventListener("click", () => {
+                const hero = rpgEngine.heroes.find(h => h.id === activeShowcaseHeroId) || rpgEngine.heroes[0];
+                const custom = getHeroStageCustomization(hero.id);
+                custom.heroTransform = { scale: 65, x: 0, y: 0 };
+                saveHeroStageCustomization(hero.id, custom);
+                syncTransformSliders(hero);
+            });
+        }
+
+        if (btnResetBgTransform) {
+            btnResetBgTransform.addEventListener("click", () => {
+                const hero = rpgEngine.heroes.find(h => h.id === activeShowcaseHeroId) || rpgEngine.heroes[0];
+                const custom = getHeroStageCustomization(hero.id);
+                custom.bgTransform = { scale: 100, x: 0, y: 0 };
+                saveHeroStageCustomization(hero.id, custom);
+                syncTransformSliders(hero);
+            });
+        }
+
+        if (btnResetHeroBg) {
+            btnResetHeroBg.addEventListener("click", () => {
+                const hero = rpgEngine.heroes.find(h => h.id === activeShowcaseHeroId) || rpgEngine.heroes[0];
+                const custom = getHeroStageCustomization(hero.id);
+                custom.bgId = "default";
+                saveHeroStageCustomization(hero.id, custom);
+                renderBackgroundsGallery(hero);
+            });
+        }
+
+        if (btnResetHeroSkin) {
+            btnResetHeroSkin.addEventListener("click", () => {
+                const hero = rpgEngine.heroes.find(h => h.id === activeShowcaseHeroId) || rpgEngine.heroes[0];
+                const custom = getHeroStageCustomization(hero.id);
+                custom.skinId = "default";
+                saveHeroStageCustomization(hero.id, custom);
+                renderHeroShowcase(hero.id);
+                renderSkinsGallery(hero);
+            });
+        }
+
+        if (btnResetAll) {
+            btnResetAll.addEventListener("click", () => {
+                const hero = rpgEngine.heroes.find(h => h.id === activeShowcaseHeroId) || rpgEngine.heroes[0];
+                localStorage.removeItem(`english_pulse_stage_custom_${hero.id}`);
+                applyHeroStageCustomization(hero.id);
+                renderHeroShowcase(hero.id);
+                renderBackgroundsGallery(hero);
+                renderSkinsGallery(hero);
+                syncTransformSliders(hero);
+                showToast("🔄 Все настройки сцены для этого героя сброшены!", "rgba(107,114,128,0.8)", "#9ca3af");
+            });
+        }
     }
 
-    initHeroPositioningController();
+    initStageCustomizerController();
+
+    // --- DAILY QUEST PRIZE UNLOCK CELEBRATION ---
+    function openPrizeCelebrationModal(prizeItem, hero) {
+        const modalEl = document.getElementById("stage-prize-modal");
+        const typeBadge = document.getElementById("prize-type-badge");
+        const imgEl = document.getElementById("prize-preview-img");
+        const titleEl = document.getElementById("prize-title");
+        const descEl = document.getElementById("prize-desc");
+        const btnClaimClose = document.getElementById("btn-claim-prize-close");
+        const btnEquipNow = document.getElementById("btn-equip-prize-now");
+
+        if (typeBadge) {
+            typeBadge.textContent = prizeItem.type === 'background' ? '🖼️ НОВЫЙ ФОН СЦЕНЫ' : `👤 НОВЫЙ ОБРАЗ: ${prizeItem.category}`;
+        }
+        if (imgEl) imgEl.src = prizeItem.previewImage || prizeItem.image;
+        if (titleEl) titleEl.textContent = prizeItem.name;
+        if (descEl) descEl.textContent = prizeItem.description;
+
+        if (btnClaimClose) {
+            btnClaimClose.onclick = () => {
+                if (modalEl) modalEl.classList.add("hidden");
+            };
+        }
+
+        if (btnEquipNow) {
+            btnEquipNow.onclick = () => {
+                if (modalEl) modalEl.classList.add("hidden");
+                const targetHero = (prizeItem.type === 'skin' && prizeItem.heroId) 
+                    ? (rpgEngine.heroes.find(h => h.id === prizeItem.heroId) || hero)
+                    : hero;
+                
+                const custom = getHeroStageCustomization(targetHero.id);
+                if (prizeItem.type === 'background') {
+                    custom.bgId = prizeItem.id;
+                } else if (prizeItem.type === 'skin') {
+                    custom.skinId = prizeItem.id;
+                }
+                saveHeroStageCustomization(targetHero.id, custom);
+                renderHeroShowcase(targetHero.id);
+                showToast(`✨ <b>${prizeItem.name}</b> успешно применён!`, "linear-gradient(135deg, #f59e0b, #ec4899)", "#fbbf24");
+            };
+        }
+
+        if (modalEl) modalEl.classList.remove("hidden");
+    }
+
+    function triggerDailyQuestGiftUnlock(hero) {
+        if (!hero) hero = rpgEngine.heroes[0];
+        const unlockedList = getUnlockedStageGifts();
+        const lockedGifts = (window.STAGE_GIFTS_CATALOG || []).filter(g => !unlockedList.includes(g.id));
+
+        if (lockedGifts.length > 0) {
+            const randomPrize = lockedGifts[Math.floor(Math.random() * lockedGifts.length)];
+            unlockStageGift(randomPrize.id);
+            openPrizeCelebrationModal(randomPrize, hero);
+        }
+    }
 
     // 6. DUAL-LAYER ATMOSPHERIC MAGICAL DUST & EMBERS (BACKGROUND + FOREGROUND DEPTH)
     function initHeroDustEffect() {
@@ -1015,6 +1359,7 @@ document.addEventListener("DOMContentLoaded", () => {
             renderHeroShowcase();
             renderBottomHeroCarousel();
             checkAndUpdateDailyStreak();
+            triggerDailyQuestGiftUnlock(hero);
         }
     }
 

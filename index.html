@@ -123,32 +123,14 @@
 
             <!-- CENTER HERO ARTWORK STAGE -->
             <div class="hero-artwork-container" id="hero-artwork-container">
+                <div class="hero-stage-bg-layer" id="hero-stage-bg-layer"></div>
                 <canvas id="hero-dust-bg-canvas" class="hero-dust-canvas hero-dust-bg"></canvas>
                 <div class="hero-aura-glow" id="hero-aura-glow"></div>
 
-                <!-- POSITION & SCALE EDIT TOOLBAR -->
-                <div class="hero-position-toolbar" id="hero-position-toolbar">
-                    <button class="btn btn-sm btn-outline" id="btn-toggle-pos-menu" title="Настройки позиции персонажа" style="padding:4px 8px; font-size:12px; border-radius:50%; width:32px; height:32px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-                        <i class="fa-solid fa-sliders"></i>
-                    </button>
-
-                    <div class="hero-pos-controls hidden" id="hero-pos-controls" style="align-items:center; gap:8px;">
-                        <button class="btn btn-sm btn-outline" id="btn-toggle-hero-drag" title="Enable Mouse Dragging">
-                            <i class="fa-solid fa-up-down-left-right"></i> <span id="lbl-hero-drag">✋ Передвинуть</span>
-                        </button>
-                        <div style="display:flex; align-items:center; gap:6px; background:rgba(0,0,0,0.5); padding:2px 8px; border-radius:8px; border:1px solid rgba(255,255,255,0.1);">
-                            <span style="font-size:10px; color:var(--text-muted); font-weight:700;">Размер:</span>
-                            <input type="range" id="hero-scale-slider" min="30" max="100" value="65" style="width:70px; cursor:pointer; accent-color:var(--primary);">
-                            <span id="hero-scale-val" class="font-mono" style="font-size:10px; font-weight:700; color:#fff;">65%</span>
-                        </div>
-                        <button class="btn btn-sm btn-outline" id="btn-reset-hero-pos" title="Reset Position" style="padding:2px 8px; font-size:10px;">
-                            <i class="fa-solid fa-rotate-left"></i> Сброс
-                        </button>
-                        <button class="btn btn-sm btn-primary" id="btn-save-hero-pos" title="Save Position to LocalStorage" style="padding:2px 10px; font-size:10px; font-weight:700;">
-                            <i class="fa-solid fa-floppy-disk"></i> Сохранить 💾
-                        </button>
-                    </div>
-                </div>
+                <!-- STAGE CUSTOMIZATION & TRANSFORM BUTTON (TOP-LEFT) -->
+                <button class="stage-customizer-btn" id="btn-open-stage-customizer" title="Настройки сцены: Смена фона, образа персонажа и трансформация">
+                    <i class="fa-solid fa-sliders"></i>
+                </button>
 
                 <div class="hero-image-wrapper" id="hero-image-wrapper">
                     <div class="hero-stage-floor-shadow" id="hero-stage-floor-shadow"></div>
@@ -843,13 +825,145 @@
                 <button class="btn btn-secondary" id="close-word-stats-btn">Close</button>
             </div>
         </div>
+    <!-- HERO STAGE CUSTOMIZATION MODAL 🎨 -->
+    <div class="modal-backdrop hidden" id="stage-customizer-modal" style="z-index:9990;">
+        <div class="modal-card glass-card stage-customizer-card">
+            <div class="modal-header" style="border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:14px; margin-bottom:16px;">
+                <div style="display:flex; align-items:center; gap:10px;">
+                    <div class="stage-customizer-icon-badge"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <div>
+                        <h3 style="font-size:18px; font-weight:800; color:#fff; margin:0;" id="stage-customizer-hero-title">Кастомизация Сцены</h3>
+                        <p style="font-size:12px; color:var(--text-muted); margin:0;">Фоны, образы персонажа и трансформация сцены</p>
+                    </div>
+                </div>
+                <button class="modal-close" id="close-stage-customizer-btn">&times;</button>
+            </div>
+
+            <!-- TAB SWITCHER -->
+            <div class="stage-customizer-tabs">
+                <button class="stage-tab-btn active" data-tab="bg"><i class="fa-regular fa-image"></i> 🖼️ Фоны</button>
+                <button class="stage-tab-btn" data-tab="skins"><i class="fa-solid fa-user-astronaut"></i> 👤 Образы & Анимации</button>
+                <button class="stage-tab-btn" data-tab="transform"><i class="fa-solid fa-up-down-left-right"></i> 📐 Трансформация</button>
+            </div>
+
+            <!-- TAB 1: BACKGROUNDS -->
+            <div class="stage-tab-content active" id="stage-tab-bg">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                    <span style="font-size:12px; color:var(--text-muted);">Выберите фон для текущего героя:</span>
+                    <button class="btn btn-sm btn-outline" id="btn-reset-hero-bg" style="font-size:11px; padding:3px 10px;">
+                        <i class="fa-solid fa-rotate-left"></i> Фон по умолчанию
+                    </button>
+                </div>
+                <div class="stage-gallery-grid" id="stage-bg-gallery-grid"></div>
+            </div>
+
+            <!-- TAB 2: HERO SKINS & ANIMATIONS -->
+            <div class="stage-tab-content" id="stage-tab-skins">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                    <span style="font-size:12px; color:var(--text-muted);">Выберите образ / анимацию:</span>
+                    <button class="btn btn-sm btn-outline" id="btn-reset-hero-skin" style="font-size:11px; padding:3px 10px;">
+                        <i class="fa-solid fa-rotate-left"></i> Оригинальный образ
+                    </button>
+                </div>
+                <div class="stage-gallery-grid" id="stage-skin-gallery-grid"></div>
+            </div>
+
+            <!-- TAB 3: TRANSFORMS (ZOOM & POSITION) -->
+            <div class="stage-tab-content" id="stage-tab-transform">
+                <div class="transform-controls-container">
+                    
+                    <!-- HERO FIGURE TRANSFORM -->
+                    <div class="transform-section-box">
+                        <div class="transform-section-header">
+                            <span><i class="fa-solid fa-person"></i> <b>Фигура персонажа</b></span>
+                            <button class="btn btn-sm btn-outline" id="btn-reset-hero-transform" style="font-size:10px; padding:2px 8px;">Сброс</button>
+                        </div>
+                        <div class="transform-slider-row">
+                            <label>Размер (Zoom):</label>
+                            <input type="range" id="slider-hero-scale" min="30" max="150" value="65" class="game-slider">
+                            <span class="slider-val" id="val-hero-scale">65%</span>
+                        </div>
+                        <div class="transform-slider-row">
+                            <label>Позиция X (Влево / Вправо):</label>
+                            <input type="range" id="slider-hero-pos-x" min="-250" max="250" value="0" class="game-slider">
+                            <span class="slider-val" id="val-hero-pos-x">0px</span>
+                        </div>
+                        <div class="transform-slider-row">
+                            <label>Позиция Y (Вверх / Вниз):</label>
+                            <input type="range" id="slider-hero-pos-y" min="-200" max="200" value="0" class="game-slider">
+                            <span class="slider-val" id="val-hero-pos-y">0px</span>
+                        </div>
+                    </div>
+
+                    <!-- BACKGROUND TRANSFORM -->
+                    <div class="transform-section-box">
+                        <div class="transform-section-header">
+                            <span><i class="fa-regular fa-image"></i> <b>Фон сцены</b></span>
+                            <button class="btn btn-sm btn-outline" id="btn-reset-bg-transform" style="font-size:10px; padding:2px 8px;">Сброс</button>
+                        </div>
+                        <div class="transform-slider-row">
+                            <label>Масштаб фона (Zoom):</label>
+                            <input type="range" id="slider-bg-scale" min="100" max="250" value="100" class="game-slider">
+                            <span class="slider-val" id="val-bg-scale">100%</span>
+                        </div>
+                        <div class="transform-slider-row">
+                            <label>Позиция X фона:</label>
+                            <input type="range" id="slider-bg-pos-x" min="-300" max="300" value="0" class="game-slider">
+                            <span class="slider-val" id="val-bg-pos-x">0px</span>
+                        </div>
+                        <div class="transform-slider-row">
+                            <label>Позиция Y фона:</label>
+                            <input type="range" id="slider-bg-pos-y" min="-200" max="200" value="0" class="game-slider">
+                            <span class="slider-val" id="val-bg-pos-y">0px</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="modal-footer" style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(255,255,255,0.1); padding-top:14px; margin-top:16px;">
+                <button class="btn btn-outline" id="btn-reset-all-stage-customs" style="font-size:12px;">
+                    <i class="fa-solid fa-trash-can"></i> Сбросить всё для этого героя
+                </button>
+                <button class="btn btn-primary" id="btn-save-stage-customizer" style="font-size:13px; font-weight:700; padding:8px 20px;">
+                    <i class="fa-solid fa-circle-check"></i> Сохранить и Закрыть
+                </button>
+            </div>
+        </div>
     </div>
 
-    <script src="scenarios.js?v=11.025"></script>
-    <script src="heroes.js?v=11.025"></script>
-    <script src="flashcards.js?v=11.025"></script>
-    <script src="grammar.js?v=11.025"></script>
-    <script src="ai_service.js?v=11.025"></script>
-    <script src="app.js?v=11.025"></script>
+    <!-- DAILY QUEST PRIZE UNLOCK CELEBRATION MODAL 🎁🎉 -->
+    <div class="modal-backdrop hidden" id="stage-prize-modal" style="z-index:9998; background:rgba(0,0,0,0.8); backdrop-filter:blur(16px);">
+        <div class="modal-card glass-card prize-celebration-card" style="text-align:center; max-width:480px; padding:32px 24px; border:2px solid #fbbf24; box-shadow:0 0 60px rgba(251,191,36,0.5);">
+            <div style="font-size:52px; margin-bottom:8px; animation:bounce 1.2s infinite alternate;">🎁 ✨ 👑</div>
+            <h2 style="font-size:26px; font-weight:900; color:#fbbf24; margin-bottom:4px; text-transform:uppercase; letter-spacing:1px;">НОВЫЙ ПРИЗ РАЗБЛОКИРОВАН!</h2>
+            <p style="font-size:14px; color:#cbd5e1; margin-bottom:20px;">Награда за успешное завершение Квеста Дня!</p>
+
+            <div class="prize-card-preview-box" id="prize-card-preview-box">
+                <div class="prize-badge" id="prize-type-badge">🖼️ ФОН</div>
+                <img src="" alt="Prize" id="prize-preview-img" class="prize-preview-img">
+                <div class="prize-info">
+                    <h3 id="prize-title" style="font-size:18px; font-weight:800; color:#fff; margin:0 0 6px 0;">Название приза</h3>
+                    <p id="prize-desc" style="font-size:12px; color:#94a3b8; margin:0;">Описание приза</p>
+                </div>
+            </div>
+
+            <div style="display:flex; gap:10px; margin-top:24px;">
+                <button class="btn btn-secondary" id="btn-claim-prize-close" style="flex:1; padding:12px; font-size:14px;">
+                    В коллекцию 🎁
+                </button>
+                <button class="btn btn-primary" id="btn-equip-prize-now" style="flex:1; padding:12px; font-size:14px; font-weight:800; background:linear-gradient(135deg, #f59e0b, #ec4899); border:none; box-shadow:0 0 25px rgba(245,158,11,0.5);">
+                    Применить сейчас ✨
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="scenarios.js?v=11.026"></script>
+    <script src="heroes.js?v=11.026"></script>
+    <script src="flashcards.js?v=11.026"></script>
+    <script src="grammar.js?v=11.026"></script>
+    <script src="ai_service.js?v=11.026"></script>
+    <script src="app.js?v=11.026"></script>
 </body>
 </html>
