@@ -165,13 +165,14 @@ LANGUAGE & LEVEL (STRICT A1):
 - Strict prohibition: NEVER use Present Perfect ("have been"), Past Perfect, passive voice, or complex idioms.
 - Grammar: Write complete, 100% grammatically correct English with proper articles (a/an/the) and correct word order.
 - Length: Keep your response short (1 to 2 simple sentences).
+- Formatting: NEVER wrap target words or any words in asterisks (**word** or *word*), bolding, quotes, or markdown brackets. Always output 100% plain English text without any asterisks.
 
 TARGET FOCUS WORDS FOR TODAY:
 - Focus words for practice: ${fiveWordsList}.
 - Primary word to practice in this turn: "${primaryTarget}"${targetHint}.
 - Integrate "${primaryTarget}" into your response ONLY if it makes 100% logical and grammatical sense. Never force a word into a nonsensical phrase.
 
-Output ONLY your English response. Do not add Russian text, translations, brackets, or meta-notes.`;
+Output ONLY your English response. Do not add Russian text, translations, brackets, asterisks, or meta-notes.`;
     }
 
     getLastFocusInfo() {
@@ -417,6 +418,13 @@ RULES:
         // Clean CJK characters & leftover 'Translation:' text that small models might leak
         text = text.replace(/[\u4e00-\u9fff\u3400-\u4dbf\u3000-\u303f\uff00-\uffef]+/g, '');
         text = text.replace(/Translation:\s*.*$/gi, '').trim();
+
+        // Clean markdown bold / italic / asterisks artifacts around target words (e.g. "**grey**" -> "grey", "*purple*" -> "purple")
+        text = text.replace(/\*\*+([^*]+?)\*\*+/g, '$1');
+        text = text.replace(/\*+([^*]+?)\*+/g, '$1');
+        text = text.replace(/__+([^_]+?)__+/g, '$1');
+        text = text.replace(/_+([^_]+?)_+/g, '$1');
+        text = text.replace(/[*_`#]/g, '');
 
         // Clean unnatural article + preposition/question word artifacts like "a next to", "a where", "a behind", etc.
         text = text.replace(/\ba\s+(next to|under|in|on|at|behind|near|where|when|why|how)\b/gi, '$1').trim();

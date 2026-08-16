@@ -2611,7 +2611,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function appendMessage(role, text, customTranslation = null, focusInfo = null) {
-        chatHistory.push({ role, content: text });
+        // Strip markdown asterisks / bold artifacts so chat text & speech are always 100% clean
+        const cleanText = text
+            ? text.replace(/\*\*+([^*]+?)\*\*+/g, '$1')
+                  .replace(/\*+([^*]+?)\*+/g, '$1')
+                  .replace(/__+([^_]+?)__+/g, '$1')
+                  .replace(/_+([^_]+?)_+/g, '$1')
+                  .replace(/[*_`#]/g, '')
+                  .trim()
+            : text;
+
+        chatHistory.push({ role, content: cleanText });
         const bubble = document.createElement("div");
         bubble.className = `message-bubble ${role}`;
         
@@ -2628,7 +2638,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
         
-        const msgId = text.trim().toLowerCase();
+        const msgId = cleanText.trim().toLowerCase();
         const heroState = activeHeroId ? getTodayHeroAudioState(activeHeroId) : null;
         const isListened = heroState && heroState.listenedMsgs && heroState.listenedMsgs.includes(msgId);
         const isRepeated = heroState && heroState.repeatedMsgs && heroState.repeatedMsgs.includes(msgId);
@@ -2678,7 +2688,7 @@ document.addEventListener("DOMContentLoaded", () => {
         bubble.innerHTML = `
             ${avatar}
             <div class="message-content">
-                <div>${text}</div>
+                <div>${cleanText}</div>
                 ${translateBtnHtml}
             </div>
         `;
@@ -2687,12 +2697,12 @@ document.addEventListener("DOMContentLoaded", () => {
             const audioBtn = bubble.querySelector(".audio-play-link");
             if (audioBtn) {
                 audioBtn.addEventListener("click", () => {
-                    checkAndAwardListeningBonus(text, activeHeroId);
+                    checkAndAwardListeningBonus(cleanText, activeHeroId);
                     audioBtn.classList.remove("unheard-highlight");
                     audioBtn.classList.add("listened");
                     audioBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Speaking...`;
                     voiceService.speak(
-                        text,
+                        cleanText,
                         () => { audioBtn.innerHTML = `<i class="fa-solid fa-volume-high"></i> Speaking...`; },
                         () => { audioBtn.innerHTML = `<i class="fa-solid fa-volume-high"></i> Listen`; },
                         getActiveHeroVoiceConfig()
@@ -2711,8 +2721,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     voiceService.startListening(
                         (spokenTranscript) => {
-                            const accuracy = calculatePronunciationAccuracy(text, spokenTranscript);
-                            renderPronunciationBadge(bubble, accuracy, text, activeHeroId);
+                            const accuracy = calculatePronunciationAccuracy(cleanText, spokenTranscript);
+                            renderPronunciationBadge(bubble, accuracy, cleanText, activeHeroId);
                         },
                         (isListening, msg) => {
                             if (isListening) repeatBtn.classList.add("listening");
