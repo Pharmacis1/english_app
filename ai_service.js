@@ -5,11 +5,11 @@ class AIService {
         const savedProvider = localStorage.getItem("ai_provider");
         this.provider = savedProvider || (this.geminiApiKey ? "gemini" : "ollama"); // 'gemini', 'ollama', 'lmstudio', 'fallback'
         this.endpoint = localStorage.getItem("api_endpoint") || "http://localhost:11434";
-        this.modelName = localStorage.getItem("model_name") || "gemini-2.5-flash-lite";
+        this.modelName = localStorage.getItem("model_name") || "gemini-3.5-flash-lite";
         if (this.provider === 'gemini') {
-            if (!this.modelName || this.modelName.includes(':') || this.modelName.includes('qwen') || this.modelName.includes('llama') || this.modelName.includes('mistral') || this.modelName.includes('1.5') || this.modelName.includes('3.')) {
-                this.modelName = 'gemini-2.5-flash-lite';
-                localStorage.setItem("model_name", "gemini-2.5-flash-lite");
+            if (!this.modelName || this.modelName.includes(':') || this.modelName.includes('qwen') || this.modelName.includes('llama') || this.modelName.includes('mistral') || this.modelName.includes('1.5')) {
+                this.modelName = 'gemini-3.5-flash-lite';
+                localStorage.setItem("model_name", "gemini-3.5-flash-lite");
             }
         }
         this.systemPrompt = localStorage.getItem("system_prompt") || 
@@ -277,8 +277,8 @@ RULES:
 
             let requestModel = this.modelName;
             if (this.provider === 'gemini') {
-                if (!requestModel || requestModel.includes(':') || requestModel.includes('qwen') || requestModel.includes('llama') || requestModel.includes('mistral') || !requestModel.startsWith('gemini') || requestModel.includes('1.5') || requestModel.includes('3.')) {
-                    requestModel = 'gemini-2.5-flash-lite';
+                if (!requestModel || requestModel.includes(':') || requestModel.includes('qwen') || requestModel.includes('llama') || requestModel.includes('mistral') || !requestModel.startsWith('gemini') || requestModel.includes('1.5')) {
+                    requestModel = 'gemini-3.5-flash-lite';
                 }
             }
 
