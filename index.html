@@ -828,12 +828,12 @@
     <!-- HERO STAGE CUSTOMIZATION MODAL 🎨 -->
     <div class="modal-backdrop hidden" id="stage-customizer-modal" style="z-index:9990;">
         <div class="modal-card glass-card stage-customizer-card">
-            <div class="modal-header" style="border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:14px; margin-bottom:16px;">
+            <div class="modal-header stage-customizer-drag-header" id="stage-customizer-header" title="✋ Зажмите заголовок и двигайте окно в любое место экрана" style="border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:12px; margin-bottom:14px; cursor:grab;">
                 <div style="display:flex; align-items:center; gap:10px;">
                     <div class="stage-customizer-icon-badge"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
                     <div>
-                        <h3 style="font-size:18px; font-weight:800; color:#fff; margin:0;" id="stage-customizer-hero-title">Кастомизация Сцены</h3>
-                        <p style="font-size:12px; color:var(--text-muted); margin:0;">Фоны, образы персонажа и трансформация сцены</p>
+                        <h3 style="font-size:16px; font-weight:800; color:#fff; margin:0;" id="stage-customizer-hero-title">Кастомизация Сцены</h3>
+                        <p style="font-size:11px; color:var(--text-muted); margin:0;">Двигайте окно за шапку &bull; Живой предпросмотр</p>
                     </div>
                 </div>
                 <button class="modal-close" id="close-stage-customizer-btn">&times;</button>
@@ -872,6 +872,11 @@
             <div class="stage-tab-content" id="stage-tab-transform">
                 <div class="transform-controls-container">
                     
+                    <!-- LIVE CANVAS DRAG TOGGLE -->
+                    <button class="btn btn-outline" id="btn-toggle-hero-canvas-drag" style="width:100%; font-size:12px; font-weight:700; padding:8px 12px; border-color:var(--primary); color:#fff; display:flex; align-items:center; justify-content:center; gap:8px;">
+                        <i class="fa-solid fa-hand"></i> <span id="lbl-hero-canvas-drag">✋ Передвигать героя мышкой по сцене</span>
+                    </button>
+
                     <!-- HERO FIGURE TRANSFORM -->
                     <div class="transform-section-box">
                         <div class="transform-section-header">
@@ -959,11 +964,11 @@
         </div>
     </div>
 
-    <script src="scenarios.js?v=11.027"></script>
-    <script src="heroes.js?v=11.027"></script>
-    <script src="flashcards.js?v=11.027"></script>
-    <script src="grammar.js?v=11.027"></script>
-    <script src="ai_service.js?v=11.027"></script>
-    <script src="app.js?v=11.027"></script>
+    <script src="scenarios.js?v=11.028"></script>
+    <script src="heroes.js?v=11.028"></script>
+    <script src="flashcards.js?v=11.028"></script>
+    <script src="grammar.js?v=11.028"></script>
+    <script src="ai_service.js?v=11.028"></script>
+    <script src="app.js?v=11.028"></script>
 </body>
 </html>

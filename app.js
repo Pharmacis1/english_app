@@ -824,6 +824,118 @@ document.addEventListener("DOMContentLoaded", () => {
                 showToast("🔄 Все настройки сцены для этого героя сброшены!", "rgba(107,114,128,0.8)", "#9ca3af");
             });
         }
+
+        // 1. Make Stage Customizer Panel Draggable by its Header
+        const dragHeader = document.getElementById("stage-customizer-header");
+        const customizerCard = modalEl ? modalEl.querySelector(".stage-customizer-card") : null;
+        if (dragHeader && customizerCard) {
+            let isPanelDragging = false;
+            let startMouseX = 0, startMouseY = 0;
+            let initialCardLeft = 0, initialCardTop = 0;
+
+            dragHeader.addEventListener("mousedown", (e) => {
+                if (e.target.closest("button") || e.target.closest("input")) return;
+                isPanelDragging = true;
+                dragHeader.style.cursor = "grabbing";
+                startMouseX = e.clientX;
+                startMouseY = e.clientY;
+                const rect = customizerCard.getBoundingClientRect();
+                initialCardLeft = rect.left;
+                initialCardTop = rect.top;
+                e.preventDefault();
+            });
+
+            window.addEventListener("mousemove", (e) => {
+                if (!isPanelDragging) return;
+                const dx = e.clientX - startMouseX;
+                const dy = e.clientY - startMouseY;
+                customizerCard.style.position = "fixed";
+                customizerCard.style.left = `${Math.max(10, Math.min(window.innerWidth - customizerCard.offsetWidth - 10, initialCardLeft + dx))}px`;
+                customizerCard.style.top = `${Math.max(10, Math.min(window.innerHeight - customizerCard.offsetHeight - 10, initialCardTop + dy))}px`;
+                customizerCard.style.margin = "0";
+            });
+
+            window.addEventListener("mouseup", () => {
+                if (isPanelDragging) {
+                    isPanelDragging = false;
+                    dragHeader.style.cursor = "grab";
+                }
+            });
+        }
+
+        // 2. Live Canvas Drag on Hero Figure
+        const btnToggleCanvasDrag = document.getElementById("btn-toggle-hero-canvas-drag");
+        const lblCanvasDrag = document.getElementById("lbl-hero-canvas-drag");
+        let isHeroCanvasDragActive = false;
+
+        if (btnToggleCanvasDrag) {
+            btnToggleCanvasDrag.addEventListener("click", () => {
+                isHeroCanvasDragActive = !isHeroCanvasDragActive;
+                const heroTarget = document.getElementById("hero-image-wrapper");
+                if (isHeroCanvasDragActive) {
+                    btnToggleCanvasDrag.classList.add("btn-primary");
+                    btnToggleCanvasDrag.classList.remove("btn-outline");
+                    if (lblCanvasDrag) lblCanvasDrag.innerHTML = "✋ <b>Режим активен:</b> тяните героя мышкой по сцене";
+                    if (heroTarget) heroTarget.style.cursor = "move";
+                    showToast("✋ Зажмите мышь на герое и двигайте в нужное место на сцене!", "linear-gradient(135deg, #6366f1, #a855f7)", "#a855f7");
+                } else {
+                    btnToggleCanvasDrag.classList.remove("btn-primary");
+                    btnToggleCanvasDrag.classList.add("btn-outline");
+                    if (lblCanvasDrag) lblCanvasDrag.textContent = "✋ Передвигать героя мышкой по сцене";
+                    if (heroTarget) heroTarget.style.cursor = "";
+                }
+            });
+        }
+
+        // Live Hero Stage Drag Listener
+        const heroWrapper = document.getElementById("hero-image-wrapper");
+        if (heroWrapper) {
+            let isDraggingHero = false;
+            let dragHeroStartX = 0, dragHeroStartY = 0;
+            let initialHeroX = 0, initialHeroY = 0;
+
+            function startHeroDrag(e) {
+                if (!isHeroCanvasDragActive) return;
+                isDraggingHero = true;
+                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+                const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+                dragHeroStartX = clientX;
+                dragHeroStartY = clientY;
+                const hero = rpgEngine.heroes.find(h => h.id === activeShowcaseHeroId) || rpgEngine.heroes[0];
+                const custom = getHeroStageCustomization(hero.id);
+                initialHeroX = custom.heroTransform ? (custom.heroTransform.x || 0) : 0;
+                initialHeroY = custom.heroTransform ? (custom.heroTransform.y || 0) : 0;
+                e.preventDefault();
+            }
+
+            function doHeroDrag(e) {
+                if (!isDraggingHero) return;
+                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+                const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+                const dx = clientX - dragHeroStartX;
+                const dy = clientY - dragHeroStartY;
+                const hero = rpgEngine.heroes.find(h => h.id === activeShowcaseHeroId) || rpgEngine.heroes[0];
+                const custom = getHeroStageCustomization(hero.id);
+                if (!custom.heroTransform) custom.heroTransform = { scale: 65, x: 0, y: 0 };
+                custom.heroTransform.x = Math.max(-250, Math.min(250, Math.round(initialHeroX + dx)));
+                custom.heroTransform.y = Math.max(-200, Math.min(200, Math.round(initialHeroY + dy)));
+                saveHeroStageCustomization(hero.id, custom);
+                syncTransformSliders(hero);
+            }
+
+            function stopHeroDrag() {
+                if (isDraggingHero) {
+                    isDraggingHero = false;
+                }
+            }
+
+            heroWrapper.addEventListener("mousedown", startHeroDrag);
+            heroWrapper.addEventListener("touchstart", startHeroDrag, { passive: false });
+            window.addEventListener("mousemove", doHeroDrag);
+            window.addEventListener("touchmove", doHeroDrag, { passive: false });
+            window.addEventListener("mouseup", stopHeroDrag);
+            window.addEventListener("touchend", stopHeroDrag);
+        }
     }
 
     initStageCustomizerController();
