@@ -1292,7 +1292,7 @@ body {
     max-width: 65%;
     object-fit: contain;
     filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.8));
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: none !important;
     transform-origin: bottom center;
 }
 
@@ -1498,7 +1498,7 @@ body {
     background-repeat: no-repeat;
     z-index: 1;
     pointer-events: none;
-    transition: transform 0.15s ease-out, background-image 0.4s ease;
+    transition: none !important;
 }
 
 .stage-customizer-btn {

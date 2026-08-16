@@ -309,6 +309,17 @@ document.addEventListener("DOMContentLoaded", () => {
         const iconFallback = document.getElementById("hero-stage-icon-fallback");
         const iconFa = document.getElementById("hero-stage-icon-fa");
 
+        if (heroActionAnimationTimer) {
+            clearInterval(heroActionAnimationTimer);
+            heroActionAnimationTimer = null;
+        }
+
+        if (stageVideo) {
+            stageVideo.pause();
+            stageVideo.classList.add("hidden");
+            stageVideo.style.display = "none";
+        }
+
         if (hero.videoPlaylistAlpha || hero.videoPlaylist) {
             const playlist = hero.videoPlaylistAlpha || hero.videoPlaylist;
             const fallbackPlaylist = hero.videoPlaylist || hero.videoPlaylistAlpha;
@@ -348,20 +359,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 stageVideo.loop = true;
                 stageVideo.src = hero.videoIdleAlpha || hero.videoIdle;
                 stageVideo.classList.remove("hidden");
+                stageVideo.style.display = "";
+                stageVideo.style.opacity = "1";
                 stageVideo.play().catch(e => {});
             }
             if (stageArt) stageArt.style.display = "none";
             if (iconFallback) iconFallback.style.display = "none";
             startPeriodicHeroActionAnimation(hero);
         } else if (stageArt) {
-            if (heroActionAnimationTimer) {
-                clearInterval(heroActionAnimationTimer);
-                heroActionAnimationTimer = null;
-            }
-            if (stageVideo) {
-                stageVideo.pause();
-                stageVideo.classList.add("hidden");
-            }
             if (hero.image) {
                 stageArt.src = hero.image;
                 stageArt.style.display = "";
@@ -413,9 +418,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // 6. Highlight bottom carousel card
         renderBottomHeroCarousel();
+
+        // 7. If Customizer panel is currently open, refresh galleries & sliders for the new hero
+        const customizerModal = document.getElementById("stage-customizer-modal");
+        if (customizerModal && !customizerModal.classList.contains("hidden")) {
+            if (typeof syncActiveCustomizerHero === 'function') {
+                syncActiveCustomizerHero(hero);
+            }
+        }
     }
 
+    let cachedTotalDictionaryWords = null;
     function getPlayerTotalDictionaryWordsCount() {
+        if (cachedTotalDictionaryWords !== null) return cachedTotalDictionaryWords;
         let totalWords = 0;
         if (typeof rpgEngine !== 'undefined' && rpgEngine.heroes) {
             rpgEngine.heroes.forEach(h => {
@@ -446,16 +461,37 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             });
         }
-        return totalWords || 100;
+        cachedTotalDictionaryWords = totalWords || 100;
+        return cachedTotalDictionaryWords;
     }
 
     function renderBottomHeroCarousel() {
         const track = document.getElementById("hero-carousel-track");
         if (!track) return;
-        track.innerHTML = "";
 
         const totalCompletedQuests = getTotalCompletedDailyQuests();
+        const existingChips = track.querySelectorAll(".hero-card-chip");
 
+        // Lightning-fast DOM update if chips already exist!
+        if (existingChips.length === rpgEngine.heroes.length) {
+            rpgEngine.heroes.forEach((h, idx) => {
+                const chip = existingChips[idx];
+                const isActive = h.id === activeShowcaseHeroId;
+                if (isActive) chip.classList.add("active");
+                else chip.classList.remove("active");
+
+                const lvlEl = chip.querySelector(".chip-lvl");
+                if (lvlEl) {
+                    const reqQuests = HERO_UNLOCK_QUEST_THRESHOLDS[idx] !== undefined ? HERO_UNLOCK_QUEST_THRESHOLDS[idx] : (idx * 8);
+                    const remainingQuests = Math.max(0, reqQuests - totalCompletedQuests);
+                    const statusLabel = h.unlocked ? `Lvl ${h.level || 1}` : `🔒 Ещё ${remainingQuests} кв.`;
+                    lvlEl.textContent = statusLabel;
+                }
+            });
+            return;
+        }
+
+        track.innerHTML = "";
         rpgEngine.heroes.forEach((h, idx) => {
             const isActive = h.id === activeShowcaseHeroId;
             const chip = document.createElement("div");
@@ -560,15 +596,17 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
 
-        function openModal() {
-            const hero = rpgEngine.heroes.find(h => h.id === activeShowcaseHeroId) || rpgEngine.heroes[0];
+        window.syncActiveCustomizerHero = function(hero) {
             const titleEl = document.getElementById("stage-customizer-hero-title");
             if (titleEl) titleEl.textContent = `Кастомизация Сцены: ${hero.name}`;
-
             renderBackgroundsGallery(hero);
             renderSkinsGallery(hero);
             syncTransformSliders(hero);
+        };
 
+        function openModal() {
+            const hero = rpgEngine.heroes.find(h => h.id === activeShowcaseHeroId) || rpgEngine.heroes[0];
+            window.syncActiveCustomizerHero(hero);
             if (modalEl) modalEl.classList.remove("hidden");
         }
 
