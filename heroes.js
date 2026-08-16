@@ -1963,6 +1963,115 @@ const STAGE_GIFTS_CATALOG = [
         videoAlpha: "videos/skins/frostina_anim_1_alpha.webm",
         previewImage: "images/skins/frostina_skin_1.jpg",
         category: "Фростина"
+    },
+
+    // --- 5 New High-Fantasy Backgrounds ---
+    {
+        id: "bg_magic_library",
+        type: "background",
+        name: "Магическая Библиотека",
+        nameEn: "Arcane Library",
+        description: "Величественный зал древней академии с парящими фолиантами и витражами",
+        image: "images/backgrounds/bg_magic_library.jpg",
+        previewImage: "images/backgrounds/bg_magic_library.jpg",
+        category: "Фоны"
+    },
+    {
+        id: "bg_sky_terrace",
+        type: "background",
+        name: "Небесная Терраса",
+        nameEn: "Celestial Sky Terrace",
+        description: "Мраморная смотровая терраса с видом на парящие острова и облачные замки",
+        image: "images/backgrounds/bg_sky_terrace.jpg",
+        previewImage: "images/backgrounds/bg_sky_terrace.jpg",
+        category: "Фоны"
+    },
+    {
+        id: "bg_dragon_volcano",
+        type: "background",
+        name: "Святилище Дракона",
+        nameEn: "Dragon Volcano Lair",
+        description: "Огненный обсидиановый зал с реками пылающей магмы и древними рунами",
+        image: "images/backgrounds/bg_dragon_volcano.jpg",
+        previewImage: "images/backgrounds/bg_dragon_volcano.jpg",
+        category: "Фоны"
+    },
+    {
+        id: "bg_enchanted_grove",
+        type: "background",
+        name: "Зачарованная Роща",
+        nameEn: "Enchanted Spirit Grove",
+        description: "Биолюминесцентная ночная роща с древом духов и мерцающими грибами",
+        image: "images/backgrounds/bg_enchanted_grove.jpg",
+        previewImage: "images/backgrounds/bg_enchanted_grove.jpg",
+        category: "Фоны"
+    },
+    {
+        id: "bg_crystal_caverns",
+        type: "background",
+        name: "Кристальные Пещеры",
+        nameEn: "Crystal Caverns",
+        description: "Таинственные подземные гроты с гигантскими аметистовыми кристаллами",
+        image: "images/backgrounds/bg_crystal_caverns.jpg",
+        previewImage: "images/backgrounds/bg_crystal_caverns.jpg",
+        category: "Фоны"
+    },
+
+    // --- 5 New Hero Skins ---
+    {
+        id: "skin_thorin_king",
+        type: "skin",
+        heroId: "thorin",
+        name: "Торин: Верховный Король Гор",
+        nameEn: "Thorin: Mountain High King",
+        description: "Королевские золотые доспехи с руническим топором и мантией из горностая",
+        image: "images/skins/skin_thorin_king.jpg",
+        previewImage: "images/skins/skin_thorin_king.jpg",
+        category: "Торин"
+    },
+    {
+        id: "skin_selene_shadow",
+        type: "skin",
+        heroId: "selene",
+        name: "Селена: Теневой Клинок Луны",
+        nameEn: "Selene: Lunar Shadowblade",
+        description: "Обсидиановые доспехи ночной убийцы с сияющими лунными кинжалами",
+        image: "images/skins/skin_selene_shadow.jpg",
+        previewImage: "images/skins/skin_selene_shadow.jpg",
+        category: "Селена"
+    },
+    {
+        id: "skin_aria_melody",
+        type: "skin",
+        heroId: "aria",
+        name: "Ария: Небесная Менестрель",
+        nameEn: "Aria: Celestial Melodist",
+        description: "Изумрудное шёлковое платье с зачарованной хрустальной арфой мелодий",
+        image: "images/skins/skin_aria_melody.jpg",
+        previewImage: "images/skins/skin_aria_melody.jpg",
+        category: "Ария"
+    },
+    {
+        id: "skin_cynthia_spirit",
+        type: "skin",
+        heroId: "cynthia",
+        name: "Цинтия: Архидруид Первозданных Лесов",
+        nameEn: "Cynthia: Archdruid of the Wilds",
+        description: "Одеяние хранительницы природы с цветочной короной и живым посохом духов",
+        image: "images/skins/skin_cynthia_spirit.jpg",
+        previewImage: "images/skins/skin_cynthia_spirit.jpg",
+        category: "Цинтия"
+    },
+    {
+        id: "skin_ignis_dragonlord",
+        type: "skin",
+        heroId: "ignis",
+        name: "Игнис: Повелитель Драконьего Пламени",
+        nameEn: "Ignis: Dragonflame Pyromancer",
+        description: "Мантия из чешуи древнего дракона с пылающим посохом живого огня",
+        image: "images/skins/skin_ignis_dragonlord.jpg",
+        previewImage: "images/skins/skin_ignis_dragonlord.jpg",
+        category: "Игнис"
     }
 ];
 
