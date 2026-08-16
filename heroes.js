@@ -1911,9 +1911,9 @@ const STAGE_GIFTS_CATALOG = [
         name: "Астерия: Звёздная Воительница",
         nameEn: "Astraea: Starlight Knight",
         description: "Особый сияющий образ верховного паладина Астерии",
-        image: "images/skins/astraea_skin_1.jpg",
+        image: "images/skins/astraea_skin_1.png",
         videoAlpha: "videos/skins/astraea_anim_1_alpha.webm",
-        previewImage: "images/skins/astraea_skin_1.jpg",
+        previewImage: "images/skins/astraea_skin_1.png",
         category: "Астерия"
     },
     {
@@ -1923,9 +1923,9 @@ const STAGE_GIFTS_CATALOG = [
         name: "Валериус: Защитник Короны",
         nameEn: "Valerius: Crown Guardian",
         description: "Боевой доспех Серебряного Паладина в парадном облачении",
-        image: "images/skins/valerius_skin_1.jpg",
+        image: "images/skins/valerius_skin_1.png",
         videoAlpha: "videos/skins/valerius_anim_1_alpha.webm",
-        previewImage: "images/skins/valerius_skin_1.jpg",
+        previewImage: "images/skins/valerius_skin_1.png",
         category: "Валериус"
     },
     {
@@ -1935,9 +1935,9 @@ const STAGE_GIFTS_CATALOG = [
         name: "Зефир: Штормовой Следопыт",
         nameEn: "Zephyr: Gale Ranger",
         description: "Анимированный образ мастера ветра с зачарованным луком",
-        image: "images/zephyr_hero_standalone.png",
+        image: "images/skins/zephyr_skin_1.png",
         videoAlpha: "videos/skins/zephyr_anim_1_alpha.webm",
-        previewImage: "images/zephyr_face.png",
+        previewImage: "images/skins/zephyr_skin_1.png",
         category: "Зефир"
     },
     {
@@ -1947,9 +1947,9 @@ const STAGE_GIFTS_CATALOG = [
         name: "Игнис: Пламенный Лорд",
         nameEn: "Ignis: Flame Lord",
         description: "Огненное облачение мага пламени с живой анимацией огня",
-        image: "images/skins/ignis_skin_1.jpg",
+        image: "images/skins/ignis_skin_1.png",
         videoAlpha: "videos/skins/ignis_anim_1_alpha.webm",
-        previewImage: "images/skins/ignis_skin_1.jpg",
+        previewImage: "images/skins/ignis_skin_1.png",
         category: "Игнис"
     },
     {
@@ -1959,9 +1959,9 @@ const STAGE_GIFTS_CATALOG = [
         name: "Фростина: Ледяная Владычица",
         nameEn: "Frostina: Frost Queen",
         description: "Магическое ледяное одеяние с танцующими кристаллами льда",
-        image: "images/skins/frostina_skin_1.jpg",
+        image: "images/skins/frostina_skin_1.png",
         videoAlpha: "videos/skins/frostina_anim_1_alpha.webm",
-        previewImage: "images/skins/frostina_skin_1.jpg",
+        previewImage: "images/skins/frostina_skin_1.png",
         category: "Фростина"
     },
 
