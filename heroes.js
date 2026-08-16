@@ -2015,63 +2015,6 @@ const STAGE_GIFTS_CATALOG = [
         image: "images/backgrounds/bg_crystal_caverns.jpg",
         previewImage: "images/backgrounds/bg_crystal_caverns.jpg",
         category: "Фоны"
-    },
-
-    // --- 5 New Hero Skins ---
-    {
-        id: "skin_thorin_king",
-        type: "skin",
-        heroId: "thorin",
-        name: "Торин: Верховный Король Гор",
-        nameEn: "Thorin: Mountain High King",
-        description: "Королевские золотые доспехи с руническим топором и мантией из горностая",
-        image: "images/skins/skin_thorin_king.jpg",
-        previewImage: "images/skins/skin_thorin_king.jpg",
-        category: "Торин"
-    },
-    {
-        id: "skin_selene_shadow",
-        type: "skin",
-        heroId: "selene",
-        name: "Селена: Теневой Клинок Луны",
-        nameEn: "Selene: Lunar Shadowblade",
-        description: "Обсидиановые доспехи ночной убийцы с сияющими лунными кинжалами",
-        image: "images/skins/skin_selene_shadow.jpg",
-        previewImage: "images/skins/skin_selene_shadow.jpg",
-        category: "Селена"
-    },
-    {
-        id: "skin_aria_melody",
-        type: "skin",
-        heroId: "aria",
-        name: "Ария: Небесная Менестрель",
-        nameEn: "Aria: Celestial Melodist",
-        description: "Изумрудное шёлковое платье с зачарованной хрустальной арфой мелодий",
-        image: "images/skins/skin_aria_melody.jpg",
-        previewImage: "images/skins/skin_aria_melody.jpg",
-        category: "Ария"
-    },
-    {
-        id: "skin_cynthia_spirit",
-        type: "skin",
-        heroId: "cynthia",
-        name: "Цинтия: Архидруид Первозданных Лесов",
-        nameEn: "Cynthia: Archdruid of the Wilds",
-        description: "Одеяние хранительницы природы с цветочной короной и живым посохом духов",
-        image: "images/skins/skin_cynthia_spirit.jpg",
-        previewImage: "images/skins/skin_cynthia_spirit.jpg",
-        category: "Цинтия"
-    },
-    {
-        id: "skin_ignis_dragonlord",
-        type: "skin",
-        heroId: "ignis",
-        name: "Игнис: Повелитель Драконьего Пламени",
-        nameEn: "Ignis: Dragonflame Pyromancer",
-        description: "Мантия из чешуи древнего дракона с пылающим посохом живого огня",
-        image: "images/skins/skin_ignis_dragonlord.jpg",
-        previewImage: "images/skins/skin_ignis_dragonlord.jpg",
-        category: "Игнис"
     }
 ];
 
