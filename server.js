@@ -223,17 +223,16 @@ app.post('/api/ai/chat', async (req, res) => {
             const apiKey = req.body.apiKey || process.env.GEMINI_API_KEY || '';
             if (!apiKey) throw new Error("Gemini API Key missing. Please provide API Key in Local AI Settings.");
 
-            let primaryModel = model || 'gemini-3.5-flash-lite';
-            if (!primaryModel || primaryModel.includes(':') || primaryModel.includes('qwen') || primaryModel.includes('llama') || primaryModel.includes('mistral') || !primaryModel.startsWith('gemini') || primaryModel.includes('1.5')) {
-                primaryModel = 'gemini-3.5-flash-lite';
+            let primaryModel = model || 'gemini-2.5-flash-lite';
+            if (!primaryModel || primaryModel.includes(':') || primaryModel.includes('qwen') || primaryModel.includes('llama') || primaryModel.includes('mistral') || !primaryModel.startsWith('gemini') || primaryModel.includes('1.5') || primaryModel.includes('3.')) {
+                primaryModel = 'gemini-2.5-flash-lite';
             }
             const modelCascade = Array.from(new Set([
                 primaryModel, 
-                'gemini-3.5-flash-lite', 
+                'gemini-2.5-flash-lite', 
                 'gemini-2.5-flash', 
-                'gemini-2.5-flash-lite',
-                'gemini-3.5-flash',
-                'gemini-3.7-flash', 
+                'gemini-2.0-flash-lite',
+                'gemini-2.0-flash',
                 'gemini-2.5-pro'
             ]));
 
@@ -254,32 +253,35 @@ app.post('/api/ai/chat', async (req, res) => {
                 if (systemInstruction) payload.systemInstruction = systemInstruction;
 
                 const url = `https://generativelanguage.googleapis.com/v1beta/models/${targetModel}:generateContent?key=${apiKey}`;
-                return await fetch(url, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload),
-                    signal: controller.signal
-                });
+                const singleController = new AbortController();
+                const singleTimer = setTimeout(() => singleController.abort(), 12000);
+                try {
+                    const fetchRes = await fetch(url, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload),
+                        signal: singleController.signal
+                    });
+                    clearTimeout(singleTimer);
+                    return fetchRes;
+                } catch(e) {
+                    clearTimeout(singleTimer);
+                    return null;
+                }
             }
 
             let resp = null;
             let lastErrorMsg = "";
 
-            // Attempt across model cascade (with 1 quick backoff pass if high demand)
-            for (let attempt = 0; attempt < 2 && (!resp || !resp.ok); attempt++) {
-                if (attempt > 0) {
-                    await new Promise(r => setTimeout(r, 900)); // 900ms backoff for high demand spikes
-                }
-                for (const targetM of modelCascade) {
-                    resp = await callGeminiApi(targetM);
-                    if (resp.ok) {
-                        req.actualGeminiModel = targetM;
-                        break;
-                    } else {
-                        const errData = await resp.json().catch(() => ({}));
-                        lastErrorMsg = errData.error?.message || `Gemini API Error ${resp.status}`;
-                        console.warn(`[Gemini Proxy] Model '${targetM}' returned ${resp.status}: ${lastErrorMsg}. Trying next in cascade...`);
-                    }
+            for (const targetM of modelCascade) {
+                resp = await callGeminiApi(targetM);
+                if (resp && resp.ok) {
+                    req.actualGeminiModel = targetM;
+                    break;
+                } else if (resp) {
+                    const errData = await resp.json().catch(() => ({}));
+                    lastErrorMsg = errData.error?.message || `Gemini API Error ${resp.status}`;
+                    console.warn(`[Gemini Proxy] Model '${targetM}' returned ${resp.status}: ${lastErrorMsg}. Trying next in cascade...`);
                 }
             }
 
@@ -298,7 +300,7 @@ app.post('/api/ai/chat', async (req, res) => {
         clearTimeout(timeoutId);
         const isTimeout = err.name === 'AbortError';
         const errorMsg = isTimeout 
-            ? `Timeout: Model '${model}' took too long. 12B+ models require 10GB+ VRAM. Recommend 7B-8B models (e.g., llama3.1:8b or qwen2.5:7b).`
+            ? `Timeout: Model '${model}' took too long. Please check your network or API Key.`
             : err.message;
         return res.status(500).json({ success: false, error: errorMsg });
     }

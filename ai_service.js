@@ -5,11 +5,11 @@ class AIService {
         const savedProvider = localStorage.getItem("ai_provider");
         this.provider = savedProvider || (this.geminiApiKey ? "gemini" : "ollama"); // 'gemini', 'ollama', 'lmstudio', 'fallback'
         this.endpoint = localStorage.getItem("api_endpoint") || "http://localhost:11434";
-        this.modelName = localStorage.getItem("model_name") || "gemini-3.5-flash-lite";
+        this.modelName = localStorage.getItem("model_name") || "gemini-2.5-flash-lite";
         if (this.provider === 'gemini') {
-            if (!this.modelName || this.modelName.includes(':') || this.modelName.includes('qwen') || this.modelName.includes('llama') || this.modelName.includes('mistral') || this.modelName.includes('1.5')) {
-                this.modelName = 'gemini-3.5-flash-lite';
-                localStorage.setItem("model_name", "gemini-3.5-flash-lite");
+            if (!this.modelName || this.modelName.includes(':') || this.modelName.includes('qwen') || this.modelName.includes('llama') || this.modelName.includes('mistral') || this.modelName.includes('1.5') || this.modelName.includes('3.')) {
+                this.modelName = 'gemini-2.5-flash-lite';
+                localStorage.setItem("model_name", "gemini-2.5-flash-lite");
             }
         }
         this.systemPrompt = localStorage.getItem("system_prompt") || 
@@ -277,8 +277,8 @@ RULES:
 
             let requestModel = this.modelName;
             if (this.provider === 'gemini') {
-                if (!requestModel || requestModel.includes(':') || requestModel.includes('qwen') || requestModel.includes('llama') || requestModel.includes('mistral') || !requestModel.startsWith('gemini') || requestModel.includes('1.5')) {
-                    requestModel = 'gemini-3.5-flash-lite';
+                if (!requestModel || requestModel.includes(':') || requestModel.includes('qwen') || requestModel.includes('llama') || requestModel.includes('mistral') || !requestModel.startsWith('gemini') || requestModel.includes('1.5') || requestModel.includes('3.')) {
+                    requestModel = 'gemini-2.5-flash-lite';
                 }
             }
 
@@ -305,7 +305,7 @@ RULES:
 
             let sourceModelInfo = this.modelName;
             if (this.provider === 'gemini') {
-                sourceModelInfo = `Google Gemini Cloud API (${data.activeModel || 'gemini-3.5-flash-lite'})`;
+                sourceModelInfo = `Google Gemini Cloud API (${data.activeModel || 'gemini-2.5-flash-lite'})`;
             } else if (this.provider === 'ollama') {
                 sourceModelInfo = `${this.modelName || 'local'} (Local Ollama Server at ${this.endpoint})`;
             } else if (this.provider === 'lmstudio') {
@@ -326,7 +326,7 @@ RULES:
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
                             provider: 'gemini',
-                            model: 'gemini-3.5-flash-lite',
+                            model: 'gemini-2.5-flash-lite',
                             apiKey: this.geminiApiKey,
                             messages: formattedMessages
                         })
@@ -334,7 +334,7 @@ RULES:
                     if (resp.ok) {
                         const data = await resp.json();
                         if (data.success && data.content) {
-                            console.log(`🤖 [AI Response Source] Provider: "GEMINI (Auto-Fallback)" | Model: "Google Gemini Cloud API (${data.activeModel || 'gemini-3.5-flash-lite'})"`);
+                            console.log(`🤖 [AI Response Source] Provider: "GEMINI (Auto-Fallback)" | Model: "Google Gemini Cloud API (${data.activeModel || 'gemini-2.5-flash-lite'})"`);
                             return this.parseAIOutput(data.content);
                         }
                     }
