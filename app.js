@@ -1259,7 +1259,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const reward = rpgEngine.rewardFromEnglish(activity, targetHeroIds, materialSourceHeroId, customBaseXp);
         renderRPGHeader();
         updateHeroDailyBonusTracker();
-        if (typeof renderHeroShowcase === 'function') renderHeroShowcase();
         
         const heroNamesStr = reward.rewardedHeroNames.length > 0 ? reward.rewardedHeroNames.join(", ") : "None";
         const bonusTag = reward.isFocusBonus ? " 🔥 (+50% Focus Bonus!)" : "";
@@ -1373,21 +1372,28 @@ document.addEventListener("DOMContentLoaded", () => {
     // --- PER-HERO AUDIO REWARD ENGINE ---
     let usedMicInCurrentDraft = false;
     let lastAiMessageContent = "";
+    const inMemoryAudioStates = new Map();
 
     function getTodayHeroAudioState(heroId) {
         if (!heroId) return { micCount: 0, typedCount: 0, listenedMsgs: [], repeatedMsgs: [], comboMsgs: [], questClaimed: false };
         const d = new Date();
         const dateKey = `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`;
         const storageKey = `english_pulse_audio_rewards_${dateKey}_${heroId}`;
+        if (inMemoryAudioStates.has(storageKey)) {
+            return inMemoryAudioStates.get(storageKey);
+        }
         try {
             const saved = localStorage.getItem(storageKey);
             if (saved) {
                 const parsed = JSON.parse(saved);
                 if (parsed.questClaimed === undefined) parsed.questClaimed = false;
+                inMemoryAudioStates.set(storageKey, parsed);
                 return parsed;
             }
         } catch(e) {}
-        return { micCount: 0, typedCount: 0, listenedMsgs: [], repeatedMsgs: [], comboMsgs: [], questClaimed: false };
+        const defaultState = { micCount: 0, typedCount: 0, listenedMsgs: [], repeatedMsgs: [], comboMsgs: [], questClaimed: false };
+        inMemoryAudioStates.set(storageKey, defaultState);
+        return defaultState;
     }
 
     function saveTodayHeroAudioState(heroId, state) {
@@ -1395,8 +1401,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const d = new Date();
         const dateKey = `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`;
         const storageKey = `english_pulse_audio_rewards_${dateKey}_${heroId}`;
-        localStorage.setItem(storageKey, JSON.stringify(state));
-        updateHeroDailyBonusTracker();
+        inMemoryAudioStates.set(storageKey, state);
+        try {
+            localStorage.setItem(storageKey, JSON.stringify(state));
+        } catch (e) {}
     }
 
     function updateHeroDailyBonusTracker() {
@@ -1800,28 +1808,43 @@ document.addEventListener("DOMContentLoaded", () => {
         resetChat();
     }
 
-    // --- DAILY HERO WORD USAGE TRACKER (RESETS DAILY) ---
+    // --- DAILY HERO WORD USAGE TRACKER (RESETS DAILY WITH IN-MEMORY CACHE) ---
+    let inMemoryDailyWordUsageMap = null;
+    let inMemoryDailyWordUsageDate = null;
+    let inMemoryAllTimeWordUsageMap = null;
+
     function loadWordUsageMap() {
         const todayStr = new Date().toISOString().split('T')[0];
+        if (inMemoryDailyWordUsageMap && inMemoryDailyWordUsageDate === todayStr) {
+            return inMemoryDailyWordUsageMap;
+        }
         const savedDate = localStorage.getItem("hero_word_usage_date");
-
         if (savedDate !== todayStr) {
-            localStorage.setItem("hero_word_usage_v2", "{}");
-            localStorage.setItem("hero_word_usage_date", todayStr);
-            return {};
+            inMemoryDailyWordUsageMap = {};
+            inMemoryDailyWordUsageDate = todayStr;
+            try {
+                localStorage.setItem("hero_word_usage_v2", "{}");
+                localStorage.setItem("hero_word_usage_date", todayStr);
+            } catch (e) {}
+            return inMemoryDailyWordUsageMap;
         }
-
         try {
-            return JSON.parse(localStorage.getItem("hero_word_usage_v2") || "{}");
+            inMemoryDailyWordUsageMap = JSON.parse(localStorage.getItem("hero_word_usage_v2") || "{}");
         } catch (e) {
-            return {};
+            inMemoryDailyWordUsageMap = {};
         }
+        inMemoryDailyWordUsageDate = todayStr;
+        return inMemoryDailyWordUsageMap;
     }
 
     function saveWordUsageMap(map) {
         const todayStr = new Date().toISOString().split('T')[0];
-        localStorage.setItem("hero_word_usage_v2", JSON.stringify(map));
-        localStorage.setItem("hero_word_usage_date", todayStr);
+        inMemoryDailyWordUsageMap = map;
+        inMemoryDailyWordUsageDate = todayStr;
+        try {
+            localStorage.setItem("hero_word_usage_v2", JSON.stringify(map));
+            localStorage.setItem("hero_word_usage_date", todayStr);
+        } catch (e) {}
     }
 
     function getWordUsageCount(heroId, word) {
@@ -1836,11 +1859,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const current = map[key] || 0;
         map[key] = current + 1;
         saveWordUsageMap(map);
-        try { checkAndUpdateDailyStreak(); } catch (e) {}
         return map[key];
     }
 
-    // --- ALL-TIME HERO WORD USAGE TRACKER (LIFETIME STATS) ---
+    // --- ALL-TIME HERO WORD USAGE TRACKER (LIFETIME STATS WITH IN-MEMORY CACHE) ---
     function getWordProps(wObj) {
         if (!wObj) return { word: "", phonetic: "", translation: "", example: "" };
         if (Array.isArray(wObj)) {
@@ -1860,15 +1882,20 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function loadAllTimeWordUsageMap() {
+        if (inMemoryAllTimeWordUsageMap) return inMemoryAllTimeWordUsageMap;
         try {
-            return JSON.parse(localStorage.getItem("hero_word_usage_alltime") || "{}");
+            inMemoryAllTimeWordUsageMap = JSON.parse(localStorage.getItem("hero_word_usage_alltime") || "{}");
         } catch (e) {
-            return {};
+            inMemoryAllTimeWordUsageMap = {};
         }
+        return inMemoryAllTimeWordUsageMap;
     }
 
     function saveAllTimeWordUsageMap(map) {
-        localStorage.setItem("hero_word_usage_alltime", JSON.stringify(map));
+        inMemoryAllTimeWordUsageMap = map;
+        try {
+            localStorage.setItem("hero_word_usage_alltime", JSON.stringify(map));
+        } catch (e) {}
     }
 
     function getAllTimeWordUsageCount(heroId, word) {
@@ -2003,8 +2030,28 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!hero || !hero.words || !text) return { totalXP: 0, matchedWordsInfo: [] };
 
         const lowerText = text.toLowerCase().trim();
-        const cleanText = lowerText.replace(/[^\w\s'-]/g, " ").replace(/\s+/g, " ");
-        const wordsInText = cleanText.split(/\s+/).map(w => w.replace(/^'+|'+$/g, ''));
+        const cleanText = " " + lowerText.replace(/[^\w\s'-]/g, " ").replace(/\s+/g, " ") + " ";
+        const wordsInText = cleanText.trim().split(/\s+/).map(w => w.replace(/^'+|'+$/g, ''));
+        const userWordsSet = new Set(wordsInText);
+        
+        // Precompute clean unhyphenated & stems for O(1) matching
+        const userStemsSet = new Set();
+        wordsInText.forEach(userW => {
+            const clean = userW.replace(/-/g, "");
+            userStemsSet.add(clean);
+            if (userW.endsWith("s")) userStemsSet.add(userW.slice(0, -1));
+            if (userW.endsWith("es")) userStemsSet.add(userW.slice(0, -2));
+            if (userW.endsWith("ies")) userStemsSet.add(userW.slice(0, -3) + "y");
+            if (userW.endsWith("ing")) {
+                userStemsSet.add(userW.slice(0, -3));
+                userStemsSet.add(userW.slice(0, -3) + "e");
+            }
+            if (userW.endsWith("ed")) {
+                userStemsSet.add(userW.slice(0, -2));
+                userStemsSet.add(userW.slice(0, -1));
+            }
+        });
+
         let totalXP = 0;
         const matchedWordsInfo = [];
 
@@ -2012,34 +2059,20 @@ document.addEventListener("DOMContentLoaded", () => {
             const w = getWordProps(wObj);
             if (!w.word) return;
             const wordLower = w.word.toLowerCase().trim();
+            const unhyphenatedWord = wordLower.replace(/-/g, "");
             const variants = getWordVariants(wordLower);
 
             let isMatched = false;
             for (const v of variants) {
-                if (wordsInText.includes(v) || cleanText.includes(` ${v} `) || cleanText.startsWith(`${v} `) || cleanText.endsWith(` ${v}`)) {
+                if (userWordsSet.has(v) || cleanText.includes(` ${v} `)) {
                     isMatched = true;
                     break;
                 }
             }
 
-            // Stemming & Hyphenation fallback: check if any word in user text matches target word
             if (!isMatched) {
-                const unhyphenatedWord = wordLower.replace(/-/g, "");
-                const spaceWord = wordLower.replace(/-/g, " ");
-
-                if (cleanText.includes(spaceWord) || cleanText.includes(unhyphenatedWord)) {
+                if (userStemsSet.has(wordLower) || userStemsSet.has(unhyphenatedWord) || cleanText.includes(` ${wordLower} `)) {
                     isMatched = true;
-                } else {
-                    isMatched = wordsInText.some(userW => {
-                        const cleanUserW = userW.replace(/-/g, "");
-                        if (userW === wordLower || cleanUserW === unhyphenatedWord || userW === spaceWord) return true;
-                        if (userW.endsWith("s") && (userW.slice(0, -1) === wordLower || userW.slice(0, -1) === unhyphenatedWord)) return true;
-                        if (userW.endsWith("es") && (userW.slice(0, -2) === wordLower || userW.slice(0, -2) === unhyphenatedWord)) return true;
-                        if (userW.endsWith("ies") && (userW.slice(0, -3) + "y" === wordLower || userW.slice(0, -3) + "y" === unhyphenatedWord)) return true;
-                        if (userW.endsWith("ing") && (userW.slice(0, -3) === wordLower || userW.slice(0, -3) + "e" === wordLower)) return true;
-                        if (userW.endsWith("ed") && (userW.slice(0, -2) === wordLower || userW.slice(0, -1) === wordLower)) return true;
-                        return false;
-                    });
                 }
             }
 
@@ -2104,6 +2137,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (results.length > 0) {
             try { renderLiveHeroPicker(); } catch (e) {}
+            try { checkAndUpdateDailyStreak(); } catch (e) {}
         }
 
         return results;
