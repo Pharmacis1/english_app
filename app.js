@@ -207,6 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         heroActionAnimationTimer = null;
                     }
                     stageVideo.loop = true;
+                    stageVideo.onended = null;
                     stageVideo.src = skinItem.videoAlpha;
                     stageVideo.classList.remove("hidden");
                     stageVideo.style.display = "";
@@ -352,12 +353,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 playNextTrack();
             }
-            if (stageArt) stageArt.style.display = "none";
-            if (iconFallback) iconFallback.style.display = "none";
-        } else if (hero.videoIdleAlpha || hero.videoIdle) {
+        } else if (hero.videoIdleAlpha || hero.videoIdle || hero.videoAlpha || hero.video) {
             if (stageVideo) {
                 stageVideo.loop = true;
-                stageVideo.src = hero.videoIdleAlpha || hero.videoIdle;
+                stageVideo.onended = null;
+                stageVideo.src = hero.videoIdleAlpha || hero.videoAlpha || hero.videoIdle || hero.video;
                 stageVideo.classList.remove("hidden");
                 stageVideo.style.display = "";
                 stageVideo.style.opacity = "1";
