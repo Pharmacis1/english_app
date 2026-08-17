@@ -1345,8 +1345,10 @@ const HEROES_DATA = [
     {
         id: "selene", name: "Selene", role: "Assassin", cefrRank: 3, cefrLevel: "A1 (Ability Can/Cannot & Hobbies)", title: "Shadow Stalker",
         avatar: "fa-user-ninja", color: "#ec4899", image: "images/selene_hero_standalone.png", faceImage: "images/selene_face.png",
-        videoPlaylistAlpha: ["videos/selene_anim_1_alpha.webm", "videos/selene_anim_2_alpha.webm", "videos/selene_anim_3_alpha.webm"],
-        videoPlaylist: ["videos/selene_anim_1.mp4", "videos/selene_anim_2.mp4", "videos/selene_anim_3.mp4"],
+        videoAlpha: "videos/selene_combined_alpha.webm",
+        video: "videos/selene_combined.mp4",
+        videoPlaylistAlpha: ["videos/selene_combined_alpha.webm"],
+        videoPlaylist: ["videos/selene_combined.mp4"],
         unlocked: false, level: 1, xp: 0, maxXp: 150, affinityLevel: 0,
         hp: 210, maxHp: 210, atk: 58, def: 8, skillName: "Shadow Strike", skillDesc: "Deals 300 crit damage.", skillIcon: "fa-skull",
         words: generateHeroWords("selene"),
