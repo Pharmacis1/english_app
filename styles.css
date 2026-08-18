@@ -1824,3 +1824,316 @@ body {
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.15);
 }
+
+/* ==========================================================================
+   SRS REVIEW FORECAST & REPETITION SCHEDULE MODAL 📈
+   ========================================================================== */
+.srs-kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.srs-kpi-card {
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: var(--transition);
+}
+
+.srs-kpi-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.srs-kpi-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.kpi-today .srs-kpi-icon { background: rgba(236, 72, 153, 0.2); color: #ec4899; }
+.kpi-today { border-color: rgba(236, 72, 153, 0.35); box-shadow: 0 4px 16px rgba(236, 72, 153, 0.1); }
+
+.kpi-tomorrow .srs-kpi-icon { background: rgba(245, 158, 11, 0.2); color: #f59e0b; }
+.kpi-tomorrow { border-color: rgba(245, 158, 11, 0.35); }
+
+.kpi-week .srs-kpi-icon { background: rgba(6, 182, 212, 0.2); color: #06b6d4; }
+.kpi-week { border-color: rgba(6, 182, 212, 0.35); }
+
+.kpi-mastered .srs-kpi-icon { background: rgba(16, 185, 129, 0.2); color: #10b981; }
+.kpi-mastered { border-color: rgba(16, 185, 129, 0.35); }
+
+.srs-kpi-info {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.srs-kpi-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.srs-kpi-val {
+    font-size: 18px;
+    font-weight: 800;
+    color: #fff;
+}
+
+.srs-forecast-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 8px 12px;
+}
+
+.srs-horizon-switch {
+    display: flex;
+    gap: 4px;
+    background: rgba(30, 41, 59, 0.7);
+    padding: 3px;
+    border-radius: 8px;
+}
+
+.srs-horizon-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.srs-horizon-btn.active {
+    background: var(--primary);
+    color: #fff;
+    box-shadow: 0 2px 8px var(--primary-glow);
+}
+
+.srs-deck-select {
+    background: rgba(30, 41, 59, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #fff;
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    outline: none;
+}
+
+.srs-chart-wrapper {
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(15, 23, 42, 0.6);
+}
+
+.srs-chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.srs-bar-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    height: 170px;
+    padding: 10px 4px 4px 4px;
+    overflow-x: auto;
+}
+
+.srs-chart-col {
+    flex: 1;
+    min-width: 32px;
+    max-width: 54px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: flex-end;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.srs-chart-col:hover {
+    transform: translateY(-4px);
+}
+
+.srs-chart-col.selected .srs-chart-bar {
+    border: 2px solid #fff;
+    box-shadow: 0 0 16px rgba(255, 255, 255, 0.5);
+}
+
+.srs-chart-bar-count {
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 4px;
+}
+
+.srs-chart-bar-count.zero {
+    color: rgba(255, 255, 255, 0.25);
+    font-weight: 500;
+}
+
+.srs-chart-bar-track {
+    width: 100%;
+    height: 110px;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 8px 8px 4px 4px;
+    display: flex;
+    align-items: flex-end;
+    padding: 2px;
+    overflow: hidden;
+}
+
+.srs-chart-bar {
+    width: 100%;
+    border-radius: 6px 6px 3px 3px;
+    min-height: 4px;
+    transition: height 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.srs-chart-bar.bar-today {
+    background: linear-gradient(180deg, #f43f5e, #e11d48);
+    box-shadow: 0 0 12px rgba(244, 63, 94, 0.5);
+}
+
+.srs-chart-bar.bar-tomorrow {
+    background: linear-gradient(180deg, #f59e0b, #d97706);
+    box-shadow: 0 0 10px rgba(245, 158, 11, 0.35);
+}
+
+.srs-chart-bar.bar-future {
+    background: linear-gradient(180deg, #06b6d4, #3b82f6);
+}
+
+.srs-chart-label {
+    margin-top: 6px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.srs-chart-day-name {
+    font-size: 10px;
+    font-weight: 700;
+    color: #e2e8f0;
+}
+
+.srs-chart-day-name.today-label {
+    color: #f43f5e;
+}
+
+.srs-chart-day-date {
+    font-size: 9px;
+    color: var(--text-muted);
+}
+
+.srs-day-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 240px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.srs-day-card {
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 10px 14px;
+    transition: var(--transition);
+}
+
+.srs-day-card.highlighted {
+    border-color: var(--accent);
+    background: rgba(6, 182, 212, 0.08);
+}
+
+.srs-day-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.srs-day-chips-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.08);
+}
+
+.srs-word-chip {
+    background: rgba(30, 41, 59, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 4px 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    transition: var(--transition);
+}
+
+.srs-word-chip:hover {
+    border-color: var(--primary);
+    background: rgba(99, 102, 241, 0.15);
+}
+
+.srs-chip-word {
+    font-weight: 700;
+    color: #fff;
+}
+
+.srs-chip-trans {
+    color: var(--text-muted);
+    font-size: 11px;
+}
+
+.srs-chip-meta {
+    font-size: 9px;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1px 5px;
+    border-radius: 4px;
+    color: #cbd5e1;
+}
+
+.srs-chip-audio-btn {
+    background: transparent;
+    border: none;
+    color: var(--accent);
+    cursor: pointer;
+    padding: 2px;
+    font-size: 11px;
+}
+
+.srs-chip-audio-btn:hover {
+    color: #fff;
+}

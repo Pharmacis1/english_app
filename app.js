@@ -3921,6 +3921,272 @@ document.addEventListener("DOMContentLoaded", () => {
     if (closeWordStatsBtn) closeWordStatsBtn.addEventListener("click", () => document.getElementById("hero-word-stats-modal")?.classList.add("hidden"));
     if (closeWordStatsModalBtn) closeWordStatsModalBtn.addEventListener("click", () => document.getElementById("hero-word-stats-modal")?.classList.add("hidden"));
 
+    // --- SRS REPETITION SCHEDULE & FORECAST MODAL CONTROLLER 📈 ---
+    let currentSrsForecastHorizon = 7;
+    let currentSrsForecastCategory = "all";
+    let selectedSrsForecastDayOffset = null;
+
+    function openSRSForecastModal(defaultCategory = "all") {
+        const modal = document.getElementById("modal-srs-forecast");
+        if (!modal) return;
+
+        currentSrsForecastCategory = defaultCategory || "all";
+        selectedSrsForecastDayOffset = null;
+
+        // Populate deck select dropdown
+        const deckSelect = document.getElementById("srs-forecast-deck-select");
+        if (deckSelect && typeof flashcardEngine !== 'undefined') {
+            deckSelect.innerHTML = '<option value="all">📚 Все колоды и герои</option>';
+            const decks = flashcardEngine.decks || {};
+            Object.keys(decks).forEach(cat => {
+                if (cat === "🧠 Due for SRS Review") return;
+                const opt = document.createElement("option");
+                opt.value = cat;
+                opt.textContent = cat;
+                if (cat === currentSrsForecastCategory) opt.selected = true;
+                deckSelect.appendChild(opt);
+            });
+        }
+
+        renderSRSForecastModal(currentSrsForecastHorizon, currentSrsForecastCategory, selectedSrsForecastDayOffset);
+        modal.classList.remove("hidden");
+    }
+
+    function renderSRSForecastModal(horizon = 7, category = "all", selectedDayOffset = null) {
+        if (typeof flashcardEngine === 'undefined') return;
+        const forecast = flashcardEngine.getSRSForecast(horizon, category);
+        if (!forecast) return;
+
+        // 1. Update KPI Tiles
+        const kpiToday = document.getElementById("srs-kpi-due-today");
+        const kpiTomorrow = document.getElementById("srs-kpi-due-tomorrow");
+        const kpiWeek = document.getElementById("srs-kpi-due-week");
+        const kpiMastered = document.getElementById("srs-kpi-mastered");
+
+        if (kpiToday) kpiToday.textContent = forecast.dueNowCount;
+        if (kpiTomorrow) kpiTomorrow.textContent = forecast.dueTomorrowCount;
+        if (kpiWeek) kpiWeek.textContent = forecast.dueNext7Days;
+        if (kpiMastered) kpiMastered.textContent = forecast.masteredCount;
+
+        // 2. Horizon switch buttons
+        const horizonButtons = document.querySelectorAll("#srs-horizon-buttons .srs-horizon-btn");
+        horizonButtons.forEach(btn => {
+            const hVal = parseInt(btn.getAttribute("data-horizon") || "7");
+            btn.classList.toggle("active", hVal === horizon);
+        });
+
+        // 3. Render Visual Bar Chart
+        const chartContainer = document.getElementById("srs-bar-chart-container");
+        const chartInfo = document.getElementById("srs-chart-selected-info");
+
+        if (chartContainer) {
+            chartContainer.innerHTML = "";
+            const maxVal = forecast.maxCountInDay;
+
+            forecast.days.forEach(day => {
+                const col = document.createElement("div");
+                col.className = `srs-chart-col ${selectedDayOffset === day.dayOffset ? 'selected' : ''}`;
+                col.title = `${day.dayName} (${day.formattedDate}): ${day.count} ${day.count === 1 ? 'слово' : 'слов'}`;
+
+                const heightPct = day.count === 0 ? 3 : Math.max(8, Math.round((day.count / maxVal) * 100));
+
+                let barClass = "bar-future";
+                if (day.dayOffset === 0) barClass = "bar-today";
+                else if (day.dayOffset === 1) barClass = "bar-tomorrow";
+
+                col.innerHTML = `
+                    <span class="srs-chart-bar-count ${day.count === 0 ? 'zero' : ''}">${day.count}</span>
+                    <div class="srs-chart-bar-track">
+                        <div class="srs-chart-bar ${barClass}" style="height: ${heightPct}%;"></div>
+                    </div>
+                    <div class="srs-chart-label">
+                        <span class="srs-chart-day-name ${day.dayOffset === 0 ? 'today-label' : ''}">${day.dayName}</span>
+                        <span class="srs-chart-day-date">${day.formattedDate}</span>
+                    </div>
+                `;
+
+                col.addEventListener("click", () => {
+                    if (selectedSrsForecastDayOffset === day.dayOffset) {
+                        selectedSrsForecastDayOffset = null;
+                    } else {
+                        selectedSrsForecastDayOffset = day.dayOffset;
+                    }
+                    renderSRSForecastModal(currentSrsForecastHorizon, currentSrsForecastCategory, selectedSrsForecastDayOffset);
+                });
+
+                chartContainer.appendChild(col);
+            });
+        }
+
+        if (chartInfo) {
+            if (selectedDayOffset !== null) {
+                const selDay = forecast.days.find(d => d.dayOffset === selectedDayOffset);
+                chartInfo.innerHTML = `Выбран день: <b>${selDay?.dayName} (${selDay?.formattedDate})</b> &bull; ${selDay?.count || 0} слов. <span style="color:var(--accent); cursor:pointer; text-decoration:underline; margin-left:6px;" id="srs-clear-selection-btn">Показать все дни</span>`;
+                const clearBtn = document.getElementById("srs-clear-selection-btn");
+                if (clearBtn) {
+                    clearBtn.addEventListener("click", () => {
+                        selectedSrsForecastDayOffset = null;
+                        renderSRSForecastModal(currentSrsForecastHorizon, currentSrsForecastCategory, null);
+                    });
+                }
+            } else {
+                chartInfo.textContent = "Нажмите на столбец, чтобы увидеть слова конкретного дня";
+            }
+        }
+
+        // 4. Render Day-by-Day Word Breakdown Accordion
+        const accordionContainer = document.getElementById("srs-day-accordion-container");
+        if (accordionContainer) {
+            accordionContainer.innerHTML = "";
+
+            const daysToRender = selectedDayOffset !== null 
+                ? forecast.days.filter(d => d.dayOffset === selectedDayOffset)
+                : forecast.days;
+
+            const daysWithCards = daysToRender.filter(d => d.count > 0);
+
+            if (daysWithCards.length === 0) {
+                accordionContainer.innerHTML = `
+                    <div style="text-align:center; padding:30px 10px; color:var(--text-muted); font-size:13px;">
+                        <i class="fa-regular fa-calendar-xmark" style="font-size:28px; margin-bottom:8px; display:block; color:rgba(255,255,255,0.2);"></i>
+                        На выбранный период нет запланированных слов к повторению.
+                    </div>
+                `;
+            } else {
+                daysWithCards.forEach(day => {
+                    const dayCard = document.createElement("div");
+                    dayCard.className = `srs-day-card ${selectedDayOffset === day.dayOffset ? 'highlighted' : ''}`;
+
+                    const isToday = day.dayOffset === 0;
+                    const isTomorrow = day.dayOffset === 1;
+
+                    let badgeBg = "rgba(6, 182, 212, 0.2)";
+                    let badgeColor = "#06b6d4";
+                    if (isToday) { badgeBg = "rgba(244, 63, 94, 0.25)"; badgeColor = "#f43f5e"; }
+                    else if (isTomorrow) { badgeBg = "rgba(245, 158, 11, 0.25)"; badgeColor = "#f59e0b"; }
+
+                    const headerHtml = `
+                        <div class="srs-day-header">
+                            <div style="display:flex; align-items:center; gap:8px;">
+                                <span style="background:${badgeBg}; color:${badgeColor}; font-weight:800; font-size:11px; padding:2px 8px; border-radius:6px;">
+                                    ${day.dayName}
+                                </span>
+                                <span style="font-size:12px; font-weight:700; color:#fff;">${day.formattedDate}</span>
+                            </div>
+                            <div style="display:flex; align-items:center; gap:8px;">
+                                <span style="font-size:12px; color:var(--text-muted);">${day.count} ${day.count === 1 ? 'слово' : 'слов'}</span>
+                                <i class="fa-solid fa-chevron-down" style="font-size:10px; color:var(--text-muted);"></i>
+                            </div>
+                        </div>
+                    `;
+
+                    const chipsHtml = `
+                        <div class="srs-day-chips-grid">
+                            ${day.cards.map(c => {
+                                const heroObj = typeof rpgEngine !== 'undefined' && rpgEngine.heroes ? rpgEngine.heroes.find(h => h.id === c.heroId || (c.deckName && c.deckName.includes(h.name))) : null;
+                                const heroTag = heroObj ? heroObj.name : (c.deckName ? c.deckName.split(' ')[0] : 'Hero');
+                                const heroColor = heroObj ? (heroObj.color || '#6366f1') : '#6366f1';
+                                return `
+                                    <div class="srs-word-chip" data-word="${c.word.replace(/"/g, '&quot;')}">
+                                        <button class="srs-chip-audio-btn" data-word="${c.word.replace(/"/g, '&quot;')}" title="Прослушать произношение">
+                                            <i class="fa-solid fa-volume-high"></i>
+                                        </button>
+                                        <span class="srs-chip-word">${c.word}</span>
+                                        <span class="srs-chip-trans">${c.translation || ''}</span>
+                                        <span class="srs-chip-meta" style="border-left: 2px solid ${heroColor};">${heroTag} • ${c.interval || 1}дн</span>
+                                    </div>
+                                `;
+                            }).join('')}
+                        </div>
+                    `;
+
+                    dayCard.innerHTML = headerHtml + chipsHtml;
+
+                    const headerEl = dayCard.querySelector('.srs-day-header');
+                    const chipsEl = dayCard.querySelector('.srs-day-chips-grid');
+                    const iconEl = dayCard.querySelector('.fa-chevron-down');
+                    if (headerEl && chipsEl && iconEl) {
+                        headerEl.addEventListener('click', () => {
+                            const isHidden = chipsEl.style.display === 'none';
+                            chipsEl.style.display = isHidden ? 'flex' : 'none';
+                            iconEl.style.transform = isHidden ? 'rotate(0deg)' : 'rotate(-90deg)';
+                        });
+                    }
+
+                    dayCard.querySelectorAll('.srs-chip-audio-btn').forEach(btn => {
+                        btn.addEventListener('click', (e) => {
+                            e.stopPropagation();
+                            const wordToSpeak = btn.getAttribute('data-word');
+                            if (wordToSpeak && typeof flashcardEngine !== 'undefined') {
+                                flashcardEngine.speak(wordToSpeak);
+                            }
+                        });
+                    });
+
+                    accordionContainer.appendChild(dayCard);
+                });
+            }
+        }
+    }
+
+    // Connect SRS Forecast Event Listeners
+    const btnOpenSrsForecastFc = document.getElementById("btn-open-srs-forecast-fc");
+    if (btnOpenSrsForecastFc) {
+        btnOpenSrsForecastFc.addEventListener("click", () => {
+            const defaultDeck = (flashcardEngine && flashcardEngine.currentCategory !== "🧠 Due for SRS Review") 
+                ? flashcardEngine.currentCategory 
+                : "all";
+            openSRSForecastModal(defaultDeck);
+        });
+    }
+
+    const btnSwitchToSrsForecast = document.getElementById("btn-switch-to-srs-forecast");
+    if (btnSwitchToSrsForecast) {
+        btnSwitchToSrsForecast.addEventListener("click", () => {
+            document.getElementById("hero-word-stats-modal")?.classList.add("hidden");
+            openSRSForecastModal("all");
+        });
+    }
+
+    const closeSrsForecastBtn = document.getElementById("close-srs-forecast-modal-btn");
+    if (closeSrsForecastBtn) {
+        closeSrsForecastBtn.addEventListener("click", () => {
+            document.getElementById("modal-srs-forecast")?.classList.add("hidden");
+        });
+    }
+
+    const srsHorizonButtons = document.querySelectorAll("#srs-horizon-buttons .srs-horizon-btn");
+    srsHorizonButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            currentSrsForecastHorizon = parseInt(btn.getAttribute("data-horizon") || "7");
+            renderSRSForecastModal(currentSrsForecastHorizon, currentSrsForecastCategory, selectedSrsForecastDayOffset);
+        });
+    });
+
+    const srsDeckSelect = document.getElementById("srs-forecast-deck-select");
+    if (srsDeckSelect) {
+        srsDeckSelect.addEventListener("change", (e) => {
+            currentSrsForecastCategory = e.target.value;
+            renderSRSForecastModal(currentSrsForecastHorizon, currentSrsForecastCategory, selectedSrsForecastDayOffset);
+        });
+    }
+
+    const srsBtnStartReviewToday = document.getElementById("srs-btn-start-review-today");
+    if (srsBtnStartReviewToday) {
+        srsBtnStartReviewToday.addEventListener("click", () => {
+            document.getElementById("modal-srs-forecast")?.classList.add("hidden");
+            const wordsModal = document.getElementById("modal-hero-words");
+            if (wordsModal && flashcardEngine) {
+                flashcardEngine.currentCategory = "🧠 Due for SRS Review";
+                flashcardEngine.batchIndex = 0;
+                flashcardEngine.currentIndex = 0;
+                flashcardEngine.refreshDueCards();
+                renderFlashcardsUI();
+                wordsModal.classList.remove("hidden");
+            }
+        });
+    }
+
     // --- HERO A1 STORY LORE CUTSCENE MODAL CONTROLLER 📜 ---
     let areStoryTranslationsVisible = false;
 

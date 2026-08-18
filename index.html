@@ -427,7 +427,10 @@
                         <div class="deck-tabs-wrapper" id="deck-tabs-wrapper">
                             <div class="deck-tabs" id="deck-tabs-container"></div>
                         </div>
-                        <button class="btn btn-primary btn-sm" id="add-custom-card-btn" style="white-space:nowrap; margin-left:8px;">
+                        <button class="btn btn-outline btn-sm" id="btn-open-srs-forecast-fc" style="white-space:nowrap; margin-left:8px; background:rgba(99,102,241,0.15); border-color:rgba(99,102,241,0.4); color:#a5b4fc; font-weight:600;" title="Открыть график распределения повторений по дням">
+                            <i class="fa-solid fa-chart-simple"></i> График повторений
+                        </button>
+                        <button class="btn btn-primary btn-sm" id="add-custom-card-btn" style="white-space:nowrap; margin-left:6px;">
                             <i class="fa-solid fa-plus"></i> Add Word
                         </button>
                     </div>
@@ -819,8 +822,108 @@
             
             <div id="word-stats-list-container" style="max-height:360px; overflow-y:auto; display:flex; flex-direction:column; gap:8px; padding-right:4px;"></div>
             
-            <div class="modal-footer" style="margin-top:16px;">
+            <div class="modal-footer" style="margin-top:16px; display:flex; justify-content:space-between; align-items:center;">
+                <button class="btn btn-primary btn-sm" id="btn-switch-to-srs-forecast" style="background:linear-gradient(135deg, #6366f1, #8b5cf6); border:none;">
+                    <i class="fa-solid fa-chart-line"></i> 📈 График повторений по дням
+                </button>
                 <button class="btn btn-secondary" id="close-word-stats-btn">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: SRS REVIEW FORECAST & REPETITION SCHEDULE 📈 -->
+    <div class="rpg-modal-overlay hidden" id="modal-srs-forecast" style="z-index:9995;">
+        <div class="rpg-modal-content modal-lg srs-forecast-modal-content" style="max-width:840px; border:1px solid rgba(99, 102, 241, 0.3); box-shadow: 0 16px 48px rgba(0,0,0,0.6), 0 0 32px rgba(99, 102, 241, 0.15);">
+            <div class="rpg-modal-header" style="border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:12px;">
+                <div class="modal-header-title">
+                    <div style="width:36px; height:36px; background:linear-gradient(135deg, #6366f1, #ec4899); border-radius:10px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:16px;">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <div>
+                        <h3 style="font-size:18px; font-weight:800; color:#fff; margin:0;">График повторения карточек (SRS)</h3>
+                        <p style="font-size:11px; color:var(--text-muted); margin:0;">Интервальное повторение SM-2 &bull; Прогноз нагрузки по дням</p>
+                    </div>
+                </div>
+                <button class="modal-close-btn" id="close-srs-forecast-modal-btn">&times;</button>
+            </div>
+            
+            <div class="rpg-modal-body" style="padding:16px 20px; display:flex; flex-direction:column; gap:16px; max-height:calc(85vh - 70px); overflow-y:auto;">
+                <!-- 1. SUMMARY KPI METRIC TILES -->
+                <div class="srs-kpi-grid">
+                    <div class="srs-kpi-card kpi-today">
+                        <div class="srs-kpi-icon"><i class="fa-solid fa-bell"></i></div>
+                        <div class="srs-kpi-info">
+                            <span class="srs-kpi-label">Сегодня к повторению</span>
+                            <span class="srs-kpi-val" id="srs-kpi-due-today">0</span>
+                        </div>
+                    </div>
+                    <div class="srs-kpi-card kpi-tomorrow">
+                        <div class="srs-kpi-icon"><i class="fa-regular fa-calendar-check"></i></div>
+                        <div class="srs-kpi-info">
+                            <span class="srs-kpi-label">Завтра</span>
+                            <span class="srs-kpi-val" id="srs-kpi-due-tomorrow">0</span>
+                        </div>
+                    </div>
+                    <div class="srs-kpi-card kpi-week">
+                        <div class="srs-kpi-icon"><i class="fa-solid fa-calendar-week"></i></div>
+                        <div class="srs-kpi-info">
+                            <span class="srs-kpi-label">Ближайшие 7 дней</span>
+                            <span class="srs-kpi-val" id="srs-kpi-due-week">0</span>
+                        </div>
+                    </div>
+                    <div class="srs-kpi-card kpi-mastered">
+                        <div class="srs-kpi-icon"><i class="fa-solid fa-brain"></i></div>
+                        <div class="srs-kpi-info">
+                            <span class="srs-kpi-label">В долгосрочной памяти</span>
+                            <span class="srs-kpi-val" id="srs-kpi-mastered">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. FILTER CONTROLS BAR -->
+                <div class="srs-forecast-toolbar">
+                    <div class="srs-horizon-switch" id="srs-horizon-buttons">
+                        <button class="srs-horizon-btn active" data-horizon="7">7 дней</button>
+                        <button class="srs-horizon-btn" data-horizon="14">14 дней</button>
+                        <button class="srs-horizon-btn" data-horizon="30">30 дней</button>
+                    </div>
+                    <div style="display:flex; align-items:center; gap:8px;">
+                        <span style="font-size:12px; color:var(--text-muted);"><i class="fa-solid fa-filter"></i> Колода:</span>
+                        <select class="srs-deck-select" id="srs-forecast-deck-select">
+                            <option value="all">📚 Все колоды и герои</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- 3. INTERACTIVE VISUAL BAR CHART -->
+                <div class="srs-chart-wrapper glass-card">
+                    <div class="srs-chart-header">
+                        <span style="font-size:12px; font-weight:700; color:#e2e8f0;">
+                            <i class="fa-solid fa-chart-simple" style="color:var(--accent);"></i> Распределение слов к повторению
+                        </span>
+                        <span style="font-size:11px; color:var(--text-muted);" id="srs-chart-selected-info">
+                            Нажмите на столбец, чтобы увидеть список слов
+                        </span>
+                    </div>
+                    <div class="srs-bar-chart" id="srs-bar-chart-container">
+                        <!-- Bars injected dynamically by JS -->
+                    </div>
+                </div>
+
+                <!-- 4. DAY-BY-DAY WORD BREAKDOWN ACCORDION -->
+                <div class="srs-word-schedule-section">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                        <h4 style="font-size:13px; font-weight:700; color:#cbd5e1; margin:0;" id="srs-schedule-list-title">
+                            📋 Расписание слов по дням
+                        </h4>
+                        <button class="btn btn-sm btn-outline" id="srs-btn-start-review-today" style="font-size:11px; padding:3px 10px; background:rgba(236, 72, 153, 0.15); border-color:rgba(236, 72, 153, 0.4); color:#f472b6;">
+                            <i class="fa-solid fa-play"></i> Повторить слова на сегодня
+                        </button>
+                    </div>
+                    <div class="srs-day-accordion" id="srs-day-accordion-container">
+                        <!-- Day items with word chips injected dynamically -->
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -964,11 +1067,11 @@
         </div>
     </div>
 
-    <script src="scenarios.js?v=11.040"></script>
-    <script src="heroes.js?v=11.040"></script>
-    <script src="flashcards.js?v=11.040"></script>
-    <script src="grammar.js?v=11.040"></script>
-    <script src="ai_service.js?v=11.040"></script>
-    <script src="app.js?v=11.040"></script>
+    <script src="scenarios.js?v=11.041"></script>
+    <script src="heroes.js?v=11.041"></script>
+    <script src="flashcards.js?v=11.041"></script>
+    <script src="grammar.js?v=11.041"></script>
+    <script src="ai_service.js?v=11.041"></script>
+    <script src="app.js?v=11.041"></script>
 </body>
 </html>

@@ -352,4 +352,92 @@ class FlashcardEngine {
             window.speechSynthesis.speak(utterance);
         }
     }
+
+    getSRSForecast(daysHorizon = 14, targetCategory = "all") {
+        const now = new Date();
+        const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
+        const oneDayMs = 24 * 60 * 60 * 1000;
+
+        const forecastDays = [];
+        for (let i = 0; i < daysHorizon; i++) {
+            const dateObj = new Date(startOfToday + (i * oneDayMs));
+            const isToday = i === 0;
+            const isTomorrow = i === 1;
+            const dayName = isToday ? "Сегодня" : (isTomorrow ? "Завтра" : dateObj.toLocaleDateString('ru-RU', { weekday: 'short' }));
+            
+            forecastDays.push({
+                dayOffset: i,
+                date: dateObj,
+                dateKey: `${dateObj.getFullYear()}-${String(dateObj.getMonth() + 1).padStart(2, '0')}-${String(dateObj.getDate()).padStart(2, '0')}`,
+                dayName: dayName,
+                formattedDate: dateObj.toLocaleDateString('ru-RU', { day: 'numeric', month: 'short' }),
+                cards: [],
+                count: 0
+            });
+        }
+
+        let totalStudied = 0;
+        let dueNowCount = 0;
+        let futureCount = 0;
+        let masteredCount = 0; // interval >= 21 days
+        let dueNext7Days = 0;
+
+        const sourceDecks = this.decks || {};
+        const categories = (targetCategory === "all" || !targetCategory)
+            ? Object.keys(sourceDecks).filter(cat => cat !== "🧠 Due for SRS Review")
+            : [targetCategory];
+
+        const processedCardKeys = new Set();
+
+        categories.forEach(cat => {
+            (sourceDecks[cat] || []).forEach(card => {
+                if (!card.studied) return;
+                
+                const uniqueKey = `${card.heroId || cat}_${card.word}`;
+                if (processedCardKeys.has(uniqueKey)) return;
+                processedCardKeys.add(uniqueKey);
+
+                totalStudied++;
+                if ((card.interval || 1) >= 21) masteredCount++;
+
+                const nextReview = card.nextReviewDate || 0;
+                
+                if (nextReview <= Date.now()) {
+                    dueNowCount++;
+                    forecastDays[0].cards.push({ ...card, deckName: cat, isOverdue: nextReview < startOfToday });
+                    forecastDays[0].count++;
+                    dueNext7Days++;
+                } else {
+                    const diffMs = nextReview - startOfToday;
+                    const dayIdx = Math.floor(diffMs / oneDayMs);
+
+                    if (dayIdx < 7) dueNext7Days++;
+
+                    if (dayIdx >= 0 && dayIdx < daysHorizon) {
+                        forecastDays[dayIdx].cards.push({ ...card, deckName: cat, isOverdue: false });
+                        forecastDays[dayIdx].count++;
+                        futureCount++;
+                    } else if (dayIdx >= daysHorizon) {
+                        futureCount++;
+                    }
+                }
+            });
+        });
+
+        const maxCountInDay = Math.max(...forecastDays.map(d => d.count), 1);
+
+        return {
+            daysHorizon,
+            targetCategory,
+            startOfToday,
+            totalStudied,
+            dueNowCount,
+            dueTomorrowCount: forecastDays[1] ? forecastDays[1].count : 0,
+            dueNext7Days,
+            futureCount,
+            masteredCount,
+            maxCountInDay,
+            days: forecastDays
+        };
+    }
 }
