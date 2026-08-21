@@ -1496,6 +1496,10 @@ body {
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: high-quality;
+    transform-origin: center center;
+    will-change: transform, background-image;
     z-index: 1;
     pointer-events: none;
     transition: none !important;
