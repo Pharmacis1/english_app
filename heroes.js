@@ -1358,12 +1358,39 @@ const HEROES_DATA = [
     },
     {
         id: "oberon", name: "Oberon", role: "Druid", cefrRank: 3, cefrLevel: "A1 (Present Continuous & Nature)", title: "Arch-Druid of Nature",
-        avatar: "fa-leaf", color: "#84cc16", image: null, unlocked: false, level: 1, xp: 0, maxXp: 150, affinityLevel: 0,
+        avatar: "fa-leaf", color: "#84cc16", image: "images/oberon_hero_standalone.png", faceImage: "images/oberon_face.png",
+        videoAlpha: "videos/oberon_combined_alpha.webm",
+        video: "videos/oberon_combined.mp4",
+        videoIdleAlpha: "videos/oberon_combined_alpha.webm",
+        videoIdle: "videos/oberon_combined.mp4",
+        unlocked: false, level: 1, xp: 0, maxXp: 150, affinityLevel: 0,
         hp: 230, maxHp: 230, atk: 28, def: 10, skillName: "Rejuvenation Vine", skillDesc: "Heals party.", skillIcon: "fa-seedling",
         words: generateHeroWords("oberon"),
         sentenceTemplates: ["I am [walking in the forest] right now.", "Birds are [singing]."],
         grammarRules: ["Present Continuous (be + V-ing)", "Природа и животные"],
-        voiceConfig: { kokoroVoice: "bm_lewis", gender: "male", pitch: 0.85, rate: 0.88 }
+        voiceConfig: { kokoroVoice: "bm_lewis", gender: "male", pitch: 0.85, rate: 0.88 },
+        storyCutscene: {
+            title: "🍃 Oberon: The Heart of the Emerald Grove",
+            subtitle: "A1 Story Cutscene • История появления Оберона",
+            paragraphs: [
+                {
+                    en: "In the ancient Emerald Grove lives Oberon, the wise Arch-Druid. The trees are whispering and the gentle river is flowing.",
+                    ru: "В древней Изумрудной Роще живёт Оберон, мудрый Верховный Друид. Деревья шепчутся, и течёт тихая река."
+                },
+                {
+                    en: "Oberon is holding his enchanted wooden staff. Glowing green leaves are dancing around him right now.",
+                    ru: "Оберон держит свой зачарованный деревянный посох. Светящиеся зелёные листья кружатся вокруг него прямо сейчас."
+                },
+                {
+                    en: "He channels the magic of nature to heal the forest. A magical deer is walking quietly through the sunlit meadow.",
+                    ru: "Он направляет магию природы, чтобы исцелять лес. Волшебный олень тихо идёт по залитой солнцем поляне."
+                },
+                {
+                    en: "Oberon smiles warmly and says: 'The forest is listening. Welcome, traveler, the spirits are welcoming you!'",
+                    ru: "Оберон тепло улыбается и говорит: 'Лес слушает. Добро пожаловать, путник, духи природы приветствуют тебя!'"
+                }
+            ]
+        }
     },
     {
         id: "freya", name: "Freya", role: "Valkyrie Sub-Tank", cefrRank: 4, cefrLevel: "A1 (Past Simple & Travel)", title: "Shieldmaiden Valkyrie",
