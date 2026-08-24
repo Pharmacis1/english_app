@@ -1394,12 +1394,39 @@ const HEROES_DATA = [
     },
     {
         id: "freya", name: "Freya", role: "Valkyrie Sub-Tank", cefrRank: 4, cefrLevel: "A1 (Past Simple & Travel)", title: "Shieldmaiden Valkyrie",
-        avatar: "fa-shield-heart", color: "#f43f5e", image: null, unlocked: false, level: 1, xp: 0, maxXp: 150, affinityLevel: 0,
+        avatar: "fa-shield-heart", color: "#f43f5e", image: "images/freya_hero_standalone.png", faceImage: "images/freya_face.png",
+        videoAlpha: "videos/freya_combined_alpha.webm",
+        video: "videos/freya_combined.mp4",
+        videoIdleAlpha: "videos/freya_combined_alpha.webm",
+        videoIdle: "videos/freya_combined.mp4",
+        unlocked: false, level: 1, xp: 0, maxXp: 150, affinityLevel: 0,
         hp: 310, maxHp: 310, atk: 35, def: 15, skillName: "Valkyrie Charge", skillDesc: "Knocks back enemies.", skillIcon: "fa-person-through-window",
         words: generateHeroWords("freya"),
         sentenceTemplates: ["Yesterday I [visited a museum].", "We [went by train]."],
         grammarRules: ["Past Simple (was/were, visited, went)", "Путешествия и транспорт"],
-        voiceConfig: { kokoroVoice: "bf_emma", gender: "female", pitch: 1.05, rate: 1.0 }
+        voiceConfig: { kokoroVoice: "bf_emma", gender: "female", pitch: 1.05, rate: 1.0 },
+        storyCutscene: {
+            title: "🛡️ Freya: The Wings of Valhalla",
+            subtitle: "A1 Story Cutscene • История появления Фреи",
+            paragraphs: [
+                {
+                    en: "High above the clouds in the Sky Fortress lives Freya, the brave Valkyrie shieldmaiden.",
+                    ru: "Высоко над облаками в Небесной Крепости живёт Фрея, храбрая валькирия со щитом."
+                },
+                {
+                    en: "Yesterday, Freya traveled across ancient lands. She flew over the high mountains and saw great wonders.",
+                    ru: "Вчера Фрея путешествовала по древним землям. Она летела над высокими горами и видела великие чудеса."
+                },
+                {
+                    en: "In the legendary battle, Freya fought with honor and protected her loyal comrades with her glowing shield.",
+                    ru: "В легендарной битве Фрея сражалась с честью и защищала своих верных товарищей сияющим щитом."
+                },
+                {
+                    en: "She raises her spear to the sky and says: 'The path of glory is open! Welcome to the Hall of Valhalla!'",
+                    ru: "Она поднимает своё копьё к небу и говорит: 'Путь славы открыт! Добро пожаловать в Чертоги Вальхаллы!'"
+                }
+            ]
+        }
     },
     {
         id: "eldrin", name: "Eldrin", role: "Grand Archmage", cefrRank: 5, cefrLevel: "A1 (A1 Graduation Mastery)", title: "Grand Archmage",
