@@ -537,6 +537,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const toggleScenariosBtn = document.getElementById("toggle-scenarios-btn");
     const btnWordStats = document.getElementById("btn-hero-word-stats");
     const btnStory = document.getElementById("btn-hero-story");
+    const btnHeaderStory = document.getElementById("header-story-btn");
 
     if (btnWordStats) {
         btnWordStats.addEventListener("click", () => {
@@ -547,6 +548,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (btnStory) {
         btnStory.addEventListener("click", () => {
+            const hero = rpgEngine.heroes.find(h => h.id === activeShowcaseHeroId) || rpgEngine.heroes[0];
+            openHeroStoryModal(hero);
+        });
+    }
+
+    if (btnHeaderStory) {
+        btnHeaderStory.addEventListener("click", () => {
             const hero = rpgEngine.heroes.find(h => h.id === activeShowcaseHeroId) || rpgEngine.heroes[0];
             openHeroStoryModal(hero);
         });
@@ -4187,88 +4195,505 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // --- HERO A1 STORY LORE CUTSCENE MODAL CONTROLLER 📜 ---
+    // =========================================================================
+    // --- CEFR A1 STORY CAMPAIGN CONTROLLER: THE OATH OF SEVEN WINDS 📜 ---
+    // =========================================================================
+    let activeStoryActId = 1;
+    let activeStoryChapterId = null;
     let areStoryTranslationsVisible = false;
+    let completedStoryChapters = [];
 
-    function openHeroStoryModal(hero) {
-        const modal = document.getElementById("modal-hero-story");
-        if (!modal || !hero) return;
+    try {
+        completedStoryChapters = JSON.parse(localStorage.getItem('english_rpg_completed_story_chapters') || '[]');
+    } catch (e) {
+        completedStoryChapters = [];
+    }
 
-        const story = hero.storyCutscene || {
-            title: `📜 ${hero.name}'s Story`,
-            subtitle: `A1 Story Cutscene • История появления ${hero.name}`,
-            paragraphs: [
-                {
-                    en: `${hero.name} is a brave hero. Welcome to the RPG journey!`,
-                    ru: `${hero.name} — храбрый герой. Добро пожаловать в RPG-путешествие!`
-                }
-            ]
+    function saveCompletedStoryChapters() {
+        try {
+            localStorage.setItem('english_rpg_completed_story_chapters', JSON.stringify(completedStoryChapters));
+        } catch (e) {
+            console.error("Failed to save completed story chapters", e);
+        }
+    }
+
+    // Check if player roster has all 10 heroes unlocked and each at least level 20
+    function checkStoryUnlockEligibility() {
+        const totalHeroes = (rpgEngine && rpgEngine.heroes) ? rpgEngine.heroes : [];
+        const totalCount = totalHeroes.length || 10;
+        const unlockedHeroes = totalHeroes.filter(h => h.unlocked);
+        const unlockedCount = unlockedHeroes.length;
+        const lvl20Heroes = unlockedHeroes.filter(h => (h.level || 1) >= 20);
+        const lvl20Count = lvl20Heroes.length;
+
+        const eligible = (unlockedCount >= totalCount) && (lvl20Count >= totalCount);
+
+        return {
+            eligible,
+            unlockedCount,
+            totalCount,
+            lvl20Count,
+            minLvlNeeded: 20
         };
+    }
 
-        const titleEl = document.getElementById("hero-story-modal-title");
-        const subtitleEl = document.getElementById("hero-story-modal-subtitle");
-        const portraitEl = document.getElementById("hero-story-portrait");
-        const badgeEl = document.getElementById("hero-story-badge");
-        const container = document.getElementById("hero-story-paragraphs-container");
+    // Check if specific chapter requirements are satisfied
+    function checkChapterUnlockEligibility(chapter) {
+        if (!chapter) return { eligible: false, reasons: ["Chapter not found"] };
 
-        if (titleEl) titleEl.textContent = story.title;
-        if (subtitleEl) subtitleEl.textContent = story.subtitle;
-        if (portraitEl) portraitEl.src = hero.image || hero.faceImage || "images/thorin_hero_standalone.png";
-        if (badgeEl) badgeEl.innerHTML = `<i class="fa-solid ${hero.avatar || 'fa-user'}"></i> ${hero.title || hero.name} (${hero.role || 'Hero'})`;
+        const globalStatus = checkStoryUnlockEligibility();
+        const reasons = [];
 
-        areStoryTranslationsVisible = false;
+        if (!globalStatus.eligible) {
+            reasons.push(`Требуются все 10 героев 20+ ур. (Открыто: ${globalStatus.unlockedCount}/${globalStatus.totalCount}, ур. 20+: ${globalStatus.lvl20Count}/${globalStatus.totalCount})`);
+        }
 
-        if (container && story.paragraphs) {
-            container.innerHTML = "";
+        if (chapter.reqHeroLevels && rpgEngine && rpgEngine.heroes) {
+            for (const [heroId, reqLvl] of Object.entries(chapter.reqHeroLevels)) {
+                const hero = rpgEngine.heroes.find(h => h.id === heroId);
+                const curLvl = hero ? (hero.level || 1) : 0;
+                const isHeroUnlocked = hero && hero.unlocked;
 
-            if (hero.videoIntro) {
-                const videoBox = document.createElement("div");
-                videoBox.style.cssText = "width: 100%; margin-bottom: 14px; border-radius: 14px; overflow: hidden; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 10px 30px rgba(0,0,0,0.5);";
-                videoBox.innerHTML = `
-                    <video src="${hero.videoIntro}" controls autoplay loop playsinline style="width: 100%; display: block; max-height: 280px; object-fit: cover;"></video>
-                `;
-                container.appendChild(videoBox);
+                if (!isHeroUnlocked) {
+                    reasons.push(`${hero ? hero.name : heroId} не разблокирован`);
+                } else if (curLvl < reqLvl) {
+                    reasons.push(`${hero.name} ур. ${curLvl}/${reqLvl}`);
+                }
             }
-            story.paragraphs.forEach((p, idx) => {
-                const card = document.createElement("div");
-                card.style.cssText = "background: rgba(15,23,42,0.8); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 14px 18px; display: flex; flex-direction: column; gap: 8px;";
+        }
 
-                card.innerHTML = `
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;">
-                        <div style="font-size: 15px; font-weight: 600; color: #f8fafc; line-height: 1.5; flex: 1;">
-                            <span style="color: var(--warning); font-weight: 800; margin-right: 6px;">#${idx + 1}</span> ${p.en}
+        return {
+            eligible: reasons.length === 0,
+            reasons
+        };
+    }
+
+    function openHeroStoryModal(initialHero) {
+        const modal = document.getElementById("modal-hero-story");
+        if (!modal) return;
+
+        // Switch to Hub view by default
+        showStoryHubView();
+        modal.classList.remove("hidden");
+    }
+
+    function showStoryHubView() {
+        const hubView = document.getElementById("story-view-hub");
+        const readerView = document.getElementById("story-view-reader");
+        if (hubView) hubView.classList.remove("hidden");
+        if (readerView) readerView.classList.add("hidden");
+
+        renderStoryHub();
+    }
+
+    function renderStoryHub() {
+        const acts = (typeof STORY_ACTS !== 'undefined') ? STORY_ACTS : [];
+        const chapters = (typeof STORY_CHAPTERS !== 'undefined') ? STORY_CHAPTERS : [];
+        const globalStatus = checkStoryUnlockEligibility();
+
+        // Update Global Completion Pill
+        const pill = document.getElementById("story-global-completion-pill");
+        if (pill) {
+            const completedCount = completedStoryChapters.length;
+            const totalChapters = chapters.length || 40;
+            pill.innerHTML = `⭐ ${completedCount} / ${totalChapters} Пройдено`;
+        }
+
+        // Global Unlock Requirement Banner
+        const banner = document.getElementById("story-unlock-requirement-banner");
+        const statusText = document.getElementById("story-unlock-heroes-status-text");
+        const badgesContainer = document.getElementById("story-unlock-progress-badges");
+
+        if (banner) {
+            if (!globalStatus.eligible) {
+                banner.style.display = "block";
+                if (statusText) {
+                    statusText.innerHTML = `Сюжетная кампания открывается, когда все 10 героев открыты и прокачаны минимум до 20-го уровня!<br><span style="color:#f87171; font-weight:700;">Герои: ${globalStatus.unlockedCount}/${globalStatus.totalCount} открыто • ${globalStatus.lvl20Count}/${globalStatus.totalCount} достигли 20+ ур.</span>`;
+                }
+                if (badgesContainer && rpgEngine && rpgEngine.heroes) {
+                    badgesContainer.innerHTML = rpgEngine.heroes.map(h => {
+                        const isLvl20 = h.unlocked && (h.level || 1) >= 20;
+                        return `<span class="badge" style="font-size:10px; background:${isLvl20 ? 'rgba(16,185,129,0.2)' : 'rgba(239,68,68,0.2)'}; color:${isLvl20 ? '#6ee7b7' : '#fca5a5'}; border:1px solid ${isLvl20 ? 'rgba(16,185,129,0.4)' : 'rgba(239,68,68,0.4)'};">
+                            ${h.name}: ${h.unlocked ? `Lv.${h.level || 1}` : '🔒'}
+                        </span>`;
+                    }).join("");
+                }
+            } else {
+                banner.style.display = "none";
+            }
+        }
+
+        // Render Act Tabs
+        const tabsContainer = document.getElementById("story-acts-nav-bar");
+        if (tabsContainer && acts.length > 0) {
+            tabsContainer.innerHTML = acts.map(act => {
+                const isActive = act.id === activeStoryActId;
+                const actChapters = chapters.filter(c => c.actId === act.id);
+                const completedInAct = actChapters.filter(c => completedStoryChapters.includes(c.id)).length;
+                return `
+                    <button class="story-act-tab-btn ${isActive ? 'active' : ''}" data-act-id="${act.id}">
+                        <i class="fa-solid ${act.icon}" style="color:${act.color};"></i>
+                        <span>${act.title.split(':')[0]}</span>
+                        <span class="badge" style="font-size:10px; padding:2px 6px; background:rgba(0,0,0,0.3);">${completedInAct}/${actChapters.length}</span>
+                    </button>
+                `;
+            }).join("");
+
+            tabsContainer.querySelectorAll(".story-act-tab-btn").forEach(btn => {
+                btn.addEventListener("click", () => {
+                    activeStoryActId = parseInt(btn.getAttribute("data-act-id"), 10);
+                    renderStoryHub();
+                });
+            });
+        }
+
+        // Render Chapters for current Act
+        const chaptersContainer = document.getElementById("story-chapters-grid-container");
+        if (chaptersContainer && chapters.length > 0) {
+            const currentActChapters = chapters.filter(c => c.actId === activeStoryActId);
+
+            chaptersContainer.innerHTML = currentActChapters.map(ch => {
+                const isCompleted = completedStoryChapters.includes(ch.id);
+                const check = checkChapterUnlockEligibility(ch);
+                const isLocked = !check.eligible;
+
+                // Hero Badges
+                const heroBadges = (ch.involvedHeroes || []).map(heroId => {
+                    const hero = (rpgEngine && rpgEngine.heroes) ? rpgEngine.heroes.find(h => h.id === heroId) : null;
+                    const reqLvl = (ch.reqHeroLevels && ch.reqHeroLevels[heroId]) ? ch.reqHeroLevels[heroId] : 20;
+                    const curLvl = hero ? (hero.level || 1) : 0;
+                    const isOk = hero && hero.unlocked && curLvl >= reqLvl;
+
+                    return `
+                        <div class="story-hero-pill ${isOk ? 'req-ok' : 'req-fail'}" title="${hero ? hero.name : heroId}: Lv.${curLvl}/${reqLvl}">
+                            <i class="fa-solid ${hero ? hero.avatar : 'fa-user'}"></i>
+                            <span>${hero ? hero.name : heroId}</span>
+                            <span class="font-mono">Lv.${reqLvl}</span>
                         </div>
-                        <button class="btn btn-sm btn-outline story-listen-p-btn" style="padding: 4px 10px; font-size: 11px; flex-shrink: 0;" data-text="${p.en.replace(/"/g, '&quot;')}">
-                            <i class="fa-solid fa-volume-high"></i> Listen
-                        </button>
-                    </div>
-                    <div class="story-paragraph-ru hidden" style="font-size: 13px; color: #94a3b8; border-top: 1px dashed rgba(255,255,255,0.1); padding-top: 6px; font-style: italic;">
-                        💡 ${p.ru}
+                    `;
+                }).join("");
+
+                return `
+                    <div class="story-chapter-card ${isLocked ? 'locked' : ''} ${isCompleted ? 'completed' : ''}" data-chapter-id="${ch.id}">
+                        <div>
+                            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px;">
+                                <span class="badge" style="background:rgba(245,158,11,0.15); color:#fbbf24; border:1px solid rgba(245,158,11,0.3); font-size:11px; font-weight:800;">
+                                    ГЛАВА ${ch.number}
+                                </span>
+                                ${isLocked ? '<i class="fa-solid fa-lock" style="color:#ef4444;" title="Заблокировано"></i>' : ''}
+                            </div>
+                            <h4 style="margin:0 0 4px 0; font-size:16px; font-weight:800; color:#f8fafc;">
+                                ${ch.titleEn}
+                            </h4>
+                            <div style="font-size:12px; color:#94a3b8; font-style:italic; margin-bottom:12px;">
+                                ${ch.titleRu}
+                            </div>
+                            <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:14px;">
+                                ${heroBadges}
+                            </div>
+                        </div>
+
+                        <div>
+                            ${isLocked ? `
+                                <div style="font-size:11px; color:#fca5a5; background:rgba(239,68,68,0.1); border:1px solid rgba(239,68,68,0.2); border-radius:8px; padding:6px 8px; margin-bottom:10px;">
+                                    🔒 ${check.reasons.join(", ")}
+                                </div>
+                            ` : ''}
+                            <button class="btn btn-sm ${isCompleted ? 'btn-outline' : 'btn-primary'} btn-open-chapter-reader" style="width:100%; justify-content:center;" data-chapter-id="${ch.id}">
+                                <i class="fa-solid ${isCompleted ? 'fa-book-open' : 'fa-play'}"></i>
+                                ${isCompleted ? 'Перечитать' : (isLocked ? 'Требования' : 'Читать главу')}
+                            </button>
+                        </div>
                     </div>
                 `;
+            }).join("");
 
-                container.appendChild(card);
+            chaptersContainer.querySelectorAll(".btn-open-chapter-reader").forEach(btn => {
+                btn.addEventListener("click", () => {
+                    const chId = btn.getAttribute("data-chapter-id");
+                    const chapter = chapters.find(c => c.id === chId);
+                    if (chapter) {
+                        openStoryChapterReader(chapter);
+                    }
+                });
             });
+        }
+    }
 
-            // Bind per-paragraph Listen buttons with Kokoro TTS audio
-            container.querySelectorAll(".story-listen-p-btn").forEach(btn => {
+    function openStoryChapterReader(chapter) {
+        if (!chapter) return;
+        activeStoryChapterId = chapter.id;
+
+        const hubView = document.getElementById("story-view-hub");
+        const readerView = document.getElementById("story-view-reader");
+        if (hubView) hubView.classList.add("hidden");
+        if (readerView) readerView.classList.remove("hidden");
+
+        const titleEl = document.getElementById("reader-chapter-badge-title");
+        if (titleEl) {
+            titleEl.textContent = `Chapter ${chapter.number}: ${chapter.titleEn} (${chapter.titleRu})`;
+        }
+
+        // Render Hero Avatars
+        const heroesStrip = document.getElementById("reader-involved-heroes-strip");
+        if (heroesStrip && chapter.involvedHeroes && rpgEngine && rpgEngine.heroes) {
+            heroesStrip.innerHTML = chapter.involvedHeroes.map(heroId => {
+                const hero = rpgEngine.heroes.find(h => h.id === heroId);
+                if (!hero) return '';
+                return `
+                    <div style="width:28px; height:28px; border-radius:50%; overflow:hidden; border:1.5px solid ${hero.color || 'var(--primary)'}; background:#0f172a; display:flex; align-items:center; justify-content:center;" title="${hero.name}">
+                        ${(hero.faceImage || hero.image) ? `<img src="${hero.faceImage || hero.image}" alt="${hero.name}" style="width:100%; height:100%; object-fit:cover;">` : `<i class="fa-solid ${hero.avatar}" style="font-size:12px; color:${hero.color};"></i>`}
+                    </div>
+                `;
+            }).join("");
+        }
+
+        // Render Scene Composition & Location Illustration Banner
+        const illustrationBanner = document.getElementById("story-reader-illustration-banner");
+        if (illustrationBanner) {
+            const bgImg = chapter.backgroundImg || 'images/backgrounds/bg_forest.jpg';
+            const locEn = chapter.locationEn || 'The Ancient Valley';
+            const locRu = chapter.locationRu || 'Древняя Долина';
+
+            const originalPortraitsMap = (typeof HERO_ORIGINAL_PORTRAITS !== 'undefined') ? HERO_ORIGINAL_PORTRAITS : {};
+
+            const charactersStageHtml = (chapter.involvedHeroes || []).map(heroId => {
+                const hero = (rpgEngine && rpgEngine.heroes) ? rpgEngine.heroes.find(h => h.id === heroId) : null;
+                const heroName = hero ? hero.name : heroId;
+                const originalArt = originalPortraitsMap[heroId] || (hero ? (hero.faceImage || hero.image) : 'images/valerius_face.png');
+                const heroColor = hero ? (hero.color || '#f59e0b') : '#f59e0b';
+
+                return `
+                    <div class="story-stage-char-card" title="${heroName}">
+                        <img src="${originalArt}" alt="${heroName}" class="story-stage-char-portrait" style="border-color:${heroColor};" onerror="this.src='${hero ? (hero.faceImage || hero.image) : 'images/valerius_face.png'}';">
+                        <span class="story-stage-char-name" style="border-color:${heroColor};">
+                            <i class="fa-solid ${hero ? hero.avatar : 'fa-user'}" style="color:${heroColor}; margin-right:4px;"></i>${heroName}
+                        </span>
+                    </div>
+                `;
+            }).join("");
+
+            if (chapter.sceneIllustrationImg) {
+                illustrationBanner.style.backgroundImage = `url('${chapter.sceneIllustrationImg}')`;
+                illustrationBanner.style.minHeight = '320px';
+                illustrationBanner.innerHTML = `
+                    <div class="story-scene-bg-overlay" style="background: linear-gradient(180deg, rgba(15,23,42,0.4) 0%, rgba(15,23,42,0.05) 50%, rgba(15,23,42,0.95) 100%);"></div>
+                    <div class="story-scene-header-info">
+                        <div class="story-location-badge">
+                            <i class="fa-solid fa-compass" style="color:#fbbf24;"></i>
+                            <span>📍 ${locEn} <span style="opacity:0.75; font-weight:500;">(${locRu})</span></span>
+                        </div>
+                        <span class="badge" style="background:rgba(0,0,0,0.65); color:#fbbf24; font-size:11px; border:1px solid rgba(245,158,11,0.4); backdrop-filter:blur(8px);">
+                            🎨 Иллюстрация сцены • Акт ${chapter.actId || 1}
+                        </span>
+                    </div>
+                    <div class="story-scene-characters-stage" style="justify-content: flex-end; gap: 8px;">
+                        ${(chapter.involvedHeroes || []).map(heroId => {
+                            const hero = (rpgEngine && rpgEngine.heroes) ? rpgEngine.heroes.find(h => h.id === heroId) : null;
+                            const heroName = hero ? hero.name : heroId;
+                            const heroColor = hero ? (hero.color || '#f59e0b') : '#f59e0b';
+                            const origArt = originalPortraitsMap[heroId] || (hero ? (hero.faceImage || hero.image) : '');
+                            return `
+                                <div style="display:flex; align-items:center; gap:6px; background:rgba(15,23,42,0.85); backdrop-filter:blur(10px); border:1px solid ${heroColor}; padding:3px 8px; border-radius:14px; box-shadow:0 4px 15px rgba(0,0,0,0.6);">
+                                    <img src="${origArt}" alt="${heroName}" style="width:24px; height:24px; border-radius:50%; object-fit:cover;">
+                                    <span style="font-size:11px; font-weight:700; color:#fff;">${heroName}</span>
+                                </div>
+                            `;
+                        }).join("")}
+                    </div>
+                `;
+            } else {
+                illustrationBanner.style.backgroundImage = `url('${bgImg}')`;
+                illustrationBanner.style.minHeight = '240px';
+                illustrationBanner.innerHTML = `
+                    <div class="story-scene-bg-overlay"></div>
+                    <div class="story-scene-header-info">
+                        <div class="story-location-badge">
+                            <i class="fa-solid fa-compass" style="color:#fbbf24;"></i>
+                            <span>📍 ${locEn} <span style="opacity:0.75; font-weight:500;">(${locRu})</span></span>
+                        </div>
+                        <span class="badge" style="background:rgba(0,0,0,0.6); color:#f8fafc; font-size:11px; border:1px solid rgba(255,255,255,0.2); backdrop-filter:blur(8px);">
+                            Акт ${chapter.actId || 1} • Глава ${chapter.number}
+                        </span>
+                    </div>
+                    <div class="story-scene-characters-stage">
+                        ${charactersStageHtml}
+                    </div>
+                `;
+            }
+        }
+
+        // Render Paragraphs
+        const paragraphsList = document.getElementById("story-reader-paragraphs-list");
+        if (paragraphsList && chapter.paragraphs) {
+            paragraphsList.innerHTML = chapter.paragraphs.map((p, idx) => {
+                const speakerHeroId = (chapter.involvedHeroes && chapter.involvedHeroes[idx % chapter.involvedHeroes.length]) || 'valerius';
+                return `
+                    <div class="story-paragraph-card">
+                        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:12px;">
+                            <div class="story-paragraph-en">
+                                <span style="color:var(--warning); font-weight:800; margin-right:6px;">#${idx + 1}</span> ${p.en}
+                            </div>
+                            <button class="btn btn-sm btn-outline story-listen-p-btn" style="padding:4px 10px; font-size:11px; flex-shrink:0;" data-text="${p.en.replace(/"/g, '&quot;')}" data-speaker="${speakerHeroId}">
+                                <i class="fa-solid fa-volume-high"></i> Listen
+                            </button>
+                        </div>
+                        <div class="story-paragraph-ru ${areStoryTranslationsVisible ? '' : 'hidden'}">
+                            💡 ${p.ru}
+                        </div>
+                    </div>
+                `;
+            }).join("");
+
+            // Bind Listen buttons
+            paragraphsList.querySelectorAll(".story-listen-p-btn").forEach(btn => {
                 btn.addEventListener("click", () => {
                     const textToRead = btn.getAttribute("data-text");
+                    const speaker = btn.getAttribute("data-speaker") || 'valerius';
                     if (textToRead && typeof playTextKokoroAudio === "function") {
-                        playTextKokoroAudio(textToRead, hero.id);
+                        playTextKokoroAudio(textToRead, speaker);
                     }
                 });
             });
         }
 
-        // Setup translation toggle button text
-        const toggleTransText = document.getElementById("toggle-story-trans-text");
-        if (toggleTransText) toggleTransText.textContent = "Показать весь перевод";
+        // Render Comprehension Quiz
+        renderStoryComprehensionQuiz(chapter);
 
-        modal.classList.remove("hidden");
+        // Next Chapter button setup
+        const chapters = (typeof STORY_CHAPTERS !== 'undefined') ? STORY_CHAPTERS : [];
+        const nextChapter = chapters.find(c => c.number === chapter.number + 1);
+        const nextBtn = document.getElementById("btn-story-next-chapter");
+        if (nextBtn) {
+            if (nextChapter && completedStoryChapters.includes(chapter.id)) {
+                nextBtn.classList.remove("hidden");
+                nextBtn.onclick = () => openStoryChapterReader(nextChapter);
+            } else {
+                nextBtn.classList.add("hidden");
+            }
+        }
+
+        // Scroll to top
+        const scrollBody = document.getElementById("story-reader-scrollable-body");
+        if (scrollBody) scrollBody.scrollTop = 0;
     }
 
-    // Modal close & footer buttons
+    function renderStoryComprehensionQuiz(chapter) {
+        const quiz = chapter.quiz || {
+            question: "Did the heroes work together in this chapter?",
+            options: ["Yes, they worked together", "No, they did nothing", "They went away"],
+            correctIndex: 0,
+            rewardXp: 100
+        };
+
+        const questionEl = document.getElementById("story-quiz-question-text");
+        const rewardBadge = document.getElementById("story-quiz-reward-badge");
+        const optionsContainer = document.getElementById("story-quiz-options-container");
+        const feedbackBox = document.getElementById("story-quiz-feedback-box");
+
+        if (questionEl) questionEl.textContent = quiz.question;
+        if (rewardBadge) rewardBadge.textContent = `⭐ +${quiz.rewardXp || 100} XP`;
+        if (feedbackBox) feedbackBox.style.display = "none";
+
+        const isAlreadyCompleted = completedStoryChapters.includes(chapter.id);
+
+        if (optionsContainer && quiz.options) {
+            optionsContainer.innerHTML = quiz.options.map((opt, idx) => {
+                return `
+                    <button class="story-quiz-opt-btn" data-opt-idx="${idx}">
+                        <span style="width:24px; height:24px; border-radius:50%; background:rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800;">
+                            ${String.fromCharCode(65 + idx)}
+                        </span>
+                        <span>${opt}</span>
+                    </button>
+                `;
+            }).join("");
+
+            optionsContainer.querySelectorAll(".story-quiz-opt-btn").forEach(btn => {
+                btn.addEventListener("click", () => {
+                    const chosenIdx = parseInt(btn.getAttribute("data-opt-idx"), 10);
+                    handleStoryQuizSubmission(chapter, quiz, chosenIdx, optionsContainer, feedbackBox);
+                });
+            });
+        }
+    }
+
+    function handleStoryQuizSubmission(chapter, quiz, chosenIdx, optionsContainer, feedbackBox) {
+        const isCorrect = chosenIdx === quiz.correctIndex;
+        const buttons = optionsContainer.querySelectorAll(".story-quiz-opt-btn");
+
+        buttons.forEach((btn, idx) => {
+            btn.disabled = true;
+            if (idx === quiz.correctIndex) {
+                btn.classList.add("correct");
+            } else if (idx === chosenIdx && !isCorrect) {
+                btn.classList.add("wrong");
+            }
+        });
+
+        if (feedbackBox) {
+            feedbackBox.style.display = "block";
+            if (isCorrect) {
+                feedbackBox.style.background = "rgba(16,185,129,0.2)";
+                feedbackBox.style.border = "1px solid #10b981";
+                feedbackBox.style.color = "#6ee7b7";
+                feedbackBox.innerHTML = `🎉 <b>Верно!</b> Глава успешно пройдена! Получено +${quiz.rewardXp} XP для участников отряда.`;
+
+                if (!completedStoryChapters.includes(chapter.id)) {
+                    completedStoryChapters.push(chapter.id);
+                    saveCompletedStoryChapters();
+
+                    // Award XP to involved heroes
+                    if (chapter.involvedHeroes && rpgEngine && rpgEngine.heroes) {
+                        chapter.involvedHeroes.forEach(hId => {
+                            const hero = rpgEngine.heroes.find(h => h.id === hId);
+                            if (hero && typeof rpgEngine.gainHeroXp === "function") {
+                                rpgEngine.gainHeroXp(hero, quiz.rewardXp || 100);
+                            }
+                        });
+                    }
+
+                    // Save overall game state
+                    if (typeof rpgEngine !== 'undefined' && typeof rpgEngine.saveToStorage === 'function') {
+                        rpgEngine.saveToStorage();
+                    }
+                    if (typeof updateHeroUI === 'function') {
+                        updateHeroUI();
+                    }
+                }
+
+                // Show Next Chapter button if available
+                const chapters = (typeof STORY_CHAPTERS !== 'undefined') ? STORY_CHAPTERS : [];
+                const nextChapter = chapters.find(c => c.number === chapter.number + 1);
+                const nextBtn = document.getElementById("btn-story-next-chapter");
+                if (nextBtn && nextChapter) {
+                    nextBtn.classList.remove("hidden");
+                    nextBtn.onclick = () => openStoryChapterReader(nextChapter);
+                }
+
+            } else {
+                feedbackBox.style.background = "rgba(239,68,68,0.2)";
+                feedbackBox.style.border = "1px solid #ef4444";
+                feedbackBox.style.color = "#fca5a5";
+                feedbackBox.innerHTML = `❌ <b>Не совсем так.</b> Попробуйте перечитать абзацы выше и проверить ответ снова!`;
+                
+                // Allow retry
+                setTimeout(() => {
+                    buttons.forEach(btn => {
+                        btn.disabled = false;
+                        btn.classList.remove("wrong", "correct");
+                    });
+                }, 1800);
+            }
+        }
+    }
+
+    // Story Campaign Listeners
+    const btnBackToHub = document.getElementById("btn-back-to-story-hub");
+    if (btnBackToHub) {
+        btnBackToHub.addEventListener("click", showStoryHubView);
+    }
+
     const closeStoryModalBtn = document.getElementById("close-hero-story-modal-btn");
     if (closeStoryModalBtn) {
         closeStoryModalBtn.addEventListener("click", () => {
@@ -4281,7 +4706,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (toggleStoryTransBtn) {
         toggleStoryTransBtn.addEventListener("click", () => {
             areStoryTranslationsVisible = !areStoryTranslationsVisible;
-            const container = document.getElementById("hero-story-paragraphs-container");
+            const container = document.getElementById("story-reader-paragraphs-list");
             const toggleTransText = document.getElementById("toggle-story-trans-text");
             if (container) {
                 container.querySelectorAll(".story-paragraph-ru").forEach(el => {
@@ -4293,7 +4718,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
             }
             if (toggleTransText) {
-                toggleTransText.textContent = areStoryTranslationsVisible ? "Скрыть перевод" : "Показать весь перевод";
+                toggleTransText.textContent = areStoryTranslationsVisible ? "Скрыть перевод" : "Показать перевод";
             }
         });
     }
@@ -4301,28 +4726,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const readFullStoryBtn = document.getElementById("read-full-story-audio-btn");
     if (readFullStoryBtn) {
         readFullStoryBtn.addEventListener("click", () => {
-            const hero = rpgEngine.heroes.find(h => h.id === activeShowcaseHeroId) || rpgEngine.heroes[0];
-            if (hero && hero.storyCutscene && hero.storyCutscene.paragraphs) {
-                const fullText = hero.storyCutscene.paragraphs.map(p => p.en).join(" ");
+            const chapters = (typeof STORY_CHAPTERS !== 'undefined') ? STORY_CHAPTERS : [];
+            const chapter = chapters.find(c => c.id === activeStoryChapterId);
+            if (chapter && chapter.paragraphs) {
+                const fullText = chapter.paragraphs.map(p => p.en).join(" ");
+                const speaker = (chapter.involvedHeroes && chapter.involvedHeroes[0]) || 'valerius';
                 if (typeof playTextKokoroAudio === "function") {
-                    playTextKokoroAudio(fullText, hero.id);
+                    playTextKokoroAudio(fullText, speaker);
                 }
             }
         });
     }
 
-    const openChatFromStoryBtn = document.getElementById("open-chat-from-story-btn");
-    if (openChatFromStoryBtn) {
-        openChatFromStoryBtn.addEventListener("click", () => {
-            const modal = document.getElementById("modal-hero-story");
-            if (modal) modal.classList.add("hidden");
-            const hero = rpgEngine.heroes.find(h => h.id === activeShowcaseHeroId) || rpgEngine.heroes[0];
-            const chatModal = document.getElementById("modal-hero-chat");
-            if (chatModal) {
-                openHeroChatModal(hero);
-            }
-        });
-    }
 
     function renderHeroesRoster() {
         if (!heroesGridContainer) return;

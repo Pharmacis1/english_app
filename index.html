@@ -46,6 +46,7 @@
                 <div class="rpg-header-stat-pill"><span class="text-gold">⭐</span> XP <span class="text-gold font-mono" id="rpg-header-xp">0</span></div>
             </div>
             <div class="rpg-header-actions">
+                <button class="icon-btn-game" id="header-story-btn" title="📜 Сюжетная Кампания (A1 Story)"><i class="fa-solid fa-scroll" style="color:var(--warning);"></i></button>
                 <button class="icon-btn-game" id="theme-toggle" title="Toggle Theme"><i class="fa-solid fa-moon"></i></button>
                 <button class="icon-btn-game" id="settings-toggle-btn" title="Settings"><i class="fa-solid fa-gear"></i></button>
             </div>
@@ -548,45 +549,127 @@
         </div>
     </div>
 
-    <!-- MODAL: HERO A1 STORY CUTSCENE -->
+    <!-- MODAL: A1 STORY CAMPAIGN HUB & CHAPTER READER 📜 -->
     <div class="rpg-modal-overlay hidden" id="modal-hero-story">
-        <div class="rpg-modal-content modal-lg" style="max-width: 900px; width: 95vw;">
-            <div class="rpg-modal-header">
-                <div class="modal-header-title">
-                    <i class="fa-solid fa-scroll" style="font-size:22px; color:var(--warning);"></i>
+        <div class="rpg-modal-content modal-lg story-campaign-modal-container" style="max-width: 1040px; width: 95vw; height: 88vh; display: flex; flex-direction: column;">
+            
+            <!-- HEADER -->
+            <div class="rpg-modal-header" style="flex-shrink: 0;">
+                <div class="modal-header-title" style="display: flex; align-items: center; gap: 12px;">
+                    <div class="story-header-icon-box">
+                        <i class="fa-solid fa-scroll" style="font-size:22px; color:var(--warning);"></i>
+                    </div>
                     <div>
-                        <h3 id="hero-story-modal-title" style="margin:0; font-size:18px; font-weight:800; color:var(--warning);">📜 Hero Story Lore Cutscene</h3>
-                        <div id="hero-story-modal-subtitle" style="font-size:12px; color:var(--text-muted); font-weight:500;">A1 Story • История появления героя</div>
+                        <h3 id="story-hub-title" style="margin:0; font-size:18px; font-weight:800; color:var(--warning); display:flex; align-items:center; gap:8px;">
+                            📜 The Oath of Seven Winds <span class="badge" style="background:rgba(245,158,11,0.2); color:#fbbf24; font-size:11px; border:1px solid rgba(245,158,11,0.4);">CEFR A1 Campaign</span>
+                        </h3>
+                        <div id="story-hub-subtitle" style="font-size:12px; color:var(--text-muted); font-weight:500;">
+                            40 Глав • Сюжетная кампания с 20 по 100 уровень героев
+                        </div>
                     </div>
                 </div>
-                <button class="modal-close-btn" id="close-hero-story-modal-btn">&times;</button>
-            </div>
-            <div class="rpg-modal-body" style="padding: 20px; display: flex; flex-direction: row; gap: 24px; max-height: 75vh; overflow-y: auto;">
-                <div style="flex: 0 0 280px; display: flex; flex-direction: column; align-items: center; background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 16px; position: relative;">
-                    <img id="hero-story-portrait" src="images/thorin_hero_standalone.png" alt="Hero Portrait" style="max-width: 100%; height: auto; max-height: 380px; object-fit: contain; filter: drop-shadow(0 10px 25px rgba(0,0,0,0.5));">
-                    <div id="hero-story-badge" style="margin-top: 12px; padding: 4px 12px; background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.4); border-radius: 20px; font-size: 12px; font-weight: 700; color: #f59e0b;">
-                        🔨 Dwarven Berserker
-                    </div>
-                </div>
-                <div style="flex: 1; display: flex; flex-direction: column; gap: 16px;">
-                    <div id="hero-story-paragraphs-container" style="display: flex; flex-direction: column; gap: 14px;">
-                        <!-- Story paragraphs inserted dynamically -->
-                    </div>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <span id="story-global-completion-pill" class="badge" style="background:rgba(16,185,129,0.15); color:#10b981; border:1px solid rgba(16,185,129,0.3); font-size:12px; padding:4px 10px; font-weight:700;">
+                        ⭐ 0 / 40 Пройдено
+                    </span>
+                    <button class="modal-close-btn" id="close-hero-story-modal-btn">&times;</button>
                 </div>
             </div>
-            <div class="rpg-modal-footer" style="padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.3); border-top: 1px solid rgba(255,255,255,0.08);">
-                <button class="btn btn-outline" id="toggle-all-story-translations-btn" style="gap: 6px;">
-                    <i class="fa-solid fa-eye"></i> <span id="toggle-story-trans-text">Показать весь перевод</span>
-                </button>
-                <div style="display:flex; gap:10px;">
-                    <button class="btn btn-warning" id="read-full-story-audio-btn" style="gap: 6px;">
-                        <i class="fa-solid fa-volume-high"></i> Прослушать историю
+
+            <!-- VIEW 1: STORY HUB / CHAPTER CATALOG -->
+            <div id="story-view-hub" class="story-view-section" style="flex: 1; display: flex; flex-direction: column; overflow: hidden;">
+                
+                <!-- UNLOCK STATUS BANNER (If not all 10 heroes lvl 20+) -->
+                <div id="story-unlock-requirement-banner" class="story-unlock-banner" style="margin: 14px 20px 0 20px; padding: 12px 18px; background: rgba(239,68,68,0.12); border: 1px solid rgba(239,68,68,0.3); border-radius: 12px; display: none;">
+                    <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
+                        <div style="display:flex; align-items:center; gap:10px;">
+                            <i class="fa-solid fa-lock" style="color:#ef4444; font-size:18px;"></i>
+                            <div>
+                                <div style="font-weight:700; color:#fca5a5; font-size:13px;">Условие старта Сюжетной Кампании:</div>
+                                <div id="story-unlock-heroes-status-text" style="font-size:12px; color:#cbd5e1;">Все 10 героев должны быть открыты и прокачаны минимум до 20-го уровня!</div>
+                            </div>
+                        </div>
+                        <div id="story-unlock-progress-badges" style="display:flex; gap:8px;"></div>
+                    </div>
+                </div>
+
+                <!-- ACT SELECTOR TABS -->
+                <div class="story-acts-nav-bar" id="story-acts-nav-bar" style="padding: 12px 20px; display: flex; gap: 8px; overflow-x: auto; flex-shrink: 0; border-bottom: 1px solid rgba(255,255,255,0.06);">
+                    <!-- Dynamic Act Tabs -->
+                </div>
+
+                <!-- CHAPTERS GRID -->
+                <div class="story-chapters-grid-container" id="story-chapters-grid-container" style="flex: 1; padding: 18px 20px; overflow-y: auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; align-content: start;">
+                    <!-- Dynamic Chapter Cards -->
+                </div>
+            </div>
+
+            <!-- VIEW 2: CHAPTER READER & QUIZ -->
+            <div id="story-view-reader" class="story-view-section hidden" style="flex: 1; display: flex; flex-direction: column; overflow: hidden;">
+                
+                <!-- READER TOP BAR -->
+                <div style="padding: 10px 20px; background: rgba(0,0,0,0.25); border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center; flex-shrink: 0;">
+                    <button class="btn btn-sm btn-outline" id="btn-back-to-story-hub" style="gap:6px;">
+                        <i class="fa-solid fa-arrow-left"></i> К списку глав
                     </button>
-                    <button class="btn btn-primary" id="open-chat-from-story-btn" style="gap: 6px;">
-                        <i class="fa-solid fa-comments"></i> Чат с героем
-                    </button>
+                    <div id="reader-chapter-badge-title" style="font-weight: 700; font-size: 14px; color: var(--gold);">
+                        Chapter 1: Sparks on the Border
+                    </div>
+                    <div id="reader-involved-heroes-strip" style="display: flex; gap: 6px; align-items: center;">
+                        <!-- Hero avatars participating in this chapter -->
+                    </div>
                 </div>
+
+                <!-- READER MAIN CONTENT (PARAGRAPHS + QUIZ) -->
+                <div id="story-reader-scrollable-body" style="flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 16px;">
+                    
+                    <!-- SCENE COMPOSITION & LOCATION ILLUSTRATION BANNER -->
+                    <div id="story-reader-illustration-banner" class="story-scene-illustration-banner">
+                        <!-- Populated dynamically with location bg and character portraits/standalones -->
+                    </div>
+
+                    <!-- Story Paragraphs Cards -->
+                    <div id="story-reader-paragraphs-list" style="display: flex; flex-direction: column; gap: 14px;">
+                        <!-- Dynamic Paragraphs with Listen buttons -->
+                    </div>
+
+                    <!-- COMPREHENSION QUIZ CARD -->
+                    <div id="story-reader-quiz-card" class="story-quiz-card" style="margin-top: 14px; background: linear-gradient(135deg, rgba(30,41,59,0.9), rgba(15,23,42,0.95)); border: 1px solid rgba(245,158,11,0.3); border-radius: 16px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+                        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                            <div style="font-weight: 800; font-size: 14px; color: #fbbf24; display: flex; align-items: center; gap: 8px;">
+                                <i class="fa-solid fa-brain"></i> Reading Comprehension Quiz (Проверка понимания)
+                            </div>
+                            <span id="story-quiz-reward-badge" class="badge" style="background:rgba(245,158,11,0.2); color:#fbbf24; border:1px solid rgba(245,158,11,0.4); font-size:11px;">
+                                ⭐ +100 XP
+                            </span>
+                        </div>
+                        <div id="story-quiz-question-text" style="font-size: 15px; font-weight: 600; color: #f8fafc; margin-bottom: 14px;">
+                            Question goes here?
+                        </div>
+                        <div id="story-quiz-options-container" style="display: flex; flex-direction: column; gap: 8px;">
+                            <!-- Quiz radio/button options -->
+                        </div>
+                        <div id="story-quiz-feedback-box" style="margin-top: 12px; display: none; padding: 10px 14px; border-radius: 10px; font-size: 13px; font-weight: 600;"></div>
+                    </div>
+                </div>
+
+                <!-- READER FOOTER BAR -->
+                <div class="rpg-modal-footer" style="padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.3); border-top: 1px solid rgba(255,255,255,0.08); flex-shrink: 0;">
+                    <button class="btn btn-outline" id="toggle-all-story-translations-btn" style="gap: 6px;">
+                        <i class="fa-solid fa-eye"></i> <span id="toggle-story-trans-text">Показать перевод</span>
+                    </button>
+                    <div style="display:flex; gap:10px;">
+                        <button class="btn btn-warning" id="read-full-story-audio-btn" style="gap: 6px;">
+                            <i class="fa-solid fa-volume-high"></i> Слушать всю главу
+                        </button>
+                        <button class="btn btn-primary hidden" id="btn-story-next-chapter" style="gap: 6px;">
+                            Следующая глава <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
             </div>
+
         </div>
     </div>
 
@@ -1063,11 +1146,12 @@
         </div>
     </div>
 
-    <script src="scenarios.js?v=11.048"></script>
-    <script src="heroes.js?v=11.048"></script>
-    <script src="flashcards.js?v=11.048"></script>
-    <script src="grammar.js?v=11.048"></script>
-    <script src="ai_service.js?v=11.048"></script>
-    <script src="app.js?v=11.048"></script>
+    <script src="scenarios.js?v=11.049"></script>
+    <script src="heroes.js?v=11.049"></script>
+    <script src="story_campaign.js?v=1.000"></script>
+    <script src="flashcards.js?v=11.049"></script>
+    <script src="grammar.js?v=11.049"></script>
+    <script src="ai_service.js?v=11.049"></script>
+    <script src="app.js?v=11.049"></script>
 </body>
 </html>
