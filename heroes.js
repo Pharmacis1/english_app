@@ -1430,12 +1430,35 @@ const HEROES_DATA = [
     },
     {
         id: "eldrin", name: "Eldrin", role: "Grand Archmage", cefrRank: 5, cefrLevel: "A1 (A1 Graduation Mastery)", title: "Grand Archmage",
-        avatar: "fa-hat-wizard", color: "#a855f7", image: null, unlocked: false, level: 1, xp: 0, maxXp: 150, affinityLevel: 0,
+        avatar: "fa-hat-wizard", color: "#a855f7", image: "images/eldrin_hero_standalone.png", faceImage: "images/eldrin_face.png",
+        unlocked: false, level: 1, xp: 0, maxXp: 150, affinityLevel: 0,
         hp: 260, maxHp: 260, atk: 65, def: 14, skillName: "Arcane Nova", skillDesc: "Deals 500 massive damage.", skillIcon: "fa-meteor",
         words: generateHeroWords("eldrin"),
         sentenceTemplates: ["I have [achieved A1 mastery].", "I can speak English with confidence."],
         grammarRules: ["Комплексное повторение всей грамматики и речи уровня A1"],
-        voiceConfig: { kokoroVoice: "am_michael", gender: "male", pitch: 0.95, rate: 0.92 }
+        voiceConfig: { kokoroVoice: "am_michael", gender: "male", pitch: 0.95, rate: 0.92 },
+        storyCutscene: {
+            title: "🔮 Eldrin: The Master of the Arcane Spire",
+            subtitle: "A1 Story Cutscene • Финальное испытание A1 и история Элдрина",
+            paragraphs: [
+                {
+                    en: "At the peak of the floating Arcane Spire stands Eldrin, the Grand Archmage of ancient wisdom.",
+                    ru: "На вершине парящего Тайного Шпиля стоит Элдрин, Великий Архимаг древней мудрости."
+                },
+                {
+                    en: "He has studied the languages of all realms for hundreds of years. Glowing runes of power circle around his crystal staff.",
+                    ru: "Он изучал языки всех королевств сотни лет. Светящиеся руны силы кружат вокруг его хрустального посоха."
+                },
+                {
+                    en: "You have traveled across all lands and learned many words. Now, the final portal of knowledge is opening before you.",
+                    ru: "Ты прошёл через все земли и выучил множество слов. Теперь перед тобой открывается финальный портал знаний."
+                },
+                {
+                    en: "Eldrin smiles with pride and proclaims: 'You are ready! You have mastered the fundamentals of English! Congratulations!'",
+                    ru: "Элдрин с гордостью улыбается и провозглашает: 'Ты готов! Ты овладел основами английского языка! Поздравляю!'"
+                }
+            ]
+        }
     }
 ];
 
