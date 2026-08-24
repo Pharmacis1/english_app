@@ -1333,7 +1333,7 @@ body {
     gap: 12px;
     overflow-x: auto;
     padding: 6px 0;
-    max-width: calc(100% - 240px);
+    max-width: 100%;
     scrollbar-width: thin;
 }
 
