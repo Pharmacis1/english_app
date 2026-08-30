@@ -300,7 +300,12 @@
                         <button class="mic-btn" id="voice-input-btn" title="Speak via Microphone">
                             <i class="fa-solid fa-microphone"></i>
                         </button>
-                        <textarea id="user-chat-input" placeholder="Type your response in English..." rows="1"></textarea>
+                        <div class="chat-input-inner">
+                            <textarea id="user-chat-input" placeholder="Type your response in English..." rows="1"></textarea>
+                            <button type="button" id="toggle-expand-chat-input-btn" class="chat-input-expand-btn" title="Развернуть / свернуть поле ввода (Expand / Collapse)">
+                                <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+                            </button>
+                        </div>
                         <button class="send-btn" id="send-chat-btn">
                             <i class="fa-solid fa-paper-plane"></i>
                         </button>

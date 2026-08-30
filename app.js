@@ -3596,6 +3596,9 @@ document.addEventListener("DOMContentLoaded", () => {
         // ALWAYS SEND MESSAGE TO CHAT IN ALL CASES!
         userChatInput.style.borderColor = "";
         userChatInput.value = "";
+        if (!userChatInput.classList.contains("expanded")) {
+            userChatInput.style.height = "44px";
+        }
         appendMessage("user", text);
 
         // ALL UNLOCKED HEROES WORD XP EVALUATION & LEVELING
@@ -3717,13 +3720,40 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    function autoResizeChatInput() {
+        if (!userChatInput) return;
+        if (userChatInput.classList.contains("expanded")) return;
+        userChatInput.style.height = "auto";
+        const newHeight = Math.min(260, Math.max(44, userChatInput.scrollHeight));
+        userChatInput.style.height = newHeight + "px";
+    }
+
     if (sendChatBtn) sendChatBtn.addEventListener("click", handleUserSendMessage);
     if (userChatInput) {
+        userChatInput.addEventListener("input", autoResizeChatInput);
         userChatInput.addEventListener("keydown", (e) => {
             if (e.key === "Enter" && !e.shiftKey) {
                 e.preventDefault();
                 handleUserSendMessage();
             }
+        });
+    }
+
+    const toggleExpandChatInputBtn = document.getElementById("toggle-expand-chat-input-btn");
+    if (toggleExpandChatInputBtn && userChatInput) {
+        toggleExpandChatInputBtn.addEventListener("click", () => {
+            const isExpanded = userChatInput.classList.toggle("expanded");
+            if (isExpanded) {
+                userChatInput.style.height = "160px";
+                toggleExpandChatInputBtn.innerHTML = '<i class="fa-solid fa-down-left-and-up-right-to-center"></i>';
+                toggleExpandChatInputBtn.title = "Свернуть поле ввода (Collapse)";
+            } else {
+                userChatInput.style.height = "auto";
+                autoResizeChatInput();
+                toggleExpandChatInputBtn.innerHTML = '<i class="fa-solid fa-up-right-and-down-left-from-center"></i>';
+                toggleExpandChatInputBtn.title = "Развернуть поле ввода (Expand)";
+            }
+            userChatInput.focus();
         });
     }
 
