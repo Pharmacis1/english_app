@@ -79,7 +79,7 @@ class AIService {
 
         let focusWords = [];
         if (typeof window !== 'undefined' && typeof window.getHeroAntiRatingFocusWords === 'function') {
-            const focusObjs = window.getHeroAntiRatingFocusWords(activeHero, 50);
+            const focusObjs = window.getHeroAntiRatingFocusWords(activeHero, 20);
             if (focusObjs && focusObjs.length > 0) {
                 focusWords = focusObjs.map(w => typeof w === 'string' ? w : (Array.isArray(w) ? w[0] : (w.word || "")));
             }
@@ -100,7 +100,7 @@ class AIService {
         let priorityWord = "";
 
         if (unUsedFocusWords.length >= 5) {
-            // Case 1: Pick 5 random un-used words from today's 50 Focus Words
+            // Case 1: Pick 5 random un-used words from today's 20 Focus Words
             const shuffledUnused = [...unUsedFocusWords].sort(() => 0.5 - Math.random());
             targetFiveWords = shuffledUnused.slice(0, 5);
             priorityWord = targetFiveWords[0];
@@ -112,7 +112,7 @@ class AIService {
             targetFiveWords = Array.from(new Set([...shuffledUnused, ...shuffledUsed])).slice(0, 5);
             priorityWord = shuffledUnused[0]; // Guaranteed unused word!
         } else {
-            // Case 2: ALL 50 Focus Words of the day have ALREADY been used today!
+            // Case 2: ALL 20 Focus Words of the day have ALREADY been used today!
             // Fallback: Pick 5 words from the overall anti-top (least used in lifetime history for this hero)
             let allWords = activeHero.words ? activeHero.words.map(w => typeof w === 'string' ? w : (Array.isArray(w) ? w[0] : (w.word || ""))) : [];
             allWords.sort((wA, wB) => {
@@ -498,6 +498,9 @@ class VoiceService {
         this.sttEngine = localStorage.getItem("stt_engine") || "whisper"; // 'whisper', 'native'
         this.sttEndpoint = localStorage.getItem("stt_endpoint") || "http://127.0.0.1:8000";
 
+        this.speechSpeed = parseFloat(localStorage.getItem("hero_chat_voice_speed")) || 1.0;
+        this.audioCache = new Map(); // In-memory cache for audio blobs: key -> Blob
+
         this.initRecognition();
     }
 
@@ -509,6 +512,25 @@ class VoiceService {
             this.recognition.interimResults = true;
             this.recognition.lang = 'en-US';
         }
+    }
+
+    setSpeechSpeed(speed) {
+        this.speechSpeed = parseFloat(speed) || 1.0;
+        localStorage.setItem("hero_chat_voice_speed", this.speechSpeed);
+        if (this.currentAudio) {
+            try {
+                this.currentAudio.playbackRate = this.speechSpeed;
+                this.currentAudio.defaultPlaybackRate = this.speechSpeed;
+            } catch (e) {}
+        }
+    }
+
+    getSpeechSpeed() {
+        return this.speechSpeed || 1.0;
+    }
+
+    clearAudioCache() {
+        this.audioCache.clear();
     }
 
     saveVoiceSettings(ttsEngine, ttsEndpoint, sttEngine, sttEndpoint) {
@@ -523,48 +545,80 @@ class VoiceService {
         localStorage.setItem("stt_endpoint", sttEndpoint);
     }
 
-    async speak(text, onStart = null, onEnd = null, heroVoiceConfig = null) {
+    async speak(text, onStart = null, onEnd = null, heroVoiceConfig = null, customSpeed = null) {
         this.stopSpeech();
 
         if (!text || typeof text !== 'string') return;
         const cleanText = text.replace(/[*_#`]/g, '').trim();
         if (!cleanText) return;
 
+        const speed = customSpeed !== null && customSpeed !== undefined ? parseFloat(customSpeed) : (this.speechSpeed || 1.0);
         const kokoroVoice = heroVoiceConfig?.kokoroVoice || 'am_adam';
         const pitch = heroVoiceConfig?.pitch || 1.0;
-        const rate = heroVoiceConfig?.rate || 0.95;
+        const baseRate = heroVoiceConfig?.rate || 0.95;
+        const rate = Math.max(0.1, Math.min(10, baseRate * speed));
         const gender = heroVoiceConfig?.gender || null;
+
+        const cacheKey = `${kokoroVoice}_${cleanText}`;
 
         if (this.ttsEngine === 'kokoro') {
             try {
-                const res = await fetch('/api/ai/tts', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        text: cleanText,
-                        voice: kokoroVoice,
-                        endpoint: this.ttsEndpoint
-                    })
-                });
+                let blob = this.audioCache.get(cacheKey);
 
-                const contentType = res.headers.get('Content-Type') || '';
-                if (res.ok && contentType.includes('audio')) {
+                if (!blob) {
+                    const res = await fetch('/api/ai/tts', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            text: cleanText,
+                            voice: kokoroVoice,
+                            speed: 1.0,
+                            endpoint: this.ttsEndpoint
+                        })
+                    });
+
+                    const contentType = res.headers.get('Content-Type') || '';
+                    if (res.ok && contentType.includes('audio')) {
+                        blob = await res.blob();
+                        this.audioCache.set(cacheKey, blob);
+                    } else {
+                        console.warn("Kokoro TTS endpoint returned non-200. Falling back seamlessly to Browser Native Speech Synthesis.");
+                    }
+                }
+
+                if (blob) {
                     if (onStart) onStart();
-                    const blob = await res.blob();
                     const audioUrl = URL.createObjectURL(blob);
-                    this.currentAudio = new Audio(audioUrl);
-                    this.currentAudio.onended = () => {
+                    const audio = new Audio(audioUrl);
+                    audio.defaultPlaybackRate = speed;
+                    audio.playbackRate = speed;
+                    audio.preservesPitch = true;
+
+                    const applyRate = () => {
+                        try {
+                            const curSpeed = this.speechSpeed || speed;
+                            audio.playbackRate = curSpeed;
+                            audio.defaultPlaybackRate = curSpeed;
+                        } catch (e) {}
+                    };
+
+                    audio.addEventListener('loadedmetadata', applyRate);
+                    audio.addEventListener('play', applyRate);
+                    audio.addEventListener('playing', applyRate);
+
+                    audio.onended = () => {
                         URL.revokeObjectURL(audioUrl);
                         if (onEnd) onEnd();
                     };
-                    this.currentAudio.onerror = () => {
+                    audio.onerror = () => {
                         URL.revokeObjectURL(audioUrl);
                         this.speakNative(cleanText, onStart, onEnd, pitch, rate, gender);
                     };
-                    await this.currentAudio.play();
+
+                    this.currentAudio = audio;
+                    await audio.play();
+                    applyRate();
                     return;
-                } else {
-                    console.warn("Kokoro TTS endpoint returned non-200. Falling back seamlessly to Browser Native Speech Synthesis.");
                 }
             } catch (e) {
                 console.warn("Kokoro TTS endpoint failed, falling back to Native Speech Synthesis:", e);

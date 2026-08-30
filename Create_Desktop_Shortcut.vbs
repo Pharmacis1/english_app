@@ -16,7 +16,7 @@ shortcut.TargetPath = WscriptExe
 shortcut.Arguments = """" & VbsScript & """"
 shortcut.WorkingDirectory = AppDir
 shortcut.Description = "Launch EnglishPulse AI RPG & Backend Server"
-shortcut.IconLocation = "shell32.dll,23"
+shortcut.IconLocation = AppDir & "\app_icon.ico"
 shortcut.Save
 
 WScript.Echo "🎉 Desktop Shortcut 'EnglishPulse AI' successfully updated!"

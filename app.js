@@ -154,9 +154,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function getUnlockedStageGifts() {
         try {
-            return JSON.parse(localStorage.getItem("english_pulse_unlocked_stage_gifts") || "[]");
+            const list = JSON.parse(localStorage.getItem("english_pulse_unlocked_stage_gifts") || "[]");
+            // Auto-unlock Selena's daily quest reward
+            if (!list.includes("skin_anim_selena")) {
+                list.push("skin_anim_selena");
+                localStorage.setItem("english_pulse_unlocked_stage_gifts", JSON.stringify(list));
+            }
+            return list;
         } catch (e) {
-            return [];
+            return ["skin_anim_selena"];
         }
     }
 
@@ -181,14 +187,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // 1. Apply Background & Transform
         if (bgLayer) {
+            const bgVideo = document.getElementById("hero-stage-bg-video");
             if (custom.bgId && custom.bgId !== "default") {
                 const bgItem = (window.STAGE_GIFTS_CATALOG || []).find(g => g.id === custom.bgId);
-                if (bgItem && bgItem.image) {
+                if (bgItem && bgItem.video) {
+                    bgLayer.style.backgroundImage = "none";
+                    if (bgVideo) {
+                        bgVideo.classList.remove("hidden");
+                        bgVideo.style.display = "block";
+                        if (!bgVideo.src.endsWith(bgItem.video)) {
+                            bgVideo.src = bgItem.video;
+                        }
+                        bgVideo.play().catch(e => {});
+                    }
+                } else if (bgItem && bgItem.image) {
+                    if (bgVideo) {
+                        bgVideo.pause();
+                        bgVideo.classList.add("hidden");
+                        bgVideo.style.display = "none";
+                    }
                     bgLayer.style.backgroundImage = `url('${bgItem.image}')`;
                 } else {
+                    if (bgVideo) {
+                        bgVideo.pause();
+                        bgVideo.classList.add("hidden");
+                        bgVideo.style.display = "none";
+                    }
                     bgLayer.style.backgroundImage = "url('images/castle_hall_bg.jpg')";
                 }
             } else {
+                if (bgVideo) {
+                    bgVideo.pause();
+                    bgVideo.classList.add("hidden");
+                    bgVideo.style.display = "none";
+                }
                 bgLayer.style.backgroundImage = "url('images/castle_hall_bg.jpg')";
             }
 
@@ -395,19 +427,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const headerXpEl = document.getElementById("rpg-header-xp");
         if (headerXpEl) headerXpEl.textContent = xpPoints;
 
-        // Calculate total combined level of all 10 heroes (Max 1000 = 100%)
-        const totalHeroLevels = rpgEngine.heroes.reduce((sum, h) => sum + (h.level || 1), 0);
-        const progressPct = Math.min(100, Math.max(0.1, (totalHeroLevels / 1000) * 100)).toFixed(1);
-
-        const globalTitleEl = document.getElementById("global-progress-title-text");
-        if (globalTitleEl) {
-            globalTitleEl.textContent = `Hero Levels: ${totalHeroLevels} / 1000 (${progressPct}%)`;
-        }
-        const globalFillEl = document.getElementById("global-progress-bar-fill");
-        if (globalFillEl) {
-            globalFillEl.style.width = `${progressPct}%`;
-        }
-
+        updateGlobalA1SkillsProgress();
         checkAndUpdateDailyStreak();
 
         // Player total dictionary words count across unlocked heroes & decks
@@ -425,6 +445,11 @@ document.addEventListener("DOMContentLoaded", () => {
             if (typeof syncActiveCustomizerHero === 'function') {
                 syncActiveCustomizerHero(hero);
             }
+        }
+
+        // 8. Update floating story grimoire visibility on stage
+        if (typeof updateFloatingGrimoireVisibility === 'function') {
+            updateFloatingGrimoireVisibility();
         }
     }
 
@@ -555,6 +580,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (btnHeaderStory) {
         btnHeaderStory.addEventListener("click", () => {
+            const hero = rpgEngine.heroes.find(h => h.id === activeShowcaseHeroId) || rpgEngine.heroes[0];
+            openHeroStoryModal(hero);
+        });
+    }
+
+    const floatingGrimoire = document.getElementById("floating-story-grimoire");
+    if (floatingGrimoire) {
+        floatingGrimoire.addEventListener("click", () => {
             const hero = rpgEngine.heroes.find(h => h.id === activeShowcaseHeroId) || rpgEngine.heroes[0];
             openHeroStoryModal(hero);
         });
@@ -1432,30 +1465,30 @@ document.addEventListener("DOMContentLoaded", () => {
         const hero = rpgEngine.heroes.find(h => h.id === activeHeroId);
         const state = getTodayHeroAudioState(activeHeroId);
 
-        const micXpNext = state.micCount < 10 ? "+50" : (state.micCount < 30 ? "+30" : "+10");
-        const textXpNext = state.typedCount < 10 ? "+30" : (state.typedCount < 30 ? "+20" : "+5");
+        const textXpNext = state.typedCount < 10 ? "+60" : (state.typedCount < 30 ? "+40" : "+10");
+        const listenCount = state.listenedMsgs ? state.listenedMsgs.length : 0;
+        const repeatCount = state.repeatedMsgs ? state.repeatedMsgs.length : 0;
 
         const heroNameEl = document.getElementById("tracker-hero-name");
-        const micCountEl = document.getElementById("tracker-mic-count");
         const textCountEl = document.getElementById("tracker-text-count");
+        const listenCountEl = document.getElementById("tracker-listen-count");
+        const repeatCountEl = document.getElementById("tracker-repeat-count");
 
         let wordsUsedCount = 0;
         let wordsTotalCount = 0;
         if (hero && hero.words) {
-            const dailyFocus = getHeroAntiRatingFocusWords(hero, 50);
+            const dailyFocus = getHeroAntiRatingFocusWords(hero, 20);
             wordsTotalCount = dailyFocus.length;
             wordsUsedCount = dailyFocus.filter(wObj => getWordUsageCount(hero.id, getWordProps(wObj).word) >= 1).length;
         }
-        const allHeroWordsUsed = wordsTotalCount > 0 && wordsUsedCount === wordsTotalCount;
+        const allHeroWordsUsed = wordsTotalCount > 0 && wordsUsedCount >= Math.min(20, wordsTotalCount);
 
-        const taskMicDone = state.micCount >= 10;
         const taskTextDone = state.typedCount >= 10;
-        const taskListenDone = state.listenedMsgs.length >= 20;
-        const taskRepeatDone = state.repeatedMsgs.length >= 20;
+        const taskListenDone = listenCount >= 10;
+        const taskRepeatDone = repeatCount >= 10;
         const taskWordsDone = allHeroWordsUsed;
 
         const completedTasksCount = 
-            (taskMicDone ? 1 : 0) + 
             (taskTextDone ? 1 : 0) + 
             (taskListenDone ? 1 : 0) + 
             (taskRepeatDone ? 1 : 0) + 
@@ -1470,8 +1503,9 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-        if (micCountEl) micCountEl.innerHTML = `🎙️ Mic: <strong>${state.micCount}/10</strong> (${micXpNext} XP)`;
         if (textCountEl) textCountEl.innerHTML = `⌨️ Text: <strong>${state.typedCount}/10</strong> (${textXpNext} XP)`;
+        if (listenCountEl) listenCountEl.innerHTML = `🔊 Listen: <strong>${listenCount}/10</strong> (+40 XP)`;
+        if (repeatCountEl) repeatCountEl.innerHTML = `🎯 Repeat: <strong>${repeatCount}/10</strong> (+40 XP)`;
 
         let questTagEl = document.getElementById("tracker-daily-quest-tag");
         if (!questTagEl) {
@@ -1489,21 +1523,20 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (state.questClaimed) {
-            questTagEl.innerHTML = `🏆 Daily Quest: <strong style="color:#34d399;">Claimed (+500 XP) ✅</strong>`;
-            questTagEl.title = `Daily Hero Quest (+500 XP Completed!): All 5 tasks completed today!`;
+            questTagEl.innerHTML = `🏆 Daily Quest: <strong style="color:#34d399;">Claimed (+1000 XP) ✅</strong>`;
+            questTagEl.title = `Daily Hero Quest (+1000 XP Completed!): All 4 tasks completed today!`;
         } else {
-            const colorStr = completedTasksCount === 5 ? "#fbbf24" : (completedTasksCount >= 3 ? "#60a5fa" : "#c084fc");
-            questTagEl.innerHTML = `🏆 Quest: <strong style="color:${colorStr};">${completedTasksCount}/5 Tasks</strong> (+500 XP)`;
+            const colorStr = completedTasksCount === 4 ? "#fbbf24" : (completedTasksCount >= 2 ? "#60a5fa" : "#c084fc");
+            questTagEl.innerHTML = `🏆 Quest: <strong style="color:${colorStr};">${completedTasksCount}/4 Tasks</strong> (+1000 XP)`;
             questTagEl.style.cursor = "pointer";
-            questTagEl.title = `Daily Hero Quest Bonus (+500 XP):\n` +
-                `${taskMicDone ? '✅' : '❌'} 10 Voice Messages (${state.micCount}/10)\n` +
+            questTagEl.title = `Daily Hero Quest Bonus (+1000 XP):\n` +
                 `${taskTextDone ? '✅' : '❌'} 10 Text Messages (${state.typedCount}/10)\n` +
-                `${taskListenDone ? '✅' : '❌'} 20 Message Listens (${state.listenedMsgs.length}/20)\n` +
-                `${taskRepeatDone ? '✅' : '❌'} 20 Message Repeats (${state.repeatedMsgs.length}/20)\n` +
-                `${taskWordsDone ? '✅' : '❌'} 50 Focus Words Used (${wordsUsedCount}/${wordsTotalCount})`;
+                `${taskListenDone ? '✅' : '❌'} 10 Message Listens (${listenCount}/10)\n` +
+                `${taskRepeatDone ? '✅' : '❌'} 10 Message Repeats (${repeatCount}/10)\n` +
+                `${taskWordsDone ? '✅' : '❌'} 20 Focus Words Used (${wordsUsedCount}/${wordsTotalCount})`;
         }
 
-        if (completedTasksCount === 5 && !state.questClaimed && hero && hero.level < maxLvlCap) {
+        if (completedTasksCount === 4 && !state.questClaimed && hero && hero.level < maxLvlCap) {
             state.questClaimed = true;
             saveTodayHeroAudioState(activeHeroId, state);
 
@@ -1511,8 +1544,8 @@ document.addEventListener("DOMContentLoaded", () => {
             totalQuests += 1;
             localStorage.setItem("total_completed_daily_quests", totalQuests);
 
-            addXP(500);
-            triggerRPGReward("daily_quest", activeHeroId, activeHeroId, 500);
+            addXP(1000);
+            triggerRPGReward("daily_quest", activeHeroId, activeHeroId, 1000);
 
             const newlyUnlocked = checkAndUpdateHeroUnlocks(rpgEngine);
             let unlockToastMsg = "";
@@ -1520,13 +1553,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 unlockToastMsg = `<br>🔓 <b>NEW HERO UNLOCKED: ${newlyUnlocked.join(", ")}!</b>`;
             }
 
-            showToast(`🏆 <b>HERO DAILY QUEST COMPLETED!</b> +500 XP Awarded!${unlockToastMsg}`, "linear-gradient(135deg, #f59e0b, #ec4899)", "#fbbf24");
+            showToast(`🏆 <b>HERO DAILY QUEST COMPLETED!</b> +1000 XP Awarded!${unlockToastMsg}`, "linear-gradient(135deg, #f59e0b, #ec4899)", "#fbbf24");
             
             renderHeroShowcase();
             renderBottomHeroCarousel();
             checkAndUpdateDailyStreak();
             triggerDailyQuestGiftUnlock(hero);
         }
+
+        try { 
+            updateWritingUI(); 
+            updateListeningUI(); 
+        } catch(e) {}
     }
 
     // --- NEW STREAMLINED STREAK ENGINE (УДАРНЫЙ РЕЖИМ) ---
@@ -1552,7 +1590,7 @@ document.addEventListener("DOMContentLoaded", () => {
             totalRepeated += (st.repeatedMsgs ? st.repeatedMsgs.length : 0);
 
             if (h.words) {
-                const focus = getHeroAntiRatingFocusWords(h, 50);
+                const focus = getHeroAntiRatingFocusWords(h, 20);
                 const used = focus.filter(wObj => getWordUsageCount(h.id, getWordProps(wObj).word) >= 1).length;
                 totalFocusWordsUsed += used;
             }
@@ -1637,12 +1675,400 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    // --- WRITING SKILL ENGINE (LEVEL 1 -> 100, 50,000 TOTAL WORDS) ---
+    function generateWritingThresholds() {
+        const thresholds = [0];
+        for (let lvl = 2; lvl <= 100; lvl++) {
+            const thresh = Math.round(50000 * Math.pow((lvl - 1) / 99.0, 1.4));
+            thresholds.push(thresh);
+        }
+        thresholds[99] = 50000;
+        return thresholds;
+    }
+
+    const WRITING_THRESHOLDS = generateWritingThresholds();
+
+    function getWritingStats() {
+        const totalWords = parseInt(localStorage.getItem("english_pulse_writing_words") || "0", 10);
+        let level = 1;
+        for (let i = 0; i < WRITING_THRESHOLDS.length; i++) {
+            if (totalWords >= WRITING_THRESHOLDS[i]) {
+                level = i + 1;
+            } else {
+                break;
+            }
+        }
+        level = Math.min(100, Math.max(1, level));
+
+        const currentLevelThreshold = WRITING_THRESHOLDS[level - 1] || 0;
+        const nextLevelThreshold = level < 100 ? (WRITING_THRESHOLDS[level] || 50000) : 50000;
+        const wordsInCurrentLevel = totalWords - currentLevelThreshold;
+        const wordsNeededForNextLevel = nextLevelThreshold - currentLevelThreshold;
+        const progressPercent = level >= 100 ? 100 : Math.min(100, Math.max(0, (wordsInCurrentLevel / wordsNeededForNextLevel) * 100));
+
+        return {
+            totalWords,
+            level,
+            currentLevelThreshold,
+            nextLevelThreshold,
+            wordsInCurrentLevel,
+            wordsNeededForNextLevel,
+            progressPercent: parseFloat(progressPercent.toFixed(1))
+        };
+    }
+
+    function addWritingWords(wordsGained) {
+        if (wordsGained <= 0) return;
+        const prevStats = getWritingStats();
+        if (prevStats.level >= 100) return;
+
+        const newTotal = Math.min(50000, prevStats.totalWords + wordsGained);
+        localStorage.setItem("english_pulse_writing_words", newTotal);
+        const newStats = getWritingStats();
+
+        updateWritingUI();
+
+        if (newStats.level > prevStats.level) {
+            showToast(`✍️ <b>WRITING LEVEL UP!</b> Level <b>${newStats.level}</b> reached! (${newTotal.toLocaleString()} / 50,000 words)`, "linear-gradient(135deg, #6366f1, #a855f7)", "#818cf8");
+        }
+    }
+
+    function updateWritingUI() {
+        const stats = getWritingStats();
+        const headerLvlEl = document.getElementById("rpg-header-writing-lvl");
+        const headerPillEl = document.getElementById("rpg-header-writing-pill");
+        if (headerLvlEl) {
+            headerLvlEl.textContent = `Lv. ${stats.level}`;
+        }
+        if (headerPillEl) {
+            headerPillEl.title = `Навык письма (Writing Level ${stats.level}/100):\n` +
+                `Слов набрано: ${stats.totalWords.toLocaleString()} / 50 000\n` +
+                (stats.level < 100 ? `До уровня ${stats.level + 1}: ${stats.wordsInCurrentLevel}/${stats.wordsNeededForNextLevel} слов (${stats.progressPercent}%)` : `МАКСИМАЛЬНЫЙ УРОВЕНЬ 100 ДОСТИГНУТ! 🏆`);
+        }
+
+        const trackerWritingEl = document.getElementById("tracker-writing-tag");
+        if (trackerWritingEl) {
+            trackerWritingEl.innerHTML = `✍️ Writing: <strong>Lv. ${stats.level}</strong> (${stats.totalWords.toLocaleString()} / 50 000)`;
+            trackerWritingEl.title = `Навык письма: наберите 50 000 слов с героями <100 lvl (1 слово = 1 XP). Прогресс уровня: ${stats.wordsInCurrentLevel}/${stats.wordsNeededForNextLevel} слов (${stats.progressPercent}%)`;
+        }
+        try { updateGlobalA1SkillsProgress(); } catch(e) {}
+    }
+
+    // --- LISTENING SKILL ENGINE (LEVEL 1 -> 100, 800,000 TOTAL WORDS) ---
+    function generateListeningThresholds() {
+        const thresholds = [0];
+        for (let lvl = 2; lvl <= 100; lvl++) {
+            const thresh = Math.round(800000 * Math.pow((lvl - 1) / 99.0, 1.4));
+            thresholds.push(thresh);
+        }
+        thresholds[99] = 800000;
+        return thresholds;
+    }
+
+    const LISTENING_THRESHOLDS = generateListeningThresholds();
+
+    function getListeningStats() {
+        const totalWords = parseInt(localStorage.getItem("english_pulse_listening_words") || "0", 10);
+        let level = 1;
+        for (let i = 0; i < LISTENING_THRESHOLDS.length; i++) {
+            if (totalWords >= LISTENING_THRESHOLDS[i]) {
+                level = i + 1;
+            } else {
+                break;
+            }
+        }
+        level = Math.min(100, Math.max(1, level));
+
+        const currentLevelThreshold = LISTENING_THRESHOLDS[level - 1] || 0;
+        const nextLevelThreshold = level < 100 ? (LISTENING_THRESHOLDS[level] || 800000) : 800000;
+        const wordsInCurrentLevel = totalWords - currentLevelThreshold;
+        const wordsNeededForNextLevel = nextLevelThreshold - currentLevelThreshold;
+        const progressPercent = level >= 100 ? 100 : Math.min(100, Math.max(0, (wordsInCurrentLevel / wordsNeededForNextLevel) * 100));
+
+        return {
+            totalWords,
+            level,
+            currentLevelThreshold,
+            nextLevelThreshold,
+            wordsInCurrentLevel,
+            wordsNeededForNextLevel,
+            progressPercent: parseFloat(progressPercent.toFixed(1))
+        };
+    }
+
+    function addListeningWords(wordsGained) {
+        if (wordsGained <= 0) return;
+        const prevStats = getListeningStats();
+        if (prevStats.level >= 100) return;
+
+        const newTotal = Math.min(800000, prevStats.totalWords + wordsGained);
+        localStorage.setItem("english_pulse_listening_words", newTotal);
+        const newStats = getListeningStats();
+
+        updateListeningUI();
+
+        if (newStats.level > prevStats.level) {
+            showToast(`🎧 <b>LISTENING LEVEL UP!</b> Level <b>${newStats.level}</b> reached! (${newTotal.toLocaleString()} / 800,000 words)`, "linear-gradient(135deg, #0284c7, #38bdf8)", "#38bdf8");
+        }
+    }
+
+    function updateListeningUI() {
+        const stats = getListeningStats();
+        const headerLvlEl = document.getElementById("rpg-header-listening-lvl");
+        const headerPillEl = document.getElementById("rpg-header-listening-pill");
+        if (headerLvlEl) {
+            headerLvlEl.textContent = `Lv. ${stats.level}`;
+        }
+        if (headerPillEl) {
+            headerPillEl.title = `Навык восприятия (Listening Level ${stats.level}/100):\n` +
+                `Слов прослушано: ${stats.totalWords.toLocaleString()} / 800 000\n` +
+                (stats.level < 100 ? `До уровня ${stats.level + 1}: ${stats.wordsInCurrentLevel}/${stats.wordsNeededForNextLevel} слов (${stats.progressPercent}%)` : `МАКСИМАЛЬНЫЙ УРОВЕНЬ 100 ДОСТИГНУТ! 🏆`);
+        }
+
+        const trackerListeningEl = document.getElementById("tracker-listening-tag");
+        if (trackerListeningEl) {
+            trackerListeningEl.innerHTML = `🎧 Listening: <strong>Lv. ${stats.level}</strong> (${stats.totalWords.toLocaleString()} / 800 000)`;
+            trackerListeningEl.title = `Навык восприятия: прослушайте 800 000 слов в диалогах (1 слово = 1 XP). Прогресс уровня: ${stats.wordsInCurrentLevel}/${stats.wordsNeededForNextLevel} слов (${stats.progressPercent}%)`;
+        }
+        try { updateGlobalA1SkillsProgress(); } catch(e) {}
+    }
+
+    // --- VOCABULARY SKILL ENGINE (LEVEL 1 -> 100, 5,000 WORDS IN LONG-TERM MEMORY: INTERVAL >= 21 DAYS) ---
+    function generateVocabThresholds() {
+        const thresholds = [0];
+        for (let lvl = 2; lvl <= 100; lvl++) {
+            const thresh = Math.round(5000 * Math.pow((lvl - 1) / 99.0, 1.4));
+            thresholds.push(thresh);
+        }
+        thresholds[99] = 5000;
+        return thresholds;
+    }
+
+    const VOCAB_THRESHOLDS = generateVocabThresholds();
+
+    function getPlayerLongTermMemoryWordsCount() {
+        if (typeof flashcardEngine === 'undefined') return 0;
+        const decks = flashcardEngine.decks || (typeof flashcardEngine.loadDecks === 'function' ? flashcardEngine.loadDecks() : {}) || {};
+        const masteredWordsSet = new Set();
+
+        Object.values(decks).forEach(deck => {
+            if (Array.isArray(deck)) {
+                deck.forEach(card => {
+                    if (card && card.studied && (card.interval || 0) >= 21) {
+                        if (card.word) masteredWordsSet.add(card.word.toLowerCase().trim());
+                    }
+                });
+            }
+        });
+
+        return masteredWordsSet.size;
+    }
+
+    function getVocabStats() {
+        const totalWords = getPlayerLongTermMemoryWordsCount();
+        let level = 1;
+        for (let i = 0; i < VOCAB_THRESHOLDS.length; i++) {
+            if (totalWords >= VOCAB_THRESHOLDS[i]) {
+                level = i + 1;
+            } else {
+                break;
+            }
+        }
+        level = Math.min(100, Math.max(1, level));
+
+        const currentLevelThreshold = VOCAB_THRESHOLDS[level - 1] || 0;
+        const nextLevelThreshold = level < 100 ? (VOCAB_THRESHOLDS[level] || 5000) : 5000;
+        const wordsInCurrentLevel = totalWords - currentLevelThreshold;
+        const wordsNeededForNextLevel = nextLevelThreshold - currentLevelThreshold;
+        const progressPercent = level >= 100 ? 100 : Math.min(100, Math.max(0, (wordsInCurrentLevel / wordsNeededForNextLevel) * 100));
+
+        return {
+            totalWords,
+            level,
+            currentLevelThreshold,
+            nextLevelThreshold,
+            wordsInCurrentLevel,
+            wordsNeededForNextLevel,
+            progressPercent: parseFloat(progressPercent.toFixed(1))
+        };
+    }
+
+    let lastKnownVocabLevel = null;
+    function checkAndUpdateVocabLevel() {
+        const stats = getVocabStats();
+        if (lastKnownVocabLevel === null) {
+            lastKnownVocabLevel = parseInt(localStorage.getItem("english_pulse_last_vocab_lvl") || `${stats.level}`, 10);
+        }
+
+        if (stats.level > lastKnownVocabLevel) {
+            showToast(`📚 <b>VOCABULARY LEVEL UP!</b> Level <b>${stats.level}</b> reached! (${stats.totalWords.toLocaleString()} / 5,000 words in long-term memory)`, "linear-gradient(135deg, #06b6d4, #0284c7)", "#22d3ee");
+            lastKnownVocabLevel = stats.level;
+            localStorage.setItem("english_pulse_last_vocab_lvl", stats.level);
+        }
+
+        updateVocabUI();
+    }
+
+    function updateVocabUI() {
+        const stats = getVocabStats();
+        const headerLvlEl = document.getElementById("rpg-header-vocab-lvl");
+        const headerPillEl = document.getElementById("rpg-header-vocab-pill");
+        if (headerLvlEl) {
+            headerLvlEl.textContent = `Lv. ${stats.level}`;
+        }
+        if (headerPillEl) {
+            headerPillEl.title = `Навык словарного запаса (Vocabulary Level ${stats.level}/100):\n` +
+                `Слов в долгосрочной памяти (интервал ≥21 дн.): ${stats.totalWords.toLocaleString()} / 5 000\n` +
+                (stats.level < 100 ? `До уровня ${stats.level + 1}: ${stats.wordsInCurrentLevel}/${stats.wordsNeededForNextLevel} слов (${stats.progressPercent}%)` : `МАКСИМАЛЬНЫЙ УРОВЕНЬ 100 ДОСТИГНУТ! 🏆`);
+        }
+
+        const srsMasteredKpi = document.getElementById("srs-kpi-mastered");
+        if (srsMasteredKpi) {
+            srsMasteredKpi.textContent = stats.totalWords;
+        }
+        try { updateGlobalA1SkillsProgress(); } catch(e) {}
+    }
+
+    function updateReadingUI() {
+        if (!window.visualFluency) return;
+        const progress = window.visualFluency.getProgressData();
+        const headerLvlEl = document.getElementById("rpg-header-reading-lvl");
+        const headerPillEl = document.getElementById("rpg-header-reading-pill");
+        if (headerLvlEl) {
+            headerLvlEl.textContent = `Lv. ${progress.level}`;
+        }
+        if (headerPillEl) {
+            headerPillEl.title = `Навык чтения (Reading / Visual Fluency Lv. ${progress.level}/100):\n` +
+                `Ранг: ${progress.rank.icon} ${progress.rank.title}\n` +
+                `Слов прочитано: ${progress.xp.toLocaleString()} / 1 000 000\n` +
+                (progress.level < 100 ? `До уровня ${progress.level + 1}: ${progress.xpInLevel}/${progress.levelTotalReq} XP (${progress.percent}%)` : `МАКСИМАЛЬНЫЙ УРОВЕНЬ 100 ДОСТИГНУТ! 🏆`);
+        }
+        try { updateGlobalA1SkillsProgress(); } catch(e) {}
+    }
+
+    function updateDrillsUI() {
+        if (!window.patternDrills) return;
+        const stats = window.patternDrills.getStats();
+        const headerLvlEl = document.getElementById("rpg-header-drills-lvl");
+        const headerPillEl = document.getElementById("rpg-header-drills-pill");
+        const modalBadge = document.getElementById("drills-header-progress-badge");
+
+        if (headerLvlEl) {
+            headerLvlEl.textContent = `Lv. ${stats.level}`;
+        }
+        if (headerPillEl) {
+            headerPillEl.title = `Навык дриллов (Drills Level ${stats.level}/100):\n` +
+                `Пройдено трансформаций: ${stats.totalCards.toLocaleString()} / 10 000\n` +
+                (stats.level < 100 ? `До уровня ${stats.level + 1}: ${stats.inLevel}/${stats.needed} карточек (${stats.percent}%)` : `МАКСИМАЛЬНЫЙ УРОВЕНЬ 100 ДОСТИГНУТ! 🏆`);
+        }
+        if (modalBadge) {
+            modalBadge.textContent = `Card: ${stats.totalCards.toLocaleString()} / 10,000 • Lv. ${stats.level}`;
+        }
+        try { updateGlobalA1SkillsProgress(); } catch(e) {}
+    }
+
+    function updateSpeakingUI() {
+        if (!window.speakingEngine) return;
+        const stats = window.speakingEngine.getStats();
+        const headerLvlEl = document.getElementById("rpg-header-speaking-lvl");
+        const headerPillEl = document.getElementById("rpg-header-speaking-pill");
+        const modalBadge = document.getElementById("speaking-header-badge");
+
+        if (headerLvlEl) {
+            headerLvlEl.textContent = `Lv. ${stats.level}`;
+        }
+        if (headerPillEl) {
+            headerPillEl.title = `Навык говорения (Speaking Level ${stats.level}/100):\n` +
+                `Наговорено слов: ${stats.totalWords.toLocaleString()} / 300 000\n` +
+                (stats.level < 100 ? `До уровня ${stats.level + 1}: ${stats.inLevel}/${stats.needed} слов (${stats.percent}%)` : `МАКСИМАЛЬНЫЙ УРОВЕНЬ 100 ДОСТИГНУТ! 🏆`);
+        }
+        if (modalBadge) {
+            modalBadge.textContent = `Words: ${stats.totalWords.toLocaleString()} / 300,000 • Lv. ${stats.level}`;
+        }
+        try { updateGlobalA1SkillsProgress(); } catch(e) {}
+    }
+
+    function updateGlobalA1SkillsProgress() {
+        const readingLvl = window.visualFluency ? window.visualFluency.level : 1;
+        const listeningStats = window.getListeningStats ? window.getListeningStats() : { level: 1, totalWords: 0 };
+        const writingStats = window.getWritingStats ? window.getWritingStats() : { level: 1, totalWords: 0 };
+        const drillsStats = window.patternDrills ? window.patternDrills.getStats() : { level: 1, totalCards: 0 };
+        const speakingStats = window.speakingEngine ? window.speakingEngine.getStats() : { level: 1, totalWords: 0 };
+        const vocabStats = window.getVocabStats ? window.getVocabStats() : { level: 1, totalWords: 0 };
+
+        const A1_TARGETS = {
+            reading: { targetLvl: 11, desc: "30 000 XP" },
+            listening: { targetLvl: 10, desc: "25 000 слов" },
+            writing: { targetLvl: 11, desc: "2 000 слов" },
+            drills: { targetLvl: 23, desc: "1 200 карточек" },
+            speaking: { targetLvl: 7, desc: "5 000 слов" },
+            vocab: { targetLvl: 35, desc: "1 100 слов в SRS" }
+        };
+
+        const totalTargetLevels = Object.values(A1_TARGETS).reduce((sum, item) => sum + item.targetLvl, 0); // 97
+
+        const readingContrib = Math.min(readingLvl, A1_TARGETS.reading.targetLvl);
+        const listeningContrib = Math.min(listeningStats.level, A1_TARGETS.listening.targetLvl);
+        const writingContrib = Math.min(writingStats.level, A1_TARGETS.writing.targetLvl);
+        const drillsContrib = Math.min(drillsStats.level, A1_TARGETS.drills.targetLvl);
+        const speakingContrib = Math.min(speakingStats.level, A1_TARGETS.speaking.targetLvl);
+        const vocabContrib = Math.min(vocabStats.level, A1_TARGETS.vocab.targetLvl);
+
+        const currentSkillLevelsSum = readingContrib + listeningContrib + writingContrib + drillsContrib + speakingContrib + vocabContrib;
+        const progressPct = Math.min(100, Math.max(0, (currentSkillLevelsSum / totalTargetLevels) * 100)).toFixed(1);
+
+        const globalTitleEl = document.getElementById("global-progress-title-text");
+        if (globalTitleEl) {
+            globalTitleEl.textContent = `A1 Skills: ${currentSkillLevelsSum} / ${totalTargetLevels} (${progressPct}%)`;
+        }
+
+        const globalFillEl = document.getElementById("global-progress-bar-fill");
+        if (globalFillEl) {
+            globalFillEl.style.width = `${progressPct}%`;
+        }
+
+        const containerEl = document.getElementById("global-a0-a1-container") || document.querySelector(".global-a0-a1-progress-container");
+        if (containerEl) {
+            containerEl.title = `🎯 Прогресс достижения ранга A1 (Сумма уровней навыков):\n` +
+                `📖 Reading: Lv. ${readingLvl} / ${A1_TARGETS.reading.targetLvl} ${readingLvl >= A1_TARGETS.reading.targetLvl ? '✅' : `(порог: ${A1_TARGETS.reading.desc})`}\n` +
+                `🎧 Listening: Lv. ${listeningStats.level} / ${A1_TARGETS.listening.targetLvl} ${listeningStats.level >= A1_TARGETS.listening.targetLvl ? '✅' : `(порог: ${A1_TARGETS.listening.desc})`}\n` +
+                `✍️ Writing: Lv. ${writingStats.level} / ${A1_TARGETS.writing.targetLvl} ${writingStats.level >= A1_TARGETS.writing.targetLvl ? '✅' : `(порог: ${A1_TARGETS.writing.desc})`}\n` +
+                `⚡ Drills: Lv. ${drillsStats.level} / ${A1_TARGETS.drills.targetLvl} ${drillsStats.level >= A1_TARGETS.drills.targetLvl ? '✅' : `(порог: ${A1_TARGETS.drills.desc})`}\n` +
+                `🎙️ Speaking: Lv. ${speakingStats.level} / ${A1_TARGETS.speaking.targetLvl} ${speakingStats.level >= A1_TARGETS.speaking.targetLvl ? '✅' : `(порог: ${A1_TARGETS.speaking.desc})`}\n` +
+                `📚 Vocab: Lv. ${vocabStats.level} / ${A1_TARGETS.vocab.targetLvl} ${vocabStats.level >= A1_TARGETS.vocab.targetLvl ? '✅' : `(порог: ${A1_TARGETS.vocab.desc})`}\n\n` +
+                `Общий прогресс: ${currentSkillLevelsSum} / ${totalTargetLevels} уровней (${progressPct}%)`;
+        }
+    }
+
     function renderRPGHeader() {
         const powerEl = document.getElementById("rpg-power-display");
         if (powerEl) powerEl.textContent = rpgEngine.getPartyPower();
         const squadEl = document.getElementById("rpg-squad-power");
         if (squadEl) squadEl.textContent = rpgEngine.getPartyPower();
+        updateReadingUI();
+        updateListeningUI();
+        updateWritingUI();
+        updateDrillsUI();
+        updateSpeakingUI();
+        updateVocabUI();
+        updateGlobalA1SkillsProgress();
     }
+
+    window.getWritingStats = getWritingStats;
+    window.addWritingWords = addWritingWords;
+    window.updateWritingUI = updateWritingUI;
+    window.getListeningStats = getListeningStats;
+    window.addListeningWords = addListeningWords;
+    window.updateListeningUI = updateListeningUI;
+    window.getPlayerLongTermMemoryWordsCount = getPlayerLongTermMemoryWordsCount;
+    window.getVocabStats = getVocabStats;
+    window.checkAndUpdateVocabLevel = checkAndUpdateVocabLevel;
+    window.updateVocabUI = updateVocabUI;
+    window.updateReadingUI = updateReadingUI;
+    window.updateDrillsUI = updateDrillsUI;
+    window.updateSpeakingUI = updateSpeakingUI;
+    window.updateGlobalA1SkillsProgress = updateGlobalA1SkillsProgress;
+    window.updateSpeakingUI = updateSpeakingUI;
 
     function getHeroIdFromCategory(catName) {
         if (!catName || catName === "🧠 Due for SRS Review") return null;
@@ -1939,7 +2365,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return { count, percentage, total };
     }
 
-    function getHeroAntiRatingFocusWords(hero, targetCount = 50) {
+    function getHeroAntiRatingFocusWords(hero, targetCount = 20) {
         if (!hero || !hero.words || hero.words.length === 0) return [];
         
         const wordsList = [...hero.words];
@@ -2086,18 +2512,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (isMatched) {
                 const currentUsage = getWordUsageCount(hero.id, w.word);
-                let bonusXp = 1;
-                let tierText = "Mastered (+1 XP)";
+                let bonusXp = 2;
+                let tierText = "Mastered (+2 XP)";
 
                 if (currentUsage === 0) {
-                    bonusXp = 20;
-                    tierText = "1st Use (+20 XP)";
+                    bonusXp = 40;
+                    tierText = "1st Use (+40 XP)";
                 } else if (currentUsage === 1) {
-                    bonusXp = 10;
-                    tierText = "2nd Use (+10 XP)";
+                    bonusXp = 20;
+                    tierText = "2nd Use (+20 XP)";
                 } else if (currentUsage === 2) {
-                    bonusXp = 5;
-                    tierText = "3rd Use (+5 XP)";
+                    bonusXp = 10;
+                    tierText = "3rd Use (+10 XP)";
                 }
 
                 incrementWordUsageCount(hero.id, w.word);
@@ -2231,19 +2657,19 @@ document.addEventListener("DOMContentLoaded", () => {
         heroGrammarRuleHint.innerHTML = `<i class="fa-solid fa-lightbulb"></i> <strong>Grammar Focus:</strong> ${ruleText}`;
 
         // Categorize words into Nouns, Verbs, Adjectives, Expressions
-        const focusWords = getHeroAntiRatingFocusWords(targetHero, 50);
+        const focusWords = getHeroAntiRatingFocusWords(targetHero, 20);
         const usedFocusCount = focusWords.filter(wObj => getWordUsageCount(targetHero.id, getWordProps(wObj).word) >= 1).length;
 
         const modeTitleEl = document.getElementById("vocab-deck-mode-title");
         if (modeTitleEl) {
             if (activeVocabViewMode === "focus") {
-                modeTitleEl.innerHTML = `🎯 Focus Words (${usedFocusCount}/50)`;
+                modeTitleEl.innerHTML = `🎯 Focus Words (${usedFocusCount}/20)`;
                 modeTitleEl.style.color = "#60a5fa";
-                modeTitleEl.title = "Showing 50 least-used Focus Words for today's Daily Quest (Click to show All 110 words)";
+                modeTitleEl.title = "Showing 20 least-used Focus Words for today's Daily Quest (Click to show All 110 words)";
             } else {
                 modeTitleEl.innerHTML = `📚 All Words (${targetHero.words ? targetHero.words.length : 110})`;
                 modeTitleEl.style.color = "#fbbf24";
-                modeTitleEl.title = "Showing All Hero Words (Click to show 50 Focus Words)";
+                modeTitleEl.title = "Showing All Hero Words (Click to show 20 Focus Words)";
             }
         }
 
@@ -2406,6 +2832,43 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // Hero Chat Speech Speed Controls (0.25x, 0.5x, 0.75x, 1.0x)
+    function initHeroChatSpeedControls() {
+        const container = document.getElementById("hero-chat-speed-controls");
+        if (!container) return;
+
+        const currentSpeed = (typeof voiceService !== 'undefined' && typeof voiceService.getSpeechSpeed === 'function') 
+            ? voiceService.getSpeechSpeed() 
+            : (parseFloat(localStorage.getItem("hero_chat_voice_speed")) || 1.0);
+
+        const updateActiveSpeedBtn = (spd) => {
+            const buttons = container.querySelectorAll(".chat-speed-btn");
+            buttons.forEach(btn => {
+                const btnSpeed = parseFloat(btn.getAttribute("data-speed"));
+                if (Math.abs(btnSpeed - spd) < 0.01) {
+                    btn.classList.add("active");
+                } else {
+                    btn.classList.remove("active");
+                }
+            });
+        };
+
+        updateActiveSpeedBtn(currentSpeed);
+
+        container.addEventListener("click", (e) => {
+            const btn = e.target.closest(".chat-speed-btn");
+            if (!btn) return;
+            const newSpeed = parseFloat(btn.getAttribute("data-speed")) || 1.0;
+            if (typeof voiceService !== 'undefined' && typeof voiceService.setSpeechSpeed === 'function') {
+                voiceService.setSpeechSpeed(newSpeed);
+            }
+            updateActiveSpeedBtn(newSpeed);
+            showToast(`🔊 Скорость озвучки: ${newSpeed}x`, "rgba(99, 102, 241, 0.9)");
+        });
+    }
+
+    initHeroChatSpeedControls();
+
     function resetChat() {
         chatHistory = [];
         if (chatMessagesBox) chatMessagesBox.innerHTML = "";
@@ -2565,7 +3028,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return Math.min(100, Math.max(0, accuracy));
     }
 
-    function renderPronunciationBadge(bubble, accuracy, msgContent, heroId) {
+    function renderPronunciationBadge(bubble, accuracy, msgContent, heroId, spokenTranscript = "") {
         let badgeClass = "perfect";
         let badgeText = `🟢 ${accuracy}% Accuracy (Perfect!)`;
         if (accuracy < 60) {
@@ -2576,13 +3039,58 @@ document.addEventListener("DOMContentLoaded", () => {
             badgeText = `🟡 ${accuracy}% Accuracy (Good Job!)`;
         }
 
-        let badgeEl = bubble.querySelector(".pronunciation-badge");
-        if (!badgeEl) {
-            badgeEl = document.createElement("div");
-            bubble.querySelector(".message-content").appendChild(badgeEl);
+        let badgeWrapper = bubble.querySelector(".pronunciation-badge-wrapper");
+        if (!badgeWrapper) {
+            badgeWrapper = document.createElement("div");
+            badgeWrapper.className = "pronunciation-badge-wrapper";
+            bubble.querySelector(".message-content").appendChild(badgeWrapper);
         }
-        badgeEl.className = `pronunciation-badge ${badgeClass}`;
-        badgeEl.textContent = badgeText;
+
+        // Clean target and spoken words for matching
+        const cleanTargetWords = msgContent.toLowerCase().replace(/\[correction:[\s\S]*?\]/gi, '').replace(/[^a-z0-9\s]/gi, '').split(/\s+/).filter(Boolean);
+        const cleanSpokenWords = spokenTranscript ? spokenTranscript.toLowerCase().replace(/[^a-z0-9\s]/gi, '').split(/\s+/).filter(Boolean) : [];
+
+        // Word-by-word markup of the original phrase
+        const originalWordsArr = msgContent.split(/\s+/).filter(Boolean);
+        const highlightedOriginalHtml = originalWordsArr.map(origWord => {
+            const normalized = origWord.toLowerCase().replace(/[^a-z0-9]/gi, '');
+            if (!normalized) return origWord;
+            const isMatched = cleanSpokenWords.includes(normalized);
+            return `<span class="pronunciation-word ${isMatched ? 'correct' : 'wrong'}">${origWord}</span>`;
+        }).join(" ");
+
+        const missedWords = cleanTargetWords.filter(w => !cleanSpokenWords.includes(w));
+        const missedWordsHtml = missedWords.length > 0
+            ? `<div style="margin-top:4px; font-size:11px; color:#fca5a5;">⚠️ Не распознано / искажено: <strong>${missedWords.join(", ")}</strong></div>`
+            : `<div style="margin-top:4px; font-size:11px; color:#6ee7b7;">✨ Все слова произнесены чётко!</div>`;
+
+        badgeWrapper.innerHTML = `
+            <div style="display:flex; align-items:center; flex-wrap:wrap; gap:6px; margin-top:6px;">
+                <span class="pronunciation-badge ${badgeClass}">${badgeText}</span>
+                <button type="button" class="transcript-toggle-btn">
+                    <i class="fa-solid fa-align-left"></i> <span>Анализ слов</span>
+                </button>
+            </div>
+            <div class="pronunciation-transcript-box hidden">
+                <div style="font-weight:700; color:#cbd5e1; margin-bottom:4px;">
+                    🎯 Эталон: ${highlightedOriginalHtml}
+                </div>
+                <div style="color:#94a3b8; font-style:italic; margin-bottom:4px;">
+                    🎙️ Нейросеть услышала: <span style="color:#f1f5f9;">"${spokenTranscript || '(тишина / не распознано)'}"</span>
+                </div>
+                ${missedWordsHtml}
+            </div>
+        `;
+
+        const toggleBtn = badgeWrapper.querySelector(".transcript-toggle-btn");
+        const transcriptBox = badgeWrapper.querySelector(".pronunciation-transcript-box");
+        if (toggleBtn && transcriptBox) {
+            toggleBtn.addEventListener("click", () => {
+                transcriptBox.classList.toggle("hidden");
+                const isHidden = transcriptBox.classList.contains("hidden");
+                toggleBtn.querySelector("span").textContent = isHidden ? "Анализ слов" : "Скрыть анализ";
+            });
+        }
 
         const repeatBtn = bubble.querySelector(".repeat-sentence-btn");
         if (repeatBtn) {
@@ -2598,8 +3106,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 state.repeatedMsgs.push(msgId);
                 saveTodayHeroAudioState(targetHeroId, state);
 
-                triggerRPGReward("repeat", targetHeroId, targetHeroId, 20, `🎯 +20 XP Pronunciation Repeat Bonus!`, "linear-gradient(135deg, #10b981, #059669)");
-                addXP(20);
+                // Award spoken words to Speaking Skill!
+                const spokenWordCount = msgContent.trim().split(/\s+/).filter(w => /[a-zA-Z]/.test(w)).length;
+                if (spokenWordCount > 0 && window.speakingEngine) {
+                    const addRes = window.speakingEngine.addWords(spokenWordCount);
+                    updateSpeakingUI();
+                    if (addRes && addRes.leveledUp) {
+                        showToast(`🎙️ <b>SPEAKING LEVEL UP!</b> Level <b>${addRes.newLevel}</b> reached! (${addRes.totalWords.toLocaleString()} / 300,000 words spoken)`, "linear-gradient(135deg, #ec4899, #8b5cf6)", "#f472b6");
+                    }
+                }
+
+                triggerRPGReward("repeat", targetHeroId, targetHeroId, 40, `🎯 +40 XP Pronunciation Repeat Bonus!`, "linear-gradient(135deg, #10b981, #059669)");
+                addXP(40);
             }
         }
     }
@@ -2613,8 +3131,15 @@ document.addEventListener("DOMContentLoaded", () => {
             state.listenedMsgs.push(msgId);
             saveTodayHeroAudioState(targetHeroId, state);
 
-            triggerRPGReward("listen", targetHeroId, targetHeroId, 20, `🔊 +20 XP AI Listening Bonus!`, "linear-gradient(135deg, #3b82f6, #1d4ed8)");
-            addXP(20);
+            triggerRPGReward("listen", targetHeroId, targetHeroId, 40, `🔊 +40 XP AI Listening Bonus!`, "linear-gradient(135deg, #3b82f6, #1d4ed8)");
+            addXP(40);
+
+            // LISTENING SKILL PROGRESSION (Level 1 -> 100, 800,000 words total, 1 word = 1 XP)
+            // Each unique listened dialogue message counts once
+            const englishWords = text.trim().split(/\s+/).filter(w => /[a-zA-Z]/.test(w));
+            if (englishWords.length > 0) {
+                addListeningWords(englishWords.length);
+            }
         }
     }
 
@@ -2657,7 +3182,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (currentFocusInfo && currentFocusInfo.primary) {
                 const pWord = currentFocusInfo.primary;
                 const fWords = currentFocusInfo.fiveWords || [];
-                const unused = currentFocusInfo.unusedCount !== undefined ? currentFocusInfo.unusedCount : 50;
+                const unused = currentFocusInfo.unusedCount !== undefined ? currentFocusInfo.unusedCount : 20;
                 const meaning = currentFocusInfo.meaning ? `("${currentFocusInfo.meaning}")` : '';
 
                 focusBtnHtml = `
@@ -2678,12 +3203,19 @@ document.addEventListener("DOMContentLoaded", () => {
                             ${fWords.map(w => `<span style="background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.2); padding:1px 6px; border-radius:4px; color:#f3e8ff; font-weight:500;">${w}</span>`).join(' ')}
                         </div>
                         <div style="color:#a855f7; font-size:10px; margin-top:4px;">
-                            <i class="fa-solid fa-clock-rotate-left"></i> Осталось неиспользованных слов сегодня: <b>${unused}</b> из 50
+                            <i class="fa-solid fa-clock-rotate-left"></i> Осталось неиспользованных слов сегодня: <b>${unused}</b> из 20
                         </div>
                     </div>
                 `;
             }
         }
+
+        const messageBodyHtml = role === 'assistant'
+            ? `<div class="bot-msg-text-wrapper">
+                   <div class="bot-msg-text bot-text-hidden" title="Нажмите, чтобы открыть текст">${cleanText}</div>
+                   <button type="button" class="reveal-text-btn" title="Показать или скрыть английский текст"><i class="fa-solid fa-eye"></i> <span>Показать текст</span></button>
+               </div>`
+            : `<div>${cleanText}</div>`;
 
         const translateBtnHtml = role === 'assistant' 
             ? `<button class="audio-play-link ${isListened ? 'listened' : 'unheard-highlight'}"><i class="fa-solid fa-volume-high"></i> Listen</button>
@@ -2696,12 +3228,31 @@ document.addEventListener("DOMContentLoaded", () => {
         bubble.innerHTML = `
             ${avatar}
             <div class="message-content">
-                <div>${cleanText}</div>
+                ${messageBodyHtml}
                 ${translateBtnHtml}
             </div>
         `;
 
         if (role === 'assistant') {
+            const botTextEl = bubble.querySelector(".bot-msg-text");
+            const revealBtn = bubble.querySelector(".reveal-text-btn");
+
+            const toggleBotText = () => {
+                if (!botTextEl) return;
+                botTextEl.classList.toggle("bot-text-hidden");
+                const isHidden = botTextEl.classList.contains("bot-text-hidden");
+                if (revealBtn) {
+                    revealBtn.innerHTML = isHidden 
+                        ? `<i class="fa-solid fa-eye"></i> <span>Показать текст</span>` 
+                        : `<i class="fa-solid fa-eye-slash"></i> <span>Скрыть текст</span>`;
+                }
+            };
+
+            if (revealBtn) revealBtn.addEventListener("click", toggleBotText);
+            if (botTextEl) botTextEl.addEventListener("click", () => {
+                if (botTextEl.classList.contains("bot-text-hidden")) toggleBotText();
+            });
+
             const audioBtn = bubble.querySelector(".audio-play-link");
             if (audioBtn) {
                 audioBtn.addEventListener("click", () => {
@@ -2730,7 +3281,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     voiceService.startListening(
                         (spokenTranscript) => {
                             const accuracy = calculatePronunciationAccuracy(cleanText, spokenTranscript);
-                            renderPronunciationBadge(bubble, accuracy, cleanText, activeHeroId);
+                            renderPronunciationBadge(bubble, accuracy, cleanText, activeHeroId, spokenTranscript);
                         },
                         (isListening, msg) => {
                             if (isListening) repeatBtn.classList.add("listening");
@@ -2807,14 +3358,24 @@ document.addEventListener("DOMContentLoaded", () => {
             let xpGain = 0;
 
             if (usedMicInCurrentDraft) {
+                // Award spoken words to Speaking Skill!
+                const spokenWordCount = text.trim().split(/\s+/).filter(w => /[a-zA-Z]/.test(w)).length;
+                if (spokenWordCount > 0 && window.speakingEngine) {
+                    const addRes = window.speakingEngine.addWords(spokenWordCount);
+                    updateSpeakingUI();
+                    if (addRes && addRes.leveledUp) {
+                        showToast(`🎙️ <b>SPEAKING LEVEL UP!</b> Level <b>${addRes.newLevel}</b> reached! (${addRes.totalWords.toLocaleString()} / 300,000 words spoken)`, "linear-gradient(135deg, #ec4899, #8b5cf6)", "#f472b6");
+                    }
+                }
+
                 // Rule 1: Mic Input
                 state.micCount++;
-                xpGain = state.micCount <= 10 ? 50 : (state.micCount <= 30 ? 30 : 10);
+                xpGain = state.micCount <= 10 ? 100 : (state.micCount <= 30 ? 60 : 20);
                 triggerRPGReward("mic", activeHeroId, activeHeroId, xpGain, `🎙️ +${xpGain} XP Hero Mic Bonus! (Use ${state.micCount}/10)`, "linear-gradient(135deg, #ec4899, #be185d)");
             } else {
                 // Rule 3: Typed Input
                 state.typedCount++;
-                xpGain = state.typedCount <= 10 ? 30 : (state.typedCount <= 30 ? 20 : 5);
+                xpGain = state.typedCount <= 10 ? 60 : (state.typedCount <= 30 ? 40 : 10);
                 triggerRPGReward("text", activeHeroId, activeHeroId, xpGain, `⌨️ +${xpGain} XP Hero Typing Bonus! (Use ${state.typedCount}/10)`, "linear-gradient(135deg, #8b5cf6, #6d28d9)");
             }
 
@@ -2823,7 +3384,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const lastMsgId = lastAiMessageContent.trim().toLowerCase();
                 if (state.listenedMsgs.includes(lastMsgId) && state.repeatedMsgs.includes(lastMsgId) && !state.comboMsgs.includes(lastMsgId)) {
                     state.comboMsgs.push(lastMsgId);
-                    triggerRPGReward("combo", activeHeroId, activeHeroId, 30, `🔥 +30 XP FULL CYCLE COMBO BONUS! (Listen + Repeat + Respond)`, "linear-gradient(135deg, #f59e0b, #d97706)");
+                    triggerRPGReward("combo", activeHeroId, activeHeroId, 60, `🔥 +60 XP FULL CYCLE COMBO BONUS! (Listen + Repeat + Respond)`, "linear-gradient(135deg, #f59e0b, #d97706)");
                 }
             }
 
@@ -2831,6 +3392,16 @@ document.addEventListener("DOMContentLoaded", () => {
             updateHeroDailyBonusTracker();
         }
         usedMicInCurrentDraft = false; // Reset flag for next draft!
+
+        // WRITING SKILL PROGRESSION (Level 1 -> 100, 50 000 words total, 1 word = 1 XP)
+        // Earned when typing and sending messages to any hero below Level 100
+        const activeHeroObj = activeHeroId ? rpgEngine.heroes.find(h => h.id === activeHeroId) : null;
+        if (activeHeroObj && (activeHeroObj.level || 1) < 100) {
+            const englishWords = text.trim().split(/\s+/).filter(w => /[a-zA-Z]/.test(w));
+            if (englishWords.length > 0) {
+                addWritingWords(englishWords.length);
+            }
+        }
 
         // Re-render hero word cheatsheet to update chip colors & tooltips live!
         renderHeroWordHelperPanel(activeScenario);
@@ -3210,14 +3781,15 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             let cardXp = 0;
-            if (rating === 'hard') cardXp = 2;
-            else if (rating === 'good') cardXp = 4;
-            else if (rating === 'easy') cardXp = 8;
+            if (rating === 'hard') cardXp = 4;
+            else if (rating === 'good') cardXp = 8;
+            else if (rating === 'easy') cardXp = 16;
 
             if (cardXp > 0) {
                 addXP(cardXp);
                 triggerRPGReward("card", targetHeroId, targetHeroId, cardXp);
             }
+            try { checkAndUpdateVocabLevel(); } catch(e) {}
         });
     });
 
@@ -3391,9 +3963,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (!alreadyEarnedToday) {
                 localStorage.setItem(questionKey, "true");
-                quizFeedbackBox.innerHTML = `<strong>✅ Correct! (+6 Hero XP)</strong> ${explanation}`;
-                addXP(10);
-                triggerRPGReward("quiz", currentGrammarTopic ? currentGrammarTopic.heroId : null, currentGrammarTopic ? currentGrammarTopic.heroId : null, 6);
+                quizFeedbackBox.innerHTML = `<strong>✅ Correct! (+12 Hero XP)</strong> ${explanation}`;
+                addXP(20);
+                triggerRPGReward("quiz", currentGrammarTopic ? currentGrammarTopic.heroId : null, currentGrammarTopic ? currentGrammarTopic.heroId : null, 12);
             } else {
                 quizFeedbackBox.innerHTML = `<strong>✅ Correct! (Practice mode — 0 XP, daily question completed)</strong> ${explanation}`;
             }
@@ -3475,9 +4047,9 @@ document.addEventListener("DOMContentLoaded", () => {
             if (!activeReviewQuestion) return;
 
             let cardXp = 0;
-            if (rating === 'hard') cardXp = 2;
-            else if (rating === 'good') cardXp = 4;
-            else if (rating === 'easy') cardXp = 8;
+            if (rating === 'hard') cardXp = 4;
+            else if (rating === 'good') cardXp = 8;
+            else if (rating === 'easy') cardXp = 16;
 
             if (cardXp > 0) {
                 addXP(cardXp);
@@ -3660,18 +4232,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const statusTag = hasUserSpokenThisMinute ? "🗣️ Active" : "🤐 Speak for XP!";
             if (liveSessionTimer) {
-                liveSessionTimer.innerHTML = `${mins}:${secs} <small style="font-size:11px; opacity:0.8; font-weight:normal;">(+30 XP / min &bull; ${statusTag})</small>`;
+                liveSessionTimer.innerHTML = `${mins}:${secs} <small style="font-size:11px; opacity:0.8; font-weight:normal;">(+60 XP / min &bull; ${statusTag})</small>`;
             }
 
-            // Award +30 XP ONLY if user actually spoke during this 60-second window!
+            // Award +60 XP ONLY if user actually spoke during this 60-second window!
             if (liveSessionSeconds > 0 && liveSessionSeconds % 60 === 0) {
                 if (hasUserSpokenThisMinute) {
                     hasUserSpokenThisMinute = false; // Reset active flag for next minute
                     const activeHero = rpgEngine.heroes.find(h => h.id === activeLiveHeroId);
                     const heroName = activeHero ? activeHero.name : "Hero";
-                    triggerRPGReward("live_voice", activeLiveHeroId, activeLiveHeroId, 30, `🎙️ +30 XP Live Voice Reward! (${heroName} Lvl Up!)`, "linear-gradient(135deg, #ec4899, #8b5cf6)");
+                    triggerRPGReward("live_voice", activeLiveHeroId, activeLiveHeroId, 60, `🎙️ +60 XP Live Voice Reward! (${heroName} Lvl Up!)`, "linear-gradient(135deg, #ec4899, #8b5cf6)");
                 } else {
-                    addLiveTranscriptMsg("system", "💡 Silence detected: Speak in English to earn your +30 XP for the minute!");
+                    addLiveTranscriptMsg("system", "💡 Silence detected: Speak in English to earn your +60 XP for the minute!");
                 }
             }
         }, 1000);
@@ -3718,6 +4290,16 @@ document.addEventListener("DOMContentLoaded", () => {
                         if (transcriptText.length > 0) {
                             hasUserSpokenThisMinute = true; // Registered active user speech!
                             addLiveTranscriptMsg("user", transcriptText);
+
+                            // Award spoken words to Speaking Skill!
+                            const spokenWordCount = transcriptText.trim().split(/\s+/).filter(w => /[a-zA-Z]/.test(w)).length;
+                            if (spokenWordCount > 0 && window.speakingEngine) {
+                                const addRes = window.speakingEngine.addWords(spokenWordCount);
+                                updateSpeakingUI();
+                                if (addRes && addRes.leveledUp) {
+                                    showToast(`🎙️ <b>SPEAKING LEVEL UP!</b> Level <b>${addRes.newLevel}</b> reached! (${addRes.totalWords.toLocaleString()} / 300,000 words spoken)`, "linear-gradient(135deg, #ec4899, #8b5cf6)", "#f472b6");
+                                }
+                            }
 
                             // Add user message to Live Chat History!
                             liveChatHistory.push({ role: 'user', content: transcriptText });
@@ -4217,24 +4799,134 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Check if player roster has all 10 heroes unlocked and each at least level 20
+    // Check if player has unlocked the final 10th hero (Eldrin)
     function checkStoryUnlockEligibility() {
         const totalHeroes = (rpgEngine && rpgEngine.heroes) ? rpgEngine.heroes : [];
-        const totalCount = totalHeroes.length || 10;
+        const eldrin = totalHeroes.find(h => h.id === 'eldrin');
+        const isEldrinUnlocked = !!(eldrin && eldrin.unlocked);
+
         const unlockedHeroes = totalHeroes.filter(h => h.unlocked);
         const unlockedCount = unlockedHeroes.length;
-        const lvl20Heroes = unlockedHeroes.filter(h => (h.level || 1) >= 20);
-        const lvl20Count = lvl20Heroes.length;
-
-        const eligible = (unlockedCount >= totalCount) && (lvl20Count >= totalCount);
+        const totalCount = totalHeroes.length || 10;
 
         return {
-            eligible,
+            eligible: isEldrinUnlocked,
+            isEldrinUnlocked,
             unlockedCount,
-            totalCount,
-            lvl20Count,
-            minLvlNeeded: 20
+            totalCount
         };
+    }
+
+    // Update Floating Grimoire visibility on the stage
+    function updateFloatingGrimoireVisibility() {
+        const grimoireEl = document.getElementById("floating-story-grimoire");
+        if (!grimoireEl) return;
+        const status = checkStoryUnlockEligibility();
+        if (status.eligible) {
+            grimoireEl.classList.remove("hidden");
+        } else {
+            grimoireEl.classList.add("hidden");
+        }
+    }
+
+    // Fullscreen Chroma Key Book Opening Cutscene Controller 📜🎬
+    let isBookCutscenePlaying = false;
+    let bookChromaAnimationReq = null;
+
+    function playBookOpeningCutscene(onCompleteCallback) {
+        const overlay = document.getElementById("book-opening-cutscene-overlay");
+        const video = document.getElementById("book-cutscene-video");
+        const canvas = document.getElementById("book-chroma-canvas");
+        const flare = document.getElementById("book-cutscene-flare");
+        const skipBtn = document.getElementById("skip-book-cutscene-btn");
+
+        if (!overlay || !video || !canvas) {
+            if (typeof onCompleteCallback === "function") onCompleteCallback();
+            return;
+        }
+
+        if (isBookCutscenePlaying) return;
+        isBookCutscenePlaying = true;
+
+        overlay.classList.remove("hidden", "fade-out");
+        canvas.classList.remove("dissolving");
+        if (flare) flare.classList.remove("active");
+
+        const ctx = canvas.getContext("2d", { willReadFrequently: true });
+
+        let hasCompleted = false;
+        const finishCutscene = () => {
+            if (hasCompleted) return;
+            hasCompleted = true;
+            isBookCutscenePlaying = false;
+
+            if (bookChromaAnimationReq) {
+                cancelAnimationFrame(bookChromaAnimationReq);
+                bookChromaAnimationReq = null;
+            }
+
+            // Dissolve & Flash Flare
+            if (flare) flare.classList.add("active");
+            canvas.classList.add("dissolving");
+
+            setTimeout(() => {
+                overlay.classList.add("fade-out");
+                video.pause();
+                setTimeout(() => {
+                    overlay.classList.add("hidden");
+                    overlay.classList.remove("fade-out");
+                    if (typeof onCompleteCallback === "function") {
+                        onCompleteCallback();
+                    }
+                }, 500);
+            }, 600);
+        };
+
+        if (skipBtn) {
+            skipBtn.onclick = finishCutscene;
+        }
+
+        video.currentTime = 0;
+        video.play().then(() => {
+            canvas.width = video.videoWidth || 960;
+            canvas.height = video.videoHeight || 540;
+
+            function processChromaFrame() {
+                if (video.paused || video.ended || hasCompleted) {
+                    if (video.ended) finishCutscene();
+                    return;
+                }
+
+                ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+                const frame = ctx.getImageData(0, 0, canvas.width, canvas.height);
+                const data = frame.data;
+                const len = data.length / 4;
+
+                for (let i = 0; i < len; i++) {
+                    const r = data[i * 4 + 0];
+                    const g = data[i * 4 + 1];
+                    const b = data[i * 4 + 2];
+
+                    // Chroma key: Remove green screen background with smooth alpha blending
+                    if (g > 85 && g > r * 1.25 && g > b * 1.25) {
+                        data[i * 4 + 3] = 0; // Fully transparent
+                    } else if (g > 70 && g > r * 1.15 && g > b * 1.15) {
+                        const alpha = Math.max(0, 255 - (g - 70) * 12);
+                        data[i * 4 + 3] = Math.min(data[i * 4 + 3], alpha);
+                    }
+                }
+
+                ctx.putImageData(frame, 0, 0);
+                bookChromaAnimationReq = requestAnimationFrame(processChromaFrame);
+            }
+
+            bookChromaAnimationReq = requestAnimationFrame(processChromaFrame);
+        }).catch(err => {
+            console.warn("Book cutscene video playback failed, proceeding directly", err);
+            finishCutscene();
+        });
+
+        video.onended = finishCutscene;
     }
 
     // Check if specific chapter requirements are satisfied
@@ -4245,7 +4937,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const reasons = [];
 
         if (!globalStatus.eligible) {
-            reasons.push(`Требуются все 10 героев 20+ ур. (Открыто: ${globalStatus.unlockedCount}/${globalStatus.totalCount}, ур. 20+: ${globalStatus.lvl20Count}/${globalStatus.totalCount})`);
+            reasons.push(`Требуется разблокировать 10-го героя: Архимага Эльдрина! (Открыто: ${globalStatus.unlockedCount}/${globalStatus.totalCount})`);
         }
 
         if (chapter.reqHeroLevels && rpgEngine && rpgEngine.heroes) {
@@ -4268,13 +4960,20 @@ document.addEventListener("DOMContentLoaded", () => {
         };
     }
 
-    function openHeroStoryModal(initialHero) {
+    function openHeroStoryModal(initialHero, skipAnimation = false) {
         const modal = document.getElementById("modal-hero-story");
         if (!modal) return;
 
-        // Switch to Hub view by default
-        showStoryHubView();
-        modal.classList.remove("hidden");
+        const openModalCore = () => {
+            showStoryHubView();
+            modal.classList.remove("hidden");
+        };
+
+        if (!skipAnimation) {
+            playBookOpeningCutscene(openModalCore);
+        } else {
+            openModalCore();
+        }
     }
 
     function showStoryHubView() {
@@ -4308,13 +5007,12 @@ document.addEventListener("DOMContentLoaded", () => {
             if (!globalStatus.eligible) {
                 banner.style.display = "block";
                 if (statusText) {
-                    statusText.innerHTML = `Сюжетная кампания открывается, когда все 10 героев открыты и прокачаны минимум до 20-го уровня!<br><span style="color:#f87171; font-weight:700;">Герои: ${globalStatus.unlockedCount}/${globalStatus.totalCount} открыто • ${globalStatus.lvl20Count}/${globalStatus.totalCount} достигли 20+ ур.</span>`;
+                    statusText.innerHTML = `Сюжетная кампания открывается после разблокировки 10-го героя — <b>Архимага Эльдрина</b>!<br><span style="color:#f87171; font-weight:700;">Открыто героев: ${globalStatus.unlockedCount}/${globalStatus.totalCount} • Эльдрин: ${globalStatus.isEldrinUnlocked ? '✅ Открыт' : '🔒 Заблокирован'}</span>`;
                 }
                 if (badgesContainer && rpgEngine && rpgEngine.heroes) {
                     badgesContainer.innerHTML = rpgEngine.heroes.map(h => {
-                        const isLvl20 = h.unlocked && (h.level || 1) >= 20;
-                        return `<span class="badge" style="font-size:10px; background:${isLvl20 ? 'rgba(16,185,129,0.2)' : 'rgba(239,68,68,0.2)'}; color:${isLvl20 ? '#6ee7b7' : '#fca5a5'}; border:1px solid ${isLvl20 ? 'rgba(16,185,129,0.4)' : 'rgba(239,68,68,0.4)'};">
-                            ${h.name}: ${h.unlocked ? `Lv.${h.level || 1}` : '🔒'}
+                        return `<span class="badge" style="font-size:10px; background:${h.unlocked ? 'rgba(16,185,129,0.2)' : 'rgba(239,68,68,0.2)'}; color:${h.unlocked ? '#6ee7b7' : '#fca5a5'}; border:1px solid ${h.unlocked ? 'rgba(16,185,129,0.4)' : 'rgba(239,68,68,0.4)'};">
+                            ${h.name}: ${h.unlocked ? '✅' : '🔒'}
                         </span>`;
                     }).join("");
                 }
@@ -4420,8 +5118,16 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    function openStoryChapterReader(chapter) {
-        if (!chapter) return;
+    function openStoryChapterReader(rawChapter) {
+        if (!rawChapter) return;
+        
+        // Resolve expanded chapter if available
+        let chapter = rawChapter;
+        if (typeof STORY_ACT1_EXPANDED !== 'undefined' && Array.isArray(STORY_ACT1_EXPANDED)) {
+            const exp = STORY_ACT1_EXPANDED.find(e => e.id === rawChapter.id || e.number === rawChapter.number);
+            if (exp) chapter = exp;
+        }
+
         activeStoryChapterId = chapter.id;
 
         const hubView = document.getElementById("story-view-hub");
@@ -4433,6 +5139,57 @@ document.addEventListener("DOMContentLoaded", () => {
         if (titleEl) {
             titleEl.textContent = `Chapter ${chapter.number}: ${chapter.titleEn} (${chapter.titleRu})`;
         }
+
+        // Calculate Chapter Word Count
+        let chapterWordCount = 0;
+        if (chapter.paragraphs) {
+            chapter.paragraphs.forEach(p => {
+                const words = (p.en || '').match(/[a-zA-Z0-9'’-]+/g);
+                if (words) chapterWordCount += words.length;
+            });
+        }
+
+        // Update Visual Fluency Panel UI
+        function updateVisualFluencyUi() {
+            if (!window.visualFluency) return;
+            const progress = window.visualFluency.getProgressData();
+            
+            const rankBadge = document.getElementById("vf-player-rank-badge");
+            const xpText = document.getElementById("vf-player-xp-text");
+            const rewardText = document.getElementById("vf-chapter-reward-text");
+            const progressBar = document.getElementById("vf-xp-progress-bar");
+
+            if (rankBadge) {
+                rankBadge.textContent = `Lv. ${progress.level} • ${progress.rank.icon} ${progress.rank.title}`;
+                rankBadge.style.color = progress.rank.color;
+                rankBadge.style.borderColor = progress.rank.color;
+            }
+            if (xpText) {
+                xpText.textContent = `${progress.xp.toLocaleString()} / ${progress.totalMaxXp.toLocaleString()} XP (${progress.percent}%)`;
+            }
+            if (rewardText) {
+                const isAlreadyDone = (completedStoryChapters.includes(chapter.id) || (window.visualFluency.completedChapterIds && window.visualFluency.completedChapterIds.includes(chapter.id)));
+                if (isAlreadyDone) {
+                    rewardText.innerHTML = `<span style="color:#64748b;">✅ Пройдено (${chapterWordCount} слов)</span>`;
+                } else {
+                    rewardText.innerHTML = `<span style="color:#34d399; font-weight:700;">+${chapterWordCount} XP за 1-е прочтение</span>`;
+                }
+            }
+            if (progressBar) {
+                progressBar.style.width = `${progress.percent}%`;
+            }
+
+            // Sync fading buttons
+            document.querySelectorAll(".vf-fading-btn").forEach(btn => {
+                const lvl = parseInt(btn.getAttribute("data-lvl"), 10);
+                if (lvl === window.visualFluency.fadingLevel) {
+                    btn.classList.add("active");
+                } else {
+                    btn.classList.remove("active");
+                }
+            });
+        }
+        updateVisualFluencyUi();
 
         // Render Hero Avatars
         const heroesStrip = document.getElementById("reader-involved-heroes-strip");
@@ -4523,16 +5280,36 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-        // Render Paragraphs
-        const paragraphsList = document.getElementById("story-reader-paragraphs-list");
-        if (paragraphsList && chapter.paragraphs) {
+        // Render Paragraphs with Visual Fluency Chunking
+        function renderParagraphsContent() {
+            const paragraphsList = document.getElementById("story-reader-paragraphs-list");
+            if (!paragraphsList || !chapter.paragraphs) return;
+
+            const fadingLvl = window.visualFluency ? window.visualFluency.fadingLevel : 1;
+            let globalChunkCounter = 0;
+
             paragraphsList.innerHTML = chapter.paragraphs.map((p, idx) => {
                 const speakerHeroId = (chapter.involvedHeroes && chapter.involvedHeroes[idx % chapter.involvedHeroes.length]) || 'valerius';
+                
+                let chunkedEnHtml = '';
+                if (window.visualFluency) {
+                    const sentenceChunks = window.visualFluency.parseTextIntoChunks(p.en);
+                    chunkedEnHtml = sentenceChunks.map(chunks => {
+                        return chunks.map(c => {
+                            const html = window.visualFluency.renderChunkHtml(c, fadingLvl, globalChunkCounter);
+                            if (!c.isConjunction && !c.isClauseBreak) globalChunkCounter++;
+                            return html;
+                        }).join(" ");
+                    }).join("<br>");
+                } else {
+                    chunkedEnHtml = p.en;
+                }
+
                 return `
-                    <div class="story-paragraph-card">
+                    <div class="story-paragraph-card" data-paragraph-idx="${idx}">
                         <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:12px;">
-                            <div class="story-paragraph-en">
-                                <span style="color:var(--warning); font-weight:800; margin-right:6px;">#${idx + 1}</span> ${p.en}
+                            <div class="story-paragraph-en story-paragraph-en-chunked">
+                                <span style="color:var(--warning); font-weight:800; margin-right:6px; user-select:none;">#${idx + 1}</span> ${chunkedEnHtml}
                             </div>
                             <button class="btn btn-sm btn-outline story-listen-p-btn" style="padding:4px 10px; font-size:11px; flex-shrink:0;" data-text="${p.en.replace(/"/g, '&quot;')}" data-speaker="${speakerHeroId}">
                                 <i class="fa-solid fa-volume-high"></i> Listen
@@ -4555,6 +5332,76 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                 });
             });
+        }
+        renderParagraphsContent();
+
+        // Bind Fading Level Buttons
+        document.querySelectorAll(".vf-fading-btn").forEach(btn => {
+            btn.onclick = () => {
+                const lvl = parseInt(btn.getAttribute("data-lvl"), 10);
+                if (window.visualFluency) {
+                    window.visualFluency.fadingLevel = lvl;
+                    window.visualFluency.saveState();
+                }
+                updateVisualFluencyUi();
+                renderParagraphsContent();
+            };
+        });
+
+        // Setup Visual Pacer Engine
+        let pacerIntervalTimer = null;
+        let currentPacerChunkIdx = 0;
+        const pacerToggleBtn = document.getElementById("vf-pacer-toggle-btn");
+        const pacerIcon = document.getElementById("vf-pacer-icon");
+        const pacerBtnText = document.getElementById("vf-pacer-btn-text");
+        const wpmSelect = document.getElementById("vf-pacer-wpm-select");
+
+        function stopPacer() {
+            if (pacerIntervalTimer) clearInterval(pacerIntervalTimer);
+            pacerIntervalTimer = null;
+            if (pacerIcon) pacerIcon.textContent = "▶";
+            if (pacerBtnText) pacerBtnText.textContent = "Ритм-тренер";
+            document.querySelectorAll(".vf-chunk").forEach(c => c.classList.remove("vf-active-pacer"));
+        }
+
+        function startPacer() {
+            const allChunks = Array.from(document.querySelectorAll(".vf-chunk"));
+            if (!allChunks.length) return;
+
+            currentPacerChunkIdx = 0;
+            if (pacerIcon) pacerIcon.textContent = "⏸";
+            if (pacerBtnText) pacerBtnText.textContent = "Пауза";
+
+            const wpm = parseInt(wpmSelect ? wpmSelect.value : "150", 10);
+            // Rough ms per chunk: (60,000 / wpm) * avg words per chunk (~2.2)
+            const msInterval = Math.max(250, Math.floor((60000 / wpm) * 2.0));
+
+            function pacerStep() {
+                allChunks.forEach(c => c.classList.remove("vf-active-pacer"));
+                if (currentPacerChunkIdx >= allChunks.length) {
+                    stopPacer();
+                    return;
+                }
+                const activeChunk = allChunks[currentPacerChunkIdx];
+                if (activeChunk) {
+                    activeChunk.classList.add("vf-active-pacer");
+                    activeChunk.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+                }
+                currentPacerChunkIdx++;
+            }
+
+            pacerStep();
+            pacerIntervalTimer = setInterval(pacerStep, msInterval);
+        }
+
+        if (pacerToggleBtn) {
+            pacerToggleBtn.onclick = () => {
+                if (pacerIntervalTimer) {
+                    stopPacer();
+                } else {
+                    startPacer();
+                }
+            };
         }
 
         // Render Comprehension Quiz
@@ -4635,9 +5482,28 @@ document.addEventListener("DOMContentLoaded", () => {
             feedbackBox.style.display = "block";
             if (isCorrect) {
                 feedbackBox.style.background = "rgba(16,185,129,0.2)";
-                feedbackBox.style.border = "1px solid #10b981";
-                feedbackBox.style.color = "#6ee7b7";
-                feedbackBox.innerHTML = `🎉 <b>Верно!</b> Глава успешно пройдена! Получено +${quiz.rewardXp} XP для участников отряда.`;
+                // Calculate chapter word count for Visual Fluency
+                let chWordCount = 0;
+                if (chapter.paragraphs) {
+                    chapter.paragraphs.forEach(p => {
+                        const words = (p.en || '').match(/[a-zA-Z0-9'’-]+/g);
+                        if (words) chWordCount += words.length;
+                    });
+                }
+
+                let vfMsg = '';
+                if (window.visualFluency) {
+                    const vfResult = window.visualFluency.addChapterWordXp(chapter.id, chWordCount);
+                    if (vfResult && vfResult.awarded) {
+                        vfMsg = `<br><span style="color:#60a5fa; font-weight:700;">⚡ Visual Fluency: +${vfResult.xpGained} XP!</span> (Всего: ${vfResult.totalXp.toLocaleString()} XP)`;
+                        if (vfResult.leveledUp) {
+                            vfMsg += ` 🎉 <b>LEVEL UP! Уровень ${vfResult.newLevel} [${vfResult.rank.icon} ${vfResult.rank.title}]!</b>`;
+                        }
+                    }
+                    try { updateReadingUI(); } catch(e) {}
+                }
+
+                feedbackBox.innerHTML = `🎉 <b>Верно!</b> Глава успешно пройдена! Получено +${quiz.rewardXp} XP для участников отряда.${vfMsg}`;
 
                 if (!completedStoryChapters.includes(chapter.id)) {
                     completedStoryChapters.push(chapter.id);
@@ -5327,12 +6193,633 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // =========================================================================
+    // PATTERN DRILLS & SPEED TRANSFORMATION UI ENGINE
+    // =========================================================================
+    function initPatternDrillsUI() {
+        const btnDrills = document.getElementById("btn-hero-drills");
+        const drillsModal = document.getElementById("modal-hero-drills");
+        const originalTextEl = document.getElementById("drills-card-original");
+        const modifierEl = document.getElementById("drills-card-modifier");
+        const timerFillEl = document.getElementById("drills-timer-fill");
+        const optionsGrid = document.getElementById("drills-options-grid");
+        const resultFeedback = document.getElementById("drills-result-feedback");
+        const comboBadge = document.getElementById("drills-combo-badge");
+        const sprintStepText = document.getElementById("drills-sprint-step-text");
+        const nextCardBtn = document.getElementById("drills-next-card-btn");
+        const micBtn = document.getElementById("drills-mic-btn");
+        const spokenFeedback = document.getElementById("drills-spoken-feedback");
+
+        let currentCardIndexInSprint = 0;
+        const SPRINT_TOTAL = 10;
+        let timerSeconds = 5;
+        let timerRemainingMs = 5000;
+        let timerInterval = null;
+        let currentCard = null;
+        let isCardAnswered = false;
+        let speechRecognitionInstance = null;
+
+        // Speed buttons
+        document.querySelectorAll(".drills-speed-btn").forEach(btn => {
+            btn.addEventListener("click", () => {
+                document.querySelectorAll(".drills-speed-btn").forEach(b => b.classList.remove("active"));
+                btn.classList.add("active");
+                timerSeconds = parseInt(btn.getAttribute("data-sec") || "5", 10);
+            });
+        });
+
+        function updateComboUI() {
+            if (!comboBadge) return;
+            const combo = window.patternDrills ? window.patternDrills.currentCombo : 0;
+            comboBadge.innerHTML = `<i class="fa-solid fa-fire"></i> Combo x${combo}`;
+            if (combo >= 10) {
+                comboBadge.style.background = "linear-gradient(135deg, #ec4899, #8b5cf6)";
+                comboBadge.style.boxShadow = "0 0 25px rgba(236,72,153,0.8)";
+            } else if (combo >= 5) {
+                comboBadge.style.background = "linear-gradient(135deg, #f59e0b, #ef4444)";
+                comboBadge.style.boxShadow = "0 0 20px rgba(245,158,11,0.7)";
+            } else {
+                comboBadge.style.background = "linear-gradient(135deg, #ef4444, #f97316)";
+                comboBadge.style.boxShadow = "0 0 15px rgba(239,68,68,0.5)";
+            }
+        }
+
+        function stopTimer() {
+            if (timerInterval) clearInterval(timerInterval);
+            timerInterval = null;
+        }
+
+        function startTimer() {
+            stopTimer();
+            timerRemainingMs = timerSeconds * 1000;
+            const stepMs = 50;
+            timerInterval = setInterval(() => {
+                timerRemainingMs -= stepMs;
+                const ratio = Math.max(0, timerRemainingMs / (timerSeconds * 1000));
+                if (timerFillEl) {
+                    timerFillEl.style.width = `${ratio * 100}%`;
+                    if (ratio < 0.3) {
+                        timerFillEl.style.background = "#ef4444";
+                    } else if (ratio < 0.6) {
+                        timerFillEl.style.background = "#f59e0b";
+                    } else {
+                        timerFillEl.style.background = "linear-gradient(90deg, #10b981, #f59e0b, #ef4444)";
+                    }
+                }
+
+                if (timerRemainingMs <= 0) {
+                    stopTimer();
+                    handleTimeOut();
+                }
+            }, stepMs);
+        }
+
+        function handleTimeOut() {
+            if (isCardAnswered) return;
+            isCardAnswered = true;
+            if (window.patternDrills) window.patternDrills.currentCombo = 0;
+            updateComboUI();
+
+            if (resultFeedback) {
+                resultFeedback.style.display = "block";
+                resultFeedback.style.background = "rgba(239, 68, 68, 0.25)";
+                resultFeedback.style.border = "1px solid rgba(239, 68, 68, 0.5)";
+                resultFeedback.style.color = "#fca5a5";
+                resultFeedback.innerHTML = `⏰ <b>Время вышло!</b> Правильный ответ: <b>"${currentCard ? currentCard.target : ''}"</b>`;
+            }
+
+            if (optionsGrid && currentCard) {
+                const buttons = optionsGrid.querySelectorAll(".drills-opt-btn");
+                buttons.forEach(b => {
+                    b.disabled = true;
+                    if (b.textContent.trim().includes(currentCard.target)) {
+                        b.classList.add("correct");
+                    }
+                });
+            }
+        }
+
+        function renderNextCard() {
+            if (!window.patternDrills) return;
+            isCardAnswered = false;
+            stopTimer();
+            if (resultFeedback) resultFeedback.style.display = "none";
+            if (spokenFeedback) spokenFeedback.innerHTML = 'Или выберите правильный вариант ниже на скорость:';
+
+            currentCardIndexInSprint = (currentCardIndexInSprint % SPRINT_TOTAL) + 1;
+            if (sprintStepText) sprintStepText.textContent = `КАРТОЧКА ${currentCardIndexInSprint} ИЗ ${SPRINT_TOTAL}`;
+
+            currentCard = window.patternDrills.getRandomCard();
+            if (originalTextEl && currentCard) {
+                originalTextEl.innerHTML = `<span>${currentCard.original}</span>` +
+                    `<button class="btn btn-sm btn-outline" id="drills-listen-original-btn" title="Прослушать" style="padding:2px 8px; font-size:12px;"><i class="fa-solid fa-volume-high"></i></button>`;
+                const lBtn = document.getElementById("drills-listen-original-btn");
+                if (lBtn) {
+                    lBtn.addEventListener("click", () => {
+                        if (typeof playTextKokoroAudio === "function") {
+                            playTextKokoroAudio(currentCard.original, activeShowcaseHeroId || 'valerius');
+                        }
+                    });
+                }
+            }
+
+            if (modifierEl && currentCard) {
+                modifierEl.textContent = currentCard.modifier;
+            }
+
+            if (optionsGrid && currentCard) {
+                optionsGrid.innerHTML = currentCard.options.map((opt, idx) => {
+                    return `
+                        <button class="drills-opt-btn" data-opt-idx="${idx}">
+                            <span style="width:26px; height:26px; border-radius:50%; background:rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; color:#fbbf24;">
+                                ${String.fromCharCode(65 + idx)}
+                            </span>
+                            <span>${opt}</span>
+                        </button>
+                    `;
+                }).join("");
+
+                optionsGrid.querySelectorAll(".drills-opt-btn").forEach(b => {
+                    b.addEventListener("click", () => {
+                        const optIdx = parseInt(b.getAttribute("data-opt-idx"), 10);
+                        const chosenText = currentCard.options[optIdx];
+                        handleCardAnswer(chosenText === currentCard.target, b);
+                    });
+                });
+            }
+
+            startTimer();
+        }
+
+        function handleCardAnswer(isCorrect, clickedBtn = null) {
+            if (isCardAnswered) return;
+            isCardAnswered = true;
+            stopTimer();
+
+            if (optionsGrid && currentCard) {
+                const buttons = optionsGrid.querySelectorAll(".drills-opt-btn");
+                buttons.forEach(b => {
+                    b.disabled = true;
+                    if (b.textContent.trim().includes(currentCard.target)) {
+                        b.classList.add("correct");
+                    } else if (clickedBtn && b === clickedBtn && !isCorrect) {
+                        b.classList.add("wrong");
+                    }
+                });
+            }
+
+            if (isCorrect) {
+                if (window.patternDrills) {
+                    window.patternDrills.currentCombo++;
+                    if (window.patternDrills.currentCombo > window.patternDrills.maxCombo) {
+                        window.patternDrills.maxCombo = window.patternDrills.currentCombo;
+                    }
+                }
+                updateComboUI();
+
+                // Award card to Drills skill
+                const addRes = window.patternDrills ? window.patternDrills.addCard() : null;
+                updateDrillsUI();
+
+                // Combo XP reward to active hero
+                const hero = rpgEngine.heroes.find(h => h.id === (activeShowcaseHeroId || 'valerius'));
+                const comboCount = window.patternDrills ? window.patternDrills.currentCombo : 1;
+                let bonusHeroXp = 10;
+                if (comboCount >= 10) bonusHeroXp = 30;
+                else if (comboCount >= 5) bonusHeroXp = 20;
+
+                if (hero && typeof rpgEngine.gainHeroXp === "function") {
+                    rpgEngine.gainHeroXp(hero, bonusHeroXp);
+                }
+
+                if (resultFeedback) {
+                    resultFeedback.style.display = "block";
+                    resultFeedback.style.background = "rgba(16, 185, 129, 0.25)";
+                    resultFeedback.style.border = "1px solid rgba(16, 185, 129, 0.5)";
+                    resultFeedback.style.color = "#6ee7b7";
+                    resultFeedback.innerHTML = `🎉 <b>Верно!</b> +1 карточка в Drills! (+${bonusHeroXp} Hero XP 🔥)`;
+                }
+
+                if (addRes && addRes.leveledUp) {
+                    showToast(`⚡ <b>DRILLS LEVEL UP!</b> Level <b>${addRes.newLevel}</b> reached! (${addRes.totalCards.toLocaleString()} / 10,000 transformations completed)`, "linear-gradient(135deg, #f59e0b, #d97706)", "#fbbf24");
+                }
+
+                setTimeout(() => {
+                    renderNextCard();
+                }, 750);
+            } else {
+                if (window.patternDrills) window.patternDrills.currentCombo = 0;
+                updateComboUI();
+
+                if (resultFeedback && currentCard) {
+                    resultFeedback.style.display = "block";
+                    resultFeedback.style.background = "rgba(239, 68, 68, 0.25)";
+                    resultFeedback.style.border = "1px solid rgba(239, 68, 68, 0.5)";
+                    resultFeedback.style.color = "#fca5a5";
+                    resultFeedback.innerHTML = `❌ <b>Неверно.</b> Правильный ответ: <b>"${currentCard.target}"</b>`;
+                }
+            }
+        }
+
+        // Voice input with STT
+        if (micBtn) {
+            micBtn.addEventListener("click", () => {
+                if (isCardAnswered) return;
+                const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+                if (!SpeechRecognition) {
+                    alert("Распознавание речи не поддерживается браузером. Используйте кнопки вариантов.");
+                    return;
+                }
+
+                if (speechRecognitionInstance) {
+                    try { speechRecognitionInstance.stop(); } catch(e) {}
+                }
+
+                speechRecognitionInstance = new SpeechRecognition();
+                speechRecognitionInstance.lang = "en-US";
+                speechRecognitionInstance.continuous = false;
+                speechRecognitionInstance.interimResults = false;
+
+                micBtn.classList.add("recording");
+                if (spokenFeedback) spokenFeedback.innerHTML = '<span style="color:#fbbf24;">🎙️ Слушаю ваш ответ... Говорите!</span>';
+
+                speechRecognitionInstance.onresult = (evt) => {
+                    const spoken = evt.results[0][0].transcript;
+                    micBtn.classList.remove("recording");
+                    if (spokenFeedback) spokenFeedback.innerHTML = `Распознано: <b>"${spoken}"</b>`;
+                    const isOk = window.patternDrills.checkSpokenAnswer(spoken, currentCard.target);
+                    handleCardAnswer(isOk);
+                };
+
+                speechRecognitionInstance.onerror = () => {
+                    micBtn.classList.remove("recording");
+                    if (spokenFeedback) spokenFeedback.innerHTML = '<span style="color:#f87171;">Не удалось распознать. Попробуйте еще раз или выберите вариант.</span>';
+                };
+
+                speechRecognitionInstance.onend = () => {
+                    micBtn.classList.remove("recording");
+                };
+
+                speechRecognitionInstance.start();
+            });
+        }
+
+        if (nextCardBtn) {
+            nextCardBtn.addEventListener("click", () => {
+                renderNextCard();
+            });
+        }
+
+        if (btnDrills) {
+            btnDrills.addEventListener("click", () => {
+                if (drillsModal) {
+                    drillsModal.classList.remove("hidden");
+                    currentCardIndexInSprint = 0;
+                    if (window.patternDrills) window.patternDrills.currentCombo = 0;
+                    updateComboUI();
+                    updateDrillsUI();
+                    renderNextCard();
+                }
+            });
+        }
+    }
+
+    // =========================================================================
+    // SPEAKING & FLUENCY STUDIO UI ENGINE (4/3/2 SPRINT & BLITZ Q&A)
+    // =========================================================================
+    function initSpeakingStudioUI() {
+        const tab432 = document.getElementById("tab-speaking-432");
+        const tabBlitz = document.getElementById("tab-speaking-blitz");
+        const tabFree = document.getElementById("tab-speaking-free");
+
+        const view432 = document.getElementById("speaking-view-432");
+        const viewBlitz = document.getElementById("speaking-view-blitz");
+        const viewFree = document.getElementById("speaking-view-free");
+
+        function switchTab(viewName) {
+            [tab432, tabBlitz, tabFree].forEach(t => t && t.classList.remove("active"));
+            [view432, viewBlitz, viewFree].forEach(v => v && (v.style.display = "none"));
+
+            if (viewName === "432") {
+                if (tab432) tab432.classList.add("active");
+                if (view432) view432.style.display = "block";
+                setup432Sprint();
+            } else if (viewName === "blitz") {
+                if (tabBlitz) tabBlitz.classList.add("active");
+                if (viewBlitz) viewBlitz.style.display = "block";
+                setupBlitz();
+            } else {
+                if (tabFree) tabFree.classList.add("active");
+                if (viewFree) viewFree.style.display = "block";
+                renderLiveHeroPicker();
+            }
+        }
+
+        if (tab432) tab432.onclick = () => switchTab("432");
+        if (tabBlitz) tabBlitz.onclick = () => switchTab("blitz");
+        if (tabFree) tabFree.onclick = () => switchTab("free");
+
+        // === 4/3/2 SPRINT LOGIC ===
+        let currentTopic = null;
+        let currentRound = 1;
+        let sprintTimer = null;
+        let sprintSecondsLeft = 60;
+        let isSprintRecording = false;
+        let sprintRoundWords = [0, 0, 0];
+        let sprintRecognition = null;
+        let currentRoundTranscript = "";
+
+        const topicTitle = document.getElementById("sprint-topic-title");
+        const topicPrompt = document.getElementById("sprint-topic-prompt");
+        const topicHints = document.getElementById("sprint-topic-hints");
+        const newTopicBtn = document.getElementById("sprint-new-topic-btn");
+        const roundBadge = document.getElementById("sprint-round-badge");
+        const timerDisplay = document.getElementById("sprint-timer-display");
+        const toggleRecBtn = document.getElementById("sprint-toggle-rec-btn");
+        const liveTranscript = document.getElementById("sprint-live-transcript");
+        const liveWordCount = document.getElementById("sprint-live-word-count");
+
+        function loadNewTopic() {
+            if (!window.speakingEngine) return;
+            currentTopic = window.speakingEngine.getRandomTopic();
+            if (topicTitle) topicTitle.textContent = currentTopic.title;
+            if (topicPrompt) topicPrompt.textContent = currentTopic.prompt;
+            if (topicHints) {
+                topicHints.innerHTML = currentTopic.hints.map(h => `<span class="badge" style="background:rgba(255,255,255,0.08); font-size:11px; padding:2px 8px; color:#cbd5e1;">${h}</span>`).join("");
+            }
+        }
+
+        if (newTopicBtn) newTopicBtn.onclick = loadNewTopic;
+
+        function setup432Sprint() {
+            if (!currentTopic) loadNewTopic();
+            currentRound = 1;
+            sprintRoundWords = [0, 0, 0];
+            updateRoundIndicators();
+            resetRoundTimer();
+        }
+
+        function updateRoundIndicators() {
+            for (let r = 1; r <= 3; r++) {
+                const el = document.getElementById(`sprint-step-${r}`);
+                const wpmEl = document.getElementById(`sprint-step-${r}-wpm`);
+                if (el) {
+                    el.classList.remove("active", "completed");
+                    if (r < currentRound) el.classList.add("completed");
+                    else if (r === currentRound) el.classList.add("active");
+                }
+                if (wpmEl && sprintRoundWords[r - 1] > 0) {
+                    const dur = [60, 45, 30][r - 1];
+                    const wpm = Math.round((sprintRoundWords[r - 1] / dur) * 60);
+                    wpmEl.textContent = `${sprintRoundWords[r - 1]} слов • ${wpm} WPM`;
+                }
+            }
+            if (roundBadge) roundBadge.textContent = `РАУНД ${currentRound} ИЗ 3 (${[60, 45, 30][currentRound - 1]} СЕК)`;
+        }
+
+        function resetRoundTimer() {
+            if (sprintTimer) clearInterval(sprintTimer);
+            sprintTimer = null;
+            sprintSecondsLeft = [60, 45, 30][currentRound - 1] || 60;
+            if (timerDisplay) timerDisplay.textContent = `${sprintSecondsLeft}s`;
+            if (toggleRecBtn) {
+                toggleRecBtn.classList.remove("btn-danger");
+                toggleRecBtn.classList.add("btn-record");
+                toggleRecBtn.innerHTML = `<i class="fa-solid fa-microphone"></i> <span>Начать Раунд ${currentRound} (Говорить ${sprintSecondsLeft} сек)</span>`;
+            }
+        }
+
+        function startSprintRound() {
+            isSprintRecording = true;
+            currentRoundTranscript = "";
+            if (liveTranscript) liveTranscript.innerHTML = '<em>Слушаю вас... Говорите непрерывно!</em>';
+            if (liveWordCount) liveWordCount.textContent = 'Слов в этом раунде: 0';
+
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            if (SpeechRecognition) {
+                sprintRecognition = new SpeechRecognition();
+                sprintRecognition.lang = "en-US";
+                sprintRecognition.continuous = true;
+                sprintRecognition.interimResults = true;
+
+                sprintRecognition.onresult = (evt) => {
+                    let interim = '';
+                    let final = '';
+                    for (let i = evt.resultIndex; i < evt.results.length; ++i) {
+                        if (evt.results[i].isFinal) {
+                            final += evt.results[i][0].transcript + ' ';
+                        } else {
+                            interim += evt.results[i][0].transcript;
+                        }
+                    }
+                    currentRoundTranscript += final;
+                    const fullText = (currentRoundTranscript + ' ' + interim).trim();
+                    if (liveTranscript) liveTranscript.textContent = fullText;
+                    const wCount = window.speakingEngine ? window.speakingEngine.countEnglishWords(fullText) : 0;
+                    if (liveWordCount) liveWordCount.textContent = `Слов в этом раунде: ${wCount}`;
+                };
+
+                sprintRecognition.onerror = () => {};
+                try { sprintRecognition.start(); } catch(e) {}
+            }
+
+            if (toggleRecBtn) {
+                toggleRecBtn.classList.remove("btn-record");
+                toggleRecBtn.classList.add("btn-danger");
+                toggleRecBtn.innerHTML = `<i class="fa-solid fa-stop"></i> <span>Идет запись... Говорите! (Остановить)</span>`;
+            }
+
+            sprintTimer = setInterval(() => {
+                sprintSecondsLeft--;
+                if (timerDisplay) timerDisplay.textContent = `${sprintSecondsLeft}s`;
+                if (sprintSecondsLeft <= 0) {
+                    finishSprintRound();
+                }
+            }, 1000);
+        }
+
+        function finishSprintRound() {
+            if (sprintTimer) clearInterval(sprintTimer);
+            sprintTimer = null;
+            isSprintRecording = false;
+
+            if (sprintRecognition) {
+                try { sprintRecognition.stop(); } catch(e) {}
+            }
+
+            const roundWords = window.speakingEngine ? window.speakingEngine.countEnglishWords(currentRoundTranscript) : 0;
+            sprintRoundWords[currentRound - 1] = roundWords;
+
+            // Award words into Speaking skill
+            if (roundWords > 0 && window.speakingEngine) {
+                const addRes = window.speakingEngine.addWords(roundWords);
+                updateSpeakingUI();
+
+                // Award Hero XP
+                const hero = rpgEngine.heroes.find(h => h.id === (activeShowcaseHeroId || 'valerius'));
+                if (hero && typeof rpgEngine.gainHeroXp === "function") {
+                    rpgEngine.gainHeroXp(hero, roundWords * 2);
+                }
+
+                if (addRes && addRes.leveledUp) {
+                    showToast(`🎙️ <b>SPEAKING LEVEL UP!</b> Level <b>${addRes.newLevel}</b> reached! (${addRes.totalWords.toLocaleString()} / 300,000 words spoken)`, "linear-gradient(135deg, #ec4899, #8b5cf6)", "#f472b6");
+                }
+            }
+
+            updateRoundIndicators();
+
+            if (currentRound < 3) {
+                currentRound++;
+                updateRoundIndicators();
+                resetRoundTimer();
+                if (liveTranscript) {
+                    liveTranscript.innerHTML = `<span style="color:#10b981;">🎉 Раунд ${currentRound - 1} завершен: наговорено <b>${roundWords} слов</b>!</span><br>Приготовьтесь к Раунду ${currentRound} (${[60, 45, 30][currentRound - 1]} сек). Повторите ту же историю быстрее!`;
+                }
+            } else {
+                // All 3 rounds done!
+                const totalSprintWords = sprintRoundWords[0] + sprintRoundWords[1] + sprintRoundWords[2];
+                if (roundBadge) roundBadge.textContent = "🏆 СПРИНТ 4/3/2 ПОЛНОСТЬЮ ЗАВЕРШЕН!";
+                if (toggleRecBtn) {
+                    toggleRecBtn.classList.remove("btn-danger");
+                    toggleRecBtn.classList.add("btn-record");
+                    toggleRecBtn.innerHTML = `<i class="fa-solid fa-rotate-right"></i> <span>Пройти новый 4/3/2 спринт</span>`;
+                }
+                if (liveTranscript) {
+                    liveTranscript.innerHTML = `
+                        <div style="color:#fbbf24; font-size:15px; font-weight:800; margin-bottom:6px;">🎉 ПОТРЯСАЮЩЕ! СПРИНТ УСПЕШНО ЗАВЕРШЕН!</div>
+                        <div>Всего наговорено за сессию: <b style="color:#34d399; font-size:16px;">+${totalSprintWords} слов</b> в навык Speaking!</div>
+                        <div style="font-size:12px; margin-top:6px; color:#cbd5e1;">
+                            Р1: ${sprintRoundWords[0]} слов &bull; Р2: ${sprintRoundWords[1]} слов &bull; Р3: ${sprintRoundWords[2]} слов
+                        </div>
+                    `;
+                }
+                currentRound = 1;
+            }
+        }
+
+        if (toggleRecBtn) {
+            toggleRecBtn.onclick = () => {
+                if (!isSprintRecording) {
+                    startSprintRound();
+                } else {
+                    finishSprintRound();
+                }
+            };
+        }
+
+        // === BLITZ Q&A LOGIC ===
+        let blitzQuestions = [];
+        let blitzIdx = 0;
+        let blitzTimer = null;
+        let blitzSecLeft = 5;
+
+        const blitzBadge = document.getElementById("blitz-question-badge");
+        const blitzTimerDisplay = document.getElementById("blitz-timer-display");
+        const blitzQuestionText = document.getElementById("blitz-question-text");
+        const blitzMicBtn = document.getElementById("blitz-mic-btn");
+        const blitzTranscript = document.getElementById("blitz-live-transcript");
+
+        function setupBlitz() {
+            if (!window.speakingEngine) return;
+            blitzQuestions = window.speakingEngine.getBlitzSet(5);
+            blitzIdx = 0;
+            renderBlitzQuestion();
+        }
+
+        function renderBlitzQuestion() {
+            if (blitzIdx >= blitzQuestions.length) {
+                if (blitzBadge) blitzBadge.textContent = "🏆 БЛИЦ ЗАВЕРШЕН!";
+                if (blitzQuestionText) blitzQuestionText.innerHTML = `<span style="color:#10b981;">Отличная реакция! Все вопросы пройдены!</span>`;
+                if (blitzTranscript) blitzTranscript.innerHTML = `Нажмите кнопку ниже, чтобы начать новый блиц-опрос.`;
+                if (blitzMicBtn) {
+                    blitzMicBtn.innerHTML = `<i class="fa-solid fa-rotate-right"></i> <span>Новый Блиц</span>`;
+                    blitzMicBtn.onclick = setupBlitz;
+                }
+                return;
+            }
+
+            const q = blitzQuestions[blitzIdx];
+            if (blitzBadge) blitzBadge.textContent = `ВОПРОС ${blitzIdx + 1} ИЗ ${blitzQuestions.length}`;
+            if (blitzQuestionText) blitzQuestionText.textContent = q.question;
+            if (blitzTranscript) blitzTranscript.innerHTML = `<em>Ответьте быстро в микрофон...</em>`;
+
+            // Auto-voice the question
+            if (typeof playTextKokoroAudio === "function") {
+                playTextKokoroAudio(q.question, activeShowcaseHeroId || 'valerius');
+            }
+
+            blitzSecLeft = 5;
+            if (blitzTimerDisplay) blitzTimerDisplay.textContent = `${blitzSecLeft}s`;
+            if (blitzTimer) clearInterval(blitzTimer);
+            blitzTimer = setInterval(() => {
+                blitzSecLeft--;
+                if (blitzTimerDisplay) blitzTimerDisplay.textContent = `${blitzSecLeft}s`;
+                if (blitzSecLeft <= 0) {
+                    clearInterval(blitzTimer);
+                }
+            }, 1000);
+
+            if (blitzMicBtn) {
+                blitzMicBtn.innerHTML = `<i class="fa-solid fa-microphone"></i> <span>Сказать ответ (Вопрос ${blitzIdx + 1})</span>`;
+                blitzMicBtn.onclick = startBlitzAnswer;
+            }
+        }
+
+        function startBlitzAnswer() {
+            if (blitzTimer) clearInterval(blitzTimer);
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            if (!SpeechRecognition) {
+                alert("Распознавание речи не поддерживается браузером.");
+                blitzIdx++;
+                renderBlitzQuestion();
+                return;
+            }
+
+            const rec = new SpeechRecognition();
+            rec.lang = "en-US";
+            rec.continuous = false;
+            rec.interimResults = false;
+
+            if (blitzTranscript) blitzTranscript.innerHTML = `<span style="color:#fbbf24;">🎙️ Слушаю ответ...</span>`;
+
+            rec.onresult = (evt) => {
+                const spoken = evt.results[0][0].transcript;
+                const wordsCount = window.speakingEngine ? window.speakingEngine.countEnglishWords(spoken) : 0;
+                if (blitzTranscript) {
+                    blitzTranscript.innerHTML = `Ответ: <b>"${spoken}"</b> (+${wordsCount} слов в Speaking)`;
+                }
+
+                if (wordsCount > 0 && window.speakingEngine) {
+                    const addRes = window.speakingEngine.addWords(wordsCount);
+                    updateSpeakingUI();
+                    if (addRes && addRes.leveledUp) {
+                        showToast(`🎙️ <b>SPEAKING LEVEL UP!</b> Level <b>${addRes.newLevel}</b> reached! (${addRes.totalWords.toLocaleString()} / 300,000 words spoken)`, "linear-gradient(135deg, #ec4899, #8b5cf6)", "#f472b6");
+                    }
+                }
+
+                setTimeout(() => {
+                    blitzIdx++;
+                    renderBlitzQuestion();
+                }, 1500);
+            };
+
+            rec.onerror = () => {
+                blitzIdx++;
+                renderBlitzQuestion();
+            };
+
+            rec.start();
+        }
+    }
+
     try { renderScenarios(); } catch (e) {}
     try { selectScenario(SCENARIOS[0]); } catch (e) {}
     try { renderTutorHeroTargetChips(); } catch (e) {}
     try { renderSpeakingHeroTargetChips(); } catch (e) {}
     try { renderFlashcardsUI(); } catch (e) {}
     try { renderGrammarUI(); } catch (e) {}
+    try { initPatternDrillsUI(); } catch (e) { console.error("Drills init error:", e); }
+    try { initSpeakingStudioUI(); } catch (e) { console.error("Speaking init error:", e); }
     try { renderRPGHeader(); } catch (e) {}
     try { renderHeroShowcase(rpgEngine.heroes[0].id); } catch (e) { console.error("Hero Showcase Render Error:", e); }
 });

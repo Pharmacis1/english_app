@@ -36,6 +36,7 @@ class SpeechRequest(BaseModel):
     model: str = "kokoro"
     input: str
     voice: str = "af_bella"
+    speed: float = 1.0
     response_format: str = "mp3"
 
 @app.on_event("startup")
@@ -73,7 +74,8 @@ async def generate_speech(req: SpeechRequest):
             else:
                 voice_name = 'af_bella' if 'af_bella' in available_voices else available_voices[0]
 
-        samples, sample_rate = kokoro.create(req.input, voice=voice_name, speed=1.0, lang="en-us")
+        target_speed = max(0.2, min(2.0, float(req.speed or 1.0)))
+        samples, sample_rate = kokoro.create(req.input, voice=voice_name, speed=target_speed, lang="en-us")
         
         # Add 250ms silence padding at start and 150ms at end to prevent browser DAC/audio driver initial swallowing
         pad_start = int(sample_rate * 0.25)

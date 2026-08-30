@@ -5,3 +5,6 @@ db_fallback.json
 *.onnx
 voices.bin
 voices.json
+__pycache__/
+scratch/
+

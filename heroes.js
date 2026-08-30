@@ -1768,10 +1768,10 @@ class RPGEngine {
         let baseAmount = customBaseXp !== null ? customBaseXp : 0;
         if (customBaseXp === null) {
             switch (activityType) {
-                case "chat": baseAmount = 6; break;
-                case "card": baseAmount = 10; break;
-                case "quiz": baseAmount = 30; break;
-                case "shadowing": baseAmount = 30; break;
+                case "chat": baseAmount = 12; break;
+                case "card": baseAmount = 20; break;
+                case "quiz": baseAmount = 60; break;
+                case "shadowing": baseAmount = 60; break;
             }
         }
 
@@ -1930,7 +1930,18 @@ class RPGEngine {
 
 // --- STAGE GIFTS & REWARDS CATALOG (ФОНЫ И ОБРАЗЫ ЗА КВЕСТЫ ДНЯ) ---
 const STAGE_GIFTS_CATALOG = [
-    // 5 Backgrounds
+    // Live & Static Backgrounds
+    {
+        id: "bg_forest_platform",
+        type: "background",
+        name: "Живой лес: Каменный алтарь (Анимация)",
+        nameEn: "Enchanted Forest Sanctuary (Live)",
+        description: "Живой анимированный фон с древней каменной платформой и колыханием ветвей",
+        image: "images/backgrounds/bg_forest_platform.jpg",
+        video: "videos/backgrounds/bg_forest_platform_pingpong.mp4",
+        previewImage: "images/backgrounds/bg_forest_platform.jpg",
+        category: "Фоны"
+    },
     {
         id: "bg_white_forest",
         type: "background",
@@ -1982,16 +1993,17 @@ const STAGE_GIFTS_CATALOG = [
         category: "Фоны"
     },
 
-    // 5 Hero Skins & Animations
+    // --- ORIGINAL CLASSIC SKINS (WITH SMOOTH PING-PONG) ---
     {
         id: "skin_astraea_starlight",
         type: "skin",
         heroId: "astraea",
-        name: "Астерия: Звёздная Воительница",
-        nameEn: "Astraea: Starlight Knight",
-        description: "Особый сияющий образ верховного паладина Астерии",
+        name: "Астерия: Звёздная Мантия",
+        nameEn: "Astraea: Starlight Robe",
+        description: "Оригинальный сияющий образ верховного паладина Астерии с плавным циклом",
         image: "images/skins/astraea_skin_1.png",
-        videoAlpha: "videos/skins/astraea_anim_1_alpha.webm",
+        videoAlpha: "videos/skins/astraea_anim_1_alpha_pingpong.webm",
+        video: "videos/skins/astraea_anim_1_pingpong.mp4",
         previewImage: "images/skins/astraea_skin_1.png",
         category: "Астерия"
     },
@@ -2001,9 +2013,10 @@ const STAGE_GIFTS_CATALOG = [
         heroId: "valerius",
         name: "Валериус: Защитник Короны",
         nameEn: "Valerius: Crown Guardian",
-        description: "Боевой доспех Серебряного Паладина в парадном облачении",
+        description: "Оригинальный боевой доспех Серебряного Паладина с колыханием синего плаща",
         image: "images/skins/valerius_skin_1.png",
-        videoAlpha: "videos/skins/valerius_anim_1_alpha.webm",
+        videoAlpha: "videos/skins/valerius_anim_1_alpha_pingpong.webm",
+        video: "videos/skins/valerius_anim_1_pingpong.mp4",
         previewImage: "images/skins/valerius_skin_1.png",
         category: "Валериус"
     },
@@ -2013,9 +2026,10 @@ const STAGE_GIFTS_CATALOG = [
         heroId: "zephyr",
         name: "Зефир: Штормовой Следопыт",
         nameEn: "Zephyr: Gale Ranger",
-        description: "Анимированный образ мастера ветра с зачарованным луком",
+        description: "Оригинальный анимированный образ мастера ветра с зачарованным луком",
         image: "images/skins/zephyr_skin_1.png",
-        videoAlpha: "videos/skins/zephyr_anim_1_alpha.webm",
+        videoAlpha: "videos/skins/zephyr_anim_1_alpha_pingpong.webm",
+        video: "videos/skins/zephyr_anim_1_pingpong.mp4",
         previewImage: "images/skins/zephyr_skin_1.png",
         category: "Зефир"
     },
@@ -2025,9 +2039,10 @@ const STAGE_GIFTS_CATALOG = [
         heroId: "ignis",
         name: "Игнис: Пламенный Лорд",
         nameEn: "Ignis: Flame Lord",
-        description: "Огненное облачение мага пламени с живой анимацией огня",
+        description: "Оригинальное огненное облачение мага пламени с живой анимацией огня",
         image: "images/skins/ignis_skin_1.png",
-        videoAlpha: "videos/skins/ignis_anim_1_alpha.webm",
+        videoAlpha: "videos/skins/ignis_anim_1_alpha_pingpong.webm",
+        video: "videos/skins/ignis_anim_1_pingpong.mp4",
         previewImage: "images/skins/ignis_skin_1.png",
         category: "Игнис"
     },
@@ -2037,11 +2052,118 @@ const STAGE_GIFTS_CATALOG = [
         heroId: "frostina",
         name: "Фростина: Ледяная Владычица",
         nameEn: "Frostina: Frost Queen",
-        description: "Магическое ледяное одеяние с танцующими кристаллами льда",
+        description: "Оригинальное магическое одеяние с танцующими кристаллами льда",
         image: "images/skins/frostina_skin_1.png",
-        videoAlpha: "videos/skins/frostina_anim_1_alpha.webm",
+        videoAlpha: "videos/skins/frostina_anim_1_alpha_pingpong.webm",
+        video: "videos/skins/frostina_anim_1_pingpong.mp4",
         previewImage: "images/skins/frostina_skin_1.png",
         category: "Фростина"
+    },
+
+    // --- 8 NEW PING-PONG ANIMATED SKINS (DAILY QUEST EXCLUSIVE PRIZES) 🏓✨ ---
+    {
+        id: "skin_anim_astraea",
+        type: "skin",
+        heroId: "astraea",
+        name: "Астерия: Звёздная Воительница 🏓",
+        nameEn: "Astraea: Starlight Knight (Live)",
+        description: "Новый анимированный образ со световым циклом без швов и вспышек",
+        image: "images/skins/astraea_starlight.png",
+        videoAlpha: "videos/skins/astraea_starlight_alpha_pingpong.webm",
+        video: "videos/skins/astraea_starlight_pingpong.mp4",
+        previewImage: "images/skins/astraea_starlight.png",
+        category: "Астерия"
+    },
+    {
+        id: "skin_anim_valerius_1",
+        type: "skin",
+        heroId: "valerius",
+        name: "Валериус: Паладин Рассвета 🏓",
+        nameEn: "Valerius: Dawn Paladin (Live)",
+        description: "Новая плавная анимация паладина в латах со щитом и пинг-понг циклом",
+        image: "images/skins/valerius_guardian.png",
+        videoAlpha: "videos/skins/valerius_guardian_alpha_pingpong.webm",
+        video: "videos/skins/valerius_guardian_pingpong.mp4",
+        previewImage: "images/skins/valerius_guardian.png",
+        category: "Валериус"
+    },
+    {
+        id: "skin_anim_valerius_2",
+        type: "skin",
+        heroId: "valerius",
+        name: "Валериус: Триумфатор Света 🏓",
+        nameEn: "Valerius: Light Triumphant (Live)",
+        description: "Золотой боевой доспех с мечом, сияющим щитом и пинг-понг циклом",
+        image: "images/skins/valerius_triumphant.png",
+        videoAlpha: "videos/skins/valerius_triumphant_alpha_pingpong.webm",
+        video: "videos/skins/valerius_triumphant_pingpong.mp4",
+        previewImage: "images/skins/valerius_triumphant.png",
+        category: "Валериус"
+    },
+    {
+        id: "skin_anim_zephyr",
+        type: "skin",
+        heroId: "zephyr",
+        name: "Зефир: Стрела Бури 🏓",
+        nameEn: "Zephyr: Storm Arrow (Live)",
+        description: "Мастер лука с непрерывной анимацией натягивания тетивы и ветра",
+        image: "images/skins/zephyr_gale.png",
+        videoAlpha: "videos/skins/zephyr_gale_alpha_pingpong.webm",
+        video: "videos/skins/zephyr_gale_pingpong.mp4",
+        previewImage: "images/skins/zephyr_gale.png",
+        category: "Зефир"
+    },
+    {
+        id: "skin_anim_ignis",
+        type: "skin",
+        heroId: "ignis",
+        name: "Игнис: Повелитель Пламени 🏓",
+        nameEn: "Ignis: Flame Master (Live)",
+        description: "Новая бесшовная анимация огненного посоха и пламени мага",
+        image: "images/skins/ignis_flame.png",
+        videoAlpha: "videos/skins/ignis_flame_alpha_pingpong.webm",
+        video: "videos/skins/ignis_flame_pingpong.mp4",
+        previewImage: "images/skins/ignis_flame.png",
+        category: "Игнис"
+    },
+    {
+        id: "skin_anim_frostina",
+        type: "skin",
+        heroId: "frostina",
+        name: "Фростина: Снежная Владычица 🏓",
+        nameEn: "Frostina: Snow Monarch (Live)",
+        description: "Мерцающие морозные кристаллы и танец ледяного посоха без рывков",
+        image: "images/skins/frostina_frost.png",
+        videoAlpha: "videos/skins/frostina_frost_alpha_pingpong.webm",
+        video: "videos/skins/frostina_frost_pingpong.mp4",
+        previewImage: "images/skins/frostina_frost.png",
+        category: "Фростина"
+    },
+    {
+        id: "skin_anim_thorin",
+        type: "skin",
+        heroId: "thorin",
+        name: "Торин: Владыка Наковальни 🏓",
+        nameEn: "Thorin: Forge Master (Live)",
+        description: "Мощная стойка кузнеца с подъемом боевого молота в кузнице",
+        image: "images/skins/thorin_forge.png",
+        videoAlpha: "videos/skins/thorin_forge_alpha_pingpong.webm",
+        video: "videos/skins/thorin_forge_pingpong.mp4",
+        previewImage: "images/skins/thorin_forge.png",
+        category: "Торин"
+    },
+    {
+        id: "skin_anim_selena",
+        type: "skin",
+        heroId: "selene",
+        name: "Селена: Тень Ночи 🏓",
+        nameEn: "Selena: Night Shadow (Live)",
+        description: "Теневые клинки ассасина с фиолетовой дымкой и плавным реверсом",
+        image: "images/skins/selena_shadow.png",
+        videoAlpha: "videos/skins/selena_shadow_alpha_pingpong.webm",
+        video: "videos/skins/selena_shadow_pingpong.mp4",
+        previewImage: "images/skins/selena_shadow.png",
+        category: "Селена"
     },
 
     // --- 5 New High-Fantasy Backgrounds ---

@@ -311,7 +311,7 @@ app.post('/api/ai/chat', async (req, res) => {
 
 // 9. POST /api/ai/tts — Proxy request to local Kokoro/Piper TTS FastAPI server (OpenAI-compatible)
 app.post('/api/ai/tts', async (req, res) => {
-    const { text, voice, endpoint: rawEndpoint } = req.body;
+    const { text, voice, speed, endpoint: rawEndpoint } = req.body;
     if (!text) return res.status(400).json({ success: false, error: "Text payload missing" });
 
     const endpoint = (rawEndpoint || 'http://127.0.0.1:8880').replace(/\/$/, '').replace('localhost', '127.0.0.1');
@@ -324,6 +324,7 @@ app.post('/api/ai/tts', async (req, res) => {
                 model: 'kokoro',
                 input: text,
                 voice: voice || 'af_heart',
+                speed: parseFloat(speed) || 1.0,
                 response_format: 'mp3'
             })
         });

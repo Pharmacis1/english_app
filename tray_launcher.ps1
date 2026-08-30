@@ -3,7 +3,12 @@ Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName System.Drawing
 
 $notifyIcon = New-Object System.Windows.Forms.NotifyIcon
-$notifyIcon.Icon = [System.Drawing.SystemIcons]::Shield
+$iconPath = Join-Path $PSScriptRoot "app_icon.ico"
+if (Test-Path $iconPath) {
+    $notifyIcon.Icon = New-Object System.Drawing.Icon($iconPath)
+} else {
+    $notifyIcon.Icon = [System.Drawing.SystemIcons]::Application
+}
 $notifyIcon.Text = "EnglishPulse AI - Server Running (port 3000)"
 $notifyIcon.Visible = $true
 
