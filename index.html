@@ -104,6 +104,21 @@
                     </div>
                 </div>
 
+                <!-- Daily Hero Quest Card (1000 XP) -->
+                <div class="hero-daily-quest-card" id="hero-daily-quest-card" style="background:linear-gradient(135deg, rgba(245,158,11,0.15), rgba(168,85,247,0.15)); border:1px solid rgba(245,158,11,0.3); padding:10px 12px; border-radius:14px; margin-top:-4px; cursor:pointer;" title="Нажмите, чтобы открыть подробности квеста дня">
+                    <div style="display:flex; justify-content:space-between; align-items:center; font-size:11px; margin-bottom:4px;" class="font-mono">
+                        <span style="color:#fbbf24; font-weight:800;"><i class="fa-solid fa-trophy"></i> КВЕСТ ДНЯ (+1000 XP)</span>
+                        <span id="hero-daily-quest-status-badge" style="color:#34d399; font-weight:800; font-size:10px;">0/4 задач</span>
+                    </div>
+                    <div class="attr-bar" style="height:6px; background:rgba(255,255,255,0.08); border-radius:6px; overflow:hidden; margin-bottom:6px;">
+                        <div class="attr-fill" id="hero-daily-quest-bar-fill" style="width:0%; background:linear-gradient(90deg, #3b82f6, #10b981); height:100%;"></div>
+                    </div>
+                    <div style="font-size:10px; color:#cbd5e1; display:flex; justify-content:space-between; align-items:center;">
+                        <span id="hero-daily-quest-hint-text">💬 10 сообщений &bull; 🎧 10 аудио &bull; 🎯 20 слов</span>
+                        <span style="color:#fbbf24; font-weight:700; font-size:10px;">Задачи &rarr;</span>
+                    </div>
+                </div>
+
                 <!-- Combat Stats Progress Bars -->
                 <div class="hero-attributes-section">
                     <div class="section-label-sm">COMBAT STATS</div>
@@ -1088,6 +1103,32 @@
             </div>
             <div class="modal-footer">
                 <button class="btn btn-primary" id="submit-affinity-quest-btn">Submit Quest Answer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: HERO DAILY QUEST DETAILED CHECKLIST -->
+    <div class="rpg-modal-overlay hidden" id="modal-hero-daily-quest">
+        <div class="rpg-modal-content modal-md" style="max-width: 520px;">
+            <div class="rpg-modal-header">
+                <div class="modal-header-title">
+                    <i class="fa-solid fa-trophy" style="font-size:22px; color:#fbbf24;"></i>
+                    <h3 id="daily-quest-modal-title">🏆 Квест дня с героем (+1000 XP)</h3>
+                </div>
+                <button class="modal-close-btn">&times;</button>
+            </div>
+            <div class="rpg-modal-body" style="padding:20px;">
+                <p style="font-size:13px; color:#94a3b8; margin-bottom:16px;">
+                    Выполните 4 ежедневных тренировочных задачи в диалоге с героем, чтобы получить <b>+1000 XP</b>, продвинуть разблокировку новых героев и зачесть ударный режим (Streak):
+                </p>
+                <div id="daily-quest-tasks-list" style="display:flex; flex-direction:column; gap:10px; margin-bottom:20px;">
+                    <!-- Tasks rendered dynamically in app.js -->
+                </div>
+                <div style="display:flex; justify-content:flex-end; gap:10px;">
+                    <button class="btn btn-primary" id="btn-daily-quest-go-chat" style="width:100%; padding:12px; font-size:14px; font-weight:700;">
+                        <i class="fa-solid fa-comments"></i> Перейти в Чат с Героем
+                    </button>
+                </div>
             </div>
         </div>
     </div>

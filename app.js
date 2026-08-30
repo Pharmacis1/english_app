@@ -308,6 +308,9 @@ document.addEventListener("DOMContentLoaded", () => {
         if (xpText) xpText.textContent = `${hero.xp || 0} / ${hero.maxXp || 150}`;
         if (xpFill) xpFill.style.width = `${Math.min(100, ((hero.xp || 0) / (hero.maxXp || 150)) * 100)}%`;
 
+        // 1.6 Update Hero Daily Quest Card on Main Stage
+        updateHeroDailyQuestCard(hero);
+
         // 2. Update Combat Stats (ATK, DEF, HP)
         const atkFill = document.getElementById("attr-atk-fill");
         const defFill = document.getElementById("attr-def-fill");
@@ -575,6 +578,13 @@ document.addEventListener("DOMContentLoaded", () => {
         btnStory.addEventListener("click", () => {
             const hero = rpgEngine.heroes.find(h => h.id === activeShowcaseHeroId) || rpgEngine.heroes[0];
             openHeroStoryModal(hero);
+        });
+    }
+
+    const cardDailyQuest = document.getElementById("hero-daily-quest-card");
+    if (cardDailyQuest) {
+        cardDailyQuest.addEventListener("click", () => {
+            openDailyHeroQuestModal(activeShowcaseHeroId);
         });
     }
 
@@ -1536,6 +1546,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 `${taskWordsDone ? '✅' : '❌'} 20 Focus Words Used (${wordsUsedCount}/${wordsTotalCount})`;
         }
 
+        if (questTagEl) {
+            questTagEl.onclick = () => {
+                openDailyHeroQuestModal(activeHeroId);
+            };
+        }
+
         if (completedTasksCount === 4 && !state.questClaimed && hero && hero.level < maxLvlCap) {
             state.questClaimed = true;
             saveTodayHeroAudioState(activeHeroId, state);
@@ -1565,6 +1581,136 @@ document.addEventListener("DOMContentLoaded", () => {
             updateWritingUI(); 
             updateListeningUI(); 
         } catch(e) {}
+    }
+
+    function updateHeroDailyQuestCard(hero) {
+        if (!hero) return;
+        const state = getTodayHeroAudioState(hero.id);
+        const listenCount = state.listenedMsgs ? state.listenedMsgs.length : 0;
+        const repeatCount = state.repeatedMsgs ? state.repeatedMsgs.length : 0;
+
+        let wordsUsedCount = 0;
+        let wordsTotalCount = 0;
+        if (hero.words) {
+            const dailyFocus = getHeroAntiRatingFocusWords(hero, 20);
+            wordsTotalCount = dailyFocus.length;
+            wordsUsedCount = dailyFocus.filter(wObj => getWordUsageCount(hero.id, getWordProps(wObj).word) >= 1).length;
+        }
+        const allHeroWordsUsed = wordsTotalCount > 0 && wordsUsedCount >= Math.min(20, wordsTotalCount);
+
+        const taskTextDone = state.typedCount >= 10;
+        const taskListenDone = listenCount >= 10;
+        const taskRepeatDone = repeatCount >= 10;
+        const taskWordsDone = allHeroWordsUsed;
+
+        const completedTasksCount = 
+            (taskTextDone ? 1 : 0) + 
+            (taskListenDone ? 1 : 0) + 
+            (taskRepeatDone ? 1 : 0) + 
+            (taskWordsDone ? 1 : 0);
+
+        const badgeEl = document.getElementById("hero-daily-quest-status-badge");
+        const fillEl = document.getElementById("hero-daily-quest-bar-fill");
+        const hintEl = document.getElementById("hero-daily-quest-hint-text");
+
+        if (state.questClaimed || completedTasksCount === 4) {
+            if (badgeEl) {
+                badgeEl.textContent = "Выполнен ✅ (+1000 XP)";
+                badgeEl.style.color = "#34d399";
+            }
+            if (fillEl) fillEl.style.width = "100%";
+            if (hintEl) hintEl.textContent = "🎉 Все 4 задачи на сегодня закрыты! Отличная работа!";
+        } else {
+            if (badgeEl) {
+                badgeEl.textContent = `${completedTasksCount}/4 задач (+1000 XP)`;
+                badgeEl.style.color = completedTasksCount >= 2 ? "#60a5fa" : "#fbbf24";
+            }
+            if (fillEl) fillEl.style.width = `${(completedTasksCount / 4) * 100}%`;
+            if (hintEl) {
+                hintEl.textContent = `${taskTextDone ? '✅ 10 сообщений' : '💬 10 сообщений'} • ${taskListenDone ? '✅ 10 аудио' : '🎧 10 аудио'} • ${taskWordsDone ? '✅ 20 слов' : '🎯 20 слов'}`;
+            }
+        }
+    }
+
+    function openDailyHeroQuestModal(heroId) {
+        const targetHeroId = heroId || activeShowcaseHeroId || rpgEngine.heroes[0].id;
+        const hero = rpgEngine.heroes.find(h => h.id === targetHeroId) || rpgEngine.heroes[0];
+        if (!hero) return;
+
+        const state = getTodayHeroAudioState(hero.id);
+        const listenCount = state.listenedMsgs ? state.listenedMsgs.length : 0;
+        const repeatCount = state.repeatedMsgs ? state.repeatedMsgs.length : 0;
+
+        let wordsUsedCount = 0;
+        let wordsTotalCount = 0;
+        if (hero.words) {
+            const dailyFocus = getHeroAntiRatingFocusWords(hero, 20);
+            wordsTotalCount = dailyFocus.length;
+            wordsUsedCount = dailyFocus.filter(wObj => getWordUsageCount(hero.id, getWordProps(wObj).word) >= 1).length;
+        }
+        const allHeroWordsUsed = wordsTotalCount > 0 && wordsUsedCount >= Math.min(20, wordsTotalCount);
+
+        const taskTextDone = state.typedCount >= 10;
+        const taskListenDone = listenCount >= 10;
+        const taskRepeatDone = repeatCount >= 10;
+        const taskWordsDone = allHeroWordsUsed;
+
+        const modalEl = document.getElementById("modal-hero-daily-quest");
+        const titleEl = document.getElementById("daily-quest-modal-title");
+        const listEl = document.getElementById("daily-quest-tasks-list");
+
+        if (titleEl) {
+            titleEl.innerHTML = `🏆 Квест дня: <b>${hero.name}</b> (+1000 XP)`;
+        }
+
+        if (listEl) {
+            listEl.innerHTML = `
+                <div style="background:rgba(15,23,42,0.8); border:1px solid ${taskTextDone ? '#10b981' : 'rgba(255,255,255,0.1)'}; border-radius:12px; padding:12px; display:flex; align-items:center; justify-content:space-between;">
+                    <div>
+                        <div style="font-size:13px; font-weight:700; color:#fff;">1. ⌨️ Написать 10 сообщений герою</div>
+                        <div style="font-size:11px; color:#94a3b8;">Пополняет навык Writing (1 слово = 1 XP)</div>
+                    </div>
+                    <div style="font-weight:800; font-size:13px; color:${taskTextDone ? '#34d399' : '#fbbf24'};">${taskTextDone ? 'Выполнено ✅' : `${state.typedCount}/10`}</div>
+                </div>
+
+                <div style="background:rgba(15,23,42,0.8); border:1px solid ${taskListenDone ? '#10b981' : 'rgba(255,255,255,0.1)'}; border-radius:12px; padding:12px; display:flex; align-items:center; justify-content:space-between;">
+                    <div>
+                        <div style="font-size:13px; font-weight:700; color:#fff;">2. 🔊 Прослушать 10 реплик героя</div>
+                        <div style="font-size:11px; color:#94a3b8;">Пополняет навык Listening (1 слово = 1 XP)</div>
+                    </div>
+                    <div style="font-weight:800; font-size:13px; color:${taskListenDone ? '#34d399' : '#fbbf24'};">${taskListenDone ? 'Выполнено ✅' : `${listenCount}/10`}</div>
+                </div>
+
+                <div style="background:rgba(15,23,42,0.8); border:1px solid ${taskRepeatDone ? '#10b981' : 'rgba(255,255,255,0.1)'}; border-radius:12px; padding:12px; display:flex; align-items:center; justify-content:space-between;">
+                    <div>
+                        <div style="font-size:13px; font-weight:700; color:#fff;">3. 🎯 Повторить 10 фраз за героем</div>
+                        <div style="font-size:11px; color:#94a3b8;">Пополняет навык Speaking (1 слово = 1 XP)</div>
+                    </div>
+                    <div style="font-weight:800; font-size:13px; color:${taskRepeatDone ? '#34d399' : '#fbbf24'};">${taskRepeatDone ? 'Выполнено ✅' : `${repeatCount}/10`}</div>
+                </div>
+
+                <div style="background:rgba(15,23,42,0.8); border:1px solid ${taskWordsDone ? '#10b981' : 'rgba(255,255,255,0.1)'}; border-radius:12px; padding:12px; display:flex; align-items:center; justify-content:space-between;">
+                    <div>
+                        <div style="font-size:13px; font-weight:700; color:#fff;">4. 💬 Использовать 20 фокусных слов</div>
+                        <div style="font-size:11px; color:#94a3b8;">Слова из правой шпаргалки чата</div>
+                    </div>
+                    <div style="font-weight:800; font-size:13px; color:${taskWordsDone ? '#34d399' : '#fbbf24'};">${taskWordsDone ? 'Выполнено ✅' : `${wordsUsedCount}/${Math.min(20, wordsTotalCount)}`}</div>
+                </div>
+            `;
+        }
+
+        const goChatBtn = document.getElementById("btn-daily-quest-go-chat");
+        if (goChatBtn) {
+            goChatBtn.onclick = () => {
+                if (modalEl) modalEl.classList.add("hidden");
+                const heroScenario = SCENARIOS.find(sc => sc.isHeroScenario && sc.heroId === hero.id) || SCENARIOS.find(sc => sc.isHeroScenario);
+                if (heroScenario) selectScenario(heroScenario);
+                const chatModal = document.getElementById("modal-hero-chat");
+                if (chatModal) chatModal.classList.remove("hidden");
+            };
+        }
+
+        if (modalEl) modalEl.classList.remove("hidden");
     }
 
     // --- NEW STREAMLINED STREAK ENGINE (УДАРНЫЙ РЕЖИМ) ---
