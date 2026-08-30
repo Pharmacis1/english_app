@@ -1,4 +1,4 @@
-﻿/**
+/**
  * PATTERN DRILLS ENGINE (ТРАНСФОРМАТОР ФРАЗ)
  * 1..100 Levels • 10,000 Total Cards • Speed Transformation Practice
  * Audio-Lingual & Pimsleur Pattern Automation for Grammar Muscle Memory
@@ -87,6 +87,10 @@ class PatternDrillsEngine {
         this.totalCards = Math.min(this.TOTAL_MAX_CARDS, this.totalCards + 1);
         this.saveState();
         const newStats = this.getStats();
+
+        if (typeof window !== 'undefined' && window.syncPlayerStateToServer) {
+            window.syncPlayerStateToServer();
+        }
 
         let leveledUp = false;
         if (newStats.level > prevStats.level) {

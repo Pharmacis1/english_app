@@ -1,4 +1,4 @@
-﻿/**
+/**
  * SPEAKING & FLUENCY ENGINE (4/3/2 SPRINT & BLITZ Q&A)
  * 1..100 Levels • 300,000 Total Spoken Words • Continuous Speech Flow
  * Prof. Paul Nation's Fluency Methodology + Rapid Fire Q&A
@@ -99,6 +99,10 @@ class SpeakingFluencyEngine {
         this.totalWords = Math.min(this.TOTAL_MAX_WORDS, this.totalWords + wordsCount);
         this.saveState();
         const newStats = this.getStats();
+
+        if (typeof window !== 'undefined' && window.syncPlayerStateToServer) {
+            window.syncPlayerStateToServer();
+        }
 
         let leveledUp = false;
         if (newStats.level > prevStats.level) {

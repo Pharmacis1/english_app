@@ -1,0 +1,22 @@
+﻿{
+  "name": "English Pulse RPG",
+  "short_name": "EnglishPulse",
+  "description": "CEFR RPG English Learning App with AI Voice & Heroes",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0b0f19",
+  "theme_color": "#0f172a",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "images/book_icon_square.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/book_icon_square.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

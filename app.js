@@ -2054,6 +2054,92 @@ document.addEventListener("DOMContentLoaded", () => {
         updateGlobalA1SkillsProgress();
     }
 
+    // --- AUTOMATIC MULTI-DEVICE SYNC (PC <-> MOBILE) ---
+    let syncTimeout = null;
+
+    function getFullPlayerStateObject() {
+        return {
+            heroes: rpgEngine.heroes,
+            cards: (typeof flashcardEngine !== 'undefined' && flashcardEngine.decks) ? flashcardEngine.decks : (JSON.parse(localStorage.getItem("english_rpg_flashcard_decks") || "{}")),
+            streak: parseInt(localStorage.getItem("english_rpg_streak_days") || "0", 10),
+            writing_words: parseInt(localStorage.getItem("english_pulse_writing_words") || "0", 10),
+            listening_words: parseInt(localStorage.getItem("english_pulse_listening_words") || "0", 10),
+            speaking_words: parseInt(localStorage.getItem("english_pulse_speaking_words") || "0", 10),
+            drills_cards: parseInt(localStorage.getItem("english_pulse_drills_cards") || "0", 10),
+            visual_fluency_xp: parseInt(localStorage.getItem("visual_fluency_xp") || "0", 10),
+            visual_fluency_completed: JSON.parse(localStorage.getItem("visual_fluency_completed_chapters") || "[]"),
+            completed_story_chapters: JSON.parse(localStorage.getItem("english_rpg_completed_story_chapters") || "[]")
+        };
+    }
+
+    async function syncPlayerStateToServer() {
+        clearTimeout(syncTimeout);
+        syncTimeout = setTimeout(async () => {
+            try {
+                const payload = getFullPlayerStateObject();
+                await fetch("/api/player/sync", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload)
+                });
+            } catch(e) {
+                // Offline fallback
+            }
+        }, 1500);
+    }
+
+    async function loadPlayerStateFromServer() {
+        try {
+            const resp = await fetch("/api/player/sync");
+            if (!resp.ok) return;
+            const data = await resp.json();
+            if (data.success && data.state) {
+                const s = data.state;
+                if (s.heroes && Array.isArray(s.heroes) && s.heroes.length > 0) {
+                    s.heroes.forEach(remoteHero => {
+                        const local = rpgEngine.heroes.find(h => h.id === remoteHero.id);
+                        if (local && (remoteHero.level > (local.level || 1) || remoteHero.xp > (local.xp || 0))) {
+                            local.level = remoteHero.level;
+                            local.xp = remoteHero.xp;
+                            local.maxXp = remoteHero.maxXp || local.maxXp;
+                            local.unlocked = remoteHero.unlocked !== undefined ? remoteHero.unlocked : local.unlocked;
+                        }
+                    });
+                    rpgEngine.saveHeroes();
+                }
+                if (s.writing_words && s.writing_words > parseInt(localStorage.getItem("english_pulse_writing_words") || "0", 10)) {
+                    localStorage.setItem("english_pulse_writing_words", s.writing_words.toString());
+                }
+                if (s.listening_words && s.listening_words > parseInt(localStorage.getItem("english_pulse_listening_words") || "0", 10)) {
+                    localStorage.setItem("english_pulse_listening_words", s.listening_words.toString());
+                }
+                if (s.speaking_words && s.speaking_words > parseInt(localStorage.getItem("english_pulse_speaking_words") || "0", 10)) {
+                    localStorage.setItem("english_pulse_speaking_words", s.speaking_words.toString());
+                    if (window.speakingEngine) window.speakingEngine.totalWords = s.speaking_words;
+                }
+                if (s.drills_cards && s.drills_cards > parseInt(localStorage.getItem("english_pulse_drills_cards") || "0", 10)) {
+                    localStorage.setItem("english_pulse_drills_cards", s.drills_cards.toString());
+                    if (window.patternDrills) window.patternDrills.totalCards = s.drills_cards;
+                }
+                if (s.visual_fluency_xp && s.visual_fluency_xp > parseInt(localStorage.getItem("visual_fluency_xp") || "0", 10)) {
+                    localStorage.setItem("visual_fluency_xp", s.visual_fluency_xp.toString());
+                    if (window.visualFluency) window.visualFluency.xp = s.visual_fluency_xp;
+                }
+                if (s.cards && Object.keys(s.cards).length > 0) {
+                    const localDecks = JSON.parse(localStorage.getItem("english_rpg_flashcard_decks") || "{}");
+                    if (Object.keys(localDecks).length === 0) {
+                        localStorage.setItem("english_rpg_flashcard_decks", JSON.stringify(s.cards));
+                        if (typeof flashcardEngine !== 'undefined') flashcardEngine.decks = s.cards;
+                    }
+                }
+                renderRPGHeader();
+                renderHeroShowcase(rpgEngine.heroes[0]);
+            }
+        } catch(e) {
+            // Offline fallback
+        }
+    }
+
     window.getWritingStats = getWritingStats;
     window.addWritingWords = addWritingWords;
     window.updateWritingUI = updateWritingUI;
@@ -2068,7 +2154,8 @@ document.addEventListener("DOMContentLoaded", () => {
     window.updateDrillsUI = updateDrillsUI;
     window.updateSpeakingUI = updateSpeakingUI;
     window.updateGlobalA1SkillsProgress = updateGlobalA1SkillsProgress;
-    window.updateSpeakingUI = updateSpeakingUI;
+    window.syncPlayerStateToServer = syncPlayerStateToServer;
+    window.loadPlayerStateFromServer = loadPlayerStateFromServer;
 
     function getHeroIdFromCategory(catName) {
         if (!catName || catName === "🧠 Due for SRS Review") return null;
@@ -6822,4 +6909,5 @@ document.addEventListener("DOMContentLoaded", () => {
     try { initSpeakingStudioUI(); } catch (e) { console.error("Speaking init error:", e); }
     try { renderRPGHeader(); } catch (e) {}
     try { renderHeroShowcase(rpgEngine.heroes[0].id); } catch (e) { console.error("Hero Showcase Render Error:", e); }
+    try { loadPlayerStateFromServer(); } catch (e) {}
 });

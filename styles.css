@@ -2856,6 +2856,319 @@ body {
 }
 
 /* =========================================================================
+   MOBILE RESPONSIVE STYLES (SMARTPHONES & TABLETS <= 768px)
+   ========================================================================= */
+
+@media (max-width: 768px) {
+    /* VIEWPORT */
+    .rpg-app-viewport {
+        height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    /* TOP HEADER ON MOBILE */
+    .rpg-header {
+        height: auto;
+        min-height: 48px;
+        padding: 6px 10px;
+        flex-wrap: wrap;
+        gap: 6px;
+        z-index: 30;
+    }
+
+    .global-a0-a1-progress-container {
+        order: 1;
+        width: 100%;
+        max-width: 100%;
+        margin: 0 0 2px 0;
+    }
+
+    .rpg-top-stats {
+        order: 2;
+        width: calc(100% - 76px);
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 2px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 6px;
+    }
+
+    .rpg-top-stats::-webkit-scrollbar {
+        display: none;
+    }
+
+    .rpg-header-stat-pill {
+        padding: 3px 8px;
+        font-size: 11px;
+        flex-shrink: 0;
+        border-radius: 12px;
+    }
+
+    .rpg-header-actions {
+        order: 3;
+        gap: 4px;
+    }
+
+    .icon-btn-game {
+        width: 32px;
+        height: 32px;
+        font-size: 12px;
+        border-radius: 8px;
+    }
+
+    /* HERO SHOWCASE STAGE */
+    .hero-showcase-stage {
+        flex: 1;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+    }
+
+    /* FLOATING HERO PROFILE BADGE */
+    .hero-left-panel {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 10;
+        width: auto;
+        max-width: 190px;
+        padding: 8px 12px;
+        background: rgba(15, 23, 42, 0.85);
+        backdrop-filter: blur(14px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 14px;
+        gap: 4px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-identity-block {
+        text-align: left;
+    }
+
+    .hero-name-heading {
+        font-size: 1.2em;
+        margin: 2px 0;
+    }
+
+    .hero-sub-title {
+        font-size: 11px;
+        margin: 0;
+    }
+
+    .hero-meta-grid,
+    .hero-stats-panel,
+    .hero-mastery-card {
+        display: none !important;
+    }
+
+    /* CENTER AVATAR & STAGE */
+    .hero-center-stage {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+    }
+
+    .hero-main-avatar {
+        max-height: 60vh;
+        max-width: 90vw;
+        object-fit: contain;
+        transform: translateY(-15px);
+    }
+
+    .floating-story-grimoire {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 12;
+        width: 44px;
+        height: 44px;
+        transform: none !important;
+    }
+
+    /* BOTTOM MOBILE ACTION BAR */
+    .hero-right-panel {
+        position: absolute;
+        bottom: 58px;
+        left: 0;
+        right: 0;
+        width: 100%;
+        padding: 8px 8px 6px 8px;
+        z-index: 15;
+        background: linear-gradient(180deg, transparent 0%, rgba(11, 15, 25, 0.9) 30%, #0b0f19 100%);
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .hero-actions-grid {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+        gap: 4px;
+    }
+
+    .hero-btn {
+        flex: 1;
+        padding: 6px 2px;
+        font-size: 9.5px;
+        font-weight: 700;
+        height: auto;
+        min-width: 0;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+    }
+
+    .hero-btn i {
+        font-size: 15px;
+        margin: 0;
+    }
+
+    /* BOTTOM HERO CAROUSEL */
+    .hero-bottom-bar {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 56px;
+        z-index: 16;
+        background: rgba(15, 23, 42, 0.98);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 4px 6px;
+    }
+
+    .hero-carousel-track {
+        gap: 6px;
+        overflow-x: auto;
+        padding: 0 4px;
+        scrollbar-width: none;
+    }
+
+    .hero-carousel-track::-webkit-scrollbar {
+        display: none;
+    }
+
+    .hero-carousel-card {
+        width: 44px;
+        height: 44px;
+        flex-shrink: 0;
+        border-radius: 10px;
+    }
+
+    /* FULLSCREEN MOBILE MODALS */
+    .rpg-modal-overlay {
+        padding: 0;
+    }
+
+    .rpg-modal-content {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        height: 100dvh !important;
+        max-height: 100dvh !important;
+        border-radius: 0 !important;
+        border: none !important;
+        margin: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    .rpg-modal-body {
+        flex: 1 !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        padding: 14px !important;
+    }
+
+    .rpg-modal-header {
+        padding: 10px 14px !important;
+        flex-shrink: 0 !important;
+    }
+
+    .modal-header-title h3 {
+        font-size: 15px !important;
+    }
+
+    /* CHAT MODAL ON MOBILE */
+    #modal-hero-chat .rpg-modal-body {
+        flex-direction: column !important;
+    }
+
+    #modal-hero-chat .hero-chat-sidebar {
+        display: none !important;
+    }
+
+    #chat-messages-scroll-body {
+        padding: 10px !important;
+    }
+
+    .chat-input-row {
+        padding: 8px 10px !important;
+        gap: 6px !important;
+    }
+
+    #user-chat-input {
+        font-size: 14px !important;
+        padding: 10px 12px !important;
+    }
+
+    /* DRILLS ON MOBILE */
+    .drills-card-box {
+        padding: 16px 12px !important;
+        border-radius: 14px !important;
+    }
+
+    #drills-card-original {
+        font-size: 17px !important;
+    }
+
+    .drills-opt-btn {
+        padding: 10px 12px !important;
+        font-size: 13px !important;
+    }
+
+    /* SPEAKING ON MOBILE */
+    .speaking-tab-btn {
+        padding: 8px 4px !important;
+        font-size: 11px !important;
+    }
+
+    #sprint-toggle-rec-btn {
+        padding: 14px 18px !important;
+        font-size: 14px !important;
+        width: 100% !important;
+    }
+
+    /* STORY MODAL ON MOBILE */
+    .story-campaign-modal-container {
+        width: 100vw !important;
+        height: 100dvh !important;
+    }
+
+    .story-paragraph-card {
+        padding: 10px 12px !important;
+    }
+
+    .story-paragraph-en {
+        font-size: 14px !important;
+        line-height: 1.8 !important;
+    }
+}
+
+/* =========================================================================
    VISUAL FLUENCY & SPEED READING CHUNK STYLES
    ========================================================================= */
 

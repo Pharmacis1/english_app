@@ -114,6 +114,10 @@ class VisualFluencyEngine {
         this.level = this.calculateLevelFromXp(this.xp);
         this.saveState();
 
+        if (typeof window !== 'undefined' && window.syncPlayerStateToServer) {
+            window.syncPlayerStateToServer();
+        }
+
         const leveledUp = this.level > oldLevel;
         return {
             awarded: true,

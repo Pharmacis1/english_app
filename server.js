@@ -155,6 +155,54 @@ app.post('/api/backup/import', async (req, res) => {
     }
 });
 
+// 6.1 GET /api/player/sync — Full state fetch for multi-device sync (PC <-> Mobile)
+app.get('/api/player/sync', async (req, res) => {
+    try {
+        const fs = require('fs');
+        const syncFile = path.join(__dirname, 'player_sync_data.json');
+        if (fs.existsSync(syncFile)) {
+            const raw = fs.readFileSync(syncFile, 'utf8');
+            const data = JSON.parse(raw);
+            return res.json({ success: true, state: data });
+        } else {
+            const fallback = db.getFallbackDb();
+            return res.json({ success: true, state: fallback || {} });
+        }
+    } catch (err) {
+        res.status(500).json({ success: false, error: err.message });
+    }
+});
+
+// 6.2 POST /api/player/sync — Full state save & merge across devices
+app.post('/api/player/sync', async (req, res) => {
+    try {
+        const fs = require('fs');
+        const statePayload = req.body;
+        if (!statePayload || typeof statePayload !== 'object') {
+            return res.status(400).json({ success: false, error: "Invalid state payload" });
+        }
+        const syncFile = path.join(__dirname, 'player_sync_data.json');
+        let existing = {};
+        if (fs.existsSync(syncFile)) {
+            try { existing = JSON.parse(fs.readFileSync(syncFile, 'utf8')); } catch(e) {}
+        }
+        const merged = { ...existing, ...statePayload, lastSyncedAt: new Date().toISOString() };
+        fs.writeFileSync(syncFile, JSON.stringify(merged, null, 2), 'utf8');
+
+        // Also sync heroes to fallback db if provided
+        if (statePayload.heroes && !db.isPostgresActive()) {
+            const fallback = db.getFallbackDb();
+            fallback.heroes = statePayload.heroes;
+            if (statePayload.cards) fallback.cards = statePayload.cards;
+            db.saveFallbackDb(fallback);
+        }
+
+        return res.json({ success: true, message: "Player state synced successfully!", lastSyncedAt: merged.lastSyncedAt });
+    } catch (err) {
+        res.status(500).json({ success: false, error: err.message });
+    }
+});
+
 // 7. GET /api/ai/models — Proxy fetch installed models from Ollama / LM Studio (bypasses CORS)
 app.get('/api/ai/models', async (req, res) => {
     const provider = req.query.provider || 'ollama';

@@ -1725,6 +1725,9 @@ class RPGEngine {
             localStorage.setItem("rpg_heroes_10_v9", JSON.stringify(this.heroes));
             localStorage.setItem("rpg_chapters_10_v9", JSON.stringify(this.chapters));
             localStorage.setItem("rpg_squad_ids_v9", JSON.stringify(this.selectedSquad));
+            if (typeof window !== 'undefined' && window.syncPlayerStateToServer) {
+                window.syncPlayerStateToServer();
+            }
         }
     }
 
