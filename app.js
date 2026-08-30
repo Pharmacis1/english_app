@@ -2072,9 +2072,9 @@ document.addEventListener("DOMContentLoaded", () => {
         };
     }
 
-    async function syncPlayerStateToServer() {
+    async function syncPlayerStateToServer(immediate = false) {
         clearTimeout(syncTimeout);
-        syncTimeout = setTimeout(async () => {
+        const executeSync = async () => {
             try {
                 const payload = getFullPlayerStateObject();
                 await fetch("/api/player/sync", {
@@ -2085,7 +2085,13 @@ document.addEventListener("DOMContentLoaded", () => {
             } catch(e) {
                 // Offline fallback
             }
-        }, 1500);
+        };
+
+        if (immediate) {
+            await executeSync();
+        } else {
+            syncTimeout = setTimeout(executeSync, 1000);
+        }
     }
 
     async function loadPlayerStateFromServer() {
@@ -2093,47 +2099,62 @@ document.addEventListener("DOMContentLoaded", () => {
             const resp = await fetch("/api/player/sync");
             if (!resp.ok) return;
             const data = await resp.json();
-            if (data.success && data.state) {
-                const s = data.state;
-                if (s.heroes && Array.isArray(s.heroes) && s.heroes.length > 0) {
-                    s.heroes.forEach(remoteHero => {
-                        const local = rpgEngine.heroes.find(h => h.id === remoteHero.id);
-                        if (local && (remoteHero.level > (local.level || 1) || remoteHero.xp > (local.xp || 0))) {
-                            local.level = remoteHero.level;
-                            local.xp = remoteHero.xp;
-                            local.maxXp = remoteHero.maxXp || local.maxXp;
-                            local.unlocked = remoteHero.unlocked !== undefined ? remoteHero.unlocked : local.unlocked;
+            
+            const localHeroes = rpgEngine.heroes;
+            const localTotalHeroLvl = localHeroes.reduce((sum, h) => sum + (h.level || 1), 0);
+            
+            if (data.success && data.state && Array.isArray(data.state.heroes) && data.state.heroes.length > 0) {
+                const remoteHeroes = data.state.heroes;
+                const remoteTotalHeroLvl = remoteHeroes.reduce((sum, h) => sum + (h.level || 1), 0);
+
+                if (remoteTotalHeroLvl > localTotalHeroLvl || (remoteTotalHeroLvl === localTotalHeroLvl && remoteTotalHeroLvl > 10)) {
+                    // Mobile pulling newer/equal progress from PC/Server
+                    remoteHeroes.forEach(rh => {
+                        const lh = localHeroes.find(h => h.id === rh.id);
+                        if (lh) {
+                            lh.level = rh.level || lh.level;
+                            lh.xp = rh.xp !== undefined ? rh.xp : lh.xp;
+                            lh.maxXp = rh.maxXp || lh.maxXp;
+                            lh.affinityLevel = rh.affinityLevel || lh.affinityLevel;
+                            lh.unlocked = rh.unlocked !== undefined ? rh.unlocked : lh.unlocked;
                         }
                     });
-                    rpgEngine.saveHeroes();
-                }
-                if (s.writing_words && s.writing_words > parseInt(localStorage.getItem("english_pulse_writing_words") || "0", 10)) {
-                    localStorage.setItem("english_pulse_writing_words", s.writing_words.toString());
-                }
-                if (s.listening_words && s.listening_words > parseInt(localStorage.getItem("english_pulse_listening_words") || "0", 10)) {
-                    localStorage.setItem("english_pulse_listening_words", s.listening_words.toString());
-                }
-                if (s.speaking_words && s.speaking_words > parseInt(localStorage.getItem("english_pulse_speaking_words") || "0", 10)) {
-                    localStorage.setItem("english_pulse_speaking_words", s.speaking_words.toString());
-                    if (window.speakingEngine) window.speakingEngine.totalWords = s.speaking_words;
-                }
-                if (s.drills_cards && s.drills_cards > parseInt(localStorage.getItem("english_pulse_drills_cards") || "0", 10)) {
-                    localStorage.setItem("english_pulse_drills_cards", s.drills_cards.toString());
-                    if (window.patternDrills) window.patternDrills.totalCards = s.drills_cards;
-                }
-                if (s.visual_fluency_xp && s.visual_fluency_xp > parseInt(localStorage.getItem("visual_fluency_xp") || "0", 10)) {
-                    localStorage.setItem("visual_fluency_xp", s.visual_fluency_xp.toString());
-                    if (window.visualFluency) window.visualFluency.xp = s.visual_fluency_xp;
-                }
-                if (s.cards && Object.keys(s.cards).length > 0) {
-                    const localDecks = JSON.parse(localStorage.getItem("english_rpg_flashcard_decks") || "{}");
-                    if (Object.keys(localDecks).length === 0) {
+                    rpgEngine.save();
+
+                    const s = data.state;
+                    if (s.writing_words) localStorage.setItem("english_pulse_writing_words", s.writing_words.toString());
+                    if (s.listening_words) localStorage.setItem("english_pulse_listening_words", s.listening_words.toString());
+                    if (s.speaking_words) {
+                        localStorage.setItem("english_pulse_speaking_words", s.speaking_words.toString());
+                        if (window.speakingEngine) window.speakingEngine.loadState();
+                    }
+                    if (s.drills_cards) {
+                        localStorage.setItem("english_pulse_drills_cards", s.drills_cards.toString());
+                        if (window.patternDrills) window.patternDrills.loadState();
+                    }
+                    if (s.visual_fluency_xp) {
+                        localStorage.setItem("visual_fluency_xp", s.visual_fluency_xp.toString());
+                        if (window.visualFluency) window.visualFluency.loadState();
+                    }
+                    if (s.streak) localStorage.setItem("english_rpg_streak_days", s.streak.toString());
+                    if (s.cards && Object.keys(s.cards).length > 0) {
                         localStorage.setItem("english_rpg_flashcard_decks", JSON.stringify(s.cards));
                         if (typeof flashcardEngine !== 'undefined') flashcardEngine.decks = s.cards;
                     }
+                    if (s.completed_story_chapters) {
+                        localStorage.setItem("english_rpg_completed_story_chapters", JSON.stringify(s.completed_story_chapters));
+                    }
+
+                    renderRPGHeader();
+                    renderHeroShowcase(activeShowcaseHeroId || rpgEngine.heroes[0].id);
+                    renderBottomHeroCarousel();
+                } else if (localTotalHeroLvl > remoteTotalHeroLvl) {
+                    // Local PC has newer progress, push to server immediately!
+                    syncPlayerStateToServer(true);
                 }
-                renderRPGHeader();
-                renderHeroShowcase(rpgEngine.heroes[0]);
+            } else if (localTotalHeroLvl > 10) {
+                // Initial push from PC to server
+                syncPlayerStateToServer(true);
             }
         } catch(e) {
             // Offline fallback

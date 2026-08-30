@@ -982,12 +982,15 @@
                 <div style="margin-top:24px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1);">
                     <h4><i class="fa-solid fa-database"></i> PostgreSQL & Backup Management</h4>
                     <p style="font-size:12px; color:var(--text-muted); margin-bottom:12px;">Export or restore your full hero RPG progress and SRS card memory to a JSON backup file anytime.</p>
-                    <div style="display:flex; gap:12px;">
+                    <div style="display:flex; gap:12px; flex-wrap:wrap;">
+                        <button type="button" class="btn btn-primary" id="manual-sync-btn" onclick="window.syncPlayerStateToServer(true); window.loadPlayerStateFromServer(); alert('🔄 Прогресс успешно синхронизирован с сервером!');">
+                            <i class="fa-solid fa-arrows-rotate"></i> Синхронизировать ПК &harr; Телефон
+                        </button>
                         <button type="button" class="btn btn-secondary" id="export-backup-btn">
-                            <i class="fa-solid fa-download"></i> Export Save Backup (.json)
+                            <i class="fa-solid fa-download"></i> Export (.json)
                         </button>
                         <button type="button" class="btn btn-outline" id="import-backup-trigger-btn">
-                            <i class="fa-solid fa-upload"></i> Restore Save Backup
+                            <i class="fa-solid fa-upload"></i> Restore
                         </button>
                         <input type="file" id="import-backup-file-input" accept=".json" class="hidden">
                     </div>
