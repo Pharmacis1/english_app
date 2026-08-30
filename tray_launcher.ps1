@@ -9,29 +9,53 @@ if (Test-Path $iconPath) {
 } else {
     $notifyIcon.Icon = [System.Drawing.SystemIcons]::Application
 }
-$notifyIcon.Text = "EnglishPulse AI - Server Running (port 3000)"
+$notifyIcon.Text = "EnglishPulse AI (Port 3000 + zrok Mobile)"
 $notifyIcon.Visible = $true
+
+# Show startup balloon notification
+$notifyIcon.BalloonTipTitle = "EnglishPulse AI & Mobile zrok Active! 🚀"
+$notifyIcon.BalloonTipText = "PC: http://localhost:3000`nPhone: https://englishpulse.share.zrok.io"
+$notifyIcon.BalloonTipIcon = [System.Windows.Forms.ToolTipIcon]::Info
+$notifyIcon.ShowBalloonTip(4000)
 
 $contextMenu = New-Object System.Windows.Forms.ContextMenu
 
-# Menu Item 1: Open Web App
+# Menu Item 1: Open Web App on PC
 $itemOpen = New-Object System.Windows.Forms.MenuItem
-$itemOpen.Text = "🚀 Open EnglishPulse AI (http://localhost:3000)"
+$itemOpen.Text = "🚀 Open on PC (http://localhost:3000)"
 $itemOpen.add_Click({
     Start-Process "http://localhost:3000"
 })
 $contextMenu.MenuItems.Add($itemOpen) | Out-Null
 
+# Menu Item 2: Copy Mobile Link
+$itemCopyMobile = New-Object System.Windows.Forms.MenuItem
+$itemCopyMobile.Text = "📱 Copy Mobile Link (https://englishpulse.share.zrok.io)"
+$itemCopyMobile.add_Click({
+    [System.Windows.Forms.Clipboard]::SetText("https://englishpulse.share.zrok.io")
+    $notifyIcon.ShowBalloonTip(2000, "EnglishPulse AI", "Mobile link copied to clipboard! 📋", [System.Windows.Forms.ToolTipIcon]::Info)
+})
+$contextMenu.MenuItems.Add($itemCopyMobile) | Out-Null
+
+# Menu Item 3: Open Mobile QR Code
+$itemQr = New-Object System.Windows.Forms.MenuItem
+$itemQr.Text = "📲 Open Mobile QR-Code in Browser"
+$itemQr.add_Click({
+    Start-Process "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://englishpulse.share.zrok.io"
+})
+$contextMenu.MenuItems.Add($itemQr) | Out-Null
+
 # Separator
 $contextMenu.MenuItems.Add("-") | Out-Null
 
-# Menu Item 2: Exit Application & Backend Server
+# Menu Item 4: Exit Application & Backend Servers
 $itemExit = New-Object System.Windows.Forms.MenuItem
-$itemExit.Text = "❌ Exit App & Stop Backend Server"
+$itemExit.Text = "❌ Exit App & Stop All Services (Node, Kokoro, zrok)"
 $itemExit.add_Click({
     $notifyIcon.Visible = $false
-    # Kill Node.js server processes
-    Get-Process -Name "node" -ErrorAction SilentlyContinue | Stop-Process -Force
+    # Kill Node.js, Python TTS/STT, and zrok processes
+    Get-Process -Name "node", "zrok" -ErrorAction SilentlyContinue | Stop-Process -Force
+    Get-CimInstance Win32_Process | Where-Object { $_.CommandLine -like "*kokoro_server.py*" -or $_.CommandLine -like "*whisper_server.py*" } | ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }
     [System.Windows.Forms.Application]::Exit()
 })
 $contextMenu.MenuItems.Add($itemExit) | Out-Null

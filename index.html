@@ -992,6 +992,25 @@
                         <input type="file" id="import-backup-file-input" accept=".json" class="hidden">
                     </div>
                 </div>
+
+                <!-- MOBILE ZROK HTTPS ACCESS -->
+                <div style="margin-top:24px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1);">
+                    <h4 style="color:#38bdf8;"><i class="fa-solid fa-mobile-screen-button"></i> Доступ со смартфона (zrok HTTPS)</h4>
+                    <p style="font-size:12px; color:var(--text-muted); margin-bottom:12px;">Откройте ссылку или наведите камеру телефона на QR-код для запуска игры на смартфоне с работающим микрофоном и озвучкой:</p>
+                    <div style="display:flex; gap:16px; align-items:center; background:rgba(15,23,42,0.6); padding:14px; border-radius:12px; border:1px solid rgba(56,189,248,0.2); flex-wrap:wrap;">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https://englishpulse.share.zrok.io" alt="QR Code" style="width:110px; height:110px; border-radius:8px; background:#fff; padding:4px;">
+                        <div style="flex:1; min-width:200px;">
+                            <div style="font-size:13px; font-weight:700; color:#fff; margin-bottom:4px;">Постоянная защищенная ссылка:</div>
+                            <div style="display:flex; gap:8px; align-items:center; margin-bottom:8px; flex-wrap:wrap;">
+                                <a href="https://englishpulse.share.zrok.io" target="_blank" style="color:#38bdf8; font-family:monospace; font-size:13px; text-decoration:underline;">https://englishpulse.share.zrok.io</a>
+                                <button type="button" class="btn btn-sm btn-outline" onclick="navigator.clipboard.writeText('https://englishpulse.share.zrok.io'); alert('Ссылка скопирована в буфер обмена!');" style="padding:2px 8px; font-size:11px;">
+                                    <i class="fa-solid fa-copy"></i> Копировать
+                                </button>
+                            </div>
+                            <span style="font-size:11px; color:#94a3b8;">✨ Запускается автоматически при клике на ярлык <b>EnglishPulse AI</b> на рабочем столе.</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

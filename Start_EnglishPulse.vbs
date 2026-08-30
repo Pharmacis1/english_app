@@ -13,11 +13,14 @@ WshShell.Run "cmd /c cd /d """ & AppDir & """ && python whisper_server.py", 0, F
 ' 3. Launch Local Kokoro TTS Server silently (Port 8880)
 WshShell.Run "cmd /c cd /d """ & AppDir & """ && python kokoro_server.py", 0, False
 
-' 4. Wait 1.5 seconds for server startup
+' 4. Launch zrok HTTPS Mobile Tunnel silently (https://englishpulse.share.zrok.io)
+WshShell.Run "cmd /c zrok share reserved englishpulse --headless", 0, False
+
+' 5. Wait 1.5 seconds for server startup
 WScript.Sleep 1500
 
-' 5. Launch System Tray Icon Controller silently
+' 6. Launch System Tray Icon Controller silently
 WshShell.Run "powershell -ExecutionPolicy Bypass -WindowStyle Hidden -File """ & AppDir & "\tray_launcher.ps1""", 0, False
 
-' 6. Open Web App in default browser
+' 7. Open Web App in default browser
 WshShell.Run "http://localhost:3000", 1, False
