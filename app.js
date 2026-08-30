@@ -7,7 +7,25 @@ document.addEventListener("DOMContentLoaded", () => {
     const voiceService = new VoiceService();
     window.voiceService = voiceService;
 
-    // App State
+    function playTextKokoroAudio(text, speakerId = 'valerius', onStart = null, onEnd = null) {
+        if (!text) return;
+        const heroObj = (rpgEngine && rpgEngine.heroes) ? rpgEngine.heroes.find(h => h.id === speakerId || (h.name && h.name.toLowerCase() === (speakerId || '').toLowerCase())) : null;
+        const voiceConfig = heroObj ? heroObj.voiceConfig : null;
+        if (voiceService && typeof voiceService.speak === 'function') {
+            voiceService.speak(text, onStart, onEnd, voiceConfig);
+        } else if (flashcardEngine && typeof flashcardEngine.speak === 'function') {
+            flashcardEngine.speak(text, onStart, onEnd, voiceConfig);
+        } else if ('speechSynthesis' in window) {
+            window.speechSynthesis.cancel();
+            const u = new SpeechSynthesisUtterance(text);
+            u.lang = 'en-US';
+            u.rate = 0.9;
+            if (onStart) u.onstart = onStart;
+            if (onEnd) u.onend = onEnd;
+            window.speechSynthesis.speak(u);
+        }
+    }
+    window.playTextKokoroAudio = playTextKokoroAudio;
     let activeScenario = SCENARIOS[0];
     let chatHistory = [];
     let currentGrammarTopic = GRAMMAR_TOPICS[0];
@@ -6496,19 +6514,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let currentCardIndexInSprint = 0;
         const SPRINT_TOTAL = 10;
-        let timerSeconds = 5;
-        let timerRemainingMs = 5000;
+        let timerSeconds = parseInt(localStorage.getItem("drills_timer_sec") || "7", 10);
+        let timerRemainingMs = timerSeconds * 1000;
         let timerInterval = null;
         let currentCard = null;
         let isCardAnswered = false;
         let speechRecognitionInstance = null;
 
-        // Speed buttons
+        // Speed buttons initialization & click handlers
+        function syncDrillsSpeedButtons() {
+            document.querySelectorAll(".drills-speed-btn").forEach(b => {
+                const sec = parseInt(b.getAttribute("data-sec") || "7", 10);
+                if (sec === timerSeconds) {
+                    b.classList.add("active");
+                } else {
+                    b.classList.remove("active");
+                }
+            });
+        }
+        syncDrillsSpeedButtons();
+
         document.querySelectorAll(".drills-speed-btn").forEach(btn => {
             btn.addEventListener("click", () => {
                 document.querySelectorAll(".drills-speed-btn").forEach(b => b.classList.remove("active"));
                 btn.classList.add("active");
-                timerSeconds = parseInt(btn.getAttribute("data-sec") || "5", 10);
+                timerSeconds = parseInt(btn.getAttribute("data-sec") || "7", 10);
+                localStorage.setItem("drills_timer_sec", timerSeconds.toString());
+                if (!isCardAnswered && timerInterval) {
+                    startTimer();
+                }
             });
         });
 
@@ -6533,9 +6567,11 @@ document.addEventListener("DOMContentLoaded", () => {
             timerInterval = null;
         }
 
-        function startTimer() {
+        function startTimer(reset = true) {
             stopTimer();
-            timerRemainingMs = timerSeconds * 1000;
+            if (reset) {
+                timerRemainingMs = timerSeconds * 1000;
+            }
             const stepMs = 50;
             timerInterval = setInterval(() => {
                 timerRemainingMs -= stepMs;
@@ -6596,13 +6632,18 @@ document.addEventListener("DOMContentLoaded", () => {
             currentCard = window.patternDrills.getRandomCard();
             if (originalTextEl && currentCard) {
                 originalTextEl.innerHTML = `<span>${currentCard.original}</span>` +
-                    `<button class="btn btn-sm btn-outline" id="drills-listen-original-btn" title="Прослушать" style="padding:2px 8px; font-size:12px;"><i class="fa-solid fa-volume-high"></i></button>`;
+                    `<button class="btn btn-sm btn-outline" id="drills-listen-original-btn" title="Прослушать произношение" style="padding:2px 8px; font-size:12px;"><i class="fa-solid fa-volume-high"></i></button>`;
                 const lBtn = document.getElementById("drills-listen-original-btn");
                 if (lBtn) {
                     lBtn.addEventListener("click", () => {
-                        if (typeof playTextKokoroAudio === "function") {
-                            playTextKokoroAudio(currentCard.original, activeShowcaseHeroId || 'valerius');
-                        }
+                        const icon = lBtn.querySelector("i");
+                        if (icon) icon.className = "fa-solid fa-spinner fa-spin";
+                        playTextKokoroAudio(
+                            currentCard.original,
+                            activeShowcaseHeroId || 'valerius',
+                            () => { if (icon) icon.className = "fa-solid fa-volume-high fa-beat"; },
+                            () => { if (icon) icon.className = "fa-solid fa-volume-high"; }
+                        );
                     });
                 }
             }
@@ -6705,15 +6746,29 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-        // Voice input with STT
+        // Voice input with STT & smart timer pausing
         if (micBtn) {
             micBtn.addEventListener("click", () => {
                 if (isCardAnswered) return;
+
                 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
                 if (!SpeechRecognition) {
-                    alert("Распознавание речи не поддерживается браузером. Используйте кнопки вариантов.");
+                    alert("Распознавание речи не поддерживается этим браузером. Используйте кнопки вариантов.");
                     return;
                 }
+
+                if (micBtn.classList.contains("recording")) {
+                    if (speechRecognitionInstance) {
+                        try { speechRecognitionInstance.stop(); } catch(e) {}
+                    }
+                    micBtn.classList.remove("recording");
+                    startTimer(false);
+                    return;
+                }
+
+                // Pause the countdown timer while user is speaking!
+                stopTimer();
+                if (timerFillEl) timerFillEl.style.background = "#38bdf8";
 
                 if (speechRecognitionInstance) {
                     try { speechRecognitionInstance.stop(); } catch(e) {}
@@ -6722,29 +6777,51 @@ document.addEventListener("DOMContentLoaded", () => {
                 speechRecognitionInstance = new SpeechRecognition();
                 speechRecognitionInstance.lang = "en-US";
                 speechRecognitionInstance.continuous = false;
-                speechRecognitionInstance.interimResults = false;
+                speechRecognitionInstance.interimResults = true;
+                speechRecognitionInstance.maxAlternatives = 3;
 
                 micBtn.classList.add("recording");
-                if (spokenFeedback) spokenFeedback.innerHTML = '<span style="color:#fbbf24;">🎙️ Слушаю ваш ответ... Говорите!</span>';
+                if (spokenFeedback) spokenFeedback.innerHTML = '<span style="color:#fbbf24;">🎙️ Слушаю ответ... Говорите! <em>(таймер на паузе ⏸️)</em></span>';
 
                 speechRecognitionInstance.onresult = (evt) => {
-                    const spoken = evt.results[0][0].transcript;
-                    micBtn.classList.remove("recording");
+                    let spoken = '';
+                    for (let i = 0; i < evt.results.length; i++) {
+                        spoken += evt.results[i][0].transcript + ' ';
+                    }
+                    spoken = spoken.trim();
+                    if (!spoken) return;
+
                     if (spokenFeedback) spokenFeedback.innerHTML = `Распознано: <b>"${spoken}"</b>`;
                     const isOk = window.patternDrills.checkSpokenAnswer(spoken, currentCard.target);
-                    handleCardAnswer(isOk);
+
+                    if (isOk || evt.results[0].isFinal) {
+                        micBtn.classList.remove("recording");
+                        if (speechRecognitionInstance) {
+                            try { speechRecognitionInstance.stop(); } catch(e) {}
+                        }
+                        handleCardAnswer(isOk);
+                    }
                 };
 
-                speechRecognitionInstance.onerror = () => {
+                speechRecognitionInstance.onerror = (err) => {
                     micBtn.classList.remove("recording");
-                    if (spokenFeedback) spokenFeedback.innerHTML = '<span style="color:#f87171;">Не удалось распознать. Попробуйте еще раз или выберите вариант.</span>';
+                    if (!isCardAnswered) {
+                        if (spokenFeedback) spokenFeedback.innerHTML = '<span style="color:#f87171;">Не удалось расслышать. Нажмите микрофон еще раз или выберите вариант.</span>';
+                        timerRemainingMs = Math.max(4000, timerRemainingMs);
+                        startTimer(false);
+                    }
                 };
 
                 speechRecognitionInstance.onend = () => {
                     micBtn.classList.remove("recording");
                 };
 
-                speechRecognitionInstance.start();
+                try {
+                    speechRecognitionInstance.start();
+                } catch(e) {
+                    micBtn.classList.remove("recording");
+                    startTimer(false);
+                }
             });
         }
 
