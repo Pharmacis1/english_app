@@ -415,6 +415,9 @@ app.post('/api/ai/stt', async (req, res) => {
         return res.status(502).json({ success: false, fallback: true, error: `Local Whisper STT returned ${resp.status}` });
     } catch (err) {
         return res.status(502).json({ success: false, fallback: true, error: `Whisper STT connection failed at ${endpoint}: ${err.message}` });
+    }
+});
+
 // 11. POST /api/ai/stt-groq — Proxy request to Groq Cloud Whisper Large v3 (ultra-fast transcription)
 app.post('/api/ai/stt-groq', async (req, res) => {
     try {
