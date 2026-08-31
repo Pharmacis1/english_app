@@ -109,168 +109,168 @@ class PatternDrillsEngine {
     initPatterns() {
         this.rawPatterns = [
             // =========================================================================
-            // 1. PRESENT SIMPLE -> NEGATIVE (don't / doesn't + V1)
+            // 1. PRESENT SIMPLE -> NEGATIVE (don't / doesn't + V1: Daily Life)
             // =========================================================================
-            { original: "She works in the castle", modifier: "❌ Negative", target: "She doesn't work in the castle", distractors: ["She don't work in the castle", "She not works in the castle"] },
-            { original: "He likes cold water", modifier: "❌ Negative", target: "He doesn't like cold water", distractors: ["He don't like cold water", "He doesn't likes cold water"] },
-            { original: "I have a sharp sword", modifier: "❌ Negative", target: "I don't have a sharp sword", distractors: ["I not have a sharp sword", "I doesn't have a sharp sword"] },
-            { original: "They live near the river", modifier: "❌ Negative", target: "They don't live near the river", distractors: ["They doesn't live near the river", "They not live near the river"] },
-            { original: "We know the secret path", modifier: "❌ Negative", target: "We don't know the secret path", distractors: ["We doesn't know the secret path", "We not know the secret path"] },
-            { original: "It helps our team", modifier: "❌ Negative", target: "It doesn't help our team", distractors: ["It don't help our team", "It doesn't helps our team"] },
-            { original: "The guard sees the danger", modifier: "❌ Negative", target: "The guard doesn't see the danger", distractors: ["The guard don't see the danger", "The guard not sees the danger"] },
-            { original: "Valerius trusts the stranger", modifier: "❌ Negative", target: "Valerius doesn't trust the stranger", distractors: ["Valerius don't trust the stranger", "Valerius not trusts the stranger"] },
-            { original: "You need a healing potion", modifier: "❌ Negative", target: "You don't need a healing potion", distractors: ["You doesn't need a healing potion", "You not need a healing potion"] },
-            { original: "The mage forgets his spell", modifier: "❌ Negative", target: "The mage doesn't forget his spell", distractors: ["The mage don't forget his spell", "The mage doesn't forgets his spell"] },
+            { original: "She works in an office", modifier: "❌ Negative", target: "She doesn't work in an office", distractors: ["She don't work in an office", "She not works in an office"] },
+            { original: "He drinks black coffee", modifier: "❌ Negative", target: "He doesn't drink black coffee", distractors: ["He don't drink black coffee", "He doesn't drinks black coffee"] },
+            { original: "I live in the city center", modifier: "❌ Negative", target: "I don't live in the city center", distractors: ["I not live in the city center", "I doesn't live in the city center"] },
+            { original: "They eat meat and fish", modifier: "❌ Negative", target: "They don't eat meat and fish", distractors: ["They doesn't eat meat and fish", "They not eat meat and fish"] },
+            { original: "We have a car", modifier: "❌ Negative", target: "We don't have a car", distractors: ["We doesn't have a car", "We not have a car"] },
+            { original: "He speaks Spanish at home", modifier: "❌ Negative", target: "He doesn't speak Spanish at home", distractors: ["He don't speak Spanish at home", "He doesn't speaks Spanish at home"] },
+            { original: "You need a bus ticket", modifier: "❌ Negative", target: "You don't need a bus ticket", distractors: ["You doesn't need a bus ticket", "You not need a bus ticket"] },
+            { original: "She likes fast food", modifier: "❌ Negative", target: "She doesn't like fast food", distractors: ["She don't like fast food", "She not likes fast food"] },
+            { original: "The supermarket opens on Sunday", modifier: "❌ Negative", target: "The supermarket doesn't open on Sunday", distractors: ["The supermarket don't open on Sunday", "The supermarket not opens on Sunday"] },
+            { original: "I remember his phone number", modifier: "❌ Negative", target: "I don't remember his phone number", distractors: ["I doesn't remember his phone number", "I not remember his phone number"] },
 
             // =========================================================================
-            // 2. PRESENT SIMPLE -> QUESTION (Do / Does ... ?)
+            // 2. PRESENT SIMPLE -> QUESTION (Do / Does ... ?: Everyday Questions)
             // =========================================================================
-            { original: "She plays the magic lute", modifier: "❓ Question", target: "Does she play the magic lute?", distractors: ["Do she play the magic lute?", "Does she plays the magic lute?"] },
-            { original: "They speak ancient English", modifier: "❓ Question", target: "Do they speak ancient English?", distractors: ["Does they speak ancient English?", "Are they speak ancient English?"] },
-            { original: "He needs more arrows", modifier: "❓ Question", target: "Does he need more arrows?", distractors: ["Do he need more arrows?", "Is he need more arrows?"] },
-            { original: "You hear the battle horn", modifier: "❓ Question", target: "Do you hear the battle horn?", distractors: ["Does you hear the battle horn?", "Are you hear the battle horn?"] },
-            { original: "The dragon sleeps in the cave", modifier: "❓ Question", target: "Does the dragon sleep in the cave?", distractors: ["Do the dragon sleep in the cave?", "Is the dragon sleep in the cave?"] },
-            { original: "We have enough gold coins", modifier: "❓ Question", target: "Do we have enough gold coins?", distractors: ["Have we enough gold coins?", "Does we have enough gold coins?"] },
-            { original: "She knows the alchemy recipe", modifier: "❓ Question", target: "Does she know the alchemy recipe?", distractors: ["Do she know the alchemy recipe?", "Does she knows the alchemy recipe?"] },
-            { original: "The guards patrol the gate", modifier: "❓ Question", target: "Do the guards patrol the gate?", distractors: ["Does the guards patrol the gate?", "Are the guards patrol the gate?"] },
+            { original: "She plays the acoustic guitar", modifier: "❓ Question", target: "Does she play the acoustic guitar?", distractors: ["Do she play the acoustic guitar?", "Does she plays the acoustic guitar?"] },
+            { original: "They speak English fluently", modifier: "❓ Question", target: "Do they speak English fluently?", distractors: ["Does they speak English fluently?", "Are they speak English fluently?"] },
+            { original: "He lives near the subway station", modifier: "❓ Question", target: "Does he live near the subway station?", distractors: ["Do he live near the subway station?", "Is he live near the subway station?"] },
+            { original: "You drink green tea every morning", modifier: "❓ Question", target: "Do you drink green tea every morning?", distractors: ["Does you drink green tea every morning?", "Are you drink green tea every morning?"] },
+            { original: "The train arrives on time", modifier: "❓ Question", target: "Does the train arrive on time?", distractors: ["Do the train arrive on time?", "Is the train arrive on time?"] },
+            { original: "We have enough time for lunch", modifier: "❓ Question", target: "Do we have enough time for lunch?", distractors: ["Have we enough time for lunch?", "Does we have enough time for lunch?"] },
+            { original: "She knows the way to the airport", modifier: "❓ Question", target: "Does she know the way to the airport?", distractors: ["Do she know the way to the airport?", "Does she knows the way to the airport?"] },
+            { original: "They accept credit cards here", modifier: "❓ Question", target: "Do they accept credit cards here?", distractors: ["Does they accept credit cards here?", "Are they accept credit cards here?"] },
 
             // =========================================================================
             // 3. TO BE: PRESENT & PAST & NEGATIVES (am/is/are <-> was/were)
             // =========================================================================
-            { original: "She is a brave warrior", modifier: "❓ Question", target: "Is she a brave warrior?", distractors: ["Does she is a brave warrior?", "Is she be a brave warrior?"] },
-            { original: "They are ready for the quest", modifier: "❓ Question", target: "Are they ready for the quest?", distractors: ["Do they are ready for the quest?", "Are they be ready for the quest?"] },
-            { original: "He is in the magic library", modifier: "❌ Negative", target: "He isn't in the magic library", distractors: ["He doesn't is in the magic library", "He not is in the magic library"] },
-            { original: "We are tired after the march", modifier: "❌ Negative", target: "We aren't tired after the march", distractors: ["We don't are tired after the march", "We not are tired after the march"] },
-            { original: "I am confident in victory", modifier: "⏳ Yesterday", target: "I was confident in victory", distractors: ["I were confident in victory", "I been confident in victory"] },
-            { original: "She is at the tavern", modifier: "⏳ Yesterday", target: "She was at the tavern", distractors: ["She were at the tavern", "She been at the tavern"] },
-            { original: "They are proud champions", modifier: "⏳ Yesterday", target: "They were proud champions", distractors: ["They was proud champions", "They been proud champions"] },
-            { original: "The weather was stormy", modifier: "❓ Question", target: "Was the weather stormy?", distractors: ["Did the weather was stormy?", "Were the weather stormy?"] },
-            { original: "The heroes were in danger", modifier: "❌ Negative", target: "The heroes weren't in danger", distractors: ["The heroes wasn't in danger", "The heroes didn't were in danger"] },
+            { original: "She is a doctor at the hospital", modifier: "❓ Question", target: "Is she a doctor at the hospital?", distractors: ["Does she is a doctor at the hospital?", "Is she be a doctor at the hospital?"] },
+            { original: "They are at home right now", modifier: "❓ Question", target: "Are they at home right now?", distractors: ["Do they are at home right now?", "Are they be at home right now?"] },
+            { original: "He is at the business meeting", modifier: "❌ Negative", target: "He isn't at the business meeting", distractors: ["He doesn't is at the business meeting", "He not is at the business meeting"] },
+            { original: "We are ready to order dinner", modifier: "❌ Negative", target: "We aren't ready to order dinner", distractors: ["We don't are ready to order dinner", "We not are ready to order dinner"] },
+            { original: "I am very tired today", modifier: "⏳ Yesterday", target: "I was very tired yesterday", distractors: ["I were very tired yesterday", "I been very tired yesterday"] },
+            { original: "She is at the shopping mall", modifier: "⏳ Yesterday", target: "She was at the shopping mall", distractors: ["She were at the shopping mall", "She been at the shopping mall"] },
+            { original: "They are in London this week", modifier: "⏳ Yesterday", target: "They were in London this week", distractors: ["They was in London this week", "They been in London this week"] },
+            { original: "The hotel room was expensive", modifier: "❓ Question", target: "Was the hotel room expensive?", distractors: ["Did the hotel room was expensive?", "Were the hotel room expensive?"] },
+            { original: "The shops were open yesterday", modifier: "❌ Negative", target: "The shops weren't open yesterday", distractors: ["The shops wasn't open yesterday", "The shops didn't were open yesterday"] },
 
             // =========================================================================
-            // 4. THERE IS / THERE ARE (Present, Past, Questions)
+            // 4. THERE IS / THERE ARE (Cafes, hotels, apartments, cities)
             // =========================================================================
-            { original: "There is a secret chest here", modifier: "❓ Question", target: "Is there a secret chest here?", distractors: ["Does there is a secret chest here?", "Are there a secret chest here?"] },
-            { original: "There are four guards at the gate", modifier: "❓ Question", target: "Are there four guards at the gate?", distractors: ["Do there are four guards at the gate?", "Is there four guards at the gate?"] },
-            { original: "There is a dragon in the mountains", modifier: "❌ Negative", target: "There isn't a dragon in the mountains", distractors: ["There doesn't is a dragon in the mountains", "There not a dragon in the mountains"] },
-            { original: "There are traps in this room", modifier: "❌ Negative", target: "There aren't traps in this room", distractors: ["There don't are traps in this room", "There isn't traps in this room"] },
-            { original: "There is a feast tonight", modifier: "⏳ Yesterday", target: "There was a feast tonight", distractors: ["There were a feast tonight", "There been a feast tonight"] },
-            { original: "There are many monsters", modifier: "⏳ Yesterday", target: "There were many monsters", distractors: ["There was many monsters", "There been many monsters"] },
+            { original: "There is a good Italian cafe nearby", modifier: "❓ Question", target: "Is there a good Italian cafe nearby?", distractors: ["Does there is a good Italian cafe nearby?", "Are there a good Italian cafe nearby?"] },
+            { original: "There are three supermarkets on this street", modifier: "❓ Question", target: "Are there three supermarkets on this street?", distractors: ["Do there are three supermarkets on this street?", "Is there three supermarkets on this street?"] },
+            { original: "There is free Wi-Fi in the hotel room", modifier: "❌ Negative", target: "There isn't free Wi-Fi in the hotel room", distractors: ["There doesn't is free Wi-Fi in the hotel room", "There not free Wi-Fi in the hotel room"] },
+            { original: "There are available seats on the bus", modifier: "❌ Negative", target: "There aren't available seats on the bus", distractors: ["There don't are available seats on the bus", "There isn't available seats on the bus"] },
+            { original: "There is an important meeting today", modifier: "⏳ Yesterday", target: "There was an important meeting today", distractors: ["There were an important meeting today", "There been an important meeting today"] },
+            { original: "There are many tourists at the museum", modifier: "⏳ Yesterday", target: "There were many tourists at the museum", distractors: ["There was many tourists at the museum", "There been many tourists at the museum"] },
 
             // =========================================================================
-            // 5. PRESENT CONTINUOUS (Right now / Currently: be + -ing)
+            // 5. PRESENT CONTINUOUS (Right now in everyday life: be + -ing)
             // =========================================================================
-            { original: "He drinks a healing potion", modifier: "⏳ Right now", target: "He is drinking a healing potion", distractors: ["He drinking a healing potion", "He does drinking a healing potion"] },
-            { original: "She casts a lightning spell", modifier: "⏳ Right now", target: "She is casting a lightning spell", distractors: ["She casting a lightning spell", "She is cast a lightning spell"] },
-            { original: "They defend the outer wall", modifier: "⏳ Right now", target: "They are defending the outer wall", distractors: ["They is defending the outer wall", "They defending the outer wall"] },
-            { original: "I study the ancient runes", modifier: "⏳ Right now", target: "I am studying the ancient runes", distractors: ["I studying the ancient runes", "I am study the ancient runes"] },
-            { original: "The blacksmith repairs the armor", modifier: "⏳ Right now", target: "The blacksmith is repairing the armor", distractors: ["The blacksmith repairing the armor", "The blacksmith are repairing the armor"] },
-            { original: "We travel through the dark forest", modifier: "⏳ Right now", target: "We are traveling through the dark forest", distractors: ["We is traveling through the dark forest", "We traveling through the dark forest"] },
+            { original: "He drinks hot coffee", modifier: "⏳ Right now", target: "He is drinking hot coffee", distractors: ["He drinking hot coffee", "He does drinking hot coffee"] },
+            { original: "She prepares breakfast in the kitchen", modifier: "⏳ Right now", target: "She is preparing breakfast in the kitchen", distractors: ["She preparing breakfast in the kitchen", "She is prepare breakfast in the kitchen"] },
+            { original: "They wait for the yellow taxi", modifier: "⏳ Right now", target: "They are waiting for the yellow taxi", distractors: ["They is waiting for the yellow taxi", "They waiting for the yellow taxi"] },
+            { original: "I write an urgent email to the boss", modifier: "⏳ Right now", target: "I am writing an urgent email to the boss", distractors: ["I writing an urgent email to the boss", "I am write an urgent email to the boss"] },
+            { original: "The manager talks on the phone", modifier: "⏳ Right now", target: "The manager is talking on the phone", distractors: ["The manager talking on the phone", "The manager are talking on the phone"] },
+            { original: "We look for the central train station", modifier: "⏳ Right now", target: "We are looking for the central train station", distractors: ["We is looking for the central train station", "We looking for the central train station"] },
 
             // =========================================================================
-            // 6. PAST SIMPLE: REGULAR & IRREGULAR VERBS (Affirmative)
+            // 6. PAST SIMPLE: EVERYDAY ACTIONS (Regular & Irregular Verbs)
             // =========================================================================
-            { original: "I see a dark shadow", modifier: "⏳ Yesterday", target: "I saw a dark shadow", distractors: ["I seen a dark shadow", "I seed a dark shadow"] },
-            { original: "He buys a heavy shield", modifier: "⏳ Yesterday", target: "He bought a heavy shield", distractors: ["He buyed a heavy shield", "He boughts a heavy shield"] },
-            { original: "We go to the northern gate", modifier: "⏳ Yesterday", target: "We went to the northern gate", distractors: ["We goed to the northern gate", "We have went to the northern gate"] },
-            { original: "She finds an old potion", modifier: "⏳ Yesterday", target: "She found an old potion", distractors: ["She finded an old potion", "She founded an old potion"] },
-            { original: "They take the royal oath", modifier: "⏳ Yesterday", target: "They took the royal oath", distractors: ["They taked the royal oath", "They have took the royal oath"] },
-            { original: "The mage writes a scroll", modifier: "⏳ Yesterday", target: "The mage wrote a scroll", distractors: ["The mage writed a scroll", "The mage written a scroll"] },
-            { original: "I hear an eagle scream", modifier: "⏳ Yesterday", target: "I heard an eagle scream", distractors: ["I heared an eagle scream", "I hard an eagle scream"] },
-            { original: "The knight breaks his lance", modifier: "⏳ Yesterday", target: "The knight broke his lance", distractors: ["The knight breaked his lance", "The knight broked his lance"] },
-            { original: "She gives me a silver coin", modifier: "⏳ Yesterday", target: "She gave me a silver coin", distractors: ["She gived me a silver coin", "She given me a silver coin"] },
-            { original: "They build a strong barricade", modifier: "⏳ Yesterday", target: "They built a strong barricade", distractors: ["They builded a strong barricade", "They buildt a strong barricade"] },
-            { original: "He comes to the rescue", modifier: "⏳ Yesterday", target: "He came to the rescue", distractors: ["He comed to the rescue", "He had come to the rescue"] },
-            { original: "We win the great tournament", modifier: "⏳ Yesterday", target: "We won the great tournament", distractors: ["We winned the great tournament", "We wan the great tournament"] },
+            { original: "I see my best friend", modifier: "⏳ Yesterday", target: "I saw my best friend", distractors: ["I seen my best friend", "I seed my best friend"] },
+            { original: "He buys fresh groceries at the market", modifier: "⏳ Yesterday", target: "He bought fresh groceries at the market", distractors: ["He buyed fresh groceries at the market", "He boughts fresh groceries at the market"] },
+            { original: "We go to the new Italian restaurant", modifier: "⏳ Yesterday", target: "We went to the new Italian restaurant", distractors: ["We goed to the new Italian restaurant", "We have went to the new Italian restaurant"] },
+            { original: "She finds her lost house keys", modifier: "⏳ Yesterday", target: "She found her lost house keys", distractors: ["She finded her lost house keys", "She founded her lost house keys"] },
+            { original: "They take the morning flight to Paris", modifier: "⏳ Yesterday", target: "They took the morning flight to Paris", distractors: ["They taked the morning flight to Paris", "They have took the morning flight to Paris"] },
+            { original: "The doctor writes a prescription", modifier: "⏳ Yesterday", target: "The doctor wrote a prescription", distractors: ["The doctor writed a prescription", "The doctor written a prescription"] },
+            { original: "I hear the morning alarm", modifier: "⏳ Yesterday", target: "I heard the morning alarm", distractors: ["I heared the morning alarm", "I hard the morning alarm"] },
+            { original: "He breaks his favorite coffee cup", modifier: "⏳ Yesterday", target: "He broke his favorite coffee cup", distractors: ["He breaked his favorite coffee cup", "He broked his favorite coffee cup"] },
+            { original: "She gives me her business card", modifier: "⏳ Yesterday", target: "She gave me her business card", distractors: ["She gived me her business card", "She given me her business card"] },
+            { original: "He pays the restaurant bill with cash", modifier: "⏳ Yesterday", target: "He paid the restaurant bill with cash", distractors: ["He payed the restaurant bill with cash", "He paided the restaurant bill with cash"] },
+            { original: "She comes home very late", modifier: "⏳ Yesterday", target: "She came home very late", distractors: ["She comed home very late", "She had come home very late"] },
+            { original: "We arrive at the airport on time", modifier: "⏳ Yesterday", target: "We arrived at the airport on time", distractors: ["We did arrive at the airport on time", "We was arrive at the airport on time"] },
 
             // =========================================================================
             // 7. PAST SIMPLE: NEGATIVES & QUESTIONS (didn't / Did you...?)
             // =========================================================================
-            { original: "She opened the dungeon door", modifier: "❌ Negative", target: "She didn't open the dungeon door", distractors: ["She didn't opened the dungeon door", "She not opened the dungeon door"] },
-            { original: "They found the artifact", modifier: "❌ Negative", target: "They didn't find the artifact", distractors: ["They didn't found the artifact", "They not found the artifact"] },
-            { original: "He lost his golden dagger", modifier: "❌ Negative", target: "He didn't lose his golden dagger", distractors: ["He didn't lost his golden dagger", "He not lost his golden dagger"] },
-            { original: "We saw the enemy scout", modifier: "❌ Negative", target: "We didn't see the enemy scout", distractors: ["We didn't saw the enemy scout", "We not saw the enemy scout"] },
-            { original: "You heard the alarm bell", modifier: "❓ Question", target: "Did you hear the alarm bell?", distractors: ["Did you heard the alarm bell?", "Do you heard the alarm bell?"] },
-            { original: "The paladin defeated the monster", modifier: "❓ Question", target: "Did the paladin defeat the monster?", distractors: ["Did the paladin defeated the monster?", "Does the paladin defeat the monster?"] },
-            { original: "They escaped from the trap", modifier: "❓ Question", target: "Did they escape from the trap?", distractors: ["Did they escaped from the trap?", "Do they escaped from the trap?"] },
-            { original: "She spoke with the king", modifier: "❓ Question", target: "Did she speak with the king?", distractors: ["Did she spoke with the king?", "Does she spoke with the king?"] },
+            { original: "She called the taxi yesterday", modifier: "❌ Negative", target: "She didn't call the taxi yesterday", distractors: ["She didn't called the taxi yesterday", "She not called the taxi yesterday"] },
+            { original: "They booked the hotel room online", modifier: "❌ Negative", target: "They didn't book the hotel room online", distractors: ["They didn't booked the hotel room online", "They not booked the hotel room online"] },
+            { original: "He lost his international passport", modifier: "❌ Negative", target: "He didn't lose his international passport", distractors: ["He didn't lost his international passport", "He not lost his international passport"] },
+            { original: "We received the delivery package", modifier: "❌ Negative", target: "We didn't receive the delivery package", distractors: ["We didn't received the delivery package", "We not received the delivery package"] },
+            { original: "You heard the flight announcement", modifier: "❓ Question", target: "Did you hear the flight announcement?", distractors: ["Did you heard the flight announcement?", "Do you heard the flight announcement?"] },
+            { original: "The doctor answered your phone call", modifier: "❓ Question", target: "Did the doctor answer your phone call?", distractors: ["Did the doctor answered your phone call?", "Does the doctor answer your phone call?"] },
+            { original: "They finished the work project on Friday", modifier: "❓ Question", target: "Did they finish the work project on Friday?", distractors: ["Did they finished the work project on Friday?", "Do they finished the work project on Friday?"] },
+            { original: "She spoke with the landlord about rent", modifier: "❓ Question", target: "Did she speak with the landlord about rent?", distractors: ["Did she spoke with the landlord about rent?", "Does she spoke with the landlord about rent?"] },
 
             // =========================================================================
-            // 8. MODAL VERBS: CAN, CANNOT, MUST, SHOULD
+            // 8. MODAL VERBS: CAN, CANNOT, MUST, SHOULD (Practical Real Life)
             // =========================================================================
-            { original: "She unlocks the magic vault", modifier: "✨ Can", target: "She can unlock the magic vault", distractors: ["She can unlocks the magic vault", "She can to unlock the magic vault"] },
-            { original: "They cross the stormy sea", modifier: "✨ Can", target: "They can cross the stormy sea", distractors: ["They can crosses the stormy sea", "They can to cross the stormy sea"] },
-            { original: "He surrenders to the enemy", modifier: "❌ Cannot", target: "He cannot surrender to the enemy", distractors: ["He cannot surrenders to the enemy", "He cannot to surrender to the enemy"] },
-            { original: "We enter the forbidden chamber", modifier: "❌ Cannot", target: "We cannot enter the forbidden chamber", distractors: ["We cannot enters the forbidden chamber", "We not can enter the forbidden chamber"] },
-            { original: "You follow the holy oath", modifier: "⚡ Must", target: "You must follow the holy oath", distractors: ["You must follows the holy oath", "You must to follow the holy oath"] },
-            { original: "The warrior rests before battle", modifier: "💡 Should", target: "The warrior should rest before battle", distractors: ["The warrior should rests before battle", "The warrior should to rest before battle"] },
+            { original: "She speaks English and German", modifier: "✨ Can", target: "She can speak English and German", distractors: ["She can speaks English and German", "She can to speak English and German"] },
+            { original: "They pay with Apple Pay or credit card", modifier: "✨ Can", target: "They can pay with Apple Pay or credit card", distractors: ["They can pays with Apple Pay or credit card", "They can to pay with Apple Pay or credit card"] },
+            { original: "He smokes inside the airport terminal", modifier: "❌ Cannot", target: "He cannot smoke inside the airport terminal", distractors: ["He cannot smokes inside the airport terminal", "He cannot to smoke inside the airport terminal"] },
+            { original: "We park our car in this private zone", modifier: "❌ Cannot", target: "We cannot park our car in this private zone", distractors: ["We cannot parks our car in this private zone", "We not can park our car in this private zone"] },
+            { original: "You wear a seatbelt in the car", modifier: "⚡ Must", target: "You must wear a seatbelt in the car", distractors: ["You must wears a seatbelt in the car", "You must to wear a seatbelt in the car"] },
+            { original: "You drink more clean water every day", modifier: "💡 Should", target: "You should drink more clean water every day", distractors: ["You should drinks more clean water every day", "You should to drink more clean water every day"] },
 
             // =========================================================================
-            // 9. FUTURE: WILL & BE GOING TO (Intentions & Predictions)
+            // 9. FUTURE: WILL & BE GOING TO (Everyday Plans & Offers)
             // =========================================================================
-            { original: "We defend the kingdom", modifier: "🔮 Tomorrow", target: "We will defend the kingdom", distractors: ["We will defends the kingdom", "We defend will the kingdom"] },
-            { original: "She casts a light spell", modifier: "🔮 Tomorrow", target: "She will cast a light spell", distractors: ["She will casts a light spell", "She is cast a light spell"] },
-            { original: "I open the heavy door", modifier: "🔮 Tomorrow", target: "I will open the heavy door", distractors: ["I open will the heavy door", "I will opens the heavy door"] },
-            { original: "They bring new supplies", modifier: "🔮 Tomorrow", target: "They will bring new supplies", distractors: ["They will brings new supplies", "They are bring new supplies"] },
-            { original: "I explore the lost ruins", modifier: "🎯 Going to", target: "I am going to explore the lost ruins", distractors: ["I going to explore the lost ruins", "I am going explore the lost ruins"] },
-            { original: "She challenges the arena champion", modifier: "🎯 Going to", target: "She is going to challenge the arena champion", distractors: ["She going to challenge the arena champion", "She is going challenge the arena champion"] },
-            { original: "They build a stone bridge", modifier: "🎯 Going to", target: "They are going to build a stone bridge", distractors: ["They is going to build a stone bridge", "They going to build a stone bridge"] },
+            { original: "I help you with the heavy luggage", modifier: "🔮 Tomorrow", target: "I will help you with the heavy luggage", distractors: ["I will helps you with the heavy luggage", "I help will you with the heavy luggage"] },
+            { original: "She calls you back this afternoon", modifier: "🔮 Tomorrow", target: "She will call you back this afternoon", distractors: ["She will calls you back this afternoon", "She is call you back this afternoon"] },
+            { original: "I order a large pepperoni pizza", modifier: "🔮 Tomorrow", target: "I will order a large pepperoni pizza", distractors: ["I order will a large pepperoni pizza", "I will orders a large pepperoni pizza"] },
+            { original: "They send the work contract by email", modifier: "🔮 Tomorrow", target: "They will send the work contract by email", distractors: ["They will sends the work contract by email", "They are send the work contract by email"] },
+            { original: "I buy a new laptop this weekend", modifier: "🎯 Going to", target: "I am going to buy a new laptop this weekend", distractors: ["I going to buy a new laptop this weekend", "I am going buy a new laptop this weekend"] },
+            { original: "She travels to Spain next month", modifier: "🎯 Going to", target: "She is going to travel to Spain next month", distractors: ["She going to travel to Spain next month", "She is going travel to Spain next month"] },
+            { original: "They rent a cozy apartment downtown", modifier: "🎯 Going to", target: "They are going to rent a cozy apartment downtown", distractors: ["They is going to rent a cozy apartment downtown", "They going to rent a cozy apartment downtown"] },
 
             // =========================================================================
-            // 10. SUBJECT SHIFTS (He/She <-> They/We & Pronouns)
+            // 10. SUBJECT SHIFTS & PRONOUNS (Everyday Roles & Possessives)
             // =========================================================================
-            { original: "I am ready for battle", modifier: "👥 They", target: "They are ready for battle", distractors: ["They is ready for battle", "They am ready for battle"] },
-            { original: "She is a brave paladin", modifier: "👥 We", target: "We are brave paladins", distractors: ["We is brave paladins", "We are a brave paladin"] },
-            { original: "He has a golden key", modifier: "👥 You", target: "You have a golden key", distractors: ["You has a golden key", "You haves a golden key"] },
-            { original: "They have strong armor", modifier: "👤 He", target: "He has strong armor", distractors: ["He have strong armor", "He haves strong armor"] },
-            { original: "I teach the young squire", modifier: "👤 She", target: "She teaches the young squire", distractors: ["She teach the young squire", "She teachs the young squire"] },
-            { original: "He goes to the guild master", modifier: "👥 We", target: "We go to the guild master", distractors: ["We goes to the guild master", "We is go to the guild master"] },
-            { original: "This is my magic staff", modifier: "👤 Her", target: "This is her magic staff", distractors: ["This is she magic staff", "This is hers magic staff"] },
-            { original: "The commander trusts him", modifier: "👥 Them", target: "The commander trusts them", distractors: ["The commander trusts they", "The commander trusts their"] },
+            { original: "I am ready for the interview", modifier: "👥 They", target: "They are ready for the interview", distractors: ["They is ready for the interview", "They am ready for the interview"] },
+            { original: "She is an experienced manager", modifier: "👥 We", target: "We are experienced managers", distractors: ["We is experienced managers", "We are a experienced manager"] },
+            { original: "He has a valid driver's license", modifier: "👥 You", target: "You have a valid driver's license", distractors: ["You has a valid driver's license", "You haves a valid driver's license"] },
+            { original: "They have two small children", modifier: "👤 He", target: "He has two small children", distractors: ["He have two small children", "He haves two small children"] },
+            { original: "I teach the new employee", modifier: "👤 She", target: "She teaches the new employee", distractors: ["She teach the new employee", "She teachs the new employee"] },
+            { original: "He goes to the office by bike", modifier: "👥 We", target: "We go to the office by bike", distractors: ["We goes to the office by bike", "We is go to the office by bike"] },
+            { original: "This is my black suitcase", modifier: "👤 Her", target: "This is her black suitcase", distractors: ["This is she black suitcase", "This is hers black suitcase"] },
+            { original: "The director invited him to lunch", modifier: "👥 Them", target: "The director invited them to lunch", distractors: ["The director invited they to lunch", "The director invited their to lunch"] },
 
             // =========================================================================
-            // 11. PLURAL NOUNS & IRREGULAR PLURALS
+            // 11. PLURAL NOUNS & IRREGULARS (Real World People, Items & Objects)
             // =========================================================================
-            { original: "One wild wolf attacks", modifier: "🔢 Plural", target: "Two wild wolves attack", distractors: ["Two wild wolfs attack", "Two wild wolves attacks"] },
-            { original: "A brave knight rides ahead", modifier: "🔢 Plural", target: "Brave knights ride ahead", distractors: ["Brave knightes ride ahead", "Brave knights rides ahead"] },
-            { original: "One sharp knife lies in the chest", modifier: "🔢 Plural", target: "Two sharp knives lie in the chest", distractors: ["Two sharp knifes lie in the chest", "Two sharp knives lies in the chest"] },
-            { original: "A mysterious hero arrives", modifier: "🔢 Plural", target: "Mysterious heroes arrive", distractors: ["Mysterious heros arrive", "Mysterious heroes arrives"] },
-            { original: "One wise man speaks truth", modifier: "🔢 Plural", target: "Wise men speak truth", distractors: ["Wise mans speak truth", "Wise men speaks truth"] },
-            { original: "A scared child runs away", modifier: "🔢 Plural", target: "Scared children run away", distractors: ["Scared childs run away", "Scared childrens run away"] },
+            { original: "One woman waits in line at the bank", modifier: "🔢 Plural", target: "Two women wait in line at the bank", distractors: ["Two womans wait in line at the bank", "Two women waits in line at the bank"] },
+            { original: "A polite customer enters the store", modifier: "🔢 Plural", target: "Polite customers enter the store", distractors: ["Polite customeres enter the store", "Polite customers enters the store"] },
+            { original: "One sharp knife is on the kitchen counter", modifier: "🔢 Plural", target: "Two sharp knives are on the kitchen counter", distractors: ["Two sharp knifes are on the kitchen counter", "Two sharp knives is on the kitchen counter"] },
+            { original: "A friendly person gives us directions", modifier: "🔢 Plural", target: "Friendly people give us directions", distractors: ["Friendly persons gives us directions", "Friendly peoples give us directions"] },
+            { original: "One businessman attends the conference", modifier: "🔢 Plural", target: "Two businessmen attend the conference", distractors: ["Two businessmans attend the conference", "Two businessmen attends the conference"] },
+            { original: "A happy child plays in the playground", modifier: "🔢 Plural", target: "Happy children play in the playground", distractors: ["Happy childs play in the playground", "Happy childrens play in the playground"] },
 
             // =========================================================================
-            // 12. COMPARATIVES & SUPERLATIVES
+            // 12. COMPARATIVES (Everyday Prices, Devices, Transport & Comfort)
             // =========================================================================
-            { original: "This iron shield is strong", modifier: "⚖️ Comparative", target: "This steel shield is stronger", distractors: ["This steel shield is more strong", "This steel shield is strongest"] },
-            { original: "The shadow dragon is fast", modifier: "⚖️ Comparative", target: "The shadow dragon is faster", distractors: ["The shadow dragon is more fast", "The shadow dragon is fastest"] },
-            { original: "The dark dungeon is dangerous", modifier: "⚖️ Comparative", target: "The dark dungeon is more dangerous", distractors: ["The dark dungeon is dangerouser", "The dark dungeon is most dangerous"] },
-            { original: "This healing potion is good", modifier: "⚖️ Comparative", target: "This healing potion is better", distractors: ["This healing potion is gooder", "This healing potion is more good"] },
-            { original: "The blizzard damage is bad", modifier: "⚖️ Comparative", target: "The blizzard damage is worse", distractors: ["The blizzard damage is badder", "The blizzard damage is more bad"] },
+            { original: "This old laptop is slow", modifier: "⚖️ Comparative", target: "This new laptop is faster", distractors: ["This new laptop is more fast", "This new laptop is fastest"] },
+            { original: "The city center is noisy", modifier: "⚖️ Comparative", target: "The city center is noisier", distractors: ["The city center is more noisy", "The city center is noisiest"] },
+            { original: "This downtown restaurant is expensive", modifier: "⚖️ Comparative", target: "This downtown restaurant is more expensive", distractors: ["This downtown restaurant is expensiver", "This downtown restaurant is most expensive"] },
+            { original: "This hotel room service is good", modifier: "⚖️ Comparative", target: "This hotel room service is better", distractors: ["This hotel room service is gooder", "This hotel room service is more good"] },
+            { original: "The evening traffic today is bad", modifier: "⚖️ Comparative", target: "The evening traffic today is worse", distractors: ["The evening traffic today is badder", "The evening traffic today is more bad"] },
 
             // =========================================================================
-            // 13. SHORT ANSWERS (Yes/No Automations)
+            // 13. SHORT ANSWERS (Everyday Dialogues & Questions)
             // =========================================================================
-            { original: "Does she live in the capital?", modifier: "✅ Short Yes", target: "Yes, she does", distractors: ["Yes, she is", "Yes, she lives"] },
-            { original: "Does he need help?", modifier: "❌ Short No", target: "No, he doesn't", distractors: ["No, he isn't", "No, he don't"] },
-            { original: "Do they have the sacred key?", modifier: "✅ Short Yes", target: "Yes, they do", distractors: ["Yes, they have", "Yes, they are"] },
-            { original: "Did you find the secret door?", modifier: "✅ Short Yes", target: "Yes, I did", distractors: ["Yes, I found", "Yes, I have"] },
-            { original: "Did they lose the battle?", modifier: "❌ Short No", target: "No, they didn't", distractors: ["No, they don't", "No, they haven't"] },
-            { original: "Are you ready for the expedition?", modifier: "✅ Short Yes", target: "Yes, I am", distractors: ["Yes, I do", "Yes, I be"] },
-            { original: "Was the knight in the hall?", modifier: "❌ Short No", target: "No, he wasn't", distractors: ["No, he didn't", "No, he not"] },
-            { original: "Can she cast a shield spell?", modifier: "✅ Short Yes", target: "Yes, she can", distractors: ["Yes, she does", "Yes, she is"] },
+            { original: "Do you work remotely from home?", modifier: "✅ Short Yes", target: "Yes, I do", distractors: ["Yes, I work", "Yes, I am"] },
+            { original: "Does he drink coffee in the evening?", modifier: "❌ Short No", target: "No, he doesn't", distractors: ["No, he isn't", "No, he don't"] },
+            { original: "Do they accept cash payments here?", modifier: "✅ Short Yes", target: "Yes, they do", distractors: ["Yes, they have", "Yes, they are"] },
+            { original: "Did you send the confirmation email?", modifier: "✅ Short Yes", target: "Yes, I did", distractors: ["Yes, I sent", "Yes, I have"] },
+            { original: "Did they cancel our flight?", modifier: "❌ Short No", target: "No, they didn't", distractors: ["No, they don't", "No, they haven't"] },
+            { original: "Are you free this Saturday evening?", modifier: "✅ Short Yes", target: "Yes, I am", distractors: ["Yes, I do", "Yes, I be"] },
+            { original: "Was the restaurant food delicious?", modifier: "✅ Short Yes", target: "Yes, it was", distractors: ["Yes, it did", "Yes, it were"] },
+            { original: "Can you hear me clearly on the call?", modifier: "✅ Short Yes", target: "Yes, I can", distractors: ["Yes, I do", "Yes, I am"] },
 
             // =========================================================================
-            // 14. QUESTION TAGS (Comprehensive tag bank)
+            // 14. QUESTION TAGS (Everyday Small Talk & Confirmations)
             // =========================================================================
-            { original: "You are ready for the quest", modifier: "⚡ Tag Question", target: "You are ready for the quest, aren't you?", distractors: ["You are ready for the quest, isn't you?", "You are ready for the quest, don't you?"] },
-            { original: "She can speak English", modifier: "⚡ Tag Question", target: "She can speak English, can't she?", distractors: ["She can speak English, doesn't she?", "She can speak English, isn't she?"] },
-            { original: "They didn't lose the map", modifier: "⚡ Tag Question", target: "They didn't lose the map, did they?", distractors: ["They didn't lose the map, didn't they?", "They didn't lose the map, do they?"] },
-            { original: "He likes adventures", modifier: "⚡ Tag Question", target: "He likes adventures, doesn't he?", distractors: ["He likes adventures, don't he?", "He likes adventures, isn't he?"] },
-            { original: "It is cold in the dungeon", modifier: "⚡ Tag Question", target: "It is cold in the dungeon, isn't it?", distractors: ["It is cold in the dungeon, doesn't it?", "It is cold in the dungeon, aren't it?"] },
-            { original: "We won the battle", modifier: "⚡ Tag Question", target: "We won the battle, didn't we?", distractors: ["We won the battle, don't we?", "We won the battle, haven't we?"] },
-            { original: "You don't trust the goblin", modifier: "⚡ Tag Question", target: "You don't trust the goblin, do you?", distractors: ["You don't trust the goblin, don't you?", "You don't trust the goblin, are you?"] },
-            { original: "She was at the guild meeting", modifier: "⚡ Tag Question", target: "She was at the guild meeting, wasn't she?", distractors: ["She was at the guild meeting, didn't she?", "She was at the guild meeting, isn't she?"] },
-            { original: "They will help us tomorrow", modifier: "⚡ Tag Question", target: "They will help us tomorrow, won't they?", distractors: ["They will help us tomorrow, will they?", "They will help us tomorrow, don't they?"] }
+            { original: "You live near the subway station", modifier: "⚡ Tag Question", target: "You live near the subway station, don't you?", distractors: ["You live near the subway station, isn't you?", "You live near the subway station, aren't you?"] },
+            { original: "She is a graphic designer", modifier: "⚡ Tag Question", target: "She is a graphic designer, isn't she?", distractors: ["She is a graphic designer, doesn't she?", "She is a graphic designer, aren't she?"] },
+            { original: "They didn't receive our message", modifier: "⚡ Tag Question", target: "They didn't receive our message, did they?", distractors: ["They didn't receive our message, didn't they?", "They didn't receive our message, do they?"] },
+            { original: "He drinks green tea every day", modifier: "⚡ Tag Question", target: "He drinks green tea every day, doesn't he?", distractors: ["He drinks green tea every day, don't he?", "He drinks green tea every day, isn't he?"] },
+            { original: "It is warm and sunny outside", modifier: "⚡ Tag Question", target: "It is warm and sunny outside, isn't it?", distractors: ["It is warm and sunny outside, doesn't it?", "It is warm and sunny outside, aren't it?"] },
+            { original: "We paid the restaurant bill already", modifier: "⚡ Tag Question", target: "We paid the restaurant bill already, didn't we?", distractors: ["We paid the restaurant bill already, don't we?", "We paid the restaurant bill already, haven't we?"] },
+            { original: "You don't eat spicy food", modifier: "⚡ Tag Question", target: "You don't eat spicy food, do you?", distractors: ["You don't eat spicy food, don't you?", "You don't eat spicy food, are you?"] },
+            { original: "She was at the office yesterday", modifier: "⚡ Tag Question", target: "She was at the office yesterday, wasn't she?", distractors: ["She was at the office yesterday, didn't she?", "She was at the office yesterday, isn't she?"] },
+            { original: "They will call us back soon", modifier: "⚡ Tag Question", target: "They will call us back soon, won't they?", distractors: ["They will call us back soon, will they?", "They will call us back soon, don't they?"] }
         ];
     }
 
