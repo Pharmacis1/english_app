@@ -6768,15 +6768,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (timerFillEl) timerFillEl.style.background = "#38bdf8";
 
                 micBtn.classList.add("recording");
-                if (spokenFeedback) spokenFeedback.innerHTML = '<span style="color:#fbbf24;">🎙️ [Groq Whisper v3] Слушаю ответ... Говорите! <em>(таймер на паузе ⏸️)</em></span>';
+                if (spokenFeedback) spokenFeedback.innerHTML = '<span style="color:#fbbf24;">🎙️ <b>Идет запись...</b> Говорите фразу с паузами! <em>(нажмите еще раз для проверки или ждите 6 сек)</em></span>';
 
-                // Automatically finish recording after 4.5 seconds if user doesn't tap again
+                // Automatically finish recording after 6.5 seconds allowing natural pauses & question tags
                 if (autoStopTimer) clearTimeout(autoStopTimer);
                 autoStopTimer = setTimeout(() => {
                     if (voiceService.isRecording) {
                         voiceService.stopListening();
                     }
-                }, 4500);
+                }, 6500);
 
                 voiceService.startListening(
                     (spoken) => {
@@ -6797,7 +6797,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     (isRec, statusMsg) => {
                         if (isRec) {
                             micBtn.classList.add("recording");
-                            if (spokenFeedback) spokenFeedback.innerHTML = `<span style="color:#fbbf24;">${statusMsg || '🎙️ Слушаю ответ... <em>(таймер на паузе ⏸️)</em>'}</span>`;
+                            if (spokenFeedback) spokenFeedback.innerHTML = `<span style="color:#fbbf24;">${statusMsg || '🎙️ Идет запись... Говорите фразу <em>(таймер на паузе ⏸️)</em>'}</span>`;
                         } else {
                             micBtn.classList.remove("recording");
                         }

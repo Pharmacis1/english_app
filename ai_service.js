@@ -829,28 +829,51 @@ class VoiceService {
             return;
         }
 
+        let accumulatedTranscript = "";
+        let silenceDebounceTimer = null;
+
         this.recognition.onstart = () => {
             this.isRecording = true;
-            if (onStatusChange) onStatusChange(true, "🎙️ [Browser Native] Listening...");
+            accumulatedTranscript = "";
+            if (onStatusChange) onStatusChange(true, "🎙️ [Browser Native] Listening... Speak clearly.");
         };
 
         this.recognition.onresult = (event) => {
-            let transcript = "";
-            for (let i = event.resultIndex; i < event.results.length; i++) {
-                transcript += event.results[i][0].transcript;
+            let fullText = "";
+            for (let i = 0; i < event.results.length; i++) {
+                fullText += event.results[i][0].transcript + " ";
             }
-            if (onResult) onResult(transcript);
+            accumulatedTranscript = fullText.trim();
+
+            if (onStatusChange) {
+                onStatusChange(true, `🎙️ Слушаю: "${accumulatedTranscript}" (можно сделать паузу перед хвостиком)`);
+            }
+
+            // Wait 1.8 seconds of silence before finalizing, allowing natural pauses for tag questions
+            if (silenceDebounceTimer) clearTimeout(silenceDebounceTimer);
+            silenceDebounceTimer = setTimeout(() => {
+                if (this.isRecording && accumulatedTranscript) {
+                    this.stopListening();
+                    if (onResult) onResult(accumulatedTranscript);
+                }
+            }, 1800);
         };
 
         this.recognition.onerror = (event) => {
+            if (silenceDebounceTimer) clearTimeout(silenceDebounceTimer);
             this.isRecording = false;
             if (onStatusChange) onStatusChange(false, "Microphone error: " + event.error);
             if (onError) onError(event.error);
         };
 
         this.recognition.onend = () => {
+            if (silenceDebounceTimer) clearTimeout(silenceDebounceTimer);
             this.isRecording = false;
             if (onStatusChange) onStatusChange(false, "");
+            if (accumulatedTranscript && onResult) {
+                onResult(accumulatedTranscript);
+                accumulatedTranscript = "";
+            }
         };
 
         try {
