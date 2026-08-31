@@ -6434,11 +6434,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const ttsEndpointInput = document.getElementById("tts-endpoint-input");
     const sttEngineSelect = document.getElementById("stt-engine-select");
     const sttEndpointInput = document.getElementById("stt-endpoint-input");
+    const groqApiKeyInput = document.getElementById("groq-api-key-input");
 
     if (ttsEngineSelect) ttsEngineSelect.value = voiceService.ttsEngine;
     if (ttsEndpointInput) ttsEndpointInput.value = voiceService.ttsEndpoint;
     if (sttEngineSelect) sttEngineSelect.value = voiceService.sttEngine;
     if (sttEndpointInput) sttEndpointInput.value = voiceService.sttEndpoint;
+    if (groqApiKeyInput && voiceService.groqApiKey) groqApiKeyInput.value = voiceService.groqApiKey;
 
     const voiceInputBtn = document.getElementById("voice-input-btn");
     const speechStatus = document.getElementById("speech-status");
@@ -6488,7 +6490,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     ttsEngineSelect.value,
                     ttsEndpointInput.value,
                     sttEngineSelect.value,
-                    sttEndpointInput.value
+                    sttEndpointInput.value,
+                    groqApiKeyInput ? groqApiKeyInput.value.trim() : null
                 );
             }
             alert("💾 Local AI & Voice Settings Saved Successfully!");
@@ -6746,23 +6749,17 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-        // Voice input with STT & smart timer pausing
+        // Voice input with STT & smart timer pausing (using Groq Whisper Large v3 / Native STT)
         if (micBtn) {
+            let autoStopTimer = null;
+
             micBtn.addEventListener("click", () => {
                 if (isCardAnswered) return;
 
-                const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-                if (!SpeechRecognition) {
-                    alert("Распознавание речи не поддерживается этим браузером. Используйте кнопки вариантов.");
-                    return;
-                }
-
-                if (micBtn.classList.contains("recording")) {
-                    if (speechRecognitionInstance) {
-                        try { speechRecognitionInstance.stop(); } catch(e) {}
-                    }
+                if (micBtn.classList.contains("recording") || voiceService.isRecording) {
+                    if (autoStopTimer) clearTimeout(autoStopTimer);
+                    voiceService.stopListening();
                     micBtn.classList.remove("recording");
-                    startTimer(false);
                     return;
                 }
 
@@ -6770,58 +6767,51 @@ document.addEventListener("DOMContentLoaded", () => {
                 stopTimer();
                 if (timerFillEl) timerFillEl.style.background = "#38bdf8";
 
-                if (speechRecognitionInstance) {
-                    try { speechRecognitionInstance.stop(); } catch(e) {}
-                }
-
-                speechRecognitionInstance = new SpeechRecognition();
-                speechRecognitionInstance.lang = "en-US";
-                speechRecognitionInstance.continuous = false;
-                speechRecognitionInstance.interimResults = true;
-                speechRecognitionInstance.maxAlternatives = 3;
-
                 micBtn.classList.add("recording");
-                if (spokenFeedback) spokenFeedback.innerHTML = '<span style="color:#fbbf24;">🎙️ Слушаю ответ... Говорите! <em>(таймер на паузе ⏸️)</em></span>';
+                if (spokenFeedback) spokenFeedback.innerHTML = '<span style="color:#fbbf24;">🎙️ [Groq Whisper v3] Слушаю ответ... Говорите! <em>(таймер на паузе ⏸️)</em></span>';
 
-                speechRecognitionInstance.onresult = (evt) => {
-                    let spoken = '';
-                    for (let i = 0; i < evt.results.length; i++) {
-                        spoken += evt.results[i][0].transcript + ' ';
+                // Automatically finish recording after 4.5 seconds if user doesn't tap again
+                if (autoStopTimer) clearTimeout(autoStopTimer);
+                autoStopTimer = setTimeout(() => {
+                    if (voiceService.isRecording) {
+                        voiceService.stopListening();
                     }
-                    spoken = spoken.trim();
-                    if (!spoken) return;
+                }, 4500);
 
-                    if (spokenFeedback) spokenFeedback.innerHTML = `Распознано: <b>"${spoken}"</b>`;
-                    const isOk = window.patternDrills.checkSpokenAnswer(spoken, currentCard.target);
-
-                    if (isOk || evt.results[0].isFinal) {
+                voiceService.startListening(
+                    (spoken) => {
+                        if (autoStopTimer) clearTimeout(autoStopTimer);
                         micBtn.classList.remove("recording");
-                        if (speechRecognitionInstance) {
-                            try { speechRecognitionInstance.stop(); } catch(e) {}
+                        const cleanSpoken = (spoken || '').trim();
+                        if (!cleanSpoken) {
+                            if (spokenFeedback) spokenFeedback.innerHTML = '<span style="color:#f87171;">Не удалось расслышать. Нажмите микрофон еще раз или выберите вариант.</span>';
+                            timerRemainingMs = Math.max(4000, timerRemainingMs);
+                            startTimer(false);
+                            return;
                         }
+
+                        if (spokenFeedback) spokenFeedback.innerHTML = `Распознано: <b>"${cleanSpoken}"</b>`;
+                        const isOk = window.patternDrills.checkSpokenAnswer(cleanSpoken, currentCard.target);
                         handleCardAnswer(isOk);
+                    },
+                    (isRec, statusMsg) => {
+                        if (isRec) {
+                            micBtn.classList.add("recording");
+                            if (spokenFeedback) spokenFeedback.innerHTML = `<span style="color:#fbbf24;">${statusMsg || '🎙️ Слушаю ответ... <em>(таймер на паузе ⏸️)</em>'}</span>`;
+                        } else {
+                            micBtn.classList.remove("recording");
+                        }
+                    },
+                    (err) => {
+                        if (autoStopTimer) clearTimeout(autoStopTimer);
+                        micBtn.classList.remove("recording");
+                        if (!isCardAnswered) {
+                            if (spokenFeedback) spokenFeedback.innerHTML = `<span style="color:#f87171;">⚠️ ${err || 'Ошибка записи'}. Выберите вариант или нажмите снова.</span>`;
+                            timerRemainingMs = Math.max(4000, timerRemainingMs);
+                            startTimer(false);
+                        }
                     }
-                };
-
-                speechRecognitionInstance.onerror = (err) => {
-                    micBtn.classList.remove("recording");
-                    if (!isCardAnswered) {
-                        if (spokenFeedback) spokenFeedback.innerHTML = '<span style="color:#f87171;">Не удалось расслышать. Нажмите микрофон еще раз или выберите вариант.</span>';
-                        timerRemainingMs = Math.max(4000, timerRemainingMs);
-                        startTimer(false);
-                    }
-                };
-
-                speechRecognitionInstance.onend = () => {
-                    micBtn.classList.remove("recording");
-                };
-
-                try {
-                    speechRecognitionInstance.start();
-                } catch(e) {
-                    micBtn.classList.remove("recording");
-                    startTimer(false);
-                }
+                );
             });
         }
 
@@ -7128,48 +7118,44 @@ document.addEventListener("DOMContentLoaded", () => {
 
         function startBlitzAnswer() {
             if (blitzTimer) clearInterval(blitzTimer);
-            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-            if (!SpeechRecognition) {
-                alert("Распознавание речи не поддерживается браузером.");
-                blitzIdx++;
-                renderBlitzQuestion();
-                return;
-            }
+            if (blitzTranscript) blitzTranscript.innerHTML = `<span style="color:#fbbf24;">🎙️ [Groq Whisper v3] Слушаю ответ... Говорите!</span>`;
 
-            const rec = new SpeechRecognition();
-            rec.lang = "en-US";
-            rec.continuous = false;
-            rec.interimResults = false;
-
-            if (blitzTranscript) blitzTranscript.innerHTML = `<span style="color:#fbbf24;">🎙️ Слушаю ответ...</span>`;
-
-            rec.onresult = (evt) => {
-                const spoken = evt.results[0][0].transcript;
-                const wordsCount = window.speakingEngine ? window.speakingEngine.countEnglishWords(spoken) : 0;
-                if (blitzTranscript) {
-                    blitzTranscript.innerHTML = `Ответ: <b>"${spoken}"</b> (+${wordsCount} слов в Speaking)`;
-                }
-
-                if (wordsCount > 0 && window.speakingEngine) {
-                    const addRes = window.speakingEngine.addWords(wordsCount);
-                    updateSpeakingUI();
-                    if (addRes && addRes.leveledUp) {
-                        showToast(`🎙️ <b>SPEAKING LEVEL UP!</b> Level <b>${addRes.newLevel}</b> reached! (${addRes.totalWords.toLocaleString()} / 300,000 words spoken)`, "linear-gradient(135deg, #ec4899, #8b5cf6)", "#f472b6");
+            voiceService.startListening(
+                (spoken) => {
+                    const cleanSpoken = (spoken || '').trim();
+                    const wordsCount = window.speakingEngine ? window.speakingEngine.countEnglishWords(cleanSpoken) : 0;
+                    if (blitzTranscript) {
+                        blitzTranscript.innerHTML = `Ответ: <b>"${cleanSpoken}"</b> (+${wordsCount} слов в Speaking)`;
                     }
+
+                    if (wordsCount > 0 && window.speakingEngine) {
+                        const addRes = window.speakingEngine.addWords(wordsCount);
+                        updateSpeakingUI();
+                        if (addRes && addRes.leveledUp) {
+                            showToast(`🎙️ <b>SPEAKING LEVEL UP!</b> Level <b>${addRes.newLevel}</b> reached! (${addRes.totalWords.toLocaleString()} / 300,000 words spoken)`, "linear-gradient(135deg, #ec4899, #8b5cf6)", "#f472b6");
+                        }
+                    }
+
+                    setTimeout(() => {
+                        blitzIdx++;
+                        renderBlitzQuestion();
+                    }, 1500);
+                },
+                (isRec, statusMsg) => {
+                    if (isRec && blitzTranscript) {
+                        blitzTranscript.innerHTML = `<span style="color:#fbbf24;">${statusMsg || '🎙️ Слушаю ответ...'}</span>`;
+                    }
+                },
+                (err) => {
+                    if (blitzTranscript) {
+                        blitzTranscript.innerHTML = `<span style="color:#f87171;">⚠️ ${err || 'Ошибка записи'}. Переход к следующему вопросу...</span>`;
+                    }
+                    setTimeout(() => {
+                        blitzIdx++;
+                        renderBlitzQuestion();
+                    }, 1500);
                 }
-
-                setTimeout(() => {
-                    blitzIdx++;
-                    renderBlitzQuestion();
-                }, 1500);
-            };
-
-            rec.onerror = () => {
-                blitzIdx++;
-                renderBlitzQuestion();
-            };
-
-            rec.start();
+            );
         }
     }
 

@@ -415,6 +415,43 @@ app.post('/api/ai/stt', async (req, res) => {
         return res.status(502).json({ success: false, fallback: true, error: `Local Whisper STT returned ${resp.status}` });
     } catch (err) {
         return res.status(502).json({ success: false, fallback: true, error: `Whisper STT connection failed at ${endpoint}: ${err.message}` });
+// 11. POST /api/ai/stt-groq — Proxy request to Groq Cloud Whisper Large v3 (ultra-fast transcription)
+app.post('/api/ai/stt-groq', async (req, res) => {
+    try {
+        const { audioBase64, apiKey: clientApiKey, prompt } = req.body;
+        if (!audioBase64) return res.status(400).json({ success: false, error: "Audio data missing" });
+
+        const apiKey = clientApiKey || process.env.GROQ_API_KEY || '';
+        if (!apiKey) return res.status(401).json({ success: false, error: "Groq API Key is not set. Add it in Settings or .env file." });
+        const rawBase64 = audioBase64.replace(/^data:audio\/\w+;base64,/, '');
+        const audioBuffer = Buffer.from(rawBase64, 'base64');
+        const formData = new FormData();
+        const blob = new Blob([audioBuffer], { type: 'audio/webm' });
+        formData.append('file', blob, 'speech.webm');
+        formData.append('model', 'whisper-large-v3');
+        formData.append('language', 'en');
+        formData.append('response_format', 'json');
+        formData.append('temperature', '0.0');
+        
+        const rpgPrompt = prompt || 'Fantasy RPG dialogue: paladin, knight, rogue, guild, stealth, warrior, spell, potion, castle, sword, armor, oath, shield, quest.';
+        formData.append('prompt', rpgPrompt);
+
+        const resp = await fetch('https://api.groq.com/openai/v1/audio/transcriptions', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${apiKey}`
+            },
+            body: formData
+        });
+
+        if (resp.ok) {
+            const data = await resp.json();
+            return res.json({ success: true, text: data.text });
+        }
+        const errText = await resp.text();
+        return res.status(resp.status).json({ success: false, fallback: true, error: `Groq Whisper returned ${resp.status}: ${errText}` });
+    } catch (err) {
+        return res.status(500).json({ success: false, fallback: true, error: `Groq Whisper connection failed: ${err.message}` });
     }
 });
 

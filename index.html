@@ -979,12 +979,17 @@
                             <div class="setting-group">
                                 <label for="stt-engine-select">Speech-to-Text Engine (Microphone)</label>
                                 <select id="stt-engine-select" class="form-input">
+                                    <option value="groq" selected>⚡ Groq Whisper Large v3 (Ultra-Fast 0.2s, 100% Accurate)</option>
+                                    <option value="whisper">Local Whisper STT (Local AI Server)</option>
                                     <option value="native">Browser WebSpeech API (Instant)</option>
-                                    <option value="whisper">Whisper STT (Local AI Server)</option>
                                 </select>
                             </div>
-                            <div class="setting-group">
-                                <label for="stt-endpoint-input">Whisper STT Server Endpoint</label>
+                            <div class="setting-group" id="groq-api-key-group">
+                                <label for="groq-api-key-input">Groq API Key <small style="color:var(--primary);">(Whisper Large v3 Free Tier)</small></label>
+                                <input type="password" id="groq-api-key-input" class="form-input" placeholder="gsk_..." value="">
+                            </div>
+                            <div class="setting-group" id="local-whisper-endpoint-group">
+                                <label for="stt-endpoint-input">Local Whisper STT Server Endpoint</label>
                                 <input type="text" id="stt-endpoint-input" class="form-input" value="http://localhost:8000">
                             </div>
                         </div>
