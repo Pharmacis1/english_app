@@ -584,23 +584,40 @@ class VoiceService {
                 let blob = this.audioCache.get(geminiCacheKey);
 
                 if (!blob) {
-                    const res = await fetch('/api/ai/gemini-tts', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            text: cleanText,
-                            voiceName: geminiVoice,
-                            apiKey: geminiKey
-                        })
-                    });
+                    let res = null;
+                    try {
+                        res = await fetch('/api/ai/gemini-tts', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                text: cleanText,
+                                voiceName: geminiVoice,
+                                apiKey: geminiKey
+                            })
+                        });
+                    } catch(fetchErr) {
+                        // Retry once after brief pause in case of server reload or transient glitch
+                        await new Promise(r => setTimeout(r, 600));
+                        res = await fetch('/api/ai/gemini-tts', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                text: cleanText,
+                                voiceName: geminiVoice,
+                                apiKey: geminiKey
+                            })
+                        }).catch(() => null);
+                    }
 
-                    const contentType = res.headers.get('Content-Type') || '';
-                    if (res.ok && contentType.includes('audio')) {
-                        blob = await res.blob();
-                        this.audioCache.set(geminiCacheKey, blob);
-                    } else {
-                        const errData = await res.json().catch(() => ({}));
-                        console.warn(`[Gemini TTS Endpoint ${res.status}]`, errData.error || "Falling back to Kokoro/Native");
+                    if (res) {
+                        const contentType = res.headers.get('Content-Type') || '';
+                        if (res.ok && contentType.includes('audio')) {
+                            blob = await res.blob();
+                            this.audioCache.set(geminiCacheKey, blob);
+                        } else {
+                            const errData = await res.json().catch(() => ({}));
+                            console.warn(`[Gemini TTS Endpoint ${res.status}]`, errData.error || "Falling back to Kokoro/Native");
+                        }
                     }
                 }
 
@@ -720,6 +737,7 @@ class VoiceService {
 
             const playUtterance = () => {
                 const voices = window.speechSynthesis.getVoices();
+                let voice = null;
                 if (voices.length > 0) {
                     if (gender === 'female') {
                         voice = voices.find(v => v.lang.startsWith('en') && (v.name.includes('Zira') || v.name.includes('Hazel') || v.name.includes('Susan') || v.name.includes('Samantha') || v.name.includes('Jenny') || v.name.includes('Aria') || v.name.includes('Ana') || v.name.includes('Female') || v.name.includes('Google UK English Female')));
