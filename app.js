@@ -2232,7 +2232,8 @@ document.addEventListener("DOMContentLoaded", () => {
             drills_cards: parseInt(localStorage.getItem("english_pulse_drills_cards") || "0", 10),
             visual_fluency_xp: parseInt(localStorage.getItem("visual_fluency_xp") || "0", 10),
             visual_fluency_completed: JSON.parse(localStorage.getItem("visual_fluency_completed_chapters") || "[]"),
-            completed_story_chapters: JSON.parse(localStorage.getItem("english_rpg_completed_story_chapters") || "[]")
+            completed_story_chapters: JSON.parse(localStorage.getItem("english_rpg_completed_story_chapters") || "[]"),
+            eldrin_audiobook_state: JSON.parse(localStorage.getItem("eldrin_audiobook_state") || "null")
         };
     }
 
@@ -2307,6 +2308,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                     if (s.completed_story_chapters) {
                         localStorage.setItem("english_rpg_completed_story_chapters", JSON.stringify(s.completed_story_chapters));
+                    }
+                    if (s.eldrin_audiobook_state) {
+                        localStorage.setItem("eldrin_audiobook_state", JSON.stringify(s.eldrin_audiobook_state));
+                        if (typeof window.loadEldrinAudiobookState === 'function') window.loadEldrinAudiobookState(s.eldrin_audiobook_state);
                     }
 
                     renderRPGHeader();
@@ -7231,6 +7236,528 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    // =========================================================================
+    // ===== YOUNG ELDRIN AUDIOBOOK CONTROLLER & MULTI-DEVICE SYNC 🎧📖 =====
+    // =========================================================================
+    function initEldrinAudiobookUI() {
+        const bookData = (typeof ELDRIN_AUDIOBOOK !== 'undefined') ? ELDRIN_AUDIOBOOK : null;
+        if (!bookData) return;
+
+        const btnHeroAudiobook = document.getElementById("btn-hero-audiobook");
+        const modalAudiobook = document.getElementById("modal-eldrin-audiobook");
+        const btnCloseAudiobook = document.getElementById("close-eldrin-audiobook-btn");
+        const mainPlayBtn = document.getElementById("audiobook-main-play-btn");
+        const mainPlayBtnText = document.getElementById("audiobook-play-btn-text");
+        const stopBtn = document.getElementById("audiobook-stop-btn");
+        const blindModeToggle = document.getElementById("audiobook-blind-mode-toggle");
+        const narratorSelect = document.getElementById("audiobook-narrator-select");
+        const speedBtns = document.querySelectorAll(".audiobook-speed-btn");
+        const tabsContainer = document.getElementById("audiobook-chapters-tabs");
+        const readerContainer = document.getElementById("audiobook-reader-container");
+        const openQuizBtn = document.getElementById("audiobook-open-quiz-btn");
+        const nextChapterBtn = document.getElementById("audiobook-next-chapter-btn");
+        const bookmarkBadge = document.getElementById("audiobook-bookmark-badge");
+        const progressBadge = document.getElementById("audiobook-progress-badge");
+        const chapterStats = document.getElementById("audiobook-chapter-stats");
+        const modalQuiz = document.getElementById("modal-audiobook-quiz");
+        const closeQuizBtn = document.getElementById("close-audiobook-quiz-btn");
+        const quizBody = document.getElementById("audiobook-quiz-modal-body");
+
+        // Audiobook State
+        let activeChapterId = "eldrin-ch-1";
+        let currentSentenceIdx = 0;
+        let isPlaying = false;
+        let playbackSpeed = 1.0;
+        let narratorVoice = "Charon";
+        let isBlindMode = true;
+        let completedChapters = [];
+        let wordAwardedChapters = [];
+        let revealedSentences = new Set(); // Store indices of manually revealed sentences
+
+        function loadState(remote = null) {
+            let saved = remote;
+            if (!saved) {
+                try {
+                    saved = JSON.parse(localStorage.getItem("eldrin_audiobook_state") || "null");
+                } catch(e) {}
+            }
+            if (saved && typeof saved === 'object') {
+                if (saved.activeChapterId) activeChapterId = saved.activeChapterId;
+                if (typeof saved.currentSentenceIdx === 'number') currentSentenceIdx = saved.currentSentenceIdx;
+                if (saved.playbackSpeed) playbackSpeed = parseFloat(saved.playbackSpeed) || 1.0;
+                if (saved.narratorVoice) narratorVoice = saved.narratorVoice;
+                if (typeof saved.isBlindMode === 'boolean') isBlindMode = saved.isBlindMode;
+                if (Array.isArray(saved.completedChapters)) completedChapters = saved.completedChapters;
+                if (Array.isArray(saved.wordAwardedChapters)) wordAwardedChapters = saved.wordAwardedChapters;
+            }
+
+            if (narratorSelect) narratorSelect.value = narratorVoice;
+            if (blindModeToggle) blindModeToggle.checked = isBlindMode;
+            updateSpeedUI(playbackSpeed);
+            updateBadges();
+        }
+
+        window.loadEldrinAudiobookState = loadState;
+        loadState();
+
+        function saveState() {
+            const state = {
+                activeChapterId,
+                currentSentenceIdx,
+                playbackSpeed,
+                narratorVoice,
+                isBlindMode,
+                completedChapters,
+                wordAwardedChapters,
+                lastSavedAt: new Date().toISOString()
+            };
+            localStorage.setItem("eldrin_audiobook_state", JSON.stringify(state));
+            syncPlayerStateToServer(false);
+            updateBadges();
+        }
+
+        function updateSpeedUI(spd) {
+            speedBtns.forEach(b => {
+                const bSpd = parseFloat(b.getAttribute("data-speed"));
+                if (Math.abs(bSpd - spd) < 0.01) {
+                    b.classList.add("active");
+                    b.style.background = "var(--primary)";
+                    b.style.color = "#fff";
+                } else {
+                    b.classList.remove("active");
+                    b.style.background = "transparent";
+                    b.style.color = "#cbd5e1";
+                }
+            });
+        }
+
+        function updateBadges() {
+            const curChapter = bookData.chapters.find(c => c.id === activeChapterId) || bookData.chapters[0];
+            if (bookmarkBadge) {
+                bookmarkBadge.innerHTML = `🔖 Глава ${curChapter.number} • Строка ${currentSentenceIdx + 1}`;
+            }
+            if (progressBadge) {
+                progressBadge.innerHTML = `⭐ ${completedChapters.length} / ${bookData.chapters.length} Пройдено`;
+            }
+            if (chapterStats) {
+                chapterStats.innerHTML = `📖 <b>${curChapter.titleRu}:</b> ${curChapter.sentences.length} предложений • ~${curChapter.wordCount} слов • Грамматика: <em>${curChapter.grammarFocus}</em>`;
+            }
+            if (nextChapterBtn) {
+                const isCompleted = completedChapters.includes(activeChapterId);
+                const curIdx = bookData.chapters.findIndex(c => c.id === activeChapterId);
+                if (isCompleted && curIdx < bookData.chapters.length - 1) {
+                    nextChapterBtn.classList.remove("hidden");
+                } else {
+                    nextChapterBtn.classList.add("hidden");
+                }
+            }
+        }
+
+        function renderTabs() {
+            if (!tabsContainer) return;
+            tabsContainer.innerHTML = bookData.chapters.map(ch => {
+                const isActive = ch.id === activeChapterId;
+                const isDone = completedChapters.includes(ch.id);
+                return `
+                    <button class="btn btn-sm ${isActive ? 'btn-primary' : 'btn-outline'} audiobook-tab-btn" data-chapter-id="${ch.id}" style="padding: 6px 14px; border-radius: 8px; font-size: 12px; display: flex; align-items: center; gap: 6px; white-space: nowrap; ${isActive ? 'background: linear-gradient(135deg, #a855f7, #6366f1); border: none;' : ''}">
+                        <i class="fa-solid ${ch.coverIcon}" style="color: ${ch.coverColor};"></i>
+                        <span>Глава ${ch.number}</span>
+                        ${isDone ? '<i class="fa-solid fa-circle-check" style="color: #10b981; font-size: 11px;"></i>' : ''}
+                    </button>
+                `;
+            }).join("");
+
+            tabsContainer.querySelectorAll(".audiobook-tab-btn").forEach(btn => {
+                btn.addEventListener("click", () => {
+                    const chId = btn.getAttribute("data-chapter-id");
+                    selectChapter(chId);
+                });
+            });
+        }
+
+        function selectChapter(chapterId, sentenceIndex = 0) {
+            stopAudio();
+            activeChapterId = chapterId;
+            currentSentenceIdx = sentenceIndex;
+            revealedSentences.clear();
+            renderTabs();
+            renderSentences();
+            updateBadges();
+            saveState();
+        }
+
+        function renderSentences() {
+            if (!readerContainer) return;
+            const curChapter = bookData.chapters.find(c => c.id === activeChapterId) || bookData.chapters[0];
+            readerContainer.innerHTML = "";
+
+            curChapter.sentences.forEach((sent, idx) => {
+                const card = document.createElement("div");
+                card.className = `audiobook-sentence-card ${idx === currentSentenceIdx ? 'current-active' : ''}`;
+                card.setAttribute("data-sentence-idx", idx);
+                card.style.cssText = `
+                    background: rgba(30, 41, 59, 0.6);
+                    border: 1px solid ${idx === currentSentenceIdx ? 'rgba(168, 85, 247, 0.8)' : 'rgba(255, 255, 255, 0.08)'};
+                    border-radius: 12px;
+                    padding: 14px 18px;
+                    transition: all 0.25s ease;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 8px;
+                    cursor: pointer;
+                    ${idx === currentSentenceIdx ? 'box-shadow: 0 0 20px rgba(168, 85, 247, 0.25); background: rgba(30, 41, 59, 0.95);' : ''}
+                `;
+
+                // Speaker metadata
+                let speakerBadge = `<span class="badge" style="background:rgba(148,163,184,0.15); color:#cbd5e1; font-size:11px;"><i class="fa-solid fa-scroll"></i> Рассказчик</span>`;
+                if (sent.speaker === 'eldrin') {
+                    speakerBadge = `<span class="badge" style="background:rgba(168,85,247,0.25); color:#c084fc; font-size:11px; border:1px solid rgba(168,85,247,0.5);"><i class="fa-solid fa-hat-wizard"></i> Юный Элдрин</span>`;
+                } else if (sent.speaker === 'thorin') {
+                    speakerBadge = `<span class="badge" style="background:rgba(245,158,11,0.25); color:#fbbf24; font-size:11px; border:1px solid rgba(245,158,11,0.5);"><i class="fa-solid fa-hammer"></i> Торин</span>`;
+                } else if (sent.speaker === 'oberon') {
+                    speakerBadge = `<span class="badge" style="background:rgba(132,204,22,0.25); color:#a3e635; font-size:11px; border:1px solid rgba(132,204,22,0.5);"><i class="fa-solid fa-leaf"></i> Оберон</span>`;
+                } else if (sent.speaker === 'selene') {
+                    speakerBadge = `<span class="badge" style="background:rgba(236,72,153,0.25); color:#f472b6; font-size:11px; border:1px solid rgba(236,72,153,0.5);"><i class="fa-solid fa-mask"></i> Селена</span>`;
+                } else if (sent.speaker === 'astraea') {
+                    speakerBadge = `<span class="badge" style="background:rgba(16,185,129,0.25); color:#6ee7b7; font-size:11px; border:1px solid rgba(16,185,129,0.5);"><i class="fa-solid fa-wand-magic-sparkles"></i> Астрея</span>`;
+                }
+
+                const isRevealed = !isBlindMode || revealedSentences.has(idx);
+
+                card.innerHTML = `
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <span style="font-size:11px; font-weight:700; color:#94a3b8; opacity:0.8;">#${idx + 1}</span>
+                            ${speakerBadge}
+                        </div>
+                        <div style="display:flex; align-items:center; gap:6px;">
+                            <button class="btn btn-sm btn-outline btn-reveal-sentence" style="padding:2px 8px; font-size:11px; border-radius:6px; color:#cbd5e1;">
+                                <i class="fa-solid ${isRevealed ? 'fa-eye-slash' : 'fa-eye'}"></i> <span>${isRevealed ? 'Скрыть' : 'Текст'}</span>
+                            </button>
+                            <button class="btn btn-sm btn-primary btn-play-sentence" style="padding:2px 10px; font-size:11px; border-radius:6px; background:rgba(168,85,247,0.3); border:1px solid rgba(168,85,247,0.6);">
+                                <i class="fa-solid fa-volume-high"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="audiobook-en-text" style="font-size:15px; font-weight:600; line-height:1.5; color:#f8fafc; ${isRevealed ? '' : 'filter:blur(6px); user-select:none; opacity:0.4;'} transition:all 0.2s ease;">
+                        ${sent.en}
+                    </div>
+                    <div class="audiobook-ru-text" style="font-size:12px; color:#94a3b8; line-height:1.4; border-top:1px dashed rgba(255,255,255,0.06); padding-top:6px; ${isRevealed ? 'display:block;' : 'display:none;'}">
+                        🇷🇺 ${sent.ru}
+                    </div>
+                `;
+
+                // Single Sentence Play Button
+                const playBtn = card.querySelector(".btn-play-sentence");
+                if (playBtn) {
+                    playBtn.addEventListener("click", (e) => {
+                        e.stopPropagation();
+                        playSentence(idx, false);
+                    });
+                }
+
+                // Reveal Button
+                const revealBtn = card.querySelector(".btn-reveal-sentence");
+                if (revealBtn) {
+                    revealBtn.addEventListener("click", (e) => {
+                        e.stopPropagation();
+                        toggleSentenceReveal(idx);
+                    });
+                }
+
+                // Click Card to jump & reveal
+                card.addEventListener("click", () => {
+                    if (isBlindMode && !revealedSentences.has(idx)) {
+                        toggleSentenceReveal(idx);
+                    }
+                    currentSentenceIdx = idx;
+                    saveState();
+                    highlightCurrentSentence(idx);
+                });
+
+                readerContainer.appendChild(card);
+            });
+        }
+
+        function toggleSentenceReveal(idx) {
+            if (revealedSentences.has(idx)) {
+                revealedSentences.delete(idx);
+            } else {
+                revealedSentences.add(idx);
+            }
+            renderSentences();
+        }
+
+        function highlightCurrentSentence(idx) {
+            const cards = readerContainer.querySelectorAll(".audiobook-sentence-card");
+            cards.forEach((c, i) => {
+                if (i === idx) {
+                    c.classList.add("current-active");
+                    c.style.borderColor = "rgba(168, 85, 247, 0.9)";
+                    c.style.boxShadow = "0 0 25px rgba(168, 85, 247, 0.4)";
+                    c.style.background = "rgba(30, 41, 59, 0.95)";
+                    c.scrollIntoView({ behavior: "smooth", block: "nearest" });
+                } else {
+                    c.classList.remove("current-active");
+                    c.style.borderColor = "rgba(255, 255, 255, 0.08)";
+                    c.style.boxShadow = "none";
+                    c.style.background = "rgba(30, 41, 59, 0.6)";
+                }
+            });
+            updateBadges();
+        }
+
+        function getVoiceForSentence(sent) {
+            if (sent.speaker === 'eldrin') return sent.voice || 'Puck';
+            if (sent.speaker === 'thorin') return 'Fenrir';
+            if (sent.speaker === 'oberon') return 'Charon';
+            if (sent.speaker === 'selene') return 'Aoede';
+            if (sent.speaker === 'astraea') return 'Kore';
+            return narratorVoice || 'Charon';
+        }
+
+        function playSentence(idx, continueNext = true) {
+            const curChapter = bookData.chapters.find(c => c.id === activeChapterId) || bookData.chapters[0];
+            if (!curChapter.sentences[idx]) return;
+
+            currentSentenceIdx = idx;
+            saveState();
+            highlightCurrentSentence(idx);
+
+            const sent = curChapter.sentences[idx];
+            const voiceName = getVoiceForSentence(sent);
+
+            const card = readerContainer.querySelector(`.audiobook-sentence-card[data-sentence-idx="${idx}"]`);
+            const playBtn = card ? card.querySelector(".btn-play-sentence") : null;
+
+            voiceService.speak(
+                sent.en,
+                () => {
+                    if (playBtn) playBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i>`;
+                },
+                () => {
+                    if (playBtn) playBtn.innerHTML = `<i class="fa-solid fa-volume-high"></i>`;
+                    if (continueNext && isPlaying) {
+                        if (idx < curChapter.sentences.length - 1) {
+                            setTimeout(() => {
+                                if (isPlaying) playSentence(idx + 1, true);
+                            }, 500);
+                        } else {
+                            // Chapter finished!
+                            stopAudio();
+                            showToast(`🎉 <b>Глава ${curChapter.number} прослушана!</b> Пройдите квиз, чтобы зачислить слова и опыт! 🌟`, "linear-gradient(135deg, #f59e0b, #d97706)", "#fbbf24");
+                            if (openQuizBtn) {
+                                openQuizBtn.style.animation = "pulse 1.5s infinite";
+                            }
+                        }
+                    }
+                },
+                { geminiVoice: voiceName, heroName: sent.speaker, kokoroVoice: 'am_adam' },
+                playbackSpeed
+            );
+        }
+
+        function startPlayChapter() {
+            isPlaying = true;
+            if (mainPlayBtnText) mainPlayBtnText.textContent = "Пауза";
+            if (mainPlayBtn) {
+                mainPlayBtn.innerHTML = `<i class="fa-solid fa-pause"></i> <span id="audiobook-play-btn-text">Пауза</span>`;
+                mainPlayBtn.style.background = "linear-gradient(135deg, #ef4444, #dc2626)";
+            }
+            playSentence(currentSentenceIdx, true);
+        }
+
+        function stopAudio() {
+            isPlaying = false;
+            voiceService.stopSpeech();
+            if (mainPlayBtn) {
+                mainPlayBtn.innerHTML = `<i class="fa-solid fa-play"></i> <span id="audiobook-play-btn-text">Слушать главу</span>`;
+                mainPlayBtn.style.background = "linear-gradient(135deg, #a855f7, #6366f1)";
+            }
+        }
+
+        function openQuizModal() {
+            const curChapter = bookData.chapters.find(c => c.id === activeChapterId) || bookData.chapters[0];
+            if (!curChapter.quiz || !modalQuiz || !quizBody) return;
+
+            quizBody.innerHTML = `
+                <div style="margin-bottom:16px;">
+                    <div style="font-size:14px; font-weight:700; color:#e2e8f0; margin-bottom:4px;">
+                        📖 Проверка понимания: <b>Глава ${curChapter.number}</b>
+                    </div>
+                    <div style="font-size:12px; color:#94a3b8;">
+                        Ответьте правильно на 3 вопроса, чтобы получить <b>+${curChapter.wordCount} слов</b> в Listening Skill и <b>+100 XP</b>!
+                    </div>
+                </div>
+                <div id="audiobook-quiz-questions-list" style="display:flex; flex-direction:column; gap:16px;">
+                    ${curChapter.quiz.map((q, qIdx) => `
+                        <div class="audiobook-quiz-item" data-q-idx="${qIdx}" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); border-radius:10px; padding:12px 14px;">
+                            <div style="font-weight:700; font-size:13px; color:#f8fafc; margin-bottom:8px;">
+                                ${qIdx + 1}. ${q.question}
+                            </div>
+                            <div style="display:flex; flex-direction:column; gap:6px;">
+                                ${q.options.map((opt, oIdx) => `
+                                    <label style="display:flex; align-items:center; gap:8px; font-size:12px; color:#cbd5e1; cursor:pointer; padding:6px 10px; background:rgba(0,0,0,0.2); border-radius:6px; border:1px solid rgba(255,255,255,0.06);">
+                                        <input type="radio" name="audiobook-q-${qIdx}" value="${oIdx}" style="accent-color:#fbbf24;">
+                                        <span>${opt}</span>
+                                    </label>
+                                `).join("")}
+                            </div>
+                        </div>
+                    `).join("")}
+                </div>
+                <div id="audiobook-quiz-feedback" style="margin-top:14px; display:none; padding:10px 14px; border-radius:8px; font-size:13px; font-weight:700;"></div>
+                <div style="margin-top:18px; display:flex; justify-content:flex-end; gap:10px;">
+                    <button id="btn-submit-audiobook-quiz" class="btn btn-warning" style="font-weight:700; padding:8px 20px; border-radius:8px; background:linear-gradient(135deg, #f59e0b, #d97706); border:none;">
+                        Проверить ответы ✨
+                    </button>
+                </div>
+            `;
+
+            const submitBtn = quizBody.querySelector("#btn-submit-audiobook-quiz");
+            const feedbackEl = quizBody.querySelector("#audiobook-quiz-feedback");
+
+            if (submitBtn) {
+                submitBtn.addEventListener("click", () => {
+                    let allCorrect = true;
+                    curChapter.quiz.forEach((q, qIdx) => {
+                        const selected = quizBody.querySelector(`input[name="audiobook-q-${qIdx}"]:checked`);
+                        const val = selected ? parseInt(selected.value, 10) : -1;
+                        const itemEl = quizBody.querySelector(`.audiobook-quiz-item[data-q-idx="${qIdx}"]`);
+                        if (val === q.correctIdx) {
+                            if (itemEl) itemEl.style.borderColor = "#10b981";
+                        } else {
+                            allCorrect = false;
+                            if (itemEl) itemEl.style.borderColor = "#ef4444";
+                        }
+                    });
+
+                    if (allCorrect) {
+                        feedbackEl.style.display = "block";
+                        feedbackEl.style.background = "rgba(16,185,129,0.2)";
+                        feedbackEl.style.border = "1px solid rgba(16,185,129,0.4)";
+                        feedbackEl.style.color = "#6ee7b7";
+                        feedbackEl.innerHTML = `🎉 <b>Блестяще! Все ответы верны!</b>`;
+
+                        if (!wordAwardedChapters.includes(activeChapterId)) {
+                            wordAwardedChapters.push(activeChapterId);
+                            addListeningWords(curChapter.wordCount);
+                            addXP(100);
+                            triggerRPGReward("listen", "eldrin", "eldrin", 100, `🎧 +${curChapter.wordCount} Listening Words & +100 XP!`, "linear-gradient(135deg, #a855f7, #6366f1)");
+                            showToast(`🎧 <b>LISTENING SKILL PROGRESS!</b> +${curChapter.wordCount} слов зачислено! (+100 XP)`, "linear-gradient(135deg, #a855f7, #6366f1)", "#c084fc");
+                        }
+
+                        if (!completedChapters.includes(activeChapterId)) {
+                            completedChapters.push(activeChapterId);
+                        }
+
+                        saveState();
+                        updateBadges();
+                        renderTabs();
+
+                        submitBtn.textContent = "Закрыть и продолжить";
+                        submitBtn.className = "btn btn-primary";
+                        submitBtn.onclick = () => {
+                            modalQuiz.classList.add("hidden");
+                            const curIdx = bookData.chapters.findIndex(c => c.id === activeChapterId);
+                            if (curIdx < bookData.chapters.length - 1) {
+                                selectChapter(bookData.chapters[curIdx + 1].id, 0);
+                            }
+                        };
+                    } else {
+                        feedbackEl.style.display = "block";
+                        feedbackEl.style.background = "rgba(239,68,68,0.2)";
+                        feedbackEl.style.border = "1px solid rgba(239,68,68,0.4)";
+                        feedbackEl.style.color = "#fca5a5";
+                        feedbackEl.innerHTML = `❌ Некоторые ответы неверны. Переслушайте главу и попробуйте снова!`;
+                    }
+                });
+            }
+
+            modalQuiz.classList.remove("hidden");
+        }
+
+        // --- ATTACH EVENT LISTENERS ---
+        if (btnHeroAudiobook) {
+            btnHeroAudiobook.addEventListener("click", () => {
+                selectChapter(activeChapterId, currentSentenceIdx);
+                if (modalAudiobook) modalAudiobook.classList.remove("hidden");
+            });
+        }
+
+        if (btnCloseAudiobook) {
+            btnCloseAudiobook.addEventListener("click", () => {
+                stopAudio();
+                if (modalAudiobook) modalAudiobook.classList.add("hidden");
+            });
+        }
+
+        if (mainPlayBtn) {
+            mainPlayBtn.addEventListener("click", () => {
+                if (isPlaying) {
+                    stopAudio();
+                } else {
+                    startPlayChapter();
+                }
+            });
+        }
+
+        if (stopBtn) {
+            stopBtn.addEventListener("click", () => {
+                stopAudio();
+                currentSentenceIdx = 0;
+                saveState();
+                highlightCurrentSentence(0);
+            });
+        }
+
+        if (blindModeToggle) {
+            blindModeToggle.addEventListener("change", () => {
+                isBlindMode = blindModeToggle.checked;
+                revealedSentences.clear();
+                saveState();
+                renderSentences();
+            });
+        }
+
+        if (narratorSelect) {
+            narratorSelect.addEventListener("change", () => {
+                narratorVoice = narratorSelect.value;
+                saveState();
+            });
+        }
+
+        speedBtns.forEach(btn => {
+            btn.addEventListener("click", () => {
+                playbackSpeed = parseFloat(btn.getAttribute("data-speed")) || 1.0;
+                updateSpeedUI(playbackSpeed);
+                saveState();
+                showToast(`🔊 Скорость аудиокниги: ${playbackSpeed}x`, "rgba(168, 85, 247, 0.9)");
+            });
+        });
+
+        if (openQuizBtn) {
+            openQuizBtn.addEventListener("click", () => {
+                openQuizModal();
+            });
+        }
+
+        if (nextChapterBtn) {
+            nextChapterBtn.addEventListener("click", () => {
+                const curIdx = bookData.chapters.findIndex(c => c.id === activeChapterId);
+                if (curIdx < bookData.chapters.length - 1) {
+                    selectChapter(bookData.chapters[curIdx + 1].id, 0);
+                }
+            });
+        }
+
+        if (closeQuizBtn && modalQuiz) {
+            closeQuizBtn.addEventListener("click", () => {
+                modalQuiz.classList.add("hidden");
+            });
+        }
+    }
+
     try { renderScenarios(); } catch (e) {}
     try { selectScenario(SCENARIOS[0]); } catch (e) {}
     try { renderTutorHeroTargetChips(); } catch (e) {}
@@ -7239,6 +7766,7 @@ document.addEventListener("DOMContentLoaded", () => {
     try { renderGrammarUI(); } catch (e) {}
     try { initPatternDrillsUI(); } catch (e) { console.error("Drills init error:", e); }
     try { initSpeakingStudioUI(); } catch (e) { console.error("Speaking init error:", e); }
+    try { initEldrinAudiobookUI(); } catch (e) { console.error("Audiobook init error:", e); }
     try { renderRPGHeader(); } catch (e) {}
     try { renderHeroShowcase(rpgEngine.heroes[0].id); } catch (e) { console.error("Hero Showcase Render Error:", e); }
     try { loadPlayerStateFromServer(); } catch (e) {}
