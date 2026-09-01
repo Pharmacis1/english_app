@@ -6523,6 +6523,28 @@ document.addEventListener("DOMContentLoaded", () => {
         let currentCard = null;
         let isCardAnswered = false;
         let speechRecognitionInstance = null;
+        let autoAdvanceTimer = null;
+
+        function attachTargetAudioListener() {
+            const tBtn = document.getElementById("drills-listen-target-btn");
+            if (tBtn && currentCard) {
+                tBtn.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    if (autoAdvanceTimer) {
+                        clearTimeout(autoAdvanceTimer);
+                        autoAdvanceTimer = null;
+                    }
+                    const icon = tBtn.querySelector("i");
+                    if (icon) icon.className = "fa-solid fa-spinner fa-spin";
+                    playTextKokoroAudio(
+                        currentCard.target,
+                        activeShowcaseHeroId || 'valerius',
+                        () => { if (icon) icon.className = "fa-solid fa-volume-high fa-beat"; },
+                        () => { if (icon) icon.className = "fa-solid fa-volume-high"; }
+                    );
+                });
+            }
+        }
 
         // Speed buttons initialization & click handlers
         function syncDrillsSpeedButtons() {
@@ -6606,12 +6628,24 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             updateComboUI();
 
-            if (resultFeedback) {
+            if (resultFeedback && currentCard) {
                 resultFeedback.style.display = "block";
                 resultFeedback.style.background = "rgba(239, 68, 68, 0.25)";
                 resultFeedback.style.border = "1px solid rgba(239, 68, 68, 0.5)";
                 resultFeedback.style.color = "#fca5a5";
-                resultFeedback.innerHTML = `⏰ <b>Время вышло!</b> Правильный ответ: <b>"${currentCard ? currentCard.target : ''}"</b> <em>(вернется через 2 карточки для закрепления)</em>`;
+                resultFeedback.innerHTML = `
+                    <div style="display:flex; flex-direction:column; gap:6px; align-items:center;">
+                        <div>⏰ <b>Время вышло!</b> Правильный ответ:</div>
+                        <div style="display:flex; align-items:center; gap:8px; background:rgba(0,0,0,0.3); padding:4px 12px; border-radius:6px;">
+                            <span style="font-weight:700; color:#fff;">"${currentCard.target}"</span>
+                            <button class="btn btn-sm btn-outline" id="drills-listen-target-btn" title="Прослушать эталонное произношение" style="padding:2px 8px; font-size:12px;">
+                                <i class="fa-solid fa-volume-high"></i>
+                            </button>
+                        </div>
+                        <span style="font-size:11px; opacity:0.85;">(вернется через 2 карточки для закрепления)</span>
+                    </div>
+                `;
+                attachTargetAudioListener();
             }
 
             if (optionsGrid && currentCard) {
@@ -6627,6 +6661,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         function renderNextCard() {
             if (!window.patternDrills) return;
+            if (autoAdvanceTimer) {
+                clearTimeout(autoAdvanceTimer);
+                autoAdvanceTimer = null;
+            }
             isCardAnswered = false;
             stopTimer();
             if (resultFeedback) resultFeedback.style.display = "none";
@@ -6727,21 +6765,33 @@ document.addEventListener("DOMContentLoaded", () => {
                     rpgEngine.gainHeroXp(hero, bonusHeroXp);
                 }
 
-                if (resultFeedback) {
+                if (resultFeedback && currentCard) {
                     resultFeedback.style.display = "block";
                     resultFeedback.style.background = "rgba(16, 185, 129, 0.25)";
                     resultFeedback.style.border = "1px solid rgba(16, 185, 129, 0.5)";
                     resultFeedback.style.color = "#6ee7b7";
-                    resultFeedback.innerHTML = `🎉 <b>Верно!</b> +1 карточка в Drills! (+${bonusHeroXp} Hero XP 🔥)`;
+                    resultFeedback.innerHTML = `
+                        <div style="display:flex; flex-direction:column; gap:6px; align-items:center;">
+                            <div>🎉 <b>Верно!</b> +1 карточка в Drills! (+${bonusHeroXp} Hero XP 🔥)</div>
+                            <div style="display:flex; align-items:center; gap:8px; background:rgba(0,0,0,0.3); padding:4px 12px; border-radius:6px;">
+                                <span style="font-weight:700; color:#fff;">"${currentCard.target}"</span>
+                                <button class="btn btn-sm btn-outline" id="drills-listen-target-btn" title="Прослушать эталонное произношение" style="padding:2px 8px; font-size:12px;">
+                                    <i class="fa-solid fa-volume-high"></i>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    attachTargetAudioListener();
                 }
 
                 if (addRes && addRes.leveledUp) {
                     showToast(`⚡ <b>DRILLS LEVEL UP!</b> Level <b>${addRes.newLevel}</b> reached! (${addRes.totalCards.toLocaleString()} / 10,000 transformations completed)`, "linear-gradient(135deg, #f59e0b, #d97706)", "#fbbf24");
                 }
 
-                setTimeout(() => {
+                if (autoAdvanceTimer) clearTimeout(autoAdvanceTimer);
+                autoAdvanceTimer = setTimeout(() => {
                     renderNextCard();
-                }, 750);
+                }, 2800);
             } else {
                 if (window.patternDrills) {
                     window.patternDrills.currentCombo = 0;
@@ -6754,7 +6804,19 @@ document.addEventListener("DOMContentLoaded", () => {
                     resultFeedback.style.background = "rgba(239, 68, 68, 0.25)";
                     resultFeedback.style.border = "1px solid rgba(239, 68, 68, 0.5)";
                     resultFeedback.style.color = "#fca5a5";
-                    resultFeedback.innerHTML = `❌ <b>Неверно.</b> Правильный ответ: <b>"${currentCard.target}"</b> <em>(вернется через 2 карточки для закрепления)</em>`;
+                    resultFeedback.innerHTML = `
+                        <div style="display:flex; flex-direction:column; gap:6px; align-items:center;">
+                            <div>❌ <b>Неверно.</b> Правильный ответ:</div>
+                            <div style="display:flex; align-items:center; gap:8px; background:rgba(0,0,0,0.3); padding:4px 12px; border-radius:6px;">
+                                <span style="font-weight:700; color:#fff;">"${currentCard.target}"</span>
+                                <button class="btn btn-sm btn-outline" id="drills-listen-target-btn" title="Прослушать эталонное произношение" style="padding:2px 8px; font-size:12px;">
+                                    <i class="fa-solid fa-volume-high"></i>
+                                </button>
+                            </div>
+                            <span style="font-size:11px; opacity:0.85;">(вернется через 2 карточки для закрепления)</span>
+                        </div>
+                    `;
+                    attachTargetAudioListener();
                 }
             }
         }
