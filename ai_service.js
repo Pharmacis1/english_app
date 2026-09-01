@@ -548,6 +548,17 @@ class VoiceService {
         if (groqApiKey) localStorage.setItem("groq_api_key", groqApiKey);
     }
 
+    setSpeechSpeed(speed) {
+        this.speechSpeed = parseFloat(speed) || 1.0;
+        localStorage.setItem("hero_chat_voice_speed", this.speechSpeed);
+        if (this.currentAudio) {
+            try {
+                this.currentAudio.playbackRate = this.speechSpeed;
+                this.currentAudio.defaultPlaybackRate = this.speechSpeed;
+            } catch (e) {}
+        }
+    }
+
     async speak(text, onStart = null, onEnd = null, heroVoiceConfig = null, customSpeed = null) {
         this.stopSpeech();
 
@@ -555,12 +566,12 @@ class VoiceService {
         const cleanText = text.replace(/[*_#`]/g, '').trim();
         if (!cleanText) return;
 
-        const speed = customSpeed !== null && customSpeed !== undefined ? parseFloat(customSpeed) : (this.speechSpeed || 1.0);
+        const effectiveSpeed = (customSpeed !== null && customSpeed !== undefined) ? parseFloat(customSpeed) : (this.speechSpeed || 1.0);
         const geminiVoice = heroVoiceConfig?.geminiVoice || 'Fenrir';
         const kokoroVoice = heroVoiceConfig?.kokoroVoice || 'am_adam';
         const pitch = heroVoiceConfig?.pitch || 1.0;
         const baseRate = heroVoiceConfig?.rate || 0.95;
-        const rate = Math.max(0.1, Math.min(10, baseRate * speed));
+        const rate = Math.max(0.1, Math.min(10, baseRate * effectiveSpeed));
         const gender = heroVoiceConfig?.gender || null;
 
         // 1. Google Gemini Live Audio (Rich Emotional Intonations)
@@ -594,19 +605,18 @@ class VoiceService {
                 }
 
                 if (blob) {
-                    console.log(`🔊 [Voice Output] ✨ Engine: "GEMINI LIVE AUDIO" | Voice: "${geminiVoice}" | Hero: "${heroVoiceConfig?.heroName || heroVoiceConfig?.heroId || 'Hero'}" | Text: "${cleanText}"`);
+                    console.log(`🔊 [Voice Output] ✨ Engine: "GEMINI LIVE AUDIO" | Voice: "${geminiVoice}" | Hero: "${heroVoiceConfig?.heroName || heroVoiceConfig?.heroId || 'Hero'}" | Speed: ${effectiveSpeed}x | Text: "${cleanText}"`);
                     if (onStart) onStart();
                     const audioUrl = URL.createObjectURL(blob);
                     const audio = new Audio(audioUrl);
-                    audio.defaultPlaybackRate = speed;
-                    audio.playbackRate = speed;
+                    audio.defaultPlaybackRate = effectiveSpeed;
+                    audio.playbackRate = effectiveSpeed;
                     audio.preservesPitch = true;
 
                     const applyRate = () => {
                         try {
-                            const curSpeed = this.speechSpeed || speed;
-                            audio.playbackRate = curSpeed;
-                            audio.defaultPlaybackRate = curSpeed;
+                            audio.playbackRate = effectiveSpeed;
+                            audio.defaultPlaybackRate = effectiveSpeed;
                         } catch (e) {}
                     };
 
@@ -664,15 +674,14 @@ class VoiceService {
                     if (onStart) onStart();
                     const audioUrl = URL.createObjectURL(blob);
                     const audio = new Audio(audioUrl);
-                    audio.defaultPlaybackRate = speed;
-                    audio.playbackRate = speed;
+                    audio.defaultPlaybackRate = effectiveSpeed;
+                    audio.playbackRate = effectiveSpeed;
                     audio.preservesPitch = true;
 
                     const applyRate = () => {
                         try {
-                            const curSpeed = this.speechSpeed || speed;
-                            audio.playbackRate = curSpeed;
-                            audio.defaultPlaybackRate = curSpeed;
+                            audio.playbackRate = effectiveSpeed;
+                            audio.defaultPlaybackRate = effectiveSpeed;
                         } catch (e) {}
                     };
 

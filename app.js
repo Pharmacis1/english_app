@@ -7731,6 +7731,9 @@ document.addEventListener("DOMContentLoaded", () => {
             btn.addEventListener("click", () => {
                 playbackSpeed = parseFloat(btn.getAttribute("data-speed")) || 1.0;
                 updateSpeedUI(playbackSpeed);
+                if (typeof voiceService !== 'undefined' && voiceService) {
+                    voiceService.setSpeechSpeed(playbackSpeed);
+                }
                 saveState();
                 showToast(`🔊 Скорость аудиокниги: ${playbackSpeed}x`, "rgba(168, 85, 247, 0.9)");
             });
