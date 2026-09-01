@@ -1183,7 +1183,7 @@ const HEROES_DATA = [
         words: generateHeroWords("valerius"),
         sentenceTemplates: ["Hello, I am [Valerius].", "My name is [a hero].", "I am [happy / ready]."],
         grammarRules: ["Глагол 'to be' (am, is, are)", "Личные местоимения (I, You, He, She, It)"],
-        voiceConfig: { kokoroVoice: "am_adam", gender: "male", pitch: 0.9, rate: 0.95 },
+        voiceConfig: { kokoroVoice: "am_adam", geminiVoice: "Fenrir", gender: "male", pitch: 0.9, rate: 0.95 },
         storyCutscene: {
             title: "🛡️ Valerius: The Silver Oath",
             subtitle: "A1 Story Cutscene • История Валериуса",
@@ -1210,7 +1210,7 @@ const HEROES_DATA = [
         words: generateHeroWords("astraea"),
         sentenceTemplates: ["I have [a goal].", "I want to [eat / help].", "I study because [I love it]."],
         grammarRules: ["Глаголы have, want, like", "Союзы because, but, so, or"],
-        voiceConfig: { kokoroVoice: "af_heart", gender: "female", pitch: 1.1, rate: 0.9 },
+        voiceConfig: { kokoroVoice: "af_heart", geminiVoice: "Kore", gender: "female", pitch: 1.1, rate: 0.9 },
         storyCutscene: {
             title: "💖 Astraea: The Light of the Temple",
             subtitle: "A1 Story Cutscene • История Астреи",
@@ -1237,7 +1237,7 @@ const HEROES_DATA = [
         words: generateHeroWords("ignis"),
         sentenceTemplates: ["This is my [red shirt].", "That is a [blue computer]."],
         grammarRules: ["Указатели This / That / These / Those", "Цвета и артикли a / an"],
-        voiceConfig: { kokoroVoice: "am_fenrir", gender: "male", pitch: 1.15, rate: 1.05 },
+        voiceConfig: { kokoroVoice: "am_fenrir", geminiVoice: "Puck", gender: "male", pitch: 1.15, rate: 1.05 },
         storyCutscene: {
             title: "🪄 Ignis: The Fire of the Forge",
             subtitle: "A1 Story Cutscene • История Игниса",
@@ -1264,7 +1264,7 @@ const HEROES_DATA = [
         words: generateHeroWords("frostina"),
         sentenceTemplates: ["I [always / usually] wake up early.", "It is [cold / sunny] today."],
         grammarRules: ["Present Simple", "Наречия частоты (always, usually, never)"],
-        voiceConfig: { kokoroVoice: "af_bella", gender: "female", pitch: 0.95, rate: 0.85 },
+        voiceConfig: { kokoroVoice: "af_bella", geminiVoice: "Aoede", gender: "female", pitch: 0.95, rate: 0.85 },
         storyCutscene: {
             title: "❄️ Frostina: The Heart of the Ice Cavern",
             subtitle: "A1 Story Cutscene • История Фростины",
@@ -1291,7 +1291,7 @@ const HEROES_DATA = [
         words: generateHeroWords("zephyr"),
         sentenceTemplates: ["Where is [the school]?", "It is [next to the park]."],
         grammarRules: ["Вопросы Where, When, Why, How", "Предлоги in, on, at, next to, behind"],
-        voiceConfig: { kokoroVoice: "am_echo", gender: "male", pitch: 1.1, rate: 1.1 },
+        voiceConfig: { kokoroVoice: "am_echo", geminiVoice: "Charon", gender: "male", pitch: 1.1, rate: 1.1 },
         storyCutscene: {
             title: "🏹 Zephyr: The Wind of the High Peaks",
             subtitle: "A1 Story Cutscene • История Зефира",
@@ -1318,7 +1318,7 @@ const HEROES_DATA = [
         words: generateHeroWords("thorin"),
         sentenceTemplates: ["This hammer is [big and heavy].", "A [strong] warrior."],
         grammarRules: ["Прилагательные-антонимы (big/small, hot/cold)", "Порядок слов"],
-        voiceConfig: { kokoroVoice: "bm_george", gender: "male", pitch: 0.75, rate: 0.9 },
+        voiceConfig: { kokoroVoice: "bm_george", geminiVoice: "Fenrir", gender: "male", pitch: 0.75, rate: 0.9 },
         storyCutscene: {
             title: "🔨 Thorin: The Hammer of the Iron Mountain",
             subtitle: "A1 Story Cutscene • История появления Торина",
@@ -1354,7 +1354,7 @@ const HEROES_DATA = [
         words: generateHeroWords("selene"),
         sentenceTemplates: ["Can you [play guitar]? -> Yes, I can.", "I cannot [swim]."],
         grammarRules: ["Модальный глагол Can / Cannot", "Глаголы хобби и спорта"],
-        voiceConfig: { kokoroVoice: "af_sarah", gender: "female", pitch: 0.85, rate: 0.95 }
+        voiceConfig: { kokoroVoice: "af_sarah", geminiVoice: "Aoede", gender: "female", pitch: 0.85, rate: 0.95 }
     },
     {
         id: "oberon", name: "Oberon", role: "Druid", cefrRank: 3, cefrLevel: "A1 (Present Continuous & Nature)", title: "Arch-Druid of Nature",
@@ -1368,7 +1368,7 @@ const HEROES_DATA = [
         words: generateHeroWords("oberon"),
         sentenceTemplates: ["I am [walking in the forest] right now.", "Birds are [singing]."],
         grammarRules: ["Present Continuous (be + V-ing)", "Природа и животные"],
-        voiceConfig: { kokoroVoice: "bm_lewis", gender: "male", pitch: 0.85, rate: 0.88 },
+        voiceConfig: { kokoroVoice: "bm_lewis", geminiVoice: "Charon", gender: "male", pitch: 0.85, rate: 0.88 },
         storyCutscene: {
             title: "🍃 Oberon: The Heart of the Emerald Grove",
             subtitle: "A1 Story Cutscene • История появления Оберона",
@@ -1404,7 +1404,7 @@ const HEROES_DATA = [
         words: generateHeroWords("freya"),
         sentenceTemplates: ["Yesterday I [visited a museum].", "We [went by train]."],
         grammarRules: ["Past Simple (was/were, visited, went)", "Путешествия и транспорт"],
-        voiceConfig: { kokoroVoice: "bf_emma", gender: "female", pitch: 1.05, rate: 1.0 },
+        voiceConfig: { kokoroVoice: "bf_emma", geminiVoice: "Kore", gender: "female", pitch: 1.05, rate: 1.0 },
         storyCutscene: {
             title: "🛡️ Freya: The Wings of Valhalla",
             subtitle: "A1 Story Cutscene • История появления Фреи",
@@ -1436,7 +1436,7 @@ const HEROES_DATA = [
         words: generateHeroWords("eldrin"),
         sentenceTemplates: ["I have [achieved A1 mastery].", "I can speak English with confidence."],
         grammarRules: ["Комплексное повторение всей грамматики и речи уровня A1"],
-        voiceConfig: { kokoroVoice: "am_michael", gender: "male", pitch: 0.95, rate: 0.92 },
+        voiceConfig: { kokoroVoice: "am_michael", geminiVoice: "Charon", gender: "male", pitch: 0.95, rate: 0.92 },
         storyCutscene: {
             title: "🔮 Eldrin: The Master of the Arcane Spire",
             subtitle: "A1 Story Cutscene • Финальное испытание A1 и история Элдрина",
@@ -2167,6 +2167,45 @@ const STAGE_GIFTS_CATALOG = [
         video: "videos/skins/selena_shadow_pingpong.mp4",
         previewImage: "images/skins/selena_shadow.png",
         category: "Селена"
+    },
+    {
+        id: "skin_anim_eldrin",
+        type: "skin",
+        heroId: "eldrin",
+        name: "Эльдрин: Хранитель Пророчеств 🏓",
+        nameEn: "Eldrin: Archmage of Prophecy (Live)",
+        description: "Величественный анимированный образ древнего мага с парящим посохом и пинг-понг циклом",
+        image: "images/skins/eldrin_archmage.png",
+        videoAlpha: "videos/skins/eldrin_archmage_alpha_pingpong.webm",
+        video: "videos/skins/eldrin_archmage_pingpong.mp4",
+        previewImage: "images/skins/eldrin_archmage.png",
+        category: "Эльдрин"
+    },
+    {
+        id: "skin_anim_freya",
+        type: "skin",
+        heroId: "freya",
+        name: "Фрея: Валькирия Вальхаллы 🏓",
+        nameEn: "Freya: Wings of Valhalla (Live)",
+        description: "Новая боевая стойка валькирии с копьем молний и плавным взмахом крыльев",
+        image: "images/skins/freya_valkyrie.png",
+        videoAlpha: "videos/skins/freya_valkyrie_alpha_pingpong.webm",
+        video: "videos/skins/freya_valkyrie_pingpong.mp4",
+        previewImage: "images/skins/freya_valkyrie.png",
+        category: "Фрея"
+    },
+    {
+        id: "skin_anim_oberon",
+        type: "skin",
+        heroId: "oberon",
+        name: "Оберон: Владыка Дубравы 🏓",
+        nameEn: "Oberon: Forest Guardian (Live)",
+        description: "Анимированное одеяние друида с изумрудным свечением природы и пинг-понг циклом",
+        image: "images/skins/oberon_druid.png",
+        videoAlpha: "videos/skins/oberon_druid_alpha_pingpong.webm",
+        video: "videos/skins/oberon_druid_pingpong.mp4",
+        previewImage: "images/skins/oberon_druid.png",
+        category: "Оберон"
     },
 
     // --- 5 New High-Fantasy Backgrounds ---

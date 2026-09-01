@@ -458,6 +458,93 @@ app.post('/api/ai/stt-groq', async (req, res) => {
     }
 });
 
+// Helper: Convert PCM 16-bit 24kHz mono buffer to standard WAV
+function pcmToWav(pcmBuffer, sampleRate = 24000, numChannels = 1, bitsPerSample = 16) {
+    const byteRate = sampleRate * numChannels * (bitsPerSample / 8);
+    const blockAlign = numChannels * (bitsPerSample / 8);
+    const wavHeader = Buffer.alloc(44);
+
+    wavHeader.write('RIFF', 0);
+    wavHeader.writeUInt32LE(36 + pcmBuffer.length, 4);
+    wavHeader.write('WAVE', 8);
+    wavHeader.write('fmt ', 12);
+    wavHeader.writeUInt32LE(16, 16);
+    wavHeader.writeUInt16LE(1, 20);
+    wavHeader.writeUInt16LE(numChannels, 22);
+    wavHeader.writeUInt32LE(sampleRate, 24);
+    wavHeader.writeUInt32LE(byteRate, 28);
+    wavHeader.writeUInt16LE(blockAlign, 32);
+    wavHeader.writeUInt16LE(bitsPerSample, 34);
+    wavHeader.write('data', 36);
+    wavHeader.writeUInt32LE(pcmBuffer.length, 40);
+
+    return Buffer.concat([wavHeader, pcmBuffer]);
+}
+
+// 12. POST /api/ai/gemini-tts — Native Google Gemini TTS with rich emotional intonations
+app.post('/api/ai/gemini-tts', async (req, res) => {
+    try {
+        const { text, voiceName: clientVoice, apiKey: clientApiKey } = req.body;
+        if (!text) return res.status(400).json({ success: false, error: "Text payload missing" });
+
+        const apiKey = clientApiKey || process.env.GEMINI_API_KEY || '';
+        if (!apiKey) return res.status(401).json({ success: false, error: "Gemini API Key missing. Please provide API Key in Settings." });
+
+        const voiceName = clientVoice || 'Fenrir'; // Kore, Puck, Charon, Fenrir, Aoede
+        const models = ['gemini-2.5-flash-preview-tts', 'gemini-3.1-flash-tts-preview', 'gemini-2.5-pro-preview-tts'];
+
+        for (const model of models) {
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+            const payload = {
+                contents: [{
+                    role: 'user',
+                    parts: [{ text: text }]
+                }],
+                generationConfig: {
+                    responseModalities: ['AUDIO'],
+                    speechConfig: {
+                        voiceConfig: {
+                            prebuiltVoiceConfig: {
+                                voiceName: voiceName
+                            }
+                        }
+                    }
+                }
+            };
+
+            const controller = new AbortController();
+            const timer = setTimeout(() => controller.abort(), 12000);
+            try {
+                const resp = await fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload),
+                    signal: controller.signal
+                });
+                clearTimeout(timer);
+
+                if (resp.ok) {
+                    const data = await resp.json();
+                    const part = data.candidates?.[0]?.content?.parts?.[0];
+                    if (part?.inlineData?.data) {
+                        const rawPcm = Buffer.from(part.inlineData.data, 'base64');
+                        const wavBuffer = pcmToWav(rawPcm, 24000, 1, 16);
+                        res.setHeader('Content-Type', 'audio/wav');
+                        return res.send(wavBuffer);
+                    }
+                }
+            } catch (fetchErr) {
+                clearTimeout(timer);
+                console.warn(`[Gemini TTS] Model ${model} failed:`, fetchErr.message);
+            }
+        }
+
+        return res.status(502).json({ success: false, fallback: true, error: "All Gemini TTS models failed" });
+    } catch (err) {
+        return res.status(500).json({ success: false, fallback: true, error: `Gemini TTS server error: ${err.message}` });
+    }
+});
+
 // Start Express Server
 app.listen(PORT, () => {
     console.log(`==================================================`);

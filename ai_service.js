@@ -493,7 +493,7 @@ class VoiceService {
         this.audioChunks = [];
         this.isRecording = false;
 
-        this.ttsEngine = localStorage.getItem("tts_engine") || "kokoro"; // 'kokoro', 'native'
+        this.ttsEngine = localStorage.getItem("tts_engine") || "gemini"; // 'gemini', 'kokoro', 'native'
         this.ttsEndpoint = localStorage.getItem("tts_endpoint") || "http://127.0.0.1:8880";
         this.sttEngine = localStorage.getItem("stt_engine") || "groq"; // 'groq', 'whisper', 'native'
         this.sttEndpoint = localStorage.getItem("stt_endpoint") || "http://127.0.0.1:8000";
@@ -556,15 +556,82 @@ class VoiceService {
         if (!cleanText) return;
 
         const speed = customSpeed !== null && customSpeed !== undefined ? parseFloat(customSpeed) : (this.speechSpeed || 1.0);
+        const geminiVoice = heroVoiceConfig?.geminiVoice || 'Fenrir';
         const kokoroVoice = heroVoiceConfig?.kokoroVoice || 'am_adam';
         const pitch = heroVoiceConfig?.pitch || 1.0;
         const baseRate = heroVoiceConfig?.rate || 0.95;
         const rate = Math.max(0.1, Math.min(10, baseRate * speed));
         const gender = heroVoiceConfig?.gender || null;
 
-        const cacheKey = `${kokoroVoice}_${cleanText}`;
+        // 1. Google Gemini Live Audio (Rich Emotional Intonations)
+        if (this.ttsEngine === 'gemini') {
+            try {
+                const geminiCacheKey = `gemini_${geminiVoice}_${cleanText}`;
+                let blob = this.audioCache.get(geminiCacheKey);
 
-        if (this.ttsEngine === 'kokoro') {
+                if (!blob) {
+                    const geminiKey = localStorage.getItem("gemini_api_key") || "";
+                    const res = await fetch('/api/ai/gemini-tts', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            text: cleanText,
+                            voiceName: geminiVoice,
+                            apiKey: geminiKey
+                        })
+                    });
+
+                    const contentType = res.headers.get('Content-Type') || '';
+                    if (res.ok && contentType.includes('audio')) {
+                        blob = await res.blob();
+                        this.audioCache.set(geminiCacheKey, blob);
+                    } else {
+                        console.warn("Gemini TTS endpoint returned non-200. Falling back to Kokoro/Native Speech.");
+                    }
+                }
+
+                if (blob) {
+                    if (onStart) onStart();
+                    const audioUrl = URL.createObjectURL(blob);
+                    const audio = new Audio(audioUrl);
+                    audio.defaultPlaybackRate = speed;
+                    audio.playbackRate = speed;
+                    audio.preservesPitch = true;
+
+                    const applyRate = () => {
+                        try {
+                            const curSpeed = this.speechSpeed || speed;
+                            audio.playbackRate = curSpeed;
+                            audio.defaultPlaybackRate = curSpeed;
+                        } catch (e) {}
+                    };
+
+                    audio.addEventListener('loadedmetadata', applyRate);
+                    audio.addEventListener('play', applyRate);
+                    audio.addEventListener('playing', applyRate);
+
+                    audio.onended = () => {
+                        URL.revokeObjectURL(audioUrl);
+                        if (onEnd) onEnd();
+                    };
+                    audio.onerror = () => {
+                        URL.revokeObjectURL(audioUrl);
+                        this.speakNative(cleanText, onStart, onEnd, pitch, rate, gender);
+                    };
+
+                    this.currentAudio = audio;
+                    await audio.play();
+                    applyRate();
+                    return;
+                }
+            } catch (e) {
+                console.warn("Gemini TTS failed, trying Kokoro/Native fallback:", e);
+            }
+        }
+
+        // 2. Local Kokoro Studio TTS
+        if (this.ttsEngine === 'kokoro' || this.ttsEngine === 'gemini') {
+            const cacheKey = `${kokoroVoice}_${cleanText}`;
             try {
                 let blob = this.audioCache.get(cacheKey);
 
@@ -585,7 +652,7 @@ class VoiceService {
                         blob = await res.blob();
                         this.audioCache.set(cacheKey, blob);
                     } else {
-                        console.warn("Kokoro TTS endpoint returned non-200. Falling back seamlessly to Browser Native Speech Synthesis.");
+                        console.warn("Kokoro TTS endpoint returned non-200. Falling back to Browser Native Speech Synthesis.");
                     }
                 }
 
