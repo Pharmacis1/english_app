@@ -303,6 +303,148 @@ const GRAMMAR_TOPICS = [
             { id: "e9", text: "Synthesis test: 'We have 500 _____ words in our vocabulary.'", options: ["essential", "essentialing", "more essential", "the essential"], correct: 0, explanation: "Прилагательное 'essential'." },
             { id: "e10", text: "Synthesis test: 'Congratulations! You _____ completed A1 Level!'", options: ["have", "are", "do", "is"], correct: 0, explanation: "'You have completed'." }
         ]
+    },
+    {
+        id: "there-is-grammar",
+        heroId: "ignis",
+        title: "🏙️ There is / There are & Past 'There was/were' (A1)",
+        level: "A1 Existence & Places",
+        theory: `
+            <h3>🏙️ Module: Конструкция There is / There are (Наличие и Место)</h3>
+            <p>Используется, когда мы говорим о наличии или отсутствии чего-то в определенном месте:</p>
+            <ul>
+                <li><strong>Единственное число (1 предмет):</strong> <code>There is a cafe nearby.</code> (Рядом есть кафе)</li>
+                <li><strong>Множественное число (много):</strong> <code>There are three shops on this street.</code> (На этой улице три магазина)</li>
+                <li><strong>Отрицания:</strong> <code>There isn't any Wi-Fi.</code> | <code>There aren't available seats.</code></li>
+                <li><strong>Вопросы:</strong> <code>Is there a bank near here?</code> | <code>Are there many tourists?</code></li>
+                <li><strong>В прошедшем времени (Past Simple):</strong> <code>There was a meeting yesterday.</code> | <code>There were many people.</code></li>
+            </ul>
+        `,
+        questions: [
+            { id: "ti1", text: "Singular existence: '_____ a good Italian restaurant nearby.'", options: ["There is", "There are", "Is there", "It is have"], correct: 0, explanation: "Для одного предмета ('a restaurant') -> 'There is'." },
+            { id: "ti2", text: "Plural existence: '_____ two supermarkets on this street.'", options: ["There are", "There is", "Are there", "There have"], correct: 0, explanation: "Для множественного числа ('two supermarkets') -> 'There are'." },
+            { id: "ti3", text: "Singular question: '_____ a pharmacy near the subway?'", options: ["Is there", "Are there", "There is", "Does there"], correct: 0, explanation: "Вопрос об одном предмете начинается с 'Is there...?'" },
+            { id: "ti4", text: "Plural question: '_____ available seats on the bus?'", options: ["Are there", "Is there", "There are", "Do there"], correct: 0, explanation: "Вопрос о нескольких предметах -> 'Are there...?'" },
+            { id: "ti5", text: "Negative singular: 'There _____ free Wi-Fi in this hotel room.'", options: ["isn't", "aren't", "not is", "doesn't"], correct: 0, explanation: "Отрицание для единственного числа -> 'There isn't'." },
+            { id: "ti6", text: "Negative plural: 'There _____ any cars in the parking lot.'", options: ["aren't", "isn't", "not are", "don't are"], correct: 0, explanation: "Отрицание для множественного числа -> 'There aren't'." },
+            { id: "ti7", text: "Past singular: 'There _____ an important conference yesterday.'", options: ["was", "were", "is", "been"], correct: 0, explanation: "Прошедшее время для одного события -> 'There was'." },
+            { id: "ti8", text: "Past plural: 'There _____ many tourists at the museum yesterday.'", options: ["were", "was", "are", "have been"], correct: 0, explanation: "Прошедшее время для множественного числа -> 'There were'." },
+            { id: "ti9", text: "Short answer: 'Is there a coffee machine?' -> 'Yes, _____.'", options: ["there is", "it is", "there are", "is there"], correct: 0, explanation: "Краткий ответ на 'Is there...?' -> 'Yes, there is.'" },
+            { id: "ti10", text: "Negative past: 'There _____ any trains late at night.'", options: ["weren't", "wasn't", "didn't", "not were"], correct: 0, explanation: "Отрицание во множественном числе в прошлом -> 'There weren't'." }
+        ]
+    },
+    {
+        id: "comparatives-grammar",
+        heroId: "thorin",
+        title: "⚖️ Comparatives & Superlatives: Сравнительные степени (A1)",
+        level: "A1 Adjectives Comparison",
+        theory: `
+            <h3>⚖️ Module: Сравнительные и Превосходные степени прилагательных</h3>
+            <p>Когда мы сравниваем два предмета или признака:</p>
+            <ul>
+                <li><strong>Короткие слова (1 слог) &rarr; суффикс -er:</strong> <code>fast &rarr; faster</code>, <code>cheap &rarr; cheaper</code>, <code>cold &rarr; colder</code>.</li>
+                <li><strong>Слова на -y &rarr; -ier:</strong> <code>noisy &rarr; noisier</code>, <code>easy &rarr; easier</code>.</li>
+                <li><strong>Длинные слова (2+ слога) &rarr; слово 'more':</strong> <code>expensive &rarr; more expensive</code>, <code>comfortable &rarr; more comfortable</code>.</li>
+                <li><strong>Слово-связка 'than' (чем):</strong> <code>This laptop is faster than my old PC.</code></li>
+                <li><strong>Главные исключения:</strong>
+                    <ul>
+                        <li><code>good &rarr; better</code> (лучше) | <code>the best</code> (самый лучший)</li>
+                        <li><code>bad &rarr; worse</code> (хуже) | <code>the worst</code> (самый худший)</li>
+                    </ul>
+                </li>
+            </ul>
+        `,
+        questions: [
+            { id: "comp1", text: "Short adjective: 'This new phone is _____ than the old one.' (быстрый)", options: ["faster", "more fast", "fastest", "more faster"], correct: 0, explanation: "Короткое слово 'fast' образует степень с -er -> 'faster'." },
+            { id: "comp2", text: "Long adjective: 'This restaurant is _____ than the cafe.' (дорогой)", options: ["more expensive", "expensiver", "most expensive", "expensive than"], correct: 0, explanation: "Длинное слово 'expensive' образует степень через 'more expensive'." },
+            { id: "comp3", text: "Irregular: 'His English pronunciation is _____ than mine.' (лучший)", options: ["better", "gooder", "more good", "more better"], correct: 0, explanation: "Исключение: 'good' меняется на 'better'." },
+            { id: "comp4", text: "Irregular: 'The traffic today is _____ than yesterday.' (худший)", options: ["worse", "badder", "more bad", "worst"], correct: 0, explanation: "Исключение: 'bad' меняется на 'worse'." },
+            { id: "comp5", text: "Comparison link: 'A train is slower _____ a plane.' (чем)", options: ["than", "then", "that", "as"], correct: 0, explanation: "Слово 'чем' в сравнении — это 'than' (с буквой 'a')." },
+            { id: "comp6", text: "Adjective with -y: 'The city center is _____ at night.' (шумный)", options: ["noisier", "more noisy", "noisy than", "noisiest"], correct: 0, explanation: "Слово на -y меняется на -ier -> 'noisier'." },
+            { id: "comp7", text: "Spelling double consonant: 'Summer is _____ than spring.' (жаркий)", options: ["hotter", "hoter", "more hot", "hottest"], correct: 0, explanation: "Удвоение согласной: 'hot' -> 'hotter'." },
+            { id: "comp8", text: "Superlative: 'He is the _____ student in our group.' (лучший)", options: ["best", "better", "goodest", "most good"], correct: 0, explanation: "Превосходная степень исключения 'good' — 'the best'." },
+            { id: "comp9", text: "Long adjective: 'The second lesson is _____ than the first.' (интересный)", options: ["more interesting", "interestinger", "most interesting", "more interest"], correct: 0, explanation: "Длинное прилагательное -> 'more interesting'." },
+            { id: "comp10", text: "Short adjective: 'My apartment is _____ than his.' (дешевый)", options: ["cheaper", "more cheap", "cheapest", "cheap than"], correct: 0, explanation: "'cheap' -> 'cheaper'." }
+        ]
+    },
+    {
+        id: "future-will-grammar",
+        heroId: "eldrin",
+        title: "🔮 Future Simple: 'Will' vs 'Be Going to' (A1)",
+        level: "A1 Future Predictions & Offers",
+        theory: `
+            <h3>🔮 Module: Будущее время — Will / Won't и отличие от Be Going to</h3>
+            <p>В английском есть два главных способа говорить о будущем:</p>
+            <ul>
+                <li><strong>1. Will + V1 (Спонтанные решения, обещания и предложения помощи):</strong>
+                    <ul>
+                        <li><code>I will help you with the heavy luggage.</code> (Я помогу тебе — спонтанное решение)</li>
+                        <li><code>I will order a pizza tonight.</code> (Обещание/решение прямо сейчас)</li>
+                        <li><code>Negative (won't):</code> <code>She won't forget your message.</code></li>
+                        <li><code>Question:</code> <code>Will you come to the party?</code></li>
+                    </ul>
+                </li>
+                <li><strong>2. Be going to + V1 (Заранее запланированные намерения):</strong>
+                    <ul>
+                        <li><code>She is going to travel to Spain next month.</code> (Поездка уже запланирована)</li>
+                        <li><code>I am going to buy a new laptop this weekend.</code> (План на выходные)</li>
+                    </ul>
+                </li>
+            </ul>
+        `,
+        questions: [
+            { id: "fw1", text: "Spontaneous offer: 'You look tired. I _____ make some coffee for you.'", options: ["will", "am going to", "want", "would"], correct: 0, explanation: "Спонтанное предложение помощи -> 'will'." },
+            { id: "fw2", text: "Future negative: 'Don't worry, I _____ forget your passport.'", options: ["won't", "don't will", "will not to", "not will"], correct: 0, explanation: "Отрицание 'will not' сокращается как 'won't'." },
+            { id: "fw3", text: "Future question: '_____ you call me when you arrive?'", options: ["Will", "Do", "Are", "Have"], correct: 0, explanation: "Вопрос о будущем действии начинается с 'Will you...?'" },
+            { id: "fw4", text: "Verb after will: 'She will _____ the contract by email tomorrow.'", options: ["send", "sends", "sending", "to send"], correct: 0, explanation: "После 'will' всегда ставится глагол в начальной форме (инфинитив без 'to')." },
+            { id: "fw5", text: "Planned intention: 'We _____ visit our parents this Sunday.' (план)", options: ["are going to", "will", "going to", "are will"], correct: 0, explanation: "Заранее запланированное действие выражается через 'are going to'." },
+            { id: "fw6", text: "Spontaneous decision: 'The phone is ringing. I _____ answer it!'", options: ["will", "am going to", "going to", "am answer"], correct: 0, explanation: "Решение принято в момент речи -> 'will'." },
+            { id: "fw7", text: "Negative plan: 'She _____ sell her old car.'", options: ["is not going to", "not going to", "won't to", "doesn't going to"], correct: 0, explanation: "Отрицание плана -> 'is not going to'." },
+            { id: "fw8", text: "Short answer with will: 'Will they help us tomorrow?' -> 'Yes, _____.'", options: ["they will", "they do", "they are", "they have"], correct: 0, explanation: "Краткий ответ на вопрос с 'Will' -> 'Yes, they will.'" },
+            { id: "fw9", text: "Promise: 'I promise I _____ be there on time.'", options: ["will", "am going", "would to", "going to"], correct: 0, explanation: "Слова обещания (promise) используются с 'will'." },
+            { id: "fw10", text: "Negative short answer: 'Will he arrive before noon?' -> 'No, _____.'", options: ["he won't", "he doesn't", "he isn't", "he not will"], correct: 0, explanation: "Отрицательный ответ -> 'No, he won't.'" }
+        ]
+    },
+    {
+        id: "tag-questions-grammar",
+        heroId: "selene",
+        title: "⚡ Tag Questions & Short Answers: Вопросы-хвостики (A1)",
+        level: "A1 Conversational Tags & Small Talk",
+        theory: `
+            <h3>⚡ Module: Разделительные вопросы (Tag Questions) и Краткие ответы</h3>
+            <p>Tag Questions (хвостики) используются для поддержания живой беседы и уточнения: <em>«не так ли?», «правда ведь?»</em></p>
+            <p><strong>Золотое правило хвостиков (Плюс на Минус, Минус на Плюс):</strong></p>
+            <ul>
+                <li><strong>Утверждение (+) &rarr; Отрицательный хвостик (-):</strong>
+                    <ul>
+                        <li><code>You live near the subway, <strong>don't you?</strong></code></li>
+                        <li><code>She is a designer, <strong>isn't she?</strong></code></li>
+                        <li><code>He drinks coffee, <strong>doesn't he?</strong></code></li>
+                        <li><code>We paid the bill, <strong>didn't we?</strong></code></li>
+                        <li><code>She can swim, <strong>can't she?</strong></code></li>
+                        <li><code>They will call us, <strong>won't they?</strong></code></li>
+                    </ul>
+                </li>
+                <li><strong>Отрицание (-) &rarr; Положительный хвостик (+):</strong>
+                    <ul>
+                        <li><code>You don't eat meat, <strong>do you?</strong></code></li>
+                        <li><code>They didn't arrive, <strong>did they?</strong></code></li>
+                    </ul>
+                </li>
+            </ul>
+        `,
+        questions: [
+            { id: "tag1", text: "Present Simple (+): 'You live in this city, _____?' (не так ли?)", options: ["don't you", "aren't you", "doesn't you", "do you"], correct: 0, explanation: "Для 'You live' вспомогательный глагол 'do' с отрицанием -> 'don't you?'" },
+            { id: "tag2", text: "To Be (+): 'She is a doctor at the clinic, _____?'", options: ["isn't she", "doesn't she", "aren't she", "is she"], correct: 0, explanation: "Для 'is' хвостик будет 'isn't she?'" },
+            { id: "tag3", text: "Present Simple He (+): 'He speaks English fluently, _____?'", options: ["doesn't he", "don't he", "isn't he", "does he"], correct: 0, explanation: "Для 'He speaks' вспомогательный глагол 'does' -> 'doesn't he?'" },
+            { id: "tag4", text: "Past Simple (+): 'We paid the restaurant bill already, _____?'", options: ["didn't we", "don't we", "haven't we", "did we"], correct: 0, explanation: "Прошедшее время 'paid' требует 'didn't we?'" },
+            { id: "tag5", text: "Negative Present (-): 'You don't like spicy food, _____?'", options: ["do you", "don't you", "are you", "did you"], correct: 0, explanation: "После отрицания 'don't like' хвостик положительный -> 'do you?'" },
+            { id: "tag6", text: "Modal Can (+): 'She can drive a car, _____?'", options: ["can't she", "doesn't she", "isn't she", "can she"], correct: 0, explanation: "Для 'can' хвостик 'can't she?'" },
+            { id: "tag7", text: "Past Negative (-): 'They didn't receive the email, _____?'", options: ["did they", "didn't they", "do they", "were they"], correct: 0, explanation: "После 'didn't' положительный хвостик -> 'did they?'" },
+            { id: "tag8", text: "Weather To Be (+): 'It is warm and sunny today, _____?'", options: ["isn't it", "doesn't it", "aren't it", "is it"], correct: 0, explanation: "'It is' -> 'isn't it?'" },
+            { id: "tag9", text: "Future Will (+): 'They will help us with the bags, _____?'", options: ["won't they", "will they", "don't they", "aren't they"], correct: 0, explanation: "Отрицательный хвостик для 'will' -> 'won't they?'" },
+            { id: "tag10", text: "Past To Be (+): 'She was at the meeting yesterday, _____?'", options: ["wasn't she", "didn't she", "isn't she", "was she"], correct: 0, explanation: "'She was' -> 'wasn't she?'" }
+        ]
     }
 ];
 
