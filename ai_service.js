@@ -564,13 +564,15 @@ class VoiceService {
         const gender = heroVoiceConfig?.gender || null;
 
         // 1. Google Gemini Live Audio (Rich Emotional Intonations)
-        if (this.ttsEngine === 'gemini') {
+        const geminiKey = localStorage.getItem("gemini_api_key") || "";
+        const preferGemini = this.ttsEngine === 'gemini' || (this.ttsEngine !== 'native' && geminiKey);
+
+        if (preferGemini) {
             try {
                 const geminiCacheKey = `gemini_${geminiVoice}_${cleanText}`;
                 let blob = this.audioCache.get(geminiCacheKey);
 
                 if (!blob) {
-                    const geminiKey = localStorage.getItem("gemini_api_key") || "";
                     const res = await fetch('/api/ai/gemini-tts', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
@@ -586,11 +588,13 @@ class VoiceService {
                         blob = await res.blob();
                         this.audioCache.set(geminiCacheKey, blob);
                     } else {
-                        console.warn("Gemini TTS endpoint returned non-200. Falling back to Kokoro/Native Speech.");
+                        const errData = await res.json().catch(() => ({}));
+                        console.warn(`[Gemini TTS Endpoint ${res.status}]`, errData.error || "Falling back to Kokoro/Native");
                     }
                 }
 
                 if (blob) {
+                    console.log(`🔊 [Voice Output] ✨ Engine: "GEMINI LIVE AUDIO" | Voice: "${geminiVoice}" | Hero: "${heroVoiceConfig?.heroName || heroVoiceConfig?.heroId || 'Hero'}" | Text: "${cleanText}"`);
                     if (onStart) onStart();
                     const audioUrl = URL.createObjectURL(blob);
                     const audio = new Audio(audioUrl);

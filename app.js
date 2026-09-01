@@ -3277,10 +3277,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function getActiveHeroVoiceConfig(customHeroId = null) {
-        const targetId = customHeroId || (activeScenario && activeScenario.isHeroScenario ? activeScenario.heroId : null);
-        if (targetId) {
-            const hero = rpgEngine.heroes.find(h => h.id === targetId);
-            if (hero && hero.voiceConfig) return hero.voiceConfig;
+        const targetId = customHeroId || (activeScenario && activeScenario.heroId) || activeShowcaseHeroId || (rpgEngine && rpgEngine.heroes && rpgEngine.heroes[0] && rpgEngine.heroes[0].id);
+        if (targetId && rpgEngine && rpgEngine.heroes) {
+            const hero = rpgEngine.heroes.find(h => h.id === targetId || (h.name && h.name.toLowerCase() === targetId.toLowerCase()));
+            if (hero && hero.voiceConfig) return { ...hero.voiceConfig, heroId: hero.id, heroName: hero.name };
         }
         return null;
     }
@@ -3536,7 +3536,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         cleanText,
                         () => { audioBtn.innerHTML = `<i class="fa-solid fa-volume-high"></i> Speaking...`; },
                         () => { audioBtn.innerHTML = `<i class="fa-solid fa-volume-high"></i> Listen`; },
-                        getActiveHeroVoiceConfig()
+                        getActiveHeroVoiceConfig(activeHeroId)
                     );
                 });
             }
