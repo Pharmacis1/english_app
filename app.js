@@ -6600,7 +6600,10 @@ document.addEventListener("DOMContentLoaded", () => {
         function handleTimeOut() {
             if (isCardAnswered) return;
             isCardAnswered = true;
-            if (window.patternDrills) window.patternDrills.currentCombo = 0;
+            if (window.patternDrills) {
+                window.patternDrills.currentCombo = 0;
+                if (currentCard) window.patternDrills.recordMistake(currentCard);
+            }
             updateComboUI();
 
             if (resultFeedback) {
@@ -6608,7 +6611,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 resultFeedback.style.background = "rgba(239, 68, 68, 0.25)";
                 resultFeedback.style.border = "1px solid rgba(239, 68, 68, 0.5)";
                 resultFeedback.style.color = "#fca5a5";
-                resultFeedback.innerHTML = `⏰ <b>Время вышло!</b> Правильный ответ: <b>"${currentCard ? currentCard.target : ''}"</b>`;
+                resultFeedback.innerHTML = `⏰ <b>Время вышло!</b> Правильный ответ: <b>"${currentCard ? currentCard.target : ''}"</b> <em>(вернется через 2 карточки для закрепления)</em>`;
             }
 
             if (optionsGrid && currentCard) {
@@ -6652,7 +6655,11 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             if (modifierEl && currentCard) {
-                modifierEl.textContent = currentCard.modifier;
+                if (currentCard.isRetry) {
+                    modifierEl.innerHTML = `<span style="background:rgba(245,158,11,0.25); border:1px solid #f59e0b; color:#fbbf24; border-radius:4px; padding:1px 6px; font-size:10px; margin-right:4px;">🔁 Повтор ошибки</span> ${currentCard.modifier}`;
+                } else {
+                    modifierEl.textContent = currentCard.modifier;
+                }
             }
 
             if (optionsGrid && currentCard) {
@@ -6736,7 +6743,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     renderNextCard();
                 }, 750);
             } else {
-                if (window.patternDrills) window.patternDrills.currentCombo = 0;
+                if (window.patternDrills) {
+                    window.patternDrills.currentCombo = 0;
+                    if (currentCard) window.patternDrills.recordMistake(currentCard);
+                }
                 updateComboUI();
 
                 if (resultFeedback && currentCard) {
@@ -6744,7 +6754,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     resultFeedback.style.background = "rgba(239, 68, 68, 0.25)";
                     resultFeedback.style.border = "1px solid rgba(239, 68, 68, 0.5)";
                     resultFeedback.style.color = "#fca5a5";
-                    resultFeedback.innerHTML = `❌ <b>Неверно.</b> Правильный ответ: <b>"${currentCard.target}"</b>`;
+                    resultFeedback.innerHTML = `❌ <b>Неверно.</b> Правильный ответ: <b>"${currentCard.target}"</b> <em>(вернется через 2 карточки для закрепления)</em>`;
                 }
             }
         }

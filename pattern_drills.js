@@ -21,6 +21,8 @@ class PatternDrillsEngine {
         this.timerInterval = null;
         this.isSessionActive = false;
         this.isVoiceRecording = false;
+        this.recentQueue = [];
+        this.weakSpotQueue = [];
 
         this.thresholds = this.generateThresholds();
         this.loadState();
@@ -274,20 +276,58 @@ class PatternDrillsEngine {
         ];
     }
 
+    recordMistake(card) {
+        if (!card) return;
+        // Avoid duplicate queuing
+        const exists = this.weakSpotQueue.some(w => w.card.original === card.original);
+        if (!exists) {
+            // Schedule this weak spot card to return after 2 other cards
+            this.weakSpotQueue.push({ card, delay: 2 });
+        }
+    }
+
+    getNextCard() {
+        return this.getRandomCard();
+    }
+
     getRandomCard() {
-        const item = this.rawPatterns[Math.floor(Math.random() * this.rawPatterns.length)];
-        const allOptions = [item.target, ...item.distractors];
+        // 1. Decrement delays in weak spot retry queue
+        for (let i = 0; i < this.weakSpotQueue.length; i++) {
+            this.weakSpotQueue[i].delay--;
+        }
+
+        // 2. Check if any weak spot card is ready to repeat (delay <= 0)
+        const readyWeakIdx = this.weakSpotQueue.findIndex(w => w.delay <= 0);
+        let selectedItem = null;
+        let isRetry = false;
+
+        if (readyWeakIdx !== -1) {
+            selectedItem = this.weakSpotQueue.splice(readyWeakIdx, 1)[0].card;
+            isRetry = true;
+        } else {
+            // Pick a fresh card avoiding the last 15 seen cards to prevent immediate repetition
+            const available = this.rawPatterns.filter(p => !this.recentQueue.includes(p.original));
+            const pool = available.length > 0 ? available : this.rawPatterns;
+            selectedItem = pool[Math.floor(Math.random() * pool.length)];
+        }
+
+        // Track in recent history (last 15)
+        this.recentQueue.push(selectedItem.original);
+        if (this.recentQueue.length > 15) this.recentQueue.shift();
+
+        const allOptions = [selectedItem.target, ...selectedItem.distractors];
         for (let i = allOptions.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [allOptions[i], allOptions[j]] = [allOptions[j], allOptions[i]];
         }
 
         return {
-            original: item.original,
-            modifier: item.modifier,
-            target: item.target,
+            original: selectedItem.original,
+            modifier: selectedItem.modifier,
+            target: selectedItem.target,
             options: allOptions,
-            correctIdx: allOptions.indexOf(item.target)
+            correctIdx: allOptions.indexOf(selectedItem.target),
+            isRetry
         };
     }
 
