@@ -2,6 +2,7 @@
  * YOUNG ELDRIN AUDIOBOOK: THE APPRENTICE OF THE ARCANE SPIRE
  * CEFR A1 Interactive Audio Story with Multi-Voice Narration & Comprehension Quizzes
  * Strictly using A1 grammar & the 1,100 words studied across the 10 heroes.
+ * Clean Voice Acting: Character cards contain ONLY direct speech of the character.
  */
 
 const ELDRIN_AUDIOBOOK = {
@@ -37,20 +38,14 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     speaker: "narrator",
                     voice: "Charon",
-                    en: "His name is Eldrin. He is twelve years old, and he loves old books, scrolls, and glowing runes.",
-                    ru: "Его зовут Элдрин. Ему двенадцать лет, и он любит старые книги, свитки и светящиеся руны."
+                    en: "His name is Eldrin. He is twelve years old, and he opens a dusty magical scroll with big, happy eyes.",
+                    ru: "Его зовут Элдрин. Ему двенадцать лет, и он открывает пыльный магический свиток с большими счастливыми глазами."
                 },
                 {
                     speaker: "eldrin",
                     voice: "Puck",
-                    en: "\"Look at this ancient scroll!\" Eldrin whispers with big, happy eyes.",
-                    ru: "\"Посмотри на этот древний свиток!\" — шепчет Элдрин с большими счастливыми глазами."
-                },
-                {
-                    speaker: "eldrin",
-                    voice: "Puck",
-                    en: "\"Magic is not only power. Magic is a language, isn't it?\"",
-                    ru: "\"Магия — это не только сила. Магия — это язык, не так ли?\""
+                    en: "\"Look at this ancient scroll! Magic is not only power. Magic is a language, isn't it?\"",
+                    ru: "\"Посмотри на этот древний свиток! Магия — это не только сила. Магия — это язык, не так ли?\""
                 },
                 {
                     speaker: "narrator",
@@ -67,8 +62,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     speaker: "eldrin",
                     voice: "Puck",
-                    en: "\"Wait, what?! Are you alive, little feather?!\" Eldrin laughs with surprise.",
-                    ru: "\"Подожди, что?! Ты живое, маленькое перышко?!\" — с удивлением смеется Элдрин."
+                    en: "\"Wait, what?! Are you alive, little feather?!\"",
+                    ru: "\"Подожди, что?! Ты живое, маленькое перышко?!\""
                 },
                 {
                     speaker: "narrator",
@@ -91,14 +86,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     speaker: "eldrin",
                     voice: "Puck",
-                    en: "\"A secret door? Nobody goes there! But I am not afraid!\"",
-                    ru: "\"Секретная дверь? Туда никто не ходит! Но я не боюсь!\""
-                },
-                {
-                    speaker: "eldrin",
-                    voice: "Puck",
-                    en: "\"I must find what is behind it! My first real adventure begins today!\"",
-                    ru: "\"Я должен узнать, что за ней! Мое первое настоящее приключение начинается сегодня!\""
+                    en: "\"A secret door? Nobody goes there! But I am not afraid! I must find what is behind it! My first real adventure begins today!\"",
+                    ru: "\"Секретная дверь? Туда никто не ходит! Но я не боюсь! Я должен узнать, что за ней! Мое первое настоящее приключение начинается сегодня!\""
                 }
             ],
             quiz: [
@@ -162,8 +151,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     speaker: "eldrin",
                     voice: "Puck",
-                    en: "\"Where is the light coming from? Is there someone in this room?\" Eldrin asks softly.",
-                    ru: "\"Откуда идет свет? Здесь кто-то есть в этой комнате?\" — тихо спрашивает Элдрин."
+                    en: "\"Where is the light coming from? Is there someone in this room?\"",
+                    ru: "\"Откуда идет свет? Здесь кто-то есть в этой комнате?\""
                 },
                 {
                     speaker: "narrator",
@@ -174,8 +163,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     speaker: "narrator",
                     voice: "Charon",
-                    en: "Eldrin pulls the cloth away with both hands. Wow! There is a giant blue crystal inside a golden ring!",
-                    ru: "Элдрин сдергивает ткань обеими руками. Вау! Внутри золотого кольца лежит гигантский синий кристалл!"
+                    en: "Eldrin pulls the cloth away with both hands. There is a giant blue crystal inside a golden ring!",
+                    ru: "Элдрин сдергивает ткань обеими руками. Внутри золотого кольца лежит гигантский синий кристалл!"
                 },
                 {
                     speaker: "eldrin",
@@ -186,8 +175,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     speaker: "narrator",
                     voice: "Charon",
-                    en: "Suddenly, a warm, gentle female voice speaks from the glowing light of the crystal.",
-                    ru: "Внезапно теплый, нежный женский голос раздается из сияющего света кристалла."
+                    en: "Suddenly, a warm and gentle female voice speaks from the glowing light of the crystal.",
+                    ru: "Внезапно теплый и нежный женский голос раздается из сияющего света кристалла."
                 },
                 {
                     speaker: "astraea",
@@ -287,8 +276,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     speaker: "thorin",
                     voice: "Fenrir",
-                    en: "\"Hail, traveler! Who are you, and why did you come to my hot mountain forge?!\" Thorin shouted loudly.",
-                    ru: "\"Привет, путник! Кто ты и зачем пришел в мою горячую горную кузницу?!\" — громко крикнул Торин."
+                    en: "\"Hail, traveler! Who are you, and why did you come to my hot mountain forge?!\"",
+                    ru: "\"Привет, путник! Кто ты и зачем пришел в мою горячую горную кузницу?!\""
                 },
                 {
                     speaker: "eldrin",
@@ -394,26 +383,14 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     speaker: "narrator",
                     voice: "Charon",
-                    en: "Under a huge ancient oak tree, a man in a green cloak is sitting with a gentle white deer.",
-                    ru: "Под огромным древним дубом сидит мужчина в зеленом плаще с ласковым белым оленем."
-                },
-                {
-                    speaker: "narrator",
-                    voice: "Charon",
-                    en: "It is Arch-Druid Oberon. He is feeding the wild deer with sweet red apples.",
-                    ru: "Это верховный друид Оберон. Он кормит дикого оленя сладкими красными яблоками."
+                    en: "Under a huge ancient oak tree, a man in a green cloak is sitting with a gentle white deer. It is Arch-Druid Oberon, feeding the wild deer with sweet red apples.",
+                    ru: "Под огромным древним дубом сидит мужчина в зеленом плаще с ласковым белым оленем. Это верховный друид Оберон, который кормит дикого оленя сладкими красными яблоками."
                 },
                 {
                     speaker: "oberon",
                     voice: "Charon",
-                    en: "\"Welcome, young student,\" Oberon says with a calm, friendly smile.",
-                    ru: "\"Добро пожаловать, юный ученик,\" — говорит Оберон со спокойной, дружелюбной улыбкой."
-                },
-                {
-                    speaker: "oberon",
-                    voice: "Charon",
-                    en: "\"I see you are holding a staff of silver, but your crystal is sleeping. Do you know why?\"",
-                    ru: "\"Я вижу, ты держишь посох из серебра, но твой кристалл спит. Знаешь ли ты, почему?\""
+                    en: "\"Welcome, young student. I see you are holding a staff of silver, but your crystal is sleeping. Do you know why?\"",
+                    ru: "\"Добро пожаловать, юный ученик. Я вижу, ты держишь посох из серебра, но твой кристалл спит. Знаешь ли ты, почему?\""
                 },
                 {
                     speaker: "eldrin",
@@ -507,20 +484,20 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     speaker: "eldrin",
                     voice: "Puck",
-                    en: "\"Stop, thief! You cannot steal from people!\" Eldrin shouted, raising his staff.",
-                    ru: "\"Стой, вор! Ты не можешь воровать у людей!\" — крикнул Элдрин, поднимая посох."
+                    en: "\"Stop, thief! You cannot steal from people!\"",
+                    ru: "\"Стой, вор! Ты не можешь воровать у людей!\""
                 },
                 {
                     speaker: "narrator",
                     voice: "Charon",
-                    en: "A girl in a black hooded cloak turned around on the roof. It was young Selene!",
-                    ru: "Девочка в черном плаще с капюшоном обернулась на крыше. Это была юная Селена!"
+                    en: "A girl in a black hooded cloak turned around on the high roof. It was young Selene!",
+                    ru: "Девочка в черном плаще с капюшоном обернулась на высокой крыше. Это была юная Селена!"
                 },
                 {
                     speaker: "selene",
                     voice: "Aoede",
-                    en: "\"Thief?! Look inside the bag, little wizard! These are stolen medicine herbs for sick poor children!\" Selene whispered sharply.",
-                    ru: "\"Вор?! Загляни в сумку, маленький волшебник! Это украденные лекарственные травы для больных бедных детей!\" — резко прошептала Селена."
+                    en: "\"Thief?! Look inside the bag, little wizard! These are stolen medicine herbs for sick poor children!\"",
+                    ru: "\"Вор?! Загляни в сумку, маленький волшебник! Это украденные лекарственные травы для больных бедных детей!\""
                 },
                 {
                     speaker: "eldrin",
@@ -608,8 +585,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     speaker: "eldrin",
                     voice: "Puck",
-                    en: "\"The Spire is shaking! If the lightning strikes the library, all ancient scrolls will burn!\" Eldrin cried.",
-                    ru: "\"Шпиль трясется! Если молния ударит в библиотеку, все древние свитки сгорят!\" — крикнул Элдрин."
+                    en: "\"The Spire is shaking! If the lightning strikes the library, all ancient scrolls will burn!\"",
+                    ru: "\"Шпиль трясется! Если молния ударит в библиотеку, все древние свитки сгорят!\""
                 },
                 {
                     speaker: "narrator",
@@ -620,14 +597,14 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     speaker: "eldrin",
                     voice: "Puck",
-                    en: "\"I will protect our tower! I will not give up!\" Eldrin raised his silver staff into the stormy sky.",
-                    ru: "\"Я защищу нашу башню! Я не сдамся!\" — Элдрин поднял свой серебряный посох в штормовое небо."
+                    en: "\"I will protect our tower! I will not give up!\"",
+                    ru: "\"Я защищу нашу башню! Я не сдамся!\""
                 },
                 {
                     speaker: "narrator",
                     voice: "Charon",
-                    en: "The blue crystal absorbed the wild lightning bolts and turned them into pure glowing arcane energy.",
-                    ru: "Синий кристалл вобрал в себя дикие разряды молний и превратил их в чистое сияние тайной энергии."
+                    en: "Eldrin raised his silver staff. The blue crystal absorbed the wild lightning bolts and turned them into pure glowing arcane energy.",
+                    ru: "Элдрин поднял свой серебряный посох. Синий кристалл вобрал в себя дикие разряды молний и превратил их в чистое сияние тайной энергии."
                 },
                 {
                     speaker: "narrator",
