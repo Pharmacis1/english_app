@@ -278,11 +278,18 @@ class PatternDrillsEngine {
 
     recordMistake(card) {
         if (!card) return;
+        const orig = typeof card === 'string' ? card : (card.original || '');
+        if (!orig) return;
+
+        // Find the full item with distractors in rawPatterns
+        const rawItem = this.rawPatterns.find(p => p.original === orig);
+        if (!rawItem) return;
+
         // Avoid duplicate queuing
-        const exists = this.weakSpotQueue.some(w => w.card.original === card.original);
+        const exists = this.weakSpotQueue.some(w => w.card.original === rawItem.original);
         if (!exists) {
-            // Schedule this weak spot card to return after 2 other cards
-            this.weakSpotQueue.push({ card, delay: 2 });
+            // Schedule this weak spot card to return after 2 other cards (delay = 3)
+            this.weakSpotQueue.push({ card: rawItem, delay: 3 });
         }
     }
 
@@ -315,7 +322,17 @@ class PatternDrillsEngine {
         this.recentQueue.push(selectedItem.original);
         if (this.recentQueue.length > 15) this.recentQueue.shift();
 
-        const allOptions = [selectedItem.target, ...selectedItem.distractors];
+        // Safely extract distractors
+        let distractors = selectedItem.distractors;
+        if (!Array.isArray(distractors)) {
+            if (Array.isArray(selectedItem.options)) {
+                distractors = selectedItem.options.filter(o => o !== selectedItem.target);
+            } else {
+                distractors = [];
+            }
+        }
+
+        const allOptions = [selectedItem.target, ...distractors];
         for (let i = allOptions.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [allOptions[i], allOptions[j]] = [allOptions[j], allOptions[i]];
