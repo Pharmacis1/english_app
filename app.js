@@ -7595,22 +7595,44 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             const localAudioUrl = `/audio/audiobook/ch_${curChapter.number}/sent_${idx + 1}.wav`;
-            const audio = new Audio(localAudioUrl);
-            audio.defaultPlaybackRate = playbackSpeed;
-            audio.playbackRate = playbackSpeed;
-            audio.preservesPitch = true;
 
-            audio.onplay = () => {
-                if (playBtn) playBtn.innerHTML = `<i class="fa-solid fa-volume-high" style="color:#c084fc;"></i>`;
-            };
+            // Check if pre-rendered local audio file exists via fast HEAD request
+            fetch(localAudioUrl, { method: 'HEAD' }).then(res => {
+                if (res.ok && res.status === 200) {
+                    // Pre-rendered local file exists! Play it cleanly. NEVER trigger Kokoro!
+                    const audio = new Audio(localAudioUrl);
+                    audio.defaultPlaybackRate = playbackSpeed;
+                    audio.playbackRate = playbackSpeed;
+                    audio.preservesPitch = true;
 
-            audio.onended = () => {
-                activeAudioElement = null;
-                onSentenceFinished();
-            };
+                    audio.onplay = () => {
+                        if (playBtn) playBtn.innerHTML = `<i class="fa-solid fa-volume-high" style="color:#c084fc;"></i>`;
+                    };
 
-            audio.onerror = () => {
-                // Fallback to on-the-fly Gemini Live Audio if pre-rendered file is not on disk yet
+                    audio.onended = () => {
+                        activeAudioElement = null;
+                        onSentenceFinished();
+                    };
+
+                    activeAudioElement = audio;
+                    audio.play().catch(e => {
+                        console.warn("[Audiobook Player] Audio play error:", e);
+                    });
+                } else {
+                    // File is genuinely missing on disk -> fallback to live voice
+                    voiceService.speak(
+                        sent.en,
+                        () => {
+                            if (playBtn) playBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i>`;
+                        },
+                        () => {
+                            onSentenceFinished();
+                        },
+                        { geminiVoice: voiceName, heroName: sent.speaker, kokoroVoice: 'am_adam' },
+                        playbackSpeed
+                    );
+                }
+            }).catch(() => {
                 voiceService.speak(
                     sent.en,
                     () => {
@@ -7622,12 +7644,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     { geminiVoice: voiceName, heroName: sent.speaker, kokoroVoice: 'am_adam' },
                     playbackSpeed
                 );
-            };
-
-            activeAudioElement = audio;
-            audio.play().catch(() => {
-                // Autoplay blocked or load failed -> fallback to voiceService
-                audio.onerror();
             });
         }
 
