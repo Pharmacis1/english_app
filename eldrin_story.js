@@ -1,25 +1,61 @@
 /**
- * YOUNG ELDRIN AUDIOBOOK: THE APPRENTICE OF THE ARCANE SPIRE
- * CEFR A1 Interactive Audio Story with Multi-Voice Narration & Comprehension Quizzes
+ * YOUNG ELDRIN AUDIOBOOK: THE SECRETS OF THE ARCANE SPIRE
+ * CEFR A1 Mystery Novel with Multi-Voice Narration & Comprehension Quizzes
  * Strictly using A1 grammar & the 1,100 words studied across the 10 heroes.
- * Clean Voice Acting: Character cards contain ONLY direct speech of the character.
+ * Cast: Young Eldrin (Puck), Kira (Aoede), Master Corvinus (Charon), Commander Vane (Fenrir), Narrator (Charon).
  */
 
 const ELDRIN_AUDIOBOOK = {
-    title: "Young Eldrin: The Apprentice of the Arcane Spire",
-    titleRu: "Юный Элдрин: Ученик Тайного Шпиля",
-    description: "An exciting 6-chapter audio adventure from Archmage Eldrin's youth. Built strictly with CEFR A1 grammar and the 1,100 essential words studied in EnglishPulse.",
-    descriptionRu: "Увлекательное 6-главное аудио-приключение из молодости Архимага Эльдрина. Построено строго на грамматике A1 и 1100 изучаемых словах.",
-    totalChapters: 6,
-    totalTargetWords: 1850,
+    title: "Young Eldrin and the Iron Below",
+    titleRu: "Юный Элдрин и Железные Глубины",
+    description: "An exciting 25-chapter mystery novel set in the vertical world of the Arcane Spire. Built strictly with CEFR A1 grammar and the 1,100 essential words studied in EnglishPulse.",
+    descriptionRu: "Увлекательный роман-тайна из 25 глав в вертикальном мире Тайного Шпиля. Построен строго на грамматике A1 и 1100 изучаемых словах.",
+    totalChapters: 25,
+    totalTargetWords: 25000,
+    acts: [
+        {
+            number: 1,
+            titleEn: "Act I: The Dusty Scroll",
+            titleRu: "Акт I: Пыльный Свиток",
+            chaptersRange: [1, 5]
+        },
+        {
+            number: 2,
+            titleEn: "Act II: Steps Into The Dark",
+            titleRu: "Акт II: Шаги во Тьму",
+            chaptersRange: [6, 10]
+        },
+        {
+            number: 3,
+            titleEn: "Act III: The Poisoned History",
+            titleRu: "Акт III: Отравленная История",
+            chaptersRange: [11, 15]
+        },
+        {
+            number: 4,
+            titleEn: "Act IV: Hunted on the Stairs",
+            titleRu: "Акт IV: Погоня на Лестницах",
+            chaptersRange: [16, 20]
+        },
+        {
+            number: 5,
+            titleEn: "Act V: The Heart of the Spire",
+            titleRu: "Акт V: Сердце Шпиля",
+            chaptersRange: [21, 25]
+        }
+    ],
     chapters: [
+        // =========================================================================
+        // ===== CHAPTER 1: THE BOY IN LEVEL 82 =====
+        // =========================================================================
         {
             id: "eldrin-ch-1",
             number: 1,
-            titleEn: "Chapter 1: The Boy in the Floating Library",
-            titleRu: "Глава 1: Мальчик в Парящей Библиотеке",
+            act: 1,
+            titleEn: "Chapter 1: The Boy in Level 82",
+            titleRu: "Глава 1: Мальчик на 82-м Уровне",
             grammarFocus: "Present Simple, Verb 'to be', Demonstratives (This / That), Prepositions",
-            wordCount: 310,
+            wordCount: 1000,
             coverIcon: "fa-book-bookmark",
             coverColor: "#a855f7",
             sentences: [
@@ -126,538 +162,559 @@ const ELDRIN_AUDIOBOOK = {
                 }
             ]
         },
+
+        // =========================================================================
+        // ===== CHAPTER 2: THE MISSING REGISTER =====
+        // =========================================================================
         {
             id: "eldrin-ch-2",
             number: 2,
-            titleEn: "Chapter 2: The Secret of the Blue Crystal",
-            titleRu: "Глава 2: Тайна Синего Кристалла",
-            grammarFocus: "There is / There are, Prepositions (in, under, behind, next to), Questions",
-            wordCount: 320,
-            coverIcon: "fa-gem",
-            coverColor: "#06b6d4",
+            act: 1,
+            titleEn: "Chapter 2: The Missing Register",
+            titleRu: "Глава 2: Пропавший Реестр",
+            grammarFocus: "Past Simple (saw, opened, found, was/were), Questions, Negations (did not)",
+            wordCount: 1000,
+            coverIcon: "fa-book-skull",
+            coverColor: "#6366f1",
             sentences: [
                 {
                     speaker: "narrator",
                     voice: "Charon",
-                    en: "Eldrin opens the heavy iron door very quietly. Creak... the corridor is cold and dark.",
-                    ru: "Элдрин очень тихо открывает тяжелую железную дверь. Скрип... коридор холодный и темный."
+                    en: "Eldrin walked softly across the stone floor of the archive. The room was cold and smelled of old paper.",
+                    ru: "Элдрин мягко ступал по каменному полу архива. В комнате было холодно и пахло старой бумагой."
                 },
                 {
                     speaker: "narrator",
                     voice: "Charon",
-                    en: "There are many old wooden boxes on the left, and there is a dusty stone shelf on the right.",
-                    ru: "Слева стоит много старых деревянных ящиков, а справа — пыльная каменная полка."
+                    en: "There were hundreds of black books on the tall wooden shelves. Every book had an iron number on its spine.",
+                    ru: "На высоких деревянных полках стояли сотни черных книг. У каждой книги на корешке был железный номер."
                 },
                 {
                     speaker: "eldrin",
                     voice: "Puck",
-                    en: "\"Where is the light coming from? Is there someone in this room?\"",
-                    ru: "\"Откуда идет свет? Здесь кто-то есть в этой комнате?\""
+                    en: "\"Where is the register of the lowest levels? I want to see the map of our tower.\"",
+                    ru: "\"Где же реестр самых нижних уровней? Я хочу увидеть карту нашей башни.\""
                 },
                 {
                     speaker: "narrator",
                     voice: "Charon",
-                    en: "Under a large velvet cloth, something is shining with bright sapphire blue light.",
-                    ru: "Под большим бархатным покрывалом что-то сияет ярким сапфирово-синим светом."
+                    en: "He climbed a tall wooden ladder and looked at shelf number eighty. There it was: The Great Register of Levels.",
+                    ru: "Он поднялся по высокой деревянной лестнице и посмотрел на полку номер восемьдесят. Вот она: Великий Реестр Уровней."
                 },
                 {
                     speaker: "narrator",
                     voice: "Charon",
-                    en: "Eldrin pulls the cloth away with both hands. There is a giant blue crystal inside a golden ring!",
-                    ru: "Элдрин сдергивает ткань обеими руками. Внутри золотого кольца лежит гигантский синий кристалл!"
-                },
-                {
-                    speaker: "eldrin",
-                    voice: "Puck",
-                    en: "\"This crystal is wonderful! It feels warm, like summer sun on my cold hands!\"",
-                    ru: "\"Этот кристалл великолепен! Он теплый на ощупь, как летнее солнце на моих холодных руках!\""
+                    en: "It was a massive book bound in dark brown leather. Eldrin carried it carefully to the reading desk.",
+                    ru: "Это была массивная книга в темно-коричневом кожаном переплете. Элдрин осторожно отнес её к столу для чтения."
                 },
                 {
                     speaker: "narrator",
                     voice: "Charon",
-                    en: "Suddenly, a warm and gentle female voice speaks from the glowing light of the crystal.",
-                    ru: "Внезапно теплый и нежный женский голос раздается из сияющего света кристалла."
-                },
-                {
-                    speaker: "astraea",
-                    voice: "Kore",
-                    en: "\"Greetings, young seeker. I am Astraea, the spirit of light and healing. Are you ready to learn true magic?\"",
-                    ru: "\"Приветствую, юный искатель. Я Астрея, дух света и исцеления. Готов ли ты учиться истинной магии?\""
+                    en: "He turned the yellow pages slowly. Page one hundred: The High Sanctorum. Page fifty: The Water Terraces. Page twenty: The Iron Foundry.",
+                    ru: "Он медленно перелистывал желтые страницы. Страница сто: Высокое Святилище. Страница пятьдесят: Водные Террасы. Страница двадцать: Железный Литейный цех."
                 },
                 {
                     speaker: "eldrin",
                     voice: "Puck",
-                    en: "\"Yes, Lady Astraea! I am ready! What must I do first?\"",
-                    ru: "\"Да, леди Астрея! Я готов! Что мне нужно сделать сначала?\""
+                    en: "\"Wait! What happened to page four hundred? Why is the paper torn here?\"",
+                    ru: "\"Подожди! Что случилось со страницей четыреста? Почему бумага здесь вырвана?\""
                 },
                 {
-                    speaker: "astraea",
-                    voice: "Kore",
-                    en: "\"You need a strong magic staff to hold this energy. Go to the Iron Mountain and find young blacksmith Thorin!\"",
-                    ru: "\"Тебе нужен крепкий магический посох, чтобы удерживать эту энергию. Иди к Железной Горе и найди юного кузнеца Торина!\""
+                    speaker: "narrator",
+                    voice: "Charon",
+                    en: "Someone cut the last page out with a very sharp knife! Only one line of black ink remained at the bottom edge.",
+                    ru: "Кто-то вырезал последнюю страницу очень острым ножом! На нижнем краю осталась только одна строчка черных чернил."
                 },
                 {
                     speaker: "eldrin",
                     voice: "Puck",
-                    en: "\"To the Iron Mountain? I will go there at sunrise! Thank you, Lady Astraea!\"",
-                    ru: "\"К Железной Горе? Я отправлюсь туда на рассвете! Спасибо, леди Астрея!\""
+                    en: "\"Level Zero: Strictly Forbidden. Do Not Record. But why? What is hidden on Level Zero?\"",
+                    ru: "\"Уровень Ноль: Строго Запрещено. Не Записывать. Но почему? Что скрыто на Нулевом Уровне?\""
+                },
+                {
+                    speaker: "narrator",
+                    voice: "Charon",
+                    en: "TAP! TAP! TAP! The heavy sound of a wooden cane echoed down the corridor. An old shadow appeared at the door.",
+                    ru: "СТУК! СТУК! СТУК! Тяжелый стук деревянной трости раздался по коридору. В дверях появилась старая тень."
+                },
+                {
+                    speaker: "corvinus",
+                    voice: "Charon",
+                    en: "\"Put that book back on the shelf, boy! Some questions have dangerous answers in the Arcane Spire!\"",
+                    ru: "\"Поставь эту книгу обратно на полку, мальчик! Некоторые вопросы таят опасные ответы в Тайном Шпиле!\""
+                },
+                {
+                    speaker: "eldrin",
+                    voice: "Puck",
+                    en: "\"Master Corvinus! I... I was only dusting the top shelf! I am sorry, sir!\"",
+                    ru: "\"Мастер Корвинус! Я... Я просто вытирал пыль с верхней полки! Простите меня, сэр!\""
+                },
+                {
+                    speaker: "narrator",
+                    voice: "Charon",
+                    en: "The old archivist looked at Eldrin with sharp grey eyes. He did not shout, but his old hands trembled slightly on his cane.",
+                    ru: "Старый архивариус посмотрел на Элдрина острыми серыми глазами. Он не кричал, но его старые руки слегка дрожали на трости."
+                },
+                {
+                    speaker: "corvinus",
+                    voice: "Charon",
+                    en: "\"Your father asked too many questions, Eldrin. Do not make his mistake. Go to your room now.\"",
+                    ru: "\"Твой отец задавал слишком много вопросов, Элдрин. Не повторяй его ошибки. Иди в свою комнату сейчас же.\""
                 }
             ],
             quiz: [
                 {
-                    question: "What is shining under the velvet cloth in the secret cellar?",
+                    question: "What was missing from the Great Register of Levels?",
                     options: [
-                        "A giant glowing sapphire blue crystal",
-                        "A sleeping black dragon",
-                        "A box of sweet apples",
-                        "An old red wooden chair"
+                        "Page four hundred was cut out with a knife",
+                        "The golden front cover was stolen",
+                        "All pictures of dragons were erased",
+                        "The title page had no author name"
                     ],
                     correctIdx: 0,
-                    explanation: "Under the velvet cloth, a giant glowing blue crystal rests inside a golden ring."
+                    explanation: "Page four hundred was cut out with a sharp knife."
                 },
                 {
-                    question: "Who speaks to Eldrin from the crystal light?",
+                    question: "What mysterious line was written at the bottom edge of the cut page?",
                     options: [
-                        "Astraea, the spirit of light and healing",
-                        "An angry goblin king",
-                        "A quiet grey cat",
-                        "The castle guard"
+                        "'Level Zero: Strictly Forbidden. Do Not Record.'",
+                        "'Welcome to the library party!'",
+                        "'Today is a sunny day in the garden.'",
+                        "'Please close all windows before night.'"
                     ],
                     correctIdx: 0,
-                    explanation: "Astraea, the spirit of light and healing, speaks to Eldrin."
+                    explanation: "The ink read: 'Level Zero: Strictly Forbidden. Do Not Record.'"
                 },
                 {
-                    question: "Where does Astraea instruct young Eldrin to travel?",
+                    question: "Who caught Eldrin reading the forbidden register?",
                     options: [
-                        "To the Iron Mountain to find blacksmith Thorin",
-                        "To the grocery market for milk",
-                        "Back to his bedroom to sleep",
-                        "To the deep blue sea"
+                        "Master Corvinus with his wooden cane",
+                        "A noisy garden monkey",
+                        "An angry city merchant",
+                        "A little girl with bread"
                     ],
                     correctIdx: 0,
-                    explanation: "Astraea sends him to the Iron Mountain to find blacksmith Thorin."
+                    explanation: "Chief Archivist Master Corvinus caught Eldrin at the desk."
                 }
             ]
         },
+
+        // =========================================================================
+        // ===== CHAPTER 3: THE BRONZE KEY =====
+        // =========================================================================
         {
             id: "eldrin-ch-3",
             number: 3,
-            titleEn: "Chapter 3: The Journey to the Iron Mountain",
-            titleRu: "Глава 3: Путешествие к Железной Горе",
-            grammarFocus: "Past Simple (regular & irregular), Comparatives (-er, more), Adjectives",
-            wordCount: 330,
-            coverIcon: "fa-mountain",
+            act: 1,
+            titleEn: "Chapter 3: The Bronze Key",
+            titleRu: "Глава 3: Бронзовый Ключ",
+            grammarFocus: "Prepositions of Place (inside, under, between), Past Simple, Possessives (my father's)",
+            wordCount: 1000,
+            coverIcon: "fa-key",
             coverColor: "#f59e0b",
             sentences: [
                 {
                     speaker: "narrator",
                     voice: "Charon",
-                    en: "The next morning, Eldrin packed his leather bag with fresh bread, yellow cheese, and clean water.",
-                    ru: "На следующее утро Элдрин собрал свою кожаную сумку со свежим хлебом, желтым сыром и чистой водой."
+                    en: "That night, Eldrin could not sleep in his small apprentice dormitory on Level 82.",
+                    ru: "В ту ночь Элдрин не мог уснуть в своей маленькой спальне для учеников на 82-м уровне."
                 },
                 {
                     speaker: "narrator",
                     voice: "Charon",
-                    en: "He walked for three hours along the rocky road. The mountains were taller and steeper than the green hills.",
-                    ru: "Он шел три часа по каменистой дороге. Горы были выше и круче зеленых холмов."
-                },
-                {
-                    speaker: "narrator",
-                    voice: "Charon",
-                    en: "Soon, he heard loud rhythmic sounds: CLANG! CLANG! BOOM! Bright golden sparks flew into the air.",
-                    ru: "Вскоре он услышал громкие ритмичные звуки: ДЗИНЬ! ДЗИНЬ! БУМ! Яркие золотые искры летели в воздух."
-                },
-                {
-                    speaker: "narrator",
-                    voice: "Charon",
-                    en: "Near the hot stone forge stood a strong young dwarf with a big hammer. It was Thorin!",
-                    ru: "Возле горячей каменной кузницы стоял сильный юный дварф с большим молотом. Это был Торин!"
-                },
-                {
-                    speaker: "thorin",
-                    voice: "Fenrir",
-                    en: "\"Hail, traveler! Who are you, and why did you come to my hot mountain forge?!\"",
-                    ru: "\"Привет, путник! Кто ты и зачем пришел в мою горячую горную кузницу?!\""
+                    en: "The wind whistled outside the circular stone wall. Far below, the great cloud sea was dark as ink.",
+                    ru: "Ветер свистел за круглой каменной стеной. Далеко внизу огромное море облаков было темным, как чернила."
                 },
                 {
                     speaker: "eldrin",
                     voice: "Puck",
-                    en: "\"Hello! My name is Eldrin. I need a magic staff for this blue crystal, please!\"",
-                    ru: "\"Привет! Меня зовут Элдрин. Мне нужен магический посох для этого синего кристалла, пожалуйста!\""
-                },
-                {
-                    speaker: "thorin",
-                    voice: "Fenrir",
-                    en: "\"A magic crystal?! Ha! My steel is stronger than rocks! Let us craft the finest staff together!\"",
-                    ru: "\"Магический кристалл?! Ха! Моя сталь крепче скал! Давай скуем лучший посох вместе!\""
+                    en: "\"Master Corvinus said: 'Your father asked too many questions.' What did he mean?\"",
+                    ru: "\"Мастер Корвинус сказал: 'Твой отец задавал слишком много вопросов'. Что он имел в виду?\""
                 },
                 {
                     speaker: "narrator",
                     voice: "Charon",
-                    en: "Thorin heated the silver metal in the bright red fire. He hammered the metal until it became smooth and beautiful.",
-                    ru: "Торин нагрел серебряный металл в ярком красном огне. Он ковал металл, пока тот не стал гладким и красивым."
+                    en: "Eldrin remembered his father. His father was an engineer on the lower levels. Five years ago, guards took him away into the deep fog.",
+                    ru: "Элдрин вспомнил своего отца. Его отец был инженером на нижних уровнях. Пять лет назад стражники увели его в глубокий туман."
                 },
                 {
-                    speaker: "thorin",
-                    voice: "Fenrir",
-                    en: "\"Here is your silver staff, young mage! It is lighter and stronger than any wood!\"",
-                    ru: "\"Вот твой серебряный посох, юный маг! Он легче и прочнее любого дерева!\""
+                    speaker: "narrator",
+                    voice: "Charon",
+                    en: "His father left only one object: a very thick astronomy book with a dark green leather cover.",
+                    ru: "Его отец оставил только один предмет: очень толстую книгу по астрономии в темно-зеленом кожаном переплете."
                 },
                 {
                     speaker: "eldrin",
                     voice: "Puck",
-                    en: "\"Thank you, Thorin! You are the best blacksmith in the realm!\"",
-                    ru: "\"Спасибо, Торин! Ты лучший кузнец во всем королевстве!\""
+                    en: "\"Let me look at this old green book again. Is there a hidden secret inside it?\"",
+                    ru: "\"Дай-ка я снова взгляну на эту старую зеленую книгу. Есть ли внутри неё скрытый секрет?\""
                 },
                 {
-                    speaker: "thorin",
-                    voice: "Fenrir",
-                    en: "\"Go to the Emerald Grove next, Eldrin. You must awaken the spirit of nature!\"",
-                    ru: "\"Иди теперь в Изумрудную Рощу, Элдрин. Ты должен пробудить дух природы!\""
+                    speaker: "narrator",
+                    voice: "Charon",
+                    en: "He took the green book from beneath his pillow. It was strangely heavy for its size.",
+                    ru: "Он достал зеленую книгу из-под подушки. Она была странно тяжелой для своего размера."
+                },
+                {
+                    speaker: "narrator",
+                    voice: "Charon",
+                    en: "Eldrin pressed the middle of the heavy back cover. CLICK! A small secret door in the binding popped open!",
+                    ru: "Элдрин нажал на середину тяжелой задней обложки. ЩЁЛК! Маленькая потайная дверца в переплете распахнулась!"
+                },
+                {
+                    speaker: "eldrin",
+                    voice: "Puck",
+                    en: "\"A secret pocket! Father made a hollow compartment inside the book!\"",
+                    ru: "\"Потайной карман! Отец сделал полое отделение внутри книги!\""
+                },
+                {
+                    speaker: "narrator",
+                    voice: "Charon",
+                    en: "Inside the hollow space lay a heavy bronze key with three strange numbers engraved on its handle: '12 - 5 - 0'.",
+                    ru: "Внутри полого пространства лежал тяжелый бронзовый ключ с тремя странными выбитыми цифрами на ручке: '12 - 5 - 0'."
+                },
+                {
+                    speaker: "eldrin",
+                    voice: "Puck",
+                    en: "\"Twelve, five, zero... Are these level numbers? Does this key open a door down in the foundry?!\"",
+                    ru: "\"Двенадцать, пять, ноль... Это номера уровней? Открывает ли этот ключ дверь внизу в литейном цехе?!\""
+                },
+                {
+                    speaker: "narrator",
+                    voice: "Charon",
+                    en: "Under the key, there was also a folded note with his father's handwriting: 'The engines do not sleep, but they are dying. Find Bram on Level 12.'",
+                    ru: "Под ключом также лежала сложенная записка с почерком отца: 'Двигатели не спят, но они умирают. Найди Брама на 12-м уровне.'"
+                },
+                {
+                    speaker: "eldrin",
+                    voice: "Puck",
+                    en: "\"Level 12! I must go down to the lower levels! But how can an apprentice pass the Sentinel checkpoints?\"",
+                    ru: "\"12-й уровень! Я должен спуститься на нижние уровни! Но как ученик может пройти через посты стражи?\""
                 }
             ],
             quiz: [
                 {
-                    question: "How long did young Eldrin walk along the rocky road to the mountain?",
+                    question: "What object did Eldrin's father leave behind for him?",
                     options: [
-                        "For three hours",
-                        "For ten minutes",
-                        "For five days",
-                        "He took a fast train"
+                        "A thick astronomy book with a dark green leather cover",
+                        "A golden sword with ruby gems",
+                        "A wooden toy boat",
+                        "A bag of silver coins"
                     ],
                     correctIdx: 0,
-                    explanation: "He walked for three hours along the rocky road."
+                    explanation: "His father left a thick green astronomy book."
                 },
                 {
-                    question: "Who was hammering metal near the hot stone forge?",
+                    question: "What was hidden inside the hollow binding of the book?",
                     options: [
-                        "Young dwarf Thorin with a big hammer",
-                        "A sleeping baker",
-                        "An old farmer",
-                        "A wandering clown"
+                        "A bronze key engraved with '12 - 5 - 0' and a note",
+                        "A bottle of hot tea",
+                        "A pair of warm socks",
+                        "A bag of sweet sugar"
                     ],
                     correctIdx: 0,
-                    explanation: "Young dwarf Thorin was hammering metal at the forge."
+                    explanation: "A bronze key with numbers '12 - 5 - 0' and a folded note were hidden inside."
                 },
                 {
-                    question: "What kind of staff did Thorin forge for Eldrin?",
+                    question: "Who did the father's note instruct Eldrin to find on Level 12?",
                     options: [
-                        "A silver staff, lighter and stronger than wood",
-                        "A heavy iron shoe",
-                        "A wooden fork",
-                        "A plastic toy"
+                        "Find Bram on Level 12",
+                        "Find the King in the palace",
+                        "Find a green horse",
+                        "Find a new doctor"
                     ],
                     correctIdx: 0,
-                    explanation: "Thorin crafted a silver staff that was lighter and stronger than wood."
+                    explanation: "The note said: 'Find Bram on Level 12.'"
                 }
             ]
         },
+
+        // =========================================================================
+        // ===== CHAPTER 4: THE GIRL WITH IRON BOOTS =====
+        // =========================================================================
         {
             id: "eldrin-ch-4",
             number: 4,
-            titleEn: "Chapter 4: Whispers in the Emerald Grove",
-            titleRu: "Глава 4: Шёпот в Изумрудной Роще",
-            grammarFocus: "Present Continuous (be + V-ing), Nature vocabulary, Animals, Modals",
-            wordCount: 325,
-            coverIcon: "fa-leaf",
-            coverColor: "#84cc16",
-            sentences: [
-                {
-                    speaker: "narrator",
-                    voice: "Charon",
-                    en: "Now, Eldrin is walking through the peaceful Emerald Grove with his shiny new staff.",
-                    ru: "Теперь Элдрин идет через мирную Изумрудную Рощу со своим сияющим новым посохом."
-                },
-                {
-                    speaker: "narrator",
-                    voice: "Charon",
-                    en: "The sun is shining brightly, birds are singing sweet songs, and a crystal river is flowing quietly.",
-                    ru: "Солнце ярко светит, птицы поют сладкие песни, и тихо течет хрустальная река."
-                },
-                {
-                    speaker: "eldrin",
-                    voice: "Puck",
-                    en: "\"Listen! The green leaves are whispering in the warm wind!\"",
-                    ru: "\"Послушай! Зеленые листья шепчутся на теплом ветру!\""
-                },
-                {
-                    speaker: "narrator",
-                    voice: "Charon",
-                    en: "Under a huge ancient oak tree, a man in a green cloak is sitting with a gentle white deer. It is Arch-Druid Oberon, feeding the wild deer with sweet red apples.",
-                    ru: "Под огромным древним дубом сидит мужчина в зеленом плаще с ласковым белым оленем. Это верховный друид Оберон, который кормит дикого оленя сладкими красными яблоками."
-                },
-                {
-                    speaker: "oberon",
-                    voice: "Charon",
-                    en: "\"Welcome, young student. I see you are holding a staff of silver, but your crystal is sleeping. Do you know why?\"",
-                    ru: "\"Добро пожаловать, юный ученик. Я вижу, ты держишь посох из серебра, но твой кристалл спит. Знаешь ли ты, почему?\""
-                },
-                {
-                    speaker: "eldrin",
-                    voice: "Puck",
-                    en: "\"No, master Oberon. Why is it not glowing right now?\"",
-                    ru: "\"Нет, мастер Оберон. Почему он не светится прямо сейчас?\""
-                },
-                {
-                    speaker: "oberon",
-                    voice: "Charon",
-                    en: "\"Because magic needs harmony! Close your eyes. Breathe slowly. Feel the life of the forest around you!\"",
-                    ru: "\"Потому что магии нужна гармония! Закрой глаза. Дыши медленно. Почувствуй жизнь леса вокруг тебя!\""
-                },
-                {
-                    speaker: "narrator",
-                    voice: "Charon",
-                    en: "Eldrin closed his eyes. FLASH! The blue crystal on his staff lit up with magnificent emerald and sapphire light!",
-                    ru: "Элдрин закрыл глаза. ВСПЫШКА! Синий кристалл на его посохе озарился великолепным изумрудным и сапфировым светом!"
-                },
-                {
-                    speaker: "oberon",
-                    voice: "Charon",
-                    en: "\"Well done! Your heart is pure. Now, go to the Silver Market, for destiny is waiting there!\"",
-                    ru: "\"Прекрасно! Твое сердце чисто. Теперь иди на Серебряный Рынок, ибо судьба ждет тебя там!\""
-                }
-            ],
-            quiz: [
-                {
-                    question: "What is Arch-Druid Oberon doing when Eldrin meets him in the grove?",
-                    options: [
-                        "He is feeding a gentle white deer with sweet apples",
-                        "He is sleeping on a stone",
-                        "He is hunting dangerous wolves",
-                        "He is chopping down the oak tree"
-                    ],
-                    correctIdx: 0,
-                    explanation: "Oberon is sitting under the ancient oak tree and feeding a deer."
-                },
-                {
-                    question: "Why was the blue crystal sleeping on the staff at first?",
-                    options: [
-                        "Because magic needs harmony with the life of nature",
-                        "Because it was broken into pieces",
-                        "Because it needed hot water",
-                        "Because it was night"
-                    ],
-                    correctIdx: 0,
-                    explanation: "Oberon explained that magic needs harmony and calm breathing."
-                },
-                {
-                    question: "What happened when young Eldrin closed his eyes and breathed with the forest?",
-                    options: [
-                        "The crystal lit up with magnificent emerald and sapphire light",
-                        "He fell into the river",
-                        "The staff broke in half",
-                        "The deer ran away scared"
-                    ],
-                    correctIdx: 0,
-                    explanation: "The blue crystal lit up with magnificent emerald and sapphire light!"
-                }
-            ]
-        },
-        {
-            id: "eldrin-ch-5",
-            number: 5,
-            titleEn: "Chapter 5: Shadows in the Silver Market",
-            titleRu: "Глава 5: Тени на Серебряном Рынке",
-            grammarFocus: "Modal verbs (Can / Cannot, Must), Directions, Clothing, Shopping",
-            wordCount: 315,
-            coverIcon: "fa-mask",
+            act: 1,
+            titleEn: "Chapter 4: The Girl with Iron Boots",
+            titleRu: "Глава 4: Девочка в Железных Сапогах",
+            grammarFocus: "Present Continuous (running, carrying, shouting), Adjectives (fast, heavy, dark), Modals (can / must)",
+            wordCount: 1000,
+            coverIcon: "fa-person-running",
             coverColor: "#ec4899",
             sentences: [
                 {
                     speaker: "narrator",
                     voice: "Charon",
-                    en: "In the afternoon, Eldrin reached the bustling Silver Market in the capital city.",
-                    ru: "Днем Элдрин добрался до оживленного Серебряного Рынка в столице."
+                    en: "Early next morning, loud steam hissed near the service lifts of Level 82. The iron chains groaned with heavy weight.",
+                    ru: "Рано на следующее утро громкий пар зашипел возле служебных лифтов 82-го уровня. Железные цепи стонали под тяжелым весом."
                 },
                 {
                     speaker: "narrator",
                     voice: "Charon",
-                    en: "People were buying fresh bread, warm winter coats, and golden rings. It was very noisy.",
-                    ru: "Люди покупали свежий хлеб, теплые зимние пальто и золотые кольца. Было очень шумно."
+                    en: "Apprentices from the Lower Levels were carrying barrels of black lamp oil and fresh vegetables from the cargo lift.",
+                    ru: "Ученики с Нижних Уровней таскали бочки с черным ламповым маслом и свежие овощи из грузового лифта."
                 },
                 {
                     speaker: "narrator",
                     voice: "Charon",
-                    en: "Suddenly, a swift shadow ran past the fruit shop and snatched a greedy merchant's golden bag!",
-                    ru: "Внезапно быстрая тень пробежала мимо фруктовой лавки и выхватила золотую сумку жадного торговца!"
+                    en: "One runner moved faster than anyone else. She wore dark leather clothes, thick gloves, and heavy iron-soled boots.",
+                    ru: "Одна бегунья двигалась быстрее всех остальных. На ней была темная кожаная одежда, толстые перчатки и тяжелые сапоги на железной подошве."
+                },
+                {
+                    speaker: "kira",
+                    voice: "Aoede",
+                    en: "\"Move your feet, slow library boys! The oil is hot, and the lift must go down in three minutes!\"",
+                    ru: "\"Шевелите ногами, медлительные библиотечные мальчишки! Масло горячее, и лифт должен уйти вниз через три минуты!\""
+                },
+                {
+                    speaker: "narrator",
+                    voice: "Charon",
+                    en: "Suddenly, two tall Iron Sentinels in gleaming steel breastplates marched around the corner with long shock-staves.",
+                    ru: "Внезапно двое высоких Железных Стражей в блестящих стальных кирасах вышли из-за угла с длинными шоковыми посохами."
+                },
+                {
+                    speaker: "vane",
+                    voice: "Fenrir",
+                    en: "\"Halt! Cargo inspection! Open every box from the lower foundry immediately!\"",
+                    ru: "\"Стой! Осмотр груза! Немедленно откройте каждый ящик из нижнего литейного цеха!\""
+                },
+                {
+                    speaker: "narrator",
+                    voice: "Charon",
+                    en: "The girl stumbled against a wooden crate. A small round dark object fell from her leather belt and rolled across the floor towards Eldrin!",
+                    ru: "Девочка споткнулась о деревянный ящик. Маленький круглый темный предмет выпал из её кожаного пояса и покатился по полу к Элдрину!"
+                },
+                {
+                    speaker: "narrator",
+                    voice: "Charon",
+                    en: "Eldrin reacted swiftly. He stepped forward and placed his boot over the object before the guards saw it.",
+                    ru: "Элдрин среагировал молниеносно. Он шагнул вперед и накрыл предмет своим сапогом, прежде чем стражники его увидели."
+                },
+                {
+                    speaker: "vane",
+                    voice: "Fenrir",
+                    en: "\"You, archive boy! What are you doing here near the freight lift?!\"",
+                    ru: "\"Ты, мальчик из архива! Что ты делаешь здесь возле грузового лифта?!\""
                 },
                 {
                     speaker: "eldrin",
                     voice: "Puck",
-                    en: "\"Stop, thief! You cannot steal from people!\"",
-                    ru: "\"Стой, вор! Ты не можешь воровать у людей!\""
+                    en: "\"I am collecting the lamp oil for Master Corvinus, commander. The study lamps need fresh oil today.\"",
+                    ru: "\"Я забираю ламповое масло для мастера Корвинуса, командор. Лампам для занятий сегодня нужно свежее масло.\""
+                },
+                {
+                    speaker: "vane",
+                    voice: "Fenrir",
+                    en: "\"Good. Take your oil and leave. Lower level runners, finish unloading now!\"",
+                    ru: "\"Хорошо. Бери масло и уходи. Бегуны с нижних уровней, заканчивайте разгрузку сейчас же!\""
                 },
                 {
                     speaker: "narrator",
                     voice: "Charon",
-                    en: "A girl in a black hooded cloak turned around on the high roof. It was young Selene!",
-                    ru: "Девочка в черном плаще с капюшоном обернулась на высокой крыше. Это была юная Селена!"
+                    en: "When the Sentinels walked away, the girl pulled Eldrin behind a stack of wooden crates into the shadows.",
+                    ru: "Когда стражи ушли, девочка затянула Элдрина за стопку деревянных ящиков в тень."
                 },
                 {
-                    speaker: "selene",
+                    speaker: "kira",
                     voice: "Aoede",
-                    en: "\"Thief?! Look inside the bag, little wizard! These are stolen medicine herbs for sick poor children!\"",
-                    ru: "\"Вор?! Загляни в сумку, маленький волшебник! Это украденные лекарственные травы для больных бедных детей!\""
+                    en: "\"Give it back to me! That is my most precious possession!\"",
+                    ru: "\"Отдай это мне! Это моя самая драгоценная вещь!\""
+                },
+                {
+                    speaker: "narrator",
+                    voice: "Charon",
+                    en: "Eldrin opened his hand. It was a heavy brass cylinder with a thick glass lens inside — a miniature telescope.",
+                    ru: "Элдрин разжал ладонь. Это был тяжелый латунный цилиндр с толстой стеклянной линзой внутри — миниатюрная подзорная труба."
                 },
                 {
                     speaker: "eldrin",
                     voice: "Puck",
-                    en: "\"Oh... I understand now. You are helping sick children. Can I help you with my light spell?\"",
-                    ru: "\"Ох... Теперь я понимаю. Ты помогаешь больным детям. Могу я помочь тебе моим заклинанием света?\""
+                    en: "\"What is this glass lens? My name is Eldrin. Who are you?\"",
+                    ru: "\"Что это за стеклянная линза? Меня зовут Элдрин. А кто ты?\""
                 },
                 {
-                    speaker: "selene",
+                    speaker: "kira",
                     voice: "Aoede",
-                    en: "\"You are smart and kind. Follow me quietly across the high rooftops, and don't make a sound!\"",
-                    ru: "\"Ты умный и добрый. Следуй за мной тихо по высоким крышам и не издавай ни звука!\""
-                },
-                {
-                    speaker: "narrator",
-                    voice: "Charon",
-                    en: "Together, Eldrin and Selene brought the healing medicine safely to the children's hospital.",
-                    ru: "Вместе Элдрин и Селена благополучно доставили целебные лекарства в детскую больницу."
-                },
-                {
-                    speaker: "selene",
-                    voice: "Aoede",
-                    en: "\"Thank you, Eldrin. You are a true hero. Look at the sky! You must return to your Spire immediately!\"",
-                    ru: "\"Спасибо, Элдрин. Ты настоящий герой. Посмотри на небо! Ты должен немедленно вернуться в свой Шпиль!\""
+                    en: "\"I am Kira, a runner from Level 12. And this lens is the only thing that sees through the great white mist!\"",
+                    ru: "\"Я Кира, бегунья с 12-го уровня. И эта линза — единственная вещь, которая видит сквозь великий белый туман!\""
                 }
             ],
             quiz: [
                 {
-                    question: "Who snatched the merchant's bag at the busy Silver Market?",
+                    question: "Who was Kira and where did she come from?",
                     options: [
-                        "Young Selene in a black hooded cloak",
-                        "A hungry dog",
-                        "A city guard",
-                        "A pirate captain"
+                        "An agile runner girl from Level 12 wearing iron-soled boots",
+                        "A princess from the High Sanctorum",
+                        "A teacher of French grammar",
+                        "A cook from the palace kitchen"
                     ],
                     correctIdx: 0,
-                    explanation: "Young Selene in a black hooded cloak leaped across the roof."
+                    explanation: "Kira was a fast apprentice runner from Level 12."
                 },
                 {
-                    question: "What was really inside the bag that Selene took?",
+                    question: "What dropped from Kira's belt during the guard inspection?",
                     options: [
-                        "Stolen medicine herbs for sick poor children",
-                        "Diamonds and rubies",
-                        "Sweet cookies and cakes",
-                        "Silver forks and knives"
+                        "A miniature brass telescope with a thick glass lens",
+                        "A piece of chocolate cake",
+                        "A golden ring with diamonds",
+                        "An iron spoon"
                     ],
                     correctIdx: 0,
-                    explanation: "The bag contained medicine herbs meant for sick poor children."
+                    explanation: "A small brass telescope with a glass lens dropped onto the floor."
                 },
                 {
-                    question: "What did Selene tell Eldrin at the end of the chapter?",
+                    question: "What special power does Kira's glass lens possess?",
                     options: [
-                        "Look at the sky and return to the Spire immediately",
-                        "Stay and buy pizza",
-                        "Go swimming in the lake",
-                        "Give her his shoes"
+                        "It can see through the great white mist",
+                        "It can make hot water cold",
+                        "It can sing songs",
+                        "It can unlock any door"
                     ],
                     correctIdx: 0,
-                    explanation: "Selene warned him: 'Look at the sky! You must return to your Spire immediately!'"
+                    explanation: "Kira said: 'This lens is the only thing that sees through the great white mist!'"
                 }
             ]
         },
+
+        // =========================================================================
+        // ===== CHAPTER 5: WHISPERS IN THE DARK =====
+        // =========================================================================
         {
-            id: "eldrin-ch-6",
-            number: 6,
-            titleEn: "Chapter 6: The Storm of the Arcane Spire",
-            titleRu: "Глава 6: Буря над Тайным Шпилем (Финал)",
-            grammarFocus: "Future Tense (Will / Won't, Be going to), Complex A1 Review, Victory",
-            wordCount: 310,
-            coverIcon: "fa-bolt-lightning",
-            coverColor: "#eab308",
+            id: "eldrin-ch-5",
+            number: 5,
+            act: 1,
+            titleEn: "Chapter 5: Whispers in the Dark",
+            titleRu: "Глава 5: Шёпот в Темноте",
+            grammarFocus: "Future with Will (I will help, we will go), Comparisons, Prepositions of Movement (down, through)",
+            wordCount: 1000,
+            coverIcon: "fa-ear-listen",
+            coverColor: "#8b5cf6",
             sentences: [
                 {
                     speaker: "narrator",
                     voice: "Charon",
-                    en: "Dark purple storm clouds covered the sky above the Arcane Spire. A dangerous magical storm was coming!",
-                    ru: "Темно-фиолетовые штормовые тучи закрыли небо над Тайным Шпилем. Приближалась опасная магическая буря!"
+                    en: "Night fell over Level 82. The big bronze bell chimed ten times. Curfew began.",
+                    ru: "Ночь опустилась на 82-й уровень. Большой бронзовый колокол пробил десять раз. Начался комендантский час."
                 },
                 {
                     speaker: "narrator",
                     voice: "Charon",
-                    en: "Loud thunder shook the ancient walls: CRASH! Strong lightning struck the highest tower of the academy.",
-                    ru: "Громкий гром сотряс древние стены: БРАМ! Сильная молния ударила в самую высокую башню академии."
+                    en: "Eldrin crept down the dark hallway of the archive. A narrow beam of yellow candlelight shone from Master Corvinus's private study.",
+                    ru: "Элдрин прокрался по темному коридору архива. Узкий луч желтого свечного света падал из личного кабинета мастера Корвинуса."
+                },
+                {
+                    speaker: "narrator",
+                    voice: "Charon",
+                    en: "Eldrin stopped near the wooden door and listened closely. Two men were speaking in low, tense voices.",
+                    ru: "Элдрин остановился возле деревянной двери и внимательно прислушался. Двое мужчин говорили низкими, напряженными голосами."
+                },
+                {
+                    speaker: "vane",
+                    voice: "Fenrir",
+                    en: "\"The Council will lock the iron gates between Level 30 and Level 29 tomorrow morning, archivist.\"",
+                    ru: "\"Совет закроет железные ворота между 30-м и 29-м уровнями завтра утром, архивариус.\""
+                },
+                {
+                    speaker: "corvinus",
+                    voice: "Charon",
+                    en: "\"Lock the gates?! But thousands of workers live down in the Foundry! If you cut off their water, they will starve!\"",
+                    ru: "\"Закроете ворота?! Но тысячи рабочих живут внизу в Литейном цехе! Если вы перекроете им воду, они будут голодать!\""
+                },
+                {
+                    speaker: "vane",
+                    voice: "Fenrir",
+                    en: "\"It is Arch-Prelate Malakor's order! The altitude thrusters are shaking. The Spire is losing height every week! We must conserve all power for the Upper City!\"",
+                    ru: "\"Это приказ верховного прелата Малакора! Высотные двигатели трясутся. Шпиль теряет высоту каждую неделю! Мы должны сохранить всю энергию для Верхнего Города!\""
+                },
+                {
+                    speaker: "narrator",
+                    voice: "Charon",
+                    en: "Eldrin gasped in horror. The Spire was losing height! The floating city was slowly falling!",
+                    ru: "Элдрин ахнул от ужаса. Шпиль терял высоту! Парящий город медленно падал!"
+                },
+                {
+                    speaker: "vane",
+                    voice: "Fenrir",
+                    en: "\"Ensure no student or apprentice goes near the spiral stairs. Anyone found on the stairs will be sent to the Mist.\"",
+                    ru: "\"Убедитесь, что ни один студент или ученик не приближается к винтовым лестницам. Любой, кого найдут на лестнице, будет отправлен в Туман.\""
+                },
+                {
+                    speaker: "narrator",
+                    voice: "Charon",
+                    en: "Heavy armored boots clanked away down the marble stairs. Eldrin held his breath until Commander Vane was gone.",
+                    ru: "Тяжелые бронированные сапоги загремели вниз по мраморной лестнице. Элдрин затаил дыхание, пока командор Вейн не ушел."
+                },
+                {
+                    speaker: "narrator",
+                    voice: "Charon",
+                    en: "The door opened slowly. Master Corvinus stood in the doorway, holding a copper lantern. His eyes were sad but resolute.",
+                    ru: "Дверь медленно открылась. Мастер Корвинус стоял в дверном проеме, держа медный фонарь. Его глаза были печальными, но решительными."
+                },
+                {
+                    speaker: "corvinus",
+                    voice: "Charon",
+                    en: "\"I know you are standing there, Eldrin. You have your father's ears and his brave, foolish heart.\"",
+                    ru: "\"Я знаю, что ты стоишь там, Элдрин. У тебя уши твоего отца и его храброе, глупое сердце.\""
                 },
                 {
                     speaker: "eldrin",
                     voice: "Puck",
-                    en: "\"The Spire is shaking! If the lightning strikes the library, all ancient scrolls will burn!\"",
-                    ru: "\"Шпиль трясется! Если молния ударит в библиотеку, все древние свитки сгорят!\""
+                    en: "\"Master Corvinus! Is it true?! Is the Spire falling into the clouds?! What can we do?!\"",
+                    ru: "\"Мастер Корвинус! Это правда?! Шпиль падает в облака?! Что мы можем сделать?!\""
+                },
+                {
+                    speaker: "corvinus",
+                    voice: "Charon",
+                    en: "\"Take this copper lantern and this map of the ventilation shafts. Tomorrow will be too late. Find your father's friend Bram on Level 12.\"",
+                    ru: "\"Возьми этот медный фонарь и эту карту вентиляционных шахт. Завтра будет слишком поздно. Найди друга твоего отца, Брама, на 12-м уровне.\""
+                },
+                {
+                    speaker: "corvinus",
+                    voice: "Charon",
+                    en: "\"If the Council catches me, remember: the truth is not in the sky. The truth is deep below.\"",
+                    ru: "\"Если Совет схватит меня, помни: истина не в небе. Истина глубоко внизу.\""
                 },
                 {
                     speaker: "narrator",
                     voice: "Charon",
-                    en: "Young Eldrin ran up the spiral stairs to the highest balcony. The cold wind was howling loudly around him.",
-                    ru: "Юный Элдрин взбежал по винтовой лестнице на самый высокий балкон. Холодный ветер громко завывал вокруг него."
-                },
-                {
-                    speaker: "eldrin",
-                    voice: "Puck",
-                    en: "\"I will protect our tower! I will not give up!\"",
-                    ru: "\"Я защищу нашу башню! Я не сдамся!\""
-                },
-                {
-                    speaker: "narrator",
-                    voice: "Charon",
-                    en: "Eldrin raised his silver staff. The blue crystal absorbed the wild lightning bolts and turned them into pure glowing arcane energy.",
-                    ru: "Элдрин поднял свой серебряный посох. Синий кристалл вобрал в себя дикие разряды молний и превратил их в чистое сияние тайной энергии."
-                },
-                {
-                    speaker: "narrator",
-                    voice: "Charon",
-                    en: "BOOM! A magnificent dome of golden light expanded over the whole floating city. The storm dissolved into soft golden sparkles.",
-                    ru: "БУМ! Великолепный купол золотого света раскрылся над всем парящим городом. Буря растворилась в мягких золотых искрах."
-                },
-                {
-                    speaker: "narrator",
-                    voice: "Charon",
-                    en: "All students and teachers cheered with joy: 'Hooray! Young Eldrin saved the Arcane Spire!'",
-                    ru: "Все ученики и учителя ликовали от радости: 'Ура! Юный Элдрин спас Тайный Шпиль!'"
-                },
-                {
-                    speaker: "eldrin",
-                    voice: "Puck",
-                    en: "\"This is only the beginning. One day, I will become the Grand Archmage!\"",
-                    ru: "\"Это только начало. Однажды я стану Великим Архимагом!\""
+                    en: "Kira was already waiting near the service pipe with her iron boots laced tight. Act One came to an end as the great descent began!",
+                    ru: "Кира уже ждала возле служебной трубы в туго зашнурованных железных сапогах. Первый Акт подошел к концу, когда начался великий спуск!"
                 }
             ],
             quiz: [
                 {
-                    question: "What danger threatened the floating Arcane Spire in the final chapter?",
+                    question: "What terrible secret did Commander Vane reveal to Master Corvinus?",
                     options: [
-                        "A dangerous magical storm with wild lightning",
-                        "A flood of cold sea water",
-                        "A missing dinner in the dining room",
-                        "A broken wooden chair"
+                        "The Spire is losing height and slowly falling every week",
+                        "The library had no more tea",
+                        "The birds stopped singing songs",
+                        "The roof needed yellow paint"
                     ],
                     correctIdx: 0,
-                    explanation: "A dangerous magical storm with strong lightning threatened to destroy the library."
+                    explanation: "Commander Vane said: 'The Spire is losing height every week!'"
                 },
                 {
-                    question: "How did young Eldrin protect the library and the Spire?",
+                    question: "What did the Council plan to do tomorrow morning?",
                     options: [
-                        "He raised his staff and absorbed the lightning into a protective dome of golden light",
-                        "He hid under his bed with a pillow",
-                        "He ran away down the mountain",
-                        "He closed all windows with dark blankets"
+                        "Lock the iron gates between Level 30 and Level 29 and cut off the lower city",
+                        "Give free apples to all children",
+                        "Build a giant swimming pool",
+                        "Fly to the moon"
                     ],
                     correctIdx: 0,
-                    explanation: "Eldrin raised his silver staff and created a magnificent protective dome of golden light."
+                    explanation: "The Council planned to lock the gates and seal off the Lower Foundry."
                 },
                 {
-                    question: "What did young Eldrin promise at the end of his adventure?",
+                    question: "What did Master Corvinus give to Eldrin to help him descend?",
                     options: [
-                        "One day, he will become the Grand Archmage!",
-                        "He will stop studying magic and spells",
-                        "He will buy a small farm with cows",
-                        "He will sleep for ten days"
+                        "A copper lantern and a map of the ventilation shafts",
+                        "A golden cup with soup",
+                        "A heavy winter blanket",
+                        "A red silk umbrella"
                     ],
                     correctIdx: 0,
-                    explanation: "Eldrin smiled and promised: 'One day, I will become the Grand Archmage!'"
+                    explanation: "Master Corvinus gave him a copper lantern and a secret ventilation map."
                 }
             ]
         }

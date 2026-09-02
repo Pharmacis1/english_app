@@ -7412,6 +7412,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 let speakerBadge = `<span class="badge" style="background:rgba(148,163,184,0.15); color:#cbd5e1; font-size:11px;"><i class="fa-solid fa-scroll"></i> Рассказчик</span>`;
                 if (sent.speaker === 'eldrin') {
                     speakerBadge = `<span class="badge" style="background:rgba(168,85,247,0.25); color:#c084fc; font-size:11px; border:1px solid rgba(168,85,247,0.5);"><i class="fa-solid fa-hat-wizard"></i> Юный Элдрин</span>`;
+                } else if (sent.speaker === 'kira') {
+                    speakerBadge = `<span class="badge" style="background:rgba(236,72,153,0.25); color:#f472b6; font-size:11px; border:1px solid rgba(236,72,153,0.5);"><i class="fa-solid fa-person-running"></i> Кира</span>`;
+                } else if (sent.speaker === 'corvinus') {
+                    speakerBadge = `<span class="badge" style="background:rgba(59,130,246,0.25); color:#60a5fa; font-size:11px; border:1px solid rgba(59,130,246,0.5);"><i class="fa-solid fa-book-open-reader"></i> Корвинус</span>`;
+                } else if (sent.speaker === 'vane') {
+                    speakerBadge = `<span class="badge" style="background:rgba(245,158,11,0.25); color:#fbbf24; font-size:11px; border:1px solid rgba(245,158,11,0.5);"><i class="fa-solid fa-shield-halved"></i> Командор Вейн</span>`;
+                } else if (sent.speaker === 'malakor') {
+                    speakerBadge = `<span class="badge" style="background:rgba(239,68,68,0.25); color:#f87171; font-size:11px; border:1px solid rgba(239,68,68,0.5);"><i class="fa-solid fa-crown"></i> Прелат Малакор</span>`;
                 } else if (sent.speaker === 'thorin') {
                     speakerBadge = `<span class="badge" style="background:rgba(245,158,11,0.25); color:#fbbf24; font-size:11px; border:1px solid rgba(245,158,11,0.5);"><i class="fa-solid fa-hammer"></i> Торин</span>`;
                 } else if (sent.speaker === 'oberon') {
