@@ -272,19 +272,14 @@ app.post('/api/ai/chat', async (req, res) => {
             if (!apiKey) throw new Error("Gemini API Key missing. Please provide API Key in Local AI Settings.");
 
             let primaryModel = model || 'gemini-3.5-flash-lite';
-            if (!primaryModel || primaryModel.includes(':') || primaryModel.includes('qwen') || primaryModel.includes('llama') || primaryModel.includes('mistral') || !primaryModel.startsWith('gemini') || primaryModel.includes('1.5')) {
+            if (!primaryModel || primaryModel.includes('2.5') || primaryModel.includes('2.0') || primaryModel.includes('1.5') || primaryModel.includes(':') || primaryModel.includes('qwen') || primaryModel.includes('llama') || primaryModel.includes('mistral') || !primaryModel.startsWith('gemini')) {
                 primaryModel = 'gemini-3.5-flash-lite';
             }
             const modelCascade = Array.from(new Set([
                 primaryModel, 
                 'gemini-3.5-flash-lite', 
-                'gemini-3.7-flash', 
                 'gemini-3.5-flash', 
-                'gemini-2.5-flash-lite', 
-                'gemini-2.5-flash', 
-                'gemini-2.0-flash-lite',
-                'gemini-2.0-flash',
-                'gemini-2.5-pro'
+                'gemini-3.7-flash'
             ]));
 
             async function callGeminiApi(targetModel) {
@@ -491,7 +486,7 @@ app.post('/api/ai/gemini-tts', async (req, res) => {
         if (!apiKey) return res.status(401).json({ success: false, error: "Gemini API Key missing. Please provide API Key in Settings." });
 
         const voiceName = clientVoice || 'Fenrir'; // Kore, Puck, Charon, Fenrir, Aoede
-        const models = ['gemini-2.5-flash-preview-tts', 'gemini-3.1-flash-tts-preview', 'gemini-2.5-pro-preview-tts'];
+        const models = ['gemini-3.1-flash-tts-preview', 'gemini-2.5-flash-preview-tts', 'gemini-2.5-pro-preview-tts'];
 
         for (const model of models) {
             const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;

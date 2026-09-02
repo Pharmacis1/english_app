@@ -7,7 +7,7 @@ class AIService {
         this.endpoint = localStorage.getItem("api_endpoint") || "http://localhost:11434";
         this.modelName = localStorage.getItem("model_name") || "gemini-3.5-flash-lite";
         if (this.provider === 'gemini') {
-            if (!this.modelName || this.modelName.includes(':') || this.modelName.includes('qwen') || this.modelName.includes('llama') || this.modelName.includes('mistral') || this.modelName.includes('1.5')) {
+            if (!this.modelName || this.modelName.includes('2.5') || this.modelName.includes('2.0') || this.modelName.includes('1.5') || this.modelName.includes(':') || this.modelName.includes('qwen') || this.modelName.includes('llama') || this.modelName.includes('mistral') || !this.modelName.startsWith('gemini')) {
                 this.modelName = 'gemini-3.5-flash-lite';
                 localStorage.setItem("model_name", "gemini-3.5-flash-lite");
             }
