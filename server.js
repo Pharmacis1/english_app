@@ -537,6 +537,16 @@ app.post('/api/ai/gemini-tts', async (req, res) => {
     } catch (err) {
         return res.status(500).json({ success: false, fallback: true, error: `Gemini TTS server error: ${err.message}` });
     }
+// Shutdown Endpoint
+app.post('/api/admin/shutdown', (req, res) => {
+    res.json({ success: true, message: "Server shutting down..." });
+    setTimeout(() => {
+        try {
+            const { exec } = require('child_process');
+            exec('powershell -Command "Get-Process -Name node, zrok -ErrorAction SilentlyContinue | Stop-Process -Force"');
+        } catch(e) {}
+        process.exit(0);
+    }, 500);
 });
 
 // Start Express Server
