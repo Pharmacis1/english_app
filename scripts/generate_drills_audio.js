@@ -93,8 +93,8 @@ async function generateAudio(text, voiceName, maxRetries = 3) {
 
             if (resp.status === 429) {
                 const errText = await resp.text();
-                if (errText.includes("RESOURCE_EXHAUSTED") || errText.includes("current quota")) {
-                    throw new Error("QUOTA_EXHAUSTED: Daily quota exceeded for this API key.");
+                if (errText.includes("per day") || errText.includes("per_day")) {
+                    throw new Error("DAILY_QUOTA_EXHAUSTED: Daily limit reached.");
                 }
                 console.warn(`⏳ [Rate Limit 429] Waiting 20 seconds before retry ${attempt}/${maxRetries}...`);
                 await sleep(20000);
@@ -170,10 +170,10 @@ async function run() {
                 fs.writeFileSync(origFile, wavBuf);
                 totalGenerated++;
                 process.stdout.write(`✅ saved (${(wavBuf.length / 1024).toFixed(1)} KB)\n`);
-                await sleep(3500);
+                await sleep(4200);
             } catch (err) {
                 process.stdout.write(`❌ ERROR: ${err.message}\n`);
-                if (err.message.includes("QUOTA_EXHAUSTED")) {
+                if (err.message.includes("DAILY_QUOTA_EXHAUSTED")) {
                     console.error("\n🛑 Daily quota reached! Resume anytime by running the script again.");
                     break;
                 }
@@ -191,10 +191,10 @@ async function run() {
                 fs.writeFileSync(targetFile, wavBuf);
                 totalGenerated++;
                 process.stdout.write(`✅ saved (${(wavBuf.length / 1024).toFixed(1)} KB)\n`);
-                await sleep(3500);
+                await sleep(4200);
             } catch (err) {
                 process.stdout.write(`❌ ERROR: ${err.message}\n`);
-                if (err.message.includes("QUOTA_EXHAUSTED")) {
+                if (err.message.includes("DAILY_QUOTA_EXHAUSTED")) {
                     console.error("\n🛑 Daily quota reached! Resume anytime by running the script again.");
                     break;
                 }
