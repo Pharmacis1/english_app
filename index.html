@@ -968,16 +968,9 @@
 
                 <!-- Narrator Voice & Blind Mode Controls -->
                 <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
-                    <div style="display: flex; align-items: center; gap: 6px;">
-                        <span style="font-size: 11px; color: #94a3b8;"><i class="fa-solid fa-microphone"></i> Диктор:</span>
-                        <select id="audiobook-narrator-select" class="form-input" style="padding: 3px 8px; font-size: 11px; width: auto; height: 30px; background: rgba(15,23,42,0.9); border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; color: #fff;">
-                            <option value="Charon" selected>Charon (Мудрец / Глубокий)</option>
-                            <option value="Fenrir">Fenrir (Рыцарь / Баритон)</option>
-                            <option value="Kore">Kore (Жрица / Тёплый)</option>
-                            <option value="Aoede">Aoede (Мелодичный / Мягкий)</option>
-                            <option value="Puck">Puck (Энергичный / Молодой)</option>
-                        </select>
-                    </div>
+                    <span class="badge" id="audiobook-engine-status-badge" style="background: rgba(16,185,129,0.15); color: #34d399; border: 1px solid rgba(16,185,129,0.3); font-size: 11px; padding: 4px 10px; display: flex; align-items: center; gap: 5px;">
+                        <i class="fa-solid fa-bolt" style="color: #34d399;"></i> <span>Без пауз (Локальный звук)</span>
+                    </span>
 
                     <label style="display: flex; align-items: center; gap: 6px; font-size: 12px; color: #cbd5e1; cursor: pointer; user-select: none;">
                         <input type="checkbox" id="audiobook-blind-mode-toggle" checked style="accent-color: #a855f7; cursor: pointer;">

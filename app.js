@@ -7507,8 +7507,13 @@ document.addEventListener("DOMContentLoaded", () => {
             updateBadges();
         }
 
+        let activeAudioElement = null;
+
         function getVoiceForSentence(sent) {
             if (sent.speaker === 'eldrin') return sent.voice || 'Puck';
+            if (sent.speaker === 'kira') return 'Aoede';
+            if (sent.speaker === 'corvinus') return 'Charon';
+            if (sent.speaker === 'malakor' || sent.speaker === 'vane') return 'Fenrir';
             if (sent.speaker === 'thorin') return 'Fenrir';
             if (sent.speaker === 'oberon') return 'Charon';
             if (sent.speaker === 'selene') return 'Aoede';
@@ -7530,31 +7535,71 @@ document.addEventListener("DOMContentLoaded", () => {
             const card = readerContainer.querySelector(`.audiobook-sentence-card[data-sentence-idx="${idx}"]`);
             const playBtn = card ? card.querySelector(".btn-play-sentence") : null;
 
-            voiceService.speak(
-                sent.en,
-                () => {
-                    if (playBtn) playBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i>`;
-                },
-                () => {
-                    if (playBtn) playBtn.innerHTML = `<i class="fa-solid fa-volume-high"></i>`;
-                    if (continueNext && isPlaying) {
-                        if (idx < curChapter.sentences.length - 1) {
-                            setTimeout(() => {
-                                if (isPlaying) playSentence(idx + 1, true);
-                            }, 500);
-                        } else {
-                            // Chapter finished!
-                            stopAudio();
-                            showToast(`🎉 <b>Глава ${curChapter.number} прослушана!</b> Пройдите квиз, чтобы зачислить слова и опыт! 🌟`, "linear-gradient(135deg, #f59e0b, #d97706)", "#fbbf24");
-                            if (openQuizBtn) {
-                                openQuizBtn.style.animation = "pulse 1.5s infinite";
-                            }
+            // Stop any ongoing speech
+            if (activeAudioElement) {
+                try { activeAudioElement.pause(); activeAudioElement = null; } catch(e) {}
+            }
+            voiceService.stopSpeech();
+
+            const onSentenceFinished = () => {
+                if (playBtn) playBtn.innerHTML = `<i class="fa-solid fa-volume-high"></i>`;
+                if (continueNext && isPlaying) {
+                    if (idx < curChapter.sentences.length - 1) {
+                        playSentence(idx + 1, true);
+                    } else {
+                        // Chapter finished!
+                        stopAudio();
+                        showToast(`🎉 <b>Глава ${curChapter.number} прослушана!</b> Пройдите квиз, чтобы зачислить слова и опыт! 🌟`, "linear-gradient(135deg, #f59e0b, #d97706)", "#fbbf24");
+                        if (openQuizBtn) {
+                            openQuizBtn.style.animation = "pulse 1.5s infinite";
                         }
                     }
-                },
-                { geminiVoice: voiceName, heroName: sent.speaker, kokoroVoice: 'am_adam' },
-                playbackSpeed
-            );
+                }
+            };
+
+            // Pre-fetch next sentence audio into browser memory buffer for 0.0s transition
+            if (idx < curChapter.sentences.length - 1) {
+                const nextUrl = `/audio/audiobook/ch_${curChapter.number}/sent_${idx + 2}.wav`;
+                const prefetch = new Audio();
+                prefetch.preload = 'auto';
+                prefetch.src = nextUrl;
+            }
+
+            const localAudioUrl = `/audio/audiobook/ch_${curChapter.number}/sent_${idx + 1}.wav`;
+            const audio = new Audio(localAudioUrl);
+            audio.defaultPlaybackRate = playbackSpeed;
+            audio.playbackRate = playbackSpeed;
+            audio.preservesPitch = true;
+
+            audio.onplay = () => {
+                if (playBtn) playBtn.innerHTML = `<i class="fa-solid fa-volume-high" style="color:#c084fc;"></i>`;
+            };
+
+            audio.onended = () => {
+                activeAudioElement = null;
+                onSentenceFinished();
+            };
+
+            audio.onerror = () => {
+                // Fallback to on-the-fly Gemini Live Audio if pre-rendered file is not on disk yet
+                voiceService.speak(
+                    sent.en,
+                    () => {
+                        if (playBtn) playBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i>`;
+                    },
+                    () => {
+                        onSentenceFinished();
+                    },
+                    { geminiVoice: voiceName, heroName: sent.speaker, kokoroVoice: 'am_adam' },
+                    playbackSpeed
+                );
+            };
+
+            activeAudioElement = audio;
+            audio.play().catch(() => {
+                // Autoplay blocked or load failed -> fallback to voiceService
+                audio.onerror();
+            });
         }
 
         function startPlayChapter() {
@@ -7569,6 +7614,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         function stopAudio() {
             isPlaying = false;
+            if (activeAudioElement) {
+                try { activeAudioElement.pause(); activeAudioElement = null; } catch(e) {}
+            }
             voiceService.stopSpeech();
             if (mainPlayBtn) {
                 mainPlayBtn.innerHTML = `<i class="fa-solid fa-play"></i> <span id="audiobook-play-btn-text">Слушать главу</span>`;
@@ -7731,6 +7779,12 @@ document.addEventListener("DOMContentLoaded", () => {
             btn.addEventListener("click", () => {
                 playbackSpeed = parseFloat(btn.getAttribute("data-speed")) || 1.0;
                 updateSpeedUI(playbackSpeed);
+                if (activeAudioElement) {
+                    try {
+                        activeAudioElement.playbackRate = playbackSpeed;
+                        activeAudioElement.defaultPlaybackRate = playbackSpeed;
+                    } catch(e) {}
+                }
                 if (typeof voiceService !== 'undefined' && voiceService) {
                     voiceService.setSpeechSpeed(playbackSpeed);
                 }
