@@ -1,0 +1,542 @@
+[
+  {
+    "idx": 1,
+    "original": "She works in an office",
+    "target": "She doesn't work in an office"
+  },
+  {
+    "idx": 2,
+    "original": "He drinks black coffee",
+    "target": "He doesn't drink black coffee"
+  },
+  {
+    "idx": 3,
+    "original": "I live in the city center",
+    "target": "I don't live in the city center"
+  },
+  {
+    "idx": 4,
+    "original": "They eat meat and fish",
+    "target": "They don't eat meat and fish"
+  },
+  {
+    "idx": 5,
+    "original": "We have a car",
+    "target": "We don't have a car"
+  },
+  {
+    "idx": 6,
+    "original": "He speaks Spanish at home",
+    "target": "He doesn't speak Spanish at home"
+  },
+  {
+    "idx": 7,
+    "original": "You need a bus ticket",
+    "target": "You don't need a bus ticket"
+  },
+  {
+    "idx": 8,
+    "original": "She likes fast food",
+    "target": "She doesn't like fast food"
+  },
+  {
+    "idx": 9,
+    "original": "The supermarket opens on Sunday",
+    "target": "The supermarket doesn't open on Sunday"
+  },
+  {
+    "idx": 10,
+    "original": "I remember his phone number",
+    "target": "I don't remember his phone number"
+  },
+  {
+    "idx": 11,
+    "original": "She plays the acoustic guitar",
+    "target": "Does she play the acoustic guitar?"
+  },
+  {
+    "idx": 12,
+    "original": "They speak English fluently",
+    "target": "Do they speak English fluently?"
+  },
+  {
+    "idx": 13,
+    "original": "He lives near the subway station",
+    "target": "Does he live near the subway station?"
+  },
+  {
+    "idx": 14,
+    "original": "You drink green tea every morning",
+    "target": "Do you drink green tea every morning?"
+  },
+  {
+    "idx": 15,
+    "original": "The train arrives on time",
+    "target": "Does the train arrive on time?"
+  },
+  {
+    "idx": 16,
+    "original": "We have enough time for lunch",
+    "target": "Do we have enough time for lunch?"
+  },
+  {
+    "idx": 17,
+    "original": "She knows the way to the airport",
+    "target": "Does she know the way to the airport?"
+  },
+  {
+    "idx": 18,
+    "original": "They accept credit cards here",
+    "target": "Do they accept credit cards here?"
+  },
+  {
+    "idx": 19,
+    "original": "She is a doctor at the hospital",
+    "target": "Is she a doctor at the hospital?"
+  },
+  {
+    "idx": 20,
+    "original": "They are at home right now",
+    "target": "Are they at home right now?"
+  },
+  {
+    "idx": 21,
+    "original": "He is at the business meeting",
+    "target": "He isn't at the business meeting"
+  },
+  {
+    "idx": 22,
+    "original": "We are ready to order dinner",
+    "target": "We aren't ready to order dinner"
+  },
+  {
+    "idx": 23,
+    "original": "I am very tired today",
+    "target": "I was very tired yesterday"
+  },
+  {
+    "idx": 24,
+    "original": "She is at the shopping mall",
+    "target": "She was at the shopping mall"
+  },
+  {
+    "idx": 25,
+    "original": "They are in London this week",
+    "target": "They were in London this week"
+  },
+  {
+    "idx": 26,
+    "original": "The hotel room was expensive",
+    "target": "Was the hotel room expensive?"
+  },
+  {
+    "idx": 27,
+    "original": "The shops were open yesterday",
+    "target": "The shops weren't open yesterday"
+  },
+  {
+    "idx": 28,
+    "original": "There is a good Italian cafe nearby",
+    "target": "Is there a good Italian cafe nearby?"
+  },
+  {
+    "idx": 29,
+    "original": "There are three supermarkets on this street",
+    "target": "Are there three supermarkets on this street?"
+  },
+  {
+    "idx": 30,
+    "original": "There is free Wi-Fi in the hotel room",
+    "target": "There isn't free Wi-Fi in the hotel room"
+  },
+  {
+    "idx": 31,
+    "original": "There are available seats on the bus",
+    "target": "There aren't available seats on the bus"
+  },
+  {
+    "idx": 32,
+    "original": "There is an important meeting today",
+    "target": "There was an important meeting today"
+  },
+  {
+    "idx": 33,
+    "original": "There are many tourists at the museum",
+    "target": "There were many tourists at the museum"
+  },
+  {
+    "idx": 34,
+    "original": "He drinks hot coffee",
+    "target": "He is drinking hot coffee"
+  },
+  {
+    "idx": 35,
+    "original": "She prepares breakfast in the kitchen",
+    "target": "She is preparing breakfast in the kitchen"
+  },
+  {
+    "idx": 36,
+    "original": "They wait for the yellow taxi",
+    "target": "They are waiting for the yellow taxi"
+  },
+  {
+    "idx": 37,
+    "original": "I write an urgent email to the boss",
+    "target": "I am writing an urgent email to the boss"
+  },
+  {
+    "idx": 38,
+    "original": "The manager talks on the phone",
+    "target": "The manager is talking on the phone"
+  },
+  {
+    "idx": 39,
+    "original": "We look for the central train station",
+    "target": "We are looking for the central train station"
+  },
+  {
+    "idx": 40,
+    "original": "I see my best friend",
+    "target": "I saw my best friend"
+  },
+  {
+    "idx": 41,
+    "original": "He buys fresh groceries at the market",
+    "target": "He bought fresh groceries at the market"
+  },
+  {
+    "idx": 42,
+    "original": "We go to the new Italian restaurant",
+    "target": "We went to the new Italian restaurant"
+  },
+  {
+    "idx": 43,
+    "original": "She finds her lost house keys",
+    "target": "She found her lost house keys"
+  },
+  {
+    "idx": 44,
+    "original": "They take the morning flight to Paris",
+    "target": "They took the morning flight to Paris"
+  },
+  {
+    "idx": 45,
+    "original": "The doctor writes a prescription",
+    "target": "The doctor wrote a prescription"
+  },
+  {
+    "idx": 46,
+    "original": "I hear the morning alarm",
+    "target": "I heard the morning alarm"
+  },
+  {
+    "idx": 47,
+    "original": "He breaks his favorite coffee cup",
+    "target": "He broke his favorite coffee cup"
+  },
+  {
+    "idx": 48,
+    "original": "She gives me her business card",
+    "target": "She gave me her business card"
+  },
+  {
+    "idx": 49,
+    "original": "He pays the restaurant bill with cash",
+    "target": "He paid the restaurant bill with cash"
+  },
+  {
+    "idx": 50,
+    "original": "She comes home very late",
+    "target": "She came home very late"
+  },
+  {
+    "idx": 51,
+    "original": "We arrive at the airport on time",
+    "target": "We arrived at the airport on time"
+  },
+  {
+    "idx": 52,
+    "original": "She called the taxi yesterday",
+    "target": "She didn't call the taxi yesterday"
+  },
+  {
+    "idx": 53,
+    "original": "They booked the hotel room online",
+    "target": "They didn't book the hotel room online"
+  },
+  {
+    "idx": 54,
+    "original": "He lost his international passport",
+    "target": "He didn't lose his international passport"
+  },
+  {
+    "idx": 55,
+    "original": "We received the delivery package",
+    "target": "We didn't receive the delivery package"
+  },
+  {
+    "idx": 56,
+    "original": "You heard the flight announcement",
+    "target": "Did you hear the flight announcement?"
+  },
+  {
+    "idx": 57,
+    "original": "The doctor answered your phone call",
+    "target": "Did the doctor answer your phone call?"
+  },
+  {
+    "idx": 58,
+    "original": "They finished the work project on Friday",
+    "target": "Did they finish the work project on Friday?"
+  },
+  {
+    "idx": 59,
+    "original": "She spoke with the landlord about rent",
+    "target": "Did she speak with the landlord about rent?"
+  },
+  {
+    "idx": 60,
+    "original": "She speaks English and German",
+    "target": "She can speak English and German"
+  },
+  {
+    "idx": 61,
+    "original": "They pay with Apple Pay or credit card",
+    "target": "They can pay with Apple Pay or credit card"
+  },
+  {
+    "idx": 62,
+    "original": "He smokes inside the airport terminal",
+    "target": "He cannot smoke inside the airport terminal"
+  },
+  {
+    "idx": 63,
+    "original": "We park our car in this private zone",
+    "target": "We cannot park our car in this private zone"
+  },
+  {
+    "idx": 64,
+    "original": "You wear a seatbelt in the car",
+    "target": "You must wear a seatbelt in the car"
+  },
+  {
+    "idx": 65,
+    "original": "You drink more clean water every day",
+    "target": "You should drink more clean water every day"
+  },
+  {
+    "idx": 66,
+    "original": "I help you with the heavy luggage",
+    "target": "I will help you with the heavy luggage"
+  },
+  {
+    "idx": 67,
+    "original": "She calls you back this afternoon",
+    "target": "She will call you back this afternoon"
+  },
+  {
+    "idx": 68,
+    "original": "I order a large pepperoni pizza",
+    "target": "I will order a large pepperoni pizza"
+  },
+  {
+    "idx": 69,
+    "original": "They send the work contract by email",
+    "target": "They will send the work contract by email"
+  },
+  {
+    "idx": 70,
+    "original": "I buy a new laptop this weekend",
+    "target": "I am going to buy a new laptop this weekend"
+  },
+  {
+    "idx": 71,
+    "original": "She travels to Spain next month",
+    "target": "She is going to travel to Spain next month"
+  },
+  {
+    "idx": 72,
+    "original": "They rent a cozy apartment downtown",
+    "target": "They are going to rent a cozy apartment downtown"
+  },
+  {
+    "idx": 73,
+    "original": "I am ready for the interview",
+    "target": "They are ready for the interview"
+  },
+  {
+    "idx": 74,
+    "original": "She is an experienced manager",
+    "target": "We are experienced managers"
+  },
+  {
+    "idx": 75,
+    "original": "He has a valid driver's license",
+    "target": "You have a valid driver's license"
+  },
+  {
+    "idx": 76,
+    "original": "They have two small children",
+    "target": "He has two small children"
+  },
+  {
+    "idx": 77,
+    "original": "I teach the new employee",
+    "target": "She teaches the new employee"
+  },
+  {
+    "idx": 78,
+    "original": "He goes to the office by bike",
+    "target": "We go to the office by bike"
+  },
+  {
+    "idx": 79,
+    "original": "This is my black suitcase",
+    "target": "This is her black suitcase"
+  },
+  {
+    "idx": 80,
+    "original": "The director invited him to lunch",
+    "target": "The director invited them to lunch"
+  },
+  {
+    "idx": 81,
+    "original": "One woman waits in line at the bank",
+    "target": "Two women wait in line at the bank"
+  },
+  {
+    "idx": 82,
+    "original": "A polite customer enters the store",
+    "target": "Polite customers enter the store"
+  },
+  {
+    "idx": 83,
+    "original": "One sharp knife is on the kitchen counter",
+    "target": "Two sharp knives are on the kitchen counter"
+  },
+  {
+    "idx": 84,
+    "original": "A friendly person gives us directions",
+    "target": "Friendly people give us directions"
+  },
+  {
+    "idx": 85,
+    "original": "One businessman attends the conference",
+    "target": "Two businessmen attend the conference"
+  },
+  {
+    "idx": 86,
+    "original": "A happy child plays in the playground",
+    "target": "Happy children play in the playground"
+  },
+  {
+    "idx": 87,
+    "original": "This old laptop is slow",
+    "target": "This new laptop is faster"
+  },
+  {
+    "idx": 88,
+    "original": "The city center is noisy",
+    "target": "The city center is noisier"
+  },
+  {
+    "idx": 89,
+    "original": "This downtown restaurant is expensive",
+    "target": "This downtown restaurant is more expensive"
+  },
+  {
+    "idx": 90,
+    "original": "This hotel room service is good",
+    "target": "This hotel room service is better"
+  },
+  {
+    "idx": 91,
+    "original": "The evening traffic today is bad",
+    "target": "The evening traffic today is worse"
+  },
+  {
+    "idx": 92,
+    "original": "Do you work remotely from home?",
+    "target": "Yes, I do"
+  },
+  {
+    "idx": 93,
+    "original": "Does he drink coffee in the evening?",
+    "target": "No, he doesn't"
+  },
+  {
+    "idx": 94,
+    "original": "Do they accept cash payments here?",
+    "target": "Yes, they do"
+  },
+  {
+    "idx": 95,
+    "original": "Did you send the confirmation email?",
+    "target": "Yes, I did"
+  },
+  {
+    "idx": 96,
+    "original": "Did they cancel our flight?",
+    "target": "No, they didn't"
+  },
+  {
+    "idx": 97,
+    "original": "Are you free this Saturday evening?",
+    "target": "Yes, I am"
+  },
+  {
+    "idx": 98,
+    "original": "Was the restaurant food delicious?",
+    "target": "Yes, it was"
+  },
+  {
+    "idx": 99,
+    "original": "Can you hear me clearly on the call?",
+    "target": "Yes, I can"
+  },
+  {
+    "idx": 100,
+    "original": "You live near the subway station",
+    "target": "You live near the subway station, don't you?"
+  },
+  {
+    "idx": 101,
+    "original": "She is a graphic designer",
+    "target": "She is a graphic designer, isn't she?"
+  },
+  {
+    "idx": 102,
+    "original": "They didn't receive our message",
+    "target": "They didn't receive our message, did they?"
+  },
+  {
+    "idx": 103,
+    "original": "He drinks green tea every day",
+    "target": "He drinks green tea every day, doesn't he?"
+  },
+  {
+    "idx": 104,
+    "original": "It is warm and sunny outside",
+    "target": "It is warm and sunny outside, isn't it?"
+  },
+  {
+    "idx": 105,
+    "original": "We paid the restaurant bill already",
+    "target": "We paid the restaurant bill already, didn't we?"
+  },
+  {
+    "idx": 106,
+    "original": "You don't eat spicy food",
+    "target": "You don't eat spicy food, do you?"
+  },
+  {
+    "idx": 107,
+    "original": "She was at the office yesterday",
+    "target": "She was at the office yesterday, wasn't she?"
+  },
+  {
+    "idx": 108,
+    "original": "They will call us back soon",
+    "target": "They will call us back soon, won't they?"
+  }
+]

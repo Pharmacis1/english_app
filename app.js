@@ -6530,6 +6530,27 @@ document.addEventListener("DOMContentLoaded", () => {
         let speechRecognitionInstance = null;
         let autoAdvanceTimer = null;
 
+        function playDrillAudio(phrase, type, onStart, onEnd) {
+            if (!phrase) return;
+            const cleanKey = phrase.toLowerCase().replace(/[^a-z0-9]/g, '_').substring(0, 50);
+            const drillUrl = `/audio/drills/${type}_${cleanKey}.wav`;
+            fetch(drillUrl, { method: 'HEAD' }).then(res => {
+                if (res.ok && res.status === 200) {
+                    if (onStart) onStart();
+                    const audio = new Audio(drillUrl);
+                    audio.onended = () => { if (onEnd) onEnd(); };
+                    audio.onerror = () => {
+                        playTextKokoroAudio(phrase, activeShowcaseHeroId || 'valerius', onStart, onEnd);
+                    };
+                    audio.play().catch(() => audio.onerror());
+                } else {
+                    playTextKokoroAudio(phrase, activeShowcaseHeroId || 'valerius', onStart, onEnd);
+                }
+            }).catch(() => {
+                playTextKokoroAudio(phrase, activeShowcaseHeroId || 'valerius', onStart, onEnd);
+            });
+        }
+
         function attachTargetAudioListener() {
             const tBtn = document.getElementById("drills-listen-target-btn");
             if (tBtn && currentCard) {
@@ -6541,9 +6562,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                     const icon = tBtn.querySelector("i");
                     if (icon) icon.className = "fa-solid fa-spinner fa-spin";
-                    playTextKokoroAudio(
+                    playDrillAudio(
                         currentCard.target,
-                        activeShowcaseHeroId || 'valerius',
+                        'target',
                         () => { if (icon) icon.className = "fa-solid fa-volume-high fa-beat"; },
                         () => { if (icon) icon.className = "fa-solid fa-volume-high"; }
                     );
@@ -6687,9 +6708,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     lBtn.addEventListener("click", () => {
                         const icon = lBtn.querySelector("i");
                         if (icon) icon.className = "fa-solid fa-spinner fa-spin";
-                        playTextKokoroAudio(
+                        playDrillAudio(
                             currentCard.original,
-                            activeShowcaseHeroId || 'valerius',
+                            'orig',
                             () => { if (icon) icon.className = "fa-solid fa-volume-high fa-beat"; },
                             () => { if (icon) icon.className = "fa-solid fa-volume-high"; }
                         );
