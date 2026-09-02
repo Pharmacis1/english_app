@@ -1,0 +1,6596 @@
+[
+  {
+    "word": "Hello",
+    "key": "hello",
+    "hero": "valerius",
+    "ru": "Привет"
+  },
+  {
+    "word": "Goodbye",
+    "key": "goodbye",
+    "hero": "valerius",
+    "ru": "До свидания"
+  },
+  {
+    "word": "Friend",
+    "key": "friend",
+    "hero": "valerius",
+    "ru": "Друг"
+  },
+  {
+    "word": "Name",
+    "key": "name",
+    "hero": "valerius",
+    "ru": "Имя"
+  },
+  {
+    "word": "I",
+    "key": "i",
+    "hero": "valerius",
+    "ru": "Я"
+  },
+  {
+    "word": "You",
+    "key": "you",
+    "hero": "valerius",
+    "ru": "Ты / Вы"
+  },
+  {
+    "word": "He",
+    "key": "he",
+    "hero": "valerius",
+    "ru": "Он"
+  },
+  {
+    "word": "She",
+    "key": "she",
+    "hero": "valerius",
+    "ru": "Она"
+  },
+  {
+    "word": "It",
+    "key": "it",
+    "hero": "valerius",
+    "ru": "Оно / Это"
+  },
+  {
+    "word": "We",
+    "key": "we",
+    "hero": "valerius",
+    "ru": "Мы"
+  },
+  {
+    "word": "They",
+    "key": "they",
+    "hero": "valerius",
+    "ru": "Они"
+  },
+  {
+    "word": "My",
+    "key": "my",
+    "hero": "valerius",
+    "ru": "Мой"
+  },
+  {
+    "word": "Your",
+    "key": "your",
+    "hero": "valerius",
+    "ru": "Твой"
+  },
+  {
+    "word": "His",
+    "key": "his",
+    "hero": "valerius",
+    "ru": "Его"
+  },
+  {
+    "word": "Her",
+    "key": "her",
+    "hero": "valerius",
+    "ru": "Её"
+  },
+  {
+    "word": "Our",
+    "key": "our",
+    "hero": "valerius",
+    "ru": "Наш"
+  },
+  {
+    "word": "Their",
+    "key": "their",
+    "hero": "valerius",
+    "ru": "Их"
+  },
+  {
+    "word": "Family",
+    "key": "family",
+    "hero": "valerius",
+    "ru": "Семья"
+  },
+  {
+    "word": "Father",
+    "key": "father",
+    "hero": "valerius",
+    "ru": "Отец"
+  },
+  {
+    "word": "Mother",
+    "key": "mother",
+    "hero": "valerius",
+    "ru": "Мать"
+  },
+  {
+    "word": "Brother",
+    "key": "brother",
+    "hero": "valerius",
+    "ru": "Брат"
+  },
+  {
+    "word": "Sister",
+    "key": "sister",
+    "hero": "valerius",
+    "ru": "Сестра"
+  },
+  {
+    "word": "Son",
+    "key": "son",
+    "hero": "valerius",
+    "ru": "Сын"
+  },
+  {
+    "word": "Daughter",
+    "key": "daughter",
+    "hero": "valerius",
+    "ru": "Дочь"
+  },
+  {
+    "word": "Husband",
+    "key": "husband",
+    "hero": "valerius",
+    "ru": "Муж"
+  },
+  {
+    "word": "Wife",
+    "key": "wife",
+    "hero": "valerius",
+    "ru": "Жена"
+  },
+  {
+    "word": "Parent",
+    "key": "parent",
+    "hero": "valerius",
+    "ru": "Родитель"
+  },
+  {
+    "word": "Baby",
+    "key": "baby",
+    "hero": "valerius",
+    "ru": "Ребёнок (малыш)"
+  },
+  {
+    "word": "Child",
+    "key": "child",
+    "hero": "valerius",
+    "ru": "Ребёнок"
+  },
+  {
+    "word": "Children",
+    "key": "children",
+    "hero": "valerius",
+    "ru": "Дети"
+  },
+  {
+    "word": "Man",
+    "key": "man",
+    "hero": "valerius",
+    "ru": "Мужчина"
+  },
+  {
+    "word": "Woman",
+    "key": "woman",
+    "hero": "valerius",
+    "ru": "Женщина"
+  },
+  {
+    "word": "Boy",
+    "key": "boy",
+    "hero": "valerius",
+    "ru": "Мальчик"
+  },
+  {
+    "word": "Girl",
+    "key": "girl",
+    "hero": "valerius",
+    "ru": "Девочка"
+  },
+  {
+    "word": "Person",
+    "key": "person",
+    "hero": "valerius",
+    "ru": "Человек"
+  },
+  {
+    "word": "People",
+    "key": "people",
+    "hero": "valerius",
+    "ru": "Люди"
+  },
+  {
+    "word": "Adult",
+    "key": "adult",
+    "hero": "valerius",
+    "ru": "Взрослый"
+  },
+  {
+    "word": "Student",
+    "key": "student",
+    "hero": "valerius",
+    "ru": "Студент / Ученик"
+  },
+  {
+    "word": "Teacher",
+    "key": "teacher",
+    "hero": "valerius",
+    "ru": "Учитель"
+  },
+  {
+    "word": "Doctor",
+    "key": "doctor",
+    "hero": "valerius",
+    "ru": "Врач"
+  },
+  {
+    "word": "Driver",
+    "key": "driver",
+    "hero": "valerius",
+    "ru": "Водитель"
+  },
+  {
+    "word": "Worker",
+    "key": "worker",
+    "hero": "valerius",
+    "ru": "Рабочий"
+  },
+  {
+    "word": "Actor",
+    "key": "actor",
+    "hero": "valerius",
+    "ru": "Актёр"
+  },
+  {
+    "word": "Actress",
+    "key": "actress",
+    "hero": "valerius",
+    "ru": "Актриса"
+  },
+  {
+    "word": "King",
+    "key": "king",
+    "hero": "valerius",
+    "ru": "Король"
+  },
+  {
+    "word": "Queen",
+    "key": "queen",
+    "hero": "valerius",
+    "ru": "Королева"
+  },
+  {
+    "word": "Knight",
+    "key": "knight",
+    "hero": "valerius",
+    "ru": "Рыцарь"
+  },
+  {
+    "word": "Hero",
+    "key": "hero",
+    "hero": "valerius",
+    "ru": "Герой"
+  },
+  {
+    "word": "Warrior",
+    "key": "warrior",
+    "hero": "valerius",
+    "ru": "Воин"
+  },
+  {
+    "word": "Good",
+    "key": "good",
+    "hero": "valerius",
+    "ru": "Хороший"
+  },
+  {
+    "word": "Fine",
+    "key": "fine",
+    "hero": "valerius",
+    "ru": "В порядке"
+  },
+  {
+    "word": "Yes",
+    "key": "yes",
+    "hero": "valerius",
+    "ru": "Да"
+  },
+  {
+    "word": "No",
+    "key": "no",
+    "hero": "valerius",
+    "ru": "Нет"
+  },
+  {
+    "word": "Please",
+    "key": "please",
+    "hero": "valerius",
+    "ru": "Пожалуйста"
+  },
+  {
+    "word": "Thank you",
+    "key": "thank_you",
+    "hero": "valerius",
+    "ru": "Спасибо"
+  },
+  {
+    "word": "Welcome",
+    "key": "welcome",
+    "hero": "valerius",
+    "ru": "Добро пожаловать"
+  },
+  {
+    "word": "Hi",
+    "key": "hi",
+    "hero": "valerius",
+    "ru": "Привет"
+  },
+  {
+    "word": "Nice",
+    "key": "nice",
+    "hero": "valerius",
+    "ru": "Приятный"
+  },
+  {
+    "word": "Meet",
+    "key": "meet",
+    "hero": "valerius",
+    "ru": "Встречать"
+  },
+  {
+    "word": "Happy",
+    "key": "happy",
+    "hero": "valerius",
+    "ru": "Счастливый"
+  },
+  {
+    "word": "Brave",
+    "key": "brave",
+    "hero": "valerius",
+    "ru": "Храбрый"
+  },
+  {
+    "word": "Strong",
+    "key": "strong",
+    "hero": "valerius",
+    "ru": "Сильный"
+  },
+  {
+    "word": "Shield",
+    "key": "shield",
+    "hero": "valerius",
+    "ru": "Щит"
+  },
+  {
+    "word": "Armor",
+    "key": "armor",
+    "hero": "valerius",
+    "ru": "Доспехи"
+  },
+  {
+    "word": "Sword",
+    "key": "sword",
+    "hero": "valerius",
+    "ru": "Меч"
+  },
+  {
+    "word": "Noble",
+    "key": "noble",
+    "hero": "valerius",
+    "ru": "Благородный"
+  },
+  {
+    "word": "Truth",
+    "key": "truth",
+    "hero": "valerius",
+    "ru": "Правда"
+  },
+  {
+    "word": "Honor",
+    "key": "honor",
+    "hero": "valerius",
+    "ru": "Честь"
+  },
+  {
+    "word": "Duty",
+    "key": "duty",
+    "hero": "valerius",
+    "ru": "Долг"
+  },
+  {
+    "word": "Realm",
+    "key": "realm",
+    "hero": "valerius",
+    "ru": "Королевство"
+  },
+  {
+    "word": "Outpost",
+    "key": "outpost",
+    "hero": "valerius",
+    "ru": "Аванпост"
+  },
+  {
+    "word": "Guard",
+    "key": "guard",
+    "hero": "valerius",
+    "ru": "Страж"
+  },
+  {
+    "word": "Protect",
+    "key": "protect",
+    "hero": "valerius",
+    "ru": "Защищать"
+  },
+  {
+    "word": "Stand",
+    "key": "stand",
+    "hero": "valerius",
+    "ru": "Стоять"
+  },
+  {
+    "word": "Help",
+    "key": "help",
+    "hero": "valerius",
+    "ru": "Помогать"
+  },
+  {
+    "word": "Be",
+    "key": "be",
+    "hero": "valerius",
+    "ru": "Быть"
+  },
+  {
+    "word": "Am",
+    "key": "am",
+    "hero": "valerius",
+    "ru": "Есть (я)"
+  },
+  {
+    "word": "Is",
+    "key": "is",
+    "hero": "valerius",
+    "ru": "Есть (он/она/оно)"
+  },
+  {
+    "word": "Are",
+    "key": "are",
+    "hero": "valerius",
+    "ru": "Есть (ты/мы/они)"
+  },
+  {
+    "word": "Become",
+    "key": "become",
+    "hero": "valerius",
+    "ru": "Становиться"
+  },
+  {
+    "word": "Live",
+    "key": "live",
+    "hero": "valerius",
+    "ru": "Жить"
+  },
+  {
+    "word": "Life",
+    "key": "life",
+    "hero": "valerius",
+    "ru": "Жизнь"
+  },
+  {
+    "word": "Self",
+    "key": "self",
+    "hero": "valerius",
+    "ru": "Сам / Себя"
+  },
+  {
+    "word": "Audience",
+    "key": "audience",
+    "hero": "valerius",
+    "ru": "Аудитория"
+  },
+  {
+    "word": "Group",
+    "key": "group",
+    "hero": "valerius",
+    "ru": "Группа людей"
+  },
+  {
+    "word": "Crowd",
+    "key": "crowd",
+    "hero": "valerius",
+    "ru": "Толпа"
+  },
+  {
+    "word": "Team",
+    "key": "team",
+    "hero": "valerius",
+    "ru": "Команда"
+  },
+  {
+    "word": "Squad",
+    "key": "squad",
+    "hero": "valerius",
+    "ru": "Отряд"
+  },
+  {
+    "word": "Gentleman",
+    "key": "gentleman",
+    "hero": "valerius",
+    "ru": "Джентльмен"
+  },
+  {
+    "word": "Lady",
+    "key": "lady",
+    "hero": "valerius",
+    "ru": "Дама / Леди"
+  },
+  {
+    "word": "Sir",
+    "key": "sir",
+    "hero": "valerius",
+    "ru": "Сэр"
+  },
+  {
+    "word": "Madam",
+    "key": "madam",
+    "hero": "valerius",
+    "ru": "Мадам"
+  },
+  {
+    "word": "Human",
+    "key": "human",
+    "hero": "valerius",
+    "ru": "Человек / Человеческий"
+  },
+  {
+    "word": "Mankind",
+    "key": "mankind",
+    "hero": "valerius",
+    "ru": "Человечество"
+  },
+  {
+    "word": "Citizen",
+    "key": "citizen",
+    "hero": "valerius",
+    "ru": "Горожанин / Гражданин"
+  },
+  {
+    "word": "Guest",
+    "key": "guest",
+    "hero": "valerius",
+    "ru": "Гость"
+  },
+  {
+    "word": "Stranger",
+    "key": "stranger",
+    "hero": "valerius",
+    "ru": "Незнакомец"
+  },
+  {
+    "word": "Uncle",
+    "key": "uncle",
+    "hero": "valerius",
+    "ru": "Дядя"
+  },
+  {
+    "word": "Aunt",
+    "key": "aunt",
+    "hero": "valerius",
+    "ru": "Тётя"
+  },
+  {
+    "word": "Cousin",
+    "key": "cousin",
+    "hero": "valerius",
+    "ru": "Двоюродный брат / сестра"
+  },
+  {
+    "word": "Grandfather",
+    "key": "grandfather",
+    "hero": "valerius",
+    "ru": "Дедушка"
+  },
+  {
+    "word": "Grandmother",
+    "key": "grandmother",
+    "hero": "valerius",
+    "ru": "Бабушка"
+  },
+  {
+    "word": "Grandparent",
+    "key": "grandparent",
+    "hero": "valerius",
+    "ru": "Дедушка или бабушка"
+  },
+  {
+    "word": "Boyfriend",
+    "key": "boyfriend",
+    "hero": "valerius",
+    "ru": "Парень (друг)"
+  },
+  {
+    "word": "Girlfriend",
+    "key": "girlfriend",
+    "hero": "valerius",
+    "ru": "Девушка"
+  },
+  {
+    "word": "Partner",
+    "key": "partner",
+    "hero": "valerius",
+    "ru": "Партнёр / Соратник"
+  },
+  {
+    "word": "Member",
+    "key": "member",
+    "hero": "valerius",
+    "ru": "Член команды / гильдии"
+  },
+  {
+    "word": "Companion",
+    "key": "companion",
+    "hero": "valerius",
+    "ru": "Спутник"
+  },
+  {
+    "word": "Cooking",
+    "key": "cooking",
+    "hero": "valerius",
+    "ru": "Готовка / Кулинария"
+  },
+  {
+    "word": "Conversation",
+    "key": "conversation",
+    "hero": "valerius",
+    "ru": "Разговор / Беседа"
+  },
+  {
+    "word": "Have",
+    "key": "have",
+    "hero": "astraea",
+    "ru": "Иметь"
+  },
+  {
+    "word": "Has",
+    "key": "has",
+    "hero": "astraea",
+    "ru": "Имеет"
+  },
+  {
+    "word": "Want",
+    "key": "want",
+    "hero": "astraea",
+    "ru": "Хотеть"
+  },
+  {
+    "word": "Need",
+    "key": "need",
+    "hero": "astraea",
+    "ru": "Нуждаться"
+  },
+  {
+    "word": "Eat",
+    "key": "eat",
+    "hero": "astraea",
+    "ru": "Есть / кушать"
+  },
+  {
+    "word": "Drink",
+    "key": "drink",
+    "hero": "astraea",
+    "ru": "Пить"
+  },
+  {
+    "word": "Food",
+    "key": "food",
+    "hero": "astraea",
+    "ru": "Еда"
+  },
+  {
+    "word": "Bread",
+    "key": "bread",
+    "hero": "astraea",
+    "ru": "Хлеб"
+  },
+  {
+    "word": "Water",
+    "key": "water",
+    "hero": "astraea",
+    "ru": "Вода"
+  },
+  {
+    "word": "Milk",
+    "key": "milk",
+    "hero": "astraea",
+    "ru": "Молоко"
+  },
+  {
+    "word": "Tea",
+    "key": "tea",
+    "hero": "astraea",
+    "ru": "Чай"
+  },
+  {
+    "word": "Coffee",
+    "key": "coffee",
+    "hero": "astraea",
+    "ru": "Кофе"
+  },
+  {
+    "word": "Juice",
+    "key": "juice",
+    "hero": "astraea",
+    "ru": "Сок"
+  },
+  {
+    "word": "Fruit",
+    "key": "fruit",
+    "hero": "astraea",
+    "ru": "Фрукт"
+  },
+  {
+    "word": "Apple",
+    "key": "apple",
+    "hero": "astraea",
+    "ru": "Яблоко"
+  },
+  {
+    "word": "Banana",
+    "key": "banana",
+    "hero": "astraea",
+    "ru": "Банан"
+  },
+  {
+    "word": "Orange",
+    "key": "orange",
+    "hero": "astraea",
+    "ru": "Апельсин"
+  },
+  {
+    "word": "Meat",
+    "key": "meat",
+    "hero": "astraea",
+    "ru": "Мясо"
+  },
+  {
+    "word": "Fish",
+    "key": "fish",
+    "hero": "astraea",
+    "ru": "Рыба"
+  },
+  {
+    "word": "Chicken",
+    "key": "chicken",
+    "hero": "astraea",
+    "ru": "Курица"
+  },
+  {
+    "word": "Egg",
+    "key": "egg",
+    "hero": "astraea",
+    "ru": "Яйцо"
+  },
+  {
+    "word": "Rice",
+    "key": "rice",
+    "hero": "astraea",
+    "ru": "Рис"
+  },
+  {
+    "word": "Soup",
+    "key": "soup",
+    "hero": "astraea",
+    "ru": "Суп"
+  },
+  {
+    "word": "Butter",
+    "key": "butter",
+    "hero": "astraea",
+    "ru": "Сливочное масло"
+  },
+  {
+    "word": "Cheese",
+    "key": "cheese",
+    "hero": "astraea",
+    "ru": "Сыр"
+  },
+  {
+    "word": "Chocolate",
+    "key": "chocolate",
+    "hero": "astraea",
+    "ru": "Шоколад"
+  },
+  {
+    "word": "Cake",
+    "key": "cake",
+    "hero": "astraea",
+    "ru": "Торт / Пирог"
+  },
+  {
+    "word": "Cookie",
+    "key": "cookie",
+    "hero": "astraea",
+    "ru": "Печенье"
+  },
+  {
+    "word": "Ice cream",
+    "key": "ice_cream",
+    "hero": "astraea",
+    "ru": "Мороженое"
+  },
+  {
+    "word": "Sugar",
+    "key": "sugar",
+    "hero": "astraea",
+    "ru": "Сахар"
+  },
+  {
+    "word": "Salt",
+    "key": "salt",
+    "hero": "astraea",
+    "ru": "Соль"
+  },
+  {
+    "word": "Pepper",
+    "key": "pepper",
+    "hero": "astraea",
+    "ru": "Перец"
+  },
+  {
+    "word": "Oil",
+    "key": "oil",
+    "hero": "astraea",
+    "ru": "Масло (растительное)"
+  },
+  {
+    "word": "Onion",
+    "key": "onion",
+    "hero": "astraea",
+    "ru": "Лук"
+  },
+  {
+    "word": "Potato",
+    "key": "potato",
+    "hero": "astraea",
+    "ru": "Картофель"
+  },
+  {
+    "word": "Tomato",
+    "key": "tomato",
+    "hero": "astraea",
+    "ru": "Помидор"
+  },
+  {
+    "word": "Vegetable",
+    "key": "vegetable",
+    "hero": "astraea",
+    "ru": "Овощ"
+  },
+  {
+    "word": "Salad",
+    "key": "salad",
+    "hero": "astraea",
+    "ru": "Салат"
+  },
+  {
+    "word": "Sandwich",
+    "key": "sandwich",
+    "hero": "astraea",
+    "ru": "Сэндвич"
+  },
+  {
+    "word": "Pasta",
+    "key": "pasta",
+    "hero": "astraea",
+    "ru": "Паста / Макароны"
+  },
+  {
+    "word": "Pizza",
+    "key": "pizza",
+    "hero": "astraea",
+    "ru": "Пицца"
+  },
+  {
+    "word": "Meal",
+    "key": "meal",
+    "hero": "astraea",
+    "ru": "Приём пищи"
+  },
+  {
+    "word": "Breakfast",
+    "key": "breakfast",
+    "hero": "astraea",
+    "ru": "Завтрак"
+  },
+  {
+    "word": "Lunch",
+    "key": "lunch",
+    "hero": "astraea",
+    "ru": "Обед"
+  },
+  {
+    "word": "Dinner",
+    "key": "dinner",
+    "hero": "astraea",
+    "ru": "Ужин"
+  },
+  {
+    "word": "Dish",
+    "key": "dish",
+    "hero": "astraea",
+    "ru": "Блюдо"
+  },
+  {
+    "word": "Plate",
+    "key": "plate",
+    "hero": "astraea",
+    "ru": "Тарелка"
+  },
+  {
+    "word": "Bowl",
+    "key": "bowl",
+    "hero": "astraea",
+    "ru": "Миска / Пиала"
+  },
+  {
+    "word": "Cup",
+    "key": "cup",
+    "hero": "astraea",
+    "ru": "Чашка"
+  },
+  {
+    "word": "Glass",
+    "key": "glass",
+    "hero": "astraea",
+    "ru": "Стакан"
+  },
+  {
+    "word": "Bottle",
+    "key": "bottle",
+    "hero": "astraea",
+    "ru": "Бутылка"
+  },
+  {
+    "word": "Fork",
+    "key": "fork",
+    "hero": "astraea",
+    "ru": "Вилка"
+  },
+  {
+    "word": "Knife",
+    "key": "knife",
+    "hero": "astraea",
+    "ru": "Нож"
+  },
+  {
+    "word": "Spoon",
+    "key": "spoon",
+    "hero": "astraea",
+    "ru": "Ложка"
+  },
+  {
+    "word": "Cook",
+    "key": "cook",
+    "hero": "astraea",
+    "ru": "Готовить"
+  },
+  {
+    "word": "Bake",
+    "key": "bake",
+    "hero": "astraea",
+    "ru": "Печь"
+  },
+  {
+    "word": "Wash",
+    "key": "wash",
+    "hero": "astraea",
+    "ru": "Мыть"
+  },
+  {
+    "word": "Clean",
+    "key": "clean",
+    "hero": "astraea",
+    "ru": "Чистый"
+  },
+  {
+    "word": "Open",
+    "key": "open",
+    "hero": "astraea",
+    "ru": "Открывать"
+  },
+  {
+    "word": "Close",
+    "key": "close",
+    "hero": "astraea",
+    "ru": "Закрывать"
+  },
+  {
+    "word": "Give",
+    "key": "give",
+    "hero": "astraea",
+    "ru": "Давать"
+  },
+  {
+    "word": "Take",
+    "key": "take",
+    "hero": "astraea",
+    "ru": "Брать"
+  },
+  {
+    "word": "Make",
+    "key": "make",
+    "hero": "astraea",
+    "ru": "Делать / готовить"
+  },
+  {
+    "word": "Do",
+    "key": "do",
+    "hero": "astraea",
+    "ru": "Делать"
+  },
+  {
+    "word": "Rest",
+    "key": "rest",
+    "hero": "astraea",
+    "ru": "Отдыхать"
+  },
+  {
+    "word": "Smile",
+    "key": "smile",
+    "hero": "astraea",
+    "ru": "Улыбаться"
+  },
+  {
+    "word": "Heal",
+    "key": "heal",
+    "hero": "astraea",
+    "ru": "Исцелять"
+  },
+  {
+    "word": "Care",
+    "key": "care",
+    "hero": "astraea",
+    "ru": "Заботиться"
+  },
+  {
+    "word": "Love",
+    "key": "love",
+    "hero": "astraea",
+    "ru": "Любить"
+  },
+  {
+    "word": "Like",
+    "key": "like",
+    "hero": "astraea",
+    "ru": "Нравиться"
+  },
+  {
+    "word": "Prefer",
+    "key": "prefer",
+    "hero": "astraea",
+    "ru": "Предпочитать"
+  },
+  {
+    "word": "Enjoy",
+    "key": "enjoy",
+    "hero": "astraea",
+    "ru": "Наслаждаться"
+  },
+  {
+    "word": "Tasty",
+    "key": "tasty",
+    "hero": "astraea",
+    "ru": "Вкусный"
+  },
+  {
+    "word": "Sweet",
+    "key": "sweet",
+    "hero": "astraea",
+    "ru": "Сладкий"
+  },
+  {
+    "word": "Fresh",
+    "key": "fresh",
+    "hero": "astraea",
+    "ru": "Свежий"
+  },
+  {
+    "word": "Hot",
+    "key": "hot",
+    "hero": "astraea",
+    "ru": "Горячий"
+  },
+  {
+    "word": "Cold",
+    "key": "cold",
+    "hero": "astraea",
+    "ru": "Холодный"
+  },
+  {
+    "word": "Hungry",
+    "key": "hungry",
+    "hero": "astraea",
+    "ru": "Голодный"
+  },
+  {
+    "word": "Thirsty",
+    "key": "thirsty",
+    "hero": "astraea",
+    "ru": "Испытывающий жажду"
+  },
+  {
+    "word": "Full",
+    "key": "full",
+    "hero": "astraea",
+    "ru": "Сытый / Полный"
+  },
+  {
+    "word": "Healthy",
+    "key": "healthy",
+    "hero": "astraea",
+    "ru": "Здоровый"
+  },
+  {
+    "word": "Blessing",
+    "key": "blessing",
+    "hero": "astraea",
+    "ru": "Благословение"
+  },
+  {
+    "word": "Temple",
+    "key": "temple",
+    "hero": "astraea",
+    "ru": "Храм"
+  },
+  {
+    "word": "Light",
+    "key": "light",
+    "hero": "astraea",
+    "ru": "Свет"
+  },
+  {
+    "word": "Peace",
+    "key": "peace",
+    "hero": "astraea",
+    "ru": "Мир / Покой"
+  },
+  {
+    "word": "Beer",
+    "key": "beer",
+    "hero": "astraea",
+    "ru": "Пиво"
+  },
+  {
+    "word": "Wine",
+    "key": "wine",
+    "hero": "astraea",
+    "ru": "Вино"
+  },
+  {
+    "word": "Biscuit",
+    "key": "biscuit",
+    "hero": "astraea",
+    "ru": "Печенье (брит.)"
+  },
+  {
+    "word": "Candy",
+    "key": "candy",
+    "hero": "astraea",
+    "ru": "Конфета"
+  },
+  {
+    "word": "Sweets",
+    "key": "sweets",
+    "hero": "astraea",
+    "ru": "Сладости"
+  },
+  {
+    "word": "Cream",
+    "key": "cream",
+    "hero": "astraea",
+    "ru": "Сливки / Крем"
+  },
+  {
+    "word": "Garlic",
+    "key": "garlic",
+    "hero": "astraea",
+    "ru": "Чеснок"
+  },
+  {
+    "word": "Lemon",
+    "key": "lemon",
+    "hero": "astraea",
+    "ru": "Лимон"
+  },
+  {
+    "word": "Strawberry",
+    "key": "strawberry",
+    "hero": "astraea",
+    "ru": "Клубника"
+  },
+  {
+    "word": "Grape",
+    "key": "grape",
+    "hero": "astraea",
+    "ru": "Виноград"
+  },
+  {
+    "word": "Pear",
+    "key": "pear",
+    "hero": "astraea",
+    "ru": "Груша"
+  },
+  {
+    "word": "Peach",
+    "key": "peach",
+    "hero": "astraea",
+    "ru": "Персик"
+  },
+  {
+    "word": "Carrot",
+    "key": "carrot",
+    "hero": "astraea",
+    "ru": "Морковь"
+  },
+  {
+    "word": "Bean",
+    "key": "bean",
+    "hero": "astraea",
+    "ru": "Боб / Фасоль"
+  },
+  {
+    "word": "Corn",
+    "key": "corn",
+    "hero": "astraea",
+    "ru": "Кукуруза"
+  },
+  {
+    "word": "Steak",
+    "key": "steak",
+    "hero": "astraea",
+    "ru": "Стейк"
+  },
+  {
+    "word": "Burger",
+    "key": "burger",
+    "hero": "astraea",
+    "ru": "Бургер"
+  },
+  {
+    "word": "Menu",
+    "key": "menu",
+    "hero": "astraea",
+    "ru": "Меню"
+  },
+  {
+    "word": "Order",
+    "key": "order",
+    "hero": "astraea",
+    "ru": "Заказ / Заказывать"
+  },
+  {
+    "word": "Bill",
+    "key": "bill",
+    "hero": "astraea",
+    "ru": "Счёт (в ресторане)"
+  },
+  {
+    "word": "Tip",
+    "key": "tip",
+    "hero": "astraea",
+    "ru": "Чаевые"
+  },
+  {
+    "word": "Chef",
+    "key": "chef",
+    "hero": "astraea",
+    "ru": "Шеф-повар"
+  },
+  {
+    "word": "Recipe",
+    "key": "recipe",
+    "hero": "astraea",
+    "ru": "Рецепт"
+  },
+  {
+    "word": "Flavor",
+    "key": "flavor",
+    "hero": "astraea",
+    "ru": "Вкус / Аромат"
+  },
+  {
+    "word": "Sour",
+    "key": "sour",
+    "hero": "astraea",
+    "ru": "Кислый"
+  },
+  {
+    "word": "This",
+    "key": "this",
+    "hero": "ignis",
+    "ru": "Это / Этот"
+  },
+  {
+    "word": "That",
+    "key": "that",
+    "hero": "ignis",
+    "ru": "То / Тот"
+  },
+  {
+    "word": "These",
+    "key": "these",
+    "hero": "ignis",
+    "ru": "Эти"
+  },
+  {
+    "word": "Those",
+    "key": "those",
+    "hero": "ignis",
+    "ru": "Те"
+  },
+  {
+    "word": "Red",
+    "key": "red",
+    "hero": "ignis",
+    "ru": "Красный"
+  },
+  {
+    "word": "Blue",
+    "key": "blue",
+    "hero": "ignis",
+    "ru": "Синий"
+  },
+  {
+    "word": "Green",
+    "key": "green",
+    "hero": "ignis",
+    "ru": "Зелёный"
+  },
+  {
+    "word": "Yellow",
+    "key": "yellow",
+    "hero": "ignis",
+    "ru": "Жёлтый"
+  },
+  {
+    "word": "Black",
+    "key": "black",
+    "hero": "ignis",
+    "ru": "Чёрный"
+  },
+  {
+    "word": "White",
+    "key": "white",
+    "hero": "ignis",
+    "ru": "Белый"
+  },
+  {
+    "word": "Brown",
+    "key": "brown",
+    "hero": "ignis",
+    "ru": "Коричневый"
+  },
+  {
+    "word": "Grey",
+    "key": "grey",
+    "hero": "ignis",
+    "ru": "Серый"
+  },
+  {
+    "word": "Pink",
+    "key": "pink",
+    "hero": "ignis",
+    "ru": "Розовый"
+  },
+  {
+    "word": "Purple",
+    "key": "purple",
+    "hero": "ignis",
+    "ru": "Фиолетовый"
+  },
+  {
+    "word": "Book",
+    "key": "book",
+    "hero": "ignis",
+    "ru": "Книга"
+  },
+  {
+    "word": "Staff",
+    "key": "staff",
+    "hero": "ignis",
+    "ru": "Посох"
+  },
+  {
+    "word": "Ring",
+    "key": "ring",
+    "hero": "ignis",
+    "ru": "Кольцо"
+  },
+  {
+    "word": "Cloak",
+    "key": "cloak",
+    "hero": "ignis",
+    "ru": "Мантия"
+  },
+  {
+    "word": "Hat",
+    "key": "hat",
+    "hero": "ignis",
+    "ru": "Шляпа"
+  },
+  {
+    "word": "Coat",
+    "key": "coat",
+    "hero": "ignis",
+    "ru": "Пальто"
+  },
+  {
+    "word": "Jacket",
+    "key": "jacket",
+    "hero": "ignis",
+    "ru": "Куртка"
+  },
+  {
+    "word": "Shirt",
+    "key": "shirt",
+    "hero": "ignis",
+    "ru": "Рубашка"
+  },
+  {
+    "word": "T-shirt",
+    "key": "t_shirt",
+    "hero": "ignis",
+    "ru": "Футболка"
+  },
+  {
+    "word": "Dress",
+    "key": "dress",
+    "hero": "ignis",
+    "ru": "Платье"
+  },
+  {
+    "word": "Skirt",
+    "key": "skirt",
+    "hero": "ignis",
+    "ru": "Юбка"
+  },
+  {
+    "word": "Trousers",
+    "key": "trousers",
+    "hero": "ignis",
+    "ru": "Брюки"
+  },
+  {
+    "word": "Jeans",
+    "key": "jeans",
+    "hero": "ignis",
+    "ru": "Джинсы"
+  },
+  {
+    "word": "Shoes",
+    "key": "shoes",
+    "hero": "ignis",
+    "ru": "Обувь / Туфли"
+  },
+  {
+    "word": "Boots",
+    "key": "boots",
+    "hero": "ignis",
+    "ru": "Сапоги"
+  },
+  {
+    "word": "Socks",
+    "key": "socks",
+    "hero": "ignis",
+    "ru": "Носки"
+  },
+  {
+    "word": "Suit",
+    "key": "suit",
+    "hero": "ignis",
+    "ru": "Костюм"
+  },
+  {
+    "word": "Clothes",
+    "key": "clothes",
+    "hero": "ignis",
+    "ru": "Одежда"
+  },
+  {
+    "word": "Belt",
+    "key": "belt",
+    "hero": "ignis",
+    "ru": "Ремень"
+  },
+  {
+    "word": "Pocket",
+    "key": "pocket",
+    "hero": "ignis",
+    "ru": "Карман"
+  },
+  {
+    "word": "Wallet",
+    "key": "wallet",
+    "hero": "ignis",
+    "ru": "Кошелёк"
+  },
+  {
+    "word": "Bag",
+    "key": "bag",
+    "hero": "ignis",
+    "ru": "Сумка"
+  },
+  {
+    "word": "Box",
+    "key": "box",
+    "hero": "ignis",
+    "ru": "Коробка / Ящик"
+  },
+  {
+    "word": "Key",
+    "key": "key",
+    "hero": "ignis",
+    "ru": "Ключ"
+  },
+  {
+    "word": "Pen",
+    "key": "pen",
+    "hero": "ignis",
+    "ru": "Ручка"
+  },
+  {
+    "word": "Pencil",
+    "key": "pencil",
+    "hero": "ignis",
+    "ru": "Карандаш"
+  },
+  {
+    "word": "Paper",
+    "key": "paper",
+    "hero": "ignis",
+    "ru": "Бумага"
+  },
+  {
+    "word": "Desk",
+    "key": "desk",
+    "hero": "ignis",
+    "ru": "Письменный стол"
+  },
+  {
+    "word": "Table",
+    "key": "table",
+    "hero": "ignis",
+    "ru": "Стол"
+  },
+  {
+    "word": "Chair",
+    "key": "chair",
+    "hero": "ignis",
+    "ru": "Стул"
+  },
+  {
+    "word": "Door",
+    "key": "door",
+    "hero": "ignis",
+    "ru": "Дверь"
+  },
+  {
+    "word": "Window",
+    "key": "window",
+    "hero": "ignis",
+    "ru": "Окно"
+  },
+  {
+    "word": "Phone",
+    "key": "phone",
+    "hero": "ignis",
+    "ru": "Телефон"
+  },
+  {
+    "word": "Mobile",
+    "key": "mobile",
+    "hero": "ignis",
+    "ru": "Мобильный"
+  },
+  {
+    "word": "Computer",
+    "key": "computer",
+    "hero": "ignis",
+    "ru": "Компьютер"
+  },
+  {
+    "word": "Clock",
+    "key": "clock",
+    "hero": "ignis",
+    "ru": "Часы (настенные)"
+  },
+  {
+    "word": "Watch",
+    "key": "watch",
+    "hero": "ignis",
+    "ru": "Часы (наручные)"
+  },
+  {
+    "word": "Glasses",
+    "key": "glasses",
+    "hero": "ignis",
+    "ru": "Очки"
+  },
+  {
+    "word": "Money",
+    "key": "money",
+    "hero": "ignis",
+    "ru": "Деньги"
+  },
+  {
+    "word": "Coin",
+    "key": "coin",
+    "hero": "ignis",
+    "ru": "Монета"
+  },
+  {
+    "word": "Price",
+    "key": "price",
+    "hero": "ignis",
+    "ru": "Цена"
+  },
+  {
+    "word": "Cost",
+    "key": "cost",
+    "hero": "ignis",
+    "ru": "Стоимость"
+  },
+  {
+    "word": "Dollar",
+    "key": "dollar",
+    "hero": "ignis",
+    "ru": "Доллар"
+  },
+  {
+    "word": "Euro",
+    "key": "euro",
+    "hero": "ignis",
+    "ru": "Евро"
+  },
+  {
+    "word": "Cash",
+    "key": "cash",
+    "hero": "ignis",
+    "ru": "Наличные"
+  },
+  {
+    "word": "Market",
+    "key": "market",
+    "hero": "ignis",
+    "ru": "Рынок"
+  },
+  {
+    "word": "Shop",
+    "key": "shop",
+    "hero": "ignis",
+    "ru": "Магазин"
+  },
+  {
+    "word": "Store",
+    "key": "store",
+    "hero": "ignis",
+    "ru": "Магазин / Склад"
+  },
+  {
+    "word": "Supermarket",
+    "key": "supermarket",
+    "hero": "ignis",
+    "ru": "Супермаркет"
+  },
+  {
+    "word": "Buy",
+    "key": "buy",
+    "hero": "ignis",
+    "ru": "Покупать"
+  },
+  {
+    "word": "Sell",
+    "key": "sell",
+    "hero": "ignis",
+    "ru": "Продавать"
+  },
+  {
+    "word": "Pay",
+    "key": "pay",
+    "hero": "ignis",
+    "ru": "Платить"
+  },
+  {
+    "word": "Cheap",
+    "key": "cheap",
+    "hero": "ignis",
+    "ru": "Дешёвый"
+  },
+  {
+    "word": "Expensive",
+    "key": "expensive",
+    "hero": "ignis",
+    "ru": "Дорогой"
+  },
+  {
+    "word": "Fire",
+    "key": "fire",
+    "hero": "ignis",
+    "ru": "Огонь"
+  },
+  {
+    "word": "Flame",
+    "key": "flame",
+    "hero": "ignis",
+    "ru": "Пламя"
+  },
+  {
+    "word": "Spark",
+    "key": "spark",
+    "hero": "ignis",
+    "ru": "Искра"
+  },
+  {
+    "word": "Magic",
+    "key": "magic",
+    "hero": "ignis",
+    "ru": "Магия"
+  },
+  {
+    "word": "Wizard",
+    "key": "wizard",
+    "hero": "ignis",
+    "ru": "Волшебник"
+  },
+  {
+    "word": "Spell",
+    "key": "spell",
+    "hero": "ignis",
+    "ru": "Заклинание"
+  },
+  {
+    "word": "Bright",
+    "key": "bright",
+    "hero": "ignis",
+    "ru": "Яркий"
+  },
+  {
+    "word": "Glowing",
+    "key": "glowing",
+    "hero": "ignis",
+    "ru": "Светящийся"
+  },
+  {
+    "word": "A",
+    "key": "a",
+    "hero": "ignis",
+    "ru": "Артикль (неопр.)"
+  },
+  {
+    "word": "An",
+    "key": "an",
+    "hero": "ignis",
+    "ru": "Артикль (перед гласной)"
+  },
+  {
+    "word": "The",
+    "key": "the",
+    "hero": "ignis",
+    "ru": "Артикль (определённый)"
+  },
+  {
+    "word": "Look",
+    "key": "look",
+    "hero": "ignis",
+    "ru": "Смотреть"
+  },
+  {
+    "word": "See",
+    "key": "see",
+    "hero": "ignis",
+    "ru": "Видеть"
+  },
+  {
+    "word": "Show",
+    "key": "show",
+    "hero": "ignis",
+    "ru": "Показывать"
+  },
+  {
+    "word": "Color",
+    "key": "color",
+    "hero": "ignis",
+    "ru": "Цвет"
+  },
+  {
+    "word": "Purse",
+    "key": "purse",
+    "hero": "ignis",
+    "ru": "Дамская сумочка / Кошелёк"
+  },
+  {
+    "word": "Umbrella",
+    "key": "umbrella",
+    "hero": "ignis",
+    "ru": "Зонт"
+  },
+  {
+    "word": "Luggage",
+    "key": "luggage",
+    "hero": "ignis",
+    "ru": "Багаж"
+  },
+  {
+    "word": "Suitcase",
+    "key": "suitcase",
+    "hero": "ignis",
+    "ru": "Чемодан"
+  },
+  {
+    "word": "Backpack",
+    "key": "backpack",
+    "hero": "ignis",
+    "ru": "Рюкзак"
+  },
+  {
+    "word": "Cap",
+    "key": "cap",
+    "hero": "ignis",
+    "ru": "Кепка"
+  },
+  {
+    "word": "Gloves",
+    "key": "gloves",
+    "hero": "ignis",
+    "ru": "Перчатки"
+  },
+  {
+    "word": "Scarf",
+    "key": "scarf",
+    "hero": "ignis",
+    "ru": "Шарф"
+  },
+  {
+    "word": "Uniform",
+    "key": "uniform",
+    "hero": "ignis",
+    "ru": "Форма / Униформа"
+  },
+  {
+    "word": "Fashion",
+    "key": "fashion",
+    "hero": "ignis",
+    "ru": "Мода"
+  },
+  {
+    "word": "Style",
+    "key": "style",
+    "hero": "ignis",
+    "ru": "Стиль"
+  },
+  {
+    "word": "Silverware",
+    "key": "silverware",
+    "hero": "ignis",
+    "ru": "Серебряные изделия"
+  },
+  {
+    "word": "Goldware",
+    "key": "goldware",
+    "hero": "ignis",
+    "ru": "Золотые изделия"
+  },
+  {
+    "word": "Jewelry",
+    "key": "jewelry",
+    "hero": "ignis",
+    "ru": "Ювелирные украшения"
+  },
+  {
+    "word": "Diamond",
+    "key": "diamond",
+    "hero": "ignis",
+    "ru": "Алмаз / Бриллиант"
+  },
+  {
+    "word": "Ruby",
+    "key": "ruby",
+    "hero": "ignis",
+    "ru": "Рубин"
+  },
+  {
+    "word": "Emerald",
+    "key": "emerald",
+    "hero": "ignis",
+    "ru": "Изумруд"
+  },
+  {
+    "word": "Sapphire",
+    "key": "sapphire",
+    "hero": "ignis",
+    "ru": "Сапфир"
+  },
+  {
+    "word": "Crystal",
+    "key": "crystal",
+    "hero": "ignis",
+    "ru": "Кристалл"
+  },
+  {
+    "word": "Shopping",
+    "key": "shopping",
+    "hero": "ignis",
+    "ru": "Шоппинг / Покупки"
+  },
+  {
+    "word": "Sale",
+    "key": "sale",
+    "hero": "ignis",
+    "ru": "Распродажа"
+  },
+  {
+    "word": "Discount",
+    "key": "discount",
+    "hero": "ignis",
+    "ru": "Скидка"
+  },
+  {
+    "word": "Receipt",
+    "key": "receipt",
+    "hero": "ignis",
+    "ru": "Чек (покупка)"
+  },
+  {
+    "word": "Trade",
+    "key": "trade",
+    "hero": "ignis",
+    "ru": "Торговать / Торговля"
+  },
+  {
+    "word": "Merchant",
+    "key": "merchant",
+    "hero": "ignis",
+    "ru": "Купец"
+  },
+  {
+    "word": "Lamp",
+    "key": "lamp",
+    "hero": "ignis",
+    "ru": "Лампа / Светильник"
+  },
+  {
+    "word": "About",
+    "key": "about",
+    "hero": "ignis",
+    "ru": "О / Около"
+  },
+  {
+    "word": "Time",
+    "key": "time",
+    "hero": "frostina",
+    "ru": "Время"
+  },
+  {
+    "word": "Hour",
+    "key": "hour",
+    "hero": "frostina",
+    "ru": "Час"
+  },
+  {
+    "word": "Minute",
+    "key": "minute",
+    "hero": "frostina",
+    "ru": "Минута"
+  },
+  {
+    "word": "Second",
+    "key": "second",
+    "hero": "frostina",
+    "ru": "Секунда"
+  },
+  {
+    "word": "Morning",
+    "key": "morning",
+    "hero": "frostina",
+    "ru": "Утро"
+  },
+  {
+    "word": "Afternoon",
+    "key": "afternoon",
+    "hero": "frostina",
+    "ru": "День (после полудня)"
+  },
+  {
+    "word": "Evening",
+    "key": "evening",
+    "hero": "frostina",
+    "ru": "Вечер"
+  },
+  {
+    "word": "Night",
+    "key": "night",
+    "hero": "frostina",
+    "ru": "Ночь"
+  },
+  {
+    "word": "Midnight",
+    "key": "midnight",
+    "hero": "frostina",
+    "ru": "Полночь"
+  },
+  {
+    "word": "Noon",
+    "key": "noon",
+    "hero": "frostina",
+    "ru": "Полдень"
+  },
+  {
+    "word": "Today",
+    "key": "today",
+    "hero": "frostina",
+    "ru": "Сегодня"
+  },
+  {
+    "word": "Tomorrow",
+    "key": "tomorrow",
+    "hero": "frostina",
+    "ru": "Завтра"
+  },
+  {
+    "word": "Yesterday",
+    "key": "yesterday",
+    "hero": "frostina",
+    "ru": "Вчера"
+  },
+  {
+    "word": "Day",
+    "key": "day",
+    "hero": "frostina",
+    "ru": "День"
+  },
+  {
+    "word": "Week",
+    "key": "week",
+    "hero": "frostina",
+    "ru": "Неделя"
+  },
+  {
+    "word": "Month",
+    "key": "month",
+    "hero": "frostina",
+    "ru": "Месяц"
+  },
+  {
+    "word": "Year",
+    "key": "year",
+    "hero": "frostina",
+    "ru": "Год"
+  },
+  {
+    "word": "Monday",
+    "key": "monday",
+    "hero": "frostina",
+    "ru": "Понедельник"
+  },
+  {
+    "word": "Tuesday",
+    "key": "tuesday",
+    "hero": "frostina",
+    "ru": "Вторник"
+  },
+  {
+    "word": "Wednesday",
+    "key": "wednesday",
+    "hero": "frostina",
+    "ru": "Среда"
+  },
+  {
+    "word": "Thursday",
+    "key": "thursday",
+    "hero": "frostina",
+    "ru": "Четверг"
+  },
+  {
+    "word": "Friday",
+    "key": "friday",
+    "hero": "frostina",
+    "ru": "Пятница"
+  },
+  {
+    "word": "Saturday",
+    "key": "saturday",
+    "hero": "frostina",
+    "ru": "Суббота"
+  },
+  {
+    "word": "Sunday",
+    "key": "sunday",
+    "hero": "frostina",
+    "ru": "Воскресенье"
+  },
+  {
+    "word": "January",
+    "key": "january",
+    "hero": "frostina",
+    "ru": "Январь"
+  },
+  {
+    "word": "February",
+    "key": "february",
+    "hero": "frostina",
+    "ru": "Февраль"
+  },
+  {
+    "word": "March",
+    "key": "march",
+    "hero": "frostina",
+    "ru": "Март"
+  },
+  {
+    "word": "April",
+    "key": "april",
+    "hero": "frostina",
+    "ru": "Апрель"
+  },
+  {
+    "word": "May",
+    "key": "may",
+    "hero": "frostina",
+    "ru": "Май"
+  },
+  {
+    "word": "June",
+    "key": "june",
+    "hero": "frostina",
+    "ru": "Июнь"
+  },
+  {
+    "word": "July",
+    "key": "july",
+    "hero": "frostina",
+    "ru": "Июль"
+  },
+  {
+    "word": "August",
+    "key": "august",
+    "hero": "frostina",
+    "ru": "Август"
+  },
+  {
+    "word": "September",
+    "key": "september",
+    "hero": "frostina",
+    "ru": "Сентябрь"
+  },
+  {
+    "word": "October",
+    "key": "october",
+    "hero": "frostina",
+    "ru": "Октябрь"
+  },
+  {
+    "word": "November",
+    "key": "november",
+    "hero": "frostina",
+    "ru": "Ноябрь"
+  },
+  {
+    "word": "December",
+    "key": "december",
+    "hero": "frostina",
+    "ru": "Декабрь"
+  },
+  {
+    "word": "Spring",
+    "key": "spring",
+    "hero": "frostina",
+    "ru": "Весна"
+  },
+  {
+    "word": "Summer",
+    "key": "summer",
+    "hero": "frostina",
+    "ru": "Лето"
+  },
+  {
+    "word": "Autumn",
+    "key": "autumn",
+    "hero": "frostina",
+    "ru": "Осень"
+  },
+  {
+    "word": "Fall",
+    "key": "fall",
+    "hero": "frostina",
+    "ru": "Осень (амер.)"
+  },
+  {
+    "word": "Winter",
+    "key": "winter",
+    "hero": "frostina",
+    "ru": "Зима"
+  },
+  {
+    "word": "Weather",
+    "key": "weather",
+    "hero": "frostina",
+    "ru": "Погода"
+  },
+  {
+    "word": "Sun",
+    "key": "sun",
+    "hero": "frostina",
+    "ru": "Солнце"
+  },
+  {
+    "word": "Sunny",
+    "key": "sunny",
+    "hero": "frostina",
+    "ru": "Солнечно"
+  },
+  {
+    "word": "Rain",
+    "key": "rain",
+    "hero": "frostina",
+    "ru": "Дождь"
+  },
+  {
+    "word": "Rainy",
+    "key": "rainy",
+    "hero": "frostina",
+    "ru": "Дождливо"
+  },
+  {
+    "word": "Snow",
+    "key": "snow",
+    "hero": "frostina",
+    "ru": "Снег"
+  },
+  {
+    "word": "Snowy",
+    "key": "snowy",
+    "hero": "frostina",
+    "ru": "Снежно"
+  },
+  {
+    "word": "Ice",
+    "key": "ice",
+    "hero": "frostina",
+    "ru": "Лёд"
+  },
+  {
+    "word": "Icy",
+    "key": "icy",
+    "hero": "frostina",
+    "ru": "Ледяной"
+  },
+  {
+    "word": "Warm",
+    "key": "warm",
+    "hero": "frostina",
+    "ru": "Тёплый"
+  },
+  {
+    "word": "Cool",
+    "key": "cool",
+    "hero": "frostina",
+    "ru": "Прохладный / Клёвый"
+  },
+  {
+    "word": "Wind",
+    "key": "wind",
+    "hero": "frostina",
+    "ru": "Ветер"
+  },
+  {
+    "word": "Windy",
+    "key": "windy",
+    "hero": "frostina",
+    "ru": "Ветрено"
+  },
+  {
+    "word": "Sky",
+    "key": "sky",
+    "hero": "frostina",
+    "ru": "Небо"
+  },
+  {
+    "word": "Cloud",
+    "key": "cloud",
+    "hero": "frostina",
+    "ru": "Облако"
+  },
+  {
+    "word": "Cloudy",
+    "key": "cloudy",
+    "hero": "frostina",
+    "ru": "Облачно"
+  },
+  {
+    "word": "Always",
+    "key": "always",
+    "hero": "frostina",
+    "ru": "Всегда"
+  },
+  {
+    "word": "Usually",
+    "key": "usually",
+    "hero": "frostina",
+    "ru": "Обычно"
+  },
+  {
+    "word": "Often",
+    "key": "often",
+    "hero": "frostina",
+    "ru": "Часто"
+  },
+  {
+    "word": "Sometimes",
+    "key": "sometimes",
+    "hero": "frostina",
+    "ru": "Иногда"
+  },
+  {
+    "word": "Never",
+    "key": "never",
+    "hero": "frostina",
+    "ru": "Никогда"
+  },
+  {
+    "word": "Early",
+    "key": "early",
+    "hero": "frostina",
+    "ru": "Рано"
+  },
+  {
+    "word": "Late",
+    "key": "late",
+    "hero": "frostina",
+    "ru": "Поздно"
+  },
+  {
+    "word": "Now",
+    "key": "now",
+    "hero": "frostina",
+    "ru": "Сейчас"
+  },
+  {
+    "word": "Soon",
+    "key": "soon",
+    "hero": "frostina",
+    "ru": "Скоро"
+  },
+  {
+    "word": "Already",
+    "key": "already",
+    "hero": "frostina",
+    "ru": "Уже"
+  },
+  {
+    "word": "Still",
+    "key": "still",
+    "hero": "frostina",
+    "ru": "Всё ещё"
+  },
+  {
+    "word": "Wake up",
+    "key": "wake_up",
+    "hero": "frostina",
+    "ru": "Просыпаться"
+  },
+  {
+    "word": "Get up",
+    "key": "get_up",
+    "hero": "frostina",
+    "ru": "Вставать"
+  },
+  {
+    "word": "Sleep",
+    "key": "sleep",
+    "hero": "frostina",
+    "ru": "Спать"
+  },
+  {
+    "word": "Bed",
+    "key": "bed",
+    "hero": "frostina",
+    "ru": "Кровать"
+  },
+  {
+    "word": "Routine",
+    "key": "routine",
+    "hero": "frostina",
+    "ru": "Распорядок дня"
+  },
+  {
+    "word": "Every",
+    "key": "every",
+    "hero": "frostina",
+    "ru": "Каждый"
+  },
+  {
+    "word": "Start",
+    "key": "start",
+    "hero": "frostina",
+    "ru": "Начинать"
+  },
+  {
+    "word": "Finish",
+    "key": "finish",
+    "hero": "frostina",
+    "ru": "Заканчивать"
+  },
+  {
+    "word": "Wait",
+    "key": "wait",
+    "hero": "frostina",
+    "ru": "Ждать"
+  },
+  {
+    "word": "o'clock",
+    "key": "o_clock",
+    "hero": "frostina",
+    "ru": "По часам"
+  },
+  {
+    "word": "Half past",
+    "key": "half_past",
+    "hero": "frostina",
+    "ru": "Половина после"
+  },
+  {
+    "word": "Quarter past",
+    "key": "quarter_past",
+    "hero": "frostina",
+    "ru": "Четверть после"
+  },
+  {
+    "word": "Quarter to",
+    "key": "quarter_to",
+    "hero": "frostina",
+    "ru": "Четверть до"
+  },
+  {
+    "word": "At",
+    "key": "at",
+    "hero": "frostina",
+    "ru": "В (указание времени)"
+  },
+  {
+    "word": "Degrees",
+    "key": "degrees",
+    "hero": "frostina",
+    "ru": "Градусы"
+  },
+  {
+    "word": "Temperature",
+    "key": "temperature",
+    "hero": "frostina",
+    "ru": "Температура"
+  },
+  {
+    "word": "Freeze",
+    "key": "freeze",
+    "hero": "frostina",
+    "ru": "Замораживать"
+  },
+  {
+    "word": "Frost",
+    "key": "frost",
+    "hero": "frostina",
+    "ru": "Мороз"
+  },
+  {
+    "word": "Blizzard",
+    "key": "blizzard",
+    "hero": "frostina",
+    "ru": "Вьюга / Метель"
+  },
+  {
+    "word": "Stormy",
+    "key": "stormy",
+    "hero": "frostina",
+    "ru": "Штормовой / Бурный"
+  },
+  {
+    "word": "Fog",
+    "key": "fog",
+    "hero": "frostina",
+    "ru": "Туман"
+  },
+  {
+    "word": "Foggy",
+    "key": "foggy",
+    "hero": "frostina",
+    "ru": "Туманно"
+  },
+  {
+    "word": "Forecast",
+    "key": "forecast",
+    "hero": "frostina",
+    "ru": "Прогноз (погоды)"
+  },
+  {
+    "word": "Daily",
+    "key": "daily",
+    "hero": "frostina",
+    "ru": "Ежедневный"
+  },
+  {
+    "word": "Weekly",
+    "key": "weekly",
+    "hero": "frostina",
+    "ru": "Еженедельный"
+  },
+  {
+    "word": "Monthly",
+    "key": "monthly",
+    "hero": "frostina",
+    "ru": "Ежемесячный"
+  },
+  {
+    "word": "Yearly",
+    "key": "yearly",
+    "hero": "frostina",
+    "ru": "Ежегодный"
+  },
+  {
+    "word": "Moment",
+    "key": "moment",
+    "hero": "frostina",
+    "ru": "Момент"
+  },
+  {
+    "word": "Period",
+    "key": "period",
+    "hero": "frostina",
+    "ru": "Период"
+  },
+  {
+    "word": "Era",
+    "key": "era",
+    "hero": "frostina",
+    "ru": "Эра / Эпоха"
+  },
+  {
+    "word": "Century",
+    "key": "century",
+    "hero": "frostina",
+    "ru": "Век / Столетие"
+  },
+  {
+    "word": "Ago",
+    "key": "ago",
+    "hero": "frostina",
+    "ru": "Тому назад"
+  },
+  {
+    "word": "Lately",
+    "key": "lately",
+    "hero": "frostina",
+    "ru": "В последнее время"
+  },
+  {
+    "word": "Recent",
+    "key": "recent",
+    "hero": "frostina",
+    "ru": "Недавний"
+  },
+  {
+    "word": "Forever",
+    "key": "forever",
+    "hero": "frostina",
+    "ru": "Навсегда"
+  },
+  {
+    "word": "Timetable",
+    "key": "timetable",
+    "hero": "frostina",
+    "ru": "Расписание поезда/уроков"
+  },
+  {
+    "word": "Alarm",
+    "key": "alarm",
+    "hero": "frostina",
+    "ru": "Будильник"
+  },
+  {
+    "word": "Punctual",
+    "key": "punctual",
+    "hero": "frostina",
+    "ru": "Пунктуальный"
+  },
+  {
+    "word": "Season",
+    "key": "season",
+    "hero": "frostina",
+    "ru": "Сезон / Время года"
+  },
+  {
+    "word": "Across",
+    "key": "across",
+    "hero": "frostina",
+    "ru": "Через / На той стороне"
+  },
+  {
+    "word": "Action",
+    "key": "action",
+    "hero": "frostina",
+    "ru": "Действие / Поступки"
+  },
+  {
+    "word": "Activity",
+    "key": "activity",
+    "hero": "frostina",
+    "ru": "Деятельность / Занятие"
+  },
+  {
+    "word": "Where",
+    "key": "where",
+    "hero": "zephyr",
+    "ru": "Где / Куда"
+  },
+  {
+    "word": "When",
+    "key": "when",
+    "hero": "zephyr",
+    "ru": "Когда"
+  },
+  {
+    "word": "Why",
+    "key": "why",
+    "hero": "zephyr",
+    "ru": "Почему"
+  },
+  {
+    "word": "How",
+    "key": "how",
+    "hero": "zephyr",
+    "ru": "Как"
+  },
+  {
+    "word": "Who",
+    "key": "who",
+    "hero": "zephyr",
+    "ru": "Кто"
+  },
+  {
+    "word": "What",
+    "key": "what",
+    "hero": "zephyr",
+    "ru": "Что / Какой"
+  },
+  {
+    "word": "Which",
+    "key": "which",
+    "hero": "zephyr",
+    "ru": "Который"
+  },
+  {
+    "word": "Whose",
+    "key": "whose",
+    "hero": "zephyr",
+    "ru": "Чей"
+  },
+  {
+    "word": "City",
+    "key": "city",
+    "hero": "zephyr",
+    "ru": "Город"
+  },
+  {
+    "word": "Town",
+    "key": "town",
+    "hero": "zephyr",
+    "ru": "Город (небольшой)"
+  },
+  {
+    "word": "Village",
+    "key": "village",
+    "hero": "zephyr",
+    "ru": "Деревня"
+  },
+  {
+    "word": "Country",
+    "key": "country",
+    "hero": "zephyr",
+    "ru": "Страна"
+  },
+  {
+    "word": "Street",
+    "key": "street",
+    "hero": "zephyr",
+    "ru": "Улица"
+  },
+  {
+    "word": "Road",
+    "key": "road",
+    "hero": "zephyr",
+    "ru": "Дорога"
+  },
+  {
+    "word": "Path",
+    "key": "path",
+    "hero": "zephyr",
+    "ru": "Тропа"
+  },
+  {
+    "word": "Map",
+    "key": "map",
+    "hero": "zephyr",
+    "ru": "Карта"
+  },
+  {
+    "word": "Park",
+    "key": "park",
+    "hero": "zephyr",
+    "ru": "Парк"
+  },
+  {
+    "word": "Square",
+    "key": "square",
+    "hero": "zephyr",
+    "ru": "Площадь"
+  },
+  {
+    "word": "Center",
+    "key": "center",
+    "hero": "zephyr",
+    "ru": "Центр"
+  },
+  {
+    "word": "Station",
+    "key": "station",
+    "hero": "zephyr",
+    "ru": "Станция"
+  },
+  {
+    "word": "Stop",
+    "key": "stop",
+    "hero": "zephyr",
+    "ru": "Остановка"
+  },
+  {
+    "word": "Airport",
+    "key": "airport",
+    "hero": "zephyr",
+    "ru": "Аэропорт"
+  },
+  {
+    "word": "Bus",
+    "key": "bus",
+    "hero": "zephyr",
+    "ru": "Автобус"
+  },
+  {
+    "word": "Car",
+    "key": "car",
+    "hero": "zephyr",
+    "ru": "Машина"
+  },
+  {
+    "word": "Taxi",
+    "key": "taxi",
+    "hero": "zephyr",
+    "ru": "Такси"
+  },
+  {
+    "word": "Train",
+    "key": "train",
+    "hero": "zephyr",
+    "ru": "Поезд"
+  },
+  {
+    "word": "Plane",
+    "key": "plane",
+    "hero": "zephyr",
+    "ru": "Самолёт"
+  },
+  {
+    "word": "Boat",
+    "key": "boat",
+    "hero": "zephyr",
+    "ru": "Лодка"
+  },
+  {
+    "word": "Ship",
+    "key": "ship",
+    "hero": "zephyr",
+    "ru": "Корабль"
+  },
+  {
+    "word": "Bicycle",
+    "key": "bicycle",
+    "hero": "zephyr",
+    "ru": "Велосипед"
+  },
+  {
+    "word": "Bike",
+    "key": "bike",
+    "hero": "zephyr",
+    "ru": "Велик / Байк"
+  },
+  {
+    "word": "Ticket",
+    "key": "ticket",
+    "hero": "zephyr",
+    "ru": "Билет"
+  },
+  {
+    "word": "Travel",
+    "key": "travel",
+    "hero": "zephyr",
+    "ru": "Путешествовать"
+  },
+  {
+    "word": "Trip",
+    "key": "trip",
+    "hero": "zephyr",
+    "ru": "Поездка"
+  },
+  {
+    "word": "Hotel",
+    "key": "hotel",
+    "hero": "zephyr",
+    "ru": "Отель"
+  },
+  {
+    "word": "Building",
+    "key": "building",
+    "hero": "zephyr",
+    "ru": "Здание"
+  },
+  {
+    "word": "Bank",
+    "key": "bank",
+    "hero": "zephyr",
+    "ru": "Банк / Берег"
+  },
+  {
+    "word": "Hospital",
+    "key": "hospital",
+    "hero": "zephyr",
+    "ru": "Больница"
+  },
+  {
+    "word": "Museum",
+    "key": "museum",
+    "hero": "zephyr",
+    "ru": "Музей"
+  },
+  {
+    "word": "School",
+    "key": "school",
+    "hero": "zephyr",
+    "ru": "Школа"
+  },
+  {
+    "word": "University",
+    "key": "university",
+    "hero": "zephyr",
+    "ru": "Университет"
+  },
+  {
+    "word": "Library",
+    "key": "library",
+    "hero": "zephyr",
+    "ru": "Библиотека"
+  },
+  {
+    "word": "Bridge",
+    "key": "bridge",
+    "hero": "zephyr",
+    "ru": "Мост"
+  },
+  {
+    "word": "Tower",
+    "key": "tower",
+    "hero": "zephyr",
+    "ru": "Башня"
+  },
+  {
+    "word": "Castle",
+    "key": "castle",
+    "hero": "zephyr",
+    "ru": "Замок"
+  },
+  {
+    "word": "Left",
+    "key": "left",
+    "hero": "zephyr",
+    "ru": "Налево / Левый"
+  },
+  {
+    "word": "Right",
+    "key": "right",
+    "hero": "zephyr",
+    "ru": "Направо / Правый"
+  },
+  {
+    "word": "Straight",
+    "key": "straight",
+    "hero": "zephyr",
+    "ru": "Прямо"
+  },
+  {
+    "word": "North",
+    "key": "north",
+    "hero": "zephyr",
+    "ru": "Север"
+  },
+  {
+    "word": "South",
+    "key": "south",
+    "hero": "zephyr",
+    "ru": "Юг"
+  },
+  {
+    "word": "East",
+    "key": "east",
+    "hero": "zephyr",
+    "ru": "Восток"
+  },
+  {
+    "word": "West",
+    "key": "west",
+    "hero": "zephyr",
+    "ru": "Запад"
+  },
+  {
+    "word": "Near",
+    "key": "near",
+    "hero": "zephyr",
+    "ru": "Около / Рядом"
+  },
+  {
+    "word": "Far",
+    "key": "far",
+    "hero": "zephyr",
+    "ru": "Далеко"
+  },
+  {
+    "word": "Here",
+    "key": "here",
+    "hero": "zephyr",
+    "ru": "Здесь"
+  },
+  {
+    "word": "There",
+    "key": "there",
+    "hero": "zephyr",
+    "ru": "Там"
+  },
+  {
+    "word": "Everywhere",
+    "key": "everywhere",
+    "hero": "zephyr",
+    "ru": "Везде"
+  },
+  {
+    "word": "In",
+    "key": "in",
+    "hero": "zephyr",
+    "ru": "В (внутри)"
+  },
+  {
+    "word": "On",
+    "key": "on",
+    "hero": "zephyr",
+    "ru": "На (поверхности)"
+  },
+  {
+    "word": "Under",
+    "key": "under",
+    "hero": "zephyr",
+    "ru": "Под"
+  },
+  {
+    "word": "Above",
+    "key": "above",
+    "hero": "zephyr",
+    "ru": "Над"
+  },
+  {
+    "word": "Behind",
+    "key": "behind",
+    "hero": "zephyr",
+    "ru": "За / Сзади"
+  },
+  {
+    "word": "In front of",
+    "key": "in_front_of",
+    "hero": "zephyr",
+    "ru": "Перед"
+  },
+  {
+    "word": "Between",
+    "key": "between",
+    "hero": "zephyr",
+    "ru": "Между"
+  },
+  {
+    "word": "Next to",
+    "key": "next_to",
+    "hero": "zephyr",
+    "ru": "Рядом с"
+  },
+  {
+    "word": "Go",
+    "key": "go",
+    "hero": "zephyr",
+    "ru": "Идти / Ехать"
+  },
+  {
+    "word": "Come",
+    "key": "come",
+    "hero": "zephyr",
+    "ru": "Приходить"
+  },
+  {
+    "word": "Walk",
+    "key": "walk",
+    "hero": "zephyr",
+    "ru": "Гулять пешком"
+  },
+  {
+    "word": "Run",
+    "key": "run",
+    "hero": "zephyr",
+    "ru": "Бегать"
+  },
+  {
+    "word": "Fly",
+    "key": "fly",
+    "hero": "zephyr",
+    "ru": "Летать"
+  },
+  {
+    "word": "Ride",
+    "key": "ride",
+    "hero": "zephyr",
+    "ru": "Ехать верхом"
+  },
+  {
+    "word": "Drive",
+    "key": "drive",
+    "hero": "zephyr",
+    "ru": "Водить (машину)"
+  },
+  {
+    "word": "Arrive",
+    "key": "arrive",
+    "hero": "zephyr",
+    "ru": "Прибывать"
+  },
+  {
+    "word": "Leave",
+    "key": "leave",
+    "hero": "zephyr",
+    "ru": "Уходить / Уезжать"
+  },
+  {
+    "word": "Bow",
+    "key": "bow",
+    "hero": "zephyr",
+    "ru": "Лук (оружие)"
+  },
+  {
+    "word": "Arrow",
+    "key": "arrow",
+    "hero": "zephyr",
+    "ru": "Стрела"
+  },
+  {
+    "word": "Target",
+    "key": "target",
+    "hero": "zephyr",
+    "ru": "Цель"
+  },
+  {
+    "word": "Swift",
+    "key": "swift",
+    "hero": "zephyr",
+    "ru": "Быстрый / Стремительный"
+  },
+  {
+    "word": "Scout",
+    "key": "scout",
+    "hero": "zephyr",
+    "ru": "Разведчик"
+  },
+  {
+    "word": "Peak",
+    "key": "peak",
+    "hero": "zephyr",
+    "ru": "Пик / Вершина"
+  },
+  {
+    "word": "Cross",
+    "key": "cross",
+    "hero": "zephyr",
+    "ru": "Переходить"
+  },
+  {
+    "word": "Follow",
+    "key": "follow",
+    "hero": "zephyr",
+    "ru": "Следовать"
+  },
+  {
+    "word": "Find",
+    "key": "find",
+    "hero": "zephyr",
+    "ru": "Находить"
+  },
+  {
+    "word": "Avenue",
+    "key": "avenue",
+    "hero": "zephyr",
+    "ru": "Проспект / Авеню"
+  },
+  {
+    "word": "Corner",
+    "key": "corner",
+    "hero": "zephyr",
+    "ru": "Угол (улицы)"
+  },
+  {
+    "word": "Crossroad",
+    "key": "crossroad",
+    "hero": "zephyr",
+    "ru": "Перекрёсток"
+  },
+  {
+    "word": "Route",
+    "key": "route",
+    "hero": "zephyr",
+    "ru": "Маршрут"
+  },
+  {
+    "word": "Direction",
+    "key": "direction",
+    "hero": "zephyr",
+    "ru": "Направление"
+  },
+  {
+    "word": "Passport",
+    "key": "passport",
+    "hero": "zephyr",
+    "ru": "Паспорт"
+  },
+  {
+    "word": "Border",
+    "key": "border",
+    "hero": "zephyr",
+    "ru": "Граница"
+  },
+  {
+    "word": "Tourist",
+    "key": "tourist",
+    "hero": "zephyr",
+    "ru": "Турист"
+  },
+  {
+    "word": "Tourism",
+    "key": "tourism",
+    "hero": "zephyr",
+    "ru": "Туризм"
+  },
+  {
+    "word": "Guide",
+    "key": "guide",
+    "hero": "zephyr",
+    "ru": "Гид / Экскурсовод"
+  },
+  {
+    "word": "Journey",
+    "key": "journey",
+    "hero": "zephyr",
+    "ru": "Путешествие"
+  },
+  {
+    "word": "Flight",
+    "key": "flight",
+    "hero": "zephyr",
+    "ru": "Полёт / Рейс"
+  },
+  {
+    "word": "Passenger",
+    "key": "passenger",
+    "hero": "zephyr",
+    "ru": "Пассажир"
+  },
+  {
+    "word": "Traffic",
+    "key": "traffic",
+    "hero": "zephyr",
+    "ru": "Дорожное движение"
+  },
+  {
+    "word": "Vehicle",
+    "key": "vehicle",
+    "hero": "zephyr",
+    "ru": "Транспортное средство"
+  },
+  {
+    "word": "Motorcycle",
+    "key": "motorcycle",
+    "hero": "zephyr",
+    "ru": "Мотоцикл"
+  },
+  {
+    "word": "Subway",
+    "key": "subway",
+    "hero": "zephyr",
+    "ru": "Метро (в США)"
+  },
+  {
+    "word": "Metro",
+    "key": "metro",
+    "hero": "zephyr",
+    "ru": "Метро"
+  },
+  {
+    "word": "Platform",
+    "key": "platform",
+    "hero": "zephyr",
+    "ru": "Платформа"
+  },
+  {
+    "word": "Destination",
+    "key": "destination",
+    "hero": "zephyr",
+    "ru": "Пункт назначения"
+  },
+  {
+    "word": "Location",
+    "key": "location",
+    "hero": "zephyr",
+    "ru": "Локация / Место"
+  },
+  {
+    "word": "District",
+    "key": "district",
+    "hero": "zephyr",
+    "ru": "Округ / Район"
+  },
+  {
+    "word": "Quarter",
+    "key": "quarter",
+    "hero": "zephyr",
+    "ru": "Квартал"
+  },
+  {
+    "word": "Port",
+    "key": "port",
+    "hero": "zephyr",
+    "ru": "Порт / Гавань"
+  },
+  {
+    "word": "Harbor",
+    "key": "harbor",
+    "hero": "zephyr",
+    "ru": "Гавань"
+  },
+  {
+    "word": "Add",
+    "key": "add",
+    "hero": "zephyr",
+    "ru": "Добавлять / Складывать"
+  },
+  {
+    "word": "Address",
+    "key": "address",
+    "hero": "zephyr",
+    "ru": "Адрес"
+  },
+  {
+    "word": "House",
+    "key": "house",
+    "hero": "thorin",
+    "ru": "Дом"
+  },
+  {
+    "word": "Home",
+    "key": "home",
+    "hero": "thorin",
+    "ru": "Дом (свой / домашний очаг)"
+  },
+  {
+    "word": "Room",
+    "key": "room",
+    "hero": "thorin",
+    "ru": "Комната"
+  },
+  {
+    "word": "Flat",
+    "key": "flat",
+    "hero": "thorin",
+    "ru": "Квартира"
+  },
+  {
+    "word": "Apartment",
+    "key": "apartment",
+    "hero": "thorin",
+    "ru": "Апартаменты"
+  },
+  {
+    "word": "Kitchen",
+    "key": "kitchen",
+    "hero": "thorin",
+    "ru": "Кухня"
+  },
+  {
+    "word": "Bedroom",
+    "key": "bedroom",
+    "hero": "thorin",
+    "ru": "Спальня"
+  },
+  {
+    "word": "Bathroom",
+    "key": "bathroom",
+    "hero": "thorin",
+    "ru": "Ванная"
+  },
+  {
+    "word": "Garden",
+    "key": "garden",
+    "hero": "thorin",
+    "ru": "Сад"
+  },
+  {
+    "word": "Floor",
+    "key": "floor",
+    "hero": "thorin",
+    "ru": "Пол / Этаж"
+  },
+  {
+    "word": "Wall",
+    "key": "wall",
+    "hero": "thorin",
+    "ru": "Стена"
+  },
+  {
+    "word": "Roof",
+    "key": "roof",
+    "hero": "thorin",
+    "ru": "Крыша"
+  },
+  {
+    "word": "Picture",
+    "key": "picture",
+    "hero": "thorin",
+    "ru": "Картина / Фото"
+  },
+  {
+    "word": "Television",
+    "key": "television",
+    "hero": "thorin",
+    "ru": "Телевизор"
+  },
+  {
+    "word": "TV",
+    "key": "tv",
+    "hero": "thorin",
+    "ru": "ТВ"
+  },
+  {
+    "word": "Mirror",
+    "key": "mirror",
+    "hero": "thorin",
+    "ru": "Зеркало"
+  },
+  {
+    "word": "Towel",
+    "key": "towel",
+    "hero": "thorin",
+    "ru": "Полотенце"
+  },
+  {
+    "word": "Sofa",
+    "key": "sofa",
+    "hero": "thorin",
+    "ru": "Диван"
+  },
+  {
+    "word": "Shelf",
+    "key": "shelf",
+    "hero": "thorin",
+    "ru": "Полка"
+  },
+  {
+    "word": "Hammer",
+    "key": "hammer",
+    "hero": "thorin",
+    "ru": "Молот"
+  },
+  {
+    "word": "Anvil",
+    "key": "anvil",
+    "hero": "thorin",
+    "ru": "Наковальня"
+  },
+  {
+    "word": "Forge",
+    "key": "forge",
+    "hero": "thorin",
+    "ru": "Кузница"
+  },
+  {
+    "word": "Metal",
+    "key": "metal",
+    "hero": "thorin",
+    "ru": "Металл"
+  },
+  {
+    "word": "Iron",
+    "key": "iron",
+    "hero": "thorin",
+    "ru": "Железо"
+  },
+  {
+    "word": "Gold",
+    "key": "gold",
+    "hero": "thorin",
+    "ru": "Золото"
+  },
+  {
+    "word": "Silver",
+    "key": "silver",
+    "hero": "thorin",
+    "ru": "Серебро"
+  },
+  {
+    "word": "Stone",
+    "key": "stone",
+    "hero": "thorin",
+    "ru": "Камень"
+  },
+  {
+    "word": "Wood",
+    "key": "wood",
+    "hero": "thorin",
+    "ru": "Древесина / Дерево"
+  },
+  {
+    "word": "Big",
+    "key": "big",
+    "hero": "thorin",
+    "ru": "Большой"
+  },
+  {
+    "word": "Large",
+    "key": "large",
+    "hero": "thorin",
+    "ru": "Крупный / Большой"
+  },
+  {
+    "word": "Small",
+    "key": "small",
+    "hero": "thorin",
+    "ru": "Маленький"
+  },
+  {
+    "word": "Little",
+    "key": "little",
+    "hero": "thorin",
+    "ru": "Небольшой"
+  },
+  {
+    "word": "Long",
+    "key": "long",
+    "hero": "thorin",
+    "ru": "Длинный"
+  },
+  {
+    "word": "Short",
+    "key": "short",
+    "hero": "thorin",
+    "ru": "Короткий"
+  },
+  {
+    "word": "Tall",
+    "key": "tall",
+    "hero": "thorin",
+    "ru": "Высокий"
+  },
+  {
+    "word": "Heavy",
+    "key": "heavy",
+    "hero": "thorin",
+    "ru": "Тяжёлый"
+  },
+  {
+    "word": "Weak",
+    "key": "weak",
+    "hero": "thorin",
+    "ru": "Слабый"
+  },
+  {
+    "word": "Hard",
+    "key": "hard",
+    "hero": "thorin",
+    "ru": "Твёрдый / Трудный"
+  },
+  {
+    "word": "Soft",
+    "key": "soft",
+    "hero": "thorin",
+    "ru": "Мягкий"
+  },
+  {
+    "word": "Dirty",
+    "key": "dirty",
+    "hero": "thorin",
+    "ru": "Грязный"
+  },
+  {
+    "word": "Empty",
+    "key": "empty",
+    "hero": "thorin",
+    "ru": "Пустой"
+  },
+  {
+    "word": "New",
+    "key": "new",
+    "hero": "thorin",
+    "ru": "Новый"
+  },
+  {
+    "word": "Old",
+    "key": "old",
+    "hero": "thorin",
+    "ru": "Старый"
+  },
+  {
+    "word": "Young",
+    "key": "young",
+    "hero": "thorin",
+    "ru": "Молодой"
+  },
+  {
+    "word": "Great",
+    "key": "great",
+    "hero": "thorin",
+    "ru": "Великий / Отличный"
+  },
+  {
+    "word": "Difficult",
+    "key": "difficult",
+    "hero": "thorin",
+    "ru": "Сложный"
+  },
+  {
+    "word": "Easy",
+    "key": "easy",
+    "hero": "thorin",
+    "ru": "Лёгкий (простой)"
+  },
+  {
+    "word": "Smith",
+    "key": "smith",
+    "hero": "thorin",
+    "ru": "Кузнец"
+  },
+  {
+    "word": "Mine",
+    "key": "mine",
+    "hero": "thorin",
+    "ru": "Шахта"
+  },
+  {
+    "word": "Ore",
+    "key": "ore",
+    "hero": "thorin",
+    "ru": "Руда"
+  },
+  {
+    "word": "Craft",
+    "key": "craft",
+    "hero": "thorin",
+    "ru": "Мастерить"
+  },
+  {
+    "word": "Build",
+    "key": "build",
+    "hero": "thorin",
+    "ru": "Строить"
+  },
+  {
+    "word": "Fix",
+    "key": "fix",
+    "hero": "thorin",
+    "ru": "Чинить"
+  },
+  {
+    "word": "Break",
+    "key": "break",
+    "hero": "thorin",
+    "ru": "Ломать"
+  },
+  {
+    "word": "Cut",
+    "key": "cut",
+    "hero": "thorin",
+    "ru": "Резать"
+  },
+  {
+    "word": "Lock",
+    "key": "lock",
+    "hero": "thorin",
+    "ru": "Замок / Запирать"
+  },
+  {
+    "word": "Thing",
+    "key": "thing",
+    "hero": "thorin",
+    "ru": "Вещь"
+  },
+  {
+    "word": "Object",
+    "key": "object",
+    "hero": "thorin",
+    "ru": "Предмет"
+  },
+  {
+    "word": "Piece",
+    "key": "piece",
+    "hero": "thorin",
+    "ru": "Кусок / Часть"
+  },
+  {
+    "word": "Part",
+    "key": "part",
+    "hero": "thorin",
+    "ru": "Часть"
+  },
+  {
+    "word": "Top",
+    "key": "top",
+    "hero": "thorin",
+    "ru": "Верх"
+  },
+  {
+    "word": "Bottom",
+    "key": "bottom",
+    "hero": "thorin",
+    "ru": "Низ"
+  },
+  {
+    "word": "Side",
+    "key": "side",
+    "hero": "thorin",
+    "ru": "Сторона"
+  },
+  {
+    "word": "Front",
+    "key": "front",
+    "hero": "thorin",
+    "ru": "Передняя часть"
+  },
+  {
+    "word": "Back",
+    "key": "back",
+    "hero": "thorin",
+    "ru": "Задняя часть / Спина"
+  },
+  {
+    "word": "Inside",
+    "key": "inside",
+    "hero": "thorin",
+    "ru": "Внутри"
+  },
+  {
+    "word": "Outside",
+    "key": "outside",
+    "hero": "thorin",
+    "ru": "Снаружи"
+  },
+  {
+    "word": "Curtain",
+    "key": "curtain",
+    "hero": "thorin",
+    "ru": "Штора / Занавеска"
+  },
+  {
+    "word": "Carpet",
+    "key": "carpet",
+    "hero": "thorin",
+    "ru": "Ковёр"
+  },
+  {
+    "word": "Rug",
+    "key": "rug",
+    "hero": "thorin",
+    "ru": "Коврик"
+  },
+  {
+    "word": "Blanket",
+    "key": "blanket",
+    "hero": "thorin",
+    "ru": "Одеяло"
+  },
+  {
+    "word": "Pillow",
+    "key": "pillow",
+    "hero": "thorin",
+    "ru": "Подушка"
+  },
+  {
+    "word": "Mattress",
+    "key": "mattress",
+    "hero": "thorin",
+    "ru": "Матрас"
+  },
+  {
+    "word": "Sheet",
+    "key": "sheet",
+    "hero": "thorin",
+    "ru": "Простыня / Лист"
+  },
+  {
+    "word": "Basement",
+    "key": "basement",
+    "hero": "thorin",
+    "ru": "Подвал"
+  },
+  {
+    "word": "Garage",
+    "key": "garage",
+    "hero": "thorin",
+    "ru": "Гараж"
+  },
+  {
+    "word": "Attic",
+    "key": "attic",
+    "hero": "thorin",
+    "ru": "Чердак"
+  },
+  {
+    "word": "Steel",
+    "key": "steel",
+    "hero": "thorin",
+    "ru": "Сталь"
+  },
+  {
+    "word": "Copper",
+    "key": "copper",
+    "hero": "thorin",
+    "ru": "Медь"
+  },
+  {
+    "word": "Bronze",
+    "key": "bronze",
+    "hero": "thorin",
+    "ru": "Бронза"
+  },
+  {
+    "word": "Clay",
+    "key": "clay",
+    "hero": "thorin",
+    "ru": "Глина"
+  },
+  {
+    "word": "Glassware",
+    "key": "glassware",
+    "hero": "thorin",
+    "ru": "Стеклянная посуда"
+  },
+  {
+    "word": "Brick",
+    "key": "brick",
+    "hero": "thorin",
+    "ru": "Кирпич"
+  },
+  {
+    "word": "Cement",
+    "key": "cement",
+    "hero": "thorin",
+    "ru": "Цемент"
+  },
+  {
+    "word": "Tool",
+    "key": "tool",
+    "hero": "thorin",
+    "ru": "Инструмент"
+  },
+  {
+    "word": "Workbench",
+    "key": "workbench",
+    "hero": "thorin",
+    "ru": "Верстак"
+  },
+  {
+    "word": "Chimney",
+    "key": "chimney",
+    "hero": "thorin",
+    "ru": "Дымоход"
+  },
+  {
+    "word": "Coal",
+    "key": "coal",
+    "hero": "thorin",
+    "ru": "Уголь"
+  },
+  {
+    "word": "Fireplace",
+    "key": "fireplace",
+    "hero": "thorin",
+    "ru": "Камин"
+  },
+  {
+    "word": "Cozy",
+    "key": "cozy",
+    "hero": "thorin",
+    "ru": "Уютный"
+  },
+  {
+    "word": "Solid",
+    "key": "solid",
+    "hero": "thorin",
+    "ru": "Твёрдый / Прочный"
+  },
+  {
+    "word": "Narrow",
+    "key": "narrow",
+    "hero": "thorin",
+    "ru": "Узкий"
+  },
+  {
+    "word": "Awesome",
+    "key": "awesome",
+    "hero": "thorin",
+    "ru": "Потрясающий"
+  },
+  {
+    "word": "Advice",
+    "key": "advice",
+    "hero": "thorin",
+    "ru": "Совет"
+  },
+  {
+    "word": "Afraid",
+    "key": "afraid",
+    "hero": "thorin",
+    "ru": "Испуганный / Боящийся"
+  },
+  {
+    "word": "After",
+    "key": "after",
+    "hero": "thorin",
+    "ru": "После"
+  },
+  {
+    "word": "Again",
+    "key": "again",
+    "hero": "thorin",
+    "ru": "Снова / Опять"
+  },
+  {
+    "word": "Age",
+    "key": "age",
+    "hero": "thorin",
+    "ru": "Возраст / Эпоха"
+  },
+  {
+    "word": "Agree",
+    "key": "agree",
+    "hero": "thorin",
+    "ru": "Соглашаться"
+  },
+  {
+    "word": "Also",
+    "key": "also",
+    "hero": "thorin",
+    "ru": "Также / Тоже"
+  },
+  {
+    "word": "Amazing",
+    "key": "amazing",
+    "hero": "thorin",
+    "ru": "Удивительный / Потрясающий"
+  },
+  {
+    "word": "And",
+    "key": "and",
+    "hero": "thorin",
+    "ru": "И"
+  },
+  {
+    "word": "Angry",
+    "key": "angry",
+    "hero": "thorin",
+    "ru": "Сердитый / Злой"
+  },
+  {
+    "word": "Any",
+    "key": "any",
+    "hero": "thorin",
+    "ru": "Любой / Какой-нибудь"
+  },
+  {
+    "word": "Area",
+    "key": "area",
+    "hero": "thorin",
+    "ru": "Область / Территория"
+  },
+  {
+    "word": "Around",
+    "key": "around",
+    "hero": "thorin",
+    "ru": "Вокруг / Около"
+  },
+  {
+    "word": "Artist",
+    "key": "artist",
+    "hero": "thorin",
+    "ru": "Художник / Артист"
+  },
+  {
+    "word": "As",
+    "key": "as",
+    "hero": "thorin",
+    "ru": "Как / В качестве"
+  },
+  {
+    "word": "Away",
+    "key": "away",
+    "hero": "thorin",
+    "ru": "Вдали / Прочь"
+  },
+  {
+    "word": "Body",
+    "key": "body",
+    "hero": "selene",
+    "ru": "Тело"
+  },
+  {
+    "word": "Head",
+    "key": "head",
+    "hero": "selene",
+    "ru": "Голова"
+  },
+  {
+    "word": "Hair",
+    "key": "hair",
+    "hero": "selene",
+    "ru": "Волосы"
+  },
+  {
+    "word": "Face",
+    "key": "face",
+    "hero": "selene",
+    "ru": "Лицо"
+  },
+  {
+    "word": "Eye",
+    "key": "eye",
+    "hero": "selene",
+    "ru": "Глаз"
+  },
+  {
+    "word": "Ear",
+    "key": "ear",
+    "hero": "selene",
+    "ru": "Ухо"
+  },
+  {
+    "word": "Nose",
+    "key": "nose",
+    "hero": "selene",
+    "ru": "Нос"
+  },
+  {
+    "word": "Mouth",
+    "key": "mouth",
+    "hero": "selene",
+    "ru": "Рот"
+  },
+  {
+    "word": "Tooth",
+    "key": "tooth",
+    "hero": "selene",
+    "ru": "Зуб"
+  },
+  {
+    "word": "Teeth",
+    "key": "teeth",
+    "hero": "selene",
+    "ru": "Зубы"
+  },
+  {
+    "word": "Hand",
+    "key": "hand",
+    "hero": "selene",
+    "ru": "Кисть руки"
+  },
+  {
+    "word": "Arm",
+    "key": "arm",
+    "hero": "selene",
+    "ru": "Рука (вся)"
+  },
+  {
+    "word": "Leg",
+    "key": "leg",
+    "hero": "selene",
+    "ru": "Нога"
+  },
+  {
+    "word": "Foot",
+    "key": "foot",
+    "hero": "selene",
+    "ru": "Ступня"
+  },
+  {
+    "word": "Feet",
+    "key": "feet",
+    "hero": "selene",
+    "ru": "Ступни"
+  },
+  {
+    "word": "Finger",
+    "key": "finger",
+    "hero": "selene",
+    "ru": "Палец (руки)"
+  },
+  {
+    "word": "Toe",
+    "key": "toe",
+    "hero": "selene",
+    "ru": "Палец (ноги)"
+  },
+  {
+    "word": "Heart",
+    "key": "heart",
+    "hero": "selene",
+    "ru": "Сердце"
+  },
+  {
+    "word": "Brain",
+    "key": "brain",
+    "hero": "selene",
+    "ru": "Мозг"
+  },
+  {
+    "word": "Skin",
+    "key": "skin",
+    "hero": "selene",
+    "ru": "Кожа"
+  },
+  {
+    "word": "Health",
+    "key": "health",
+    "hero": "selene",
+    "ru": "Здоровье"
+  },
+  {
+    "word": "Sick",
+    "key": "sick",
+    "hero": "selene",
+    "ru": "Больной"
+  },
+  {
+    "word": "Ill",
+    "key": "ill",
+    "hero": "selene",
+    "ru": "Нездоровый"
+  },
+  {
+    "word": "Pain",
+    "key": "pain",
+    "hero": "selene",
+    "ru": "Боль"
+  },
+  {
+    "word": "Can",
+    "key": "can",
+    "hero": "selene",
+    "ru": "Мочь / Уметь"
+  },
+  {
+    "word": "Cannot",
+    "key": "cannot",
+    "hero": "selene",
+    "ru": "Не мочь"
+  },
+  {
+    "word": "Can't",
+    "key": "can_t",
+    "hero": "selene",
+    "ru": "Не уметь (сокр.)"
+  },
+  {
+    "word": "Could",
+    "key": "could",
+    "hero": "selene",
+    "ru": "Мог"
+  },
+  {
+    "word": "Able",
+    "key": "able",
+    "hero": "selene",
+    "ru": "Способный"
+  },
+  {
+    "word": "Game",
+    "key": "game",
+    "hero": "selene",
+    "ru": "Игра"
+  },
+  {
+    "word": "Sport",
+    "key": "sport",
+    "hero": "selene",
+    "ru": "Спорт"
+  },
+  {
+    "word": "Football",
+    "key": "football",
+    "hero": "selene",
+    "ru": "Футбол"
+  },
+  {
+    "word": "Basketball",
+    "key": "basketball",
+    "hero": "selene",
+    "ru": "Баскетбол"
+  },
+  {
+    "word": "Tennis",
+    "key": "tennis",
+    "hero": "selene",
+    "ru": "Теннис"
+  },
+  {
+    "word": "Swimming",
+    "key": "swimming",
+    "hero": "selene",
+    "ru": "Плавание"
+  },
+  {
+    "word": "Dance",
+    "key": "dance",
+    "hero": "selene",
+    "ru": "Танцевать"
+  },
+  {
+    "word": "Sing",
+    "key": "sing",
+    "hero": "selene",
+    "ru": "Петь"
+  },
+  {
+    "word": "Song",
+    "key": "song",
+    "hero": "selene",
+    "ru": "Песня"
+  },
+  {
+    "word": "Music",
+    "key": "music",
+    "hero": "selene",
+    "ru": "Музыка"
+  },
+  {
+    "word": "Guitar",
+    "key": "guitar",
+    "hero": "selene",
+    "ru": "Гитара"
+  },
+  {
+    "word": "Piano",
+    "key": "piano",
+    "hero": "selene",
+    "ru": "Пианино"
+  },
+  {
+    "word": "Camera",
+    "key": "camera",
+    "hero": "selene",
+    "ru": "Камера"
+  },
+  {
+    "word": "Photo",
+    "key": "photo",
+    "hero": "selene",
+    "ru": "Фотография"
+  },
+  {
+    "word": "Movie",
+    "key": "movie",
+    "hero": "selene",
+    "ru": "Фильм"
+  },
+  {
+    "word": "Film",
+    "key": "film",
+    "hero": "selene",
+    "ru": "Кинофильм"
+  },
+  {
+    "word": "Art",
+    "key": "art",
+    "hero": "selene",
+    "ru": "Искусство"
+  },
+  {
+    "word": "Paint",
+    "key": "paint",
+    "hero": "selene",
+    "ru": "Рисовать красками"
+  },
+  {
+    "word": "Draw",
+    "key": "draw",
+    "hero": "selene",
+    "ru": "Чертить / Рисовать"
+  },
+  {
+    "word": "Hobby",
+    "key": "hobby",
+    "hero": "selene",
+    "ru": "Хобби"
+  },
+  {
+    "word": "Play",
+    "key": "play",
+    "hero": "selene",
+    "ru": "Играть"
+  },
+  {
+    "word": "Swim",
+    "key": "swim",
+    "hero": "selene",
+    "ru": "Плавать"
+  },
+  {
+    "word": "Jump",
+    "key": "jump",
+    "hero": "selene",
+    "ru": "Прыгать"
+  },
+  {
+    "word": "Climb",
+    "key": "climb",
+    "hero": "selene",
+    "ru": "Карабкаться"
+  },
+  {
+    "word": "Hide",
+    "key": "hide",
+    "hero": "selene",
+    "ru": "Прятаться"
+  },
+  {
+    "word": "Shadow",
+    "key": "shadow",
+    "hero": "selene",
+    "ru": "Тень"
+  },
+  {
+    "word": "Silent",
+    "key": "silent",
+    "hero": "selene",
+    "ru": "Тихий / Бесшумный"
+  },
+  {
+    "word": "Quiet",
+    "key": "quiet",
+    "hero": "selene",
+    "ru": "Тихий"
+  },
+  {
+    "word": "Fast",
+    "key": "fast",
+    "hero": "selene",
+    "ru": "Быстрый"
+  },
+  {
+    "word": "Quick",
+    "key": "quick",
+    "hero": "selene",
+    "ru": "Быстрый / Проворный"
+  },
+  {
+    "word": "Slow",
+    "key": "slow",
+    "hero": "selene",
+    "ru": "Медленный"
+  },
+  {
+    "word": "Active",
+    "key": "active",
+    "hero": "selene",
+    "ru": "Активный"
+  },
+  {
+    "word": "Fit",
+    "key": "fit",
+    "hero": "selene",
+    "ru": "В хорошей форме"
+  },
+  {
+    "word": "Energy",
+    "key": "energy",
+    "hero": "selene",
+    "ru": "Энергия"
+  },
+  {
+    "word": "Power",
+    "key": "power",
+    "hero": "selene",
+    "ru": "Сила / Мощь"
+  },
+  {
+    "word": "Skill",
+    "key": "skill",
+    "hero": "selene",
+    "ru": "Навык"
+  },
+  {
+    "word": "Practice",
+    "key": "practice",
+    "hero": "selene",
+    "ru": "Практика"
+  },
+  {
+    "word": "Win",
+    "key": "win",
+    "hero": "selene",
+    "ru": "Побеждать"
+  },
+  {
+    "word": "Lose",
+    "key": "lose",
+    "hero": "selene",
+    "ru": "Проигрывать"
+  },
+  {
+    "word": "Match",
+    "key": "match",
+    "hero": "selene",
+    "ru": "Матч"
+  },
+  {
+    "word": "Player",
+    "key": "player",
+    "hero": "selene",
+    "ru": "Игрок"
+  },
+  {
+    "word": "Club",
+    "key": "club",
+    "hero": "selene",
+    "ru": "Клуб"
+  },
+  {
+    "word": "Join",
+    "key": "join",
+    "hero": "selene",
+    "ru": "Присоединяться"
+  },
+  {
+    "word": "Move",
+    "key": "move",
+    "hero": "selene",
+    "ru": "Двигаться"
+  },
+  {
+    "word": "Stealth",
+    "key": "stealth",
+    "hero": "selene",
+    "ru": "Скрытность"
+  },
+  {
+    "word": "Assassin",
+    "key": "assassin",
+    "hero": "selene",
+    "ru": "Ассасин"
+  },
+  {
+    "word": "Stalker",
+    "key": "stalker",
+    "hero": "selene",
+    "ru": "Следопыт"
+  },
+  {
+    "word": "Dagger",
+    "key": "dagger",
+    "hero": "selene",
+    "ru": "Кинжал"
+  },
+  {
+    "word": "Mask",
+    "key": "mask",
+    "hero": "selene",
+    "ru": "Маска"
+  },
+  {
+    "word": "Dark",
+    "key": "dark",
+    "hero": "selene",
+    "ru": "Тёмный"
+  },
+  {
+    "word": "Guild",
+    "key": "guild",
+    "hero": "selene",
+    "ru": "Гильдия"
+  },
+  {
+    "word": "Neck",
+    "key": "neck",
+    "hero": "selene",
+    "ru": "Шея"
+  },
+  {
+    "word": "Shoulder",
+    "key": "shoulder",
+    "hero": "selene",
+    "ru": "Плечо"
+  },
+  {
+    "word": "Chest",
+    "key": "chest",
+    "hero": "selene",
+    "ru": "Грудь / Грудная клетка"
+  },
+  {
+    "word": "Stomach",
+    "key": "stomach",
+    "hero": "selene",
+    "ru": "Живот / Желудок"
+  },
+  {
+    "word": "Knee",
+    "key": "knee",
+    "hero": "selene",
+    "ru": "Колено"
+  },
+  {
+    "word": "Bone",
+    "key": "bone",
+    "hero": "selene",
+    "ru": "Кость"
+  },
+  {
+    "word": "Blood",
+    "key": "blood",
+    "hero": "selene",
+    "ru": "Кровь"
+  },
+  {
+    "word": "Muscle",
+    "key": "muscle",
+    "hero": "selene",
+    "ru": "Мускул / Мышца"
+  },
+  {
+    "word": "Voice",
+    "key": "voice",
+    "hero": "selene",
+    "ru": "Голос"
+  },
+  {
+    "word": "Sight",
+    "key": "sight",
+    "hero": "selene",
+    "ru": "Зрение / Взгляд"
+  },
+  {
+    "word": "Hearing",
+    "key": "hearing",
+    "hero": "selene",
+    "ru": "Слух"
+  },
+  {
+    "word": "Touch",
+    "key": "touch",
+    "hero": "selene",
+    "ru": "Прикосновение / Касаться"
+  },
+  {
+    "word": "Smell",
+    "key": "smell",
+    "hero": "selene",
+    "ru": "Запах / Обонять"
+  },
+  {
+    "word": "Emotion",
+    "key": "emotion",
+    "hero": "selene",
+    "ru": "Эмоция"
+  },
+  {
+    "word": "Mood",
+    "key": "mood",
+    "hero": "selene",
+    "ru": "Настроение"
+  },
+  {
+    "word": "Bandage",
+    "key": "bandage",
+    "hero": "selene",
+    "ru": "Бинт / Повязка"
+  },
+  {
+    "word": "Medicine",
+    "key": "medicine",
+    "hero": "selene",
+    "ru": "Лекарство"
+  },
+  {
+    "word": "Pill",
+    "key": "pill",
+    "hero": "selene",
+    "ru": "Таблетка"
+  },
+  {
+    "word": "Cure",
+    "key": "cure",
+    "hero": "selene",
+    "ru": "Лечение / Излечивать"
+  },
+  {
+    "word": "Bad",
+    "key": "bad",
+    "hero": "selene",
+    "ru": "Плохой"
+  },
+  {
+    "word": "Ball",
+    "key": "ball",
+    "hero": "selene",
+    "ru": "Мяч / Бал"
+  },
+  {
+    "word": "Band",
+    "key": "band",
+    "hero": "selene",
+    "ru": "Группа / Отряд"
+  },
+  {
+    "word": "Bank money",
+    "key": "bank_money",
+    "hero": "selene",
+    "ru": "Банк"
+  },
+  {
+    "word": "Bath",
+    "key": "bath",
+    "hero": "selene",
+    "ru": "Ванна / Купание"
+  },
+  {
+    "word": "Beautiful",
+    "key": "beautiful",
+    "hero": "selene",
+    "ru": "Красивый / Прекрасный"
+  },
+  {
+    "word": "Because",
+    "key": "because",
+    "hero": "selene",
+    "ru": "Потому что"
+  },
+  {
+    "word": "Before",
+    "key": "before",
+    "hero": "selene",
+    "ru": "До / Перед"
+  },
+  {
+    "word": "Begin",
+    "key": "begin",
+    "hero": "selene",
+    "ru": "Начинать"
+  },
+  {
+    "word": "Believe",
+    "key": "believe",
+    "hero": "selene",
+    "ru": "Верить"
+  },
+  {
+    "word": "Below",
+    "key": "below",
+    "hero": "selene",
+    "ru": "Внизу / Ниже"
+  },
+  {
+    "word": "Nature",
+    "key": "nature",
+    "hero": "oberon",
+    "ru": "Природа"
+  },
+  {
+    "word": "Tree",
+    "key": "tree",
+    "hero": "oberon",
+    "ru": "Дерево"
+  },
+  {
+    "word": "Plant",
+    "key": "plant",
+    "hero": "oberon",
+    "ru": "Растение"
+  },
+  {
+    "word": "Flower",
+    "key": "flower",
+    "hero": "oberon",
+    "ru": "Цветок"
+  },
+  {
+    "word": "Grass",
+    "key": "grass",
+    "hero": "oberon",
+    "ru": "Трава"
+  },
+  {
+    "word": "Forest",
+    "key": "forest",
+    "hero": "oberon",
+    "ru": "Лес"
+  },
+  {
+    "word": "Grove",
+    "key": "grove",
+    "hero": "oberon",
+    "ru": "Роща"
+  },
+  {
+    "word": "Leaf",
+    "key": "leaf",
+    "hero": "oberon",
+    "ru": "Лист"
+  },
+  {
+    "word": "Leaves",
+    "key": "leaves",
+    "hero": "oberon",
+    "ru": "Листья"
+  },
+  {
+    "word": "Branch",
+    "key": "branch",
+    "hero": "oberon",
+    "ru": "Ветка"
+  },
+  {
+    "word": "Root",
+    "key": "root",
+    "hero": "oberon",
+    "ru": "Корень"
+  },
+  {
+    "word": "Seed",
+    "key": "seed",
+    "hero": "oberon",
+    "ru": "Семя"
+  },
+  {
+    "word": "Earth",
+    "key": "earth",
+    "hero": "oberon",
+    "ru": "Земля"
+  },
+  {
+    "word": "Ground",
+    "key": "ground",
+    "hero": "oberon",
+    "ru": "Земля (почва)"
+  },
+  {
+    "word": "Soil",
+    "key": "soil",
+    "hero": "oberon",
+    "ru": "Почва"
+  },
+  {
+    "word": "Mountain",
+    "key": "mountain",
+    "hero": "oberon",
+    "ru": "Гора"
+  },
+  {
+    "word": "Hill",
+    "key": "hill",
+    "hero": "oberon",
+    "ru": "Холм"
+  },
+  {
+    "word": "River",
+    "key": "river",
+    "hero": "oberon",
+    "ru": "Река"
+  },
+  {
+    "word": "Lake",
+    "key": "lake",
+    "hero": "oberon",
+    "ru": "Озеро"
+  },
+  {
+    "word": "Sea",
+    "key": "sea",
+    "hero": "oberon",
+    "ru": "Море"
+  },
+  {
+    "word": "Ocean",
+    "key": "ocean",
+    "hero": "oberon",
+    "ru": "Океан"
+  },
+  {
+    "word": "Beach",
+    "key": "beach",
+    "hero": "oberon",
+    "ru": "Пляж"
+  },
+  {
+    "word": "Coast",
+    "key": "coast",
+    "hero": "oberon",
+    "ru": "Побережье"
+  },
+  {
+    "word": "Island",
+    "key": "island",
+    "hero": "oberon",
+    "ru": "Остров"
+  },
+  {
+    "word": "Moon",
+    "key": "moon",
+    "hero": "oberon",
+    "ru": "Луна"
+  },
+  {
+    "word": "Star",
+    "key": "star",
+    "hero": "oberon",
+    "ru": "Звезда"
+  },
+  {
+    "word": "Air",
+    "key": "air",
+    "hero": "oberon",
+    "ru": "Воздух"
+  },
+  {
+    "word": "Animal",
+    "key": "animal",
+    "hero": "oberon",
+    "ru": "Животное"
+  },
+  {
+    "word": "Dog",
+    "key": "dog",
+    "hero": "oberon",
+    "ru": "Собака"
+  },
+  {
+    "word": "Cat",
+    "key": "cat",
+    "hero": "oberon",
+    "ru": "Кошка"
+  },
+  {
+    "word": "Bird",
+    "key": "bird",
+    "hero": "oberon",
+    "ru": "Птица"
+  },
+  {
+    "word": "Horse",
+    "key": "horse",
+    "hero": "oberon",
+    "ru": "Лошадь"
+  },
+  {
+    "word": "Cow",
+    "key": "cow",
+    "hero": "oberon",
+    "ru": "Корова"
+  },
+  {
+    "word": "Pig",
+    "key": "pig",
+    "hero": "oberon",
+    "ru": "Свинья"
+  },
+  {
+    "word": "Sheep",
+    "key": "sheep",
+    "hero": "oberon",
+    "ru": "Овца"
+  },
+  {
+    "word": "Bear",
+    "key": "bear",
+    "hero": "oberon",
+    "ru": "Медведь"
+  },
+  {
+    "word": "Wolf",
+    "key": "wolf",
+    "hero": "oberon",
+    "ru": "Волк"
+  },
+  {
+    "word": "Lion",
+    "key": "lion",
+    "hero": "oberon",
+    "ru": "Лев"
+  },
+  {
+    "word": "Tiger",
+    "key": "tiger",
+    "hero": "oberon",
+    "ru": "Тигр"
+  },
+  {
+    "word": "Elephant",
+    "key": "elephant",
+    "hero": "oberon",
+    "ru": "Слон"
+  },
+  {
+    "word": "Monkey",
+    "key": "monkey",
+    "hero": "oberon",
+    "ru": "Обезьяна"
+  },
+  {
+    "word": "Snake",
+    "key": "snake",
+    "hero": "oberon",
+    "ru": "Змея"
+  },
+  {
+    "word": "Mouse",
+    "key": "mouse",
+    "hero": "oberon",
+    "ru": "Мышь"
+  },
+  {
+    "word": "Duck",
+    "key": "duck",
+    "hero": "oberon",
+    "ru": "Утка"
+  },
+  {
+    "word": "Rabbit",
+    "key": "rabbit",
+    "hero": "oberon",
+    "ru": "Кролик"
+  },
+  {
+    "word": "Pet",
+    "key": "pet",
+    "hero": "oberon",
+    "ru": "Домашний питомец"
+  },
+  {
+    "word": "Wild",
+    "key": "wild",
+    "hero": "oberon",
+    "ru": "Дикий"
+  },
+  {
+    "word": "Shining",
+    "key": "shining",
+    "hero": "oberon",
+    "ru": "Светящийся / Сияет"
+  },
+  {
+    "word": "Singing",
+    "key": "singing",
+    "hero": "oberon",
+    "ru": "Поющий / Поёт"
+  },
+  {
+    "word": "Walking",
+    "key": "walking",
+    "hero": "oberon",
+    "ru": "Идущий / Идёт"
+  },
+  {
+    "word": "Running",
+    "key": "running",
+    "hero": "oberon",
+    "ru": "Бегущий / Бежит"
+  },
+  {
+    "word": "Flying",
+    "key": "flying",
+    "hero": "oberon",
+    "ru": "Летящий / Летит"
+  },
+  {
+    "word": "Growing",
+    "key": "growing",
+    "hero": "oberon",
+    "ru": "Растущий / Растёт"
+  },
+  {
+    "word": "Living",
+    "key": "living",
+    "hero": "oberon",
+    "ru": "Живущий"
+  },
+  {
+    "word": "Right now",
+    "key": "right_now",
+    "hero": "oberon",
+    "ru": "Прямо сейчас"
+  },
+  {
+    "word": "At this moment",
+    "key": "at_this_moment",
+    "hero": "oberon",
+    "ru": "В этот момент"
+  },
+  {
+    "word": "Druid",
+    "key": "druid",
+    "hero": "oberon",
+    "ru": "Друид"
+  },
+  {
+    "word": "Arch-Druid",
+    "key": "arch_druid",
+    "hero": "oberon",
+    "ru": "Верховный Друид"
+  },
+  {
+    "word": "Peaceful",
+    "key": "peaceful",
+    "hero": "oberon",
+    "ru": "Мирный"
+  },
+  {
+    "word": "Environment",
+    "key": "environment",
+    "hero": "oberon",
+    "ru": "Окружающая среда"
+  },
+  {
+    "word": "World",
+    "key": "world",
+    "hero": "oberon",
+    "ru": "Мир (планета)"
+  },
+  {
+    "word": "Field",
+    "key": "field",
+    "hero": "oberon",
+    "ru": "Поле"
+  },
+  {
+    "word": "Rock",
+    "key": "rock",
+    "hero": "oberon",
+    "ru": "Скала"
+  },
+  {
+    "word": "Sand",
+    "key": "sand",
+    "hero": "oberon",
+    "ru": "Песок"
+  },
+  {
+    "word": "Storm",
+    "key": "storm",
+    "hero": "oberon",
+    "ru": "Шторм / Гроза"
+  },
+  {
+    "word": "Thunder",
+    "key": "thunder",
+    "hero": "oberon",
+    "ru": "Гром"
+  },
+  {
+    "word": "Sunlight",
+    "key": "sunlight",
+    "hero": "oberon",
+    "ru": "Солнечный свет"
+  },
+  {
+    "word": "Frog",
+    "key": "frog",
+    "hero": "oberon",
+    "ru": "Лягушка"
+  },
+  {
+    "word": "Fox",
+    "key": "fox",
+    "hero": "oberon",
+    "ru": "Лиса"
+  },
+  {
+    "word": "Deer",
+    "key": "deer",
+    "hero": "oberon",
+    "ru": "Олень"
+  },
+  {
+    "word": "Owl",
+    "key": "owl",
+    "hero": "oberon",
+    "ru": "Сова"
+  },
+  {
+    "word": "Eagle",
+    "key": "eagle",
+    "hero": "oberon",
+    "ru": "Орёл"
+  },
+  {
+    "word": "Insect",
+    "key": "insect",
+    "hero": "oberon",
+    "ru": "Насекомое"
+  },
+  {
+    "word": "Ant",
+    "key": "ant",
+    "hero": "oberon",
+    "ru": "Муравей"
+  },
+  {
+    "word": "Butterfly",
+    "key": "butterfly",
+    "hero": "oberon",
+    "ru": "Бабочка"
+  },
+  {
+    "word": "Spider",
+    "key": "spider",
+    "hero": "oberon",
+    "ru": "Паук"
+  },
+  {
+    "word": "Whale",
+    "key": "whale",
+    "hero": "oberon",
+    "ru": "Кит"
+  },
+  {
+    "word": "Dolphin",
+    "key": "dolphin",
+    "hero": "oberon",
+    "ru": "Дельфин"
+  },
+  {
+    "word": "Shark",
+    "key": "shark",
+    "hero": "oberon",
+    "ru": "Акула"
+  },
+  {
+    "word": "Turtle",
+    "key": "turtle",
+    "hero": "oberon",
+    "ru": "Черепаха"
+  },
+  {
+    "word": "Pond",
+    "key": "pond",
+    "hero": "oberon",
+    "ru": "Пруд"
+  },
+  {
+    "word": "Stream",
+    "key": "stream",
+    "hero": "oberon",
+    "ru": "Ручей"
+  },
+  {
+    "word": "Waterfall",
+    "key": "waterfall",
+    "hero": "oberon",
+    "ru": "Водопад"
+  },
+  {
+    "word": "Jungle",
+    "key": "jungle",
+    "hero": "oberon",
+    "ru": "Джунгли"
+  },
+  {
+    "word": "Desert",
+    "key": "desert",
+    "hero": "oberon",
+    "ru": "Пустыня"
+  },
+  {
+    "word": "Cave",
+    "key": "cave",
+    "hero": "oberon",
+    "ru": "Пещера"
+  },
+  {
+    "word": "Valley",
+    "key": "valley",
+    "hero": "oberon",
+    "ru": "Долина"
+  },
+  {
+    "word": "Meadow",
+    "key": "meadow",
+    "hero": "oberon",
+    "ru": "Луг"
+  },
+  {
+    "word": "Bush",
+    "key": "bush",
+    "hero": "oberon",
+    "ru": "Куст"
+  },
+  {
+    "word": "Woodland",
+    "key": "woodland",
+    "hero": "oberon",
+    "ru": "Лесистая местность"
+  },
+  {
+    "word": "Best",
+    "key": "best",
+    "hero": "oberon",
+    "ru": "Лучший"
+  },
+  {
+    "word": "Better",
+    "key": "better",
+    "hero": "oberon",
+    "ru": "Лучше"
+  },
+  {
+    "word": "Birthday",
+    "key": "birthday",
+    "hero": "oberon",
+    "ru": "День рождения"
+  },
+  {
+    "word": "Blog",
+    "key": "blog",
+    "hero": "oberon",
+    "ru": "Блог / Дневник"
+  },
+  {
+    "word": "Blonde",
+    "key": "blonde",
+    "hero": "oberon",
+    "ru": "Блондин / Светлые волосы"
+  },
+  {
+    "word": "Boot",
+    "key": "boot",
+    "hero": "oberon",
+    "ru": "Ботинок / Сапог"
+  },
+  {
+    "word": "Bored",
+    "key": "bored",
+    "hero": "oberon",
+    "ru": "Скучающий"
+  },
+  {
+    "word": "Boring",
+    "key": "boring",
+    "hero": "oberon",
+    "ru": "Скучный"
+  },
+  {
+    "word": "Born",
+    "key": "born",
+    "hero": "oberon",
+    "ru": "Рождённый"
+  },
+  {
+    "word": "Business",
+    "key": "business",
+    "hero": "oberon",
+    "ru": "Бизнес / Дело"
+  },
+  {
+    "word": "Busy",
+    "key": "busy",
+    "hero": "oberon",
+    "ru": "Занятой"
+  },
+  {
+    "word": "But",
+    "key": "but",
+    "hero": "oberon",
+    "ru": "Но"
+  },
+  {
+    "word": "By",
+    "key": "by",
+    "hero": "oberon",
+    "ru": "У / Около / К"
+  },
+  {
+    "word": "Bye",
+    "key": "bye",
+    "hero": "oberon",
+    "ru": "Пока (прощание)"
+  },
+  {
+    "word": "Cafe",
+    "key": "cafe",
+    "hero": "oberon",
+    "ru": "Кафе"
+  },
+  {
+    "word": "Capital",
+    "key": "capital",
+    "hero": "oberon",
+    "ru": "Столица / Заглавная буква"
+  },
+  {
+    "word": "Card",
+    "key": "card",
+    "hero": "oberon",
+    "ru": "Карточка / Карта"
+  },
+  {
+    "word": "Career",
+    "key": "career",
+    "hero": "oberon",
+    "ru": "Карьера / Путь"
+  },
+  {
+    "word": "Carry",
+    "key": "carry",
+    "hero": "oberon",
+    "ru": "Нести / Носить"
+  },
+  {
+    "word": "Cd",
+    "key": "cd",
+    "hero": "oberon",
+    "ru": "Компакт-диск"
+  },
+  {
+    "word": "Was",
+    "key": "was",
+    "hero": "freya",
+    "ru": "Был"
+  },
+  {
+    "word": "Were",
+    "key": "were",
+    "hero": "freya",
+    "ru": "Были"
+  },
+  {
+    "word": "Did",
+    "key": "did",
+    "hero": "freya",
+    "ru": "Делал (Past Simple)"
+  },
+  {
+    "word": "Went",
+    "key": "went",
+    "hero": "freya",
+    "ru": "Пошёл / Поехал"
+  },
+  {
+    "word": "Came",
+    "key": "came",
+    "hero": "freya",
+    "ru": "Пришёл"
+  },
+  {
+    "word": "Saw",
+    "key": "saw",
+    "hero": "freya",
+    "ru": "Увидел"
+  },
+  {
+    "word": "Had",
+    "key": "had",
+    "hero": "freya",
+    "ru": "Имел / Был"
+  },
+  {
+    "word": "Made",
+    "key": "made",
+    "hero": "freya",
+    "ru": "Сделал"
+  },
+  {
+    "word": "Took",
+    "key": "took",
+    "hero": "freya",
+    "ru": "Взял"
+  },
+  {
+    "word": "Gave",
+    "key": "gave",
+    "hero": "freya",
+    "ru": "Давал"
+  },
+  {
+    "word": "Fought",
+    "key": "fought",
+    "hero": "freya",
+    "ru": "Сражался"
+  },
+  {
+    "word": "Won",
+    "key": "won",
+    "hero": "freya",
+    "ru": "Победил"
+  },
+  {
+    "word": "Lost",
+    "key": "lost",
+    "hero": "freya",
+    "ru": "Потерял / Проиграл"
+  },
+  {
+    "word": "Traveled",
+    "key": "traveled",
+    "hero": "freya",
+    "ru": "Путешествовал"
+  },
+  {
+    "word": "Visit",
+    "key": "visit",
+    "hero": "freya",
+    "ru": "Посещать"
+  },
+  {
+    "word": "Visited",
+    "key": "visited",
+    "hero": "freya",
+    "ru": "Посетил"
+  },
+  {
+    "word": "Battle",
+    "key": "battle",
+    "hero": "freya",
+    "ru": "Битва"
+  },
+  {
+    "word": "Victory",
+    "key": "victory",
+    "hero": "freya",
+    "ru": "Победа"
+  },
+  {
+    "word": "Glory",
+    "key": "glory",
+    "hero": "freya",
+    "ru": "Слава"
+  },
+  {
+    "word": "Valkyrie",
+    "key": "valkyrie",
+    "hero": "freya",
+    "ru": "Валькирия"
+  },
+  {
+    "word": "Shieldmaiden",
+    "key": "shieldmaiden",
+    "hero": "freya",
+    "ru": "Дева щита"
+  },
+  {
+    "word": "Hall",
+    "key": "hall",
+    "hero": "freya",
+    "ru": "Зал / Холл"
+  },
+  {
+    "word": "Citadel",
+    "key": "citadel",
+    "hero": "freya",
+    "ru": "Цитадель"
+  },
+  {
+    "word": "Last",
+    "key": "last",
+    "hero": "freya",
+    "ru": "Прошлый"
+  },
+  {
+    "word": "Past",
+    "key": "past",
+    "hero": "freya",
+    "ru": "Прошлое"
+  },
+  {
+    "word": "History",
+    "key": "history",
+    "hero": "freya",
+    "ru": "История"
+  },
+  {
+    "word": "Legend",
+    "key": "legend",
+    "hero": "freya",
+    "ru": "Легенда"
+  },
+  {
+    "word": "Conquer",
+    "key": "conquer",
+    "hero": "freya",
+    "ru": "Завоёвывать"
+  },
+  {
+    "word": "Fight",
+    "key": "fight",
+    "hero": "freya",
+    "ru": "Сражение / Драться"
+  },
+  {
+    "word": "Heroic",
+    "key": "heroic",
+    "hero": "freya",
+    "ru": "Героический"
+  },
+  {
+    "word": "Courage",
+    "key": "courage",
+    "hero": "freya",
+    "ru": "Мужество"
+  },
+  {
+    "word": "Spear",
+    "key": "spear",
+    "hero": "freya",
+    "ru": "Копьё"
+  },
+  {
+    "word": "Wings",
+    "key": "wings",
+    "hero": "freya",
+    "ru": "Крылья"
+  },
+  {
+    "word": "War",
+    "key": "war",
+    "hero": "freya",
+    "ru": "Война"
+  },
+  {
+    "word": "Think",
+    "key": "think",
+    "hero": "freya",
+    "ru": "Думать"
+  },
+  {
+    "word": "Thought",
+    "key": "thought",
+    "hero": "freya",
+    "ru": "Думал / Мысль"
+  },
+  {
+    "word": "Know",
+    "key": "know",
+    "hero": "freya",
+    "ru": "Знать"
+  },
+  {
+    "word": "Knew",
+    "key": "knew",
+    "hero": "freya",
+    "ru": "Знал"
+  },
+  {
+    "word": "Understand",
+    "key": "understand",
+    "hero": "freya",
+    "ru": "Понимать"
+  },
+  {
+    "word": "Understood",
+    "key": "understood",
+    "hero": "freya",
+    "ru": "Понял"
+  },
+  {
+    "word": "Remember",
+    "key": "remember",
+    "hero": "freya",
+    "ru": "Помнить"
+  },
+  {
+    "word": "Forget",
+    "key": "forget",
+    "hero": "freya",
+    "ru": "Забывать"
+  },
+  {
+    "word": "Forgot",
+    "key": "forgot",
+    "hero": "freya",
+    "ru": "Забыл"
+  },
+  {
+    "word": "Say",
+    "key": "say",
+    "hero": "freya",
+    "ru": "Говорить / Сказать"
+  },
+  {
+    "word": "Said",
+    "key": "said",
+    "hero": "freya",
+    "ru": "Сказал"
+  },
+  {
+    "word": "Tell",
+    "key": "tell",
+    "hero": "freya",
+    "ru": "Рассказывать"
+  },
+  {
+    "word": "Told",
+    "key": "told",
+    "hero": "freya",
+    "ru": "Рассказал"
+  },
+  {
+    "word": "Speak",
+    "key": "speak",
+    "hero": "freya",
+    "ru": "Говорить (на языке)"
+  },
+  {
+    "word": "Spoke",
+    "key": "spoke",
+    "hero": "freya",
+    "ru": "Говорил"
+  },
+  {
+    "word": "Talk",
+    "key": "talk",
+    "hero": "freya",
+    "ru": "Разговаривать"
+  },
+  {
+    "word": "Listen",
+    "key": "listen",
+    "hero": "freya",
+    "ru": "Слушать"
+  },
+  {
+    "word": "Hear",
+    "key": "hear",
+    "hero": "freya",
+    "ru": "Слышать"
+  },
+  {
+    "word": "Heard",
+    "key": "heard",
+    "hero": "freya",
+    "ru": "Услышал"
+  },
+  {
+    "word": "Ask",
+    "key": "ask",
+    "hero": "freya",
+    "ru": "Спрашивать"
+  },
+  {
+    "word": "Answer",
+    "key": "answer",
+    "hero": "freya",
+    "ru": "Отвечать"
+  },
+  {
+    "word": "Write",
+    "key": "write",
+    "hero": "freya",
+    "ru": "Писать"
+  },
+  {
+    "word": "Wrote",
+    "key": "wrote",
+    "hero": "freya",
+    "ru": "Написал"
+  },
+  {
+    "word": "Read",
+    "key": "read",
+    "hero": "freya",
+    "ru": "Читать"
+  },
+  {
+    "word": "Learn",
+    "key": "learn",
+    "hero": "freya",
+    "ru": "Учиться"
+  },
+  {
+    "word": "Study",
+    "key": "study",
+    "hero": "freya",
+    "ru": "Изучать"
+  },
+  {
+    "word": "Teach",
+    "key": "teach",
+    "hero": "freya",
+    "ru": "Обучать"
+  },
+  {
+    "word": "Call",
+    "key": "call",
+    "hero": "freya",
+    "ru": "Звонить / Называть"
+  },
+  {
+    "word": "Send",
+    "key": "send",
+    "hero": "freya",
+    "ru": "Отправлять"
+  },
+  {
+    "word": "Sent",
+    "key": "sent",
+    "hero": "freya",
+    "ru": "Отправил"
+  },
+  {
+    "word": "Bring",
+    "key": "bring",
+    "hero": "freya",
+    "ru": "Приносить"
+  },
+  {
+    "word": "Brought",
+    "key": "brought",
+    "hero": "freya",
+    "ru": "Принёс"
+  },
+  {
+    "word": "Found",
+    "key": "found",
+    "hero": "freya",
+    "ru": "Нашёл"
+  },
+  {
+    "word": "Try",
+    "key": "try",
+    "hero": "freya",
+    "ru": "Пытаться"
+  },
+  {
+    "word": "Use",
+    "key": "use",
+    "hero": "freya",
+    "ru": "Использовать"
+  },
+  {
+    "word": "Used",
+    "key": "used",
+    "hero": "freya",
+    "ru": "Использовал"
+  },
+  {
+    "word": "Change",
+    "key": "change",
+    "hero": "freya",
+    "ru": "Менять"
+  },
+  {
+    "word": "Freedom",
+    "key": "freedom",
+    "hero": "freya",
+    "ru": "Свобода"
+  },
+  {
+    "word": "Novel",
+    "key": "novel",
+    "hero": "freya",
+    "ru": "Роман / Повесть"
+  },
+  {
+    "word": "Poem",
+    "key": "poem",
+    "hero": "freya",
+    "ru": "Стихотворение"
+  },
+  {
+    "word": "Poet",
+    "key": "poet",
+    "hero": "freya",
+    "ru": "Поэт"
+  },
+  {
+    "word": "Text",
+    "key": "text",
+    "hero": "freya",
+    "ru": "Текст"
+  },
+  {
+    "word": "Paragraph",
+    "key": "paragraph",
+    "hero": "freya",
+    "ru": "Абзац"
+  },
+  {
+    "word": "Chapter",
+    "key": "chapter",
+    "hero": "freya",
+    "ru": "Глава (в книге)"
+  },
+  {
+    "word": "Envelope",
+    "key": "envelope",
+    "hero": "freya",
+    "ru": "Конверт"
+  },
+  {
+    "word": "Postcard",
+    "key": "postcard",
+    "hero": "freya",
+    "ru": "Открытка"
+  },
+  {
+    "word": "Diary",
+    "key": "diary",
+    "hero": "freya",
+    "ru": "Дневник"
+  },
+  {
+    "word": "Notebook",
+    "key": "notebook",
+    "hero": "freya",
+    "ru": "Блокнот"
+  },
+  {
+    "word": "Magazine",
+    "key": "magazine",
+    "hero": "freya",
+    "ru": "Журнал"
+  },
+  {
+    "word": "Newspaper",
+    "key": "newspaper",
+    "hero": "freya",
+    "ru": "Газета"
+  },
+  {
+    "word": "Article",
+    "key": "article",
+    "hero": "freya",
+    "ru": "Статья"
+  },
+  {
+    "word": "Author",
+    "key": "author",
+    "hero": "freya",
+    "ru": "Автор"
+  },
+  {
+    "word": "Writer",
+    "key": "writer",
+    "hero": "freya",
+    "ru": "Писатель"
+  },
+  {
+    "word": "Publisher",
+    "key": "publisher",
+    "hero": "freya",
+    "ru": "Издатель"
+  },
+  {
+    "word": "Tale",
+    "key": "tale",
+    "hero": "freya",
+    "ru": "Сказка / Былина"
+  },
+  {
+    "word": "Myth",
+    "key": "myth",
+    "hero": "freya",
+    "ru": "Миф"
+  },
+  {
+    "word": "Saga",
+    "key": "saga",
+    "hero": "freya",
+    "ru": "Сага"
+  },
+  {
+    "word": "Epic",
+    "key": "epic",
+    "hero": "freya",
+    "ru": "Эпос / Эпический"
+  },
+  {
+    "word": "Memory",
+    "key": "memory",
+    "hero": "freya",
+    "ru": "Память"
+  },
+  {
+    "word": "Record",
+    "key": "record",
+    "hero": "freya",
+    "ru": "Запись / Рекорд"
+  },
+  {
+    "word": "Document",
+    "key": "document",
+    "hero": "freya",
+    "ru": "Документ"
+  },
+  {
+    "word": "Fact",
+    "key": "fact",
+    "hero": "freya",
+    "ru": "Факт"
+  },
+  {
+    "word": "Cent",
+    "key": "cent",
+    "hero": "freya",
+    "ru": "Цент / Монета"
+  },
+  {
+    "word": "Centre",
+    "key": "centre",
+    "hero": "freya",
+    "ru": "Центр"
+  },
+  {
+    "word": "Chart",
+    "key": "chart",
+    "hero": "freya",
+    "ru": "Таблица / Диаграмма"
+  },
+  {
+    "word": "Check",
+    "key": "check",
+    "hero": "freya",
+    "ru": "Проверять"
+  },
+  {
+    "word": "Choose",
+    "key": "choose",
+    "hero": "freya",
+    "ru": "Выбирать"
+  },
+  {
+    "word": "Cinema",
+    "key": "cinema",
+    "hero": "freya",
+    "ru": "Кинотеатр"
+  },
+  {
+    "word": "Class",
+    "key": "class",
+    "hero": "freya",
+    "ru": "Класс / Урок"
+  },
+  {
+    "word": "Classroom",
+    "key": "classroom",
+    "hero": "freya",
+    "ru": "Учебный класс"
+  },
+  {
+    "word": "College",
+    "key": "college",
+    "hero": "freya",
+    "ru": "Колледж / Академия"
+  },
+  {
+    "word": "Colour",
+    "key": "colour",
+    "hero": "freya",
+    "ru": "Цвет"
+  },
+  {
+    "word": "Common",
+    "key": "common",
+    "hero": "freya",
+    "ru": "Общий / Обычный"
+  },
+  {
+    "word": "Company",
+    "key": "company",
+    "hero": "freya",
+    "ru": "Компания / Отряд"
+  },
+  {
+    "word": "Compare",
+    "key": "compare",
+    "hero": "freya",
+    "ru": "Сравнивать"
+  },
+  {
+    "word": "Concert",
+    "key": "concert",
+    "hero": "freya",
+    "ru": "Концерт"
+  },
+  {
+    "word": "Going to",
+    "key": "going_to",
+    "hero": "eldrin",
+    "ru": "Собираться (сделать)"
+  },
+  {
+    "word": "Goal",
+    "key": "goal",
+    "hero": "eldrin",
+    "ru": "Цель"
+  },
+  {
+    "word": "Future",
+    "key": "future",
+    "hero": "eldrin",
+    "ru": "Будущее"
+  },
+  {
+    "word": "Plan",
+    "key": "plan",
+    "hero": "eldrin",
+    "ru": "План"
+  },
+  {
+    "word": "Achieve",
+    "key": "achieve",
+    "hero": "eldrin",
+    "ru": "Достигать"
+  },
+  {
+    "word": "Mastery",
+    "key": "mastery",
+    "hero": "eldrin",
+    "ru": "Мастерство"
+  },
+  {
+    "word": "Graduate",
+    "key": "graduate",
+    "hero": "eldrin",
+    "ru": "Выпускаться / Окончить"
+  },
+  {
+    "word": "Graduation",
+    "key": "graduation",
+    "hero": "eldrin",
+    "ru": "Выпускной / Завершение"
+  },
+  {
+    "word": "Mind",
+    "key": "mind",
+    "hero": "eldrin",
+    "ru": "Разум"
+  },
+  {
+    "word": "Wisdom",
+    "key": "wisdom",
+    "hero": "eldrin",
+    "ru": "Мудрость"
+  },
+  {
+    "word": "Knowledge",
+    "key": "knowledge",
+    "hero": "eldrin",
+    "ru": "Знания"
+  },
+  {
+    "word": "Idea",
+    "key": "idea",
+    "hero": "eldrin",
+    "ru": "Идея"
+  },
+  {
+    "word": "Problem",
+    "key": "problem",
+    "hero": "eldrin",
+    "ru": "Проблема"
+  },
+  {
+    "word": "Solution",
+    "key": "solution",
+    "hero": "eldrin",
+    "ru": "Решение"
+  },
+  {
+    "word": "Question",
+    "key": "question",
+    "hero": "eldrin",
+    "ru": "Вопрос"
+  },
+  {
+    "word": "Word",
+    "key": "word",
+    "hero": "eldrin",
+    "ru": "Слово"
+  },
+  {
+    "word": "Language",
+    "key": "language",
+    "hero": "eldrin",
+    "ru": "Язык"
+  },
+  {
+    "word": "Meaning",
+    "key": "meaning",
+    "hero": "eldrin",
+    "ru": "Значение / Смысл"
+  },
+  {
+    "word": "Example",
+    "key": "example",
+    "hero": "eldrin",
+    "ru": "Пример"
+  },
+  {
+    "word": "Rule",
+    "key": "rule",
+    "hero": "eldrin",
+    "ru": "Правило"
+  },
+  {
+    "word": "Number",
+    "key": "number",
+    "hero": "eldrin",
+    "ru": "Число / Номер"
+  },
+  {
+    "word": "Zero",
+    "key": "zero",
+    "hero": "eldrin",
+    "ru": "Ноль"
+  },
+  {
+    "word": "One",
+    "key": "one",
+    "hero": "eldrin",
+    "ru": "Один"
+  },
+  {
+    "word": "Two",
+    "key": "two",
+    "hero": "eldrin",
+    "ru": "Два"
+  },
+  {
+    "word": "Three",
+    "key": "three",
+    "hero": "eldrin",
+    "ru": "Три"
+  },
+  {
+    "word": "Four",
+    "key": "four",
+    "hero": "eldrin",
+    "ru": "Четыре"
+  },
+  {
+    "word": "Five",
+    "key": "five",
+    "hero": "eldrin",
+    "ru": "Пять"
+  },
+  {
+    "word": "Six",
+    "key": "six",
+    "hero": "eldrin",
+    "ru": "Шесть"
+  },
+  {
+    "word": "Seven",
+    "key": "seven",
+    "hero": "eldrin",
+    "ru": "Семь"
+  },
+  {
+    "word": "Eight",
+    "key": "eight",
+    "hero": "eldrin",
+    "ru": "Восемь"
+  },
+  {
+    "word": "Nine",
+    "key": "nine",
+    "hero": "eldrin",
+    "ru": "Девять"
+  },
+  {
+    "word": "Ten",
+    "key": "ten",
+    "hero": "eldrin",
+    "ru": "Десять"
+  },
+  {
+    "word": "Hundred",
+    "key": "hundred",
+    "hero": "eldrin",
+    "ru": "Сотая / Сотня"
+  },
+  {
+    "word": "Thousand",
+    "key": "thousand",
+    "hero": "eldrin",
+    "ru": "Тысяча"
+  },
+  {
+    "word": "First",
+    "key": "first",
+    "hero": "eldrin",
+    "ru": "Первый"
+  },
+  {
+    "word": "Third",
+    "key": "third",
+    "hero": "eldrin",
+    "ru": "Третий"
+  },
+  {
+    "word": "Final",
+    "key": "final",
+    "hero": "eldrin",
+    "ru": "Финальный"
+  },
+  {
+    "word": "End",
+    "key": "end",
+    "hero": "eldrin",
+    "ru": "Конец"
+  },
+  {
+    "word": "Beginning",
+    "key": "beginning",
+    "hero": "eldrin",
+    "ru": "Начало"
+  },
+  {
+    "word": "System",
+    "key": "system",
+    "hero": "eldrin",
+    "ru": "Система"
+  },
+  {
+    "word": "Way",
+    "key": "way",
+    "hero": "eldrin",
+    "ru": "Путь / Способ"
+  },
+  {
+    "word": "Point",
+    "key": "point",
+    "hero": "eldrin",
+    "ru": "Точка / Очко"
+  },
+  {
+    "word": "Type",
+    "key": "type",
+    "hero": "eldrin",
+    "ru": "Тип"
+  },
+  {
+    "word": "Kind",
+    "key": "kind",
+    "hero": "eldrin",
+    "ru": "Вид / Добрый"
+  },
+  {
+    "word": "Something",
+    "key": "something",
+    "hero": "eldrin",
+    "ru": "Что-то"
+  },
+  {
+    "word": "Anything",
+    "key": "anything",
+    "hero": "eldrin",
+    "ru": "Что угодно"
+  },
+  {
+    "word": "Nothing",
+    "key": "nothing",
+    "hero": "eldrin",
+    "ru": "Ничего"
+  },
+  {
+    "word": "Everything",
+    "key": "everything",
+    "hero": "eldrin",
+    "ru": "Всё"
+  },
+  {
+    "word": "Someone",
+    "key": "someone",
+    "hero": "eldrin",
+    "ru": "Кто-то"
+  },
+  {
+    "word": "Anyone",
+    "key": "anyone",
+    "hero": "eldrin",
+    "ru": "Кто угодно"
+  },
+  {
+    "word": "Everyone",
+    "key": "everyone",
+    "hero": "eldrin",
+    "ru": "Все"
+  },
+  {
+    "word": "Nobody",
+    "key": "nobody",
+    "hero": "eldrin",
+    "ru": "Никто"
+  },
+  {
+    "word": "All",
+    "key": "all",
+    "hero": "eldrin",
+    "ru": "Все / Всё"
+  },
+  {
+    "word": "Both",
+    "key": "both",
+    "hero": "eldrin",
+    "ru": "Оба"
+  },
+  {
+    "word": "Each",
+    "key": "each",
+    "hero": "eldrin",
+    "ru": "Каждый"
+  },
+  {
+    "word": "Other",
+    "key": "other",
+    "hero": "eldrin",
+    "ru": "Другой"
+  },
+  {
+    "word": "Another",
+    "key": "another",
+    "hero": "eldrin",
+    "ru": "Ещё один"
+  },
+  {
+    "word": "Same",
+    "key": "same",
+    "hero": "eldrin",
+    "ru": "Такой же"
+  },
+  {
+    "word": "Different",
+    "key": "different",
+    "hero": "eldrin",
+    "ru": "Разный"
+  },
+  {
+    "word": "Important",
+    "key": "important",
+    "hero": "eldrin",
+    "ru": "Важный"
+  },
+  {
+    "word": "Main",
+    "key": "main",
+    "hero": "eldrin",
+    "ru": "Главный"
+  },
+  {
+    "word": "Real",
+    "key": "real",
+    "hero": "eldrin",
+    "ru": "Реальный"
+  },
+  {
+    "word": "True",
+    "key": "true",
+    "hero": "eldrin",
+    "ru": "Истинный"
+  },
+  {
+    "word": "Possible",
+    "key": "possible",
+    "hero": "eldrin",
+    "ru": "Возможный"
+  },
+  {
+    "word": "Ready",
+    "key": "ready",
+    "hero": "eldrin",
+    "ru": "Готовый"
+  },
+  {
+    "word": "Complete",
+    "key": "complete",
+    "hero": "eldrin",
+    "ru": "Завершённый"
+  },
+  {
+    "word": "Grand",
+    "key": "grand",
+    "hero": "eldrin",
+    "ru": "Великий"
+  },
+  {
+    "word": "Archmage",
+    "key": "archmage",
+    "hero": "eldrin",
+    "ru": "Архимаг"
+  },
+  {
+    "word": "Spire",
+    "key": "spire",
+    "hero": "eldrin",
+    "ru": "Шпиль"
+  },
+  {
+    "word": "Success",
+    "key": "success",
+    "hero": "eldrin",
+    "ru": "Успех"
+  },
+  {
+    "word": "Graduated",
+    "key": "graduated",
+    "hero": "eldrin",
+    "ru": "Окончил"
+  },
+  {
+    "word": "Master",
+    "key": "master",
+    "hero": "eldrin",
+    "ru": "Мастер"
+  },
+  {
+    "word": "Education",
+    "key": "education",
+    "hero": "eldrin",
+    "ru": "Образование"
+  },
+  {
+    "word": "Academy",
+    "key": "academy",
+    "hero": "eldrin",
+    "ru": "Академия"
+  },
+  {
+    "word": "Course",
+    "key": "course",
+    "hero": "eldrin",
+    "ru": "Курс обучения"
+  },
+  {
+    "word": "Subject",
+    "key": "subject",
+    "hero": "eldrin",
+    "ru": "Учебный предмет"
+  },
+  {
+    "word": "Exercise",
+    "key": "exercise",
+    "hero": "eldrin",
+    "ru": "Упражнение"
+  },
+  {
+    "word": "Exam",
+    "key": "exam",
+    "hero": "eldrin",
+    "ru": "Экзамен"
+  },
+  {
+    "word": "Grade",
+    "key": "grade",
+    "hero": "eldrin",
+    "ru": "Оценка / Был"
+  },
+  {
+    "word": "Mark",
+    "key": "mark",
+    "hero": "eldrin",
+    "ru": "Оценка / Отметка"
+  },
+  {
+    "word": "Score",
+    "key": "score",
+    "hero": "eldrin",
+    "ru": "Счёт / Баллы"
+  },
+  {
+    "word": "Diploma",
+    "key": "diploma",
+    "hero": "eldrin",
+    "ru": "Диплом"
+  },
+  {
+    "word": "Certificate",
+    "key": "certificate",
+    "hero": "eldrin",
+    "ru": "Сертификат"
+  },
+  {
+    "word": "Level",
+    "key": "level",
+    "hero": "eldrin",
+    "ru": "Уровень"
+  },
+  {
+    "word": "Rank",
+    "key": "rank",
+    "hero": "eldrin",
+    "ru": "Ранг"
+  },
+  {
+    "word": "Progress",
+    "key": "progress",
+    "hero": "eldrin",
+    "ru": "Прогресс"
+  },
+  {
+    "word": "Result",
+    "key": "result",
+    "hero": "eldrin",
+    "ru": "Результат"
+  },
+  {
+    "word": "Ability",
+    "key": "ability",
+    "hero": "eldrin",
+    "ru": "Способность"
+  },
+  {
+    "word": "Fluency",
+    "key": "fluency",
+    "hero": "eldrin",
+    "ru": "Беглость речи"
+  },
+  {
+    "word": "Correct",
+    "key": "correct",
+    "hero": "eldrin",
+    "ru": "Правильный / Исправлять"
+  },
+  {
+    "word": "Correspond",
+    "key": "correspond",
+    "hero": "eldrin",
+    "ru": "Переписываться / Соответствовать"
+  },
+  {
+    "word": "Create",
+    "key": "create",
+    "hero": "eldrin",
+    "ru": "Создавать"
+  },
+  {
+    "word": "Culture",
+    "key": "culture",
+    "hero": "eldrin",
+    "ru": "Культура"
+  },
+  {
+    "word": "Customer",
+    "key": "customer",
+    "hero": "eldrin",
+    "ru": "Покупатель / Клиент"
+  },
+  {
+    "word": "Dad",
+    "key": "dad",
+    "hero": "eldrin",
+    "ru": "Папа"
+  },
+  {
+    "word": "Dancer",
+    "key": "dancer",
+    "hero": "eldrin",
+    "ru": "Танцор"
+  },
+  {
+    "word": "Dancing",
+    "key": "dancing",
+    "hero": "eldrin",
+    "ru": "Танцы"
+  },
+  {
+    "word": "Dangerous",
+    "key": "dangerous",
+    "hero": "eldrin",
+    "ru": "Опасный"
+  },
+  {
+    "word": "Date",
+    "key": "date",
+    "hero": "eldrin",
+    "ru": "Дата / Свидание"
+  },
+  {
+    "word": "Dear",
+    "key": "dear",
+    "hero": "eldrin",
+    "ru": "Дорогой / Уважаемый"
+  },
+  {
+    "word": "Decide",
+    "key": "decide",
+    "hero": "eldrin",
+    "ru": "Решать / Принимать решение"
+  },
+  {
+    "word": "Delicious",
+    "key": "delicious",
+    "hero": "eldrin",
+    "ru": "Вкусный"
+  },
+  {
+    "word": "Describe",
+    "key": "describe",
+    "hero": "eldrin",
+    "ru": "Описывать"
+  },
+  {
+    "word": "Description",
+    "key": "description",
+    "hero": "eldrin",
+    "ru": "Описание"
+  },
+  {
+    "word": "Design",
+    "key": "design",
+    "hero": "eldrin",
+    "ru": "Дизайн / Проект"
+  },
+  {
+    "word": "Det",
+    "key": "det",
+    "hero": "eldrin",
+    "ru": "Решительный (Determined)"
+  },
+  {
+    "word": "Detail",
+    "key": "detail",
+    "hero": "eldrin",
+    "ru": "Деталь / Подробность"
+  },
+  {
+    "word": "Dialogue",
+    "key": "dialogue",
+    "hero": "eldrin",
+    "ru": "Диалог"
+  },
+  {
+    "word": "Dictionary",
+    "key": "dictionary",
+    "hero": "eldrin",
+    "ru": "Словарь"
+  },
+  {
+    "word": "Die",
+    "key": "die",
+    "hero": "eldrin",
+    "ru": "Умирать"
+  }
+]

@@ -574,6 +574,36 @@ class VoiceService {
         const rate = Math.max(0.1, Math.min(10, baseRate * effectiveSpeed));
         const gender = heroVoiceConfig?.gender || null;
 
+        // 0. Pre-recorded Offline Vocabulary Audio Check (Zero tokens, instant 0.0s latency)
+        const wordCount = cleanText.split(/\s+/).length;
+        if (wordCount <= 3) {
+            const cleanKey = cleanText.toLowerCase().replace(/[^a-z0-9]/g, '_');
+            const localWordUrl = `/audio/words/${cleanKey}.wav`;
+            try {
+                const checkRes = await fetch(localWordUrl, { method: 'HEAD' });
+                if (checkRes.ok && checkRes.status === 200) {
+                    if (onStart) onStart();
+                    const audio = new Audio(localWordUrl);
+                    audio.defaultPlaybackRate = effectiveSpeed;
+                    audio.playbackRate = effectiveSpeed;
+                    audio.preservesPitch = true;
+                    this.currentAudio = audio;
+                    audio.onended = () => {
+                        this.currentAudio = null;
+                        if (onEnd) onEnd();
+                    };
+                    audio.onerror = () => {
+                        this.currentAudio = null;
+                        this.speakNative(cleanText, onStart, onEnd, pitch, rate, gender);
+                    };
+                    audio.play().catch(() => audio.onerror());
+                    return;
+                }
+            } catch (e) {
+                // Proceed to online pipeline if file check fails
+            }
+        }
+
         // 1. Google Gemini Live Audio (Rich Emotional Intonations)
         const geminiKey = localStorage.getItem("gemini_api_key") || "";
         const preferGemini = this.ttsEngine === 'gemini' || (this.ttsEngine !== 'native' && geminiKey);
