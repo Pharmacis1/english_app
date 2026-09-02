@@ -268,18 +268,17 @@ app.post('/api/ai/chat', async (req, res) => {
             const data = await resp.json();
             return res.json({ success: true, content: data.choices[0].message.content });
         } else if (provider === 'gemini') {
-            const apiKey = req.body.apiKey || process.env.GEMINI_API_KEY || '';
+            const apiKey = process.env.GEMINI_API_KEY || req.body.apiKey || '';
             if (!apiKey) throw new Error("Gemini API Key missing. Please provide API Key in Local AI Settings.");
 
             let primaryModel = model || 'gemini-3.5-flash-lite';
-            if (!primaryModel || primaryModel.includes('2.5') || primaryModel.includes('2.0') || primaryModel.includes('1.5') || primaryModel.includes(':') || primaryModel.includes('qwen') || primaryModel.includes('llama') || primaryModel.includes('mistral') || !primaryModel.startsWith('gemini')) {
+            if (!primaryModel || primaryModel.includes('3.7') || primaryModel.includes('2.5') || primaryModel.includes('2.0') || primaryModel.includes('1.5') || primaryModel.includes(':') || primaryModel.includes('qwen') || primaryModel.includes('llama') || primaryModel.includes('mistral') || !primaryModel.startsWith('gemini')) {
                 primaryModel = 'gemini-3.5-flash-lite';
             }
             const modelCascade = Array.from(new Set([
                 primaryModel, 
                 'gemini-3.5-flash-lite', 
-                'gemini-3.5-flash', 
-                'gemini-3.7-flash'
+                'gemini-3.5-flash'
             ]));
 
             async function callGeminiApi(targetModel) {
@@ -482,7 +481,7 @@ app.post('/api/ai/gemini-tts', async (req, res) => {
         const { text, voiceName: clientVoice, apiKey: clientApiKey } = req.body;
         if (!text) return res.status(400).json({ success: false, error: "Text payload missing" });
 
-        const apiKey = clientApiKey || process.env.GEMINI_API_KEY || '';
+        const apiKey = process.env.GEMINI_API_KEY || clientApiKey || '';
         if (!apiKey) return res.status(401).json({ success: false, error: "Gemini API Key missing. Please provide API Key in Settings." });
 
         const voiceName = clientVoice || 'Fenrir'; // Kore, Puck, Charon, Fenrir, Aoede
