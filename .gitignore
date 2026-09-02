@@ -7,4 +7,6 @@ voices.bin
 voices.json
 __pycache__/
 scratch/
+*credentials*.json
+*.pem
 
