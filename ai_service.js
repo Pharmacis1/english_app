@@ -405,6 +405,63 @@ RULES:
         return englishText;
     }
 
+    async analyzeSpeakingSprint(transcript, topic) {
+        if (!transcript || transcript.trim().length < 5) {
+            return {
+                praise: "Вы сделали первый шаг! В следующем раунде постарайтесь сказать на 1-2 предложения больше.",
+                corrections: [],
+                boosters: (topic && topic.hints) || ["First of all...", "In my opinion...", "For example..."]
+            };
+        }
+
+        try {
+            const topicTitle = (topic && topic.title) || "Daily Life";
+            const systemPrompt = `You are a friendly, encouraging English speaking fluency coach (CEFR A1-B2).
+The student just completed a 60-second or 45-second speaking sprint on the topic: "${topicTitle}".
+Analyze the student's spoken transcript. Provide brief, constructive feedback in RUSSIAN with practical English examples.
+
+You MUST return valid raw JSON in this exact structure without markdown backticks:
+{
+  "praise": "Краткая похвала на русском (1 предложение с цитатой удачного оборота)",
+  "corrections": [
+    { "original": "фрагмент с ошибкой", "improved": "исправленный естественный вариант", "why": "краткое понятное пояснение на русском" }
+  ],
+  "boosters": ["2-3 полезные вводные связки на английском для следующего раунда, например: 'What I enjoy most is...', 'In addition...'"]
+}`;
+
+            const response = await fetch('/api/ai/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    provider: 'gemini',
+                    model: 'gemini-3.5-flash-lite',
+                    messages: [
+                        { role: 'system', content: systemPrompt },
+                        { role: 'user', content: `Student's spoken transcript:\n"${transcript}"` }
+                    ]
+                })
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                if (data.success && data.content) {
+                    let text = data.content.replace(/```json/gi, '').replace(/```/g, '').trim();
+                    const parsed = JSON.parse(text);
+                    return parsed;
+                }
+            }
+        } catch (e) {
+            console.warn("[AI Service] Speaking sprint analysis error:", e);
+        }
+
+        // Offline / Fallback heuristic analysis
+        return {
+            praise: "Отличная попытка! Главное — продолжать говорить без долгих пауз.",
+            corrections: [],
+            boosters: (topic && topic.hints) || ["To be honest...", "For instance...", "What I mean is..."]
+        };
+    }
+
     parseAIOutput(rawText) {
         let text = rawText;
         let correction = null;

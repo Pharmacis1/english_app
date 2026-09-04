@@ -1,7 +1,7 @@
 /**
- * SPEAKING & FLUENCY ENGINE (4/3/2 SPRINT & BLITZ Q&A)
+ * SPEAKING & FLUENCY ENGINE (4/3/2 SPRINT & BLITZ Q&A) - Version 2.0
  * 1..100 Levels • 300,000 Total Spoken Words • Continuous Speech Flow
- * Prof. Paul Nation's Fluency Methodology + Rapid Fire Q&A
+ * Prof. Paul Nation's Fluency Methodology + Real-Life Practical Topics
  */
 
 class SpeakingFluencyEngine {
@@ -18,11 +18,12 @@ class SpeakingFluencyEngine {
         // 4/3/2 Sprint State
         this.sprintRound = 1; // 1 (60s), 2 (45s), 3 (30s)
         this.sprintDurations = [60, 45, 30];
-        this.sprintTimer = null;
-        this.sprintSecondsLeft = 60;
-        this.sprintWordsInRound = [0, 0, 0];
+        this.sprintRoundWords = [0, 0, 0];
         this.sprintTranscripts = ["", "", ""];
         this.sprintWpm = [0, 0, 0];
+        this.sprintAudioBlobs = [null, null, null];
+        this.sprintAudioUrls = ["", "", ""];
+        this.sprintAiFeedback = [null, null, null];
         this.isSprintActive = false;
         this.activeTopic = null;
 
@@ -119,52 +120,224 @@ class SpeakingFluencyEngine {
     }
 
     initTopicsAndQuestions() {
+        this.categories = [
+            { id: "all", name: "✨ Все темы (Случайно)" },
+            { id: "daily", name: "☕ Мой день и привычки" },
+            { id: "travel", name: "✈️ Путешествия и места" },
+            { id: "food", name: "🍕 Еда и рестораны" },
+            { id: "shopping", name: "🛍️ Покупки и быт" },
+            { id: "leisure", name: "🎬 Досуг, фильмы и отдых" },
+            { id: "stories", name: "🎈 Истории из жизни" }
+        ];
+
         this.topics = [
+            // 1. Daily Routine & Habits
             {
-                id: "battle_prep",
-                title: "🛡️ Preparing for Battle",
-                prompt: "Tell your squad how you prepare your armor, weapons, and magical spells before venturing into the dangerous wild.",
-                hints: ["I check my sword...", "First, I put on my armor...", "We must be careful because..."]
+                id: "morning_routine",
+                category: "daily",
+                title: "☀️ Моё идеальное утро (My Morning Routine)",
+                prompt: "Describe your morning routine. What time do you wake up, what do you eat or drink, and what helps you start a good day?",
+                questions: [
+                    "What time do you usually wake up?",
+                    "What is your favorite breakfast or morning drink?",
+                    "How do you feel in the morning: energetic or sleepy?"
+                ],
+                hints: ["Usually, I wake up around...", "First of all, I have...", "What I really enjoy in the morning is..."]
             },
             {
-                id: "daily_routine",
-                title: "☀️ My Daily Routine in Camp",
-                prompt: "Describe your morning in the heroes' camp. What do you eat, who do you talk to, and what training do you do?",
-                hints: ["Every morning I wake up early...", "For breakfast, I usually have...", "Then I practice with..."]
+                id: "lazy_sunday",
+                category: "daily",
+                title: "🛋️ Идеальное ленивое воскресенье (My Lazy Sunday)",
+                prompt: "Tell how you like to spend a relaxing day off. Where do you go, what do you do, and who do you spend time with?",
+                questions: [
+                    "Do you stay at home or go outside?",
+                    "What movies, music, or hobbies do you enjoy on weekends?",
+                    "Why is this kind of rest important for you?"
+                ],
+                hints: ["On my day off, I prefer to...", "In the afternoon, I usually...", "To be honest, the best way to relax is..."]
+            },
+            {
+                id: "working_day",
+                category: "daily",
+                title: "💼 Мой рабочий день (A Typical Working Day)",
+                prompt: "Describe what a normal working or study day looks like for you. What tasks do you do, and how do you stay focused?",
+                questions: [
+                    "Where do you work: in an office or from home?",
+                    "What is the most interesting or difficult part of your work?",
+                    "When do you usually finish your workday?"
+                ],
+                hints: ["My workday usually begins with...", "The most important task for me is...", "After finishing work, I like to..."]
+            },
+
+            // 2. Travel & Places
+            {
+                id: "memorable_trip",
+                category: "travel",
+                title: "🌍 Незабываемое путешествие (A Memorable Vacation)",
+                prompt: "Tell about a memorable trip, vacation, or weekend getaway. Where did you go, what did you see, and what was the atmosphere like?",
+                questions: [
+                    "Which city or country did you visit?",
+                    "What was the most beautiful or surprising thing you saw?",
+                    "Would you like to go back there again?"
+                ],
+                hints: ["A few months ago, I visited...", "The place was truly amazing because...", "What impressed me most was..."]
             },
             {
                 id: "favorite_city",
-                title: "🏰 The Great Capital City",
-                prompt: "Describe a grand medieval city or a fantasy town you visited. What buildings, merchants, and sights did you see?",
-                hints: ["The city was huge and noisy...", "In the central square, there was...", "I liked the tall towers because..."]
+                category: "travel",
+                title: "🏙️ Мой любимый город (My Favorite City or Place)",
+                prompt: "Describe your hometown or a city you love walking in. What places do you recommend visiting, and what makes it special?",
+                questions: [
+                    "What are the best walking spots in this city?",
+                    "What is the weather and atmosphere like?",
+                    "Why do you feel comfortable there?"
+                ],
+                hints: ["My favorite city has a unique vibe because...", "If you visit, you should definitely check out...", "I love walking along..."]
             },
             {
-                id: "mysterious_forest",
-                title: "🌲 The Whispering Woods",
-                prompt: "Tell the story of how you got lost in a dark enchanted forest. What strange sounds and creatures did you encounter?",
-                hints: ["The trees were very tall...", "Suddenly, I heard a strange sound...", "I found my way out by..."]
+                id: "dream_destination",
+                category: "travel",
+                title: "✈️ Путешествие мечты (My Dream Trip)",
+                prompt: "If you could fly anywhere in the world tomorrow, where would you go and what would you do there first?",
+                questions: [
+                    "Which country or island do you dream of visiting?",
+                    "Who would you take with you on this journey?",
+                    "What local food or sights would you try first?"
+                ],
+                hints: ["I have always dreamed of traveling to...", "The first thing I would do there is...", "I think it would be an unforgettable experience because..."]
+            },
+
+            // 3. Food & Cafes
+            {
+                id: "favorite_dish",
+                category: "food",
+                title: "🍝 Любимая еда и готовка (My Favorite Food)",
+                prompt: "Talk about your favorite dish, cuisine, or a meal you love cooking. Why do you like it so much?",
+                questions: [
+                    "What is your all-time favorite meal?",
+                    "Do you prefer cooking at home or eating out?",
+                    "What ingredients make this food so delicious?"
+                ],
+                hints: ["When it comes to food, I really love...", "I often prepare it by...", "For me, the secret ingredient is..."]
             },
             {
-                id: "legendary_artifact",
-                title: "✨ Finding a Magic Artifact",
-                prompt: "You discovered an ancient glowing artifact in a dungeon. Describe its appearance, magical powers, and why it is important.",
-                hints: ["It was made of shining silver...", "When I touched it, I felt...", "This artifact can protect our kingdom from..."]
+                id: "cozy_cafe",
+                category: "food",
+                title: "☕ Уютное кафе или ресторан (A Cozy Place to Eat)",
+                prompt: "Describe a cafe, bakery, or restaurant you really enjoy visiting. What is the interior, service, and dessert like?",
+                questions: [
+                    "What kind of drinks or desserts do you order there?",
+                    "Is it a quiet spot for thinking, or a lively place with friends?",
+                    "Why do you recommend this place?"
+                ],
+                hints: ["There is a lovely cafe near my place where...", "The atmosphere is very warm and cozy because...", "I always order their delicious..."]
+            },
+
+            // 4. Shopping & Lifestyle
+            {
+                id: "great_purchase",
+                category: "shopping",
+                title: "🛍️ Удачная покупка (A Great Purchase I Love)",
+                prompt: "Tell about an item, gadget, or piece of clothing you bought recently that made your life better or happier.",
+                questions: [
+                    "What did you buy and where?",
+                    "How often do you use it in everyday life?",
+                    "Why was it definitely worth the money?"
+                ],
+                hints: ["Recently, I bought a new...", "It turned out to be very useful because...", "I am really satisfied with this purchase because..."]
+            },
+            {
+                id: "ideal_home",
+                category: "shopping",
+                title: "🏡 Мой уютный дом (My Cozy Space)",
+                prompt: "Describe your room or apartment. What makes your home comfortable, and what is your favorite corner?",
+                questions: [
+                    "What colors, plants, or furniture make your room cozy?",
+                    "Where do you spend most of your evening time?",
+                    "What is one thing you would like to add to your interior?"
+                ],
+                hints: ["My home is a place where I feel...", "In my living room, there is a comfortable...", "What makes it feel warm and welcoming is..."]
+            },
+
+            // 5. Leisure, Movies & Books
+            {
+                id: "great_movie",
+                category: "leisure",
+                title: "🎬 Фильм или сериал (A Movie or Show I Recommend)",
+                prompt: "Talk about a movie, show, or book that caught your attention. What was the storyline and why was it interesting?",
+                questions: [
+                    "What is the title and genre of the show/book?",
+                    "Who was your favorite character and why?",
+                    "What main message or emotion did you get from it?"
+                ],
+                hints: ["Not so long ago, I watched...", "The story is about...", "What I liked most about the plot was..."]
+            },
+            {
+                id: "stress_relief",
+                category: "leisure",
+                title: "🌿 Как я отдыхаю и заряжаюсь (How I Recharge)",
+                prompt: "Explain how you handle stress after a busy week. What activities or small rituals give you peace and energy?",
+                questions: [
+                    "Do walks, music, baths, sports, or silence help you most?",
+                    "Do you prefer being alone or talking with close friends?",
+                    "How do you feel after taking time for yourself?"
+                ],
+                hints: ["Whenever I feel exhausted, I usually...", "Listening to calm music and taking a walk helps me...", "After an hour of rest, I feel much more..."]
+            },
+
+            // 6. Real Life Stories
+            {
+                id: "funny_story",
+                category: "stories",
+                title: "🎈 Забавная или курьёзная история (A Funny Story)",
+                prompt: "Tell a short funny, awkward, or unexpected story that happened to you, your friends, or your pets.",
+                questions: [
+                    "When and where did this funny event happen?",
+                    "What unexpected thing occurred?",
+                    "How did you and the people around you react?"
+                ],
+                hints: ["One day, a funny thing happened when...", "Suddenly, without any warning...", "In the end, everyone started laughing because..."]
+            },
+            {
+                id: "new_skill",
+                category: "stories",
+                title: "🎯 Новый навык или хобби (Something New I Learned)",
+                prompt: "Describe a new skill, sport, language, or recipe you tried learning recently. How was the experience?",
+                questions: [
+                    "What inspired you to start learning this?",
+                    "What was challenging at the beginning?",
+                    "How do you feel about your current progress?"
+                ],
+                hints: ["I decided to learn something new because...", "At first, it seemed quite challenging, but...", "Now I feel much more confident in..."]
             }
         ];
 
+        // Everyday Real-Life Blitz Questions Pool
         this.blitzPool = [
-            { question: "What is your main weapon in combat?", sample: "My main weapon is a sharp iron sword." },
-            { question: "Where do you prefer to rest after a hard quest?", sample: "I prefer to rest at the warm tavern by the fireplace." },
-            { question: "What magical element do you trust the most: Fire, Light, or Ice?", sample: "I trust Light magic because it heals wounds and illuminates dark caves." },
-            { question: "What did you do yesterday morning?", sample: "Yesterday morning I trained with the knights and sharpened my blade." },
-            { question: "Why do we fight together as a squad?", sample: "We fight together because unity makes us strong against any dragon." },
-            { question: "What will you buy with your reward gold?", sample: "I will buy a stronger shield and healing potions for our team." },
-            { question: "How do you stay calm when danger approaches?", sample: "I take a deep breath and focus on my battle training." }
+            { question: "What do you usually have for breakfast?", sample: "I usually have two eggs, some toast, and a cup of black coffee." },
+            { question: "What is your favorite season of the year and why?", sample: "I love autumn because the air is fresh and the trees look golden." },
+            { question: "Do you prefer tea or coffee in the morning?", sample: "I definitely prefer strong coffee because it gives me energy." },
+            { question: "What was the last movie or TV show you watched?", sample: "I recently watched a thrilling detective series on Netflix." },
+            { question: "Where did you go last weekend?", sample: "Last weekend I went for a long walk in the central park with my friend." },
+            { question: "What is your favorite way to spend a Friday evening?", sample: "I like ordering delicious pizza and watching a good movie at home." },
+            { question: "What is one country you would love to visit?", sample: "I would love to visit Italy for its history, art, and amazing pasta." },
+            { question: "How do you usually get to work or study?", sample: "I usually take the subway because it is fast and avoids traffic jams." },
+            { question: "What is your favorite dish to cook at home?", sample: "I love making homemade pasta with creamy mushroom sauce." },
+            { question: "What makes you smile when you have a hard day?", sample: "A warm cup of tea and a funny video from a friend always make me smile." },
+            { question: "Do you prefer dogs or cats, and why?", sample: "I prefer cats because they are independent, calm, and very soft." },
+            { question: "What is your favorite book or author?", sample: "I enjoy reading psychological books that help me understand people better." },
+            { question: "What time do you usually go to bed on weekdays?", sample: "On weekdays I try to go to bed around eleven o'clock at night." },
+            { question: "What sport or physical activity do you enjoy?", sample: "I enjoy swimming and yoga because they help my back stay healthy." },
+            { question: "What was the best gift you ever received?", sample: "The best gift was a trip to the seaside for my birthday." }
         ];
     }
 
-    getRandomTopic() {
-        return this.topics[Math.floor(Math.random() * this.topics.length)];
+    getRandomTopic(categoryId = "all") {
+        const filtered = (categoryId === "all" || !categoryId)
+            ? this.topics
+            : this.topics.filter(t => t.category === categoryId);
+        const pool = filtered.length > 0 ? filtered : this.topics;
+        return pool[Math.floor(Math.random() * pool.length)];
     }
 
     getBlitzSet(count = 5) {

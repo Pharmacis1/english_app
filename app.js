@@ -6966,18 +6966,25 @@ document.addEventListener("DOMContentLoaded", () => {
         if (tabBlitz) tabBlitz.onclick = () => switchTab("blitz");
         if (tabFree) tabFree.onclick = () => switchTab("free");
 
-        // === 4/3/2 SPRINT LOGIC ===
+        // === 4/3/2 SPRINT LOGIC (VERSION 2.0 WITH AUDIO RECORDING & AI FEEDBACK) ===
         let currentTopic = null;
         let currentRound = 1;
         let sprintTimer = null;
         let sprintSecondsLeft = 60;
         let isSprintRecording = false;
         let sprintRoundWords = [0, 0, 0];
+        let sprintTranscripts = ["", "", ""];
+        let roundAudioBlobs = [null, null, null];
+        let roundAudioUrls = ["", "", ""];
         let sprintRecognition = null;
+        let mediaRecorder = null;
+        let audioChunks = [];
         let currentRoundTranscript = "";
 
+        const categorySelect = document.getElementById("sprint-category-select");
         const topicTitle = document.getElementById("sprint-topic-title");
         const topicPrompt = document.getElementById("sprint-topic-prompt");
+        const topicQuestions = document.getElementById("sprint-topic-questions");
         const topicHints = document.getElementById("sprint-topic-hints");
         const newTopicBtn = document.getElementById("sprint-new-topic-btn");
         const roundBadge = document.getElementById("sprint-round-badge");
@@ -6986,22 +6993,58 @@ document.addEventListener("DOMContentLoaded", () => {
         const liveTranscript = document.getElementById("sprint-live-transcript");
         const liveWordCount = document.getElementById("sprint-live-word-count");
 
+        const recordingBox = document.getElementById("sprint-recording-box");
+        const reviewPanel = document.getElementById("sprint-review-panel");
+        const reviewTitle = document.getElementById("sprint-review-title");
+        const reviewBadge = document.getElementById("sprint-review-badge");
+        const playbackBtn = document.getElementById("sprint-playback-btn");
+        const audioElement = document.getElementById("sprint-audio-element");
+        const playbackStatus = document.getElementById("sprint-playback-status");
+        const reviewTranscript = document.getElementById("sprint-review-transcript");
+        const aiFeedbackContent = document.getElementById("sprint-ai-feedback-content");
+        const nextRoundBtn = document.getElementById("sprint-next-round-btn");
+
+        const finalSummaryPanel = document.getElementById("sprint-final-summary-panel");
+        const summaryGrid = document.getElementById("sprint-summary-grid");
+        const summaryTotalWords = document.getElementById("sprint-summary-total-words");
+        const restartAllBtn = document.getElementById("sprint-restart-all-btn");
+
         function loadNewTopic() {
             if (!window.speakingEngine) return;
-            currentTopic = window.speakingEngine.getRandomTopic();
+            const cat = categorySelect ? categorySelect.value : "all";
+            currentTopic = window.speakingEngine.getRandomTopic(cat);
+            if (!currentTopic) return;
+
             if (topicTitle) topicTitle.textContent = currentTopic.title;
             if (topicPrompt) topicPrompt.textContent = currentTopic.prompt;
-            if (topicHints) {
-                topicHints.innerHTML = currentTopic.hints.map(h => `<span class="badge" style="background:rgba(255,255,255,0.08); font-size:11px; padding:2px 8px; color:#cbd5e1;">${h}</span>`).join("");
+            
+            if (topicQuestions && currentTopic.questions) {
+                topicQuestions.innerHTML = `
+                    <div style="font-weight:700; color:#e2e8f0; margin-bottom:4px;">🧭 Опорные вопросы для рассказа:</div>
+                    ${currentTopic.questions.map((q, idx) => `<div style="margin-left:4px;">${idx + 1}. ${q}</div>`).join("")}
+                `;
+            }
+
+            if (topicHints && currentTopic.hints) {
+                topicHints.innerHTML = currentTopic.hints.map(h => `<span class="badge" style="background:rgba(255,255,255,0.08); font-size:11px; padding:2px 8px; color:#cbd5e1; border:1px solid rgba(255,255,255,0.12);">${h}</span>`).join("");
             }
         }
 
+        if (categorySelect) categorySelect.onchange = loadNewTopic;
         if (newTopicBtn) newTopicBtn.onclick = loadNewTopic;
 
         function setup432Sprint() {
             if (!currentTopic) loadNewTopic();
             currentRound = 1;
             sprintRoundWords = [0, 0, 0];
+            sprintTranscripts = ["", "", ""];
+            roundAudioBlobs = [null, null, null];
+            roundAudioUrls = ["", "", ""];
+
+            if (recordingBox) recordingBox.classList.remove("hidden");
+            if (reviewPanel) reviewPanel.classList.add("hidden");
+            if (finalSummaryPanel) finalSummaryPanel.classList.add("hidden");
+
             updateRoundIndicators();
             resetRoundTimer();
         }
@@ -7036,12 +7079,26 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-        function startSprintRound() {
+        async function startSprintRound() {
             isSprintRecording = true;
             currentRoundTranscript = "";
-            if (liveTranscript) liveTranscript.innerHTML = '<em>Слушаю вас... Говорите непрерывно!</em>';
+            audioChunks = [];
+            if (liveTranscript) liveTranscript.innerHTML = '<em>🎙️ Слушаю вас... Говорите свободно и непрерывно!</em>';
             if (liveWordCount) liveWordCount.textContent = 'Слов в этом раунде: 0';
 
+            // 1. Start Audio Blob Recording via MediaRecorder
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                mediaRecorder = new MediaRecorder(stream);
+                mediaRecorder.ondataavailable = (e) => {
+                    if (e.data.size > 0) audioChunks.push(e.data);
+                };
+                mediaRecorder.start();
+            } catch (err) {
+                console.warn("MediaRecorder mic access error:", err);
+            }
+
+            // 2. Start Live Speech Recognition
             const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
             if (SpeechRecognition) {
                 sprintRecognition = new SpeechRecognition();
@@ -7094,7 +7151,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 try { sprintRecognition.stop(); } catch(e) {}
             }
 
-            const roundWords = window.speakingEngine ? window.speakingEngine.countEnglishWords(currentRoundTranscript) : 0;
+            if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+                mediaRecorder.onstop = () => {
+                    const blob = new Blob(audioChunks, { type: 'audio/webm' });
+                    roundAudioBlobs[currentRound - 1] = blob;
+                    roundAudioUrls[currentRound - 1] = URL.createObjectURL(blob);
+                };
+                mediaRecorder.stop();
+            }
+
+            const cleanTranscript = currentRoundTranscript.trim();
+            sprintTranscripts[currentRound - 1] = cleanTranscript;
+            const roundWords = window.speakingEngine ? window.speakingEngine.countEnglishWords(cleanTranscript) : 0;
             sprintRoundWords[currentRound - 1] = roundWords;
 
             // Award words into Speaking skill
@@ -7116,31 +7184,130 @@ document.addEventListener("DOMContentLoaded", () => {
             updateRoundIndicators();
 
             if (currentRound < 3) {
-                currentRound++;
-                updateRoundIndicators();
-                resetRoundTimer();
-                if (liveTranscript) {
-                    liveTranscript.innerHTML = `<span style="color:#10b981;">🎉 Раунд ${currentRound - 1} завершен: наговорено <b>${roundWords} слов</b>!</span><br>Приготовьтесь к Раунду ${currentRound} (${[60, 45, 30][currentRound - 1]} сек). Повторите ту же историю быстрее!`;
-                }
+                // Show Inter-Round Review & Polish Panel!
+                showInterRoundReviewPanel();
             } else {
-                // All 3 rounds done!
-                const totalSprintWords = sprintRoundWords[0] + sprintRoundWords[1] + sprintRoundWords[2];
-                if (roundBadge) roundBadge.textContent = "🏆 СПРИНТ 4/3/2 ПОЛНОСТЬЮ ЗАВЕРШЕН!";
-                if (toggleRecBtn) {
-                    toggleRecBtn.classList.remove("btn-danger");
-                    toggleRecBtn.classList.add("btn-record");
-                    toggleRecBtn.innerHTML = `<i class="fa-solid fa-rotate-right"></i> <span>Пройти новый 4/3/2 спринт</span>`;
-                }
-                if (liveTranscript) {
-                    liveTranscript.innerHTML = `
-                        <div style="color:#fbbf24; font-size:15px; font-weight:800; margin-bottom:6px;">🎉 ПОТРЯСАЮЩЕ! СПРИНТ УСПЕШНО ЗАВЕРШЕН!</div>
-                        <div>Всего наговорено за сессию: <b style="color:#34d399; font-size:16px;">+${totalSprintWords} слов</b> в навык Speaking!</div>
-                        <div style="font-size:12px; margin-top:6px; color:#cbd5e1;">
-                            Р1: ${sprintRoundWords[0]} слов &bull; Р2: ${sprintRoundWords[1]} слов &bull; Р3: ${sprintRoundWords[2]} слов
+                // Sprint fully completed!
+                showFinalSprintSummary();
+            }
+        }
+
+        function showInterRoundReviewPanel() {
+            if (recordingBox) recordingBox.classList.add("hidden");
+            if (reviewPanel) reviewPanel.classList.remove("hidden");
+
+            const dur = [60, 45, 30][currentRound - 1];
+            const nextDur = [60, 45, 30][currentRound];
+            const words = sprintRoundWords[currentRound - 1];
+            const wpm = Math.round((words / dur) * 60);
+
+            if (reviewTitle) reviewTitle.innerHTML = `<i class="fa-solid fa-headphones-simple"></i> Анализ Раунда ${currentRound} & Подготовка к Раунду ${currentRound + 1}`;
+            if (reviewBadge) reviewBadge.textContent = `РАУНД ${currentRound} (${dur} СЕК): ${words} СЛОВ • ${wpm} WPM`;
+
+            if (reviewTranscript) {
+                reviewTranscript.textContent = sprintTranscripts[currentRound - 1] || "(Текст не распознан / Вы говорили тихо)";
+            }
+
+            // Audio Playback Listener
+            if (playbackBtn && audioElement) {
+                playbackBtn.onclick = () => {
+                    const url = roundAudioUrls[currentRound - 1];
+                    if (url) {
+                        audioElement.src = url;
+                        audioElement.play();
+                        if (playbackStatus) playbackStatus.innerHTML = '<span style="color:#34d399;"><i class="fa-solid fa-volume-high fa-beat"></i> Воспроизведение вашей записи...</span>';
+                        audioElement.onended = () => {
+                            if (playbackStatus) playbackStatus.textContent = '🎧 Нажмите, чтобы прослушать ещё раз';
+                        };
+                    } else {
+                        if (playbackStatus) playbackStatus.textContent = '⚠️ Аудиозапись недоступна в этом браузере';
+                    }
+                };
+            }
+
+            // Fetch AI Feedback asynchronously
+            if (aiFeedbackContent) {
+                aiFeedbackContent.innerHTML = '<em><i class="fa-solid fa-spinner fa-spin"></i> AI анализирует вашу речь и готовит подсказки ко 2-му раунду...</em>';
+                aiService.analyzeSpeakingSprint(sprintTranscripts[currentRound - 1], currentTopic).then(feedback => {
+                    if (!feedback) return;
+                    let html = '';
+                    if (feedback.praise) {
+                        html += `<div style="margin-bottom:8px; color:#6ee7b7;"><i class="fa-solid fa-circle-check"></i> <b>Что получилось отлично:</b> ${feedback.praise}</div>`;
+                    }
+                    if (feedback.corrections && feedback.corrections.length > 0) {
+                        html += `<div style="margin-bottom:8px;">
+                            <div style="font-weight:700; color:#fbbf24; margin-bottom:4px;"><i class="fa-solid fa-wrench"></i> Как сделать речь ещё чище:</div>
+                            ${feedback.corrections.map(c => `
+                                <div style="background:rgba(0,0,0,0.3); padding:6px 10px; border-radius:6px; margin-bottom:4px; font-size:11px;">
+                                    <span style="color:#f87171; text-decoration:line-through;">${c.original}</span> &rarr; <strong style="color:#34d399;">${c.improved}</strong>
+                                    <div style="color:#94a3b8; font-size:10px; margin-top:2px;">${c.why}</div>
+                                </div>
+                            `).join("")}
+                        </div>`;
+                    }
+                    if (feedback.boosters && feedback.boosters.length > 0) {
+                        html += `<div>
+                            <div style="font-weight:700; color:#38bdf8; margin-bottom:4px;"><i class="fa-solid fa-bolt"></i> Связки для следующего раунда (${nextDur} сек):</div>
+                            <div style="display:flex; flex-wrap:wrap; gap:6px;">
+                                ${feedback.boosters.map(b => `<span class="badge" style="background:rgba(56,189,248,0.2); color:#7dd3fc; border:1px solid rgba(56,189,248,0.4); font-size:11px; padding:3px 8px;">${b}</span>`).join("")}
+                            </div>
+                        </div>`;
+                    }
+                    aiFeedbackContent.innerHTML = html || '<em>Отличная попытка! Повторите рассказ в следующем раунде чуть быстрее.</em>';
+                });
+            }
+
+            if (nextRoundBtn) {
+                nextRoundBtn.innerHTML = `<i class="fa-solid fa-bolt"></i> <span>Готова к Раунду ${currentRound + 1} (${nextDur} сек) &rarr;</span>`;
+                nextRoundBtn.onclick = () => {
+                    currentRound++;
+                    if (reviewPanel) reviewPanel.classList.add("hidden");
+                    if (recordingBox) recordingBox.classList.remove("hidden");
+                    updateRoundIndicators();
+                    resetRoundTimer();
+                };
+            }
+        }
+
+        function showFinalSprintSummary() {
+            if (recordingBox) recordingBox.classList.add("hidden");
+            if (reviewPanel) reviewPanel.classList.add("hidden");
+            if (finalSummaryPanel) finalSummaryPanel.classList.remove("hidden");
+
+            const totalSprintWords = sprintRoundWords[0] + sprintRoundWords[1] + sprintRoundWords[2];
+
+            if (summaryGrid) {
+                summaryGrid.innerHTML = [1, 2, 3].map(r => {
+                    const dur = [60, 45, 30][r - 1];
+                    const w = sprintRoundWords[r - 1];
+                    const wpm = Math.round((w / dur) * 60);
+                    const hasAudio = !!roundAudioUrls[r - 1];
+                    return `
+                        <div style="background:rgba(0,0,0,0.35); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:12px;">
+                            <div style="font-size:12px; font-weight:700; color:#fbbf24; margin-bottom:4px;">Раунд ${r} (${dur} сек)</div>
+                            <div style="font-size:16px; font-weight:800; color:#fff;">${w} слов</div>
+                            <div style="font-size:12px; color:#38bdf8; margin-bottom:8px;">${wpm} WPM (темп)</div>
+                            ${hasAudio ? `
+                                <button type="button" class="btn btn-sm btn-outline" style="font-size:11px; padding:3px 8px;" onclick="const a = new Audio('${roundAudioUrls[r - 1]}'); a.play();">
+                                    <i class="fa-solid fa-play"></i> Послушать
+                                </button>
+                            ` : ''}
                         </div>
                     `;
-                }
-                currentRound = 1;
+                }).join("");
+            }
+
+            if (summaryTotalWords) {
+                summaryTotalWords.innerHTML = `
+                    <div style="color:#34d399; font-size:16px;">✨ Всего наговорено: <b>+${totalSprintWords} слов</b> в копилку Speaking! (+${totalSprintWords * 2} Hero XP 🔥)</div>
+                `;
+            }
+
+            if (restartAllBtn) {
+                restartAllBtn.onclick = () => {
+                    setup432Sprint();
+                    loadNewTopic();
+                };
             }
         }
 
