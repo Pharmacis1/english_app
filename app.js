@@ -173,14 +173,22 @@ document.addEventListener("DOMContentLoaded", () => {
     function getUnlockedStageGifts() {
         try {
             const list = JSON.parse(localStorage.getItem("english_pulse_unlocked_stage_gifts") || "[]");
-            // Auto-unlock Selena's daily quest reward
+            // Auto-unlock Selena's daily quest reward & Sunset Citadel Live Background
+            let updated = false;
             if (!list.includes("skin_anim_selena")) {
                 list.push("skin_anim_selena");
+                updated = true;
+            }
+            if (!list.includes("bg_sunset_citadel")) {
+                list.push("bg_sunset_citadel");
+                updated = true;
+            }
+            if (updated) {
                 localStorage.setItem("english_pulse_unlocked_stage_gifts", JSON.stringify(list));
             }
             return list;
         } catch (e) {
-            return ["skin_anim_selena"];
+            return ["skin_anim_selena", "bg_sunset_citadel"];
         }
     }
 
@@ -2287,21 +2295,21 @@ document.addEventListener("DOMContentLoaded", () => {
                     rpgEngine.save();
 
                     const s = data.state;
-                    if (s.writing_words) localStorage.setItem("english_pulse_writing_words", s.writing_words.toString());
-                    if (s.listening_words) localStorage.setItem("english_pulse_listening_words", s.listening_words.toString());
-                    if (s.speaking_words) {
+                    if (s.writing_words !== undefined) localStorage.setItem("english_pulse_writing_words", s.writing_words.toString());
+                    if (s.listening_words !== undefined) localStorage.setItem("english_pulse_listening_words", s.listening_words.toString());
+                    if (s.speaking_words !== undefined) {
                         localStorage.setItem("english_pulse_speaking_words", s.speaking_words.toString());
                         if (window.speakingEngine) window.speakingEngine.loadState();
                     }
-                    if (s.drills_cards) {
+                    if (s.drills_cards !== undefined) {
                         localStorage.setItem("english_pulse_drills_cards", s.drills_cards.toString());
                         if (window.patternDrills) window.patternDrills.loadState();
                     }
-                    if (s.visual_fluency_xp) {
+                    if (s.visual_fluency_xp !== undefined) {
                         localStorage.setItem("visual_fluency_xp", s.visual_fluency_xp.toString());
                         if (window.visualFluency) window.visualFluency.loadState();
                     }
-                    if (s.streak) localStorage.setItem("english_rpg_streak_days", s.streak.toString());
+                    if (s.streak !== undefined) localStorage.setItem("english_rpg_streak_days", s.streak.toString());
                     if (s.cards && Object.keys(s.cards).length > 0) {
                         localStorage.setItem("english_rpg_flashcard_decks", JSON.stringify(s.cards));
                         if (typeof flashcardEngine !== 'undefined') flashcardEngine.decks = s.cards;
