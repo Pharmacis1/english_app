@@ -3383,16 +3383,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 state.repeatedMsgs.push(msgId);
                 saveTodayHeroAudioState(targetHeroId, state);
 
-                // Award spoken words to Speaking Skill!
-                const spokenWordCount = msgContent.trim().split(/\s+/).filter(w => /[a-zA-Z]/.test(w)).length;
-                if (spokenWordCount > 0 && window.speakingEngine) {
-                    const addRes = window.speakingEngine.addWords(spokenWordCount);
-                    updateSpeakingUI();
-                    if (addRes && addRes.leveledUp) {
-                        showToast(`🎙️ <b>SPEAKING LEVEL UP!</b> Level <b>${addRes.newLevel}</b> reached! (${addRes.totalWords.toLocaleString()} / 300,000 words spoken)`, "linear-gradient(135deg, #ec4899, #8b5cf6)", "#f472b6");
-                    }
-                }
-
                 triggerRPGReward("repeat", targetHeroId, targetHeroId, 40, `🎯 +40 XP Pronunciation Repeat Bonus!`, "linear-gradient(135deg, #10b981, #059669)");
                 addXP(40);
             }
