@@ -60,7 +60,7 @@ async function sleep(ms) {
 }
 
 async function generateSentenceAudio(text, voiceName, maxRetries = 5) {
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent?key=${GEMINI_API_KEY}`;
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-tts-preview:generateContent?key=${GEMINI_API_KEY}`;
     const payload = {
         contents: [{
             role: 'user',
@@ -87,6 +87,10 @@ async function generateSentenceAudio(text, voiceName, maxRetries = 5) {
             });
 
             if (resp.status === 429) {
+                const errText = await resp.text();
+                if (errText.includes("per day") || errText.includes("per_day")) {
+                    throw new Error("DAILY_QUOTA_EXHAUSTED: Daily limit reached.");
+                }
                 console.warn(`⏳ [Rate Limit 429] Waiting 20 seconds before retry ${attempt}/${maxRetries}...`);
                 await sleep(20000);
                 continue;

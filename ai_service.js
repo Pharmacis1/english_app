@@ -856,10 +856,20 @@ class VoiceService {
             };
 
             if (window.speechSynthesis.getVoices().length === 0) {
+                let handled = false;
                 window.speechSynthesis.onvoiceschanged = () => {
-                    window.speechSynthesis.onvoiceschanged = null;
-                    playUtterance();
+                    if (!handled) {
+                        handled = true;
+                        window.speechSynthesis.onvoiceschanged = null;
+                        playUtterance();
+                    }
                 };
+                setTimeout(() => {
+                    if (!handled) {
+                        handled = true;
+                        playUtterance();
+                    }
+                }, 150);
             } else {
                 playUtterance();
             }

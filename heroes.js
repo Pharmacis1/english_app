@@ -1946,6 +1946,127 @@ const STAGE_GIFTS_CATALOG = [
         category: "Фоны"
     },
     {
+        id: "bg_sunset_citadel",
+        type: "background",
+        name: "Цитадель: Закатная Терраса 🌄 (Анимация)",
+        nameEn: "Sunset Citadel Balcony (Live)",
+        description: "Живой панорамный вид с башни цитадели на закатные горы, огни факелов и развевающиеся знамена",
+        image: "images/backgrounds/bg_sunset_citadel.jpg",
+        video: "videos/backgrounds/bg_sunset_citadel_pingpong.mp4",
+        previewImage: "images/backgrounds/bg_sunset_citadel.jpg",
+        category: "Фоны"
+    },
+    {
+        id: "bg_white_castle_terrace",
+        type: "background",
+        name: "Белокаменный Замок: Панорама 🏰 (Анимация)",
+        nameEn: "White Castle Panorama (Live)",
+        description: "Крепостная стена с синими знаменами паладинов, деревней в долине и белоснежным замком",
+        image: "images/backgrounds/bg_white_castle_terrace.jpg",
+        video: "videos/backgrounds/bg_white_castle_terrace_pingpong.mp4",
+        previewImage: "images/backgrounds/bg_white_castle_terrace.jpg",
+        category: "Фоны"
+    },
+    {
+        id: "bg_waterfall_valley",
+        type: "background",
+        name: "Долина Водопадов: Каменный Круг 🏞️ (Анимация)",
+        nameEn: "Waterfall Valley Sanctuary (Live)",
+        description: "Древний каменный круг, водопады с гор, извилистая тропа и колыхание луговых цветов",
+        image: "images/backgrounds/bg_waterfall_valley.jpg",
+        video: "videos/backgrounds/bg_waterfall_valley_pingpong.mp4",
+        previewImage: "images/backgrounds/bg_waterfall_valley.jpg",
+        category: "Фоны"
+    },
+    {
+        id: "bg_luminescent_forest",
+        type: "background",
+        name: "Люминесцентный Лес 🌌 (Анимация)",
+        nameEn: "Luminescent Enchanted Forest (Live)",
+        description: "Ночной зачарованный лес с полумесяцем, светящимися грибами и мерцающими огоньками",
+        image: "images/backgrounds/bg_luminescent_forest.jpg",
+        video: "videos/backgrounds/bg_luminescent_forest_pingpong.mp4",
+        previewImage: "images/backgrounds/bg_luminescent_forest.jpg",
+        category: "Фоны"
+    },
+    {
+        id: "bg_scifi_bridge",
+        type: "background",
+        name: "Космический Мостик: Флагман 🛸 (Анимация)",
+        nameEn: "Sci-Fi Starship Command Bridge (Live)",
+        description: "Командный мостик звездолета с голограммой галактики, дисплеями систем и иллюминатором в открытый космос",
+        image: "images/backgrounds/bg_scifi_bridge.jpg",
+        video: "videos/backgrounds/bg_scifi_bridge_pingpong.mp4",
+        previewImage: "images/backgrounds/bg_scifi_bridge.jpg",
+        category: "Фоны"
+    },
+    {
+        id: "bg_aurora_ice_castle",
+        type: "background",
+        name: "Ледяной Замок: Северное Сияние ❄️🌌 (Анимация)",
+        nameEn: "Aurora Borealis Ice Castle (Live)",
+        description: "Величественный хрустальный замок среди ледяных скал под танцующими переливами полярного сияния",
+        image: "images/backgrounds/bg_aurora_ice_castle.jpg",
+        video: "videos/backgrounds/bg_aurora_ice_castle_pingpong.mp4",
+        previewImage: "images/backgrounds/bg_aurora_ice_castle.jpg",
+        category: "Фоны"
+    },
+    {
+        id: "bg_forge_workshop",
+        type: "background",
+        name: "Кузница Мастера: Наковальня 🔨🔥 (Анимация)",
+        nameEn: "Master Blacksmith Forge (Live)",
+        description: "Атмосферная каменная кузница с пылающим горном, наковальней, искрами и оружием на стенах",
+        image: "images/backgrounds/bg_forge_workshop.jpg",
+        video: "videos/backgrounds/bg_forge_workshop_pingpong.mp4",
+        previewImage: "images/backgrounds/bg_forge_workshop.jpg",
+        category: "Фоны"
+    },
+    {
+        id: "bg_cathedral_sunlight",
+        type: "background",
+        name: "Собор Света: Солнечные Витражи ⛪✨ (Анимация)",
+        nameEn: "Cathedral of Radiant Light (Live)",
+        description: "Величественный собор паладинов с золотыми лучами солнца, пробивающимися сквозь цветные витражи",
+        image: "images/backgrounds/bg_cathedral_sunlight.jpg",
+        video: "videos/backgrounds/bg_cathedral_sunlight_pingpong.mp4",
+        previewImage: "images/backgrounds/bg_cathedral_sunlight.jpg",
+        category: "Фоны"
+    },
+    {
+        id: "bg_cyberpunk_rooftop",
+        type: "background",
+        name: "Неоновый Мегаполис: Крыша 🏙️🏮 (Анимация)",
+        nameEn: "Cyberpunk Neon Rooftop (Live)",
+        description: "Крыша футуристического города под дождем с мерцающими неоновыми вывесками, драконами и лужами",
+        image: "images/backgrounds/bg_cyberpunk_rooftop.jpg",
+        video: "videos/backgrounds/bg_cyberpunk_rooftop_pingpong.mp4",
+        previewImage: "images/backgrounds/bg_cyberpunk_rooftop.jpg",
+        category: "Фоны"
+    },
+    {
+        id: "bg_lava_citadel",
+        type: "background",
+        name: "Огненная Цитадель: Реки Лавы 🌋🔥 (Анимация)",
+        nameEn: "Molten Lava Citadel (Live)",
+        description: "Грозная темная крепость драконов среди извергающихся вулканов и рек кипящей магмы",
+        image: "images/backgrounds/bg_lava_citadel.jpg",
+        video: "videos/backgrounds/bg_lava_citadel_pingpong.mp4",
+        previewImage: "images/backgrounds/bg_lava_citadel.jpg",
+        category: "Фоны"
+    },
+    {
+        id: "bg_acropolis_olympus",
+        type: "background",
+        name: "Античный Акрополь: Олимп 🏛️☀️ (Анимация)",
+        nameEn: "Ancient Acropolis of Olympus (Live)",
+        description: "Мраморная терраса с античными колоннами, мозаикой и панорамой залитого солнцем полиса у моря",
+        image: "images/backgrounds/bg_acropolis_olympus.jpg",
+        video: "videos/backgrounds/bg_acropolis_olympus_pingpong.mp4",
+        previewImage: "images/backgrounds/bg_acropolis_olympus.jpg",
+        category: "Фоны"
+    },
+    {
         id: "bg_white_forest",
         type: "background",
         name: "Белый лес",

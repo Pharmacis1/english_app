@@ -131,7 +131,7 @@ const STORY_ACT1_EXPANDED = [
     "sceneIllustrationImg": "images/backgrounds/bg_dungeon.jpg",
     "involvedHeroes": [
       "thorin",
-      "selena",
+      "selene",
       "ignis"
     ],
     "paragraphs": [
@@ -282,7 +282,7 @@ const STORY_ACT1_EXPANDED = [
     "involvedHeroes": [
       "thorin",
       "ignis",
-      "selena",
+      "selene",
       "valerius",
       "astraea",
       "zephyr"

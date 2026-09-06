@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=11.067">
 </head>
 <body class="hero-rpg-body">
 
@@ -253,8 +253,17 @@
                         <div class="active-scenario-info">
                             <div class="scenario-avatar" id="scenario-icon"><i class="fa-solid fa-shield-halved"></i></div>
                             <div>
-                                <h4 id="active-scenario-title">Valerius: Paladin's Oath</h4>
+                                <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                                    <h4 id="active-scenario-title" style="margin:0;">Valerius: Paladin's Oath</h4>
+                                    <span id="chat-hero-level-badge" class="chat-hero-level-badge">Lvl 1</span>
+                                </div>
                                 <span class="scenario-subtitle" id="active-scenario-role">Valerius (The Silver Paladin)</span>
+                                <div id="chat-hero-xp-container" class="chat-hero-xp-container">
+                                    <div class="chat-hero-xp-bar">
+                                        <div id="chat-hero-xp-fill" class="chat-hero-xp-fill" style="width: 0%;"></div>
+                                    </div>
+                                    <span id="chat-hero-xp-text" class="chat-hero-xp-text">0 / 150 XP</span>
+                                </div>
                             </div>
                         </div>
                         <div class="chat-actions" style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
@@ -819,7 +828,7 @@
 
     <!-- MODAL: A1 STORY CAMPAIGN HUB & CHAPTER READER 📜 -->
     <div class="rpg-modal-overlay hidden" id="modal-hero-story">
-        <div class="rpg-modal-content modal-lg story-campaign-modal-container" style="max-width: 1040px; width: 95vw; height: 88vh; display: flex; flex-direction: column;">
+        <div class="rpg-modal-content story-campaign-modal-container" style="width: 100vw; max-width: 100vw; height: 100vh; height: 100dvh; max-height: 100vh; max-height: 100dvh; display: flex; flex-direction: column; border-radius: 0; margin: 0;">
             
             <!-- HEADER -->
             <div class="rpg-modal-header" style="flex-shrink: 0;">
@@ -889,84 +898,85 @@
                 </div>
 
                 <!-- READER MAIN CONTENT (PARAGRAPHS + QUIZ) -->
-                <div id="story-reader-scrollable-body" style="flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 16px;">
-                    
-                    <!-- SCENE COMPOSITION & LOCATION ILLUSTRATION BANNER -->
-                    <div id="story-reader-illustration-banner" class="story-scene-illustration-banner">
-                        <!-- Populated dynamically with location bg and character portraits/standalones -->
-                    </div>
+                <div id="story-reader-scrollable-body" style="flex: 1; overflow-y: auto;">
+                    <div class="story-reader-golden-container">
+                        <!-- SCENE COMPOSITION & LOCATION ILLUSTRATION BANNER -->
+                        <div id="story-reader-illustration-banner" class="story-scene-illustration-banner">
+                            <!-- Populated dynamically with location bg and character portraits/standalones -->
+                        </div>
 
-                    <!-- VISUAL FLUENCY & SPEED READING TOOLBAR -->
-                    <div id="visual-fluency-panel" class="vf-control-panel" style="background: linear-gradient(135deg, rgba(15,23,42,0.95), rgba(30,41,59,0.95)); border: 1px solid rgba(59,130,246,0.3); border-radius: 16px; padding: 14px 18px; box-shadow: 0 8px 24px rgba(0,0,0,0.4); display: flex; flex-direction: column; gap: 12px;">
-                        <!-- Top Row: Rank & XP Progress -->
-                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
-                            <div style="display: flex; align-items: center; gap: 10px;">
-                                <span style="font-size: 20px;">⚡</span>
-                                <div>
-                                    <div style="font-weight: 800; font-size: 13px; color: #60a5fa; display: flex; align-items: center; gap: 6px;">
-                                        <span>Visual Fluency</span>
-                                        <span id="vf-player-rank-badge" class="badge" style="background: rgba(59,130,246,0.2); color: #93c5fd; border: 1px solid rgba(59,130,246,0.4); font-size: 11px;">Lv. 1 • Novice Gazer</span>
+                        <!-- VISUAL FLUENCY & SPEED READING TOOLBAR -->
+                        <div id="visual-fluency-panel" class="vf-control-panel" style="background: linear-gradient(135deg, rgba(15,23,42,0.95), rgba(30,41,59,0.95)); border: 1px solid rgba(59,130,246,0.3); border-radius: 16px; padding: 14px 18px; box-shadow: 0 8px 24px rgba(0,0,0,0.4); display: flex; flex-direction: column; gap: 12px;">
+                            <!-- Top Row: Rank & XP Progress -->
+                            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+                                <div style="display: flex; align-items: center; gap: 10px;">
+                                    <span style="font-size: 20px;">⚡</span>
+                                    <div>
+                                        <div style="font-weight: 800; font-size: 13px; color: #60a5fa; display: flex; align-items: center; gap: 6px;">
+                                            <span>Visual Fluency</span>
+                                            <span id="vf-player-rank-badge" class="badge" style="background: rgba(59,130,246,0.2); color: #93c5fd; border: 1px solid rgba(59,130,246,0.4); font-size: 11px;">Lv. 1 • Novice Gazer</span>
+                                        </div>
+                                        <div style="font-size: 11px; color: var(--text-secondary); margin-top: 2px;">
+                                            <span id="vf-player-xp-text">0 / 1,000,000 XP</span> • <span id="vf-chapter-reward-text" style="color: #34d399; font-weight: 600;">+759 XP за первое прочтение</span>
+                                        </div>
                                     </div>
-                                    <div style="font-size: 11px; color: var(--text-secondary); margin-top: 2px;">
-                                        <span id="vf-player-xp-text">0 / 1,000,000 XP</span> • <span id="vf-chapter-reward-text" style="color: #34d399; font-weight: 600;">+759 XP за первое прочтение</span>
+                                </div>
+                                <!-- Progress Bar -->
+                                <div style="min-width: 140px; flex: 1; max-width: 240px;">
+                                    <div style="height: 6px; background: rgba(255,255,255,0.1); border-radius: 6px; overflow: hidden;">
+                                        <div id="vf-xp-progress-bar" style="height: 100%; width: 0%; background: linear-gradient(90deg, #3b82f6, #10b981); transition: width 0.3s;"></div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- Progress Bar -->
-                            <div style="min-width: 140px; flex: 1; max-width: 240px;">
-                                <div style="height: 6px; background: rgba(255,255,255,0.1); border-radius: 6px; overflow: hidden;">
-                                    <div id="vf-xp-progress-bar" style="height: 100%; width: 0%; background: linear-gradient(90deg, #3b82f6, #10b981); transition: width 0.3s;"></div>
+
+                            <!-- Bottom Row: Fading Mode Switcher & Pacer Controls -->
+                            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 10px;">
+                                <!-- Fading Mode buttons -->
+                                <div style="display: flex; align-items: center; gap: 4px; background: rgba(0,0,0,0.3); padding: 3px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.05);">
+                                    <button class="vf-fading-btn active" data-lvl="1" title="Яркий режим: цветные бейджи и прилипшие предлоги">L1: Яркий</button>
+                                    <button class="vf-fading-btn" data-lvl="2" title="Мягкий режим: пастельные рамки">L2: Мягкий</button>
+                                    <button class="vf-fading-btn" data-lvl="3" title="Режим блоков: пространственные интервалы">L3: Блоки</button>
+                                    <button class="vf-fading-btn" data-lvl="4" title="Чистый текст">L4: Текст</button>
+                                </div>
+
+                                <!-- Pacer button & WPM -->
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <button id="vf-pacer-toggle-btn" class="btn btn-sm" style="background: linear-gradient(135deg, #2563eb, #3b82f6); color: white; border: none; font-weight: 700; gap: 6px; padding: 6px 14px; border-radius: 8px;">
+                                        <span id="vf-pacer-icon">▶</span> <span id="vf-pacer-btn-text">Ритм-тренер</span>
+                                    </button>
+                                    <select id="vf-pacer-wpm-select" class="form-control form-control-sm" style="width: auto; padding: 4px 8px; font-size: 11px; background: rgba(0,0,0,0.4); border-color: rgba(255,255,255,0.15); color: white;">
+                                        <option value="100">100 WPM</option>
+                                        <option value="150" selected>150 WPM</option>
+                                        <option value="200">200 WPM</option>
+                                        <option value="250">250 WPM</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Bottom Row: Fading Mode Switcher & Pacer Controls -->
-                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 10px;">
-                            <!-- Fading Mode buttons -->
-                            <div style="display: flex; align-items: center; gap: 4px; background: rgba(0,0,0,0.3); padding: 3px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.05);">
-                                <button class="vf-fading-btn active" data-lvl="1" title="Яркий режим: цветные бейджи и прилипшие предлоги">L1: Яркий</button>
-                                <button class="vf-fading-btn" data-lvl="2" title="Мягкий режим: пастельные рамки">L2: Мягкий</button>
-                                <button class="vf-fading-btn" data-lvl="3" title="Режим блоков: пространственные интервалы">L3: Блоки</button>
-                                <button class="vf-fading-btn" data-lvl="4" title="Чистый текст">L4: Текст</button>
-                            </div>
+                        <!-- Story Paragraphs Cards -->
+                        <div id="story-reader-paragraphs-list" style="display: flex; flex-direction: column; gap: 14px;">
+                            <!-- Dynamic Paragraphs with Listen buttons -->
+                        </div>
 
-                            <!-- Pacer button & WPM -->
-                            <div style="display: flex; align-items: center; gap: 8px;">
-                                <button id="vf-pacer-toggle-btn" class="btn btn-sm" style="background: linear-gradient(135deg, #2563eb, #3b82f6); color: white; border: none; font-weight: 700; gap: 6px; padding: 6px 14px; border-radius: 8px;">
-                                    <span id="vf-pacer-icon">▶</span> <span id="vf-pacer-btn-text">Ритм-тренер</span>
-                                </button>
-                                <select id="vf-pacer-wpm-select" class="form-control form-control-sm" style="width: auto; padding: 4px 8px; font-size: 11px; background: rgba(0,0,0,0.4); border-color: rgba(255,255,255,0.15); color: white;">
-                                    <option value="100">100 WPM</option>
-                                    <option value="150" selected>150 WPM</option>
-                                    <option value="200">200 WPM</option>
-                                    <option value="250">250 WPM</option>
-                                </select>
+                        <!-- COMPREHENSION QUIZ CARD -->
+                        <div id="story-reader-quiz-card" class="story-quiz-card" style="margin-top: 14px; background: linear-gradient(135deg, rgba(30,41,59,0.9), rgba(15,23,42,0.95)); border: 1px solid rgba(245,158,11,0.3); border-radius: 16px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                                <div style="font-weight: 800; font-size: 14px; color: #fbbf24; display: flex; align-items: center; gap: 8px;">
+                                    <i class="fa-solid fa-brain"></i> Reading Comprehension Quiz (Проверка понимания)
+                                </div>
+                                <span id="story-quiz-reward-badge" class="badge" style="background:rgba(245,158,11,0.2); color:#fbbf24; border:1px solid rgba(245,158,11,0.4); font-size:11px;">
+                                    ⭐ +100 XP
+                                </span>
                             </div>
-                        </div>
-                    </div>
-
-                    <!-- Story Paragraphs Cards -->
-                    <div id="story-reader-paragraphs-list" style="display: flex; flex-direction: column; gap: 14px;">
-                        <!-- Dynamic Paragraphs with Listen buttons -->
-                    </div>
-
-                    <!-- COMPREHENSION QUIZ CARD -->
-                    <div id="story-reader-quiz-card" class="story-quiz-card" style="margin-top: 14px; background: linear-gradient(135deg, rgba(30,41,59,0.9), rgba(15,23,42,0.95)); border: 1px solid rgba(245,158,11,0.3); border-radius: 16px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-                        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
-                            <div style="font-weight: 800; font-size: 14px; color: #fbbf24; display: flex; align-items: center; gap: 8px;">
-                                <i class="fa-solid fa-brain"></i> Reading Comprehension Quiz (Проверка понимания)
+                            <div id="story-quiz-question-text" style="font-size: 15px; font-weight: 600; color: #f8fafc; margin-bottom: 14px;">
+                                Question goes here?
                             </div>
-                            <span id="story-quiz-reward-badge" class="badge" style="background:rgba(245,158,11,0.2); color:#fbbf24; border:1px solid rgba(245,158,11,0.4); font-size:11px;">
-                                ⭐ +100 XP
-                            </span>
+                            <div id="story-quiz-options-container" style="display: flex; flex-direction: column; gap: 8px;">
+                                <!-- Quiz radio/button options -->
+                            </div>
+                            <div id="story-quiz-feedback-box" style="margin-top: 12px; display: none; padding: 10px 14px; border-radius: 10px; font-size: 13px; font-weight: 600;"></div>
                         </div>
-                        <div id="story-quiz-question-text" style="font-size: 15px; font-weight: 600; color: #f8fafc; margin-bottom: 14px;">
-                            Question goes here?
-                        </div>
-                        <div id="story-quiz-options-container" style="display: flex; flex-direction: column; gap: 8px;">
-                            <!-- Quiz radio/button options -->
-                        </div>
-                        <div id="story-quiz-feedback-box" style="margin-top: 12px; display: none; padding: 10px 14px; border-radius: 10px; font-size: 13px; font-weight: 600;"></div>
                     </div>
                 </div>
 
@@ -1654,15 +1664,16 @@
 
     <script src="scenarios.js?v=11.064"></script>
     <script src="heroes.js?v=11.064"></script>
-    <script src="story_campaign.js?v=1.000"></script>
-    <script src="story_campaign_act1_expanded.js?v=1.000"></script>
-    <script src="flashcards.js?v=11.064"></script>
-    <script src="grammar.js?v=11.064"></script>
-    <script src="ai_service.js?v=11.064"></script>
-    <script src="visual_fluency.js?v=1.000"></script>
+    <script src="story_campaign.js?v=11.068"></script>
+    <script src="story_campaign_act1_expanded.js?v=11.068"></script>
+    <script src="story_campaign_act2_expanded.js?v=11.068"></script>
+    <script src="flashcards.js?v=11.068"></script>
+    <script src="grammar.js?v=11.068"></script>
+    <script src="ai_service.js?v=11.068"></script>
+    <script src="visual_fluency.js?v=11.068"></script>
     <script src="pattern_drills.js?v=1.000"></script>
     <script src="speaking_engine.js?v=1.000"></script>
     <script src="eldrin_story.js?v=1.000"></script>
-    <script src="app.js?v=11.064"></script>
+    <script src="app.js?v=11.068"></script>
 </body>
 </html>

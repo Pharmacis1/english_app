@@ -175,12 +175,12 @@ const STORY_CHAPTERS = [
         "titleRu": "Шепот в глубинах",
         "reqHeroLevels": {
             "thorin": 24,
-            "selena": 24,
+            "selene": 24,
             "ignis": 24
         },
         "involvedHeroes": [
             "thorin",
-            "selena",
+            "selene",
             "ignis"
         ],
         "paragraphs": [
@@ -319,12 +319,12 @@ const STORY_CHAPTERS = [
         "reqHeroLevels": {
             "thorin": 30,
             "ignis": 30,
-            "selena": 30
+            "selene": 30
         },
         "involvedHeroes": [
             "thorin",
             "ignis",
-            "selena"
+            "selene"
         ],
         "paragraphs": [
             {

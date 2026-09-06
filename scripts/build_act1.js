@@ -1664,22 +1664,47 @@ const act1_chapters = [
     }
 ];
 
+function groupSentencesBySpeaker(sentences) {
+    const chunks = [];
+    let cur = null;
+
+    sentences.forEach(s => {
+        if (!cur || cur.speaker !== s.speaker) {
+            if (cur) chunks.push(cur);
+            cur = {
+                speaker: s.speaker,
+                voice: s.voice,
+                en: s.en,
+                ru: s.ru
+            };
+        } else {
+            cur.en += ' ' + s.en;
+            cur.ru += ' ' + s.ru;
+        }
+    });
+    if (cur) chunks.push(cur);
+    return chunks;
+}
+
 let totalWords = 0;
-let totalSentences = 0;
+let totalBlocks = 0;
 act1_chapters.forEach(ch => {
+    const rawCount = ch.sentences.length;
+    ch.sentences = groupSentencesBySpeaker(ch.sentences);
+
     let chWords = 0;
     ch.sentences.forEach(s => {
-        totalSentences++;
+        totalBlocks++;
         const w = s.en.trim().split(/\s+/).filter(x => /[a-zA-Z]/.test(x));
         chWords += w.length;
     });
     ch.wordCount = chWords;
     totalWords += chWords;
-    console.log(`Chapter ${ch.number}: "${ch.titleEn}" -> ${ch.sentences.length} sentences, ${chWords} words`);
+    console.log(`Chapter ${ch.number}: "${ch.titleEn}" -> ${rawCount} sentences compressed to ${ch.sentences.length} speaker blocks (${chWords} words)`);
 });
 
 console.log('--------------------------------------------------');
-console.log(`TOTAL ACT I: ${act1_chapters.length} Chapters | ${totalSentences} Sentences | ${totalWords} Words!`);
+console.log(`TOTAL ACT I: ${act1_chapters.length} Chapters | ${totalBlocks} Speaker Blocks | ${totalWords} Words!`);
 console.log('--------------------------------------------------');
 
 // Write the complete updated ELDRIN_AUDIOBOOK structure into eldrin_story.js

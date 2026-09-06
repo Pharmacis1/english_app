@@ -33,10 +33,12 @@ class VisualFluencyEngine {
 
     loadState() {
         try {
-            this.xp = parseInt(localStorage.getItem('visual_fluency_xp') || '0', 10);
-            this.fadingLevel = parseInt(localStorage.getItem('visual_fluency_fading_lvl') || '1', 10);
-            this.pacerSpeedWpm = parseInt(localStorage.getItem('visual_fluency_pacer_wpm') || '150', 10);
-            this.completedChapterIds = JSON.parse(localStorage.getItem('visual_fluency_completed_chapters') || '[]');
+            if (typeof localStorage !== 'undefined') {
+                this.xp = parseInt(localStorage.getItem('visual_fluency_xp') || '0', 10);
+                this.fadingLevel = parseInt(localStorage.getItem('visual_fluency_fading_lvl') || '1', 10);
+                this.pacerSpeedWpm = parseInt(localStorage.getItem('visual_fluency_pacer_wpm') || '150', 10);
+                this.completedChapterIds = JSON.parse(localStorage.getItem('visual_fluency_completed_chapters') || '[]');
+            }
             this.level = this.calculateLevelFromXp(this.xp);
         } catch (e) {
             console.error('Error loading Visual Fluency state:', e);
@@ -50,10 +52,12 @@ class VisualFluencyEngine {
 
     saveState() {
         try {
-            localStorage.setItem('visual_fluency_xp', this.xp.toString());
-            localStorage.setItem('visual_fluency_fading_lvl', this.fadingLevel.toString());
-            localStorage.setItem('visual_fluency_pacer_wpm', this.pacerSpeedWpm.toString());
-            localStorage.setItem('visual_fluency_completed_chapters', JSON.stringify(this.completedChapterIds));
+            if (typeof localStorage !== 'undefined') {
+                localStorage.setItem('visual_fluency_xp', this.xp.toString());
+                localStorage.setItem('visual_fluency_fading_lvl', this.fadingLevel.toString());
+                localStorage.setItem('visual_fluency_pacer_wpm', this.pacerSpeedWpm.toString());
+                localStorage.setItem('visual_fluency_completed_chapters', JSON.stringify(this.completedChapterIds));
+            }
         } catch (e) {
             console.error('Error saving Visual Fluency state:', e);
         }
@@ -130,23 +134,103 @@ class VisualFluencyEngine {
         };
     }
 
+    parseTextIntoChunks(text) {
+        if (!text) return [];
+        const rawSentences = text.match(/[^.!?\n]+[.!?]*/g) || [text];
+        const result = [];
+        for (const raw of rawSentences) {
+            const trimmed = raw.trim();
+            if (trimmed.length > 0) {
+                const chunks = this.parseSentence(trimmed);
+                if (chunks && chunks.length > 0) {
+                    result.push(chunks);
+                }
+            }
+        }
+        return result.length > 0 ? result : [this.parseSentence(text)];
+    }
+
     parseSentence(sentence) {
         if (!sentence) return [];
-        const tokens = sentence.split(/\s+/).filter(t => t.length > 0);
+
+        const PREPOSITIONS = new Set(['in', 'on', 'at', 'to', 'for', 'with', 'under', 'behind', 'near', 'from', 'through', 'into', 'onto', 'over', 'before', 'after', 'about', 'across', 'around', 'of', 'by', 'above', 'along', 'beside', 'between', 'against', 'beneath', 'below', 'without', 'toward', 'towards', 'alongside', 'outside', 'inside', 'upon']);
+        const ARTICLES = new Set(['a', 'an', 'the']);
+        const DETERMINERS = new Set(['a', 'an', 'the', 'this', 'that', 'these', 'those', 'my', 'your', 'his', 'her', 'its', 'our', 'their', 'all', 'every', 'each', 'some', 'any', 'no', 'both', 'many', 'much', 'few', 'several', 'another', 'other', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'fifty', 'hundred', 'hundreds', 'dozen', 'dozens']);
+        const PRONOUNS = new Set(['i', 'you', 'he', 'she', 'it', 'we', 'they', 'someone', 'everyone', 'anyone', 'no one', 'nobody', 'nothing', 'everything', 'something', 'who', 'whom', 'which', 'what']);
+        const MODALS = new Set(['can', 'cannot', 'could', 'must', 'should', 'will', 'would', 'may', 'might', 'shall', "can't", "won't", "couldn't", "shouldn't", "wouldn't", "mustn't"]);
+        const AUX_VERBS = new Set(['do', 'does', 'did', 'is', 'are', 'am', 'was', 'were', 'have', 'has', 'had', 'be', 'been', 'being', "don't", "doesn't", "didn't", "isn't", "aren't", "wasn't", "weren't", "haven't", "hasn't", "hadn't"]);
+        const LINKING_VERBS = new Set(['is', 'are', 'am', 'was', 'were', 'be', 'been', 'became', 'become', 'felt', 'feel', 'seemed', 'seem', 'sounded', 'sound', 'smelled', 'smell', 'tasted', 'taste', 'remained', 'remain', 'stayed', 'stay', 'went', 'shone', 'grew', 'looked']);
+        const DEGREE_ADVERBS = new Set(['very', 'so', 'too', 'quite', 'completely', 'still', 'always', 'almost', 'extremely', 'really', 'rather', 'fairly', 'totally', 'perfectly', 'also']);
+        const CONJUNCTIONS = new Set(['and', 'or', 'but', 'so', 'yet', 'nor']);
+        const CLAUSE_CONNECTORS = new Set(['because', 'although', 'while', 'when', 'if', 'since', 'where', 'as', 'though', 'unless', 'until']);
+
+        const VERB_LEXICON = new Set([
+            'arrived', 'attacked', 'knelt', 'stood', 'walked', 'held', 'picked', 'looked', 'shouted', 'ran', 'saw', 'smiled', 
+            'moved', 'cut', 'shook', 'opened', 'closed', 'flew', 'fell', 'sat', 'got', 'put', 'spoke', 'gave', 'took', 'came', 
+            'went', 'heard', 'felt', 'knew', 'thought', 'found', 'called', 'whispered', 'swung', 'broke', 'burned', 'flowed', 
+            'turned', 'wore', 'carried', 'asked', 'answered', 'roared', 'crouched', 'slammed', 'gasped', 'smelled', 'touched',
+            'jumped', 'pulled', 'showed', 'pointed', 'sizzled', 'lowered', 'stepped', 'danced', 'placed', 'nodded', 'gripped',
+            'covered', 'listened', 'brought', 'recognized', 'squinted', 'warned', 'grunted', 'scratched', 'smashed', 'leapt',
+            'tumbled', 'sealed', 'defeated', 'recovered', 'frown', 'frowned', 'waved', 'leaped', 'echoed', 'poured', 'unleashed',
+            'melted', 'summoned', 'cast', 'restored', 'shot', 'froze', 'eliminated', 'retreated', 'wiped', 'uncovered',
+            'saved', 'unite', 'find', 'complete', 'arrive', 'attack', 'kneel', 'stand', 'walk', 'hold', 'pick', 'look',
+            'shout', 'run', 'see', 'smile', 'move', 'fly', 'fall', 'sit', 'get', 'speak', 'give', 'take', 'come', 'go',
+            'hear', 'feel', 'know', 'think', 'call', 'whisper', 'swing', 'break', 'burn', 'flow', 'turn', 'wear', 'carry',
+            'ask', 'answer', 'roar', 'slam', 'gasp', 'smell', 'touch', 'jump', 'pull', 'show', 'point', 'sizzle', 'lower',
+            'step', 'dance', 'place', 'nod', 'grip', 'cover', 'listen', 'bring', 'recognize', 'squint', 'warn', 'grunt',
+            'scratch', 'smash', 'leap', 'tumble', 'seal', 'defeat', 'recover', 'frown', 'wave', 'echo', 'pour', 'unleash',
+            'melt', 'summon', 'restore', 'shoot', 'freeze', 'eliminate', 'retreat', 'wipe', 'uncover', 'save', 'wait',
+            'cross', 'drink', 'protect', 'gather', 'fled', 'flee', 'stayed', 'stay', 'lived', 'live', 'wanted', 'want',
+            'liked', 'like', 'needed', 'need', 'used', 'use', 'helped', 'help', 'started', 'start', 'began', 'begin',
+            'worked', 'work', 'played', 'play', 'hit', 'tried', 'try', 'stopped', 'stop', 'tested', 'test', 'rose', 'rise',
+            'lay', 'lie', 'laid', 'shone', 'shine', 'smashed', 'smashes', 'attacks', 'arrives', 'kneels', 'stands', 'walks',
+            'holds', 'picks', 'looks', 'shouts', 'runs', 'sees', 'smiles', 'moves', 'flies', 'falls', 'sits', 'speaks',
+            'gives', 'takes', 'comes', 'goes', 'hears', 'feels', 'knows', 'thinks', 'calls', 'whispers', 'swings', 'breaks',
+            'burns', 'flows', 'turns', 'wears', 'carries', 'asks', 'answers', 'roars', 'slams', 'gasps', 'smells', 'touches',
+            'jumps', 'pulls', 'shows', 'points', 'sizzles', 'lowers', 'steps', 'dances', 'places', 'nods', 'grips', 'covers',
+            'listens', 'brings', 'recognizes', 'squints', 'warns', 'grunts', 'scratches', 'leaps', 'tumbles', 'seals',
+            'defeats', 'recovers', 'frowns', 'waves', 'echoes', 'pours', 'unleashes', 'melts', 'summons', 'restores',
+            'shoots', 'freezes', 'eliminates', 'retreats', 'wipes', 'uncovers', 'saves', 'waits', 'crosses', 'drinks',
+            'protects', 'gathers', 'flees', 'stays', 'lives', 'wants', 'likes', 'needs', 'uses', 'helps', 'starts', 'begins',
+            'works', 'plays', 'hits', 'tries', 'stops', 'tests', 'rises', 'lies', 'shines',
+            'sang', 'sing', 'sings', 'snapped', 'snap', 'snaps', 'whispers', 'whispered', 'laughed', 'laugh', 'belongs',
+            'belong', 'belonged', 'shines', 'shone'
+        ]);
+
+        const PARTICIPLE_ADJECTIVES = new Set([
+            'burning', 'glowing', 'broken', 'frozen', 'sunken', 'shining', 'overturned', 'flying', 
+            'living', 'braided', 'floating', 'falling', 'smoking', 'sparkling', 'poaching', 'rushing',
+            'chafing', 'piercing', 'blinding', 'roaring', 'gleaming', 'crackling', 'frightened',
+            'crouched', 'curved', 'trapped', 'poisoned', 'stolen', 'forgotten', 'united', 'shared',
+            'sacred', 'ancient', 'polished', 'cushioned', 'fled', 'restless', 'safe', 'silent', 'bright',
+            'warm', 'cold', 'loud', 'fast', 'slow', 'gentle', 'calm', 'sweet', 'fresh', 'sharp', 'heavy'
+        ]);
+
+        const isVerb = (w) => {
+            if (!w) return false;
+            const cleanWord = w.toLowerCase().replace(/[^a-z']/g, '');
+            if (PARTICIPLE_ADJECTIVES.has(cleanWord)) return false;
+            if (VERB_LEXICON.has(cleanWord) || AUX_VERBS.has(cleanWord) || MODALS.has(cleanWord)) return true;
+            if (cleanWord.endsWith('ed') && cleanWord.length > 4 && !PARTICIPLE_ADJECTIVES.has(cleanWord)) return true;
+            return false;
+        };
+
+        const rawTokens = sentence.match(/\S+/g) || [];
         const chunks = [];
         let i = 0;
 
-        const ARTICLES = new Set(['a', 'an', 'the']);
-        const PREPOSITIONS = new Set(['in', 'on', 'at', 'to', 'for', 'with', 'under', 'behind', 'near', 'from', 'through', 'into', 'onto', 'over', 'before', 'after', 'about', 'across', 'around', 'of', 'by']);
-        const PRONOUNS = new Set(['i', 'you', 'he', 'she', 'it', 'we', 'they', 'this', 'that', 'these', 'those', 'my', 'his', 'her', 'our', 'their', 'someone', 'everyone', 'nothing', 'everything']);
-        const MODALS = new Set(['can', 'cannot', "can't", 'must', 'should', 'will', "won't", 'would', 'may', 'could']);
-        const AUX_VERBS = new Set(['do', 'does', 'did', "don't", "doesn't", "didn't", 'is', 'are', 'am', 'was', 'were', 'have', 'has', 'had']);
-        const CONJUNCTIONS = new Set(['and', 'or', 'but', 'so', 'yet']);
-        const CLAUSE_CONNECTORS = new Set(['because', 'although', 'while', 'when', 'if', 'since', 'where', 'as']);
-
-        while (i < tokens.length) {
-            let token = tokens[i];
+        while (i < rawTokens.length) {
+            let token = rawTokens[i];
             let clean = token.toLowerCase().replace(/[^a-z']/g, '');
+
+            // Skip standalone punctuation or attach to previous chunk
+            if (!clean) {
+                if (chunks.length > 0) {
+                    chunks[chunks.length - 1].text += ' ' + token;
+                }
+                i++;
+                continue;
+            }
 
             if (CLAUSE_CONNECTORS.has(clean)) {
                 chunks.push({ isClauseBreak: true, text: '↳ ' + token });
@@ -160,108 +244,150 @@ class VisualFluencyEngine {
                 continue;
             }
 
+            // 1. PREPOSITIONAL PHRASE (PP) -> [Preposition] + [Determiner/Modifiers/Noun]
             if (PREPOSITIONS.has(clean)) {
-                let particles = [token];
-                let modifiers = [];
                 let j = i + 1;
-
-                while (j < tokens.length) {
-                    let nextClean = tokens[j].toLowerCase().replace(/[^a-z']/g, '');
-                    if (ARTICLES.has(nextClean) || ['every', 'all', 'some', 'any', 'each', 'my', 'his', 'her', 'their', 'our'].includes(nextClean)) {
-                        particles.push(tokens[j]);
+                while (j < rawTokens.length) {
+                    let nextClean = rawTokens[j].toLowerCase().replace(/[^a-z']/g, '');
+                    if (!nextClean) {
                         j++;
-                    } else if (['big', 'small', 'tall', 'deep', 'high', 'dark', 'bright', 'ancient', 'cold', 'warm', 'green', 'silver', 'red', 'blue', 'old', 'new', 'young', 'soft', 'wide', 'heavy', 'fast', 'slow', 'quiet', 'loud', 'great', 'wooden', 'stone', 'emerald', 'black', 'white', 'golden'].includes(nextClean)) {
-                        modifiers.push(tokens[j]);
-                        j++;
-                    } else {
-                        break;
+                        continue;
                     }
+                    if (CONJUNCTIONS.has(nextClean) || CLAUSE_CONNECTORS.has(nextClean) || PREPOSITIONS.has(nextClean)) break;
+                    if (isVerb(nextClean)) break;
+                    j++;
+                    if (/[.,;!?]$/.test(rawTokens[j - 1])) break;
                 }
-
-                if (j < tokens.length) {
-                    chunks.push({
-                        type: 'place-time',
-                        role: 'Обстоятельство (Где? Куда? Когда?)',
-                        text: tokens.slice(i, j + 1).join(' '),
-                        particles: particles,
-                        modifiers: modifiers,
-                        core: tokens[j]
-                    });
-                    i = j + 1;
-                    continue;
-                }
+                
+                const ppSlice = rawTokens.slice(i, j);
+                chunks.push({
+                    type: 'place-time',
+                    role: 'Обстоятельство (Где? Куда? Когда?)',
+                    text: ppSlice.join(' ')
+                });
+                i = j;
+                continue;
             }
 
-            if (MODALS.has(clean) || AUX_VERBS.has(clean) || clean.includes("'t") || clean === 'cannot') {
-                let particles = [];
-                let modifiers = [token];
-                let isNeg = clean.includes("'t") || clean === 'cannot';
+            // 2. VERB PHRASE (VP) / LINKING VERB + PREDICATE ADJECTIVES
+            if (isVerb(clean) || clean === 'not' || clean === 'never') {
                 let j = i + 1;
+                let isNeg = clean === 'not' || clean === 'never' || clean.includes("'t") || clean === 'cannot';
+                let isLinking = LINKING_VERBS.has(clean);
 
-                if (j < tokens.length && (tokens[j].toLowerCase() === 'not' || tokens[j].toLowerCase() === 'never')) {
-                    modifiers.push(tokens[j]);
-                    isNeg = true;
-                    j++;
-                }
-
-                if (j < tokens.length && (tokens[j].toLowerCase() === 'to' || tokens[j].toLowerCase() === 'be')) {
-                    particles.push(tokens[j]);
-                    j++;
-                }
-
-                if (j < tokens.length) {
-                    chunks.push({
-                        type: 'verb',
-                        role: 'Сказуемое / Действие',
-                        text: tokens.slice(i, j + 1).join(' '),
-                        particles: particles,
-                        modifiers: modifiers,
-                        core: tokens[j],
-                        isNegative: isNeg
-                    });
-                    i = j + 1;
-                    continue;
-                }
-            }
-
-            if (ARTICLES.has(clean) || PRONOUNS.has(clean)) {
-                let particles = [token];
-                let modifiers = [];
-                let j = i + 1;
-
-                while (j < tokens.length) {
-                    let nextClean = tokens[j].toLowerCase().replace(/[^a-z']/g, '');
-                    if (['rare', 'ancient', 'powerful', 'magic', 'nice', 'big', 'small', 'tall', 'deep', 'high', 'dark', 'bright', 'cold', 'warm', 'green', 'silver', 'red', 'blue', 'old', 'new', 'young', 'soft', 'wide', 'heavy', 'fast', 'slow', 'quiet', 'loud', 'great', 'wooden', 'stone', 'emerald', 'black', 'white', 'golden'].includes(nextClean)) {
-                        modifiers.push(tokens[j]);
+                while (j < rawTokens.length) {
+                    let nextClean = rawTokens[j].toLowerCase().replace(/[^a-z']/g, '');
+                    if (!nextClean) {
                         j++;
-                    } else {
-                        break;
+                        continue;
                     }
+                    if (nextClean === 'not' || nextClean === 'never') {
+                        isNeg = true;
+                        j++;
+                        continue;
+                    }
+
+                    // If next word is a preposition that starts a prepositional phrase, do NOT absorb!
+                    if (PREPOSITIONS.has(nextClean)) {
+                        if (j + 1 < rawTokens.length) {
+                            let afterPrepClean = rawTokens[j + 1].toLowerCase().replace(/[^a-z']/g, '');
+                            if (DETERMINERS.has(afterPrepClean) || ARTICLES.has(afterPrepClean) || PRONOUNS.has(afterPrepClean)) {
+                                break; // leave preposition for PP rule!
+                            }
+                        }
+                    }
+
+                    // If linking verb, absorb degree adverbs and predicate adjectives (e.g. "was bright and warm", "was very fast and loud", "went completely silent")
+                    if (isLinking) {
+                        if (DEGREE_ADVERBS.has(nextClean) || PARTICIPLE_ADJECTIVES.has(nextClean) || ['bright', 'warm', 'cold', 'fast', 'slow', 'loud', 'quiet', 'safe', 'restless', 'silent', 'gentle', 'calm', 'sweet', 'fresh', 'sharp', 'heavy', 'great', 'wide', 'tall', 'dark', 'small', 'big', 'ready', 'open', 'closed', 'good', 'bad', 'happy', 'afraid', 'alive', 'dead', 'awake', 'asleep', 'peaceful', 'kind', 'restless'].includes(nextClean)) {
+                            j++;
+                            if (/[.,;!?]$/.test(rawTokens[j - 1])) break;
+                            // Check if followed by "and" + another adjective
+                            if (j < rawTokens.length && (rawTokens[j].toLowerCase() === 'and' || rawTokens[j].toLowerCase() === 'or')) {
+                                if (j + 1 < rawTokens.length) {
+                                    let afterConjClean = rawTokens[j + 1].toLowerCase().replace(/[^a-z']/g, '');
+                                    if (PARTICIPLE_ADJECTIVES.has(afterConjClean) || ['bright', 'warm', 'cold', 'fast', 'slow', 'loud', 'quiet', 'safe', 'restless', 'silent', 'gentle', 'calm', 'sweet', 'fresh', 'sharp', 'heavy', 'great', 'wide', 'tall', 'dark', 'small', 'big', 'ready', 'open', 'closed', 'good', 'bad', 'happy', 'afraid', 'alive', 'dead', 'awake', 'asleep', 'peaceful', 'kind', 'restless'].includes(afterConjClean) || DEGREE_ADVERBS.has(afterConjClean)) {
+                                        j += 2; // absorb "and [adj]"
+                                        if (/[.,;!?]$/.test(rawTokens[j - 1])) break;
+                                        continue;
+                                    }
+                                }
+                            }
+                            continue;
+                        }
+                    }
+
+                    if (isVerb(nextClean) || ['up', 'down', 'out', 'back', 'forward', 'away', 'off', 'together', 'first', 'slowly', 'quietly', 'loudly', 'softly', 'firmly', 'closely'].includes(nextClean)) {
+                        j++;
+                        if (/[.,;!?]$/.test(rawTokens[j - 1])) break;
+                        continue;
+                    }
+                    break;
                 }
 
-                if (j < tokens.length) {
-                    chunks.push({
-                        type: chunks.length === 0 ? 'subject' : 'object',
-                        role: chunks.length === 0 ? 'Подлежащее (Кто?)' : 'Объект / Дополнение',
-                        text: tokens.slice(i, j + 1).join(' '),
-                        particles: particles,
-                        modifiers: modifiers,
-                        core: tokens[j]
-                    });
-                    i = j + 1;
-                    continue;
-                }
+                const vpSlice = rawTokens.slice(i, j);
+                chunks.push({
+                    type: 'verb',
+                    role: 'Сказуемое / Действие',
+                    text: vpSlice.join(' '),
+                    isNegative: isNeg
+                });
+                i = j;
+                continue;
             }
 
+            // 3. NOUN PHRASE (NP) / COORDINATE OBJECT
+            let j = i;
+            let isSubject = false;
+            
+            // Determine subject vs object
+            if (chunks.length === 0 || chunks[chunks.length - 1].isClauseBreak) {
+                isSubject = true;
+            } else if (chunks[chunks.length - 1].isConjunction) {
+                const conjText = chunks[chunks.length - 1].text.toLowerCase();
+                if (['but', 'so', 'yet'].includes(conjText)) {
+                    isSubject = true;
+                } else {
+                    let hasSubsequentVerb = false;
+                    for (let k = i + 1; k < rawTokens.length; k++) {
+                        let kClean = rawTokens[k].toLowerCase().replace(/[^a-z']/g, '');
+                        if (isVerb(kClean)) {
+                            hasSubsequentVerb = true;
+                            break;
+                        }
+                        if (CONJUNCTIONS.has(kClean) || CLAUSE_CONNECTORS.has(kClean)) break;
+                    }
+                    isSubject = hasSubsequentVerb;
+                }
+            } else if (chunks[chunks.length - 1].type === 'place-time') {
+                const hasVerb = chunks.some(c => c.type === 'verb');
+                isSubject = !hasVerb;
+            }
+            
+            while (j < rawTokens.length) {
+                let nextClean = rawTokens[j].toLowerCase().replace(/[^a-z']/g, '');
+                if (!nextClean) {
+                    j++;
+                    continue;
+                }
+                if (CONJUNCTIONS.has(nextClean) || CLAUSE_CONNECTORS.has(nextClean) || PREPOSITIONS.has(nextClean)) break;
+                if (isVerb(nextClean)) break;
+                j++;
+                if (PRONOUNS.has(nextClean)) {
+                    break;
+                }
+                if (/[.,;!?]$/.test(rawTokens[j - 1])) break;
+            }
+
+            if (j === i) j = i + 1;
+
+            const npSlice = rawTokens.slice(i, j);
             chunks.push({
-                type: chunks.length === 0 ? 'subject' : 'object',
-                role: 'Смысловой блок',
-                text: token,
-                particles: [],
-                modifiers: [],
-                core: token
+                type: isSubject ? 'subject' : 'object',
+                role: isSubject ? 'Подлежащее (Кто?)' : 'Объект / Дополнение',
+                text: npSlice.join(' ')
             });
-            i++;
+            i = j;
         }
 
         return chunks;
@@ -277,32 +403,13 @@ class VisualFluencyEngine {
         }
 
         const lvlClass = 'vf-l' + fadingLevel + '-' + (chunk.type || 'object');
-        let innerHtml = '';
-
-        if (chunk.isNegative && fadingLevel <= 2) {
-            innerHtml += '<span class="vf-neg-pill">NOT</span>';
-        }
-
-        if (chunk.particles && chunk.particles.length > 0) {
-            chunk.particles.forEach(p => {
-                innerHtml += '<span class="vf-particle">' + p + '</span>';
-            });
-        }
-
-        if (chunk.modifiers && chunk.modifiers.length > 0) {
-            chunk.modifiers.forEach(m => {
-                innerHtml += '<span class="vf-modifier">' + m + '</span>';
-            });
-        }
-
-        innerHtml += '<span class="vf-core">' + (chunk.core || chunk.text) + '</span>';
-
-        return '<span class="vf-chunk ' + lvlClass + '" data-chunk-idx="' + globalChunkIdx + '" title="' + (chunk.role || '') + '">' + innerHtml + '</span>';
+        return '<span class="vf-chunk ' + lvlClass + '" data-chunk-idx="' + globalChunkIdx + '" title="' + (chunk.role || '') + '">' + chunk.text + '</span>';
     }
 }
 
 if (typeof window !== 'undefined') {
     window.visualFluency = new VisualFluencyEngine();
+    window.VisualFluency = window.visualFluency;
 }
 if (typeof module !== 'undefined') {
     module.exports = { VisualFluencyEngine };

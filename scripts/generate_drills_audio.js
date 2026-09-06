@@ -65,7 +65,7 @@ async function sleep(ms) {
 }
 
 async function generateAudio(text, voiceName, maxRetries = 3) {
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent?key=${apiKey}`;
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-tts-preview:generateContent?key=${apiKey}`;
     const payload = {
         contents: [{
             role: 'user',

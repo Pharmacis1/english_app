@@ -149,7 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // --- HERO STAGE CUSTOMIZATION & GIFTS SYSTEM ---
     function getHeroStageCustomization(heroId) {
-        if (!heroId) return { bgId: "default", skinId: "default", heroTransform: { scale: 65, x: 0, y: 0 }, bgTransform: { scale: 100, x: 0, y: 0 } };
+        if (!heroId) return { bgId: "default", bgMode: "video", skinId: "default", heroTransform: { scale: 65, x: 0, y: 0 }, bgTransform: { scale: 100, x: 0, y: 0 } };
         try {
             const saved = localStorage.getItem(`english_pulse_stage_custom_${heroId}`);
             if (saved) {
@@ -157,11 +157,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (!parsed.heroTransform) parsed.heroTransform = { scale: 65, x: 0, y: 0 };
                 if (!parsed.bgTransform) parsed.bgTransform = { scale: 100, x: 0, y: 0 };
                 if (!parsed.bgId) parsed.bgId = "default";
+                if (!parsed.bgMode) parsed.bgMode = "video";
                 if (!parsed.skinId) parsed.skinId = "default";
                 return parsed;
             }
         } catch (e) {}
-        return { bgId: "default", skinId: "default", heroTransform: { scale: 65, x: 0, y: 0 }, bgTransform: { scale: 100, x: 0, y: 0 } };
+        return { bgId: "default", bgMode: "video", skinId: "default", heroTransform: { scale: 65, x: 0, y: 0 }, bgTransform: { scale: 100, x: 0, y: 0 } };
     }
 
     function saveHeroStageCustomization(heroId, config) {
@@ -211,12 +212,14 @@ document.addEventListener("DOMContentLoaded", () => {
         const stageVideo = document.getElementById("hero-stage-video");
         const iconFallback = document.getElementById("hero-stage-icon-fallback");
 
-        // 1. Apply Background & Transform
+        // 1. Apply Background & Transform (Video vs Static Mode)
         if (bgLayer) {
             const bgVideo = document.getElementById("hero-stage-bg-video");
             if (custom.bgId && custom.bgId !== "default") {
                 const bgItem = (window.STAGE_GIFTS_CATALOG || []).find(g => g.id === custom.bgId);
-                if (bgItem && bgItem.video) {
+                const useVideo = bgItem && bgItem.video && (custom.bgMode !== "static");
+
+                if (useVideo) {
                     bgLayer.style.backgroundImage = "none";
                     if (bgVideo) {
                         bgVideo.classList.remove("hidden");
@@ -226,13 +229,13 @@ document.addEventListener("DOMContentLoaded", () => {
                         }
                         bgVideo.play().catch(e => {});
                     }
-                } else if (bgItem && bgItem.image) {
+                } else if (bgItem && (bgItem.image || bgItem.previewImage)) {
                     if (bgVideo) {
                         bgVideo.pause();
                         bgVideo.classList.add("hidden");
                         bgVideo.style.display = "none";
                     }
-                    bgLayer.style.backgroundImage = `url('${bgItem.image}')`;
+                    bgLayer.style.backgroundImage = `url('${bgItem.image || bgItem.previewImage}')`;
                 } else {
                     if (bgVideo) {
                         bgVideo.pause();
@@ -736,25 +739,58 @@ document.addEventListener("DOMContentLoaded", () => {
             backgrounds.forEach(bg => {
                 const isUnlocked = unlocked.includes(bg.id);
                 const isEquipped = custom.bgId === bg.id;
+                const hasVideo = !!bg.video;
+                const currentMode = (isEquipped && custom.bgMode === "static") ? "static" : "video";
 
                 const card = document.createElement("div");
                 card.className = `stage-gallery-card ${isEquipped ? 'active' : ''} ${!isUnlocked ? 'locked' : ''}`;
                 card.innerHTML = `
                     <img src="${bg.previewImage || bg.image}" alt="${bg.name}" class="stage-gallery-thumb">
-                    ${isEquipped ? '<div class="stage-badge-equipped">Выбрано</div>' : ''}
+                    ${isEquipped ? `<div class="stage-badge-equipped">${hasVideo && currentMode === 'static' ? '🖼️ Статика' : (hasVideo ? '🎬 Ролик' : 'Выбрано')}</div>` : ''}
                     ${!isUnlocked ? '<div class="stage-card-lock-overlay"><i class="fa-solid fa-lock"></i><span style="font-size:9px; font-weight:700;">КВЕСТ ДНЯ</span></div>' : ''}
                     <div class="stage-gallery-info">
                         <div class="stage-gallery-title">${bg.name}</div>
                         <div class="stage-gallery-desc">${isUnlocked ? bg.description : '🔒 Открывается за завершение квеста дня'}</div>
+                        ${isUnlocked && hasVideo ? `
+                        <div class="stage-bg-mode-switch" onclick="event.stopPropagation()">
+                            <button type="button" class="stage-mode-btn ${isEquipped && currentMode === 'video' ? 'active' : (!isEquipped ? 'active' : '')}" data-mode="video" title="Живая плавная видео-анимация">🎬 Ролик</button>
+                            <button type="button" class="stage-mode-btn ${isEquipped && currentMode === 'static' ? 'active' : ''}" data-mode="static" title="Статичный арт высокой четкости">🖼️ Статика</button>
+                        </div>
+                        ` : ''}
                     </div>
                 `;
 
                 if (isUnlocked) {
                     card.addEventListener("click", () => {
                         custom.bgId = bg.id;
+                        if (!custom.bgMode) custom.bgMode = "video";
                         saveHeroStageCustomization(hero.id, custom);
                         renderBackgroundsGallery(hero);
                     });
+
+                    // Mode switch buttons inside the card
+                    const btnVideo = card.querySelector('[data-mode="video"]');
+                    const btnStatic = card.querySelector('[data-mode="static"]');
+
+                    if (btnVideo) {
+                        btnVideo.addEventListener("click", (e) => {
+                            e.stopPropagation();
+                            custom.bgId = bg.id;
+                            custom.bgMode = "video";
+                            saveHeroStageCustomization(hero.id, custom);
+                            renderBackgroundsGallery(hero);
+                        });
+                    }
+
+                    if (btnStatic) {
+                        btnStatic.addEventListener("click", (e) => {
+                            e.stopPropagation();
+                            custom.bgId = bg.id;
+                            custom.bgMode = "static";
+                            saveHeroStageCustomization(hero.id, custom);
+                            renderBackgroundsGallery(hero);
+                        });
+                    }
                 } else {
                     card.title = "Этот фон можно открыть случайным образом за выполнение Квеста Дня любого героя!";
                 }
@@ -1351,7 +1387,73 @@ document.addEventListener("DOMContentLoaded", () => {
         showToast(toastMsg, bg);
 
         if (reward.leveledUpHeroes && reward.leveledUpHeroes.length > 0) {
-            showHeroLevelUpModal(reward.leveledUpHeroes);
+            reward.leveledUpHeroes.forEach(lvlData => {
+                showToast(`🎉 <b>LEVEL UP!</b> ${lvlData.hero.name} достиг <b>Уровня ${lvlData.newLevel}</b>! (+${lvlData.hpGain} HP, +${lvlData.atkGain} ATK, +${lvlData.defGain} DEF)`, "linear-gradient(135deg, #f59e0b, #ec4899)", "#fbbf24");
+            });
+            updateChatHeroExpBar(true, reward.leveledUpHeroes[0]);
+        } else {
+            updateChatHeroExpBar(false);
+        }
+    }
+
+    function updateChatHeroExpBar(isLevelUp = false, lvlData = null) {
+        const lvlBadge = document.getElementById("chat-hero-level-badge");
+        const xpFill = document.getElementById("chat-hero-xp-fill");
+        const xpText = document.getElementById("chat-hero-xp-text");
+        const xpContainer = document.getElementById("chat-hero-xp-container");
+
+        if (!lvlBadge || !xpFill || !xpText) return;
+
+        const activeHeroId = (activeScenario && activeScenario.heroId) 
+            ? activeScenario.heroId 
+            : (activeShowcaseHeroId || (rpgEngine && rpgEngine.heroes && rpgEngine.heroes[0] && rpgEngine.heroes[0].id));
+
+        const hero = (rpgEngine && rpgEngine.heroes && activeHeroId) 
+            ? rpgEngine.heroes.find(h => h.id === activeHeroId) 
+            : null;
+
+        if (!hero) {
+            if (xpContainer) xpContainer.style.display = "none";
+            lvlBadge.style.display = "none";
+            return;
+        }
+
+        if (xpContainer) xpContainer.style.display = "flex";
+        lvlBadge.style.display = "inline-flex";
+
+        const maxLvlCap = (typeof HERO_MAX_LEVEL !== 'undefined') ? HERO_MAX_LEVEL : 100;
+        const isMaxLevel = hero.level >= maxLvlCap;
+
+        if (isMaxLevel) {
+            lvlBadge.textContent = `Lvl ${hero.level} MAX`;
+            lvlBadge.style.background = "linear-gradient(135deg, rgba(239, 68, 68, 0.3), rgba(220, 38, 38, 0.4))";
+            lvlBadge.style.borderColor = "rgba(239, 68, 68, 0.6)";
+            lvlBadge.style.color = "#fca5a5";
+
+            xpFill.style.width = "100%";
+            xpFill.style.background = "linear-gradient(90deg, #ef4444, #f59e0b)";
+            xpText.textContent = "MAX LEVEL";
+            xpText.style.color = "#f87171";
+        } else {
+            const calculatedMaxXp = hero.maxXp || Math.round(150 + (hero.level - 1) * 5);
+            const currentXp = Math.max(0, hero.xp || 0);
+            const pct = Math.min(100, Math.max(0, Math.round((currentXp / calculatedMaxXp) * 100)));
+
+            lvlBadge.textContent = `Lvl ${hero.level}`;
+            lvlBadge.style.background = "linear-gradient(135deg, rgba(245, 158, 11, 0.25), rgba(217, 119, 6, 0.35))";
+            lvlBadge.style.borderColor = "rgba(251, 191, 36, 0.5)";
+            lvlBadge.style.color = "#fef08a";
+
+            xpFill.style.width = `${pct}%`;
+            xpFill.style.background = "linear-gradient(90deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%)";
+            xpText.textContent = `${currentXp} / ${calculatedMaxXp} XP (${pct}%)`;
+            xpText.style.color = "#94a3b8";
+        }
+
+        if (isLevelUp) {
+            lvlBadge.classList.remove("level-up-pulse");
+            void lvlBadge.offsetWidth;
+            lvlBadge.classList.add("level-up-pulse");
         }
     }
 
@@ -1359,91 +1461,10 @@ document.addEventListener("DOMContentLoaded", () => {
     let pendingLiveLevelUps = [];
 
     function showHeroLevelUpModal(leveledUpList) {
-        if (!leveledUpList || leveledUpList.length === 0) return;
-
-        // If Live Realtime Audio Call is active, defer Level Up modal & audio until call ends!
-        if (typeof isLiveCallActive !== 'undefined' && isLiveCallActive) {
-            pendingLiveLevelUps.push(...leveledUpList);
-            return;
+        // Popup cards replaced by in-chat live XP bar and level badge!
+        if (leveledUpList && leveledUpList.length > 0) {
+            updateChatHeroExpBar(true, leveledUpList[0]);
         }
-
-        const lvlupModal = document.getElementById("hero-level-up-modal");
-        if (!lvlupModal) return;
-
-        levelUpQueue.push(...leveledUpList);
-        displayNextLevelUpInQueue();
-    }
-
-    function displayNextLevelUpInQueue() {
-        const lvlupModal = document.getElementById("hero-level-up-modal");
-        if (!lvlupModal) return;
-
-        if (!levelUpQueue || levelUpQueue.length === 0) {
-            lvlupModal.classList.add("hidden");
-            lvlupModal.style.setProperty("display", "none", "important");
-            return;
-        }
-
-        const data = levelUpQueue[0];
-        if (!data || !data.hero) {
-            levelUpQueue.shift();
-            displayNextLevelUpInQueue();
-            return;
-        }
-
-        const hero = data.hero;
-
-        const titleEl = document.getElementById("lvlup-title");
-        const nameEl = document.getElementById("lvlup-hero-name");
-        if (titleEl) titleEl.textContent = `LEVEL UP! LEVEL ${data.newLevel} 🎉`;
-        if (nameEl) nameEl.textContent = `${hero.name} Reached Level ${data.newLevel}!`;
-        
-        const avatarBox = document.getElementById("lvlup-hero-avatar-box");
-        if (avatarBox) {
-            const avatarSrc = hero.faceImage || hero.image;
-            if (avatarSrc) {
-                avatarBox.innerHTML = `<img src="${avatarSrc}" style="width:100%; height:100%; object-fit:cover; object-position:top center; border-radius:50%;">`;
-            } else {
-                avatarBox.innerHTML = `<i class="fa-solid ${hero.avatar || 'fa-shield-halved'}" style="font-size:42px; color:${hero.color || '#3b82f6'};"></i>`;
-            }
-        }
-
-        const hpEl = document.getElementById("lvlup-hp-gain");
-        const atkEl = document.getElementById("lvlup-atk-gain");
-        const defEl = document.getElementById("lvlup-def-gain");
-        if (hpEl) hpEl.textContent = `+${data.hpGain} HP`;
-        if (atkEl) atkEl.textContent = `+${data.atkGain} ATK`;
-        if (defEl) defEl.textContent = `+${data.defGain} DEF`;
-
-        lvlupModal.classList.remove("hidden");
-        lvlupModal.style.setProperty("display", "flex", "important");
-
-        if (window.voiceService) {
-            voiceService.speak(`${hero.name} reached Level ${data.newLevel}!`, null, null, hero.voiceConfig || null);
-        }
-    }
-
-    const closeLvlUpBtn = document.getElementById("close-lvlup-modal-btn");
-    const lvlupModalEl = document.getElementById("hero-level-up-modal");
-
-    if (closeLvlUpBtn) {
-        closeLvlUpBtn.addEventListener("click", () => {
-            if (levelUpQueue.length > 0) {
-                levelUpQueue.shift();
-            }
-            displayNextLevelUpInQueue();
-        });
-    }
-
-    if (lvlupModalEl) {
-        lvlupModalEl.addEventListener("click", (e) => {
-            if (e.target === lvlupModalEl) {
-                if (levelUpQueue.length > 0) {
-                    levelUpQueue.shift();
-                }
-                displayNextLevelUpInQueue();
-            }
-        });
     }
 
     // --- PER-HERO AUDIO REWARD ENGINE ---
@@ -1606,6 +1627,7 @@ document.addEventListener("DOMContentLoaded", () => {
         try { 
             updateWritingUI(); 
             updateListeningUI(); 
+            updateChatHeroExpBar();
         } catch(e) {}
     }
 
@@ -2879,9 +2901,9 @@ document.addEventListener("DOMContentLoaded", () => {
             btn.title = `Chat with ${hero.name} (${hero.title || hero.role})`;
             
             if (avatarSrc) {
-                btn.innerHTML = `<img src="${avatarSrc}" alt="${hero.name}">`;
+                btn.innerHTML = `<img src="${avatarSrc}" alt="${hero.name}"><span class="chat-left-hero-lvl">${hero.level}</span>`;
             } else {
-                btn.innerHTML = `<i class="fa-solid fa-user-shield" style="font-size:18px; color:var(--primary);"></i>`;
+                btn.innerHTML = `<i class="fa-solid fa-user-shield" style="font-size:18px; color:var(--primary);"></i><span class="chat-left-hero-lvl">${hero.level}</span>`;
             }
 
             btn.addEventListener("click", () => {
@@ -3531,14 +3553,16 @@ document.addEventListener("DOMContentLoaded", () => {
             const audioBtn = bubble.querySelector(".audio-play-link");
             if (audioBtn) {
                 audioBtn.addEventListener("click", () => {
-                    checkAndAwardListeningBonus(cleanText, activeHeroId);
-                    audioBtn.classList.remove("unheard-highlight");
-                    audioBtn.classList.add("listened");
                     audioBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Speaking...`;
                     voiceService.speak(
                         cleanText,
                         () => { audioBtn.innerHTML = `<i class="fa-solid fa-volume-high"></i> Speaking...`; },
-                        () => { audioBtn.innerHTML = `<i class="fa-solid fa-volume-high"></i> Listen`; },
+                        () => {
+                            audioBtn.innerHTML = `<i class="fa-solid fa-volume-high"></i> Listen`;
+                            audioBtn.classList.remove("unheard-highlight");
+                            audioBtn.classList.add("listened");
+                            checkAndAwardListeningBonus(cleanText, activeHeroId);
+                        },
                         getActiveHeroVoiceConfig(activeHeroId)
                     );
                 });
@@ -3709,8 +3733,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const autoSpeakToggle = document.getElementById("auto-speak-toggle");
             if (autoSpeakToggle && autoSpeakToggle.checked) {
-                checkAndAwardListeningBonus(aiResponse.text, activeHeroId);
-                voiceService.speak(aiResponse.text, null, null, getActiveHeroVoiceConfig());
+                voiceService.speak(
+                    aiResponse.text,
+                    null,
+                    () => {
+                        checkAndAwardListeningBonus(aiResponse.text, activeHeroId);
+                    },
+                    getActiveHeroVoiceConfig()
+                );
             }
 
             const clientEval = evaluateUserGrammarClientSide(text);
@@ -5087,8 +5117,82 @@ document.addEventListener("DOMContentLoaded", () => {
     // =========================================================================
     let activeStoryActId = 1;
     let activeStoryChapterId = null;
+    let currentReadingChapterObj = null;
+    let isFullStoryAudioPlaying = false;
+    let currentPlayingParagraphIdx = -1;
     let areStoryTranslationsVisible = false;
     let completedStoryChapters = [];
+
+    function stopFullStoryAudio() {
+        isFullStoryAudioPlaying = false;
+        currentPlayingParagraphIdx = -1;
+        if (window.voiceService && typeof window.voiceService.stopSpeech === 'function') {
+            window.voiceService.stopSpeech();
+        }
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.cancel();
+        }
+        const readFullStoryBtn = document.getElementById("read-full-story-audio-btn");
+        if (readFullStoryBtn) {
+            readFullStoryBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i> Слушать всю главу';
+            readFullStoryBtn.classList.remove("btn-danger");
+            readFullStoryBtn.classList.add("btn-warning");
+        }
+        document.querySelectorAll(".story-paragraph-card").forEach(c => c.classList.remove("active-reading-paragraph"));
+    }
+
+    function playChapterParagraph(idx) {
+        if (!isFullStoryAudioPlaying || !currentReadingChapterObj || !currentReadingChapterObj.paragraphs) {
+            stopFullStoryAudio();
+            return;
+        }
+        const paragraphs = currentReadingChapterObj.paragraphs;
+        if (idx >= paragraphs.length) {
+            stopFullStoryAudio();
+            return;
+        }
+
+        currentPlayingParagraphIdx = idx;
+        const p = paragraphs[idx];
+        const speaker = (currentReadingChapterObj.involvedHeroes && currentReadingChapterObj.involvedHeroes[idx % currentReadingChapterObj.involvedHeroes.length]) || 'valerius';
+
+        // Highlight active paragraph card and smoothly scroll into view
+        const pCards = document.querySelectorAll(".story-paragraph-card");
+        pCards.forEach((c, cIdx) => {
+            if (cIdx === idx) {
+                c.classList.add("active-reading-paragraph");
+                c.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } else {
+                c.classList.remove("active-reading-paragraph");
+            }
+        });
+
+        const readFullStoryBtn = document.getElementById("read-full-story-audio-btn");
+        if (readFullStoryBtn) {
+            readFullStoryBtn.innerHTML = `<i class="fa-solid fa-stop"></i> Остановить (${idx + 1}/${paragraphs.length})`;
+            readFullStoryBtn.classList.remove("btn-warning");
+            readFullStoryBtn.classList.add("btn-danger");
+        }
+
+        if (typeof playTextKokoroAudio === "function") {
+            playTextKokoroAudio(
+                p.en, 
+                speaker, 
+                null, 
+                () => {
+                    if (isFullStoryAudioPlaying && currentPlayingParagraphIdx === idx) {
+                        setTimeout(() => {
+                            if (isFullStoryAudioPlaying) {
+                                playChapterParagraph(idx + 1);
+                            }
+                        }, 500);
+                    }
+                }
+            );
+        } else {
+            stopFullStoryAudio();
+        }
+    }
 
     try {
         completedStoryChapters = JSON.parse(localStorage.getItem('english_rpg_completed_story_chapters') || '[]');
@@ -5234,6 +5338,19 @@ document.addEventListener("DOMContentLoaded", () => {
         video.onended = finishCutscene;
     }
 
+    function getHeroById(heroId) {
+        if (!rpgEngine || !rpgEngine.heroes || !heroId) return null;
+        const cleanId = String(heroId).toLowerCase().trim();
+        return rpgEngine.heroes.find(h => {
+            const hId = (h.id || '').toLowerCase();
+            const hName = (h.name || '').toLowerCase();
+            return hId === cleanId || 
+                   hName === cleanId || 
+                   (hId === 'selene' && (cleanId === 'selena' || cleanId === 'селена')) ||
+                   (cleanId === 'selene' && hId === 'selena');
+        }) || null;
+    }
+
     // Check if specific chapter requirements are satisfied
     function checkChapterUnlockEligibility(chapter) {
         if (!chapter) return { eligible: false, reasons: ["Chapter not found"] };
@@ -5247,7 +5364,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (chapter.reqHeroLevels && rpgEngine && rpgEngine.heroes) {
             for (const [heroId, reqLvl] of Object.entries(chapter.reqHeroLevels)) {
-                const hero = rpgEngine.heroes.find(h => h.id === heroId);
+                const hero = getHeroById(heroId);
                 const curLvl = hero ? (hero.level || 1) : 0;
                 const isHeroUnlocked = hero && hero.unlocked;
 
@@ -5282,6 +5399,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function showStoryHubView() {
+        stopFullStoryAudio();
         const hubView = document.getElementById("story-view-hub");
         const readerView = document.getElementById("story-view-reader");
         if (hubView) hubView.classList.remove("hidden");
@@ -5362,7 +5480,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 // Hero Badges
                 const heroBadges = (ch.involvedHeroes || []).map(heroId => {
-                    const hero = (rpgEngine && rpgEngine.heroes) ? rpgEngine.heroes.find(h => h.id === heroId) : null;
+                    const hero = getHeroById(heroId);
                     const reqLvl = (ch.reqHeroLevels && ch.reqHeroLevels[heroId]) ? ch.reqHeroLevels[heroId] : 20;
                     const curLvl = hero ? (hero.level || 1) : 0;
                     const isOk = hero && hero.unlocked && curLvl >= reqLvl;
@@ -5411,28 +5529,33 @@ document.addEventListener("DOMContentLoaded", () => {
                 `;
             }).join("");
 
-            chaptersContainer.querySelectorAll(".btn-open-chapter-reader").forEach(btn => {
-                btn.addEventListener("click", () => {
-                    const chId = btn.getAttribute("data-chapter-id");
-                    const chapter = chapters.find(c => c.id === chId);
-                    if (chapter) {
-                        openStoryChapterReader(chapter);
-                    }
-                });
-            });
+            // Event delegation for instant and reliable clicks/taps on both mobile & desktop
+            chaptersContainer.onclick = (e) => {
+                const card = e.target.closest(".story-chapter-card");
+                if (!card) return;
+                const chId = card.getAttribute("data-chapter-id");
+                const chapter = chapters.find(c => String(c.id) === String(chId) || String(c.number) === String(chId));
+                if (chapter) {
+                    openStoryChapterReader(chapter);
+                }
+            };
         }
     }
 
     function openStoryChapterReader(rawChapter) {
         if (!rawChapter) return;
+        stopFullStoryAudio();
         
         // Resolve expanded chapter if available
         let chapter = rawChapter;
-        if (typeof STORY_ACT1_EXPANDED !== 'undefined' && Array.isArray(STORY_ACT1_EXPANDED)) {
-            const exp = STORY_ACT1_EXPANDED.find(e => e.id === rawChapter.id || e.number === rawChapter.number);
-            if (exp) chapter = exp;
-        }
+        const allExpanded = [
+            ...(typeof STORY_ACT1_EXPANDED !== 'undefined' && Array.isArray(STORY_ACT1_EXPANDED) ? STORY_ACT1_EXPANDED : []),
+            ...(typeof STORY_ACT2_EXPANDED !== 'undefined' && Array.isArray(STORY_ACT2_EXPANDED) ? STORY_ACT2_EXPANDED : [])
+        ];
+        const exp = allExpanded.find(e => String(e.id) === String(rawChapter.id) || Number(e.number) === Number(rawChapter.number));
+        if (exp) chapter = exp;
 
+        currentReadingChapterObj = chapter;
         activeStoryChapterId = chapter.id;
 
         const hubView = document.getElementById("story-view-hub");
@@ -5597,15 +5720,33 @@ document.addEventListener("DOMContentLoaded", () => {
                 const speakerHeroId = (chapter.involvedHeroes && chapter.involvedHeroes[idx % chapter.involvedHeroes.length]) || 'valerius';
                 
                 let chunkedEnHtml = '';
-                if (window.visualFluency) {
-                    const sentenceChunks = window.visualFluency.parseTextIntoChunks(p.en);
-                    chunkedEnHtml = sentenceChunks.map(chunks => {
-                        return chunks.map(c => {
-                            const html = window.visualFluency.renderChunkHtml(c, fadingLvl, globalChunkCounter);
+                const vfEngine = window.visualFluency || window.VisualFluency;
+                if (vfEngine && typeof vfEngine.parseTextIntoChunks === 'function') {
+                    try {
+                        const sentenceChunks = vfEngine.parseTextIntoChunks(p.en);
+                        chunkedEnHtml = sentenceChunks.map(chunks => {
+                            return chunks.map(c => {
+                                const html = vfEngine.renderChunkHtml(c, fadingLvl, globalChunkCounter);
+                                if (!c.isConjunction && !c.isClauseBreak) globalChunkCounter++;
+                                return html;
+                            }).join(" ");
+                        }).join("<br>");
+                    } catch (err) {
+                        console.warn('VF chunking error:', err);
+                        chunkedEnHtml = p.en;
+                    }
+                } else if (vfEngine && typeof vfEngine.parseSentence === 'function') {
+                    try {
+                        const chunks = vfEngine.parseSentence(p.en);
+                        chunkedEnHtml = chunks.map(c => {
+                            const html = vfEngine.renderChunkHtml(c, fadingLvl, globalChunkCounter);
                             if (!c.isConjunction && !c.isClauseBreak) globalChunkCounter++;
                             return html;
                         }).join(" ");
-                    }).join("<br>");
+                    } catch (err) {
+                        console.warn('VF chunking error:', err);
+                        chunkedEnHtml = p.en;
+                    }
                 } else {
                     chunkedEnHtml = p.en;
                 }
@@ -5629,7 +5770,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Bind Listen buttons
             paragraphsList.querySelectorAll(".story-listen-p-btn").forEach(btn => {
-                btn.addEventListener("click", () => {
+                btn.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    stopFullStoryAudio();
                     const textToRead = btn.getAttribute("data-text");
                     const speaker = btn.getAttribute("data-speaker") || 'valerius';
                     if (textToRead && typeof playTextKokoroAudio === "function") {
@@ -5868,6 +6011,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const closeStoryModalBtn = document.getElementById("close-hero-story-modal-btn");
     if (closeStoryModalBtn) {
         closeStoryModalBtn.addEventListener("click", () => {
+            stopFullStoryAudio();
             const modal = document.getElementById("modal-hero-story");
             if (modal) modal.classList.add("hidden");
         });
@@ -5897,13 +6041,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const readFullStoryBtn = document.getElementById("read-full-story-audio-btn");
     if (readFullStoryBtn) {
         readFullStoryBtn.addEventListener("click", () => {
-            const chapters = (typeof STORY_CHAPTERS !== 'undefined') ? STORY_CHAPTERS : [];
-            const chapter = chapters.find(c => c.id === activeStoryChapterId);
-            if (chapter && chapter.paragraphs) {
-                const fullText = chapter.paragraphs.map(p => p.en).join(" ");
-                const speaker = (chapter.involvedHeroes && chapter.involvedHeroes[0]) || 'valerius';
-                if (typeof playTextKokoroAudio === "function") {
-                    playTextKokoroAudio(fullText, speaker);
+            if (isFullStoryAudioPlaying) {
+                stopFullStoryAudio();
+            } else {
+                if (!currentReadingChapterObj || !currentReadingChapterObj.paragraphs || currentReadingChapterObj.paragraphs.length === 0) {
+                    // Fallback to activeStoryChapterId resolution
+                    const chapters = (typeof STORY_CHAPTERS !== 'undefined') ? STORY_CHAPTERS : [];
+                    const ch = chapters.find(c => String(c.id) === String(activeStoryChapterId) || String(c.number) === String(activeStoryChapterId));
+                    if (ch) currentReadingChapterObj = ch;
+                }
+                if (currentReadingChapterObj && currentReadingChapterObj.paragraphs && currentReadingChapterObj.paragraphs.length > 0) {
+                    isFullStoryAudioPlaying = true;
+                    playChapterParagraph(0);
                 }
             }
         });

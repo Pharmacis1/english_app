@@ -74,80 +74,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "en": "High above the white clouds, the morning sun touches the cold stone towers of the Arcane Spire.",
-                    "ru": "Высоко над белыми облаками утреннее солнце касается холодных каменных башен Тайного Шпиля."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "The Spire is an enormous floating city made of dark grey stone and polished silver metal.",
-                    "ru": "Шпиль — это огромный парящий город, построенный из темно-серого камня и полированного серебристого металла."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Nobody knows how old the Spire is, but the teachers say it is three hundred years old.",
-                    "ru": "Никто не знает, сколько лет Шпилю, но учителя говорят, что ему триста лет."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Every morning at six o'clock, the great bronze bell on Level 80 rings loudly across the halls.",
-                    "ru": "Каждое утро в шесть часов большой бронзовый колокол на 80-м уровне громко звонит по всем залам."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "The deep sound echoes through every stone corridor and every small bedroom.",
-                    "ru": "Глубокий звук разносится эхом по каждому каменному коридору и каждой маленькой спальне."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "In a small room on Level 82, a twelve-year-old boy opens his brown eyes and sits up in bed.",
-                    "ru": "В маленькой комнате на 82-м уровне двенадцатилетний мальчик открывает карие глаза и садится на кровати."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "His name is Eldrin. He is an apprentice archivist in the great library of the Spire.",
-                    "ru": "Его зовут Элдрин. Он ученик-архивариус в великой библиотеке Шпиля."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "His bed is simple: a narrow wooden frame, a clean white sheet, and a warm wool blanket.",
-                    "ru": "Его кровать проста: узкая деревянная рама, чистая белая простыня и теплое шерстяное одеяло."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "The morning air in the room is chilly because the Spire floats very high in the sky.",
-                    "ru": "Утренний воздух в комнате прохладный, потому что Шпиль парит очень высоко в небе."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Eldrin stands up on the cold floor and puts on his brown leather boots.",
-                    "ru": "Элдрин встает на холодный пол и надевает свои коричневые кожаные сапоги."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "He wears a simple grey tunic, dark trousers, and a leather belt with a small bronze buckle.",
-                    "ru": "Он носит простую серую тунику, темные штаны и кожаный пояс с маленькой бронзовой пряжкой."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "On the small wooden table near his bed, there is a round clay bowl of cold fresh water.",
-                    "ru": "На маленьком деревянном столике возле кровати стоит круглая глиняная чаша с холодной свежей водой."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "He washes his face with the cool water and dries his skin with a white towel.",
-                    "ru": "Он умывает лицо прохладной водой и вытирает кожу белым полотенцем."
+                    "en": "High above the white clouds, the morning sun touches the cold stone towers of the Arcane Spire. The Spire is an enormous floating city made of dark grey stone and polished silver metal. Nobody knows how old the Spire is, but the teachers say it is three hundred years old. Every morning at six o'clock, the great bronze bell on Level 80 rings loudly across the halls. The deep sound echoes through every stone corridor and every small bedroom. In a small room on Level 82, a twelve-year-old boy opens his brown eyes and sits up in bed. His name is Eldrin. He is an apprentice archivist in the great library of the Spire. His bed is simple: a narrow wooden frame, a clean white sheet, and a warm wool blanket. The morning air in the room is chilly because the Spire floats very high in the sky. Eldrin stands up on the cold floor and puts on his brown leather boots. He wears a simple grey tunic, dark trousers, and a leather belt with a small bronze buckle. On the small wooden table near his bed, there is a round clay bowl of cold fresh water. He washes his face with the cool water and dries his skin with a white towel.",
+                    "ru": "Высоко над белыми облаками утреннее солнце касается холодных каменных башен Тайного Шпиля. Шпиль — это огромный парящий город, построенный из темно-серого камня и полированного серебристого металла. Никто не знает, сколько лет Шпилю, но учителя говорят, что ему триста лет. Каждое утро в шесть часов большой бронзовый колокол на 80-м уровне громко звонит по всем залам. Глубокий звук разносится эхом по каждому каменному коридору и каждой маленькой спальне. В маленькой комнате на 82-м уровне двенадцатилетний мальчик открывает карие глаза и садится на кровати. Его зовут Элдрин. Он ученик-архивариус в великой библиотеке Шпиля. Его кровать проста: узкая деревянная рама, чистая белая простыня и теплое шерстяное одеяло. Утренний воздух в комнате прохладный, потому что Шпиль парит очень высоко в небе. Элдрин встает на холодный пол и надевает свои коричневые кожаные сапоги. Он носит простую серую тунику, темные штаны и кожаный пояс с маленькой бронзовой пряжкой. На маленьком деревянном столике возле кровати стоит круглая глиняная чаша с холодной свежей водой. Он умывает лицо прохладной водой и вытирает кожу белым полотенцем."
                 },
                 {
                     "speaker": "eldrin",
@@ -158,86 +86,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "en": "He walks out of his bedroom into the long corridor of the apprentice quarters.",
-                    "ru": "Он выходит из своей спальни в длинный коридор жилого крыла учеников."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Other young apprentices are walking sleepily towards the dining hall with wooden spoons in their hands.",
-                    "ru": "Другие юные ученики сонно идут к столовой с деревянными ложками в руках."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Some boys are talking about their spell classes, and some girls are laughing near the water fountain.",
-                    "ru": "Одни мальчики говорят об уроках заклинаний, а девочки смеются возле питьевого фонтанчика."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Eldrin walks quietly. He does not talk very much because he likes watching and listening.",
-                    "ru": "Элдрин идет тихо. Он мало говорит, потому что любит наблюдать и слушать."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "He enters the large dining hall on Level 81. The hall has long wooden benches and bright glass lamps.",
-                    "ru": "Он входит в большую столовую на 81-м уровне. В зале стоят длинные деревянные скамьи и горят яркие стеклянные лампы."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Eldrin takes a wooden tray and receives his breakfast from the kind kitchen worker.",
-                    "ru": "Элдрин берет деревянный поднос и получает свой завтрак от доброго работника кухни."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "His breakfast is simple and good: two thick slices of warm bread, a piece of yellow cheese, a sweet red apple, and a cup of hot herbal tea.",
-                    "ru": "Его завтрак прост и хорош: два толстых ломтя теплого хлеба, кусок желтого сыра, сладкое красное яблоко и чашка горячего травяного чая."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "He sits at the end of the long wooden table near the tall arched window.",
-                    "ru": "Он садится в конце длинного деревянного стола возле высокого стрельчатого окна."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Through the thick glass of the window, he looks out at the endless world outside.",
-                    "ru": "Сквозь толстое стекло окна он смотрит на бескрайний мир снаружи."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Below the Spire, there is only a vast, endless ocean of thick white fog and grey clouds.",
-                    "ru": "Под Шпилем простирается лишь бескрайний океан густого белого тумана и серых облаков."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "People call this cloud layer the Great Mist.",
-                    "ru": "Люди называют этот облачный слой Великим Туманом."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "The first sacred law of the High Council is written in black letters on every classroom wall:",
-                    "ru": "Первый священный закон Верховного Совета написан черными буквами на стене каждого класса:"
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "\"The earth below is dead and poisonous. The Spire is humanity's only home. Do not look down.\"",
-                    "ru": "\"Земля внизу мертва и ядовита. Шпиль — единственный дом человечества. Не смотри вниз.\""
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Eldrin takes a bite of his sweet red apple and wonders about the world below the clouds.",
-                    "ru": "Элдрин откусывает сладкое красное яблоко и размышляет о мире под облаками."
+                    "en": "He walks out of his bedroom into the long corridor of the apprentice quarters. Other young apprentices are walking sleepily towards the dining hall with wooden spoons in their hands. Some boys are talking about their spell classes, and some girls are laughing near the water fountain. Eldrin walks quietly. He does not talk very much because he likes watching and listening. He enters the large dining hall on Level 81. The hall has long wooden benches and bright glass lamps. Eldrin takes a wooden tray and receives his breakfast from the kind kitchen worker. His breakfast is simple and good: two thick slices of warm bread, a piece of yellow cheese, a sweet red apple, and a cup of hot herbal tea. He sits at the end of the long wooden table near the tall arched window. Through the thick glass of the window, he looks out at the endless world outside. Below the Spire, there is only a vast, endless ocean of thick white fog and grey clouds. People call this cloud layer the Great Mist. The first sacred law of the High Council is written in black letters on every classroom wall: \"The earth below is dead and poisonous. The Spire is humanity's only home. Do not look down.\" Eldrin takes a bite of his sweet red apple and wonders about the world below the clouds.",
+                    "ru": "Он выходит из своей спальни в длинный коридор жилого крыла учеников. Другие юные ученики сонно идут к столовой с деревянными ложками в руках. Одни мальчики говорят об уроках заклинаний, а девочки смеются возле питьевого фонтанчика. Элдрин идет тихо. Он мало говорит, потому что любит наблюдать и слушать. Он входит в большую столовую на 81-м уровне. В зале стоят длинные деревянные скамьи и горят яркие стеклянные лампы. Элдрин берет деревянный поднос и получает свой завтрак от доброго работника кухни. Его завтрак прост и хорош: два толстых ломтя теплого хлеба, кусок желтого сыра, сладкое красное яблоко и чашка горячего травяного чая. Он садится в конце длинного деревянного стола возле высокого стрельчатого окна. Сквозь толстое стекло окна он смотрит на бескрайний мир снаружи. Под Шпилем простирается лишь бескрайний океан густого белого тумана и серых облаков. Люди называют этот облачный слой Великим Туманом. Первый священный закон Верховного Совета написан черными буквами на стене каждого класса: \"Земля внизу мертва и ядовита. Шпиль — единственный дом человечества. Не смотри вниз.\" Элдрин откусывает сладкое красное яблоко и размышляет о мире под облаками."
                 },
                 {
                     "speaker": "eldrin",
@@ -248,110 +98,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "en": "After breakfast, Eldrin drinks the warm tea and returns his wooden tray to the kitchen counter.",
-                    "ru": "После завтрака Элдрин допивает теплый чай и возвращает свой деревянный поднос на кухонную стойку."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "It is seven o'clock now. His morning duties in the Great Archive are about to begin.",
-                    "ru": "Сейчас семь часов. Его утренние обязанности в Великом Архиве вот-вот начнутся."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "He climbs the narrow spiral stairs from Level 81 up to Level 82.",
-                    "ru": "Он поднимается по узкой винтовой лестнице с 81-го уровня на 82-й."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "At the top of the stairs stands a heavy oak door with an iron handle shaped like an owl.",
-                    "ru": "Наверху лестницы стоит тяжелая дубовая дверь с железной ручкой в виде совы."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "This is the entrance to the Archive of Ancient Runes, the oldest library in the Arcane Spire.",
-                    "ru": "Это вход в Архив Древних Рун, старейшую библиотеку в Тайном Шпиле."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Eldrin pushes the heavy door open with both hands. The familiar smell of old parchment, lavender, and black ink greets him.",
-                    "ru": "Элдрин толкает тяжелую дверь обеими руками. Знакомый запах старого пергамента, лаванды и черных чернил встречает его."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "The Great Archive is magnificent, enormous, and very quiet.",
-                    "ru": "Великий Архив великолепен, огромен и очень тих."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "The ceiling is twenty meters high, decorated with glowing blue crystal stones that shine like stars.",
-                    "ru": "Потолок высотой в двадцать метров украшен светящимися синими кристаллами, сияющими как звезды."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Tall wooden shelves stand in long straight rows, holding thousands of ancient books, scrolls, and leather ledgers.",
-                    "ru": "Высокие деревянные полки стоят длинными прямыми рядами, храня тысячи древних книг, свитков и кожаных реестров."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Some books are bound in red velvet, some in dark iron, and some in dried animal skins.",
-                    "ru": "Одни книги переплетены в красный бархат, другие — в темное железо, третьи — в сухие шкуры."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Eldrin takes a wooden broom from the corner cupboard and begins to sweep the smooth stone floor.",
-                    "ru": "Элдрин берет деревянную метлу из углового шкафа и начинает подметать гладкий каменный пол."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "He sweeps the dust carefully between the tall rows of bookshelves.",
-                    "ru": "Он тщательно выметает пыль между высокими рядами книжных полок."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "He loves the quiet peacefulness of the library in the early morning before the masters arrive.",
-                    "ru": "Он любит тишину и покой библиотеки ранним утром, до того как приходят мастера."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "After sweeping the main hall, he takes a soft cotton cloth and begins to dust the study desks.",
-                    "ru": "Подметая главный зал, он берет мягкую хлопковую тряпку и начинает вытирать пыль с учебных столов."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Near the tall round window at the far end of the archive stands the desk of Master Corvinus.",
-                    "ru": "Возле высокого круглого окна в дальнем конце архива стоит стол мастера Корвинуса."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Master Corvinus is the Chief Archivist of the Spire. He is sixty-eight years old and walks with a dark wooden cane.",
-                    "ru": "Мастер Корвинус — Главный Архивариус Шпиля. Ему шестьдесят восемь лет, и он ходит с темной деревянной тростью."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "He is a very strict teacher, but he knows more ancient history than anyone else in the academy.",
-                    "ru": "Он очень строгий учитель, но знает древнюю историю лучше всех в академии."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Eldrin approaches the master's heavy desk and stops suddenly in surprise.",
-                    "ru": "Элдрин подходит к тяжелому столу мастера и внезапно останавливается от удивления."
+                    "en": "After breakfast, Eldrin drinks the warm tea and returns his wooden tray to the kitchen counter. It is seven o'clock now. His morning duties in the Great Archive are about to begin. He climbs the narrow spiral stairs from Level 81 up to Level 82. At the top of the stairs stands a heavy oak door with an iron handle shaped like an owl. This is the entrance to the Archive of Ancient Runes, the oldest library in the Arcane Spire. Eldrin pushes the heavy door open with both hands. The familiar smell of old parchment, lavender, and black ink greets him. The Great Archive is magnificent, enormous, and very quiet. The ceiling is twenty meters high, decorated with glowing blue crystal stones that shine like stars. Tall wooden shelves stand in long straight rows, holding thousands of ancient books, scrolls, and leather ledgers. Some books are bound in red velvet, some in dark iron, and some in dried animal skins. Eldrin takes a wooden broom from the corner cupboard and begins to sweep the smooth stone floor. He sweeps the dust carefully between the tall rows of bookshelves. He loves the quiet peacefulness of the library in the early morning before the masters arrive. After sweeping the main hall, he takes a soft cotton cloth and begins to dust the study desks. Near the tall round window at the far end of the archive stands the desk of Master Corvinus. Master Corvinus is the Chief Archivist of the Spire. He is sixty-eight years old and walks with a dark wooden cane. He is a very strict teacher, but he knows more ancient history than anyone else in the academy. Eldrin approaches the master's heavy desk and stops suddenly in surprise.",
+                    "ru": "После завтрака Элдрин допивает теплый чай и возвращает свой деревянный поднос на кухонную стойку. Сейчас семь часов. Его утренние обязанности в Великом Архиве вот-вот начнутся. Он поднимается по узкой винтовой лестнице с 81-го уровня на 82-й. Наверху лестницы стоит тяжелая дубовая дверь с железной ручкой в виде совы. Это вход в Архив Древних Рун, старейшую библиотеку в Тайном Шпиле. Элдрин толкает тяжелую дверь обеими руками. Знакомый запах старого пергамента, лаванды и черных чернил встречает его. Великий Архив великолепен, огромен и очень тих. Потолок высотой в двадцать метров украшен светящимися синими кристаллами, сияющими как звезды. Высокие деревянные полки стоят длинными прямыми рядами, храня тысячи древних книг, свитков и кожаных реестров. Одни книги переплетены в красный бархат, другие — в темное железо, третьи — в сухие шкуры. Элдрин берет деревянную метлу из углового шкафа и начинает подметать гладкий каменный пол. Он тщательно выметает пыль между высокими рядами книжных полок. Он любит тишину и покой библиотеки ранним утром, до того как приходят мастера. Подметая главный зал, он берет мягкую хлопковую тряпку и начинает вытирать пыль с учебных столов. Возле высокого круглого окна в дальнем конце архива стоит стол мастера Корвинуса. Мастер Корвинус — Главный Архивариус Шпиля. Ему шестьдесят восемь лет, и он ходит с темной деревянной тростью. Он очень строгий учитель, но знает древнюю историю лучше всех в академии. Элдрин подходит к тяжелому столу мастера и внезапно останавливается от удивления."
                 },
                 {
                     "speaker": "eldrin",
@@ -362,26 +110,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "en": "On the dark wooden desk lies an ancient parchment scroll with strange purple runes around its border.",
-                    "ru": "На темном деревянном столе лежит древний пергаментный свиток со странными фиолетовыми рунами по краям."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Next to the scroll sits a small glass bottle filled with luminous blue ink and a long purple feather.",
-                    "ru": "Рядом со свитком стоит маленькая стеклянная бутылочка, наполненная светящимися синими чернилами, и длинное фиолетовое перо."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "The feather is extraordinary. It is not an ordinary bird's feather; it glows with faint violet light.",
-                    "ru": "Перо необыкновенное. Это не обычное птичье перо; оно светится слабым фиолетовым светом."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Eldrin leans forward and looks closely at the glowing purple feather.",
-                    "ru": "Элдрин наклоняется вперед и внимательно смотрит на светящееся фиолетовое перо."
+                    "en": "On the dark wooden desk lies an ancient parchment scroll with strange purple runes around its border. Next to the scroll sits a small glass bottle filled with luminous blue ink and a long purple feather. The feather is extraordinary. It is not an ordinary bird's feather; it glows with faint violet light. Eldrin leans forward and looks closely at the glowing purple feather.",
+                    "ru": "На темном деревянном столе лежит древний пергаментный свиток со странными фиолетовыми рунами по краям. Рядом со свитком стоит маленькая стеклянная бутылочка, наполненная светящимися синими чернилами, и длинное фиолетовое перо. Перо необыкновенное. Это не обычное птичье перо; оно светится слабым фиолетовым светом. Элдрин наклоняется вперед и внимательно смотрит на светящееся фиолетовое перо."
                 },
                 {
                     "speaker": "eldrin",
@@ -392,44 +122,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "en": "Suddenly, something magical happens right before his eyes!",
-                    "ru": "Внезапно прямо перед его глазами происходит нечто волшебное!"
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "The purple feather twitches! It rises into the air without any hand touching it!",
-                    "ru": "Фиолетовое перо вздрагивает! Оно поднимается в воздух без прикосновения чьих-либо рук!"
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Eldrin gasps and steps back against the heavy bookshelf.",
-                    "ru": "Элдрин ахает и отступает назад к тяжелой книжной полке."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "The feather floats gently in the air like a leaf upon calm water.",
-                    "ru": "Перо мягко парит в воздухе, словно листок на спокойной воде."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "It dips its sharp silver tip into the glass bottle of blue ink.",
-                    "ru": "Оно макает свой острый серебряный кончик в стеклянную бутылочку синих чернил."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Then, with smooth and elegant movements, the feather begins to write glowing words upon the parchment scroll!",
-                    "ru": "Затем плавными и изящными движениями перо начинает писать светящиеся слова на пергаментном свитке!"
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "The sound of the quill on the dry paper is crisp and clear in the silent archive.",
-                    "ru": "Звук пера по сухой бумаге отчетлив и ясен в безмолвном архиве."
+                    "en": "Suddenly, something magical happens right before his eyes! The purple feather twitches! It rises into the air without any hand touching it! Eldrin gasps and steps back against the heavy bookshelf. The feather floats gently in the air like a leaf upon calm water. It dips its sharp silver tip into the glass bottle of blue ink. Then, with smooth and elegant movements, the feather begins to write glowing words upon the parchment scroll! The sound of the quill on the dry paper is crisp and clear in the silent archive.",
+                    "ru": "Внезапно прямо перед его глазами происходит нечто волшебное! Фиолетовое перо вздрагивает! Оно поднимается в воздух без прикосновения чьих-либо рук! Элдрин ахает и отступает назад к тяжелой книжной полке. Перо мягко парит в воздухе, словно листок на спокойной воде. Оно макает свой острый серебряный кончик в стеклянную бутылочку синих чернил. Затем плавными и изящными движениями перо начинает писать светящиеся слова на пергаментном свитке! Звук пера по сухой бумаге отчетлив и ясен в безмолвном архиве."
                 },
                 {
                     "speaker": "eldrin",
@@ -452,26 +146,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "en": "The feather floats higher into the air and turns slowly towards the back of the room.",
-                    "ru": "Перо поднимается выше в воздух и медленно поворачивается к задней части комнаты."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "It floats across the high bookshelves and hovers directly before a heavy iron door in the shadow.",
-                    "ru": "Оно летит через высокие книжные полки и замирает прямо перед тяжелой железной дверью в тени."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "The iron door is old and covered with thick grey dust. It has three heavy bolt locks and a round keyhole.",
-                    "ru": "Железная дверь старая и покрыта густой серой пылью. У неё три тяжелых засова и круглая замочная скважина."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "No apprentice is ever allowed to touch that iron door.",
-                    "ru": "Ни одному ученику никогда не разрешается прикасаться к этой железной двери."
+                    "en": "The feather floats higher into the air and turns slowly towards the back of the room. It floats across the high bookshelves and hovers directly before a heavy iron door in the shadow. The iron door is old and covered with thick grey dust. It has three heavy bolt locks and a round keyhole. No apprentice is ever allowed to touch that iron door.",
+                    "ru": "Перо поднимается выше в воздух и медленно поворачивается к задней части комнаты. Оно летит через высокие книжные полки и замирает прямо перед тяжелой железной дверью в тени. Железная дверь старая и покрыта густой серой пылью. У неё три тяжелых засова и круглая замочная скважина. Ни одному ученику никогда не разрешается прикасаться к этой железной двери."
                 },
                 {
                     "speaker": "eldrin",
@@ -530,38 +206,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "en": "The morning hours passed quickly in the quiet archive. Sunlight poured through the tall windows.",
-                    "ru": "Утренние часы быстро летели в тихом архиве. Солнечный свет лился сквозь высокие окна."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Eldrin could not stop thinking about the purple feather and the secret iron door.",
-                    "ru": "Элдрин не мог перестать думать о фиолетовом пере и секретной железной двери."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "He walked softly across the stone floor towards the deepest section of the library.",
-                    "ru": "Он мягко ступал по каменному полу к самому глубокому отделу библиотеки."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "This part of the archive was cold, dark, and smelled of centuries-old parchment and dried glue.",
-                    "ru": "Эта часть архива была холодной, темной и пахла многовековым пергаментом и сухим клеем."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "There were hundreds of massive black books standing upon tall wooden shelves.",
-                    "ru": "Там стояли сотни массивных черных книг на высоких деревянных полках."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Every black book had an iron number stamped upon its dark leather spine.",
-                    "ru": "У каждой черной книги на темном кожаном корешке был выбит железный номер."
+                    "en": "The morning hours passed quickly in the quiet archive. Sunlight poured through the tall windows. Eldrin could not stop thinking about the purple feather and the secret iron door. He walked softly across the stone floor towards the deepest section of the library. This part of the archive was cold, dark, and smelled of centuries-old parchment and dried glue. There were hundreds of massive black books standing upon tall wooden shelves. Every black book had an iron number stamped upon its dark leather spine.",
+                    "ru": "Утренние часы быстро летели в тихом архиве. Солнечный свет лился сквозь высокие окна. Элдрин не мог перестать думать о фиолетовом пере и секретной железной двери. Он мягко ступал по каменному полу к самому глубокому отделу библиотеки. Эта часть архива была холодной, темной и пахла многовековым пергаментом и сухим клеем. Там стояли сотни массивных черных книг на высоких деревянных полках. У каждой черной книги на темном кожаном корешке был выбит железный номер."
                 },
                 {
                     "speaker": "eldrin",
@@ -572,62 +218,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "en": "He searched along the bottom shelves, but he found only tax records and old grain receipts.",
-                    "ru": "Он искал по нижним полкам, но находил только налоговые записи и старые квитанции за зерно."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Then, he looked up. High above his head, on the very top shelf, stood a gigantic book.",
-                    "ru": "Затем он поднял глаза. Высоко над головой, на самой верхней полке, стояла гигантская книга."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Eldrin pulled a tall wooden ladder with bronze wheels across the floor.",
-                    "ru": "Элдрин подкатил по полу высокую деревянную лестницу на бронзовых колесиках."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "RATTLE, RATTLE! The wheels rolled smoothly across the grey flagstones.",
-                    "ru": "ГРОХОТ, ГРОХОТ! Колесики плавно катились по серым плитам пола."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "He climbed the wooden steps carefully, holding the sides with both hands.",
-                    "ru": "Он осторожно поднялся по деревянным ступенькам, держась за поручни обеими руками."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "On the top shelf, stamped in silver letters, was the title: The Complete Architectural Register of the Arcane Spire.",
-                    "ru": "На верхней полке серебряными буквами было выбито название: Полный Архитектурный Реестр Тайного Шпиля."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "It was a massive book bound in dark brown bull leather with thick brass corner protectors.",
-                    "ru": "Это была массивная книга в темно-коричневом переплете из бычьей кожи с толстыми латунными уголками."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Eldrin lifted the heavy book with all his strength. It weighed almost as much as a sack of flour.",
-                    "ru": "Элдрин поднял тяжелую книгу изо всех сил. Она весила почти столько же, сколько мешок муки."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "He carried it down the ladder slowly and placed it upon the wide reading table.",
-                    "ru": "Он медленно спустил её по лестнице и положил на широкий стол для чтения."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "THUD! A small cloud of grey dust rose into the air and made him sneeze.",
-                    "ru": "БАХ! Маленькое облачко серой пыли поднялось в воздух и заставило его чихнуть."
+                    "en": "He searched along the bottom shelves, but he found only tax records and old grain receipts. Then, he looked up. High above his head, on the very top shelf, stood a gigantic book. Eldrin pulled a tall wooden ladder with bronze wheels across the floor. RATTLE, RATTLE! The wheels rolled smoothly across the grey flagstones. He climbed the wooden steps carefully, holding the sides with both hands. On the top shelf, stamped in silver letters, was the title: The Complete Architectural Register of the Arcane Spire. It was a massive book bound in dark brown bull leather with thick brass corner protectors. Eldrin lifted the heavy book with all his strength. It weighed almost as much as a sack of flour. He carried it down the ladder slowly and placed it upon the wide reading table. THUD! A small cloud of grey dust rose into the air and made him sneeze.",
+                    "ru": "Он искал по нижним полкам, но находил только налоговые записи и старые квитанции за зерно. Затем он поднял глаза. Высоко над головой, на самой верхней полке, стояла гигантская книга. Элдрин подкатил по полу высокую деревянную лестницу на бронзовых колесиках. ГРОХОТ, ГРОХОТ! Колесики плавно катились по серым плитам пола. Он осторожно поднялся по деревянным ступенькам, держась за поручни обеими руками. На верхней полке серебряными буквами было выбито название: Полный Архитектурный Реестр Тайного Шпиля. Это была массивная книга в темно-коричневом переплете из бычьей кожи с толстыми латунными уголками. Элдрин поднял тяжелую книгу изо всех сил. Она весила почти столько же, сколько мешок муки. Он медленно спустил её по лестнице и положил на широкий стол для чтения. БАХ! Маленькое облачко серой пыли поднялось в воздух и заставило его чихнуть."
                 },
                 {
                     "speaker": "eldrin",
@@ -638,50 +230,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "en": "He opened the heavy brass lock and turned the stiff yellow pages one by one.",
-                    "ru": "Он открыл тяжелый латунный замок и стал переворачивать жесткие желтые страницы одну за другой."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Page one hundred: The High Sanctorum, residence of the Supreme Council and the golden gardens.",
-                    "ru": "Страница сто: Высокое Святилище, резиденция Верховного Совета и золотые сады."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Page eighty: The Upper Academy of Magic, classrooms, dormitories, and the great rune archives.",
-                    "ru": "Страница восемьдесят: Верхняя Академия Магии, классы, спальни и великие архивы рун."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Page fifty: The Green Terraces and Hydroponic Rings, where farmers grow wheat and apples.",
-                    "ru": "Страница пятьдесят: Зеленые Террасы и Гидропонные Кольца, где фермеры выращивают пшеницу и яблоки."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Page twenty: The Deep Foundry, iron workshops, steam pipes, and coal furnaces.",
-                    "ru": "Страница двадцать: Глубокий Литейный цех, кузнечные мастерские, паровые трубы и угольные печи."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Eldrin turned towards the very end of the book to see the bottom of the Spire.",
-                    "ru": "Элдрин перелистнул в самый конец книги, чтобы увидеть нижнюю часть Шпиля."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Page three hundred and ninety-nine: Level One, The Foundation Pillars.",
-                    "ru": "Страница триста девяносто девять: Уровень Один, Столпы Фундамента."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "He turned the leaf to read page four hundred. But there was no page four hundred!",
-                    "ru": "Он перевернул лист, чтобы прочесть страницу четыреста. Но страницы четыреста не было!"
+                    "en": "He opened the heavy brass lock and turned the stiff yellow pages one by one. Page one hundred: The High Sanctorum, residence of the Supreme Council and the golden gardens. Page eighty: The Upper Academy of Magic, classrooms, dormitories, and the great rune archives. Page fifty: The Green Terraces and Hydroponic Rings, where farmers grow wheat and apples. Page twenty: The Deep Foundry, iron workshops, steam pipes, and coal furnaces. Eldrin turned towards the very end of the book to see the bottom of the Spire. Page three hundred and ninety-nine: Level One, The Foundation Pillars. He turned the leaf to read page four hundred. But there was no page four hundred!",
+                    "ru": "Он открыл тяжелый латунный замок и стал переворачивать жесткие желтые страницы одну за другой. Страница сто: Высокое Святилище, резиденция Верховного Совета и золотые сады. Страница восемьдесят: Верхняя Академия Магии, классы, спальни и великие архивы рун. Страница пятьдесят: Зеленые Террасы и Гидропонные Кольца, где фермеры выращивают пшеницу и яблоки. Страница двадцать: Глубокий Литейный цех, кузнечные мастерские, паровые трубы и угольные печи. Элдрин перелистнул в самый конец книги, чтобы увидеть нижнюю часть Шпиля. Страница триста девяносто девять: Уровень Один, Столпы Фундамента. Он перевернул лист, чтобы прочесть страницу четыреста. Но страницы четыреста не было!"
                 },
                 {
                     "speaker": "eldrin",
@@ -692,26 +242,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "en": "Someone cut the last page out along the inner spine with a razor-sharp blade!",
-                    "ru": "Кто-то вырезал последнюю страницу вдоль корешка бритвенно-острым лезвием!"
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Only a thin strip of paper remained glued to the leather binding.",
-                    "ru": "Лишь узкая полоска бумаги осталась приклеенной к кожаному переплету."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Upon that narrow strip, one single line of old black ink was still visible:",
-                    "ru": "На этой узкой полоске всё ещё была видна одна-единственная строчка старых черных чернил:"
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "\"Level Zero: Strictly Forbidden. Do Not Record. Sealed by Order of the High Council.\"",
-                    "ru": "\"Уровень Ноль: Строго Запрещено. Не Записывать. Запечатано Приказом Верховного Совета.\""
+                    "en": "Someone cut the last page out along the inner spine with a razor-sharp blade! Only a thin strip of paper remained glued to the leather binding. Upon that narrow strip, one single line of old black ink was still visible: \"Level Zero: Strictly Forbidden. Do Not Record. Sealed by Order of the High Council.\"",
+                    "ru": "Кто-то вырезал последнюю страницу вдоль корешка бритвенно-острым лезвием! Лишь узкая полоска бумаги осталась приклеенной к кожаному переплету. На этой узкой полоске всё ещё была видна одна-единственная строчка старых черных чернил: \"Уровень Ноль: Строго Запрещено. Не Записывать. Запечатано Приказом Верховного Совета.\""
                 },
                 {
                     "speaker": "eldrin",
@@ -722,26 +254,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "en": "Suddenly, a sharp rhythmic sound broke the silence of the library. TAP, TAP, TAP!",
-                    "ru": "Внезапно резкий ритмичный звук нарушил тишину библиотеки. СТУК, СТУК, СТУК!"
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "It was the sound of an iron-tipped wooden walking cane striking the stone floor.",
-                    "ru": "Это был звук деревянной трости с железным наконечником, ударяющей по каменному полу."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Eldrin froze in terror. A long, thin shadow fell across the open register.",
-                    "ru": "Элдрин замер от ужаса. Длинная, тонкая тень упала на открытый реестр."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Master Corvinus stood at the end of the aisle. His dark grey cloak hung around his thin shoulders.",
-                    "ru": "Мастер Корвинус стоял в конце прохода. Его темно-серый плащ висел на худых плечах."
+                    "en": "Suddenly, a sharp rhythmic sound broke the silence of the library. TAP, TAP, TAP! It was the sound of an iron-tipped wooden walking cane striking the stone floor. Eldrin froze in terror. A long, thin shadow fell across the open register. Master Corvinus stood at the end of the aisle. His dark grey cloak hung around his thin shoulders.",
+                    "ru": "Внезапно резкий ритмичный звук нарушил тишину библиотеки. СТУК, СТУК, СТУК! Это был звук деревянной трости с железным наконечником, ударяющей по каменному полу. Элдрин замер от ужаса. Длинная, тонкая тень упала на открытый реестр. Мастер Корвинус стоял в конце прохода. Его темно-серый плащ висел на худых плечах."
                 },
                 {
                     "speaker": "corvinus",
@@ -758,14 +272,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "en": "The old archivist walked slowly to the table. His grey eyes were sharp, intelligent, and troubled.",
-                    "ru": "Старый архивариус медленно подошел к столу. Его серые глаза были острыми, умными и встревоженными."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "He placed his wrinkled hand upon the cut edge of page four hundred.",
-                    "ru": "Он положил свою сморщенную руку на срезанный край страницы четыреста."
+                    "en": "The old archivist walked slowly to the table. His grey eyes were sharp, intelligent, and troubled. He placed his wrinkled hand upon the cut edge of page four hundred.",
+                    "ru": "Старый архивариус медленно подошел к столу. Его серые глаза были острыми, умными и встревоженными. Он положил свою сморщенную руку на срезанный край страницы четыреста."
                 },
                 {
                     "speaker": "corvinus",
@@ -782,26 +290,14 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "en": "\"Your father asked that exact same question five years ago, young apprentice. Do not make his tragic mistake.\"",
-                    "ru": "\"Твой отец задал ровно тот же самый вопрос пять лет назад, юный ученик. Не совершай его трагической ошибки.\""
-                },
-                {
-                    "speaker": "corvinus",
-                    "voice": "Charon",
-                    "en": "\"Close the book. Return it to shelf eighty. Then go to your dormitory before evening curfew.\"",
-                    "ru": "\"Закрой книгу. Верни её на восьмидесятую полку. Затем иди в свою спальню до вечернего комендантского часа.\""
+                    "en": "\"Your father asked that exact same question five years ago, young apprentice. Do not make his tragic mistake.\" \"Close the book. Return it to shelf eighty. Then go to your dormitory before evening curfew.\"",
+                    "ru": "\"Твой отец задал ровно тот же самый вопрос пять лет назад, юный ученик. Не совершай его трагической ошибки.\" \"Закрой книгу. Верни её на восьмидесятую полку. Затем иди в свою спальню до вечернего комендантского часа.\""
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "en": "The master turned around and walked away, his cane tapping rhythmically upon the cold stones.",
-                    "ru": "Мастер развернулся и ушел, его трость ритмично постукивала по холодным камням."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Eldrin closed the massive book with trembling hands. His mind was racing with questions.",
-                    "ru": "Элдрин закрыл массивную книгу дрожащими руками. Его мысли лихорадочно роились от вопросов."
+                    "en": "The master turned around and walked away, his cane tapping rhythmically upon the cold stones. Eldrin closed the massive book with trembling hands. His mind was racing with questions.",
+                    "ru": "Мастер развернулся и ушел, его трость ритмично постукивала по холодным камням. Элдрин закрыл массивную книгу дрожащими руками. Его мысли лихорадочно роились от вопросов."
                 },
                 {
                     "speaker": "eldrin",
@@ -860,20 +356,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "en": "That night, cold autumn rain lashed against the round stone walls of the Spire.",
-                    "ru": "В ту ночь холодный осенний дождь хлестал по круглым каменным стенам Шпиля."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Eldrin lay awake in his narrow bed on Level 82, listening to the roaring wind outside.",
-                    "ru": "Элдрин лежал без сна в своей узкой кровати на 82-м уровне, слушая ревущий ветер снаружи."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "The other apprentices in the dormitory were sleeping soundly, breathing in slow rhythm.",
-                    "ru": "Другие ученики в спальне крепко спали, медленно и размеренно дыша."
+                    "en": "That night, cold autumn rain lashed against the round stone walls of the Spire. Eldrin lay awake in his narrow bed on Level 82, listening to the roaring wind outside. The other apprentices in the dormitory were sleeping soundly, breathing in slow rhythm.",
+                    "ru": "В ту ночь холодный осенний дождь хлестал по круглым каменным стенам Шпиля. Элдрин лежал без сна в своей узкой кровати на 82-м уровне, слушая ревущий ветер снаружи. Другие ученики в спальне крепко спали, медленно и размеренно дыша."
                 },
                 {
                     "speaker": "eldrin",
@@ -884,44 +368,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "en": "Eldrin closed his eyes and remembered his childhood five years ago.",
-                    "ru": "Элдрин закрыл глаза и вспомнил свое детство пять лет назад."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "His father, Nicholas, was a chief mechanic on Level 12 in the Deep Foundry.",
-                    "ru": "Его отец, Николас, был главным механиком на 12-м уровне в Глубоком Литейном цехе."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "His father was a tall, strong man with kind blue eyes and hands always stained with black machine oil.",
-                    "ru": "Его отец был высоким, сильным человеком с добрыми голубыми глазами и руками, вечно испачканными черным машинным маслом."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "One dark night, six armored Iron Sentinels came to their small home with drawn weapons.",
-                    "ru": "Одной темной ночью шестеро бронированных Железных Стражей пришли в их скромный дом с обнаженным оружием."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "They arrested his father by order of the High Council and marched him away into the darkness.",
-                    "ru": "Они арестовали его отца по приказу Верховного Совета и увели во тьму."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Before the guards dragged him out the door, his father whispered one final sentence to little Eldrin:",
-                    "ru": "Прежде чем стражники вытащили его за дверь, отец прошептал маленькому Элдрину последнюю фразу:"
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "\"Keep the green astronomy book safe, my son. The book holds our future.\"",
-                    "ru": "\"Береги зеленую книгу по астрономии, мой сын. Эта книга хранит наше будущее.\""
+                    "en": "Eldrin closed his eyes and remembered his childhood five years ago. His father, Nicholas, was a chief mechanic on Level 12 in the Deep Foundry. His father was a tall, strong man with kind blue eyes and hands always stained with black machine oil. One dark night, six armored Iron Sentinels came to their small home with drawn weapons. They arrested his father by order of the High Council and marched him away into the darkness. Before the guards dragged him out the door, his father whispered one final sentence to little Eldrin: \"Keep the green astronomy book safe, my son. The book holds our future.\"",
+                    "ru": "Элдрин закрыл глаза и вспомнил свое детство пять лет назад. Его отец, Николас, был главным механиком на 12-м уровне в Глубоком Литейном цехе. Его отец был высоким, сильным человеком с добрыми голубыми глазами и руками, вечно испачканными черным машинным маслом. Одной темной ночью шестеро бронированных Железных Стражей пришли в их скромный дом с обнаженным оружием. Они арестовали его отца по приказу Верховного Совета и увели во тьму. Прежде чем стражники вытащили его за дверь, отец прошептал маленькому Элдрину последнюю фразу: \"Береги зеленую книгу по астрономии, мой сын. Эта книга хранит наше будущее.\""
                 },
                 {
                     "speaker": "eldrin",
@@ -932,38 +380,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "en": "Eldrin sat up quietly and reached his hand deep beneath his straw mattress.",
-                    "ru": "Элдрин тихо сел и засунул руку глубоко под свой соломенный матрас."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "His fingers touched the thick leather volume. He pulled it out into the dim moonlight.",
-                    "ru": "Его пальцы коснулись толстого кожаного тома. Он вытащил его в тусклый лунный свет."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "It was a heavy, ancient book with faded silver stars painted upon dark green leather.",
-                    "ru": "Это была тяжелая древняя книга с выцветшими серебряными звездами, нарисованными на темно-зеленой коже."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Eldrin lit a small wax candle and placed it behind a wooden box so the dormitory guard would not see the flame.",
-                    "ru": "Элдрин зажег маленькую восковую свечу и поставил её за деревянный ящик, чтобы дежурный по спальне не увидел пламя."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "He examined the back cover with careful fingers. It was unusually thick and stiff.",
-                    "ru": "Он ощупал заднюю обложку внимательными пальцами. Она была необычно толстой и жесткой."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Near the top corner of the back cover, he felt a tiny raised metal stud beneath the leather.",
-                    "ru": "Возле верхнего угла задней обложки он нащупал крошечную выступающую металлическую заклепку под кожей."
+                    "en": "Eldrin sat up quietly and reached his hand deep beneath his straw mattress. His fingers touched the thick leather volume. He pulled it out into the dim moonlight. It was a heavy, ancient book with faded silver stars painted upon dark green leather. Eldrin lit a small wax candle and placed it behind a wooden box so the dormitory guard would not see the flame. He examined the back cover with careful fingers. It was unusually thick and stiff. Near the top corner of the back cover, he felt a tiny raised metal stud beneath the leather.",
+                    "ru": "Элдрин тихо сел и засунул руку глубоко под свой соломенный матрас. Его пальцы коснулись толстого кожаного тома. Он вытащил его в тусклый лунный свет. Это была тяжелая древняя книга с выцветшими серебряными звездами, нарисованными на темно-зеленой коже. Элдрин зажег маленькую восковую свечу и поставил её за деревянный ящик, чтобы дежурный по спальне не увидел пламя. Он ощупал заднюю обложку внимательными пальцами. Она была необычно толстой и жесткой. Возле верхнего угла задней обложки он нащупал крошечную выступающую металлическую заклепку под кожей."
                 },
                 {
                     "speaker": "eldrin",
@@ -974,20 +392,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "en": "Eldrin pressed the small brass stud with his thumb. CLICK!",
-                    "ru": "Элдрин нажал на маленькую латунную заклепку большим пальцем. ЩЁЛК!"
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "A hollow wooden tray slid out from the side of the thick cover like a secret drawer!",
-                    "ru": "Полое деревянное донышко выдвинулось из боковины толстой обложки, как потайной ящичек!"
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Inside the velvet-lined pocket lay a heavy bronze key and a small piece of folded paper.",
-                    "ru": "Внутри бархатного кармашка лежал тяжелый бронзовый ключ и маленький кусочек сложенной бумаги."
+                    "en": "Eldrin pressed the small brass stud with his thumb. CLICK! A hollow wooden tray slid out from the side of the thick cover like a secret drawer! Inside the velvet-lined pocket lay a heavy bronze key and a small piece of folded paper.",
+                    "ru": "Элдрин нажал на маленькую латунную заклепку большим пальцем. ЩЁЛК! Полое деревянное донышко выдвинулось из боковины толстой обложки, как потайной ящичек! Внутри бархатного кармашка лежал тяжелый бронзовый ключ и маленький кусочек сложенной бумаги."
                 },
                 {
                     "speaker": "eldrin",
@@ -1010,44 +416,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "en": "With trembling hands, Eldrin unfolded the yellowed scrap of paper.",
-                    "ru": "Дрожащими руками Элдрин развернул пожелтевший клочок бумаги."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "It was a letter written in his father's bold, familiar pencil handwriting:",
-                    "ru": "Это было письмо, написанное уверенным, знакомым карандашным почерком его отца:"
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "\"My dearest Eldrin. If you read this, the Council has taken me. Do not believe their sacred words.\"",
-                    "ru": "\"Мой дорогой Элдрин. Если ты читаешь это, Совет забрал меня. Не верь их священным словам.\""
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "\"The great altitude thrusters in the lower hull are not magical. They are old machines, and they are failing.\"",
-                    "ru": "\"Великие высотные двигатели в нижней обшивке не волшебные. Это старые машины, и они выходят из строя.\""
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "\"The Spire is sinking two meters into the clouds every single month. We are falling.\"",
-                    "ru": "\"Шпиль опускается в облака на два метра каждый месяц. Мы падаем.\""
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "\"Go to Level 12. Find my trusted friend Bram in the machine shop. He has the second half of the cipher.\"",
-                    "ru": "\"Спустись на 12-й уровень. Найди моего верного друга Брама в механической мастерской. У него вторая половина шифра.\""
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "\"Be brave, my son. Save our people. Love, Father.\"",
-                    "ru": "\"Будь храбрым, мой сын. Спаси наш народ. С любовью, Отец.\""
+                    "en": "With trembling hands, Eldrin unfolded the yellowed scrap of paper. It was a letter written in his father's bold, familiar pencil handwriting: \"My dearest Eldrin. If you read this, the Council has taken me. Do not believe their sacred words.\" \"The great altitude thrusters in the lower hull are not magical. They are old machines, and they are failing.\" \"The Spire is sinking two meters into the clouds every single month. We are falling.\" \"Go to Level 12. Find my trusted friend Bram in the machine shop. He has the second half of the cipher.\" \"Be brave, my son. Save our people. Love, Father.\"",
+                    "ru": "Дрожащими руками Элдрин развернул пожелтевший клочок бумаги. Это было письмо, написанное уверенным, знакомым карандашным почерком его отца: \"Мой дорогой Элдрин. Если ты читаешь это, Совет забрал меня. Не верь их священным словам.\" \"Великие высотные двигатели в нижней обшивке не волшебные. Это старые машины, и они выходят из строя.\" \"Шпиль опускается в облака на два метра каждый месяц. Мы падаем.\" \"Спустись на 12-й уровень. Найди моего верного друга Брама в механической мастерской. У него вторая половина шифра.\" \"Будь храбрым, мой сын. Спаси наш народ. С любовью, Отец.\""
                 },
                 {
                     "speaker": "eldrin",
@@ -1118,26 +488,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "en": "The next morning at dawn, thick steam hissed from the freight elevator shafts of Level 82.",
-                    "ru": "На следующее утро на рассвете густой пар зашипел из шахт грузовых лифтов 82-го уровня."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Gigantic iron chains groaned as the heavy cargo platform rose from the lower levels.",
-                    "ru": "Гигантские железные цепи со стоном натянулись, когда тяжелая грузовая платформа поднялась с нижних уровней."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Every morning, supply runners from the Foundry brought fresh lamp oil, coal, and tools to the Academy.",
-                    "ru": "Каждое утро бегуны-снабженцы из Литейного цеха привозили в Академию свежее ламповое масло, уголь и инструменты."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Eldrin stood near a stone pillar, watching the freight platform with sharp attention.",
-                    "ru": "Элдрин стоял возле каменного столба, с предельным вниманием наблюдая за грузовой платформой."
+                    "en": "The next morning at dawn, thick steam hissed from the freight elevator shafts of Level 82. Gigantic iron chains groaned as the heavy cargo platform rose from the lower levels. Every morning, supply runners from the Foundry brought fresh lamp oil, coal, and tools to the Academy. Eldrin stood near a stone pillar, watching the freight platform with sharp attention.",
+                    "ru": "На следующее утро на рассвете густой пар зашипел из шахт грузовых лифтов 82-го уровня. Гигантские железные цепи со стоном натянулись, когда тяжелая грузовая платформа поднялась с нижних уровней. Каждое утро бегуны-снабженцы из Литейного цеха привозили в Академию свежее ламповое масло, уголь и инструменты. Элдрин стоял возле каменного столба, с предельным вниманием наблюдая за грузовой платформой."
                 },
                 {
                     "speaker": "eldrin",
@@ -1148,32 +500,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "en": "CLANG! The massive iron platform locked into the docking bay with a loud shudder.",
-                    "ru": "ЛЯЗГ! Массивная железная платформа встала в стыковочный отсек с громким содроганием."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Dozens of workers in heavy leather coats began rolling heavy wooden barrels across the metal ramp.",
-                    "ru": "Десятки рабочих в тяжелых кожаных куртках начали перекатывать тяжелые деревянные бочки по металлическому пандусу."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Among the older workers was a young girl who moved faster and more agile than anyone else.",
-                    "ru": "Среди взрослых рабочих была молодая девочка, которая двигалась быстрее и проворнее всех остальных."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "She was fourteen years old, with short black hair, grey eyes, and sharp, determined features.",
-                    "ru": "Ей было четырнадцать лет, с короткими черными волосами, серыми глазами и резкими, решительными чертами лица."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "She wore dark leather trousers, thick workman's gloves, and heavy boots with iron soles.",
-                    "ru": "Она носила темные кожаные штаны, толстые рабочие перчатки и тяжелые сапоги с железными подошвами."
+                    "en": "CLANG! The massive iron platform locked into the docking bay with a loud shudder. Dozens of workers in heavy leather coats began rolling heavy wooden barrels across the metal ramp. Among the older workers was a young girl who moved faster and more agile than anyone else. She was fourteen years old, with short black hair, grey eyes, and sharp, determined features. She wore dark leather trousers, thick workman's gloves, and heavy boots with iron soles.",
+                    "ru": "ЛЯЗГ! Массивная железная платформа встала в стыковочный отсек с громким содроганием. Десятки рабочих в тяжелых кожаных куртках начали перекатывать тяжелые деревянные бочки по металлическому пандусу. Среди взрослых рабочих была молодая девочка, которая двигалась быстрее и проворнее всех остальных. Ей было четырнадцать лет, с короткими черными волосами, серыми глазами и резкими, решительными чертами лица. Она носила темные кожаные штаны, толстые рабочие перчатки и тяжелые сапоги с железными подошвами."
                 },
                 {
                     "speaker": "kira",
@@ -1184,20 +512,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "en": "She carried two heavy iron cans of purple refining acid as if they weighed nothing at all.",
-                    "ru": "Она несла две тяжелые железные канистры с фиолетовой очистительной кислотой так, словно они совсем ничего не весили."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Suddenly, the heavy iron gate at the end of the hall swung open with a resounding bang!",
-                    "ru": "Внезапно тяжелые железные ворота в конце зала распахнулись с оглушительным стуком!"
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Commander Vane marched into the cargo bay, followed by four tall Sentinels holding crackling electric staves.",
-                    "ru": "Командор Вейн вошел в грузовой отсек в сопровождении четырех высоких стражей с трещащими электрическими посохами."
+                    "en": "She carried two heavy iron cans of purple refining acid as if they weighed nothing at all. Suddenly, the heavy iron gate at the end of the hall swung open with a resounding bang! Commander Vane marched into the cargo bay, followed by four tall Sentinels holding crackling electric staves.",
+                    "ru": "Она несла две тяжелые железные канистры с фиолетовой очистительной кислотой так, словно они совсем ничего не весили. Внезапно тяжелые железные ворота в конце зала распахнулись с оглушительным стуком! Командор Вейн вошел в грузовой отсек в сопровождении четырех высоких стражей с трещащими электрическими посохами."
                 },
                 {
                     "speaker": "vane",
@@ -1208,26 +524,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "en": "The workers stopped immediately, trembling with fear. Sentinels were ruthless with lower level workers.",
-                    "ru": "Рабочие немедленно замерли, дрожа от страха. Стражи были беспощадны к рабочим с нижних уровней."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Kira tried to step behind a stack of wooden crates, but her iron boot caught on a loose cable.",
-                    "ru": "Кира попыталась шагнуть за стопку деревянных ящиков, но её железный сапог зацепился за свисающий кабель."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "She stumbled forward! A small brass cylinder slipped from her leather pouch and rolled across the floor!",
-                    "ru": "Она споткнулась вперед! Маленький латунный цилиндр выскользнул из её кожаной сумки и покатился по полу!"
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "The brass object rolled straight towards the feet of Commander Vane!",
-                    "ru": "Латунный предмет покатился прямо к ногам командора Вейна!"
+                    "en": "The workers stopped immediately, trembling with fear. Sentinels were ruthless with lower level workers. Kira tried to step behind a stack of wooden crates, but her iron boot caught on a loose cable. She stumbled forward! A small brass cylinder slipped from her leather pouch and rolled across the floor! The brass object rolled straight towards the feet of Commander Vane!",
+                    "ru": "Рабочие немедленно замерли, дрожа от страха. Стражи были беспощадны к рабочим с нижних уровней. Кира попыталась шагнуть за стопку деревянных ящиков, но её железный сапог зацепился за свисающий кабель. Она споткнулась вперед! Маленький латунный цилиндр выскользнул из её кожаной сумки и покатился по полу! Латунный предмет покатился прямо к ногам командора Вейна!"
                 },
                 {
                     "speaker": "kira",
@@ -1238,14 +536,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "en": "Eldrin acted without hesitation. He kicked his broom forward as if he were sweeping vigorously.",
-                    "ru": "Элдрин действовал без колебаний. Он взмахнул метлой вперед, словно усердно подметал."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "CLATTER! The broom head covered the brass cylinder, and Eldrin's boot slid smoothly over it, hiding it completely.",
-                    "ru": "ГРОХОТ! Щетина метлы накрыла латунный цилиндр, и сапог Элдрина плавно встал поверх него, полностью скрыв его."
+                    "en": "Eldrin acted without hesitation. He kicked his broom forward as if he were sweeping vigorously. CLATTER! The broom head covered the brass cylinder, and Eldrin's boot slid smoothly over it, hiding it completely.",
+                    "ru": "Элдрин действовал без колебаний. Он взмахнул метлой вперед, словно усердно подметал. ГРОХОТ! Щетина метлы накрыла латунный цилиндр, и сапог Элдрина плавно встал поверх него, полностью скрыв его."
                 },
                 {
                     "speaker": "vane",
@@ -1262,14 +554,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "vane",
                     "voice": "Fenrir",
-                    "en": "\"Corvinus... That old man burns too much oil at night. Take your oil and get back to the library!\"",
-                    "ru": "\"Корвинус... Этот старик жжет слишком много масла по ночам. Забирай свое масло и возвращайся в библиотеку!\""
-                },
-                {
-                    "speaker": "vane",
-                    "voice": "Fenrir",
-                    "en": "\"Sentinels, search the barrels! Look for contraband tools and unauthorized glass!\"",
-                    "ru": "\"Стражи, обыскать бочки! Ищите контрабандные инструменты и неразрешенное стекло!\""
+                    "en": "\"Corvinus... That old man burns too much oil at night. Take your oil and get back to the library!\" \"Sentinels, search the barrels! Look for contraband tools and unauthorized glass!\"",
+                    "ru": "\"Корвинус... Этот старик жжет слишком много масла по ночам. Забирай свое масло и возвращайся в библиотеку!\" \"Стражи, обыскать бочки! Ищите контрабандные инструменты и неразрешенное стекло!\""
                 },
                 {
                     "speaker": "narrator",
@@ -1304,44 +590,14 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "kira",
                     "voice": "Aoede",
-                    "en": "\"My name is Kira. I run courier messages for the machine shops on Level 12.\"",
-                    "ru": "\"Меня зовут Кира. Я разношу курьерские донесения для механических мастерских на 12-м уровне.\""
-                },
-                {
-                    "speaker": "kira",
-                    "voice": "Aoede",
-                    "en": "\"This is not ordinary glass, Eldrin. Put it to your eye and look through the floor ventilation grate.\"",
-                    "ru": "\"Это не обычное стекло, Элдрин. Поднеси его к глазу и посмотри сквозь напольную вентиляционную решетку.\""
+                    "en": "\"My name is Kira. I run courier messages for the machine shops on Level 12.\" \"This is not ordinary glass, Eldrin. Put it to your eye and look through the floor ventilation grate.\"",
+                    "ru": "\"Меня зовут Кира. Я разношу курьерские донесения для механических мастерских на 12-м уровне.\" \"Это не обычное стекло, Элдрин. Поднеси его к глазу и посмотри сквозь напольную вентиляционную решетку.\""
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "en": "Eldrin knelt by the iron floor grate and looked through the black lens down into the cloud sea.",
-                    "ru": "Элдрин опустился на колени возле железной решетки в полу и посмотрел сквозь черную линзу вниз, в облачное море."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Normally, through naked eyes, the clouds were a solid, impenetrable white wall.",
-                    "ru": "Обычно невооруженным глазом облака казались сплошной, непроницаемой белой стеной."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "But through this optical lens, the white light vanished! The fog became completely transparent!",
-                    "ru": "Но сквозь эту оптическую линзу белый свет исчез! Туман стал абсолютно прозрачным!"
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Far, far below, thousands of meters beneath the floating Spire, Eldrin saw something impossible.",
-                    "ru": "Далеко-далеко внизу, на тысячи метров под парящим Шпилем, Элдрин увидел нечто невозможное."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "He saw green forests, winding blue rivers, and vast brown hills touching a real horizon!",
-                    "ru": "Он увидел зеленые леса, извилистые синие реки и бескрайние коричневые холмы, касающиеся настоящего горизонта!"
+                    "en": "Eldrin knelt by the iron floor grate and looked through the black lens down into the cloud sea. Normally, through naked eyes, the clouds were a solid, impenetrable white wall. But through this optical lens, the white light vanished! The fog became completely transparent! Far, far below, thousands of meters beneath the floating Spire, Eldrin saw something impossible. He saw green forests, winding blue rivers, and vast brown hills touching a real horizon!",
+                    "ru": "Элдрин опустился на колени возле железной решетки в полу и посмотрел сквозь черную линзу вниз, в облачное море. Обычно невооруженным глазом облака казались сплошной, непроницаемой белой стеной. Но сквозь эту оптическую линзу белый свет исчез! Туман стал абсолютно прозрачным! Далеко-далеко внизу, на тысячи метров под парящим Шпилем, Элдрин увидел нечто невозможное. Он увидел зеленые леса, извилистые синие реки и бескрайние коричневые холмы, касающиеся настоящего горизонта!"
                 },
                 {
                     "speaker": "eldrin",
@@ -1406,50 +662,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "en": "Night fell over Level 82 like a heavy black velvet blanket.",
-                    "ru": "Ночь опустилась на 82-й уровень, словно тяжелое одеяло из черного бархата."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "The great bronze bell on Level 80 chimed ten slow, solemn times. Curfew began.",
-                    "ru": "Большой бронзовый колокол на 80-м уровне торжественно и медленно пробил десять раз. Начался комендантский час."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "All lamps along the main corridors were extinguished by order of the High Council.",
-                    "ru": "Все лампы вдоль главных коридоров были погашены по приказу Верховного Совета."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Eldrin did not go to bed. He carried a heavy iron can of lamp oil through the dark library halls.",
-                    "ru": "Элдрин не пошел спать. Он нес тяжелую железную канистру с ламповым маслом по темным залам библиотеки."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "He needed to deliver the oil to Master Corvinus's private office before midnight.",
-                    "ru": "Ему нужно было доставить масло в личный кабинет мастера Корвинуса до полуночи."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "As he approached the heavy oak door, he saw a narrow streak of yellow candlelight shining across the stone floor.",
-                    "ru": "Приближаясь к тяжелой дубовой двери, он увидел узкую полоску желтого свечного света, падающую на каменный пол."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "The wooden door was open two inches. Low, tense voices were arguing inside.",
-                    "ru": "Деревянная дверь была приоткрыта на пару дюймов. Внутри спорили тихие, напряженные голоса."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Eldrin set the heavy oil can down silently and leaned his ear against the wooden frame.",
-                    "ru": "Элдрин бесшумно поставил тяжелую канистру и прижал ухо к деревянной раме."
+                    "en": "Night fell over Level 82 like a heavy black velvet blanket. The great bronze bell on Level 80 chimed ten slow, solemn times. Curfew began. All lamps along the main corridors were extinguished by order of the High Council. Eldrin did not go to bed. He carried a heavy iron can of lamp oil through the dark library halls. He needed to deliver the oil to Master Corvinus's private office before midnight. As he approached the heavy oak door, he saw a narrow streak of yellow candlelight shining across the stone floor. The wooden door was open two inches. Low, tense voices were arguing inside. Eldrin set the heavy oil can down silently and leaned his ear against the wooden frame.",
+                    "ru": "Ночь опустилась на 82-й уровень, словно тяжелое одеяло из черного бархата. Большой бронзовый колокол на 80-м уровне торжественно и медленно пробил десять раз. Начался комендантский час. Все лампы вдоль главных коридоров были погашены по приказу Верховного Совета. Элдрин не пошел спать. Он нес тяжелую железную канистру с ламповым маслом по темным залам библиотеки. Ему нужно было доставить масло в личный кабинет мастера Корвинуса до полуночи. Приближаясь к тяжелой дубовой двери, он увидел узкую полоску желтого свечного света, падающую на каменный пол. Деревянная дверь была приоткрыта на пару дюймов. Внутри спорили тихие, напряженные голоса. Элдрин бесшумно поставил тяжелую канистру и прижал ухо к деревянной раме."
                 },
                 {
                     "speaker": "vane",
@@ -1460,26 +674,14 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "en": "\"Close the gates between Level 30 and Level 29?! But twenty thousand people live below Level 30!\"",
-                    "ru": "\"Закрыть ворота между 30-м и 29-м уровнями?! Но двадцать тысяч человек живут ниже 30-го уровня!\""
-                },
-                {
-                    "speaker": "corvinus",
-                    "voice": "Charon",
-                    "en": "\"If you seal the water pipes and elevators, the workers in the Foundry will starve in the dark!\"",
-                    "ru": "\"Если вы перекроете водопровод и лифты, рабочие в Литейном цехе будут голодать в темноте!\""
+                    "en": "\"Close the gates between Level 30 and Level 29?! But twenty thousand people live below Level 30!\" \"If you seal the water pipes and elevators, the workers in the Foundry will starve in the dark!\"",
+                    "ru": "\"Закрыть ворота между 30-м и 29-м уровнями?! Но двадцать тысяч человек живут ниже 30-го уровня!\" \"Если вы перекроете водопровод и лифты, рабочие в Литейном цехе будут голодать в темноте!\""
                 },
                 {
                     "speaker": "vane",
                     "voice": "Fenrir",
-                    "en": "\"We have no choice! The main altitude thrusters in the lower hull are losing hydraulic pressure!\"",
-                    "ru": "\"У нас нет выбора! Главные высотные двигатели в нижней обшивке теряют гидравлическое давление!\""
-                },
-                {
-                    "speaker": "vane",
-                    "voice": "Fenrir",
-                    "en": "\"The Spire dropped thirty meters last week! If we do not direct all energy to the upper stabilization rings, the whole tower will crash into the ground!\"",
-                    "ru": "\"Шпиль просел на тридцать метров на прошлой неделе! Если мы не направим всю энергию в верхние кольца стабилизации, вся башня рухнет на землю!\""
+                    "en": "\"We have no choice! The main altitude thrusters in the lower hull are losing hydraulic pressure!\" \"The Spire dropped thirty meters last week! If we do not direct all energy to the upper stabilization rings, the whole tower will crash into the ground!\"",
+                    "ru": "\"У нас нет выбора! Главные высотные двигатели в нижней обшивке теряют гидравлическое давление!\" \"Шпиль просел на тридцать метров на прошлой неделе! Если мы не направим всю энергию в верхние кольца стабилизации, вся башня рухнет на землю!\""
                 },
                 {
                     "speaker": "narrator",
@@ -1496,32 +698,14 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "vane",
                     "voice": "Fenrir",
-                    "en": "\"Never! If the people know the earth is alive, the High Council will lose all power and control!\"",
-                    "ru": "\"Никогда! Если люди узнают, что земля жива, Верховный Совет потеряет всю власть и контроль!\""
-                },
-                {
-                    "speaker": "vane",
-                    "voice": "Fenrir",
-                    "en": "\"The decree is sealed. Station Sentinels at every spiral staircase. If anyone attempts to go down, execute them immediately.\"",
-                    "ru": "\"Указ скреплен печатью. Расставьте стражей на каждой винтовой лестнице. Если кто-то попытается спуститься вниз, казните их на месте.\""
+                    "en": "\"Never! If the people know the earth is alive, the High Council will lose all power and control!\" \"The decree is sealed. Station Sentinels at every spiral staircase. If anyone attempts to go down, execute them immediately.\"",
+                    "ru": "\"Никогда! Если люди узнают, что земля жива, Верховный Совет потеряет всю власть и контроль!\" \"Указ скреплен печатью. Расставьте стражей на каждой винтовой лестнице. Если кто-то попытается спуститься вниз, казните их на месте.\""
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "en": "Heavy armored boots turned towards the door. Eldrin quickly slipped behind a tall marble statue of an eagle.",
-                    "ru": "Тяжелые бронированные сапоги повернули к двери. Элдрин быстро скользнул за высокую мраморную статую орла."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Commander Vane marched out into the corridor, his electric shock-staff glowing with dangerous yellow sparks.",
-                    "ru": "Командор Вейн вышел в коридор, его электрический посох светился опасными желтыми искрами."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "When the guard's footsteps faded into the distance, Master Corvinus opened the study door completely.",
-                    "ru": "Когда шаги стражника затихли вдали, мастер Корвинус полностью открыл дверь кабинета."
+                    "en": "Heavy armored boots turned towards the door. Eldrin quickly slipped behind a tall marble statue of an eagle. Commander Vane marched out into the corridor, his electric shock-staff glowing with dangerous yellow sparks. When the guard's footsteps faded into the distance, Master Corvinus opened the study door completely.",
+                    "ru": "Тяжелые бронированные сапоги повернули к двери. Элдрин быстро скользнул за высокую мраморную статую орла. Командор Вейн вышел в коридор, его электрический посох светился опасными желтыми искрами. Когда шаги стражника затихли вдали, мастер Корвинус полностью открыл дверь кабинета."
                 },
                 {
                     "speaker": "corvinus",
@@ -1550,38 +734,14 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "en": "The old archivist reached into his desk drawer and placed three objects on the table before Eldrin.",
-                    "ru": "Старый архивариус залез в ящик стола и положил три предмета на стол перед Элдрином."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "First was an antique copper lantern with an amber crystal that needed no oil to burn.",
-                    "ru": "Первым был старинный медный фонарь с янтарным кристаллом, которому не требовалось масло для горения."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Second was a folded map drawn upon soft grey parchment, showing the ancient air ducts of the Spire.",
-                    "ru": "Вторым была сложенная карта на мягком сером пергаменте, показывающая древние воздуховоды Шпиля."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Third was an iron cylinder holding dried bread and smoked meat.",
-                    "ru": "Третьим был железный цилиндр с сухим хлебом и копченым мясом."
+                    "en": "The old archivist reached into his desk drawer and placed three objects on the table before Eldrin. First was an antique copper lantern with an amber crystal that needed no oil to burn. Second was a folded map drawn upon soft grey parchment, showing the ancient air ducts of the Spire. Third was an iron cylinder holding dried bread and smoked meat.",
+                    "ru": "Старый архивариус залез в ящик стола и положил три предмета на стол перед Элдрином. Первым был старинный медный фонарь с янтарным кристаллом, которому не требовалось масло для горения. Вторым была сложенная карта на мягком сером пергаменте, показывающая древние воздуховоды Шпиля. Третьим был железный цилиндр с сухим хлебом и копченым мясом."
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "en": "\"You have your father's bronze key, Eldrin. Do not deny it; I recognized the hollow book.\"",
-                    "ru": "\"У тебя есть бронзовый ключ твоего отца, Элдрин. Не отрицай этого; я узнал полую книгу.\""
-                },
-                {
-                    "speaker": "corvinus",
-                    "voice": "Charon",
-                    "en": "\"Take this ventilation map. The spiral stairs are death, but the air shafts will lead you past Level 30 before sunrise.\"",
-                    "ru": "\"Возьми эту карту вентиляции. Винтовые лестницы — это смерть, но вентиляционные шахты выведут тебя за 30-й уровень до восхода солнца.\""
+                    "en": "\"You have your father's bronze key, Eldrin. Do not deny it; I recognized the hollow book.\" \"Take this ventilation map. The spiral stairs are death, but the air shafts will lead you past Level 30 before sunrise.\"",
+                    "ru": "\"У тебя есть бронзовый ключ твоего отца, Элдрин. Не отрицай этого; я узнал полую книгу.\" \"Возьми эту карту вентиляции. Винтовые лестницы — это смерть, но вентиляционные шахты выведут тебя за 30-й уровень до восхода солнца.\""
                 },
                 {
                     "speaker": "eldrin",
@@ -1592,20 +752,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "en": "\"I am an old man with a wooden cane, Eldrin. I cannot climb through ventilation pipes.\"",
-                    "ru": "\"Я старик с деревянной тростью, Элдрин. Я не могу лазить по вентиляционным трубам.\""
-                },
-                {
-                    "speaker": "corvinus",
-                    "voice": "Charon",
-                    "en": "\"My duty is here, guarding the remaining scrolls until the end. Your duty is below.\"",
-                    "ru": "\"Мой долг здесь — охранять оставшиеся свитки до конца. Твой долг — внизу.\""
-                },
-                {
-                    "speaker": "corvinus",
-                    "voice": "Charon",
-                    "en": "\"Find Bram on Level 12. Find the entrance to Level Zero. Save the Spire, Eldrin.\"",
-                    "ru": "\"Найди Брама на 12-м уровне. Найди вход на Нулевой Уровень. Спаси Шпиль, Элдрин.\""
+                    "en": "\"I am an old man with a wooden cane, Eldrin. I cannot climb through ventilation pipes.\" \"My duty is here, guarding the remaining scrolls until the end. Your duty is below.\" \"Find Bram on Level 12. Find the entrance to Level Zero. Save the Spire, Eldrin.\"",
+                    "ru": "\"Я старик с деревянной тростью, Элдрин. Я не могу лазить по вентиляционным трубам.\" \"Мой долг здесь — охранять оставшиеся свитки до конца. Твой долг — внизу.\" \"Найди Брама на 12-м уровне. Найди вход на Нулевой Уровень. Спаси Шпиль, Элдрин.\""
                 },
                 {
                     "speaker": "narrator",
@@ -1622,20 +770,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "en": "Eldrin slipped out into the shadow of the service balcony.",
-                    "ru": "Элдрин выскользнул в тень служебного балкона."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Near the entrance of the ventilation shaft, a dark figure stepped out from behind a steam pipe.",
-                    "ru": "Возле входа в вентиляционную шахту темная фигура шагнула из-за паровой трубы."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "It was Kira. Her heavy iron boots were laced tight, and her brass lens was secured to her belt.",
-                    "ru": "Это была Кира. Её тяжелые железные сапоги были туго зашнурованы, а латунная линза закреплена на поясе."
+                    "en": "Eldrin slipped out into the shadow of the service balcony. Near the entrance of the ventilation shaft, a dark figure stepped out from behind a steam pipe. It was Kira. Her heavy iron boots were laced tight, and her brass lens was secured to her belt.",
+                    "ru": "Элдрин выскользнул в тень служебного балкона. Возле входа в вентиляционную шахту темная фигура шагнула из-за паровой трубы. Это была Кира. Её тяжелые железные сапоги были туго зашнурованы, а латунная линза закреплена на поясе."
                 },
                 {
                     "speaker": "kira",
@@ -1652,14 +788,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "en": "Together, the two young companions stepped into the dark vertical shaft.",
-                    "ru": "Вместе двое юных спутников шагнули в темную вертикальную шахту."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "en": "Act One was finished. The great descent into the forgotten depths of the Arcane Spire had begun!",
-                    "ru": "Первый Акт завершился. Великий спуск в забытые глубины Тайного Шпиля начался!"
+                    "en": "Together, the two young companions stepped into the dark vertical shaft. Act One was finished. The great descent into the forgotten depths of the Arcane Spire had begun!",
+                    "ru": "Вместе двое юных спутников шагнули в темную вертикальную шахту. Первый Акт завершился. Великий спуск в забытые глубины Тайного Шпиля начался!"
                 }
             ],
             "quiz": [

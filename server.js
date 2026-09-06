@@ -5,6 +5,14 @@ const path = require('path');
 const db = require('./db');
 require('dotenv').config();
 
+// Global crash prevention handlers
+process.on('uncaughtException', (err) => {
+    console.error('[CRITICAL] Uncaught Exception:', err);
+});
+process.on('unhandledRejection', (reason, promise) => {
+    console.error('[CRITICAL] Unhandled Rejection at:', promise, 'reason:', reason);
+});
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -485,7 +493,13 @@ app.post('/api/ai/gemini-tts', async (req, res) => {
         if (!apiKey) return res.status(401).json({ success: false, error: "Gemini API Key missing. Please provide API Key in Settings." });
 
         const voiceName = clientVoice || 'Fenrir'; // Kore, Puck, Charon, Fenrir, Aoede
-        const models = ['gemini-3.1-flash-tts-preview', 'gemini-2.5-flash-preview-tts', 'gemini-2.5-pro-preview-tts'];
+        const models = [
+            'gemini-3.1-flash-tts-preview',
+            'gemini-2.5-flash-preview-tts',
+            'gemini-2.5-pro-preview-tts',
+            'gemini-2.0-flash',
+            'gemini-2.0-flash-exp'
+        ];
 
         for (const model of models) {
             const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
@@ -537,6 +551,7 @@ app.post('/api/ai/gemini-tts', async (req, res) => {
     } catch (err) {
         return res.status(500).json({ success: false, fallback: true, error: `Gemini TTS server error: ${err.message}` });
     }
+});
 // Shutdown Endpoint
 app.post('/api/admin/shutdown', (req, res) => {
     res.json({ success: true, message: "Server shutting down..." });
@@ -547,6 +562,19 @@ app.post('/api/admin/shutdown', (req, res) => {
         } catch(e) {}
         process.exit(0);
     }, 500);
+});
+
+// Global Express error handler (catches JSON parse errors and unhandled route exceptions)
+app.use((err, req, res, next) => {
+    if (err instanceof SyntaxError && err.status === 400 && 'body' in err) {
+        console.warn(`[Express JSON Parse Error] ${req.method} ${req.url}: Malformed JSON in request`);
+        return res.status(400).json({ success: false, error: 'Invalid JSON payload' });
+    }
+    console.error('[Express Unhandled Error]', err);
+    if (!res.headersSent) {
+        return res.status(err.status || 500).json({ success: false, error: err.message || 'Internal Server Error' });
+    }
+    next(err);
 });
 
 // Start Express Server
