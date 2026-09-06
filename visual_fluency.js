@@ -134,8 +134,50 @@ class VisualFluencyEngine {
         };
     }
 
+    parseChunkedMarkup(taggedText) {
+        if (!taggedText) return [];
+        const lines = taggedText.split('\n');
+        const result = [];
+        const tagMap = {
+            's': { type: 'subject', role: 'Подлежащее (Кто?)' },
+            'v': { type: 'verb', role: 'Сказуемое / Действие' },
+            'o': { type: 'object', role: 'Объект / Дополнение' },
+            'pt': { type: 'place-time', role: 'Обстоятельство (Где? Куда? Когда? Как?)' },
+            'c': { isConjunction: true },
+            'b': { isClauseBreak: true },
+            'w': { type: 'wh-word', role: 'Вопросительное слово' },
+            'adv': { type: 'place-time', role: 'Вводное слово / Обстоятельство' }
+        };
+
+        for (const line of lines) {
+            const trimmedLine = line.trim();
+            if (!trimmedLine) continue;
+            const sentenceChunks = [];
+            const regex = /\[(s|v|o|pt|c|b|w|adv):\s*([^\]]+)\]/g;
+            let match;
+            while ((match = regex.exec(trimmedLine)) !== null) {
+                const tag = match[1];
+                const text = match[2].trim();
+                const meta = tagMap[tag] || { type: 'object', role: 'Объект' };
+                const chunk = { ...meta, text };
+                if (meta.isClauseBreak && !text.startsWith('↳')) {
+                    chunk.text = '↳ ' + text;
+                }
+                sentenceChunks.push(chunk);
+            }
+            if (sentenceChunks.length > 0) {
+                result.push(sentenceChunks);
+            }
+        }
+        return result;
+    }
+
     parseTextIntoChunks(text) {
         if (!text) return [];
+        // If text contains bracketed markup, parse as pre-annotated markup
+        if (text.includes('[s:') || text.includes('[v:') || text.includes('[o:')) {
+            return this.parseChunkedMarkup(text);
+        }
         const rawSentences = text.match(/[^.!?\n]+[.!?]*/g) || [text];
         const result = [];
         for (const raw of rawSentences) {

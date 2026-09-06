@@ -5723,7 +5723,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 const vfEngine = window.visualFluency || window.VisualFluency;
                 if (vfEngine && typeof vfEngine.parseTextIntoChunks === 'function') {
                     try {
-                        const sentenceChunks = vfEngine.parseTextIntoChunks(p.en);
+                        const textToChunk = p.chunkedEn || p.en;
+                        const sentenceChunks = vfEngine.parseTextIntoChunks(textToChunk);
                         chunkedEnHtml = sentenceChunks.map(chunks => {
                             return chunks.map(c => {
                                 const html = vfEngine.renderChunkHtml(c, fadingLvl, globalChunkCounter);
