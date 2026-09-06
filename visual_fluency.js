@@ -153,52 +153,157 @@ class VisualFluencyEngine {
     parseSentence(sentence) {
         if (!sentence) return [];
 
-        const PREPOSITIONS = new Set(['in', 'on', 'at', 'to', 'for', 'with', 'under', 'behind', 'near', 'from', 'through', 'into', 'onto', 'over', 'about', 'across', 'around', 'of', 'by', 'above', 'along', 'beside', 'between', 'against', 'beneath', 'below', 'without', 'toward', 'towards', 'alongside', 'outside', 'inside', 'upon']);
+        const PREPOSITIONS = new Set([
+            'in', 'on', 'at', 'to', 'for', 'with', 'under', 'behind', 'near', 'from', 'through', 
+            'into', 'onto', 'over', 'about', 'across', 'around', 'of', 'by', 'above', 'along', 
+            'beside', 'between', 'against', 'beneath', 'below', 'without', 'toward', 'towards', 
+            'alongside', 'outside', 'inside', 'upon', 'like'
+        ]);
+
         const ARTICLES = new Set(['a', 'an', 'the']);
-        const DETERMINERS = new Set(['a', 'an', 'the', 'this', 'that', 'these', 'those', 'my', 'your', 'his', 'her', 'its', 'our', 'their', 'all', 'every', 'each', 'some', 'any', 'no', 'both', 'many', 'much', 'few', 'several', 'another', 'other', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'fifty', 'hundred', 'hundreds', 'dozen', 'dozens']);
+        const DETERMINERS = new Set(['a', 'an', 'the', 'this', 'that', 'these', 'those', 'my', 'your', 'his', 'her', 'its', 'our', 'their', 'all', 'every', 'each', 'some', 'any', 'no', 'both', 'many', 'much', 'few', 'several', 'another', 'other', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'fifty', 'hundred', 'hundreds', 'dozen', 'dozens', 'even']);
         const PRONOUNS = new Set(['i', 'you', 'he', 'she', 'it', 'we', 'they', 'someone', 'everyone', 'anyone', 'no one', 'nobody', 'nothing', 'everything', 'something', 'who', 'whom', 'which', 'what']);
         const MODALS = new Set(['can', 'cannot', 'could', 'must', 'should', 'will', 'would', 'may', 'might', 'shall', "can't", "won't", "couldn't", "shouldn't", "wouldn't", "mustn't"]);
         const AUX_VERBS = new Set(['do', 'does', 'did', 'is', 'are', 'am', 'was', 'were', 'have', 'has', 'had', 'be', 'been', 'being', "don't", "doesn't", "didn't", "isn't", "aren't", "wasn't", "weren't", "haven't", "hasn't", "hadn't"]);
         const LINKING_VERBS = new Set(['is', 'are', 'am', 'was', 'were', 'be', 'been', 'became', 'become', 'felt', 'feel', 'seemed', 'seem', 'sounded', 'sound', 'smelled', 'smell', 'tasted', 'taste', 'remained', 'remain', 'stayed', 'stay', 'went', 'shone', 'grew', 'looked']);
-        const DEGREE_ADVERBS = new Set(['very', 'so', 'too', 'quite', 'completely', 'still', 'always', 'almost', 'extremely', 'really', 'rather', 'fairly', 'totally', 'perfectly', 'also']);
+        const DEGREE_ADVERBS = new Set(['very', 'so', 'too', 'quite', 'completely', 'still', 'always', 'almost', 'extremely', 'really', 'rather', 'fairly', 'totally', 'perfectly', 'also', 'suddenly', 'slowly', 'firmly', 'calmly', 'sternly', 'quietly', 'loudly', 'together', 'forward', 'away', 'back', 'up', 'down', 'out', 'off', 'first', 'closely', 'softly', 'easily']);
         const CONJUNCTIONS = new Set(['and', 'or', 'but', 'so', 'yet', 'nor']);
         const CLAUSE_CONNECTORS = new Set(['because', 'although', 'while', 'when', 'if', 'since', 'where', 'as', 'though', 'unless', 'until', 'that', 'which', 'who', 'whom', 'whose', 'before', 'after']);
         const WH_WORDS = new Set(['why', 'what', 'where', 'when', 'who', 'whom', 'whose', 'which', 'how']);
 
+        // Comprehensive base + inflected verbs
         const VERB_LEXICON = new Set([
-            'arrived', 'attacked', 'knelt', 'stood', 'walked', 'held', 'picked', 'looked', 'shouted', 'ran', 'saw', 'smiled', 
-            'moved', 'cut', 'shook', 'opened', 'closed', 'flew', 'fell', 'sat', 'got', 'put', 'spoke', 'gave', 'took', 'came', 
-            'went', 'heard', 'felt', 'knew', 'thought', 'found', 'called', 'whispered', 'swung', 'broke', 'burned', 'flowed', 
-            'turned', 'wore', 'carried', 'asked', 'answered', 'roared', 'crouched', 'slammed', 'gasped', 'smelled', 'touched',
-            'jumped', 'pulled', 'showed', 'pointed', 'sizzled', 'lowered', 'stepped', 'danced', 'placed', 'nodded', 'gripped',
-            'covered', 'listened', 'brought', 'recognized', 'squinted', 'warned', 'grunted', 'scratched', 'smashed', 'leapt',
-            'tumbled', 'sealed', 'defeated', 'recovered', 'frown', 'frowned', 'waved', 'leaped', 'echoed', 'poured', 'unleashed',
-            'melted', 'summoned', 'cast', 'restored', 'shot', 'froze', 'eliminated', 'retreated', 'wiped', 'uncovered',
-            'saved', 'unite', 'find', 'complete', 'arrive', 'attack', 'kneel', 'stand', 'walk', 'hold', 'pick', 'look',
-            'shout', 'run', 'see', 'smile', 'move', 'fly', 'fall', 'sit', 'get', 'speak', 'give', 'take', 'come', 'go',
-            'hear', 'feel', 'know', 'think', 'call', 'whisper', 'swing', 'break', 'burn', 'flow', 'turn', 'wear', 'carry',
-            'ask', 'answer', 'roar', 'slam', 'gasp', 'smell', 'touch', 'jump', 'pull', 'show', 'point', 'sizzle', 'lower',
-            'step', 'dance', 'place', 'nod', 'grip', 'cover', 'listen', 'bring', 'recognize', 'squint', 'warn', 'grunt',
-            'scratch', 'smash', 'leap', 'tumble', 'seal', 'defeat', 'recover', 'frown', 'wave', 'echo', 'pour', 'unleash',
-            'melt', 'summon', 'restore', 'shoot', 'freeze', 'eliminate', 'retreat', 'wipe', 'uncover', 'save', 'wait',
-            'cross', 'drink', 'protect', 'gather', 'fled', 'flee', 'stayed', 'stay', 'lived', 'live', 'wanted', 'want', 'wants',
-            'liked', 'like', 'likes', 'needed', 'need', 'needs', 'used', 'use', 'uses', 'helped', 'help', 'helps', 
-            'started', 'start', 'starts', 'began', 'begin', 'begins',
-            'worked', 'work', 'works', 'played', 'play', 'plays', 'hit', 'hits', 'tried', 'try', 'tries', 
-            'stopped', 'stop', 'stops', 'tested', 'test', 'tests', 'rose', 'rise', 'rises',
-            'lay', 'lie', 'lies', 'laid', 'shone', 'shine', 'shines', 'smashed', 'smashes', 'attacks', 'arrives', 'kneels', 'stands', 'walks',
-            'holds', 'picks', 'looks', 'shouts', 'runs', 'sees', 'smiles', 'moves', 'flies', 'falls', 'sits', 'speaks',
-            'gives', 'takes', 'comes', 'goes', 'hears', 'feels', 'knows', 'thinks', 'calls', 'whispers', 'swings', 'breaks',
-            'burns', 'flows', 'turns', 'wears', 'carries', 'asks', 'answers', 'roars', 'slams', 'gasps', 'smells', 'touches',
-            'jumps', 'pulls', 'shows', 'points', 'sizzles', 'lowers', 'steps', 'dances', 'places', 'nods', 'grips', 'covers',
-            'listens', 'brings', 'recognizes', 'squints', 'warns', 'grunts', 'scratches', 'leaps', 'tumbles', 'seals',
-            'defeats', 'recovers', 'frowns', 'waves', 'echoes', 'pours', 'unleashes', 'melts', 'summons', 'restores',
-            'shoots', 'freezes', 'eliminates', 'retreats', 'wipes', 'uncovers', 'saves', 'waits', 'crosses', 'drinks',
-            'protects', 'gathers', 'flees', 'stays', 'lives', 'wants', 'likes', 'needs', 'uses', 'helps',
-            'sang', 'sing', 'sings', 'snapped', 'snap', 'snaps', 'laughed', 'laugh', 'laughs', 'belongs', 'belong', 'belonged',
-            'yelled', 'yell', 'yells', 'talk', 'talks', 'talked', 'became', 'become', 'becomes', 'answer', 'answers', 'answered'
+            'arrived', 'arrive', 'arrives', 'arriving',
+            'attacked', 'attack', 'attacks', 'attacking',
+            'knelt', 'kneel', 'kneels', 'kneeling',
+            'stood', 'stand', 'stands', 'standing',
+            'walked', 'walk', 'walks', 'walking',
+            'held', 'hold', 'holds', 'holding',
+            'picked', 'pick', 'picks', 'picking',
+            'looked', 'look', 'looks', 'looking',
+            'shouted', 'shout', 'shouts', 'shouting',
+            'ran', 'run', 'runs', 'running',
+            'saw', 'see', 'sees', 'seeing', 'seen',
+            'smiled', 'smile', 'smiles', 'smiling',
+            'moved', 'move', 'moves', 'moving',
+            'cut', 'cuts', 'cutting',
+            'shook', 'shake', 'shakes', 'shaking', 'shaken',
+            'opened', 'open', 'opens', 'opening',
+            'closed', 'close', 'closes', 'closing',
+            'flew', 'fly', 'flies', 'flying', 'flown',
+            'fell', 'fall', 'falls', 'falling', 'fallen',
+            'sat', 'sit', 'sits', 'sitting',
+            'got', 'get', 'gets', 'getting', 'gotten',
+            'put', 'puts', 'putting',
+            'spoke', 'speak', 'speaks', 'speaking', 'spoken',
+            'gave', 'give', 'gives', 'giving', 'given',
+            'took', 'take', 'takes', 'taking', 'taken',
+            'came', 'come', 'comes', 'coming',
+            'went', 'go', 'goes', 'going', 'gone',
+            'heard', 'hear', 'hears', 'hearing',
+            'felt', 'feel', 'feels', 'feeling',
+            'knew', 'know', 'knows', 'knowing', 'known',
+            'thought', 'think', 'thinks', 'thinking',
+            'found', 'find', 'finds', 'finding',
+            'called', 'call', 'calls', 'calling',
+            'whispered', 'whisper', 'whispers', 'whispering',
+            'swung', 'swing', 'swings', 'swinging',
+            'broke', 'break', 'breaks', 'breaking', 'broken',
+            'burned', 'burn', 'burns', 'burning', 'burnt',
+            'flowed', 'flow', 'flows', 'flowing',
+            'turned', 'turn', 'turns', 'turning',
+            'wore', 'wear', 'wears', 'wearing', 'worn',
+            'carried', 'carry', 'carries', 'carrying',
+            'asked', 'ask', 'asks', 'asking',
+            'answered', 'answer', 'answers', 'answering',
+            'roared', 'roar', 'roars', 'roaring',
+            'crouched', 'crouch', 'crouches', 'crouching',
+            'slammed', 'slam', 'slams', 'slamming',
+            'gasped', 'gasp', 'gasps', 'gasping',
+            'smelled', 'smell', 'smells', 'smelling',
+            'touched', 'touch', 'touches', 'touching',
+            'jumped', 'jump', 'jumps', 'jumping',
+            'pulled', 'pull', 'pulls', 'pulling',
+            'showed', 'show', 'shows', 'showing', 'shown',
+            'pointed', 'point', 'points', 'pointing',
+            'sizzled', 'sizzle', 'sizzles', 'sizzling',
+            'lowered', 'lower', 'lowers', 'lowering',
+            'stepped', 'step', 'steps', 'stepping',
+            'danced', 'dance', 'dances', 'dancing',
+            'placed', 'place', 'places', 'placing',
+            'nodded', 'nod', 'nods', 'nodding',
+            'gripped', 'grip', 'grips', 'gripping',
+            'covered', 'cover', 'covers', 'covering',
+            'listened', 'listen', 'listens', 'listening',
+            'brought', 'bring', 'brings', 'bringing',
+            'recognized', 'recognize', 'recognizes', 'recognizing',
+            'squinted', 'squint', 'squints', 'squinting',
+            'warned', 'warn', 'warns', 'warning',
+            'grunted', 'grunt', 'grunts', 'grunting',
+            'scratched', 'scratch', 'scratches', 'scratching',
+            'smashed', 'smash', 'smashes', 'smashing',
+            'leapt', 'leaped', 'leap', 'leaps', 'leaping',
+            'tumbled', 'tumble', 'tumbles', 'tumbling',
+            'sealed', 'seal', 'seals', 'sealing',
+            'defeated', 'defeat', 'defeats', 'defeating',
+            'recovered', 'recover', 'recovers', 'recovering',
+            'frowned', 'frown', 'frowns', 'frowning',
+            'waved', 'wave', 'waves', 'waving',
+            'echoed', 'echo', 'echoes', 'echoing',
+            'poured', 'pour', 'pours', 'pouring',
+            'unleashed', 'unleash', 'unleashes', 'unleashing',
+            'melted', 'melt', 'melts', 'melting',
+            'summoned', 'summon', 'summons', 'summoning',
+            'restored', 'restore', 'restores', 'restoring',
+            'shot', 'shoot', 'shoots', 'shooting',
+            'froze', 'freeze', 'freezes', 'freezing', 'frozen',
+            'eliminated', 'eliminate', 'eliminates', 'eliminating',
+            'retreated', 'retreat', 'retreats', 'retreating',
+            'wiped', 'wipe', 'wipes', 'wiping',
+            'uncovered', 'uncover', 'uncovers', 'uncovering',
+            'saved', 'save', 'saves', 'saving',
+            'waited', 'wait', 'waits', 'waiting',
+            'crossed', 'cross', 'crosses', 'crossing',
+            'drank', 'drink', 'drinks', 'drinking', 'drunk',
+            'protected', 'protect', 'protects', 'protecting',
+            'gathered', 'gather', 'gathers', 'gathering',
+            'fled', 'flee', 'flees', 'fleeing',
+            'stayed', 'stay', 'stays', 'staying',
+            'lived', 'live', 'lives', 'living',
+            'wanted', 'want', 'wants', 'wanting',
+            'needed', 'need', 'needs', 'needing',
+            'used', 'use', 'uses', 'using',
+            'helped', 'help', 'helps', 'helping',
+            'started', 'start', 'starts', 'starting',
+            'began', 'begin', 'begins', 'beginning', 'begun',
+            'worked', 'work', 'works', 'working',
+            'played', 'play', 'plays', 'playing',
+            'hit', 'hits', 'hitting',
+            'tried', 'try', 'tries', 'trying',
+            'stopped', 'stop', 'stops', 'stopping',
+            'tested', 'test', 'tests', 'testing',
+            'rose', 'rise', 'rises', 'rising', 'risen',
+            'lay', 'lie', 'lies', 'lying', 'lain', 'laid',
+            'shone', 'shine', 'shines', 'shining',
+            'sang', 'sing', 'sings', 'singing', 'sung',
+            'snapped', 'snap', 'snaps', 'snapping',
+            'laughed', 'laugh', 'laughs', 'laughing',
+            'belongs', 'belong', 'belonged', 'belonging',
+            'yelled', 'yell', 'yells', 'yelling',
+            'talked', 'talk', 'talks', 'talking',
+            'became', 'become', 'becomes', 'becoming',
+            'drew', 'draw', 'draws', 'drawing', 'drawn',
+            'traveled', 'travel', 'travels', 'traveling',
+            'fought', 'fight', 'fights', 'fighting',
+            'lurked', 'lurk', 'lurks', 'lurking',
+            'slept', 'sleep', 'sleeps', 'sleeping',
+            'said', 'say', 'says', 'saying',
+            'pushed', 'push', 'pushes', 'pushing',
+            'cast', 'casts', 'casting',
+            'unite', 'unites', 'united', 'uniting'
         ]);
 
+        // Words that act as adjectives inside Noun Phrases / PP / Predicates
         const PARTICIPLE_ADJECTIVES = new Set([
             'burning', 'glowing', 'broken', 'frozen', 'sunken', 'shining', 'overturned', 'flying', 
             'living', 'braided', 'floating', 'falling', 'smoking', 'sparkling', 'poaching', 'rushing',
@@ -206,7 +311,7 @@ class VisualFluencyEngine {
             'crouched', 'curved', 'trapped', 'poisoned', 'stolen', 'forgotten', 'united', 'shared',
             'sacred', 'ancient', 'polished', 'cushioned', 'fled', 'restless', 'safe', 'silent', 'bright',
             'warm', 'cold', 'loud', 'fast', 'slow', 'gentle', 'calm', 'sweet', 'fresh', 'sharp', 'heavy',
-            'hot', 'dry', 'fierce', 'liquid', 'tall', 'free', 'young'
+            'hot', 'dry', 'fierce', 'liquid', 'tall', 'free', 'young', 'dim', 'dark', 'entire', 'open'
         ]);
 
         const isVerb = (w) => {
@@ -218,7 +323,9 @@ class VisualFluencyEngine {
             return false;
         };
 
-        const rawTokens = sentence.match(/\S+/g) || [];
+        // Normalize em-dashes and split cleanly
+        const normalized = sentence.replace(/—|--/g, ' — ');
+        const rawTokens = normalized.match(/\S+/g) || [];
         const chunks = [];
         let i = 0;
 
@@ -226,17 +333,24 @@ class VisualFluencyEngine {
             let token = rawTokens[i];
             let clean = token.toLowerCase().replace(/[^a-z']/g, '');
 
-            // Skip standalone punctuation or attach to previous chunk
-            if (!clean) {
-                if (chunks.length > 0) {
+            // Standalone punctuation / dashes
+            if (!clean || token === '—' || token === '--') {
+                if (token === '—' || token === '--') {
+                    chunks.push({ isConjunction: true, text: '—' });
+                } else if (chunks.length > 0) {
                     chunks[chunks.length - 1].text += ' ' + token;
                 }
                 i++;
                 continue;
             }
 
+            // 0. Check for dialogue boundary: if previous token ended with closing quote (e.g. ," or !" or ?")
+            // and current token is a pronoun/determiner followed by a dialogue verb
+            const prevToken = i > 0 ? rawTokens[i - 1] : '';
+            const isAfterQuote = /["”']$/.test(prevToken) || /[,\.!\?]["”']$/.test(prevToken);
+
             // WH-Questions (e.g. "\"Why", "What", "Where", "How")
-            if (WH_WORDS.has(clean) && (i === 0 || chunks.length === 0 || chunks[chunks.length - 1].isClauseBreak)) {
+            if (WH_WORDS.has(clean) && (i === 0 || chunks.length === 0 || chunks[chunks.length - 1].isClauseBreak || isAfterQuote)) {
                 if (i + 1 < rawTokens.length && (AUX_VERBS.has(rawTokens[i+1].toLowerCase().replace(/[^a-z']/g, '')) || MODALS.has(rawTokens[i+1].toLowerCase().replace(/[^a-z']/g, '')))) {
                     chunks.push({
                         type: 'wh-word',
@@ -274,12 +388,15 @@ class VisualFluencyEngine {
                 continue;
             }
 
+            // Preposition 'like' check: if after verb/predicate, it's a preposition of comparison: "like winter snow"
+            const isPrepLike = clean === 'like' && chunks.some(c => c.type === 'verb');
+
             // 1. PREPOSITIONAL PHRASE (PP) -> [Preposition] + [Determiner/Modifiers/Noun]
-            if (PREPOSITIONS.has(clean) || clean === 'before' || clean === 'after') {
+            if ((PREPOSITIONS.has(clean) && clean !== 'like') || isPrepLike || clean === 'before' || clean === 'after') {
                 let isInfTo = false;
                 if (clean === 'to' && i + 1 < rawTokens.length) {
                     let nextClean = rawTokens[i + 1].toLowerCase().replace(/[^a-z']/g, '');
-                    if (isVerb(nextClean)) {
+                    if (isVerb(nextClean) || VERB_LEXICON.has(nextClean)) {
                         isInfTo = true;
                     }
                 }
@@ -292,16 +409,17 @@ class VisualFluencyEngine {
                             j++;
                             continue;
                         }
-                        if (CONJUNCTIONS.has(nextClean) || CLAUSE_CONNECTORS.has(nextClean) || PREPOSITIONS.has(nextClean)) break;
-                        if (isVerb(nextClean)) break;
+                        if (CONJUNCTIONS.has(nextClean) || CLAUSE_CONNECTORS.has(nextClean) || (PREPOSITIONS.has(nextClean) && nextClean !== 'like')) break;
+                        // Stop PP if a true finite verb is encountered AND it's not a modifying adjective
+                        if (isVerb(nextClean) && !PARTICIPLE_ADJECTIVES.has(nextClean)) break;
                         j++;
-                        if (/[.,;!?]$/.test(rawTokens[j - 1])) break;
+                        if (/[.,;!?]["”']?$/.test(rawTokens[j - 1])) break;
                     }
                     
                     const ppSlice = rawTokens.slice(i, j);
                     chunks.push({
                         type: 'place-time',
-                        role: 'Обстоятельство (Где? Куда? Когда?)',
+                        role: 'Обстоятельство (Где? Куда? Когда? Как?)',
                         text: ppSlice.join(' ')
                     });
                     i = j;
@@ -309,7 +427,7 @@ class VisualFluencyEngine {
                 }
             }
 
-            // 2. VERB PHRASE (VP) -> [Modals / Aux / Negatives] + [Main Verb] + [Infinitives / Particles / Adverbs / Linking Adjectives]
+            // 2. VERB PHRASE (VP) -> [Modals / Aux / Negatives] + [Main Verb] + [Infinitives / Participles / Particles / Adverbs / Linking Adjectives]
             if (isVerb(clean) || clean === 'not' || clean === 'never' || (clean === 'to' && i + 1 < rawTokens.length && isVerb(rawTokens[i+1].toLowerCase().replace(/[^a-z']/g, '')))) {
                 
                 // Check for inverted question structure: AUX + SUBJECT + MAIN VERB (e.g. "do you talk", "can we go")
@@ -326,13 +444,11 @@ class VisualFluencyEngine {
                             }
                         }
                         if (subjectEnd < rawTokens.length && isVerb(rawTokens[subjectEnd].toLowerCase().replace(/[^a-z']/g, ''))) {
-                            // Push auxiliary verb
                             chunks.push({
                                 type: 'verb',
                                 role: 'Вспомогательный глагол',
                                 text: token
                             });
-                            // Push inverted subject
                             chunks.push({
                                 type: 'subject',
                                 role: 'Подлежащее (Кто?)',
@@ -360,6 +476,23 @@ class VisualFluencyEngine {
                         continue;
                     }
 
+                    // Absorb main verb after auxiliary/modal (e.g. "did not draw", "cannot travel", "is coming", "has begun", "must not fight")
+                    if (AUX_VERBS.has(clean) || MODALS.has(clean) || clean === 'not' || clean === 'never') {
+                        if (isVerb(nextClean) || VERB_LEXICON.has(nextClean) || nextClean.endsWith('ing') || nextClean.endsWith('ed')) {
+                            j++;
+                            if (/[.,;!?]["”']?$/.test(rawTokens[j - 1])) break;
+                            // continue to absorb any phrasal particles/adverbs after the main verb
+                            if (j < rawTokens.length) {
+                                let partClean = rawTokens[j].toLowerCase().replace(/[^a-z']/g, '');
+                                if (DEGREE_ADVERBS.has(partClean) || partClean.endsWith('ly')) {
+                                    j++;
+                                }
+                            }
+                            if (/[.,;!?]["”']?$/.test(rawTokens[j - 1])) break;
+                            continue;
+                        }
+                    }
+
                     // "looked like" -> absorb "like" and stop so following NP is Object!
                     if (nextClean === 'like' && (clean === 'looked' || clean === 'look' || clean === 'looks' || clean === 'felt' || clean === 'sounded')) {
                         j++;
@@ -369,17 +502,17 @@ class VisualFluencyEngine {
                     // Check for infinitive "to [verb]" e.g. "wants to break free", "began to glow"
                     if (nextClean === 'to' && j + 1 < rawTokens.length) {
                         let afterToClean = rawTokens[j + 1].toLowerCase().replace(/[^a-z']/g, '');
-                        if (isVerb(afterToClean)) {
+                        if (isVerb(afterToClean) || VERB_LEXICON.has(afterToClean)) {
                             j += 2; // absorb "to [verb]"
-                            if (/[.,;!?]$/.test(rawTokens[j - 1])) break;
+                            if (/[.,;!?]["”']?$/.test(rawTokens[j - 1])) break;
                             // check for subsequent particles e.g. "free", "away", "out"
                             if (j < rawTokens.length) {
                                 let partClean = rawTokens[j].toLowerCase().replace(/[^a-z']/g, '');
-                                if (PARTICIPLE_ADJECTIVES.has(partClean) || ['free', 'away', 'out', 'up', 'down', 'back', 'together'].includes(partClean)) {
+                                if (PARTICIPLE_ADJECTIVES.has(partClean) || DEGREE_ADVERBS.has(partClean) || partClean.endsWith('ly')) {
                                     j++;
                                 }
                             }
-                            if (/[.,;!?]$/.test(rawTokens[j - 1])) break;
+                            if (/[.,;!?]["”']?$/.test(rawTokens[j - 1])) break;
                             continue;
                         }
                     }
@@ -394,18 +527,17 @@ class VisualFluencyEngine {
                         }
                     }
 
-                    // If linking verb, absorb degree adverbs and predicate adjectives (e.g. "became hot and dry", "was bright and warm", "was very fast and loud")
+                    // If linking verb, absorb degree adverbs and predicate adjectives (e.g. "became hot and dry", "became dim and dark", "was bright and warm", "was very fast and loud")
                     if (isLinking) {
-                        if (DEGREE_ADVERBS.has(nextClean) || PARTICIPLE_ADJECTIVES.has(nextClean) || ['hot', 'dry', 'bright', 'warm', 'cold', 'fast', 'slow', 'loud', 'quiet', 'safe', 'restless', 'silent', 'gentle', 'calm', 'sweet', 'fresh', 'sharp', 'heavy', 'great', 'wide', 'tall', 'dark', 'small', 'big', 'ready', 'open', 'closed', 'good', 'bad', 'happy', 'afraid', 'alive', 'dead', 'awake', 'asleep', 'peaceful', 'kind', 'restless', 'free'].includes(nextClean)) {
+                        if (DEGREE_ADVERBS.has(nextClean) || PARTICIPLE_ADJECTIVES.has(nextClean) || ['hot', 'dry', 'bright', 'warm', 'cold', 'fast', 'slow', 'loud', 'quiet', 'safe', 'restless', 'silent', 'gentle', 'calm', 'sweet', 'fresh', 'sharp', 'heavy', 'great', 'wide', 'tall', 'dark', 'small', 'big', 'ready', 'open', 'closed', 'good', 'bad', 'happy', 'afraid', 'alive', 'dead', 'awake', 'asleep', 'peaceful', 'kind', 'restless', 'free', 'dim'].includes(nextClean)) {
                             j++;
-                            if (/[.,;!?]$/.test(rawTokens[j - 1])) break;
-                            // Check if followed by "and" + another adjective
-                            if (j < rawTokens.length && (rawTokens[j].toLowerCase() === 'and' || rawTokens[j].toLowerCase() === 'or')) {
+                            if (/[.,;!?]["”']?$/.test(rawTokens[j - 1])) break;
+                            if (j < rawTokens.length && (rawTokens[j].toLowerCase() === 'and' || rawTokens[j].toLowerCase() === 'or' || rawTokens[j].toLowerCase() === 'but')) {
                                 if (j + 1 < rawTokens.length) {
                                     let afterConjClean = rawTokens[j + 1].toLowerCase().replace(/[^a-z']/g, '');
-                                    if (PARTICIPLE_ADJECTIVES.has(afterConjClean) || ['hot', 'dry', 'bright', 'warm', 'cold', 'fast', 'slow', 'loud', 'quiet', 'safe', 'restless', 'silent', 'gentle', 'calm', 'sweet', 'fresh', 'sharp', 'heavy', 'great', 'wide', 'tall', 'dark', 'small', 'big', 'ready', 'open', 'closed', 'good', 'bad', 'happy', 'afraid', 'alive', 'dead', 'awake', 'asleep', 'peaceful', 'kind', 'restless', 'free'].includes(afterConjClean) || DEGREE_ADVERBS.has(afterConjClean)) {
-                                        j += 2; // absorb "and [adj]"
-                                        if (/[.,;!?]$/.test(rawTokens[j - 1])) break;
+                                    if (PARTICIPLE_ADJECTIVES.has(afterConjClean) || ['hot', 'dry', 'bright', 'warm', 'cold', 'fast', 'slow', 'loud', 'quiet', 'safe', 'restless', 'silent', 'gentle', 'calm', 'sweet', 'fresh', 'sharp', 'heavy', 'great', 'wide', 'tall', 'dark', 'small', 'big', 'ready', 'open', 'closed', 'good', 'bad', 'happy', 'afraid', 'alive', 'dead', 'awake', 'asleep', 'peaceful', 'kind', 'restless', 'free', 'dim'].includes(afterConjClean) || DEGREE_ADVERBS.has(afterConjClean)) {
+                                        j += 2;
+                                        if (/[.,;!?]["”']?$/.test(rawTokens[j - 1])) break;
                                         continue;
                                     }
                                 }
@@ -414,9 +546,27 @@ class VisualFluencyEngine {
                         }
                     }
 
-                    if (isVerb(nextClean) || ['up', 'down', 'out', 'back', 'forward', 'away', 'off', 'together', 'first', 'slowly', 'quietly', 'loudly', 'softly', 'firmly', 'closely'].includes(nextClean)) {
+                    // Absorb trailing adverbs / adverb phrases (e.g. "said sternly", "said firmly but calmly", "fell slowly")
+                    if (DEGREE_ADVERBS.has(nextClean) || nextClean.endsWith('ly')) {
                         j++;
-                        if (/[.,;!?]$/.test(rawTokens[j - 1])) break;
+                        if (/[.,;!?]["”']?$/.test(rawTokens[j - 1])) break;
+                        // Check for "and / but" + another adverb (e.g. "firmly but calmly")
+                        if (j < rawTokens.length && (rawTokens[j].toLowerCase() === 'and' || rawTokens[j].toLowerCase() === 'but')) {
+                            if (j + 1 < rawTokens.length) {
+                                let afterConjClean = rawTokens[j + 1].toLowerCase().replace(/[^a-z']/g, '');
+                                if (DEGREE_ADVERBS.has(afterConjClean) || afterConjClean.endsWith('ly')) {
+                                    j += 2;
+                                    if (/[.,;!?]["”']?$/.test(rawTokens[j - 1])) break;
+                                    continue;
+                                }
+                            }
+                        }
+                        continue;
+                    }
+
+                    if (isVerb(nextClean)) {
+                        j++;
+                        if (/[.,;!?]["”']?$/.test(rawTokens[j - 1])) break;
                         continue;
                     }
                     break;
@@ -438,13 +588,13 @@ class VisualFluencyEngine {
             let isSubject = false;
             
             // Determine subject vs object
-            if (chunks.length === 0 || chunks[chunks.length - 1].isClauseBreak) {
+            if (chunks.length === 0 || chunks[chunks.length - 1].isClauseBreak || isAfterQuote) {
                 isSubject = true;
             } else if (i > 0 && /[!?."]$/.test(rawTokens[i - 1])) {
                 isSubject = true;
             } else if (chunks[chunks.length - 1].isConjunction) {
                 const conjText = chunks[chunks.length - 1].text.toLowerCase();
-                if (['but', 'so', 'yet'].includes(conjText)) {
+                if (['but', 'so', 'yet', '—', '--'].includes(conjText)) {
                     isSubject = true;
                 } else {
                     let hasSubsequentVerb = false;
@@ -469,13 +619,13 @@ class VisualFluencyEngine {
                     j++;
                     continue;
                 }
-                if (CONJUNCTIONS.has(nextClean) || CLAUSE_CONNECTORS.has(nextClean) || PREPOSITIONS.has(nextClean)) break;
+                if (CONJUNCTIONS.has(nextClean) || CLAUSE_CONNECTORS.has(nextClean) || PREPOSITIONS.has(nextClean) || rawTokens[j] === '—' || rawTokens[j] === '--') break;
                 if (isVerb(nextClean)) break;
                 j++;
                 if (PRONOUNS.has(nextClean)) {
                     break;
                 }
-                if (/[.,;!?]$/.test(rawTokens[j - 1])) break;
+                if (/[.,;!?]["”']?$/.test(rawTokens[j - 1])) break;
             }
 
             if (j === i) j = i + 1;
