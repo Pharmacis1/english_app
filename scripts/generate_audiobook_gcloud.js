@@ -49,6 +49,36 @@ const CAST = {
         voice: 'en-US-Neural2-J', // Deep, wise elder archivist
         pitch: '-4st',
         rate: '0.86'
+    },
+    barnaby: {
+        voice: 'en-US-Neural2-D', // Cheerful old cart driver
+        pitch: '-2st',
+        rate: '0.90'
+    },
+    guard: {
+        voice: 'en-US-Neural2-D', // Firm gatekeeper
+        pitch: '-3st',
+        rate: '0.90'
+    },
+    baker: {
+        voice: 'en-US-Neural2-I', // Warm friendly baker
+        pitch: '-0.5st',
+        rate: '0.94'
+    },
+    selma: {
+        voice: 'en-US-Neural2-F', // Lively spice merchant
+        pitch: '+1st',
+        rate: '0.95'
+    },
+    smith: {
+        voice: 'en-US-Neural2-J', // Strong hearty blacksmith
+        pitch: '-4.5st',
+        rate: '0.88'
+    },
+    otho: {
+        voice: 'en-US-Neural2-J', // Gentle old bookseller
+        pitch: '-3st',
+        rate: '0.88'
     }
 };
 
@@ -92,6 +122,11 @@ async function run() {
     if (chIdx !== -1 && args[chIdx + 1]) {
         targetChapter = parseInt(args[chIdx + 1], 10);
     }
+    let targetAct = null;
+    const actIdx = args.indexOf('--act');
+    if (actIdx !== -1 && args[actIdx + 1]) {
+        targetAct = parseInt(args[actIdx + 1], 10);
+    }
 
     console.log("==================================================");
     console.log("🎙️ EnglishPulse - Google Cloud TTS Serial Generator");
@@ -99,9 +134,12 @@ async function run() {
     console.log("💎 Free 1,000,000 characters monthly tier");
     console.log("🎭 Cast: Narrator (Neural2-D), Eldrin (Neural2-A), Leo (Neural2-I), Kira (Neural2-F), Corvinus (Neural2-J)");
 
-    const chapters = targetChapter 
-        ? ELDRIN_AUDIOBOOK.chapters.filter(c => c.number === targetChapter)
-        : ELDRIN_AUDIOBOOK.chapters;
+    let chapters = ELDRIN_AUDIOBOOK.chapters;
+    if (targetChapter) {
+        chapters = chapters.filter(c => c.number === targetChapter);
+    } else if (targetAct) {
+        chapters = chapters.filter(c => c.act === targetAct);
+    }
 
     let totalFiles = 0;
     let totalChars = 0;

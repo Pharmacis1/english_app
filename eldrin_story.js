@@ -1541,6 +1541,1031 @@ const ELDRIN_AUDIOBOOK = {
                 }
             ]
         }
+,
+        {
+                "id": "eldrin-ch-11",
+                "number": 11,
+                "act": 2,
+                "titleEn": "Episode 11: The Morning Cart Ride Down the Mountain",
+                "titleRu": "Эпизод 11: Утренняя поездка на повозке с горы",
+                "grammarFocus": "Present Continuous & Motion Verbs (ride, roll, turn, look, slow down)",
+                "wordCount": 480,
+                "coverIcon": "fa-horse-head",
+                "coverColor": "#10b981",
+                "sentences": [
+                        {
+                                "speaker": "narrator",
+                                "voice": "Charon",
+                                "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The wooden gate opens at six o'clock in the morning. <break time=\"200ms\"/> A large wooden cart stands outside with two brown horses.</prosody></speak>",
+                                "en": "The wooden gate opens at six o'clock in the morning. A large wooden cart stands outside with two brown horses.",
+                                "ru": "Деревянные ворота открываются в шесть часов утра. Снаружи стоит большая деревянная повозка с двумя гнедыми лошадьми."
+                        },
+                        {
+                                "speaker": "barnaby",
+                                "voice": "Charon",
+                                "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">Good morning, travelers! <break time=\"200ms\"/> Climb into the back. Daisy and Clover are ready to run!</prosody></speak>",
+                                "en": "— Good morning, travelers! Climb into the back. Daisy and Clover are ready to run!",
+                                "ru": "— Доброе утро, путешественники! Залезайте назад. Дейзи и Клевер готовы бежать!"
+                        },
+                        {
+                                "speaker": "eldrin",
+                                "voice": "Puck",
+                                "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">Good morning, Barnaby! <break time=\"150ms\"/> The horses look so strong and gentle.</prosody></speak>",
+                                "en": "— Good morning, Barnaby! The horses look so strong and gentle.",
+                                "ru": "— Доброе утро, Барнаби! Лошади выглядят такими сильными и добрыми."
+                        },
+                        {
+                                "speaker": "kira",
+                                "voice": "Aoede",
+                                "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">Look at the valley below! <break time=\"200ms\"/> White morning fog covers the river like a soft blanket.</prosody></speak>",
+                                "en": "— Look at the valley below! White morning fog covers the river like a soft blanket.",
+                                "ru": "— Посмотри на долину внизу! Белый утренний туман укрывает реку, как мягкое одеяло."
+                        },
+                        {
+                                "speaker": "corvinus",
+                                "voice": "Charon",
+                                "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">Hold the wooden rail tightly, children. <break time=\"200ms\"/> The mountain road turns left and right very steeply.</prosody></speak>",
+                                "en": "— Hold the wooden rail tightly, children. The mountain road turns left and right very steeply.",
+                                "ru": "— Держитесь крепче за деревянный поручень, дети. Горная дорога круто петляет влево и вправо."
+                        },
+                        {
+                                "speaker": "narrator",
+                                "voice": "Charon",
+                                "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Clip-clop, clip-clop! <break time=\"200ms\"/> The cart rolls steadily down the gravel path. Fresh pine breeze blows on their faces.</prosody></speak>",
+                                "en": "Clip-clop, clip-clop! The cart rolls steadily down the gravel path. Fresh pine breeze blows on their faces.",
+                                "ru": "Цок-цок, цок-цок! Повозка мерно катится вниз по гравийной дорожке. Свежий сосновый ветерок обдувает их лица."
+                        },
+                        {
+                                "speaker": "eldrin",
+                                "voice": "Puck",
+                                "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">How long does it take to reach the Lower Town?</prosody></speak>",
+                                "en": "— How long does it take to reach the Lower Town?",
+                                "ru": "— Сколько времени нужно, чтобы добраться до Нижнего Города?"
+                        },
+                        {
+                                "speaker": "barnaby",
+                                "voice": "Charon",
+                                "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">Just half an hour down the hill, my boy! <break time=\"150ms\"/> Soon we will see the red stone roofs.</prosody></speak>",
+                                "en": "— Just half an hour down the hill, my boy! Soon we will see the red stone roofs.",
+                                "ru": "— Всего полчаса с горы, мой мальчик! Скоро мы увидим красные черепичные крыши."
+                        },
+                        {
+                                "speaker": "kira",
+                                "voice": "Aoede",
+                                "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">I can already hear the church bells ringing in the distance! <break time=\"150ms\"/> Ding-dong, ding-dong!</prosody></speak>",
+                                "en": "— I can already hear the church bells ringing in the distance! Ding-dong, ding-dong!",
+                                "ru": "— Я уже слышу, как вдали звонят церковные колокола! Дин-дон, дин-дон!"
+                        },
+                        {
+                                "speaker": "narrator",
+                                "voice": "Charon",
+                                "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The morning sun burns away the fog. <break time=\"200ms\"/> The great stone walls and tall wooden gates of the Lower Town appear before them.</prosody></speak>",
+                                "en": "The morning sun burns away the fog. The great stone walls and tall wooden gates of the Lower Town appear before them.",
+                                "ru": "Утреннее солнце рассеивает туман. Перед ними вырастают великие каменные стены и высокие деревянные ворота Нижнего Города."
+                        }
+                ],
+                "quiz": [
+                        {
+                                "question": "What are the names of the two cart horses?",
+                                "options": [
+                                        "Thunder and Lightning",
+                                        "Daisy and Clover",
+                                        "Leo and Eldrin",
+                                        "Max and Ruby"
+                                ],
+                                "correctIdx": 1
+                        },
+                        {
+                                "question": "How long does the cart ride down the hill take?",
+                                "options": [
+                                        "Three days",
+                                        "Just half an hour",
+                                        "Ten minutes",
+                                        "All afternoon"
+                                ],
+                                "correctIdx": 1
+                        },
+                        {
+                                "question": "What covers the river valley in the early morning?",
+                                "options": [
+                                        "White morning fog",
+                                        "Heavy black smoke",
+                                        "Cold winter snow",
+                                        "Green leaves"
+                                ],
+                                "correctIdx": 0
+                        }
+                ]
+        },
+        {
+                "id": "eldrin-ch-12",
+                "number": 12,
+                "act": 2,
+                "titleEn": "Episode 12: The Gatekeeper and the Town Pass",
+                "titleRu": "Эпизод 12: Стражник ворот и городской пропуск",
+                "grammarFocus": "Modal Verbs (May I see...?), Greetings & Formal Inquiries, Prepositions",
+                "wordCount": 480,
+                "coverIcon": "fa-shield-halved",
+                "coverColor": "#3b82f6",
+                "sentences": [
+                        {
+                                "speaker": "narrator",
+                                "voice": "Charon",
+                                "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The cart stops before the massive stone archway. <break time=\"200ms\"/> Two guards in shiny iron helmets stand by the wooden gate.</prosody></speak>",
+                                "en": "The cart stops before the massive stone archway. Two guards in shiny iron helmets stand by the wooden gate.",
+                                "ru": "Повозка останавливается перед массивной каменной аркой. Двое стражников в блестящих железных шлемах стоят у деревянных ворот."
+                        },
+                        {
+                                "speaker": "guard",
+                                "voice": "Charon",
+                                "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-3st\">Halt! <break time=\"200ms\"/> Welcome to the Lower Town. May I see your entry pass, please?</prosody></speak>",
+                                "en": "— Halt! Welcome to the Lower Town. May I see your entry pass, please?",
+                                "ru": "— Стой! Добро пожаловать в Нижний Город. Могу я взглянуть на ваш пропуск?"
+                        },
+                        {
+                                "speaker": "corvinus",
+                                "voice": "Charon",
+                                "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">Good morning, Captain Vance. <break time=\"150ms\"/> Eldrin, please give the captain our official letter.</prosody></speak>",
+                                "en": "— Good morning, Captain Vance. Eldrin, please give the captain our official letter.",
+                                "ru": "— Доброе утро, капитан Вэнс. Элдрин, пожалуйста, передай капитану наше официальное письмо."
+                        },
+                        {
+                                "speaker": "eldrin",
+                                "voice": "Puck",
+                                "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">Here it is, Captain! <break time=\"150ms\"/> It has the red wax seal of the Spire Academy.</prosody></speak>",
+                                "en": "— Here it is, Captain! It has the red wax seal of the Spire Academy.",
+                                "ru": "— Вот оно, капитан! На нем красная восковая печать Академии Шпиля."
+                        },
+                        {
+                                "speaker": "narrator",
+                                "voice": "Charon",
+                                "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Captain Vance examines the parchment. He stamps it with a round bronze seal. <break time=\"200ms\"/> Thump!</prosody></speak>",
+                                "en": "Captain Vance examines the parchment. He stamps it with a round bronze seal. Thump!",
+                                "ru": "Капитан Вэнс изучает пергамент. Он ставит круглый бронзовый штамп. Бам!"
+                        },
+                        {
+                                "speaker": "guard",
+                                "voice": "Charon",
+                                "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-3st\">Everything is in perfect order, Professor Corvinus. <break time=\"150ms\"/> The market square is very busy today. Watch out for carts!</prosody></speak>",
+                                "en": "— Everything is in perfect order, Professor Corvinus. The market square is very busy today. Watch out for carts!",
+                                "ru": "— Все в полном порядке, профессор Корвинус. Рыночная площадь сегодня очень оживленная. Остерегайтесь телег!"
+                        },
+                        {
+                                "speaker": "kira",
+                                "voice": "Aoede",
+                                "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">Thank you, Captain! <break time=\"150ms\"/> Have a great day on duty!</prosody></speak>",
+                                "en": "— Thank you, Captain! Have a great day on duty!",
+                                "ru": "— Спасибо, капитан! Хорошего дежурства!"
+                        },
+                        {
+                                "speaker": "narrator",
+                                "voice": "Charon",
+                                "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The iron chains rattle as the gate rises. <break time=\"200ms\"/> The cart rolls inside, and the bustling sound of the market fills the air.</prosody></speak>",
+                                "en": "The iron chains rattle as the gate rises. The cart rolls inside, and the bustling sound of the market fills the air.",
+                                "ru": "Железные цепи гремят, когда ворота поднимаются. Повозка въезжает внутрь, и шум оживленного рынка наполняет воздух."
+                        }
+                ],
+                "quiz": [
+                        {
+                                "question": "What is the name of the gatekeeper captain?",
+                                "options": [
+                                        "Captain Barnaby",
+                                        "Captain Vance",
+                                        "Captain Leo",
+                                        "Captain Otho"
+                                ],
+                                "correctIdx": 1
+                        },
+                        {
+                                "question": "What does Captain Vance do with the academy parchment?",
+                                "options": [
+                                        "He throws it away",
+                                        "He stamps it with a round bronze seal",
+                                        "He cuts it into pieces",
+                                        "He eats it"
+                                ],
+                                "correctIdx": 1
+                        },
+                        {
+                                "question": "What warning does the guard give to the travelers?",
+                                "options": [
+                                        "Watch out for carts in the busy square",
+                                        "Do not buy any bread",
+                                        "Stay inside the cart all day",
+                                        "Close your eyes"
+                                ],
+                                "correctIdx": 0
+                        }
+                ]
+        },
+        {
+                "id": "eldrin-ch-13",
+                "number": 13,
+                "act": 2,
+                "titleEn": "Episode 13: The Baker's Warm Pretzel Stall",
+                "titleRu": "Эпизод 13: Лавка пекаря с горячими брецелями",
+                "grammarFocus": "Shopping Phrases (How much is...?, Here you go), Numbers & Prices, Food Vocabulary",
+                "wordCount": 480,
+                "coverIcon": "fa-bread-slice",
+                "coverColor": "#f59e0b",
+                "sentences": [
+                        {
+                                "speaker": "narrator",
+                                "voice": "Charon",
+                                "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The smell of fresh baked bread, melted butter, and sweet cinnamon floats through the cobblestone alley.</prosody></speak>",
+                                "en": "The smell of fresh baked bread, melted butter, and sweet cinnamon floats through the cobblestone alley.",
+                                "ru": "Запах свежеиспеченного хлеба, топленого масла и сладкой корицы разносится по мощеному переулку."
+                        },
+                        {
+                                "speaker": "eldrin",
+                                "voice": "Puck",
+                                "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">Mmm! <break time=\"150ms\"/> Look at that stall with the red striped canopy! Those golden pretzels look delicious!</prosody></speak>",
+                                "en": "— Mmm! Look at that stall with the red striped canopy! Those golden pretzels look delicious!",
+                                "ru": "— Ммм! Посмотри на ту лавку с красно-полосатым навесом! Эти золотистые брецели выглядят восхитительно!"
+                        },
+                        {
+                                "speaker": "baker",
+                                "voice": "Fenrir",
+                                "ssml": "<speak><prosody rate=\"0.94\" pitch=\"-0.5st\">Good morning, young friends! <break time=\"200ms\"/> Fresh from the wood oven ten minutes ago! Would you like one?</prosody></speak>",
+                                "en": "— Good morning, young friends! Fresh from the wood oven ten minutes ago! Would you like one?",
+                                "ru": "— Доброе утро, юные друзья! Только десять минут как из дровяной печи! Хотите попробовать?"
+                        },
+                        {
+                                "speaker": "kira",
+                                "voice": "Aoede",
+                                "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">How much are the warm salted pretzels, please?</prosody></speak>",
+                                "en": "— How much are the warm salted pretzels, please?",
+                                "ru": "— Сколько стоят теплые соленые брецели, подскажите?"
+                        },
+                        {
+                                "speaker": "baker",
+                                "voice": "Fenrir",
+                                "ssml": "<speak><prosody rate=\"0.94\" pitch=\"-0.5st\">Two copper coins each, or three for five copper coins!</prosody></speak>",
+                                "en": "— Two copper coins each, or three for five copper coins!",
+                                "ru": "— Два медных за штуку или три за пять медных монет!"
+                        },
+                        {
+                                "speaker": "eldrin",
+                                "voice": "Puck",
+                                "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">We will take three, please! <break time=\"150ms\"/> One for Kira, one for me, and one for Professor Corvinus. Here are five copper coins.</prosody></speak>",
+                                "en": "— We will take three, please! One for Kira, one for me, and one for Professor Corvinus. Here are five copper coins.",
+                                "ru": "— Мы возьмем три, пожалуйста! Один для Киры, один для меня и один для профессора Корвинуса. Вот пять медных монет."
+                        },
+                        {
+                                "speaker": "narrator",
+                                "voice": "Charon",
+                                "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The baker wraps the warm salty pretzels in clean brown paper and hands them over with a bright smile.</prosody></speak>",
+                                "en": "The baker wraps the warm salty pretzels in clean brown paper and hands them over with a bright smile.",
+                                "ru": "Пекарь заворачивает теплые соленые брецели в чистую коричневую бумагу и протягивает их с широкой улыбкой."
+                        },
+                        {
+                                "speaker": "baker",
+                                "voice": "Fenrir",
+                                "ssml": "<speak><prosody rate=\"0.94\" pitch=\"-0.5st\">Enjoy your breakfast, young scholars! <break time=\"150ms\"/> Come back anytime!</prosody></speak>",
+                                "en": "— Enjoy your breakfast, young scholars! Come back anytime!",
+                                "ru": "— Приятного аппетита, юные ученые! Заходите в любое время!"
+                        },
+                        {
+                                "speaker": "kira",
+                                "voice": "Aoede",
+                                "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+2st\">Crunch! <break time=\"150ms\"/> The crust is so crisp, and the inside is so soft and warm!</prosody></speak>",
+                                "en": "— Crunch! The crust is so crisp, and the inside is so soft and warm!",
+                                "ru": "— Хрусь! Корочка такая хрустящая, а внутри брецель мягкий и горячий!"
+                        }
+                ],
+                "quiz": [
+                        {
+                                "question": "How much do three warm pretzels cost at the bakery stall?",
+                                "options": [
+                                        "One silver coin",
+                                        "Five copper coins",
+                                        "Twenty gold coins",
+                                        "They are free"
+                                ],
+                                "correctIdx": 1
+                        },
+                        {
+                                "question": "Who are the three pretzels for?",
+                                "options": [
+                                        "For three street cats",
+                                        "For Eldrin, Kira, and Professor Corvinus",
+                                        "For Captain Vance only",
+                                        "For the horses"
+                                ],
+                                "correctIdx": 1
+                        },
+                        {
+                                "question": "What color is the baker stall's striped canopy?",
+                                "options": [
+                                        "Blue and yellow",
+                                        "Red and white striped",
+                                        "Plain black",
+                                        "Green and silver"
+                                ],
+                                "correctIdx": 1
+                        }
+                ]
+        },
+        {
+                "id": "eldrin-ch-14",
+                "number": 14,
+                "act": 2,
+                "titleEn": "Episode 14: The Herb & Spice Merchant",
+                "titleRu": "Эпизод 14: Торговка травами и пряностями",
+                "grammarFocus": "Weights and Quantities (grams, sack, scale), Adjectives of Smell & Color",
+                "wordCount": 480,
+                "coverIcon": "fa-mortar-pestle",
+                "coverColor": "#ec4899",
+                "sentences": [
+                        {
+                                "speaker": "narrator",
+                                "voice": "Charon",
+                                "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">In the center of the spice pavilion, rows of colorful powders fill wooden jars: <break time=\"150ms\"/> golden turmeric, red paprika, and purple lavender.</prosody></speak>",
+                                "en": "In the center of the spice pavilion, rows of colorful powders fill wooden jars: golden turmeric, red paprika, and purple lavender.",
+                                "ru": "В центре павильона пряностей ряды разноцветных порошков наполняют деревянные банки: золотистая куркума, красная паприка и фиолетовая лаванда."
+                        },
+                        {
+                                "speaker": "selma",
+                                "voice": "Aoede",
+                                "ssml": "<speak><prosody rate=\"0.95\" pitch=\"+1st\">Welcome, Master Corvinus! <break time=\"150ms\"/> I kept the fresh mountain thyme and dried sage from the southern hills for you.</prosody></speak>",
+                                "en": "— Welcome, Master Corvinus! I kept the fresh mountain thyme and dried sage from the southern hills for you.",
+                                "ru": "— Добро пожаловать, мастер Корвинус! Я сохранила для вас свежий горный тимьян и сушеный шалфей с южных холмов."
+                        },
+                        {
+                                "speaker": "corvinus",
+                                "voice": "Charon",
+                                "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">Thank you, Selma. <break time=\"150ms\"/> We need two large sacks of thyme and one small jar of blue iris root.</prosody></speak>",
+                                "en": "— Thank you, Selma. We need two large sacks of thyme and one small jar of blue iris root.",
+                                "ru": "— Спасибо, Сельма. Нам нужно два больших мешочка тимьяна и одна маленькая баночка корня синего ириса."
+                        },
+                        {
+                                "speaker": "narrator",
+                                "voice": "Charon",
+                                "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Selma places bronze weights on her shiny brass scale. <break time=\"200ms\"/> The scale balances evenly with a gentle click.</prosody></speak>",
+                                "en": "Selma places bronze weights on her shiny brass scale. The scale balances evenly with a gentle click.",
+                                "ru": "Сельма кладет бронзовые гирьки на блестящие латунные весы. Весы ровно уравновешиваются с мягким щелчком."
+                        },
+                        {
+                                "speaker": "eldrin",
+                                "voice": "Puck",
+                                "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">The iris powder smells like sweet violets and rain! <break time=\"150ms\"/> What will we use it for in the lab?</prosody></speak>",
+                                "en": "— The iris powder smells like sweet violets and rain! What will we use it for in the lab?",
+                                "ru": "— Порошок ириса пахнет сладкими фиалками и дождем! Для чего мы будем использовать его в лаборатории?"
+                        },
+                        {
+                                "speaker": "corvinus",
+                                "voice": "Charon",
+                                "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">It keeps the old book parchment dry and protects the paper from tiny bugs.</prosody></speak>",
+                                "en": "— It keeps the old book parchment dry and protects the paper from tiny bugs.",
+                                "ru": "— Он сохраняет пергамент старых книг сухим и защищает бумагу от мелких жучков."
+                        },
+                        {
+                                "speaker": "kira",
+                                "voice": "Aoede",
+                                "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">I will tie the linen sacks with green string so nothing spills out on the bumpy cart ride.</prosody></speak>",
+                                "en": "— I will tie the linen sacks with green string so nothing spills out on the bumpy cart ride.",
+                                "ru": "— Я свяжу льняные мешочки зеленой бечевкой, чтобы ничего не просыпалось при тряске на повозке."
+                        },
+                        {
+                                "speaker": "narrator",
+                                "voice": "Charon",
+                                "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">They pack the fragrant sacks into Eldrin's backpack, ready for their next errand.</prosody></speak>",
+                                "en": "They pack the fragrant sacks into Eldrin's backpack, ready for their next errand.",
+                                "ru": "Они упаковывают ароматные мешочки в рюкзак Элдрина, готовые к следующему делу."
+                        }
+                ],
+                "quiz": [
+                        {
+                                "question": "What does merchant Selma weigh on her brass scales?",
+                                "options": [
+                                        "Fresh mountain thyme and sage",
+                                        "A gold crown",
+                                        "Big bags of coal",
+                                        "Pieces of cheese"
+                                ],
+                                "correctIdx": 0
+                        },
+                        {
+                                "question": "Why does Master Corvinus need blue iris root powder?",
+                                "options": [
+                                        "To make blue tea",
+                                        "To keep old parchment dry and protect it from bugs",
+                                        "To paint the cart wheels",
+                                        "To bake cakes"
+                                ],
+                                "correctIdx": 1
+                        },
+                        {
+                                "question": "What color string does Kira use to tie the sacks?",
+                                "options": [
+                                        "Red string",
+                                        "Green string",
+                                        "Black wire",
+                                        "Golden ribbon"
+                                ],
+                                "correctIdx": 1
+                        }
+                ]
+        },
+        {
+                "id": "eldrin-ch-15",
+                "number": 15,
+                "act": 2,
+                "titleEn": "Episode 15: The Blacksmith's Sparking Forge",
+                "titleRu": "Эпизод 15: Искрящаяся кузница",
+                "grammarFocus": "Action Verbs (strike, hammer, glow, heat, cool), Sensory Words (loud, hot, hiss)",
+                "wordCount": 480,
+                "coverIcon": "fa-fire",
+                "coverColor": "#ef4444",
+                "sentences": [
+                        {
+                                "speaker": "narrator",
+                                "voice": "Charon",
+                                "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Clang! Clang! Clang! <break time=\"200ms\"/> The sound of heavy steel hitting iron echoes down the street.</prosody></speak>",
+                                "en": "Clang! Clang! Clang! The sound of heavy steel hitting iron echoes down the street.",
+                                "ru": "Дзынь! Дзынь! Дзынь! Звук ударов тяжелой стали о железо эхом разносится по улице."
+                        },
+                        {
+                                "speaker": "narrator",
+                                "voice": "Charon",
+                                "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Barnaby points at the back right wheel of the cart. The iron rim is loose and wobbles.</prosody></speak>",
+                                "en": "Barnaby points at the back right wheel of the cart. The iron rim is loose and wobbles.",
+                                "ru": "Барнаби указывает на заднее правое колесо повозки. Железный обод разболтался и шатается."
+                        },
+                        {
+                                "speaker": "barnaby",
+                                "voice": "Charon",
+                                "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">Master Bruno! <break time=\"150ms\"/> We need your hammer! The wheel rim needs tightening before we climb back up the mountain.</prosody></speak>",
+                                "en": "— Master Bruno! We need your hammer! The wheel rim needs tightening before we climb back up the mountain.",
+                                "ru": "— Мастер Бруно! Нам нужен твой молот! Обод колеса нужно подтянуть, прежде чем мы поедем обратно на гору."
+                        },
+                        {
+                                "speaker": "smith",
+                                "voice": "Charon",
+                                "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-4.5st\">Ho-ho! Step aside, young folks! <break time=\"200ms\"/> Watch the bright sparks fly!</prosody></speak>",
+                                "en": "— Ho-ho! Step aside, young folks! Watch the bright sparks fly!",
+                                "ru": "— Хо-хо! Отойдите в сторонку, молодежь! Смотрите, как летят яркие искры!"
+                        },
+                        {
+                                "speaker": "narrator",
+                                "voice": "Charon",
+                                "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Blacksmith Bruno pulls a glowing orange iron hoop from the coal fire with long iron tongs. <break time=\"200ms\"/> He fits it onto the wooden wheel.</prosody></speak>",
+                                "en": "Blacksmith Bruno pulls a glowing orange iron hoop from the coal fire with long iron tongs. He fits it onto the wooden wheel.",
+                                "ru": "Кузнец Бруно достает светящийся оранжевый железный обруч из угольного огня длинными щипцами. Он насаживает его на деревянное колесо."
+                        },
+                        {
+                                "speaker": "eldrin",
+                                "voice": "Puck",
+                                "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">Look at the orange fire! <break time=\"150ms\"/> The heat feels like midsummer afternoon!</prosody></speak>",
+                                "en": "— Look at the orange fire! The heat feels like midsummer afternoon!",
+                                "ru": "— Посмотри на оранжевый огонь! Жар чувствуется, как в разгар летнего дня!"
+                        },
+                        {
+                                "speaker": "narrator",
+                                "voice": "Charon",
+                                "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Bruno pours a bucket of icy well water over the red hot metal. <break time=\"200ms\"/> <emphasis level=\"strong\">HISSSSS!</emphasis> A cloud of white steam shoots into the air!</prosody></speak>",
+                                "en": "Bruno pours a bucket of icy well water over the red hot metal. HISSSSS! A cloud of white steam shoots into the air!",
+                                "ru": "Бруно выливает ведро ледяной колодезной воды на раскаленный металл. Ш-Ш-Ш-Ш! Облако белого пара взмывает в воздух!"
+                        },
+                        {
+                                "speaker": "kira",
+                                "voice": "Aoede",
+                                "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+2st\">Wow! <break time=\"150ms\"/> The iron cooled down instantly, and now it fits tight around the oak wood!</prosody></speak>",
+                                "en": "— Wow! The iron cooled down instantly, and now it fits tight around the oak wood!",
+                                "ru": "— Ого! Железо мгновенно остыло, и теперь оно плотно обхватывает дубовое колесо!"
+                        },
+                        {
+                                "speaker": "smith",
+                                "voice": "Charon",
+                                "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-4.5st\">That wheel will last you ten years, Barnaby! <break time=\"150ms\"/> Safe travels up the Spire!</prosody></speak>",
+                                "en": "— That wheel will last you ten years, Barnaby! Safe travels up the Spire!",
+                                "ru": "— Это колесо прослужит тебе десять лет, Барнаби! Безопасной дороги к Шпилю!"
+                        }
+                ],
+                "quiz": [
+                        {
+                                "question": "What part of the cart was broken and needed the blacksmith's help?",
+                                "options": [
+                                        "The wooden seat",
+                                        "The loose iron rim on the back wheel",
+                                        "The horse harness",
+                                        "The lantern glass"
+                                ],
+                                "correctIdx": 1
+                        },
+                        {
+                                "question": "What sound did the hot iron make when Bruno poured cold water on it?",
+                                "options": [
+                                        "A loud HISSSSS with white steam",
+                                        "A tiny whistle",
+                                        "A silent pop",
+                                        "A roaring laugh"
+                                ],
+                                "correctIdx": 0
+                        },
+                        {
+                                "question": "How long did blacksmith Bruno say the repaired wheel will last?",
+                                "options": [
+                                        "One hour",
+                                        "Ten years",
+                                        "Two days",
+                                        "Only until sunset"
+                                ],
+                                "correctIdx": 1
+                        }
+                ]
+        },
+        {
+                "id": "eldrin-ch-16",
+                "number": 16,
+                "act": 2,
+                "titleEn": "Episode 16: The Lost Kitten Under the Vegetable Crates",
+                "titleRu": "Эпизод 16: Потерянный котенок под ящиками с овощами",
+                "grammarFocus": "Prepositions of Place (under, behind, between), Calling & Gentle Animal Commands",
+                "wordCount": 480,
+                "coverIcon": "fa-cat",
+                "coverColor": "#f97316",
+                "sentences": [
+                        {
+                                "speaker": "narrator",
+                                "voice": "Charon",
+                                "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">While walking past the farmer's market, Kira suddenly stops and listens. <break time=\"200ms\"/> 'Mew... mew...'</prosody></speak>",
+                                "en": "While walking past the farmer's market, Kira suddenly stops and listens. 'Mew... mew...'",
+                                "ru": "Проходя мимо фермерского рынка, Кира вдруг останавливается и прислушивается. «Мяу... мяу...»"
+                        },
+                        {
+                                "speaker": "kira",
+                                "voice": "Aoede",
+                                "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">Eldrin, do you hear that tiny sound? <break time=\"150ms\"/> It sounds like a little animal crying.</prosody></speak>",
+                                "en": "— Eldrin, do you hear that tiny sound? It sounds like a little animal crying.",
+                                "ru": "— Элдрин, ты слышишь этот тонкий звук? Похоже, плачет маленький зверек."
+                        },
+                        {
+                                "speaker": "narrator",
+                                "voice": "Charon",
+                                "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin kneels on the stone ground. He looks under a stack of wooden crates filled with green cabbages.</prosody></speak>",
+                                "en": "Eldrin kneels on the stone ground. He looks under a stack of wooden crates filled with green cabbages.",
+                                "ru": "Элдрин опускается на колени на каменную мостовую. Он заглядывает под стопку деревянных ящиков со свежей капустой."
+                        },
+                        {
+                                "speaker": "eldrin",
+                                "voice": "Puck",
+                                "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">Look, Kira! <break time=\"150ms\"/> A tiny grey kitten is stuck between two wooden boards!</prosody></speak>",
+                                "en": "— Look, Kira! A tiny grey kitten is stuck between two wooden boards!",
+                                "ru": "— Смотри, Кира! Крошечный серый котенок застрял между двумя деревянными досками!"
+                        },
+                        {
+                                "speaker": "kira",
+                                "voice": "Aoede",
+                                "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">Oh, poor little thing! <break time=\"150ms\"/> His fur is shaking. Do you have any food in your bag?</prosody></speak>",
+                                "en": "— Oh, poor little thing! His fur is shaking. Do you have any food in your bag?",
+                                "ru": "— Ох, бедняжка! Его шерстка дрожит. У тебя есть какая-нибудь еда в сумке?"
+                        },
+                        {
+                                "speaker": "eldrin",
+                                "voice": "Puck",
+                                "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">I have a small crust from my warm pretzel. <break time=\"200ms\"/> Come here, little one. We will not hurt you.</prosody></speak>",
+                                "en": "— I have a small crust from my warm pretzel. Come here, little one. We will not hurt you.",
+                                "ru": "— У меня есть кусочек корочки от теплого брецеля. Иди сюда, малыш. Мы тебя не обидим."
+                        },
+                        {
+                                "speaker": "narrator",
+                                "voice": "Charon",
+                                "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin gently extends his open hand. <break time=\"200ms\"/> The kitten sniffs the bread, purrs softly, and climbs into Eldrin's warm palms.</prosody></speak>",
+                                "en": "Eldrin gently extends his open hand. The kitten sniffs the bread, purrs softly, and climbs into Eldrin's warm palms.",
+                                "ru": "Элдрин осторожно протягивает открытую ладонь. Котенок нюхает хлеб, тихо мурлычет и забирается в теплые ладони Элдрина."
+                        },
+                        {
+                                "speaker": "selma",
+                                "voice": "Aoede",
+                                "ssml": "<speak><prosody rate=\"0.95\" pitch=\"+1st\">There you are, Smokey! <break time=\"150ms\"/> I was looking for my shop cat all morning! Thank you so much, kind children!</prosody></speak>",
+                                "en": "— There you are, Smokey! I was looking for my shop cat all morning! Thank you so much, kind children!",
+                                "ru": "— Вот ты где, Дымок! Я искала своего котенка все утро! Спасибо вам огромное, добрые ребята!"
+                        },
+                        {
+                                "speaker": "eldrin",
+                                "voice": "Puck",
+                                "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">You are very welcome! <break time=\"150ms\"/> He is such a sweet little helper.</prosody></speak>",
+                                "en": "— You are very welcome! He is such a sweet little helper.",
+                                "ru": "— Всегда пожалуйста! Он такой милый маленький помощник."
+                        }
+                ],
+                "quiz": [
+                        {
+                                "question": "Where was the little grey kitten stuck?",
+                                "options": [
+                                        "On a tall tree",
+                                        "Under a stack of cabbage crates",
+                                        "Inside a water bucket",
+                                        "In the blacksmith forge"
+                                ],
+                                "correctIdx": 1
+                        },
+                        {
+                                "question": "What is the kitten's name according to the merchant?",
+                                "options": [
+                                        "Smokey",
+                                        "Daisy",
+                                        "Barnaby",
+                                        "Tiger"
+                                ],
+                                "correctIdx": 0
+                        },
+                        {
+                                "question": "What did Eldrin offer to gain the kitten's trust?",
+                                "options": [
+                                        "A shiny gold coin",
+                                        "A small crust from his warm pretzel",
+                                        "A glass of milk",
+                                        "A green book"
+                                ],
+                                "correctIdx": 1
+                        }
+                ]
+        },
+        {
+                "id": "eldrin-ch-17",
+                "number": 17,
+                "act": 2,
+                "titleEn": "Episode 17: The Ancient Bookstall by the Clocktower",
+                "titleRu": "Эпизод 17: Старинная книжная лавка у часовой башни",
+                "grammarFocus": "Descriptive Adjectives (ancient, leather, silver, curious), Present Simple & Appreciation",
+                "wordCount": 480,
+                "coverIcon": "fa-book-open-reader",
+                "coverColor": "#8b5cf6",
+                "sentences": [
+                        {
+                                "speaker": "narrator",
+                                "voice": "Charon",
+                                "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Beneath the tall stone clocktower, hundreds of old books rest on mahogany shelves under a green awning.</prosody></speak>",
+                                "en": "Beneath the tall stone clocktower, hundreds of old books rest on mahogany shelves under a green awning.",
+                                "ru": "Под высокой каменной часовой башней сотни старых книг стоят на полках из красного дерева под зеленым навесом."
+                        },
+                        {
+                                "speaker": "otho",
+                                "voice": "Charon",
+                                "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">Ah, Professor Corvinus! <break time=\"150ms\"/> And who are these curious young apprentices with wide eyes?</prosody></speak>",
+                                "en": "— Ah, Professor Corvinus! And who are these curious young apprentices with wide eyes?",
+                                "ru": "— А, профессор Корвинус! А кто эти любознательные юные ученики с горящими глазами?"
+                        },
+                        {
+                                "speaker": "corvinus",
+                                "voice": "Charon",
+                                "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">Meet Eldrin and Kira, Master Otho. <break time=\"150ms\"/> Eldrin loves ancient maps and astronomy charts.</prosody></speak>",
+                                "en": "— Meet Eldrin and Kira, Master Otho. Eldrin loves ancient maps and astronomy charts.",
+                                "ru": "— Познакомьтесь с Элдрином и Кирой, мастер Ото. Элдрин очень любит древние карты и звездные атласы."
+                        },
+                        {
+                                "speaker": "narrator",
+                                "voice": "Charon",
+                                "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin walks along the shelves. He spots a small pocketbook bound in dark blue leather with silver constellations stamped on the cover.</prosody></speak>",
+                                "en": "Eldrin walks along the shelves. He spots a small pocketbook bound in dark blue leather with silver constellations stamped on the cover.",
+                                "ru": "Элдрин идет вдоль полок. Он замечает маленькую карманную книжку в темно-синем кожаном переплете с серебряными созвездиями на обложке."
+                        },
+                        {
+                                "speaker": "eldrin",
+                                "voice": "Puck",
+                                "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">Look at this book! <break time=\"150ms\"/> It shows the stars of the Northern Sky with handwritten notes in gold ink.</prosody></speak>",
+                                "en": "— Look at this book! It shows the stars of the Northern Sky with handwritten notes in gold ink.",
+                                "ru": "— Посмотрите на эту книгу! В ней показаны звезды Северного Неба с рукописными заметками золотыми чернилами."
+                        },
+                        {
+                                "speaker": "corvinus",
+                                "voice": "Charon",
+                                "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">You have worked very hard this week, Eldrin. <break time=\"150ms\"/> Master Otho, how much for this star atlas?</prosody></speak>",
+                                "en": "— You have worked very hard this week, Eldrin. Master Otho, how much for this star atlas?",
+                                "ru": "— Ты очень старательно трудился всю эту неделю, Элдрин. Мастер Ото, сколько стоит этот звездный атлас?"
+                        },
+                        {
+                                "speaker": "otho",
+                                "voice": "Charon",
+                                "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">For a true scholar from the Spire, just three silver pieces. <break time=\"150ms\"/> May it guide your night observations well!</prosody></speak>",
+                                "en": "— For a true scholar from the Spire, just three silver pieces. May it guide your night observations well!",
+                                "ru": "— Для истинного исследователя из Шпиля — всего три серебряные монеты. Пусть он станет отличным проводником в твоих ночных наблюдениях!"
+                        },
+                        {
+                                "speaker": "eldrin",
+                                "voice": "Puck",
+                                "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+3st\">Thank you so much, Professor! <break time=\"150ms\"/> This is the best day ever!</prosody></speak>",
+                                "en": "— Thank you so much, Professor! This is the best day ever!",
+                                "ru": "— Огромное спасибо, профессор! Это лучший день на свете!"
+                        }
+                ],
+                "quiz": [
+                        {
+                                "question": "What is the name of the old bookstall owner near the clocktower?",
+                                "options": [
+                                        "Master Bruno",
+                                        "Master Otho",
+                                        "Captain Vance",
+                                        "Farmer Barnaby"
+                                ],
+                                "correctIdx": 1
+                        },
+                        {
+                                "question": "What book did Eldrin choose from the mahogany shelves?",
+                                "options": [
+                                        "A cookbook of apple pies",
+                                        "A dark blue pocketbook of star constellations",
+                                        "A story about dragons",
+                                        "An empty notebook"
+                                ],
+                                "correctIdx": 1
+                        },
+                        {
+                                "question": "Why did Master Corvinus buy the book for Eldrin?",
+                                "options": [
+                                        "Because Eldrin worked very hard all week",
+                                        "Because it was Eldrin's birthday",
+                                        "Because it was free",
+                                        "By mistake"
+                                ],
+                                "correctIdx": 0
+                        }
+                ]
+        },
+        {
+                "id": "eldrin-ch-18",
+                "number": 18,
+                "act": 2,
+                "titleEn": "Episode 18: Lunch at the Sunny Fountain",
+                "titleRu": "Эпизод 18: Обед у солнечного фонтана",
+                "grammarFocus": "Sharing & Politeness, Food & Senses, Present Continuous",
+                "wordCount": 480,
+                "coverIcon": "fa-water",
+                "coverColor": "#06b6d4",
+                "sentences": [
+                        {
+                                "speaker": "narrator",
+                                "voice": "Charon",
+                                "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">At twelve o'clock noon, the sun shines warmly on the central town square. <break time=\"200ms\"/> Clear water splashes from the stone lion fountain.</prosody></speak>",
+                                "en": "At twelve o'clock noon, the sun shines warmly on the central town square. Clear water splashes from the stone lion fountain.",
+                                "ru": "В полдень солнце тепло светит на центральную городскую площадь. Прозрачная вода плещется в каменном фонтане со львом."
+                        },
+                        {
+                                "speaker": "kira",
+                                "voice": "Aoede",
+                                "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">Let us sit on this wide stone bench under the oak tree. <break time=\"150ms\"/> My legs are tired from all the walking!</prosody></speak>",
+                                "en": "— Let us sit on this wide stone bench under the oak tree. My legs are tired from all the walking!",
+                                "ru": "— Давайте присядем на эту широкую каменную скамью под дубом. Мои ноги устали от долгих прогулок!"
+                        },
+                        {
+                                "speaker": "eldrin",
+                                "voice": "Puck",
+                                "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">I will open our food bag. <break time=\"150ms\"/> Leo packed four juicy red apples and a fresh wheel of goat cheese.</prosody></speak>",
+                                "en": "— I will open our food bag. Leo packed four juicy red apples and a fresh wheel of goat cheese.",
+                                "ru": "— Я открою наш мешок с едой. Лео положил четыре сочных красных яблока и круг свежего козьего сыра."
+                        },
+                        {
+                                "speaker": "narrator",
+                                "voice": "Charon",
+                                "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Master Corvinus cuts the crisp apples with his silver knife. <break time=\"150ms\"/> He gives a piece to Eldrin and a piece to Kira.</prosody></speak>",
+                                "en": "Master Corvinus cuts the crisp apples with his silver knife. He gives a piece to Eldrin and a piece to Kira.",
+                                "ru": "Мастер Корвинус разрезает хрустящие яблоки своим серебряным ножиком. Он дает кусочек Элдрину и кусочек Кире."
+                        },
+                        {
+                                "speaker": "corvinus",
+                                "voice": "Charon",
+                                "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">Good food tastes twice as good after honest work, my young friends.</prosody></speak>",
+                                "en": "— Good food tastes twice as good after honest work, my young friends.",
+                                "ru": "— Вкусная еда кажется вдвое вкуснее после честного труда, юные друзья."
+                        },
+                        {
+                                "speaker": "narrator",
+                                "voice": "Charon",
+                                "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">A flock of grey pigeons lands near their feet. <break time=\"150ms\"/> Eldrin scatters small breadcrumbs on the sunny stone floor.</prosody></speak>",
+                                "en": "A flock of grey pigeons lands near their feet. Eldrin scatters small breadcrumbs on the sunny stone floor.",
+                                "ru": "Стайка серых голубей опускается возле их ног. Элдрин рассыпает мелкие хлебные крошки на залитую солнцем брусчатку."
+                        },
+                        {
+                                "speaker": "kira",
+                                "voice": "Aoede",
+                                "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">Look how fast they eat! <break time=\"150ms\"/> The water in the fountain is so refreshing and cool.</prosody></speak>",
+                                "en": "— Look how fast they eat! The water in the fountain is so refreshing and cool.",
+                                "ru": "— Посмотри, как быстро они клюют! А вода в фонтане такая освежающая и прохладная."
+                        },
+                        {
+                                "speaker": "narrator",
+                                "voice": "Charon",
+                                "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">They finish their picnic peacefully, listening to the pleasant splash of water in the afternoon warmth.</prosody></speak>",
+                                "en": "They finish their picnic peacefully, listening to the pleasant splash of water in the afternoon warmth.",
+                                "ru": "Они мирно заканчивают свой пикник, слушая приятный плеск воды в полуденном тепле."
+                        }
+                ],
+                "quiz": [
+                        {
+                                "question": "What animal statue is carved on the town square fountain?",
+                                "options": [
+                                        "A stone lion",
+                                        "A bronze horse",
+                                        "A golden dragon",
+                                        "A giant fish"
+                                ],
+                                "correctIdx": 0
+                        },
+                        {
+                                "question": "What food did the friends eat for lunch near the fountain?",
+                                "options": [
+                                        "Hot pepper soup",
+                                        "Crisp red apples and goat cheese",
+                                        "Only ice cream",
+                                        "Salty fish"
+                                ],
+                                "correctIdx": 1
+                        },
+                        {
+                                "question": "What birds landed near Eldrin to eat breadcrumbs?",
+                                "options": [
+                                        "Large black eagles",
+                                        "A flock of grey pigeons",
+                                        "White swans",
+                                        "Tiny hummingbirds"
+                                ],
+                                "correctIdx": 1
+                        }
+                ]
+        },
+        {
+                "id": "eldrin-ch-19",
+                "number": 19,
+                "act": 2,
+                "titleEn": "Episode 19: Packing the Wooden Cart with Supplies",
+                "titleRu": "Эпизод 19: Погрузка припасов в деревянную повозку",
+                "grammarFocus": "Checklist Vocabulary, Prepositions (onto, across, under), Teamwork Coordination",
+                "wordCount": 480,
+                "coverIcon": "fa-boxes-stacked",
+                "coverColor": "#eab308",
+                "sentences": [
+                        {
+                                "speaker": "narrator",
+                                "voice": "Charon",
+                                "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">At three o'clock in the afternoon, the team returns to Barnaby's cart by the blacksmith's yard.</prosody></speak>",
+                                "en": "At three o'clock in the afternoon, the team returns to Barnaby's cart by the blacksmith's yard.",
+                                "ru": "В три часа дня команда возвращается к повозке Барнаби возле кузнечного двора."
+                        },
+                        {
+                                "speaker": "barnaby",
+                                "voice": "Charon",
+                                "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">The wheel is strong as steel now! <break time=\"150ms\"/> Let us load the cargo into the cart bed.</prosody></speak>",
+                                "en": "— The wheel is strong as steel now! Let us load the cargo into the cart bed.",
+                                "ru": "— Колесо теперь прочное, как сталь! Давайте грузить вещи в кузов."
+                        },
+                        {
+                                "speaker": "corvinus",
+                                "voice": "Charon",
+                                "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">Eldrin, please read the checklist. <break time=\"150ms\"/> We must ensure nothing is left behind.</prosody></speak>",
+                                "en": "— Eldrin, please read the checklist. We must ensure nothing is left behind.",
+                                "ru": "— Элдрин, пожалуйста, зачитай список. Мы должны убедиться, что ничего не забыли."
+                        },
+                        {
+                                "speaker": "eldrin",
+                                "voice": "Puck",
+                                "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">Item one: two sacks of mountain thyme. <break time=\"150ms\"/> Loaded! Item two: three bronze lanterns. Loaded! Item three: five reams of writing parchment.</prosody></speak>",
+                                "en": "— Item one: two sacks of mountain thyme. Loaded! Item two: three bronze lanterns. Loaded! Item three: five reams of writing parchment.",
+                                "ru": "— Пункт первый: два мешка горного тимьяна. Погружено! Пункт второй: три бронзовых фонаря. Погружено! Пункт третий: пять стопок бумаги для записей."
+                        },
+                        {
+                                "speaker": "kira",
+                                "voice": "Aoede",
+                                "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">All five heavy reams are safely in the wooden box! <break time=\"150ms\"/> I am tying the strong hemp rope across the crates.</prosody></speak>",
+                                "en": "— All five heavy reams are safely in the wooden box! I am tying the strong hemp rope across the crates.",
+                                "ru": "— Все пять тяжелых стопок надежно уложены в деревянный ящик! Я перевязываю ящики крепкой пеньковой веревкой."
+                        },
+                        {
+                                "speaker": "narrator",
+                                "voice": "Charon",
+                                "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Kira pulls the knot tight. <break time=\"150ms\"/> Eldrin tests the crates with his hand. Nothing moves or rattles.</prosody></speak>",
+                                "en": "Kira pulls the knot tight. Eldrin tests the crates with his hand. Nothing moves or rattles.",
+                                "ru": "Кира туго затягивает узел. Элдрин проверяет ящики рукой. Ничего не двигается и не гремит."
+                        },
+                        {
+                                "speaker": "barnaby",
+                                "voice": "Charon",
+                                "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">Superb knot, Kira! <break time=\"150ms\"/> Hop on, everyone! The horses are well-rested and ready to climb home!</prosody></speak>",
+                                "en": "— Superb knot, Kira! Hop on, everyone! The horses are well-rested and ready to climb home!",
+                                "ru": "— Великолепный узел, Кира! Запрыгивайте все! Лошади отдохнули и готовы подниматься домой!"
+                        }
+                ],
+                "quiz": [
+                        {
+                                "question": "What tool did Kira use to secure the crates in the cart?",
+                                "options": [
+                                        "A strong hemp rope",
+                                        "Sticky tape",
+                                        "Iron nails",
+                                        "Heavy stones"
+                                ],
+                                "correctIdx": 0
+                        },
+                        {
+                                "question": "How many reams of writing parchment were loaded onto the cart?",
+                                "options": [
+                                        "One ream",
+                                        "Five reams",
+                                        "Fifty reams",
+                                        "None"
+                                ],
+                                "correctIdx": 1
+                        },
+                        {
+                                "question": "Where was the cart waiting while the team shopped in town?",
+                                "options": [
+                                        "Inside the deep river",
+                                        "By the blacksmith's yard",
+                                        "On the high roof",
+                                        "In the dark cellar"
+                                ],
+                                "correctIdx": 1
+                        }
+                ]
+        },
+        {
+                "id": "eldrin-ch-20",
+                "number": 20,
+                "act": 2,
+                "titleEn": "Episode 20: The Sunset Ride Back to the Spire",
+                "titleRu": "Эпизод 20: Поездка на закате обратно к Шпилю",
+                "grammarFocus": "Sunset & Time Vocabulary, Past Simple & Reflections, Act II Conclusion",
+                "wordCount": 480,
+                "coverIcon": "fa-mountain-sun",
+                "coverColor": "#f43f5e",
+                "sentences": [
+                        {
+                                "speaker": "narrator",
+                                "voice": "Charon",
+                                "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The sun dips low behind the western mountain peaks, painting the evening clouds in brilliant gold, orange, and purple.</prosody></speak>",
+                                "en": "The sun dips low behind the western mountain peaks, painting the evening clouds in brilliant gold, orange, and purple.",
+                                "ru": "Солнце опускается за западные горные вершины, окрашивая вечерние облака в сияющие золотые, оранжевые и пурпурные тона."
+                        },
+                        {
+                                "speaker": "narrator",
+                                "voice": "Charon",
+                                "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Daisy and Clover pull the cart up the winding mountain trail. <break time=\"200ms\"/> Barnaby lights the two bronze lanterns on the front rail.</prosody></speak>",
+                                "en": "Daisy and Clover pull the cart up the winding mountain trail. Barnaby lights the two bronze lanterns on the front rail.",
+                                "ru": "Дейзи и Клевер тянут повозку вверх по извилистой горной тропе. Барнаби зажигает два бронзовых фонаря на переднем поручне."
+                        },
+                        {
+                                "speaker": "eldrin",
+                                "voice": "Puck",
+                                "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">Look at the lights of the Lower Town below. <break time=\"150ms\"/> They twinkle like fallen stars in the valley.</prosody></speak>",
+                                "en": "— Look at the lights of the Lower Town below. They twinkle like fallen stars in the valley.",
+                                "ru": "— Посмотри на огни Нижнего Города внизу. Они мерцают, как упавшие в долину звезды."
+                        },
+                        {
+                                "speaker": "kira",
+                                "voice": "Aoede",
+                                "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">We accomplished so much today! <break time=\"150ms\"/> We fixed the wheel, helped little Smokey, and bought all our supplies.</prosody></speak>",
+                                "en": "— We accomplished so much today! We fixed the wheel, helped little Smokey, and bought all our supplies.",
+                                "ru": "— Мы столько всего успели сделать сегодня! Мы починили колесо, помогли малышу Дымку и купили все припасы."
+                        },
+                        {
+                                "speaker": "corvinus",
+                                "voice": "Charon",
+                                "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">You both acted with great courage, teamwork, and kindness today. <break time=\"150ms\"/> I am very proud of you.</prosody></speak>",
+                                "en": "— You both acted with great courage, teamwork, and kindness today. I am very proud of you.",
+                                "ru": "— Вы оба проявили сегодня большую смелость, сплоченность и доброту. Я очень горжусь вами."
+                        },
+                        {
+                                "speaker": "narrator",
+                                "voice": "Charon",
+                                "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The grand gates of the Spire open ahead. Warm light from the windows welcomes them home as Act Two comes to a peaceful close.</prosody></speak>",
+                                "en": "The grand gates of the Spire open ahead. Warm light from the windows welcomes them home as Act Two comes to a peaceful close.",
+                                "ru": "Величественные ворота Шпиля распахиваются впереди. Теплый свет из окон встречает их дома, завершая Второй Акт в мире и уюте."
+                        }
+                ],
+                "quiz": [
+                        {
+                                "question": "What colors painted the evening clouds at sunset?",
+                                "options": [
+                                        "Gold, orange, and purple",
+                                        "Dark green and black",
+                                        "Pure white only",
+                                        "Grey and brown"
+                                ],
+                                "correctIdx": 0
+                        },
+                        {
+                                "question": "What did Barnaby light on the front rail as darkness fell?",
+                                "options": [
+                                        "A big campfire",
+                                        "Two bronze lanterns",
+                                        "A red torch",
+                                        "Wax matches"
+                                ],
+                                "correctIdx": 1
+                        },
+                        {
+                                "question": "How did Professor Corvinus praise Eldrin and Kira?",
+                                "options": [
+                                        "He said they were slow",
+                                        "He said they showed courage, teamwork, and kindness",
+                                        "He told them to run away",
+                                        "He gave them homework"
+                                ],
+                                "correctIdx": 1
+                        }
+                ]
+        }
     ]
 };
 

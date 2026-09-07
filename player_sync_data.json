@@ -23784,10 +23784,10 @@
   "completed_story_chapters": [
     1
   ],
-  "lastSyncedAt": "2026-09-07T18:56:38.817Z",
+  "lastSyncedAt": "2026-09-07T19:05:02.287Z",
   "eldrin_audiobook_state": {
     "activeChapterId": "eldrin-ch-1",
-    "currentSentenceIdx": 16,
+    "currentSentenceIdx": 0,
     "playbackSpeed": 1,
     "narratorVoice": "Charon",
     "isBlindMode": true,
@@ -23797,6 +23797,6 @@
     "wordAwardedChapters": [
       "eldrin-ch-1"
     ],
-    "lastSavedAt": "2026-09-07T18:56:37.795Z"
+    "lastSavedAt": "2026-09-07T19:05:01.266Z"
   }
 }
