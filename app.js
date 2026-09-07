@@ -5763,20 +5763,12 @@ document.addEventListener("DOMContentLoaded", () => {
         };
     }
 
-    function openHeroStoryModal(initialHero, skipAnimation = false) {
+    function openHeroStoryModal(initialHero) {
         const modal = document.getElementById("modal-hero-story");
         if (!modal) return;
 
-        const openModalCore = () => {
-            showStoryHubView();
-            modal.classList.remove("hidden");
-        };
-
-        if (!skipAnimation) {
-            playBookOpeningCutscene(openModalCore);
-        } else {
-            openModalCore();
-        }
+        showStoryHubView();
+        modal.classList.remove("hidden");
     }
 
     function showStoryHubView() {

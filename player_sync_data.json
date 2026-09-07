@@ -6494,14 +6494,14 @@
       "image": "images/eldrin_hero_standalone.png",
       "faceImage": "images/eldrin_face.png",
       "unlocked": true,
-      "level": 8,
-      "xp": 141,
-      "maxXp": 185,
+      "level": 9,
+      "xp": 56,
+      "maxXp": 190,
       "affinityLevel": 0,
-      "hp": 505,
-      "maxHp": 505,
-      "atk": 93,
-      "def": 35,
+      "hp": 540,
+      "maxHp": 540,
+      "atk": 97,
+      "def": 38,
       "skillName": "Arcane Nova",
       "skillDesc": "Deals 500 massive damage.",
       "skillIcon": "fa-meteor",
@@ -23774,7 +23774,7 @@
   },
   "streak": 0,
   "writing_words": 1505,
-  "listening_words": 2301,
+  "listening_words": 3361,
   "speaking_words": 5,
   "drills_cards": 240,
   "visual_fluency_xp": 759,
@@ -23784,15 +23784,19 @@
   "completed_story_chapters": [
     1
   ],
-  "lastSyncedAt": "2026-09-07T14:29:34.536Z",
+  "lastSyncedAt": "2026-09-07T18:56:38.817Z",
   "eldrin_audiobook_state": {
     "activeChapterId": "eldrin-ch-1",
-    "currentSentenceIdx": 13,
-    "playbackSpeed": 0.75,
+    "currentSentenceIdx": 16,
+    "playbackSpeed": 1,
     "narratorVoice": "Charon",
     "isBlindMode": true,
-    "completedChapters": [],
-    "wordAwardedChapters": [],
-    "lastSavedAt": "2026-09-06T19:56:18.185Z"
+    "completedChapters": [
+      "eldrin-ch-1"
+    ],
+    "wordAwardedChapters": [
+      "eldrin-ch-1"
+    ],
+    "lastSavedAt": "2026-09-07T18:56:37.795Z"
   }
 }
