@@ -298,6 +298,23 @@ const ELDRIN_AUDIOBOOK = {
                     "en": "— Thank you, Eldrin. And thank you, Kira. Good teamwork.",
                     "ru": "— Спасибо, Элдрин. И спасибо, Кира. Хорошая командная работа."
                 }
+            ],
+            "quiz": [
+                {
+                    "question": "Where does Eldrin find his bag?",
+                    "options": ["On the table", "Under the bed", "Near the wooden door", "In the Great Library"],
+                    "correctIdx": 2
+                },
+                {
+                    "question": "What does Leo give to Eldrin for breakfast?",
+                    "options": ["A hot cup of coffee", "A red apple", "Two slices of cheese", "Warm soup"],
+                    "correctIdx": 1
+                },
+                {
+                    "question": "Why does Eldrin need Kira's help in the library?",
+                    "options": ["To read the blue book", "To hold the shaky ladder", "To clean the large desk", "To find the library key"],
+                    "correctIdx": 1
+                }
             ]
         }
     ]
