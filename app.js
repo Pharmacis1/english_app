@@ -5797,55 +5797,65 @@ document.addEventListener("DOMContentLoaded", () => {
             };
         });
 
-        // Setup Visual Pacer Engine
-        let pacerIntervalTimer = null;
-        let currentPacerChunkIdx = 0;
+        // Setup Visual Pacer Engine with Smart Pauses
+        let pacerTimeoutTimer = null;
+        let currentPacerElemIdx = 0;
         const pacerToggleBtn = document.getElementById("vf-pacer-toggle-btn");
         const pacerIcon = document.getElementById("vf-pacer-icon");
         const pacerBtnText = document.getElementById("vf-pacer-btn-text");
         const wpmSelect = document.getElementById("vf-pacer-wpm-select");
 
         function stopPacer() {
-            if (pacerIntervalTimer) clearInterval(pacerIntervalTimer);
-            pacerIntervalTimer = null;
+            if (pacerTimeoutTimer) clearTimeout(pacerTimeoutTimer);
+            pacerTimeoutTimer = null;
             if (pacerIcon) pacerIcon.textContent = "▶";
             if (pacerBtnText) pacerBtnText.textContent = "Ритм-тренер";
-            document.querySelectorAll(".vf-chunk").forEach(c => c.classList.remove("vf-active-pacer"));
+            document.querySelectorAll(".vf-chunk, .vf-connector, .vf-clause-pill").forEach(c => c.classList.remove("vf-active-pacer"));
         }
 
         function startPacer() {
-            const allChunks = Array.from(document.querySelectorAll(".vf-chunk"));
-            if (!allChunks.length) return;
+            stopPacer();
+            const allElements = Array.from(document.querySelectorAll(".vf-chunk, .vf-connector, .vf-clause-pill"));
+            if (!allElements.length) return;
 
-            currentPacerChunkIdx = 0;
+            currentPacerElemIdx = 0;
             if (pacerIcon) pacerIcon.textContent = "⏸";
             if (pacerBtnText) pacerBtnText.textContent = "Пауза";
 
             const wpm = parseInt(wpmSelect ? wpmSelect.value : "150", 10);
-            // Rough ms per chunk: (60,000 / wpm) * avg words per chunk (~2.2)
-            const msInterval = Math.max(250, Math.floor((60000 / wpm) * 2.0));
 
             function pacerStep() {
-                allChunks.forEach(c => c.classList.remove("vf-active-pacer"));
-                if (currentPacerChunkIdx >= allChunks.length) {
+                allElements.forEach(c => c.classList.remove("vf-active-pacer"));
+                if (currentPacerElemIdx >= allElements.length) {
                     stopPacer();
                     return;
                 }
-                const activeChunk = allChunks[currentPacerChunkIdx];
-                if (activeChunk) {
-                    activeChunk.classList.add("vf-active-pacer");
-                    activeChunk.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+                const activeElem = allElements[currentPacerElemIdx];
+                if (activeElem) {
+                    activeElem.classList.add("vf-active-pacer");
+                    activeElem.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+
+                    const isClause = activeElem.classList.contains("vf-clause-pill");
+                    const isConnector = activeElem.classList.contains("vf-connector");
+                    const text = activeElem.textContent || "";
+
+                    const delay = (window.visualFluency && typeof window.visualFluency.calculateSmartChunkDuration === 'function')
+                        ? window.visualFluency.calculateSmartChunkDuration(text, isClause, isConnector, wpm)
+                        : Math.max(250, Math.floor((60000 / wpm) * 2.0));
+
+                    currentPacerElemIdx++;
+                    pacerTimeoutTimer = setTimeout(pacerStep, delay);
+                } else {
+                    stopPacer();
                 }
-                currentPacerChunkIdx++;
             }
 
             pacerStep();
-            pacerIntervalTimer = setInterval(pacerStep, msInterval);
         }
 
         if (pacerToggleBtn) {
             pacerToggleBtn.onclick = () => {
-                if (pacerIntervalTimer) {
+                if (pacerTimeoutTimer) {
                     stopPacer();
                 } else {
                     startPacer();

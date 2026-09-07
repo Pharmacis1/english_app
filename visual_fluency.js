@@ -696,6 +696,45 @@ class VisualFluencyEngine {
         const lvlClass = 'vf-l' + fadingLevel + '-' + (chunk.type || 'object');
         return '<span class="vf-chunk ' + lvlClass + '" data-chunk-idx="' + globalChunkIdx + '" title="' + (chunk.role || '') + '">' + chunk.text + '</span>';
     }
+
+    calculateSmartChunkDuration(text, isClauseBreak = false, isConnector = false, wpm = 150) {
+        const msPerWord = 60000 / Math.max(50, wpm);
+        
+        if (isClauseBreak) {
+            // Cognitive boundary micro-pause for clause dividers (↳ that, ↳ because, ↳ when, etc.)
+            return Math.max(350, Math.floor(msPerWord * 1.4 + 200));
+        }
+
+        const clean = (text || '').trim();
+        const words = clean.split(/\s+/).filter(w => w.length > 0);
+        const wordCount = words.length;
+
+        if (isConnector || (wordCount === 1 && /^(and|or|but|so|yet|—|--)$/i.test(clean))) {
+            // Ultra-fast scan transit for short grammatical connectors
+            return Math.max(120, Math.floor(msPerWord * 0.55));
+        }
+
+        let baseMs;
+        if (wordCount <= 1) {
+            baseMs = msPerWord * 1.0;
+        } else if (wordCount === 2) {
+            baseMs = msPerWord * 1.8;
+        } else if (wordCount === 3) {
+            baseMs = msPerWord * 2.5;
+        } else {
+            // Long chunks (> 3 words): generous eye span window
+            baseMs = (msPerWord * (wordCount * 0.82)) + 80;
+        }
+
+        // Natural breathing pause on punctuation boundaries
+        if (/[.!?]["”']?$/.test(clean)) {
+            baseMs += Math.floor(msPerWord * 0.45);
+        } else if (/[,;:]["”']?$/.test(clean)) {
+            baseMs += Math.floor(msPerWord * 0.20);
+        }
+
+        return Math.max(140, Math.floor(baseMs));
+    }
 }
 
 if (typeof window !== 'undefined') {

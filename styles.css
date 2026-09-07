@@ -3459,7 +3459,9 @@ body {
 }
 
 /* PACER ACTIVE GLOW */
-.vf-chunk.vf-active-pacer {
+.vf-chunk.vf-active-pacer,
+.vf-connector.vf-active-pacer,
+.vf-clause-pill.vf-active-pacer {
     outline: 2px solid #3b82f6 !important;
     transform: scale(1.08) translateY(-2px) !important;
     box-shadow: 0 0 18px rgba(59, 130, 246, 0.7) !important;
