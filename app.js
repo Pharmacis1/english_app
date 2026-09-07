@@ -5475,12 +5475,66 @@ document.addEventListener("DOMContentLoaded", () => {
     let activeStoryChapterId = null;
     let currentReadingChapterObj = null;
     let isFullStoryAudioPlaying = false;
+    let isFullStoryAudioPaused = false;
     let currentPlayingParagraphIdx = -1;
     let areStoryTranslationsVisible = false;
     let completedStoryChapters = [];
 
+    function updateStoryAudioUI() {
+        const readFullStoryBtn = document.getElementById("read-full-story-audio-btn");
+        const stopBtn = document.getElementById("stop-story-audio-btn");
+        const paragraphs = (currentReadingChapterObj && currentReadingChapterObj.paragraphs) ? currentReadingChapterObj.paragraphs : [];
+        const total = paragraphs.length;
+
+        if (readFullStoryBtn) {
+            if (!isFullStoryAudioPlaying) {
+                readFullStoryBtn.innerHTML = '<i class="fa-solid fa-play"></i> <span>Слушать главу</span>';
+                readFullStoryBtn.className = 'btn btn-warning story-footer-btn';
+            } else if (isFullStoryAudioPaused) {
+                readFullStoryBtn.innerHTML = `<i class="fa-solid fa-play"></i> <span>Продолжить (${currentPlayingParagraphIdx + 1}/${total})</span>`;
+                readFullStoryBtn.className = 'btn btn-primary story-footer-btn';
+            } else {
+                readFullStoryBtn.innerHTML = `<i class="fa-solid fa-pause"></i> <span>Пауза (${currentPlayingParagraphIdx + 1}/${total})</span>`;
+                readFullStoryBtn.className = 'btn btn-warning story-footer-btn';
+            }
+        }
+
+        if (stopBtn) {
+            if (isFullStoryAudioPlaying) {
+                stopBtn.classList.remove("hidden");
+            } else {
+                stopBtn.classList.add("hidden");
+            }
+        }
+
+        // Update paragraph cards and listen buttons
+        document.querySelectorAll(".story-paragraph-card").forEach((card) => {
+            const idx = parseInt(card.getAttribute("data-paragraph-idx"), 10);
+            const listenBtn = card.querySelector(".story-listen-p-btn");
+            if (isFullStoryAudioPlaying && idx === currentPlayingParagraphIdx) {
+                card.classList.add("active-reading-paragraph");
+                if (listenBtn) {
+                    if (isFullStoryAudioPaused) {
+                        listenBtn.innerHTML = '<i class="fa-solid fa-play"></i> <span>Продолжить</span>';
+                        listenBtn.className = 'btn btn-sm btn-primary story-listen-p-btn';
+                    } else {
+                        listenBtn.innerHTML = '<i class="fa-solid fa-pause"></i> <span>Пауза</span>';
+                        listenBtn.className = 'btn btn-sm btn-warning story-listen-p-btn';
+                    }
+                }
+            } else {
+                card.classList.remove("active-reading-paragraph");
+                if (listenBtn) {
+                    listenBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i> <span>Слушать</span>';
+                    listenBtn.className = 'btn btn-sm btn-outline story-listen-p-btn';
+                }
+            }
+        });
+    }
+
     function stopFullStoryAudio() {
         isFullStoryAudioPlaying = false;
+        isFullStoryAudioPaused = false;
         currentPlayingParagraphIdx = -1;
         if (window.voiceService && typeof window.voiceService.stopSpeech === 'function') {
             window.voiceService.stopSpeech();
@@ -5488,13 +5542,63 @@ document.addEventListener("DOMContentLoaded", () => {
         if ('speechSynthesis' in window) {
             window.speechSynthesis.cancel();
         }
-        const readFullStoryBtn = document.getElementById("read-full-story-audio-btn");
-        if (readFullStoryBtn) {
-            readFullStoryBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i> Слушать всю главу';
-            readFullStoryBtn.classList.remove("btn-danger");
-            readFullStoryBtn.classList.add("btn-warning");
+        updateStoryAudioUI();
+    }
+
+    function pauseFullStoryAudio() {
+        if (!isFullStoryAudioPlaying || isFullStoryAudioPaused) return;
+        isFullStoryAudioPaused = true;
+        if (window.voiceService && typeof window.voiceService.pauseSpeech === 'function') {
+            window.voiceService.pauseSpeech();
+        } else if ('speechSynthesis' in window) {
+            window.speechSynthesis.pause();
         }
-        document.querySelectorAll(".story-paragraph-card").forEach(c => c.classList.remove("active-reading-paragraph"));
+        updateStoryAudioUI();
+    }
+
+    function resumeFullStoryAudio() {
+        if (!isFullStoryAudioPlaying || !isFullStoryAudioPaused) return;
+        isFullStoryAudioPaused = false;
+        if (window.voiceService && typeof window.voiceService.resumeSpeech === 'function') {
+            window.voiceService.resumeSpeech();
+        } else if ('speechSynthesis' in window) {
+            window.speechSynthesis.resume();
+        }
+        updateStoryAudioUI();
+    }
+
+    function playStoryParagraphAudio(chNumber, pIndex, text, speakerId, onStart, onEnd) {
+        const preRecordedUrl = `audio/story_campaign/ch_${chNumber}/p_${pIndex + 1}.wav`;
+        const audio = new Audio();
+        audio.src = preRecordedUrl;
+        let hasStarted = false;
+
+        audio.onplay = () => {
+            hasStarted = true;
+            if (window.voiceService) {
+                window.voiceService.currentAudio = audio;
+            }
+            if (onStart) onStart();
+        };
+
+        audio.onended = () => {
+            if (window.voiceService && window.voiceService.currentAudio === audio) {
+                window.voiceService.currentAudio = null;
+            }
+            if (onEnd) onEnd();
+        };
+
+        audio.onerror = () => {
+            if (!hasStarted) {
+                playTextKokoroAudio(text, speakerId, onStart, onEnd);
+            }
+        };
+
+        audio.play().catch(err => {
+            if (!hasStarted) {
+                playTextKokoroAudio(text, speakerId, onStart, onEnd);
+            }
+        });
     }
 
     function playChapterParagraph(idx) {
@@ -5509,45 +5613,37 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         currentPlayingParagraphIdx = idx;
+        isFullStoryAudioPaused = false;
         const p = paragraphs[idx];
         const speaker = (currentReadingChapterObj.involvedHeroes && currentReadingChapterObj.involvedHeroes[idx % currentReadingChapterObj.involvedHeroes.length]) || 'valerius';
+        const chNumber = currentReadingChapterObj.number || 1;
 
-        // Highlight active paragraph card and smoothly scroll into view
-        const pCards = document.querySelectorAll(".story-paragraph-card");
-        pCards.forEach((c, cIdx) => {
-            if (cIdx === idx) {
-                c.classList.add("active-reading-paragraph");
-                c.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            } else {
-                c.classList.remove("active-reading-paragraph");
-            }
-        });
+        updateStoryAudioUI();
 
-        const readFullStoryBtn = document.getElementById("read-full-story-audio-btn");
-        if (readFullStoryBtn) {
-            readFullStoryBtn.innerHTML = `<i class="fa-solid fa-stop"></i> Остановить (${idx + 1}/${paragraphs.length})`;
-            readFullStoryBtn.classList.remove("btn-warning");
-            readFullStoryBtn.classList.add("btn-danger");
+        // Smooth scroll to active paragraph
+        const activeCard = document.querySelector(`.story-paragraph-card[data-paragraph-idx="${idx}"]`);
+        if (activeCard) {
+            activeCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
 
-        if (typeof playTextKokoroAudio === "function") {
-            playTextKokoroAudio(
-                p.en, 
-                speaker, 
-                null, 
-                () => {
-                    if (isFullStoryAudioPlaying && currentPlayingParagraphIdx === idx) {
-                        setTimeout(() => {
-                            if (isFullStoryAudioPlaying) {
-                                playChapterParagraph(idx + 1);
-                            }
-                        }, 500);
-                    }
+        playStoryParagraphAudio(
+            chNumber,
+            idx,
+            p.en,
+            speaker,
+            () => {
+                updateStoryAudioUI();
+            },
+            () => {
+                if (isFullStoryAudioPlaying && !isFullStoryAudioPaused && currentPlayingParagraphIdx === idx) {
+                    setTimeout(() => {
+                        if (isFullStoryAudioPlaying && !isFullStoryAudioPaused) {
+                            playChapterParagraph(idx + 1);
+                        }
+                    }, 400);
                 }
-            );
-        } else {
-            stopFullStoryAudio();
-        }
+            }
+        );
     }
 
     try {
@@ -6160,11 +6256,19 @@ document.addEventListener("DOMContentLoaded", () => {
             paragraphsList.querySelectorAll(".story-listen-p-btn").forEach(btn => {
                 btn.addEventListener("click", (e) => {
                     e.stopPropagation();
-                    stopFullStoryAudio();
-                    const textToRead = btn.getAttribute("data-text");
-                    const speaker = btn.getAttribute("data-speaker") || 'valerius';
-                    if (textToRead && typeof playTextKokoroAudio === "function") {
-                        playTextKokoroAudio(textToRead, speaker);
+                    const card = btn.closest(".story-paragraph-card");
+                    const idx = card ? parseInt(card.getAttribute("data-paragraph-idx"), 10) : 0;
+
+                    if (isFullStoryAudioPlaying && currentPlayingParagraphIdx === idx) {
+                        if (isFullStoryAudioPaused) {
+                            resumeFullStoryAudio();
+                        } else {
+                            pauseFullStoryAudio();
+                        }
+                    } else {
+                        stopFullStoryAudio();
+                        isFullStoryAudioPlaying = true;
+                        playChapterParagraph(idx);
                     }
                 });
             });
@@ -6456,9 +6560,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const readFullStoryBtn = document.getElementById("read-full-story-audio-btn");
     if (readFullStoryBtn) {
         readFullStoryBtn.addEventListener("click", () => {
-            if (isFullStoryAudioPlaying) {
-                stopFullStoryAudio();
-            } else {
+            if (!isFullStoryAudioPlaying) {
                 if (!currentReadingChapterObj || !currentReadingChapterObj.paragraphs || currentReadingChapterObj.paragraphs.length === 0) {
                     // Fallback to activeStoryChapterId resolution
                     const chapters = (typeof STORY_CHAPTERS !== 'undefined') ? STORY_CHAPTERS : [];
@@ -6469,7 +6571,18 @@ document.addEventListener("DOMContentLoaded", () => {
                     isFullStoryAudioPlaying = true;
                     playChapterParagraph(0);
                 }
+            } else if (isFullStoryAudioPaused) {
+                resumeFullStoryAudio();
+            } else {
+                pauseFullStoryAudio();
             }
+        });
+    }
+
+    const stopFullStoryBtn = document.getElementById("stop-story-audio-btn");
+    if (stopFullStoryBtn) {
+        stopFullStoryBtn.addEventListener("click", () => {
+            stopFullStoryAudio();
         });
     }
 

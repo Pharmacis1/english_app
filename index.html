@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css?v=11.075">
+    <link rel="stylesheet" href="styles.css?v=11.078">
 </head>
 <body class="hero-rpg-body">
 
@@ -885,14 +885,14 @@
             <div id="story-view-reader" class="story-view-section hidden" style="flex: 1; display: flex; flex-direction: column; overflow: hidden;">
                 
                 <!-- READER TOP BAR -->
-                <div style="padding: 10px 20px; background: rgba(0,0,0,0.25); border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center; flex-shrink: 0;">
-                    <button class="btn btn-sm btn-outline" id="btn-back-to-story-hub" style="gap:6px;">
-                        <i class="fa-solid fa-arrow-left"></i> К списку глав
+                <div class="story-reader-top-bar">
+                    <button class="btn btn-sm btn-outline story-reader-back-btn" id="btn-back-to-story-hub">
+                        <i class="fa-solid fa-arrow-left"></i> <span class="story-back-btn-text">К списку глав</span>
                     </button>
-                    <div id="reader-chapter-badge-title" style="font-weight: 700; font-size: 14px; color: var(--gold);">
+                    <div id="reader-chapter-badge-title" class="story-reader-chapter-title">
                         Chapter 1: Sparks on the Border
                     </div>
-                    <div id="reader-involved-heroes-strip" style="display: flex; gap: 6px; align-items: center;">
+                    <div id="reader-involved-heroes-strip" class="story-reader-heroes-strip">
                         <!-- Hero avatars participating in this chapter -->
                     </div>
                 </div>
@@ -981,16 +981,19 @@
                 </div>
 
                 <!-- READER FOOTER BAR -->
-                <div class="rpg-modal-footer" style="padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.3); border-top: 1px solid rgba(255,255,255,0.08); flex-shrink: 0;">
-                    <button class="btn btn-outline" id="toggle-all-story-translations-btn" style="gap: 6px;">
-                        <i class="fa-solid fa-eye"></i> <span id="toggle-story-trans-text">Показать перевод</span>
+                <div class="rpg-modal-footer story-reader-footer-bar">
+                    <button class="btn btn-outline story-footer-btn" id="toggle-all-story-translations-btn">
+                        <i class="fa-solid fa-eye"></i> <span id="toggle-story-trans-text">Перевод</span>
                     </button>
-                    <div style="display:flex; gap:10px;">
-                        <button class="btn btn-warning" id="read-full-story-audio-btn" style="gap: 6px;">
-                            <i class="fa-solid fa-volume-high"></i> Слушать всю главу
+                    <div class="story-footer-audio-group">
+                        <button class="btn btn-warning story-footer-btn" id="read-full-story-audio-btn">
+                            <i class="fa-solid fa-play"></i> <span id="read-full-story-btn-text">Слушать главу</span>
                         </button>
-                        <button class="btn btn-primary hidden" id="btn-story-next-chapter" style="gap: 6px;">
-                            Следующая глава <i class="fa-solid fa-arrow-right"></i>
+                        <button class="btn btn-outline story-footer-btn hidden" id="stop-story-audio-btn" title="Остановить воспроизведение">
+                            <i class="fa-solid fa-stop"></i>
+                        </button>
+                        <button class="btn btn-primary story-footer-btn hidden" id="btn-story-next-chapter">
+                            <span>След. глава</span> <i class="fa-solid fa-arrow-right"></i>
                         </button>
                     </div>
                 </div>
@@ -1715,18 +1718,18 @@
         </div>
     </div>
 
-    <script src="scenarios.js?v=11.075"></script>
-    <script src="heroes.js?v=11.075"></script>
-    <script src="story_campaign.js?v=11.075"></script>
-    <script src="story_campaign_act1_expanded.js?v=11.075"></script>
-    <script src="story_campaign_act2_expanded.js?v=11.075"></script>
-    <script src="flashcards.js?v=11.075"></script>
-    <script src="grammar.js?v=11.075"></script>
-    <script src="ai_service.js?v=11.075"></script>
-    <script src="visual_fluency.js?v=11.075"></script>
+    <script src="scenarios.js?v=11.078"></script>
+    <script src="heroes.js?v=11.078"></script>
+    <script src="story_campaign.js?v=11.078"></script>
+    <script src="story_campaign_act1_expanded.js?v=11.078"></script>
+    <script src="story_campaign_act2_expanded.js?v=11.078"></script>
+    <script src="flashcards.js?v=11.078"></script>
+    <script src="grammar.js?v=11.078"></script>
+    <script src="ai_service.js?v=11.078"></script>
+    <script src="visual_fluency.js?v=11.078"></script>
     <script src="pattern_drills.js?v=1.000"></script>
     <script src="speaking_engine.js?v=1.000"></script>
-    <script src="eldrin_story.js?v=11.077"></script>
-    <script src="app.js?v=11.077"></script>
+    <script src="eldrin_story.js?v=11.078"></script>
+    <script src="app.js?v=11.078"></script>
 </body>
 </html>

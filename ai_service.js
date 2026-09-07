@@ -886,6 +886,75 @@ class VoiceService {
         }
     }
 
+    pauseSpeech() {
+        if (this.currentAudio && !this.currentAudio.paused) {
+            this.currentAudio.pause();
+            return true;
+        }
+        if ('speechSynthesis' in window && window.speechSynthesis.speaking && !window.speechSynthesis.paused) {
+            window.speechSynthesis.pause();
+            return true;
+        }
+        return false;
+    }
+
+    resumeSpeech() {
+        if (this.currentAudio && this.currentAudio.paused) {
+            this.currentAudio.play().catch(e => console.warn("Audio resume error:", e));
+            return true;
+        }
+        if ('speechSynthesis' in window && window.speechSynthesis.paused) {
+            window.speechSynthesis.resume();
+            return true;
+        }
+        return false;
+    }
+
+    isSpeechPlaying() {
+        if (this.currentAudio) {
+            return !this.currentAudio.paused && !this.currentAudio.ended;
+        }
+        if ('speechSynthesis' in window) {
+            return window.speechSynthesis.speaking && !window.speechSynthesis.paused;
+        }
+        return false;
+    }
+
+    isSpeechPaused() {
+        if (this.currentAudio) {
+            return this.currentAudio.paused && !this.currentAudio.ended && this.currentAudio.currentTime > 0;
+        }
+        if ('speechSynthesis' in window) {
+            return window.speechSynthesis.paused;
+        }
+        return false;
+    }
+
+    async playAudioFile(audioUrl, onStart = null, onEnd = null, speed = 1.0) {
+        this.stopSpeech();
+        try {
+            const audio = new Audio(audioUrl);
+            audio.defaultPlaybackRate = speed;
+            audio.playbackRate = speed;
+            audio.preservesPitch = true;
+            this.currentAudio = audio;
+            if (onStart) onStart();
+            audio.onended = () => {
+                this.currentAudio = null;
+                if (onEnd) onEnd();
+            };
+            audio.onerror = () => {
+                this.currentAudio = null;
+                if (onEnd) onEnd();
+            };
+            await audio.play();
+            return true;
+        } catch (e) {
+            this.currentAudio = null;
+            return false;
+        }
+    }
+
     async startListening(onResult, onStatusChange, onError) {
         if (this.isRecording) {
             this.stopListening();
