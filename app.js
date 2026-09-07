@@ -8170,6 +8170,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 let speakerBadge = `<span class="badge" style="background:rgba(148,163,184,0.15); color:#cbd5e1; font-size:11px;"><i class="fa-solid fa-scroll"></i> Рассказчик</span>`;
                 if (sent.speaker === 'eldrin') {
                     speakerBadge = `<span class="badge" style="background:rgba(168,85,247,0.25); color:#c084fc; font-size:11px; border:1px solid rgba(168,85,247,0.5);"><i class="fa-solid fa-hat-wizard"></i> Юный Элдрин</span>`;
+                } else if (sent.speaker === 'leo') {
+                    speakerBadge = `<span class="badge" style="background:rgba(56,189,248,0.25); color:#38bdf8; font-size:11px; border:1px solid rgba(56,189,248,0.5);"><i class="fa-solid fa-mug-hot"></i> Лео (друг)</span>`;
                 } else if (sent.speaker === 'kira') {
                     speakerBadge = `<span class="badge" style="background:rgba(236,72,153,0.25); color:#f472b6; font-size:11px; border:1px solid rgba(236,72,153,0.5);"><i class="fa-solid fa-person-running"></i> Кира</span>`;
                 } else if (sent.speaker === 'corvinus') {
