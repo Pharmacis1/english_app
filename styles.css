@@ -2626,21 +2626,69 @@ body {
 }
 
 .story-chapter-card.completed {
-    border-color: rgba(16, 185, 129, 0.4);
+    border-color: rgba(16, 185, 129, 0.45);
+    background: linear-gradient(145deg, rgba(16, 185, 129, 0.08), rgba(15, 23, 42, 0.85));
+    box-shadow: 0 4px 18px rgba(16, 185, 129, 0.08);
 }
 
-.story-chapter-card.completed::after {
-    content: "⭐ PROVED";
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    font-size: 10px;
-    font-weight: 800;
-    color: #10b981;
-    background: rgba(16, 185, 129, 0.15);
-    padding: 2px 6px;
-    border-radius: 6px;
-    border: 1px solid rgba(16, 185, 129, 0.3);
+.story-chapter-card.completed:hover:not(.locked) {
+    border-color: #10b981;
+    background: linear-gradient(145deg, rgba(16, 185, 129, 0.14), rgba(30, 41, 59, 0.9));
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4), 0 0 20px rgba(16, 185, 129, 0.25);
+}
+
+.story-completed-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(16, 185, 129, 0.18);
+    color: #34d399;
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    border-radius: 999px;
+    padding: 2px 8px;
+    font-size: 11px;
+    font-weight: 700;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
+}
+
+.story-star-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: rgba(245, 158, 11, 0.15);
+    border: 1px solid rgba(245, 158, 11, 0.35);
+    font-size: 12px;
+}
+
+.btn-chapter-completed {
+    background: rgba(16, 185, 129, 0.12) !important;
+    border: 1px solid rgba(16, 185, 129, 0.4) !important;
+    color: #6ee7b7 !important;
+    font-weight: 600;
+}
+
+.btn-chapter-completed:hover {
+    background: rgba(16, 185, 129, 0.25) !important;
+    border-color: #10b981 !important;
+    color: #fff !important;
+    box-shadow: 0 0 14px rgba(16, 185, 129, 0.35);
+}
+
+.story-reader-completed-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(16, 185, 129, 0.18);
+    color: #34d399;
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    border-radius: 999px;
+    padding: 2px 8px;
+    font-size: 11px;
+    font-weight: 700;
+    vertical-align: middle;
 }
 
 .story-hero-pill {
@@ -3776,6 +3824,217 @@ body {
     background: rgba(16, 185, 129, 0.2);
     border-color: #10b981;
     color: #34d399;
+}
+
+/* ===== STREAK HUB & MULTI-SECTION ACTIVITY ENGINE STYLES 🔥 ===== */
+.streak-hub-status-banner {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(239, 68, 68, 0.12));
+    border: 1px solid rgba(245, 158, 11, 0.35);
+    border-radius: 14px;
+    padding: 16px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.streak-hub-banner-main {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.streak-hub-flame-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 64px;
+    height: 64px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 2px solid #fbbf24;
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.35);
+    position: relative;
+}
+
+.streak-hub-flame-icon {
+    font-size: 20px;
+    margin-bottom: -2px;
+    animation: flamePulse 1.5s infinite alternate ease-in-out;
+}
+
+@keyframes flamePulse {
+    0% { transform: scale(1); filter: drop-shadow(0 0 2px #f59e0b); }
+    100% { transform: scale(1.18); filter: drop-shadow(0 0 8px #ef4444); }
+}
+
+.streak-hub-count-num {
+    font-size: 20px;
+    font-weight: 900;
+    color: #fbbf24;
+    line-height: 1;
+}
+
+.streak-hub-count-label {
+    font-size: 9px;
+    font-weight: 700;
+    color: #fde68a;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.streak-hub-banner-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.streak-hub-status-badge {
+    font-size: 13px;
+    font-weight: 800;
+    color: #fbbf24;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.streak-hub-status-badge.completed {
+    color: #34d399;
+}
+
+.streak-hub-banner-desc {
+    font-size: 12px;
+    color: #cbd5e1;
+    line-height: 1.4;
+}
+
+.streak-hub-freeze-pill {
+    background: rgba(59, 130, 246, 0.15);
+    border: 1px solid rgba(59, 130, 246, 0.35);
+    border-radius: 12px;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.streak-hub-pathways-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.streak-pathway-card {
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    transition: all 0.2s ease;
+}
+
+.streak-pathway-card:hover {
+    background: rgba(30, 41, 59, 0.85);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+}
+
+.streak-pathway-card.is-completed {
+    background: rgba(16, 185, 129, 0.1);
+    border-color: rgba(16, 185, 129, 0.4);
+    box-shadow: 0 0 16px rgba(16, 185, 129, 0.1);
+}
+
+.streak-pathway-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    min-width: 0;
+}
+
+.streak-pathway-icon-box {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.streak-pathway-details {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    flex: 1;
+    min-width: 0;
+}
+
+.streak-pathway-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.streak-pathway-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: #f8fafc;
+}
+
+.streak-pathway-status-tag {
+    font-size: 11px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.streak-pathway-status-tag.done {
+    color: #34d399;
+}
+
+.streak-pathway-status-tag.pending {
+    color: #fbbf24;
+}
+
+.streak-pathway-desc {
+    font-size: 11px;
+    color: #94a3b8;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.streak-pathway-track {
+    height: 5px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 3px;
+}
+
+.streak-pathway-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.streak-pathway-btn {
+    padding: 6px 12px;
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 8px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    cursor: pointer;
 }
 
 

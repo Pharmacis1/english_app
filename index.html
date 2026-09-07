@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css?v=11.073">
+    <link rel="stylesheet" href="styles.css?v=11.074">
 </head>
 <body class="hero-rpg-body">
 
@@ -41,7 +41,7 @@
             </div>
 
             <div class="rpg-top-stats">
-                <div class="rpg-header-stat-pill" id="rpg-header-streak-pill" title="Ударный режим (Streak 🔥): Засчитывается ежедневно при:&#10;1. 💬 1 сообщении герою (<100 lvl)&#10;2. 🎯 3 фокусных словах&#10;3. 🎧 1 прослушивании и повторении реплики"><span class="text-amber">🔥</span> <span class="text-amber font-mono" id="rpg-header-streak">0</span> дн.</div>
+                <div class="rpg-header-stat-pill" id="rpg-header-streak-pill" style="cursor: pointer;" title="Ударный режим (Streak 🔥): Нажмите, чтобы открыть Хаб активностей дня"><span class="text-amber">🔥</span> <span class="text-amber font-mono" id="rpg-header-streak">0</span> дн.</div>
                 <div class="rpg-header-stat-pill" id="rpg-header-reading-pill" title="Навык чтения (Reading / Visual Fluency): 1 слово сюжета = 1 XP. Прокачивается с 1 до 100 уровня (1 000 000 XP)"><span style="color:#f59e0b;">📖</span> Reading <span class="font-mono" style="color:#f59e0b; font-weight:700;" id="rpg-header-reading-lvl">Lv. 1</span></div>
                 <div class="rpg-header-stat-pill" id="rpg-header-listening-pill" title="Навык восприятия (Listening Level): 1 слово = 1 XP. Прокачивается с 1 до 100 уровня (800 000 слов в диалогах)"><span style="color:#38bdf8;">🎧</span> Listening <span class="font-mono" style="color:#38bdf8; font-weight:700;" id="rpg-header-listening-lvl">Lv. 1</span></div>
                 <div class="rpg-header-stat-pill" id="rpg-header-writing-pill" title="Навык письма (Writing Level): 1 слово = 1 XP. Прокачивается с 1 до 100 уровня (50 000 слов с героями <100 lvl)"><span style="color:#818cf8;">✍️</span> Writing <span class="font-mono" style="color:#818cf8; font-weight:700;" id="rpg-header-writing-lvl">Lv. 1</span></div>
@@ -1352,6 +1352,59 @@
         </div>
     </div>
 
+    <!-- MODAL: DAILY STREAK HUB & MULTI-SECTION ACTIVITY TRACKER 🔥 -->
+    <div class="rpg-modal-overlay hidden" id="modal-daily-streak-hub" style="z-index: 9996;">
+        <div class="rpg-modal-content modal-lg streak-hub-modal-content" style="max-width: 680px; border: 1px solid rgba(245, 158, 11, 0.4); box-shadow: 0 16px 48px rgba(0,0,0,0.7), 0 0 32px rgba(245, 158, 11, 0.2);">
+            <div class="rpg-modal-header" style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 12px;">
+                <div class="modal-header-title">
+                    <div style="width: 38px; height: 38px; background: linear-gradient(135deg, #f59e0b, #ef4444); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 18px; box-shadow: 0 0 15px rgba(245,158,11,0.5);">
+                        <i class="fa-solid fa-fire-flame-curved"></i>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 18px; font-weight: 800; color: #fff; margin: 0;" id="streak-hub-modal-title">🔥 Ударный Режим (Streak Hub)</h3>
+                        <p style="font-size: 11px; color: var(--text-muted); margin: 0;">Продлевайте серию дней, занимаясь в любом разделе на выбор!</p>
+                    </div>
+                </div>
+                <button class="modal-close-btn">&times;</button>
+            </div>
+            <div class="rpg-modal-body" style="padding: 16px 20px; display: flex; flex-direction: column; gap: 14px; max-height: calc(85vh - 70px); overflow-y: auto;">
+                
+                <!-- TOP HERO STREAK STATUS BANNER -->
+                <div class="streak-hub-status-banner" id="streak-hub-status-banner">
+                    <div class="streak-hub-banner-main">
+                        <div class="streak-hub-flame-box">
+                            <span class="streak-hub-flame-icon">🔥</span>
+                            <span class="streak-hub-count-num font-mono" id="streak-hub-days-count">0</span>
+                            <span class="streak-hub-count-label">дней</span>
+                        </div>
+                        <div class="streak-hub-banner-info">
+                            <div class="streak-hub-status-badge" id="streak-hub-status-badge">⏳ Ожидает тренировки сегодня</div>
+                            <div class="streak-hub-banner-desc" id="streak-hub-banner-desc">Выполните тренировку в <b>любом 1 разделе</b> на выбор, чтобы защитить и продлить ударный режим!</div>
+                        </div>
+                    </div>
+                    <div class="streak-hub-freeze-pill" id="streak-hub-freeze-pill" title="Заморозка серии спасает огонек, если вы случайно пропустите 1 день">
+                        <span style="font-size:16px;">❄️</span>
+                        <div>
+                            <div style="font-size:10px; color:#93c5fd; font-weight:700;">ЗАМОРОЗКА СЕРИИ</div>
+                            <div style="font-size:13px; font-weight:800; color:#fff;" id="streak-hub-freeze-count">1 шт.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RULE EXPLANATION -->
+                <div style="background: rgba(245, 158, 11, 0.08); border: 1px dashed rgba(245, 158, 11, 0.3); border-radius: 10px; padding: 10px 14px; font-size: 12px; color: #fde68a; display: flex; align-items: center; gap: 10px;">
+                    <i class="fa-solid fa-lightbulb" style="font-size: 16px; color: #fbbf24; flex-shrink: 0;"></i>
+                    <span><b>Правило дня:</b> Выберите <b>любой удобный для вас раздел</b>. Завершение задания в одном разделе (или комбинация активности) сразу продлевает ударный режим на сегодня!</span>
+                </div>
+
+                <!-- SECTION PATHWAYS LIST -->
+                <div class="streak-hub-pathways-container" id="streak-hub-pathways-list">
+                    <!-- Dynamic pathway cards populated in app.js -->
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- HERO LEVEL UP CELEBRATION POPUP MODAL 🎉 -->
     <div class="modal-backdrop hidden" id="hero-level-up-modal" style="z-index:9999; background:transparent; backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);">
         <div class="modal-card glass-card level-up-modal-card" style="text-align:center; max-width:440px; padding:28px 24px; border:2px solid #f59e0b; box-shadow:0 0 40px rgba(245,158,11,0.5);">
@@ -1662,18 +1715,18 @@
         </div>
     </div>
 
-    <script src="scenarios.js?v=11.073"></script>
-    <script src="heroes.js?v=11.073"></script>
-    <script src="story_campaign.js?v=11.073"></script>
-    <script src="story_campaign_act1_expanded.js?v=11.073"></script>
-    <script src="story_campaign_act2_expanded.js?v=11.073"></script>
-    <script src="flashcards.js?v=11.073"></script>
-    <script src="grammar.js?v=11.073"></script>
-    <script src="ai_service.js?v=11.073"></script>
-    <script src="visual_fluency.js?v=11.073"></script>
+    <script src="scenarios.js?v=11.074"></script>
+    <script src="heroes.js?v=11.074"></script>
+    <script src="story_campaign.js?v=11.074"></script>
+    <script src="story_campaign_act1_expanded.js?v=11.074"></script>
+    <script src="story_campaign_act2_expanded.js?v=11.074"></script>
+    <script src="flashcards.js?v=11.074"></script>
+    <script src="grammar.js?v=11.074"></script>
+    <script src="ai_service.js?v=11.074"></script>
+    <script src="visual_fluency.js?v=11.074"></script>
     <script src="pattern_drills.js?v=1.000"></script>
     <script src="speaking_engine.js?v=1.000"></script>
     <script src="eldrin_story.js?v=1.000"></script>
-    <script src="app.js?v=11.073"></script>
+    <script src="app.js?v=11.074"></script>
 </body>
 </html>

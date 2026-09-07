@@ -111,6 +111,10 @@ class SpeakingFluencyEngine {
             localStorage.setItem(this.lastLvlKey, newStats.level.toString());
         }
 
+        if (typeof window !== 'undefined' && typeof window.recordSpeakingStreakActivity === 'function') {
+            window.recordSpeakingStreakActivity(wordsCount);
+        }
+
         return {
             leveledUp,
             newLevel: newStats.level,

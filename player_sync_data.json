@@ -23777,10 +23777,14 @@
   "listening_words": 2301,
   "speaking_words": 5,
   "drills_cards": 240,
-  "visual_fluency_xp": 0,
-  "visual_fluency_completed": [],
-  "completed_story_chapters": [],
-  "lastSyncedAt": "2026-09-07T12:49:01.507Z",
+  "visual_fluency_xp": 759,
+  "visual_fluency_completed": [
+    1
+  ],
+  "completed_story_chapters": [
+    1
+  ],
+  "lastSyncedAt": "2026-09-07T14:29:34.536Z",
   "eldrin_audiobook_state": {
     "activeChapterId": "eldrin-ch-1",
     "currentSentenceIdx": 13,

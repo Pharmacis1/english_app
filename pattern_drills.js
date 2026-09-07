@@ -100,6 +100,10 @@ class PatternDrillsEngine {
             localStorage.setItem(this.lastLvlKey, newStats.level.toString());
         }
 
+        if (typeof window !== 'undefined' && typeof window.recordDrillsStreakActivity === 'function') {
+            window.recordDrillsStreakActivity(1);
+        }
+
         return {
             leveledUp,
             newLevel: newStats.level,

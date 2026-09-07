@@ -617,6 +617,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    const headerStreakPill = document.getElementById("rpg-header-streak-pill");
+    if (headerStreakPill) {
+        headerStreakPill.addEventListener("click", () => {
+            openDailyStreakHubModal();
+        });
+    }
+
     if (btnHeaderStory) {
         btnHeaderStory.addEventListener("click", () => {
             const hero = rpgEngine.heroes.find(h => h.id === activeShowcaseHeroId) || rpgEngine.heroes[0];
@@ -1761,17 +1768,74 @@ document.addEventListener("DOMContentLoaded", () => {
         if (modalEl) modalEl.classList.remove("hidden");
     }
 
-    // --- NEW STREAMLINED STREAK ENGINE (УДАРНЫЙ РЕЖИМ) ---
-    // Condition:
-    // 1. 1 message to any non-100 lvl hero (text or voice)
-    // 2. 3 focus words of any non-100 lvl hero used today
-    // 3. Listen to AND repeat a message of any non-100 lvl hero
+    // --- MULTI-SECTION STREAK & DAILY ACTIVITY ENGINE (УДАРНЫЙ РЕЖИМ) ---
+    function getTodayStreakDateStr() {
+        return new Date().toISOString().split('T')[0];
+    }
+
+    function recordVocabStreakActivity(count = 1) {
+        try {
+            const todayStr = getTodayStreakDateStr();
+            const cur = parseInt(localStorage.getItem(`english_pulse_today_vocab_cards_${todayStr}`) || '0', 10);
+            localStorage.setItem(`english_pulse_today_vocab_cards_${todayStr}`, cur + count);
+            checkAndUpdateDailyStreak();
+        } catch(e) {}
+    }
+
+    function recordGrammarStreakActivity(count = 1) {
+        try {
+            const todayStr = getTodayStreakDateStr();
+            const cur = parseInt(localStorage.getItem(`english_pulse_today_grammar_done_${todayStr}`) || '0', 10);
+            localStorage.setItem(`english_pulse_today_grammar_done_${todayStr}`, cur + count);
+            checkAndUpdateDailyStreak();
+        } catch(e) {}
+    }
+
+    function recordDrillsStreakActivity(count = 1) {
+        try {
+            const todayStr = getTodayStreakDateStr();
+            const cur = parseInt(localStorage.getItem(`english_pulse_today_drills_cards_${todayStr}`) || '0', 10);
+            localStorage.setItem(`english_pulse_today_drills_cards_${todayStr}`, cur + count);
+            checkAndUpdateDailyStreak();
+        } catch(e) {}
+    }
+
+    function recordSpeakingStreakActivity(wordCount = 1) {
+        try {
+            if (wordCount <= 0) return;
+            const todayStr = getTodayStreakDateStr();
+            const cur = parseInt(localStorage.getItem(`english_pulse_today_speaking_words_${todayStr}`) || '0', 10);
+            localStorage.setItem(`english_pulse_today_speaking_words_${todayStr}`, cur + wordCount);
+            checkAndUpdateDailyStreak();
+        } catch(e) {}
+    }
+
+    function recordStoryStreakActivity(count = 1) {
+        try {
+            const todayStr = getTodayStreakDateStr();
+            const cur = parseInt(localStorage.getItem(`english_pulse_today_story_done_${todayStr}`) || '0', 10);
+            localStorage.setItem(`english_pulse_today_story_done_${todayStr}`, cur + count);
+            checkAndUpdateDailyStreak();
+        } catch(e) {}
+    }
+
+    function recordAudioStoryStreakActivity(count = 1) {
+        try {
+            const todayStr = getTodayStreakDateStr();
+            const cur = parseInt(localStorage.getItem(`english_pulse_today_audiobook_sentences_${todayStr}`) || '0', 10);
+            localStorage.setItem(`english_pulse_today_audiobook_sentences_${todayStr}`, cur + count);
+            checkAndUpdateDailyStreak();
+        } catch(e) {}
+    }
+
     function getDailyStreakProgress() {
+        const todayStr = getTodayStreakDateStr();
         const maxLvlCap = (typeof HERO_MAX_LEVEL !== 'undefined') ? HERO_MAX_LEVEL : 100;
         const nonMaxHeroes = (rpgEngine && rpgEngine.heroes) 
             ? rpgEngine.heroes.filter(h => (h.level || 1) < maxLvlCap)
             : [];
 
+        // 1. CHAT TRACK (Диалоги с героями)
         let totalMsgsSent = 0;
         let totalListened = 0;
         let totalRepeated = 0;
@@ -1790,26 +1854,171 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        const isMsgDone = totalMsgsSent >= 1;
-        const isWordsDone = totalFocusWordsUsed >= 3;
-        const isListenRepeatDone = totalListened >= 1 && totalRepeated >= 1;
-        const isCompleted = isMsgDone && isWordsDone && isListenRepeatDone;
+        const isChatFullQuestDone = (totalMsgsSent >= 1 && (totalFocusWordsUsed >= 3 || (totalListened >= 1 && totalRepeated >= 1)));
+        const isChatDirectDone = totalMsgsSent >= 3;
+        const isChatTrackDone = isChatFullQuestDone || isChatDirectDone;
+
+        // 2. VOCAB TRACK (Карточки слов SM-2 SRS)
+        const vocabCardsToday = parseInt(localStorage.getItem(`english_pulse_today_vocab_cards_${todayStr}`) || '0', 10);
+        const vocabTarget = 5;
+        const isVocabTrackDone = vocabCardsToday >= vocabTarget;
+
+        // 3. GRAMMAR TRACK (Грамматическая лаборатория)
+        const grammarDoneToday = parseInt(localStorage.getItem(`english_pulse_today_grammar_done_${todayStr}`) || '0', 10);
+        const grammarTarget = 5;
+        const isGrammarTrackDone = grammarDoneToday >= grammarTarget;
+
+        // 4. DRILLS TRACK (Скоростной тренажер паттернов)
+        const drillsDoneToday = parseInt(localStorage.getItem(`english_pulse_today_drills_cards_${todayStr}`) || '0', 10);
+        const drillsTarget = 5;
+        const isDrillsTrackDone = drillsDoneToday >= drillsTarget;
+
+        // 5. SPEAKING TRACK (Говорение, 4/3/2 Спринт, Блиц)
+        const speakingWordsToday = parseInt(localStorage.getItem(`english_pulse_today_speaking_words_${todayStr}`) || '0', 10);
+        const speakingTarget = 15;
+        const isSpeakingTrackDone = speakingWordsToday >= speakingTarget;
+
+        // 6. STORY TRACK (Сюжетная кампания)
+        const storyDoneToday = parseInt(localStorage.getItem(`english_pulse_today_story_done_${todayStr}`) || '0', 10);
+        const storyTarget = 1;
+        const isStoryTrackDone = storyDoneToday >= storyTarget;
+
+        // 7. AUDIO STORY TRACK (Аудиокнига & Shadowing)
+        const audioStoryDoneToday = parseInt(localStorage.getItem(`english_pulse_today_audiobook_sentences_${todayStr}`) || '0', 10);
+        const audioStoryTarget = 3;
+        const isAudioStoryTrackDone = audioStoryDoneToday >= audioStoryTarget;
+
+        const completedPathways = [];
+        if (isChatTrackDone) completedPathways.push({ id: 'chat', name: '💬 Чат с героями', icon: 'fa-comments', color: '#6366f1' });
+        if (isVocabTrackDone) completedPathways.push({ id: 'vocab', name: '📚 Vocab (Карточки слов)', icon: 'fa-book-open', color: '#06b6d4' });
+        if (isGrammarTrackDone) completedPathways.push({ id: 'grammar', name: '📜 Grammar (Грамматика)', icon: 'fa-scroll', color: '#8b5cf6' });
+        if (isDrillsTrackDone) completedPathways.push({ id: 'drills', name: '⚡ Drills (Тренажер паттернов)', icon: 'fa-bolt', color: '#eab308' });
+        if (isSpeakingTrackDone) completedPathways.push({ id: 'speaking', name: '🎙️ Speaking (Говорение)', icon: 'fa-microphone-lines', color: '#ec4899' });
+        if (isStoryTrackDone) completedPathways.push({ id: 'story', name: '📖 Story (Сюжет)', icon: 'fa-book-journal-whills', color: '#f59e0b' });
+        if (isAudioStoryTrackDone) completedPathways.push({ id: 'audiostory', name: '🎧 Audio Story (Аудиокнига)', icon: 'fa-headphones', color: '#a855f7' });
+
+        const isCompleted = completedPathways.length > 0;
 
         return {
+            todayStr,
             totalMsgsSent,
             totalFocusWordsUsed,
             totalListened,
             totalRepeated,
-            isMsgDone,
-            isWordsDone,
-            isListenRepeatDone,
-            isCompleted
+            vocabCardsToday,
+            grammarDoneToday,
+            drillsDoneToday,
+            speakingWordsToday,
+            storyDoneToday,
+            audioStoryDoneToday,
+            completedPathways,
+            isCompleted,
+            tracks: {
+                chat: {
+                    id: 'chat',
+                    name: '💬 Чат с героями',
+                    desc: '1+ сообщение герою + 3 фокусных слова или 1 аудио-повтор',
+                    actionName: 'Перейти в Чат',
+                    modalId: 'modal-hero-chat',
+                    current: totalMsgsSent,
+                    target: 1,
+                    isDone: isChatTrackDone,
+                    progressLabel: isChatTrackDone ? 'Выполнено ✅' : `${totalMsgsSent}/1 сообщ. (${totalFocusWordsUsed}/3 слов)`,
+                    percent: Math.min(100, Math.round(((totalMsgsSent >= 1 ? 50 : 0) + Math.min(50, (totalFocusWordsUsed / 3) * 50)))),
+                    color: '#6366f1',
+                    icon: 'fa-comments'
+                },
+                vocab: {
+                    id: 'vocab',
+                    name: '📚 Vocab (Карточки слов)',
+                    desc: 'Изучить или повторить 5 карточек в SRS Flashcards',
+                    actionName: 'Учить карточки',
+                    modalId: 'modal-hero-words',
+                    current: vocabCardsToday,
+                    target: vocabTarget,
+                    isDone: isVocabTrackDone,
+                    progressLabel: isVocabTrackDone ? 'Выполнено ✅' : `${vocabCardsToday}/${vocabTarget} карточек`,
+                    percent: Math.min(100, Math.round((vocabCardsToday / vocabTarget) * 100)),
+                    color: '#06b6d4',
+                    icon: 'fa-book-open'
+                },
+                grammar: {
+                    id: 'grammar',
+                    name: '📜 Grammar (Грамматика)',
+                    desc: 'Ответить на 5 вопросов в тестах или правилах SRS',
+                    actionName: 'Пройти тест',
+                    modalId: 'modal-hero-grammar',
+                    current: grammarDoneToday,
+                    target: grammarTarget,
+                    isDone: isGrammarTrackDone,
+                    progressLabel: isGrammarTrackDone ? 'Выполнено ✅' : `${grammarDoneToday}/${grammarTarget} вопросов`,
+                    percent: Math.min(100, Math.round((grammarDoneToday / grammarTarget) * 100)),
+                    color: '#8b5cf6',
+                    icon: 'fa-scroll'
+                },
+                drills: {
+                    id: 'drills',
+                    name: '⚡ Drills (Тренажер паттернов)',
+                    desc: 'Завершить 5 скоростных карточек-трансформаций',
+                    actionName: 'Тренировать паттерны',
+                    modalId: 'modal-hero-drills',
+                    current: drillsDoneToday,
+                    target: drillsTarget,
+                    isDone: isDrillsTrackDone,
+                    progressLabel: isDrillsTrackDone ? 'Выполнено ✅' : `${drillsDoneToday}/${drillsTarget} карточек`,
+                    percent: Math.min(100, Math.round((drillsDoneToday / drillsTarget) * 100)),
+                    color: '#eab308',
+                    icon: 'fa-bolt'
+                },
+                speaking: {
+                    id: 'speaking',
+                    name: '🎙️ Speaking (Говорение)',
+                    desc: 'Наговорить 15+ слов в спринте 4/3/2, блиц Q&A или звонке',
+                    actionName: 'Практика речи',
+                    modalId: 'modal-hero-live',
+                    current: speakingWordsToday,
+                    target: speakingTarget,
+                    isDone: isSpeakingTrackDone,
+                    progressLabel: isSpeakingTrackDone ? 'Выполнено ✅' : `${speakingWordsToday}/${speakingTarget} слов`,
+                    percent: Math.min(100, Math.round((speakingWordsToday / speakingTarget) * 100)),
+                    color: '#ec4899',
+                    icon: 'fa-microphone-lines'
+                },
+                story: {
+                    id: 'story',
+                    name: '📖 Story (Сюжетная кампания)',
+                    desc: 'Прочитать главу сюжета, сделать выбор или пройти квиз',
+                    actionName: 'Читать главу',
+                    modalId: 'modal-hero-story',
+                    current: storyDoneToday,
+                    target: storyTarget,
+                    isDone: isStoryTrackDone,
+                    progressLabel: isStoryTrackDone ? 'Выполнено ✅' : `${storyDoneToday}/${storyTarget} заданий`,
+                    percent: Math.min(100, Math.round((storyDoneToday / storyTarget) * 100)),
+                    color: '#f59e0b',
+                    icon: 'fa-book-journal-whills'
+                },
+                audiostory: {
+                    id: 'audiostory',
+                    name: '🎧 Audio Story (Аудиокнига)',
+                    desc: 'Прослушать 3 предложения в аудиокниге или повторить вслух',
+                    actionName: 'Слушать аудио',
+                    modalId: 'modal-eldrin-audiobook',
+                    current: audioStoryDoneToday,
+                    target: audioStoryTarget,
+                    isDone: isAudioStoryTrackDone,
+                    progressLabel: isAudioStoryTrackDone ? 'Выполнено ✅' : `${audioStoryDoneToday}/${audioStoryTarget} предложений`,
+                    percent: Math.min(100, Math.round((audioStoryDoneToday / audioStoryTarget) * 100)),
+                    color: '#a855f7',
+                    icon: 'fa-headphones'
+                }
+            }
         };
     }
 
     function checkAndUpdateDailyStreak() {
         const progress = getDailyStreakProgress();
-        const todayStr = new Date().toISOString().split('T')[0];
+        const todayStr = getTodayStreakDateStr();
         const yesterdayDate = new Date();
         yesterdayDate.setDate(yesterdayDate.getDate() - 1);
         const yesterdayStr = yesterdayDate.toISOString().split('T')[0];
@@ -1851,8 +2060,12 @@ document.addEventListener("DOMContentLoaded", () => {
             localStorage.setItem("english_pulse_last_quest_date", todayStr);
             localStorage.setItem("english_pulse_streak", currentStreak);
 
+            const triggerSection = (progress.completedPathways && progress.completedPathways.length > 0)
+                ? progress.completedPathways[0].name
+                : "Дневная активность";
+
             const freezeNotice = usedFreezeThisTime ? `<br>❄️ <b>ЗАМОРОЗКА СЕРИИ СПАСЛА ОГОНЕК!</b> Пропущенный день заморожен!` : "";
-            showToast(`🔥 <b>УДАРНЫЙ РЕЖИМ ПРОДЛЕН (${currentStreak} дн.)!</b><br>🎯 <b>Все 3 условия дня выполнены!</b>${freezeNotice}`, "linear-gradient(135deg, #f59e0b, #ec4899)", "#fbbf24");
+            showToast(`🔥 <b>УДАРНЫЙ РЕЖИМ ПРОДЛЕН (${currentStreak} дн.)!</b><br>🌟 <b>Раздел выполнен: ${triggerSection}!</b>${freezeNotice}`, "linear-gradient(135deg, #f59e0b, #ec4899)", "#fbbf24");
         }
 
         const headerStreakEl = document.getElementById("rpg-header-streak");
@@ -1861,13 +2074,151 @@ document.addEventListener("DOMContentLoaded", () => {
         const streakPill = document.getElementById("rpg-header-streak-pill");
         if (streakPill) {
             const isDoneToday = (lastStreakDate === todayStr || progress.isCompleted);
-            streakPill.style.border = isDoneToday ? "1px solid #fbbf24" : "1px solid rgba(255,255,255,0.15)";
-            streakPill.title = `Ударный режим (Streak 🔥: ${currentStreak} дн.):\n` +
-                `${progress.isMsgDone ? '✅' : '❌'} 1 сообщение герою <100 lvl (${progress.totalMsgsSent}/1)\n` +
-                `${progress.isWordsDone ? '✅' : '❌'} 3 фокусных слова (${progress.totalFocusWordsUsed}/3)\n` +
-                `${progress.isListenRepeatDone ? '✅' : '❌'} 1 прослушивание и повторение (🎧 ${progress.totalListened}/1, 🗣️ ${progress.totalRepeated}/1)`;
+            streakPill.style.border = isDoneToday ? "1.5px solid #fbbf24" : "1px solid rgba(255,255,255,0.15)";
+            streakPill.style.boxShadow = isDoneToday ? "0 0 10px rgba(245, 158, 11, 0.4)" : "none";
+            
+            const activeDoneNames = progress.completedPathways.map(p => p.name).join(", ");
+            streakPill.title = `🔥 Ударный режим (Streak: ${currentStreak} дн.)\n` +
+                (isDoneToday ? `✅ Засчитан на сегодня! (${activeDoneNames || 'Выполнено'})\n` : `⏳ Ожидает тренировки сегодня\n`) +
+                `Нажмите, чтобы открыть Хаб активностей!`;
+        }
+
+        // Live update Streak Hub modal if currently open
+        try {
+            renderDailyStreakHubUI();
+        } catch(e) {}
+    }
+
+    function renderDailyStreakHubUI() {
+        const modalEl = document.getElementById("modal-daily-streak-hub");
+        if (!modalEl || modalEl.classList.contains("hidden")) return;
+
+        const progress = getDailyStreakProgress();
+        const currentStreak = parseInt(localStorage.getItem("english_pulse_streak") || "0", 10);
+        const freezeCount = parseInt(localStorage.getItem("english_pulse_freeze_count") || "1", 10);
+        const lastStreakDate = localStorage.getItem("english_pulse_last_streak_date") || localStorage.getItem("english_pulse_last_quest_date");
+        const todayStr = getTodayStreakDateStr();
+        const isDoneToday = (lastStreakDate === todayStr || progress.isCompleted);
+
+        const daysEl = document.getElementById("streak-hub-days-count");
+        if (daysEl) daysEl.textContent = currentStreak;
+
+        const freezeEl = document.getElementById("streak-hub-freeze-count");
+        if (freezeEl) freezeEl.textContent = `${freezeCount} шт.`;
+
+        const badgeEl = document.getElementById("streak-hub-status-badge");
+        if (badgeEl) {
+            if (isDoneToday) {
+                badgeEl.textContent = "✅ Ударный режим на сегодня продлен!";
+                badgeEl.className = "streak-hub-status-badge completed";
+            } else {
+                badgeEl.textContent = "⏳ Ожидает тренировки сегодня";
+                badgeEl.className = "streak-hub-status-badge";
+            }
+        }
+
+        const descEl = document.getElementById("streak-hub-banner-desc");
+        if (descEl) {
+            if (isDoneToday) {
+                const doneTitles = progress.completedPathways.map(p => p.name).join(", ");
+                descEl.innerHTML = `🎉 <b>Отличная работа!</b> Выполнено: <b>${doneTitles || 'Дневная норма'}</b>. Огонек защищен!`;
+            } else {
+                descEl.innerHTML = `Выполните тренировку в <b>любом 1 разделе</b> на выбор, чтобы защитить и продлить ударный режим!`;
+            }
+        }
+
+        const listEl = document.getElementById("streak-hub-pathways-list");
+        if (listEl) {
+            listEl.innerHTML = "";
+            Object.keys(progress.tracks).forEach(trackKey => {
+                const tr = progress.tracks[trackKey];
+                const card = document.createElement("div");
+                card.className = `streak-pathway-card ${tr.isDone ? 'is-completed' : ''}`;
+                card.innerHTML = `
+                    <div class="streak-pathway-left">
+                        <div class="streak-pathway-icon-box" style="background: ${tr.color}22; border: 1px solid ${tr.color}55; color: ${tr.color};">
+                            <i class="fa-solid ${tr.icon}"></i>
+                        </div>
+                        <div class="streak-pathway-details">
+                            <div class="streak-pathway-title-row">
+                                <span class="streak-pathway-name">${tr.name}</span>
+                                <span class="streak-pathway-status-tag ${tr.isDone ? 'done' : 'pending'}">${tr.progressLabel}</span>
+                            </div>
+                            <div class="streak-pathway-desc">${tr.desc}</div>
+                            <div class="streak-pathway-track">
+                                <div class="streak-pathway-fill" style="width: ${tr.percent}%; background: ${tr.isDone ? 'linear-gradient(90deg, #10b981, #34d399)' : `linear-gradient(90deg, ${tr.color}, #fbbf24)`};"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-sm ${tr.isDone ? 'btn-outline' : 'btn-primary'} streak-pathway-btn" style="${tr.isDone ? 'border-color: #10b981; color: #34d399;' : `background: ${tr.color}; border: none;`}">
+                        ${tr.isDone ? '<i class="fa-solid fa-circle-check"></i> Готово' : `${tr.actionName} &rarr;`}
+                    </button>
+                `;
+
+                const btn = card.querySelector(".streak-pathway-btn");
+                btn.addEventListener("click", () => {
+                    modalEl.classList.add("hidden");
+                    openSectionModalById(tr.modalId);
+                });
+
+                listEl.appendChild(card);
+            });
         }
     }
+
+    function openDailyStreakHubModal() {
+        renderDailyStreakHubUI();
+        const modalEl = document.getElementById("modal-daily-streak-hub");
+        if (modalEl) modalEl.classList.remove("hidden");
+    }
+
+    function openSectionModalById(modalId) {
+        if (!modalId) return;
+        const hero = (rpgEngine && rpgEngine.heroes) ? (rpgEngine.heroes.find(h => h.id === activeShowcaseHeroId) || rpgEngine.heroes[0]) : null;
+
+        if (modalId === 'modal-hero-chat') {
+            if (hero) {
+                const heroScenario = SCENARIOS.find(sc => sc.isHeroScenario && sc.heroId === hero.id) || SCENARIOS.find(sc => sc.isHeroScenario);
+                if (heroScenario) selectScenario(heroScenario);
+            }
+            const m = document.getElementById("modal-hero-chat");
+            if (m) m.classList.remove("hidden");
+        } else if (modalId === 'modal-hero-words') {
+            if (hero && hero.cefrLevel) {
+                const cefrLabel = hero.cefrLevel.split(' ')[0];
+                const deckName = `${hero.name}'s Pack (${cefrLabel})`;
+                flashcardEngine.currentCategory = deckName;
+                flashcardEngine.batchIndex = 0;
+                flashcardEngine.currentIndex = 0;
+            }
+            renderFlashcardsUI();
+            const m = document.getElementById("modal-hero-words");
+            if (m) m.classList.remove("hidden");
+        } else if (modalId === 'modal-hero-grammar') {
+            renderGrammarUI();
+            const m = document.getElementById("modal-hero-grammar");
+            if (m) m.classList.remove("hidden");
+        } else if (modalId === 'modal-hero-drills') {
+            const m = document.getElementById("modal-hero-drills");
+            if (m) m.classList.remove("hidden");
+        } else if (modalId === 'modal-hero-live') {
+            const m = document.getElementById("modal-hero-live");
+            if (m) m.classList.remove("hidden");
+        } else if (modalId === 'modal-hero-story') {
+            if (hero) openHeroStoryModal(hero);
+        } else if (modalId === 'modal-eldrin-audiobook') {
+            const m = document.getElementById("modal-eldrin-audiobook");
+            if (m) m.classList.remove("hidden");
+        }
+    }
+
+    window.openDailyStreakHubModal = openDailyStreakHubModal;
+    window.recordVocabStreakActivity = recordVocabStreakActivity;
+    window.recordGrammarStreakActivity = recordGrammarStreakActivity;
+    window.recordDrillsStreakActivity = recordDrillsStreakActivity;
+    window.recordSpeakingStreakActivity = recordSpeakingStreakActivity;
+    window.recordStoryStreakActivity = recordStoryStreakActivity;
+    window.recordAudioStoryStreakActivity = recordAudioStoryStreakActivity;
 
     // --- WRITING SKILL ENGINE (LEVEL 1 -> 100, 50,000 TOTAL WORDS) ---
     function generateWritingThresholds() {
@@ -4124,6 +4475,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 addXP(cardXp);
                 triggerRPGReward("card", targetHeroId, targetHeroId, cardXp);
             }
+            try { recordVocabStreakActivity(1); } catch(e) {}
             try { checkAndUpdateVocabLevel(); } catch(e) {}
         });
     });
@@ -4291,6 +4643,8 @@ document.addEventListener("DOMContentLoaded", () => {
             quizFeedbackBox.style.background = "rgba(16, 185, 129, 0.15)";
             quizFeedbackBox.style.border = "1px solid var(--success)";
 
+            try { recordGrammarStreakActivity(1); } catch(e) {}
+
             const todayStr = new Date().toISOString().split('T')[0];
             const topicId = currentGrammarTopic ? currentGrammarTopic.id : 'general';
             const questionKey = `quiz_xp_done_${todayStr}_${topicId}_q${currentQuizIndex}`;
@@ -4390,6 +4744,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 addXP(cardXp);
                 triggerRPGReward("quiz", activeReviewQuestion.heroId, activeReviewQuestion.heroId, cardXp);
             }
+
+            try { recordGrammarStreakActivity(1); } catch(e) {}
 
             grammarSrsEngine.rateQuestion(activeReviewQuestion.id, rating);
             updateGrammarDueBadge();
@@ -5208,6 +5564,31 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    function isStoryChapterCompleted(ch) {
+        if (!ch) return false;
+        const chId = typeof ch === 'object' ? String(ch.id || '') : String(ch);
+        const chNum = typeof ch === 'object' ? Number(ch.number || 0) : parseInt(chId.replace(/\D/g, ''), 10);
+        
+        const inStory = (completedStoryChapters || []).some(c => {
+            return String(c) === chId || Number(c) === chNum || String(c) === String(chNum) || String(c) === `ch-${chNum}`;
+        });
+        if (inStory) return true;
+
+        const vfCompleted = (window.visualFluency && window.visualFluency.completedChapterIds) ? window.visualFluency.completedChapterIds : [];
+        return vfCompleted.some(c => {
+            return String(c) === chId || Number(c) === chNum || String(c) === String(chNum) || String(c) === `ch-${chNum}`;
+        });
+    }
+
+    function markStoryChapterCompleted(chIdOrObj) {
+        if (!chIdOrObj) return;
+        const id = typeof chIdOrObj === 'object' ? chIdOrObj.id : chIdOrObj;
+        if (!isStoryChapterCompleted(id)) {
+            completedStoryChapters.push(id);
+            saveCompletedStoryChapters();
+        }
+    }
+
     // Check if player has unlocked the final 10th hero (Eldrin)
     function checkStoryUnlockEligibility() {
         const totalHeroes = (rpgEngine && rpgEngine.heroes) ? rpgEngine.heroes : [];
@@ -5416,7 +5797,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Update Global Completion Pill
         const pill = document.getElementById("story-global-completion-pill");
         if (pill) {
-            const completedCount = completedStoryChapters.length;
+            const completedCount = chapters.filter(c => isStoryChapterCompleted(c)).length;
             const totalChapters = chapters.length || 40;
             pill.innerHTML = `⭐ ${completedCount} / ${totalChapters} Пройдено`;
         }
@@ -5450,12 +5831,15 @@ document.addEventListener("DOMContentLoaded", () => {
             tabsContainer.innerHTML = acts.map(act => {
                 const isActive = act.id === activeStoryActId;
                 const actChapters = chapters.filter(c => c.actId === act.id);
-                const completedInAct = actChapters.filter(c => completedStoryChapters.includes(c.id)).length;
+                const completedInAct = actChapters.filter(c => isStoryChapterCompleted(c)).length;
+                const isAllActDone = completedInAct === actChapters.length && actChapters.length > 0;
                 return `
                     <button class="story-act-tab-btn ${isActive ? 'active' : ''}" data-act-id="${act.id}">
                         <i class="fa-solid ${act.icon}" style="color:${act.color};"></i>
                         <span>${act.title.split(':')[0]}</span>
-                        <span class="badge" style="font-size:10px; padding:2px 6px; background:rgba(0,0,0,0.3);">${completedInAct}/${actChapters.length}</span>
+                        <span class="badge" style="font-size:10px; padding:2px 6px; ${isAllActDone ? 'background:rgba(16,185,129,0.25); color:#6ee7b7; border:1px solid rgba(16,185,129,0.4);' : 'background:rgba(0,0,0,0.3);'}">
+                            ${isAllActDone ? '✓ ' : ''}${completedInAct}/${actChapters.length}
+                        </span>
                     </button>
                 `;
             }).join("");
@@ -5474,7 +5858,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const currentActChapters = chapters.filter(c => c.actId === activeStoryActId);
 
             chaptersContainer.innerHTML = currentActChapters.map(ch => {
-                const isCompleted = completedStoryChapters.includes(ch.id);
+                const isCompleted = isStoryChapterCompleted(ch);
                 const check = checkChapterUnlockEligibility(ch);
                 const isLocked = !check.eligible;
 
@@ -5497,11 +5881,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 return `
                     <div class="story-chapter-card ${isLocked ? 'locked' : ''} ${isCompleted ? 'completed' : ''}" data-chapter-id="${ch.id}">
                         <div>
-                            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px;">
-                                <span class="badge" style="background:rgba(245,158,11,0.15); color:#fbbf24; border:1px solid rgba(245,158,11,0.3); font-size:11px; font-weight:800;">
-                                    ГЛАВА ${ch.number}
-                                </span>
-                                ${isLocked ? '<i class="fa-solid fa-lock" style="color:#ef4444;" title="Заблокировано"></i>' : ''}
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                                <div style="display:flex; align-items:center; gap:8px;">
+                                    <span class="badge" style="background:rgba(245,158,11,0.15); color:#fbbf24; border:1px solid rgba(245,158,11,0.3); font-size:11px; font-weight:800;">
+                                        ГЛАВА ${ch.number}
+                                    </span>
+                                    ${isCompleted ? `
+                                        <span class="story-completed-badge" title="Глава прочитана и пройдена!">
+                                            <i class="fa-solid fa-circle-check"></i> Прочитано
+                                        </span>
+                                    ` : ''}
+                                </div>
+                                <div>
+                                    ${isLocked ? '<i class="fa-solid fa-lock" style="color:#ef4444;" title="Заблокировано"></i>' : (isCompleted ? '<span class="story-star-badge" title="Пройдено на 100%"><i class="fa-solid fa-star text-amber"></i></span>' : '')}
+                                </div>
                             </div>
                             <h4 style="margin:0 0 4px 0; font-size:16px; font-weight:800; color:#f8fafc;">
                                 ${ch.titleEn}
@@ -5520,9 +5913,9 @@ document.addEventListener("DOMContentLoaded", () => {
                                     🔒 ${check.reasons.join(", ")}
                                 </div>
                             ` : ''}
-                            <button class="btn btn-sm ${isCompleted ? 'btn-outline' : 'btn-primary'} btn-open-chapter-reader" style="width:100%; justify-content:center;" data-chapter-id="${ch.id}">
-                                <i class="fa-solid ${isCompleted ? 'fa-book-open' : 'fa-play'}"></i>
-                                ${isCompleted ? 'Перечитать' : (isLocked ? 'Требования' : 'Читать главу')}
+                            <button class="btn btn-sm ${isCompleted ? 'btn-chapter-completed' : 'btn-primary'} btn-open-chapter-reader" style="width:100%; justify-content:center;" data-chapter-id="${ch.id}">
+                                <i class="fa-solid ${isCompleted ? 'fa-book-open-reader' : 'fa-play'}"></i>
+                                ${isCompleted ? 'Перечитать главу' : (isLocked ? 'Требования' : 'Читать главу')}
                             </button>
                         </div>
                     </div>
@@ -5563,9 +5956,11 @@ document.addEventListener("DOMContentLoaded", () => {
         if (hubView) hubView.classList.add("hidden");
         if (readerView) readerView.classList.remove("hidden");
 
+        const isCompleted = isStoryChapterCompleted(chapter);
         const titleEl = document.getElementById("reader-chapter-badge-title");
         if (titleEl) {
-            titleEl.textContent = `Chapter ${chapter.number}: ${chapter.titleEn} (${chapter.titleRu})`;
+            titleEl.innerHTML = `<span>Chapter ${chapter.number}: ${chapter.titleEn} (${chapter.titleRu})</span>` +
+                (isCompleted ? ` <span class="story-reader-completed-badge"><i class="fa-solid fa-circle-check"></i> Прочитано</span>` : '');
         }
 
         // Calculate Chapter Word Count
@@ -5596,9 +5991,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 xpText.textContent = `${progress.xp.toLocaleString()} / ${progress.totalMaxXp.toLocaleString()} XP (${progress.percent}%)`;
             }
             if (rewardText) {
-                const isAlreadyDone = (completedStoryChapters.includes(chapter.id) || (window.visualFluency.completedChapterIds && window.visualFluency.completedChapterIds.includes(chapter.id)));
+                const isAlreadyDone = isStoryChapterCompleted(chapter);
                 if (isAlreadyDone) {
-                    rewardText.innerHTML = `<span style="color:#64748b;">✅ Пройдено (${chapterWordCount} слов)</span>`;
+                    rewardText.innerHTML = `<span style="color:#34d399; font-weight:700;"><i class="fa-solid fa-circle-check"></i> Прочитано (${chapterWordCount} слов)</span>`;
                 } else {
                     rewardText.innerHTML = `<span style="color:#34d399; font-weight:700;">+${chapterWordCount} XP за 1-е прочтение</span>`;
                 }
@@ -5871,7 +6266,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const nextChapter = chapters.find(c => c.number === chapter.number + 1);
         const nextBtn = document.getElementById("btn-story-next-chapter");
         if (nextBtn) {
-            if (nextChapter && completedStoryChapters.includes(chapter.id)) {
+            if (nextChapter && isStoryChapterCompleted(chapter)) {
                 nextBtn.classList.remove("hidden");
                 nextBtn.onclick = () => openStoryChapterReader(nextChapter);
             } else {
@@ -5897,11 +6292,21 @@ document.addEventListener("DOMContentLoaded", () => {
         const optionsContainer = document.getElementById("story-quiz-options-container");
         const feedbackBox = document.getElementById("story-quiz-feedback-box");
 
-        if (questionEl) questionEl.textContent = quiz.question;
-        if (rewardBadge) rewardBadge.textContent = `⭐ +${quiz.rewardXp || 100} XP`;
-        if (feedbackBox) feedbackBox.style.display = "none";
+        const isAlreadyCompleted = isStoryChapterCompleted(chapter);
 
-        const isAlreadyCompleted = completedStoryChapters.includes(chapter.id);
+        if (questionEl) questionEl.textContent = quiz.question;
+        if (rewardBadge) {
+            if (isAlreadyCompleted) {
+                rewardBadge.innerHTML = `<span style="color:#6ee7b7;"><i class="fa-solid fa-circle-check"></i> Прочитано (+${quiz.rewardXp || 100} XP получено)</span>`;
+                rewardBadge.style.background = "rgba(16,185,129,0.2)";
+                rewardBadge.style.borderColor = "rgba(16,185,129,0.4)";
+            } else {
+                rewardBadge.textContent = `⭐ +${quiz.rewardXp || 100} XP`;
+                rewardBadge.style.background = "rgba(245,158,11,0.2)";
+                rewardBadge.style.borderColor = "rgba(245,158,11,0.4)";
+            }
+        }
+        if (feedbackBox) feedbackBox.style.display = "none";
 
         if (optionsContainer && quiz.options) {
             optionsContainer.innerHTML = quiz.options.map((opt, idx) => {
@@ -5964,9 +6369,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 feedbackBox.innerHTML = `🎉 <b>Верно!</b> Глава успешно пройдена! Получено +${quiz.rewardXp} XP для участников отряда.${vfMsg}`;
 
-                if (!completedStoryChapters.includes(chapter.id)) {
-                    completedStoryChapters.push(chapter.id);
-                    saveCompletedStoryChapters();
+                try { recordStoryStreakActivity(1); } catch(e) {}
+
+                if (!isStoryChapterCompleted(chapter)) {
+                    markStoryChapterCompleted(chapter.id);
 
                     // Award XP to involved heroes
                     if (chapter.involvedHeroes && rpgEngine && rpgEngine.heroes) {
@@ -5985,6 +6391,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     if (typeof updateHeroUI === 'function') {
                         updateHeroUI();
                     }
+                }
+
+                // Update Reader title with completed badge immediately
+                const titleEl = document.getElementById("reader-chapter-badge-title");
+                if (titleEl && !titleEl.innerHTML.includes("story-reader-completed-badge")) {
+                    titleEl.innerHTML = `<span>Chapter ${chapter.number}: ${chapter.titleEn} (${chapter.titleRu})</span> <span class="story-reader-completed-badge"><i class="fa-solid fa-circle-check"></i> Прочитано</span>`;
                 }
 
                 // Show Next Chapter button if available
@@ -7897,6 +8309,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const onSentenceFinished = () => {
                 if (playBtn) playBtn.innerHTML = `<i class="fa-solid fa-volume-high"></i>`;
+                try { recordAudioStoryStreakActivity(1); } catch(e) {}
                 if (continueNext && isPlaying) {
                     if (idx < curChapter.sentences.length - 1) {
                         playSentence(idx + 1, true);
@@ -8064,6 +8477,8 @@ document.addEventListener("DOMContentLoaded", () => {
                             triggerRPGReward("listen", "eldrin", "eldrin", 100, `🎧 +${curChapter.wordCount} Listening Words & +100 XP!`, "linear-gradient(135deg, #a855f7, #6366f1)");
                             showToast(`🎧 <b>LISTENING SKILL PROGRESS!</b> +${curChapter.wordCount} слов зачислено! (+100 XP)`, "linear-gradient(135deg, #a855f7, #6366f1)", "#c084fc");
                         }
+
+                        try { recordAudioStoryStreakActivity(3); } catch(e) {}
 
                         if (!completedChapters.includes(activeChapterId)) {
                             completedChapters.push(activeChapterId);
