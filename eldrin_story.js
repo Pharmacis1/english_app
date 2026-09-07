@@ -1,11 +1,11 @@
 /**
- * THE SPIRE CHRONICLES (A1 GRADED EPISODIC SERIAL)
- * 40 Micro-Episodes • 500-600 words each • 75% Live Dialogues & Action Quests
- * Strictly CEFR A1 vocabulary & basic verbs (be, have, look, find, want, go, take, see, give, say, ask).
+ * THE SPIRE CHRONICLES (A0 -> A1 GRADED SERIAL • 25,000 WORDS TOTAL)
+ * 50 Full Episodes • ~500 words each • 75% Live Dialogues & Action Quests
+ * Strictly CEFR A1 vocabulary & core verbs (be, have, look, find, want, go, take, see, give, say, ask, need, help).
  * Cast:
  *  - Narrator: en-US-Neural2-D (Calm, crisp storytelling)
  *  - Eldrin: en-US-Neural2-A (Young apprentice, lively & expressive)
- *  - Leo: en-US-Neural2-I / Neural2-D (Friendly, calm roommate)
+ *  - Leo: en-US-Neural2-I (Friendly, calm roommate)
  *  - Master Corvinus: en-US-Neural2-J (Elder archivist, deep & wise)
  *  - Kira: en-US-Neural2-F (Energetic archer girl)
  */
@@ -13,51 +13,58 @@
 const ELDRIN_AUDIOBOOK = {
     "title": "The Spire Chronicles: Eldrin's Quests",
     "titleRu": "Хроники Шпиля: Будни Элдрина",
-    "description": "An episodic A1 serial about daily life, friendship, and micro-quests in the Arcane Spire. Built with pure A1 vocabulary and 75% live conversational dialogues.",
-    "descriptionRu": "Эпизодический сериал уровня A1 о повседневной жизни, дружбе и маленьких квестах в Тайном Шпиле. Построен на чистой лексике A1 и живых диалогах.",
-    "totalChapters": 40,
+    "description": "A 50-episode graded serial (25,000 words total) bridging A0 to A1. Pure conversational dialogues, practical micro-quests, and lively character voice acting.",
+    "descriptionRu": "Сериал из 50 серий (суммарно 25 000 слов) для перехода с A0 на A1. Живые диалоги, бытовые квесты и эмоциональная озвучка персонажей.",
+    "totalChapters": 50,
     "totalTargetWords": 25000,
     "acts": [
         {
             "number": 1,
-            "titleEn": "Act I: Apprentice Routine & Quests",
-            "titleRu": "Акт I: Будни Ученика",
+            "titleEn": "Act I: Apprentice Routine & Library Quests",
+            "titleRu": "Акт I: Будни в Академии и Библиотеке",
             "chaptersRange": [1, 10]
         },
         {
             "number": 2,
-            "titleEn": "Act II: Library Mysteries",
-            "titleRu": "Акт II: Тайны Библиотеки",
+            "titleEn": "Act II: The Market & Town Below",
+            "titleRu": "Акт II: Город и Торговые Ряды",
             "chaptersRange": [11, 20]
         },
         {
             "number": 3,
-            "titleEn": "Act III: The Market & Town Below",
-            "titleRu": "Акт III: Город и Рынок",
+            "titleEn": "Act III: School Quests & Teamwork",
+            "titleRu": "Акт III: Испытания и Командная Работа",
             "chaptersRange": [21, 30]
         },
         {
             "number": 4,
-            "titleEn": "Act IV: The Secret Passage",
-            "titleRu": "Акт IV: Тайный Проход",
+            "titleEn": "Act IV: Secrets of the Old Halls",
+            "titleRu": "Акт IV: Тайны Старых Залов",
             "chaptersRange": [31, 40]
+        },
+        {
+            "number": 5,
+            "titleEn": "Act V: The Festival & Journey Ahead",
+            "titleRu": "Акт V: Большой Праздник и Новые Горизонты",
+            "chaptersRange": [41, 50]
         }
     ],
     "chapters": [
         // =========================================================================
-        // EPISODE 1: A BUSY MORNING (ТРУДНОЕ УТРО)
+        // EPISODE 1: A BUSY MORNING IN THE LIBRARY (~480 WORDS)
         // =========================================================================
         {
             "id": "eldrin-ch-1",
             "number": 1,
             "act": 1,
-            "titleEn": "Episode 1: A Busy Morning",
-            "titleRu": "Эпизод 1: Трудное утро",
-            "grammarFocus": "Present Simple, Verb 'to be', Prepositions (on, under, near), Questions with Where / Is it",
-            "wordCount": 380,
+            "titleEn": "Episode 1: A Busy Morning in the Library",
+            "titleRu": "Эпизод 1: Трудное утро в библиотеке",
+            "grammarFocus": "Present Simple, Verb 'to be', Prepositions (on, under, near, behind, between), Can / Cannot, Questions",
+            "wordCount": 475,
             "coverIcon": "fa-sun",
             "coverColor": "#f59e0b",
             "sentences": [
+                // Scene 1: Waking Up & Finding the Bag
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
@@ -176,24 +183,9 @@ const ELDRIN_AUDIOBOOK = {
                     "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin takes the red apple, opens the door, <break time=\"200ms\"/> and runs down the stone corridor.</prosody></speak>",
                     "en": "Eldrin takes the red apple, opens the door, and runs down the stone corridor.",
                     "ru": "Элдрин берет красное яблоко, открывает дверь и бежит по каменному коридору."
-                }
-            ]
-        },
+                },
 
-        // =========================================================================
-        // EPISODE 2: THE TALL BOOKSHELF (ВЫСОКАЯ ПОЛКА)
-        // =========================================================================
-        {
-            "id": "eldrin-ch-2",
-            "number": 2,
-            "act": 1,
-            "titleEn": "Episode 2: The Tall Bookshelf",
-            "titleRu": "Эпизод 2: Высокая полка",
-            "grammarFocus": "Can / Cannot, Adjectives (tall, high, heavy), Imperatives (Help me, Hold this)",
-            "wordCount": 390,
-            "coverIcon": "fa-book-open",
-            "coverColor": "#3b82f6",
-            "sentences": [
+                // Scene 2: The Tall Bookshelf in the Library
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
