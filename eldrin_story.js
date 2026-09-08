@@ -686,7 +686,7 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "cook",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Good morning, boys! What would you like on your breakfast tray today?</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"+1st\">— Good morning, boys! <break time=\"300ms\"/> What would you like on your breakfast tray today?</prosody></speak>",
                     "en": "— Good morning, boys! What would you like on your breakfast tray today?",
                     "ru": "— Доброе утро, мальчики! Что бы вы хотели на свой поднос для завтрака сегодня?"
                 },
@@ -700,7 +700,7 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "cook",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Here is your steaming porridge, young man! And a cup of fresh milk for you.</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"+1st\">— Here is your steaming porridge, young man! <break time=\"300ms\"/> And a cup of fresh milk for you.</prosody></speak>",
                     "en": "— Here is your steaming porridge, young man! And a cup of fresh milk for you.",
                     "ru": "— Вот твоя дымящаяся каша, юноша! И чашка свежего молока для тебя."
                 },
@@ -714,7 +714,7 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "cook",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Of course! Here are two fresh slices and a big spoon of sweet red jam. Enjoy your meal!</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"+1st\">— Of course! <break time=\"300ms\"/> Here are two fresh slices and a big spoon of sweet red jam. <break time=\"300ms\"/> Enjoy your meal!</prosody></speak>",
                     "en": "— Of course! Here are two fresh slices and a big spoon of sweet red jam. Enjoy your meal!",
                     "ru": "— Конечно! Вот два свежих ломтика и большая ложка сладкого красного варенья. Приятного аппетита!"
                 },
@@ -756,7 +756,7 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "toby",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Oh no! My breakfast! My apples are rolling away under the benches!</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+3.5st\">— Oh no! <break time=\"300ms\"/> My breakfast! <break time=\"300ms\"/> My apples are rolling away under the benches!</prosody></speak>",
                     "en": "— Oh no! My breakfast! My apples are rolling away under the benches!",
                     "ru": "— О нет! Мой завтрак! Мои яблоки раскатились под скамейки!"
                 },
@@ -798,7 +798,7 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "toby",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Thank you so much, Eldrin! Thank you, Leo and Kira! You are so kind.</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+3.5st\">— Thank you so much, Eldrin! <break time=\"300ms\"/> Thank you, Leo and Kira! <break time=\"300ms\"/> You are so kind.</prosody></speak>",
                     "en": "— Thank you so much, Eldrin! Thank you, Leo and Kira! You are so kind.",
                     "ru": "— Спасибо вам огромное, Элдрин! Спасибо, Лео и Кира! Вы такие добрые."
                 },
@@ -833,7 +833,7 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "toby",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Mmm! This is the most delicious breakfast in the world! Thank you, friends!</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+3.5st\">— Mmm! <break time=\"300ms\"/> This is the most delicious breakfast in the world! <break time=\"300ms\"/> Thank you, friends!</prosody></speak>",
                     "en": "— Mmm! This is the most delicious breakfast in the world! Thank you, friends!",
                     "ru": "— Ммм! Это самый вкусный завтрак в мире! Спасибо вам, друзья!"
                 },
@@ -1189,7 +1189,7 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "postman",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Good afternoon, young apprentice. Is Master Corvinus in his study room upstairs?</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+0.5st\">— Good afternoon, young apprentice. <break time=\"300ms\"/> Is Master Corvinus in his study room upstairs?</prosody></speak>",
                     "en": "— Good afternoon, young apprentice. Is Master Corvinus in his study room upstairs?",
                     "ru": "— Добрый день, юный ученик. Мастер Корвинус у себя в кабинете наверху?"
                 },
@@ -1203,7 +1203,7 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "postman",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Here is an urgent letter from the Mayor of the Lower Town. Please deliver it safely into his hands.</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+0.5st\">— Here is an urgent letter from the Mayor of the Lower Town. <break time=\"300ms\"/> Please deliver it safely into his hands.</prosody></speak>",
                     "en": "— Here is an urgent letter from the Mayor of the Lower Town. Please deliver it safely into his hands.",
                     "ru": "— Вот срочное письмо от мэра Нижнего Города. Пожалуйста, передайте его лично ему в руки."
                 },
@@ -2831,7 +2831,7 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "barnaby",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Good morning, scholars of the Spire! Meet my two wonderful brown horses, Daisy and Clover!</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2.5st\">— Good morning, students of the Spire! <break time=\"300ms\"/> Meet my two wonderful brown horses, White flower and Small green plant!</prosody></speak>",
                     "en": "— Good morning, students of the Spire! Meet my two wonderful brown horses, White flower and Small green plant!",
                     "ru": "— Доброе утро, ученые Шпиля! Познакомьтесь с моими двумя чудесными гнедыми лошадьми, Дейзи и Клевером!"
                 },
@@ -2852,7 +2852,7 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "barnaby",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Of course, young lady! Daisy loves gentle hands. Give her this little piece of sweet apple.</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2.5st\">— Of course, young lady! <break time=\"300ms\"/> White flower loves gentle hands. <break time=\"300ms\"/> Give her this little piece of sweet apple.</prosody></speak>",
                     "en": "— Of course, young lady! White flower loves gentle hands. Give her this little piece of sweet apple.",
                     "ru": "— Конечно, барышня! Дейзи любит ласку. Дай ей этот маленький кусочек сладкого яблока."
                 },
@@ -2880,7 +2880,7 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "barnaby",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Hold on to the side rails, everyone! Giddy-up, Daisy! Giddy-up, Clover!</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2.5st\">— Hold on to the side rails, everyone! <break time=\"300ms\"/> Giddy-up, White flower! <break time=\"300ms\"/> Giddy-up, Small green plant!</prosody></speak>",
                     "en": "— Hold on to the side rails, everyone! Giddy-up, White flower! Giddy-up, Small green plant!",
                     "ru": "— Держитесь за поручни, все! Но, Дейзи! Но, Клевер!"
                 },
@@ -2929,7 +2929,7 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "barnaby",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— About thirty minutes down this gentle mountain slope, my boy! The road is wide and safe.</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2.5st\">— About thirty minutes down this gentle mountain slope, my boy! <break time=\"300ms\"/> The road is wide and safe.</prosody></speak>",
                     "en": "— About thirty minutes down this gentle mountain slope, my boy! The road is wide and safe.",
                     "ru": "— Около тридцати минут по этому пологому горному склону, мой мальчик! Дорога широкая и безопасная."
                 },
@@ -2964,7 +2964,7 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "barnaby",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— That is the Lower Town! On market days, farmers and merchants come from fifty miles away.</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2.5st\">— That is the Lower Town! <break time=\"300ms\"/> On market days, farmers and merchants come from fifty miles away.</prosody></speak>",
                     "en": "— That is the Lower Town! On market days, farmers and merchants come from fifty miles away.",
                     "ru": "— Это и есть Нижний Город! В базарные дни фермеры и купцы съезжаются за пятьдесят миль."
                 },
@@ -2999,7 +2999,7 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "barnaby",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Whoa, Daisy! Whoa, Clover! Slow down near the gatehouse!</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2.5st\">— Whoa, White flower! <break time=\"300ms\"/> Whoa, Small green plant! <break time=\"300ms\"/> Slow down near the gatehouse!</prosody></speak>",
                     "en": "— Whoa, White flower! Whoa, Small green plant! Slow down near the gatehouse!",
                     "ru": "— Тпру, Дейзи! Тпру, Клевер! Притормозите возле караулки!"
                 },
@@ -3079,14 +3079,14 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "guard",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Halt, travelers! Welcome to the Lower Town. State your name and business for the registry.</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-3.5st\">— Stop, friends! <break time=\"300ms\"/> Welcome to the Lower Town. <break time=\"300ms\"/> State your name and business for the registry.</prosody></speak>",
                     "en": "— Stop, friends! Welcome to the Lower Town. State your name and business for the registry.",
                     "ru": "— Стойте, путники! Добро пожаловать в Нижний Город. Назовите ваши имена и цель визита для реестра."
                 },
                 {
                     "speaker": "barnaby",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Good morning, Captain Vance! I have Professor Corvinus and two students from the Spire Academy.</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2.5st\">— Good morning, Captain Vance! <break time=\"300ms\"/> I have Teacher Corvinus and two students from the Spire Academy.</prosody></speak>",
                     "en": "— Good morning, Captain Vance! I have Teacher Corvinus and two students from the Spire Academy.",
                     "ru": "— Доброе утро, капитан Вэнс! Со мной профессор Корвинус и двое учеников из Академии Шпиля."
                 },
@@ -3100,7 +3100,7 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "guard",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Ah, Professor Corvinus! Always an honor to see you. May I examine your official entry pass, please?</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-3.5st\">— Ah, Teacher Corvinus! <break time=\"300ms\"/> Always an honor to see you. <break time=\"300ms\"/> May I examine your official entry pass, please?</prosody></speak>",
                     "en": "— Ah, Teacher Corvinus! Always an honor to see you. May I examine your official entry pass, please?",
                     "ru": "— А, профессор Корвинус! Всегда честь видеть вас. Могу я взглянуть на ваш официальный пропуск?"
                 },
@@ -3142,7 +3142,7 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "guard",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— The seal is unbroken and completely authentic. Let me stamp your parchment for today's market day.</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-3.5st\">— The seal is unbroken and completely authentic. <break time=\"300ms\"/> Let me stamp your paper for today's market day.</prosody></speak>",
                     "en": "— The seal is unbroken and completely authentic. Let me stamp your paper for today's market day.",
                     "ru": "— Печать цела и подлинна. Позвольте мне поставить штамп на ваш пергамент на сегодняшний базарный день."
                 },
@@ -3163,7 +3163,7 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "guard",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Here is your stamped pass, Eldrin. Keep it safe in your pocket until you leave this evening.</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-3.5st\">— Here is your stamped pass, Eldrin. <break time=\"300ms\"/> Keep it safe in your pocket until you leave this evening.</prosody></speak>",
                     "en": "— Here is your stamped pass, Eldrin. Keep it safe in your pocket until you leave this evening.",
                     "ru": "— Вот твой проштампованный пропуск, Элдрин. Храни его в надежном месте до вечернего выезда."
                 },
@@ -3177,14 +3177,14 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "guard",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— A word of advice for you young scholars: The central market square is extremely crowded today.</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-3.5st\">— A word of advice for you young students: The central market square is extremely crowded today.</prosody></speak>",
                     "en": "— A word of advice for you young students: The central market square is extremely crowded today.",
                     "ru": "— Совет для вас, юные ученые: Центральная рыночная площадь сегодня чрезвычайно многолюдна."
                 },
                 {
                     "speaker": "guard",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Watch out for heavy merchant carts, keep your coin purses close, and stay together at all times.</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-3.5st\">— Watch out for heavy merchant carts, keep your coin purses close, and stay together at all times.</prosody></speak>",
                     "en": "— Watch out for heavy merchant carts, keep your coin purses close, and stay together at all times.",
                     "ru": "— Остерегайтесь тяжелых купеческих телег, держите кошельки при себе и всегда держитесь вместе."
                 },
@@ -3198,7 +3198,7 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "guard",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Open the main portcullis for the Academy cart! Let them pass!</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-3.5st\">— Open the main portcullis for the Academy cart! <break time=\"300ms\"/> Let them pass!</prosody></speak>",
                     "en": "— Open the main portcullis for the Academy cart! Let them pass!",
                     "ru": "— Поднять главную решетку для повозки Академии! Пропустить!"
                 },
@@ -3219,7 +3219,7 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "barnaby",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Giddy-up, Daisy! Giddy-up, Clover! Through the gates we go!</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2.5st\">— Giddy-up, White flower! <break time=\"300ms\"/> Giddy-up, Small green plant! <break time=\"300ms\"/> Through the gates we go!</prosody></speak>",
                     "en": "— Giddy-up, White flower! Giddy-up, Small green plant! Through the gates we go!",
                     "ru": "— Но, Дейзи! Но, Клевер! Въезжаем в ворота!"
                 },
@@ -3376,7 +3376,7 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "baker",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Good morning, young travelers! Fresh pretzels straight from the oakwood fire five minutes ago!</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"-0.5st\">— Good morning, young friends! <break time=\"300ms\"/> Fresh twisted breads straight from the oakwood fire five minutes ago!</prosody></speak>",
                     "en": "— Good morning, young friends! Fresh twisted breads straight from the oakwood fire five minutes ago!",
                     "ru": "— Доброе утро, юные путники! Свежие брецели прямо из дубового огня пять минут назад!"
                 },
@@ -3390,7 +3390,7 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "baker",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Ah, Professor Corvinus! What a treat to see you! What can I wrap up for your hungry students today?</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"-0.5st\">— Ah, Teacher Corvinus! <break time=\"300ms\"/> What a treat to see you! <break time=\"300ms\"/> What can I wrap up for your hungry students today?</prosody></speak>",
                     "en": "— Ah, Teacher Corvinus! What a treat to see you! What can I wrap up for your hungry students today?",
                     "ru": "— А, профессор Корвинус! Какая радость видеть вас! Что завернуть для ваших голодных учеников сегодня?"
                 },
@@ -3404,7 +3404,7 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "baker",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Two copper coins for one pretzel, or three large pretzels for five copper coins!</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"-0.5st\">— Two copper coins for one twisted bread, or three large twisted breads for five copper coins!</prosody></speak>",
                     "en": "— Two copper coins for one twisted bread, or three large twisted breads for five copper coins!",
                     "ru": "— Две медные монеты за один брецель или три больших брецеля за пять медных монет!"
                 },
@@ -3446,7 +3446,7 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "baker",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Perfect payment, young man! Thank you very much!</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"-0.5st\">— Perfect payment, young man! <break time=\"300ms\"/> Thank you very much!</prosody></speak>",
                     "en": "— Perfect payment, young man! Thank you very much!",
                     "ru": "— Идеальная оплата, молодой человек! Большое спасибо!"
                 },
@@ -3460,7 +3460,7 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "baker",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Here you go! Be careful, they are still very warm. Enjoy every bite, young scholars!</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"-0.5st\">— Here you go! <break time=\"300ms\"/> Be careful, they are still very warm. <break time=\"300ms\"/> Enjoy every bite, young students!</prosody></speak>",
                     "en": "— Here you go! Be careful, they are still very warm. Enjoy every bite, young students!",
                     "ru": "— Вот, держите! Осторожно, они еще очень горячие. Наслаждайтесь каждым кусочком, юные ученые!"
                 },
@@ -3617,7 +3617,7 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "selma",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Ah, Professor Corvinus! Peace and blessings to you! Welcome back to my humble spice tent!</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.95\" pitch=\"+1.5st\">— Ah, Teacher Corvinus! <break time=\"300ms\"/> Peace and good wishes to you! <break time=\"300ms\"/> Welcome back to my simple spice tent!</prosody></speak>",
                     "en": "— Ah, Teacher Corvinus! Peace and good wishes to you! Welcome back to my simple spice tent!",
                     "ru": "— А, профессор Корвинус! Мир и благословение вам! Добро пожаловать снова в мою скромную палатку пряностей!"
                 },
@@ -3631,7 +3631,7 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "selma",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— And who are these two bright young scholars with wide, curious eyes?</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.95\" pitch=\"+1.5st\">— And who are these two bright young students with wide, curious eyes?</prosody></speak>",
                     "en": "— And who are these two bright young students with wide, curious eyes?",
                     "ru": "— А кто эти двое смышленых юных ученых с широко распахнутыми любознательными глазами?"
                 },
@@ -3652,7 +3652,7 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "selma",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Thank you, young master! How may I assist the Spire Academy this morning?</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.95\" pitch=\"+1.5st\">— Thank you, young master! <break time=\"300ms\"/> How may I assist the Spire Academy this morning?</prosody></speak>",
                     "en": "— Thank you, young master! How may I assist the Spire Academy this morning?",
                     "ru": "— Спасибо, юный мастер! Чем я могу помочь Академии Шпиля этим утром?"
                 },
@@ -3666,7 +3666,7 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "selma",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— I have the finest mountain thyme harvested from the sunniest southern peaks last week.</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.95\" pitch=\"+1.5st\">— I have the finest mountain small herb harvested from the most sunny southern peaks last week.</prosody></speak>",
                     "en": "— I have the finest mountain small herb harvested from the most sunny southern peaks last week.",
                     "ru": "— У меня лучший горный тимьян, собранный с самых солнечных южных вершин на прошлой неделе."
                 },
@@ -3701,7 +3701,7 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "selma",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Just three more dried leaves... and CLICK! The golden needle points straight to the center mark!</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.95\" pitch=\"+1.5st\">— Just three more dried leaves... <break time=\"300ms\"/> and CLICK! <break time=\"300ms\"/> The golden needle points straight to the center mark!</prosody></speak>",
                     "en": "— Just three more dried leaves... and CLICK! The golden needle points straight to the center mark!",
                     "ru": "— Еще всего три сухих листочка... и ЩЕЛК! Золотая стрелка указывает ровно на центральную метку!"
                 },
@@ -3743,7 +3743,7 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "selma",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— And it has a wonderful scent of fresh mountain rain and wild violets!</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.95\" pitch=\"+1.5st\">— And it has a wonderful scent of fresh mountain rain and wild violets!</prosody></speak>",
                     "en": "— And it has a wonderful scent of fresh mountain rain and wild violets!",
                     "ru": "— И у него чудесный аромат свежего горного дождя и диких фиалок!"
                 },
@@ -3771,7 +3771,7 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "selma",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Thank you, Professor! May your studies at the Spire shine brightly this season!</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.95\" pitch=\"+1.5st\">— Thank you, Teacher! <break time=\"300ms\"/> May your studies at the Spire shine with bright light this season!</prosody></speak>",
                     "en": "— Thank you, Teacher! May your studies at the Spire shine with bright light this season!",
                     "ru": "— Спасибо, профессор! Пусть ваши ученые труды в Шпиле сияют ярко в этом сезоне!"
                 },
@@ -3858,7 +3858,7 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "barnaby",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Look closely at this rear oak wheel, Eldrin. The thick iron rim around the wood is loose and wobbles.</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2.5st\">— Look closely at this rear big tree wheel, Eldrin. <break time=\"300ms\"/> The thick iron edge around the wood is loose and shakes.</prosody></speak>",
                     "en": "— Look closely at this rear big tree wheel, Eldrin. The thick iron edge around the wood is loose and shakes.",
                     "ru": "— Посмотри внимательно на это заднее дубовое колесо, Элдрин. Толстый железный обод вокруг дерева разболтался и шатается."
                 },
@@ -3872,7 +3872,7 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "barnaby",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Absolutely not! On the rocky mountain switchbacks, the wheel would break in five minutes.</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2.5st\">— Absolutely not! <break time=\"300ms\"/> On the rocky mountain sharp turns, the wheel would break in five minutes.</prosody></speak>",
                     "en": "— Absolutely not! On the rocky mountain sharp turns, the wheel would break in five minutes.",
                     "ru": "— Ни в коем случае! На каменистых горных серпантинах колесо сломается за пять минут."
                 },
@@ -3914,21 +3914,21 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "smith",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Ho-ho! Greetings, Professor Corvinus! What brings the Academy cart to my fiery workshop?</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-4.5st\">— Ho-ho! <break time=\"300ms\"/> Hello, Teacher Corvinus! <break time=\"300ms\"/> What brings the Academy cart to my very hot workshop?</prosody></speak>",
                     "en": "— Ho-ho! Hello, Teacher Corvinus! What brings the Academy cart to my very hot workshop?",
                     "ru": "— Хо-хо! Приветствую, профессор Корвинус! Что привело повозку Академии в мою огненную мастерскую?"
                 },
                 {
                     "speaker": "barnaby",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Master Bruno! The iron tire on our back wheel is loose. We need your hammer and heat!</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2.5st\">— Master Bruno! <break time=\"300ms\"/> The iron tire on our back wheel is loose. <break time=\"300ms\"/> We need your hammer and heat!</prosody></speak>",
                     "en": "— Master Bruno! The iron tire on our back wheel is loose. We need your hammer and heat!",
                     "ru": "— Мастер Бруно! Железная шина на нашем заднем колесе разболталась. Нам нужны твой молот и жар!"
                 },
                 {
                     "speaker": "smith",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— A simple fix for an honest cart! Step back to a safe distance, young scholars! Watch the bright sparks fly!</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-4.5st\">— A simple fix for an honest cart! <break time=\"300ms\"/> Step back to a safe distance, young students! <break time=\"300ms\"/> Watch the bright tiny fires fly!</prosody></speak>",
                     "en": "— A simple fix for an honest cart! Step back to a safe distance, young students! Watch the bright tiny fires fly!",
                     "ru": "— Простая работа для честной повозки! Отойдите на безопасное расстояние, юные ученые! Смотрите, как летят яркие искры!"
                 },
@@ -3963,7 +3963,7 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "smith",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Heat expands the metal, young man! Now it will fit over the oak wheel easily!</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-4.5st\">— Heat gets bigger the metal, young man! <break time=\"300ms\"/> Now it will fit over the big tree wheel easily!</prosody></speak>",
                     "en": "— Heat gets bigger the metal, young man! Now it will fit over the big tree wheel easily!",
                     "ru": "— Жар расширяет металл, юноша! Теперь он легко налезет на дубовое колесо!"
                 },
@@ -3998,7 +3998,7 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "smith",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Now for the magic of cold well water! Watch closely!</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-4.5st\">— Now for the magic of cold well water! <break time=\"300ms\"/> Watch closely!</prosody></speak>",
                     "en": "— Now for the magic of cold well water! Watch closely!",
                     "ru": "— А теперь магия холодной колодезной воды! Смотрите внимательно!"
                 },
@@ -4040,14 +4040,14 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "smith",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— That wheel is now stronger than new! It will carry your cart safely for ten full years!</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-4.5st\">— That wheel is now stronger than new! <break time=\"300ms\"/> It will carry your cart safely for ten full years!</prosody></speak>",
                     "en": "— That wheel is now stronger than new! It will carry your cart safely for ten full years!",
                     "ru": "— Это колесо теперь крепче нового! Оно будет надежно возить вашу повозку целых десять лет!"
                 },
                 {
                     "speaker": "barnaby",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Thank you with all my heart, Master Bruno! You saved our journey home!</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2.5st\">— Thank you with all my heart, Master Bruno! <break time=\"300ms\"/> You saved our journey home!</prosody></speak>",
                     "en": "— Thank you with all my heart, Master Bruno! You saved our journey home!",
                     "ru": "— Спасибо от всего сердца, мастер Бруно! Ты спас нашу дорогу домой!"
                 },
@@ -4061,7 +4061,7 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "smith",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— A pleasure serving the Spire Academy! Safe travels up the mountain trails, young friends!</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-4.5st\">— A pleasure serving the Spire Academy! <break time=\"300ms\"/> Safe travels up the mountain trails, young friends!</prosody></speak>",
                     "en": "— A pleasure serving the Spire Academy! Safe travels up the mountain trails, young friends!",
                     "ru": "— Рад служить Академии Шпиля! Безопасного пути по горным тропам, юные друзья!"
                 },
@@ -4302,7 +4302,7 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "vendor",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Oh, my goodness! Smokey! You found my sweet little runaway kitten!</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+3st\">— Oh, my goodness! <break time=\"300ms\"/> Smokey! <break time=\"300ms\"/> You found my sweet little lost kitten!</prosody></speak>",
                     "en": "— Oh, my goodness! Smokey! You found my sweet little lost kitten!",
                     "ru": "— О, боже мой! Дымок! Вы нашли моего милого сбежавшего котенка!"
                 },
@@ -4316,7 +4316,7 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "vendor",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— I was searching for him all morning! Thank you with all my heart, kind young scholars!</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+3st\">— I was searching for him all morning! <break time=\"300ms\"/> Thank you with all my heart, kind young students!</prosody></speak>",
                     "en": "— I was searching for him all morning! Thank you with all my heart, kind young students!",
                     "ru": "— Я искала его все утро! Спасибо вам от всего сердца, добрые юные ученые!"
                 },
@@ -4330,7 +4330,7 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "vendor",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Please take these fresh yellow flowers as a token of my deep thanks!</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+3st\">— Please take these fresh yellow flowers as a token of my deep thanks!</prosody></speak>",
                     "en": "— Please take these fresh yellow flowers as a token of my deep thanks!",
                     "ru": "— Пожалуйста, возьмите эти свежие желтые нарциссы в знак моей глубокой благодарности!"
                 },
@@ -4459,7 +4459,7 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "otho",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Ah, Professor Corvinus! My dearest old friend! Welcome to my treasure house of forgotten knowledge!</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-2.5st\">— Ah, Teacher Corvinus! <break time=\"300ms\"/> My dear old friend! <break time=\"300ms\"/> Welcome to my treasure house of forgotten knowledge!</prosody></speak>",
                     "en": "— Ah, Teacher Corvinus! My dear old friend! Welcome to my treasure house of forgotten knowledge!",
                     "ru": "— А, профессор Корвинус! Мой дорогой старый друг! Добро пожаловать в мою сокровищницу забытых знаний!"
                 },
@@ -4473,7 +4473,7 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "otho",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Step inside, young friends! Run your fingers along the shelves. Every book has a story to tell.</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-2.5st\">— Step inside, young friends! <break time=\"300ms\"/> Run your fingers along the shelves. <break time=\"300ms\"/> Every book has a story to tell.</prosody></speak>",
                     "en": "— Step inside, young friends! Run your fingers along the shelves. Every book has a story to tell.",
                     "ru": "— Проходите, юные друзья! Проведите пальцами по полкам. У каждой книги есть своя история."
                 },
@@ -4529,14 +4529,14 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "otho",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— That star atlas was crafted fifty years ago by a master astronomer on the coast.</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-2.5st\">— That star atlas was crafted fifty years ago by a master star teacher on the coast.</prosody></speak>",
                     "en": "— That star atlas was crafted fifty years ago by a master star teacher on the coast.",
                     "ru": "— Этот звездный атлас был создан пятьдесят лет назад мастером-астрономом на побережье."
                 },
                 {
                     "speaker": "otho",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— It has accurate charts of all twelve celestial seasons and planetary paths.</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-2.5st\">— It has very correct charts of all twelve star seasons and planet paths.</prosody></speak>",
                     "en": "— It has very correct charts of all twelve star seasons and planet paths.",
                     "ru": "— В нем точные карты всех двенадцати небесных сезонов и путей планет."
                 },
@@ -4557,7 +4557,7 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "otho",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— For a true, dedicated scholar from the Spire Academy, just three silver coins.</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-2.5st\">— For a true, hard working student from the Spire Academy, just three silver coins.</prosody></speak>",
                     "en": "— For a true, hard working student from the Spire Academy, just three silver coins.",
                     "ru": "— Для истинного, преданного науке ученика из Академии Шпиля — всего три серебряные монеты."
                 },
@@ -4592,7 +4592,7 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "otho",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— May the silver stars guide your path to great wisdom, young apprentice!</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-2.5st\">— May the silver stars guide your path to great wisdom, young apprentice!</prosody></speak>",
                     "en": "— May the silver stars guide your path to great wisdom, young apprentice!",
                     "ru": "— Пусть серебряные звезды укажут тебе путь к великой мудрости, юный ученик!"
                 },
@@ -4941,7 +4941,7 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "barnaby",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Welcome back, scholars! The horses are well-fed, and the repaired back wheel is sturdy as a mountain!</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2.5st\">— Welcome back, students! <break time=\"300ms\"/> The horses are well-fed, and the repaired back wheel is sturdy as a mountain!</prosody></speak>",
                     "en": "— Welcome back, students! The horses are well-fed, and the repaired back wheel is sturdy as a mountain!",
                     "ru": "— С возвращением, ученые! Лошади накормлены, а починенное заднее колесо крепкое как скала!"
                 },
@@ -4997,7 +4997,7 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "barnaby",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Two lanterns mounted on the front cart rails, and the third resting safely in the tool box! Checked!</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2.5st\">— Two lanterns put up on the front cart rails, and the third resting safely in the tool box! <break time=\"300ms\"/> Checked!</prosody></speak>",
                     "en": "— Two lanterns put up on the front cart rails, and the third resting safely in the tool box! Checked!",
                     "ru": "— Два фонаря закреплены на передних поручнях повозки, а третий надежно лежит в ящике для инструментов! Проверено!"
                 },
@@ -5095,7 +5095,7 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "barnaby",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— That is a master-level hitch knot, young lady! Outstanding teamwork!</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2.5st\">— That is a master-level tie knot, young lady! <break time=\"300ms\"/> Very good teamwork!</prosody></speak>",
                     "en": "— That is a master-level tie knot, young lady! Very good teamwork!",
                     "ru": "— Это узел мастерского уровня, юная леди! Выдающаяся командная работа!"
                 },
@@ -5123,7 +5123,7 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "barnaby",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Giddy-up, Daisy! Giddy-up, Clover! Take us home to the Spire!</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2.5st\">— Giddy-up, White flower! <break time=\"300ms\"/> Giddy-up, Small green plant! <break time=\"300ms\"/> Take us home to the Spire!</prosody></speak>",
                     "en": "— Giddy-up, White flower! Giddy-up, Small green plant! Take us home to the Spire!",
                     "ru": "— Но, Дейзи! Но, Клевер! Везите нас домой в Шпиль!"
                 },
@@ -5196,7 +5196,7 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "guard",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Safe journey up the mountain pass, Professor Corvinus! See you next season!</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-3.5st\">— Safe journey up the mountain pass, Teacher Corvinus! <break time=\"300ms\"/> See you next season!</prosody></speak>",
                     "en": "— Safe journey up the mountain pass, Teacher Corvinus! See you next season!",
                     "ru": "— Счастливого пути через горный перевал, профессор Корвинус! До встречи в следующем сезоне!"
                 },
@@ -5252,7 +5252,7 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "barnaby",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Time to light our path, travelers! Darkness falls fast in the high mountains.</prosody></speak>",
+                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2.5st\">— Time to light our path, friends! <break time=\"300ms\"/> Darkness falls fast in the high mountains.</prosody></speak>",
                     "en": "— Time to light our path, friends! Darkness falls fast in the high mountains.",
                     "ru": "— Пора осветить наш путь, путники! Темнота в высоких горах опускается быстро."
                 },

@@ -8280,19 +8280,27 @@ document.addEventListener("DOMContentLoaded", () => {
                 } else if (sent.speaker === 'kira') {
                     speakerBadge = `<span class="badge" style="background:rgba(236,72,153,0.25); color:#f472b6; font-size:11px; border:1px solid rgba(236,72,153,0.5);"><i class="fa-solid fa-person-running"></i> Кира</span>`;
                 } else if (sent.speaker === 'corvinus') {
-                    speakerBadge = `<span class="badge" style="background:rgba(59,130,246,0.25); color:#60a5fa; font-size:11px; border:1px solid rgba(59,130,246,0.5);"><i class="fa-solid fa-book-open-reader"></i> Корвинус</span>`;
-                } else if (sent.speaker === 'vane') {
-                    speakerBadge = `<span class="badge" style="background:rgba(245,158,11,0.25); color:#fbbf24; font-size:11px; border:1px solid rgba(245,158,11,0.5);"><i class="fa-solid fa-shield-halved"></i> Командор Вейн</span>`;
-                } else if (sent.speaker === 'malakor') {
-                    speakerBadge = `<span class="badge" style="background:rgba(239,68,68,0.25); color:#f87171; font-size:11px; border:1px solid rgba(239,68,68,0.5);"><i class="fa-solid fa-crown"></i> Прелат Малакор</span>`;
-                } else if (sent.speaker === 'thorin') {
-                    speakerBadge = `<span class="badge" style="background:rgba(245,158,11,0.25); color:#fbbf24; font-size:11px; border:1px solid rgba(245,158,11,0.5);"><i class="fa-solid fa-hammer"></i> Торин</span>`;
-                } else if (sent.speaker === 'oberon') {
-                    speakerBadge = `<span class="badge" style="background:rgba(132,204,22,0.25); color:#a3e635; font-size:11px; border:1px solid rgba(132,204,22,0.5);"><i class="fa-solid fa-leaf"></i> Оберон</span>`;
-                } else if (sent.speaker === 'selene') {
-                    speakerBadge = `<span class="badge" style="background:rgba(236,72,153,0.25); color:#f472b6; font-size:11px; border:1px solid rgba(236,72,153,0.5);"><i class="fa-solid fa-mask"></i> Селена</span>`;
-                } else if (sent.speaker === 'astraea') {
-                    speakerBadge = `<span class="badge" style="background:rgba(16,185,129,0.25); color:#6ee7b7; font-size:11px; border:1px solid rgba(16,185,129,0.5);"><i class="fa-solid fa-wand-magic-sparkles"></i> Астрея</span>`;
+                    speakerBadge = `<span class="badge" style="background:rgba(59,130,246,0.25); color:#60a5fa; font-size:11px; border:1px solid rgba(59,130,246,0.5);"><i class="fa-solid fa-book-open-reader"></i> Мастер Корвинус</span>`;
+                } else if (sent.speaker === 'postman') {
+                    speakerBadge = `<span class="badge" style="background:rgba(245,158,11,0.25); color:#fbbf24; font-size:11px; border:1px solid rgba(245,158,11,0.5);"><i class="fa-solid fa-envelope-open-text"></i> Почтальон</span>`;
+                } else if (sent.speaker === 'baker') {
+                    speakerBadge = `<span class="badge" style="background:rgba(217,119,6,0.25); color:#f59e0b; font-size:11px; border:1px solid rgba(217,119,6,0.5);"><i class="fa-solid fa-bread-slice"></i> Пекарь Ганс</span>`;
+                } else if (sent.speaker === 'smith') {
+                    speakerBadge = `<span class="badge" style="background:rgba(239,68,68,0.25); color:#f87171; font-size:11px; border:1px solid rgba(239,68,68,0.5);"><i class="fa-solid fa-hammer"></i> Кузнец Бруно</span>`;
+                } else if (sent.speaker === 'selma') {
+                    speakerBadge = `<span class="badge" style="background:rgba(20,184,166,0.25); color:#2dd4bf; font-size:11px; border:1px solid rgba(20,184,166,0.5);"><i class="fa-solid fa-leaf"></i> Травница Сельма</span>`;
+                } else if (sent.speaker === 'otho') {
+                    speakerBadge = `<span class="badge" style="background:rgba(139,92,246,0.25); color:#a78bfa; font-size:11px; border:1px solid rgba(139,92,246,0.5);"><i class="fa-solid fa-scroll"></i> Книжник Ото</span>`;
+                } else if (sent.speaker === 'barnaby') {
+                    speakerBadge = `<span class="badge" style="background:rgba(132,204,22,0.25); color:#a3e635; font-size:11px; border:1px solid rgba(132,204,22,0.5);"><i class="fa-solid fa-horse"></i> Фермер Барнаби</span>`;
+                } else if (sent.speaker === 'guard') {
+                    speakerBadge = `<span class="badge" style="background:rgba(234,179,8,0.25); color:#facc15; font-size:11px; border:1px solid rgba(234,179,8,0.5);"><i class="fa-solid fa-shield-halved"></i> Капитан Вэнс</span>`;
+                } else if (sent.speaker === 'vendor') {
+                    speakerBadge = `<span class="badge" style="background:rgba(244,63,94,0.25); color:#fb7185; font-size:11px; border:1px solid rgba(244,63,94,0.5);"><i class="fa-solid fa-spa"></i> Цветочница Роза</span>`;
+                } else if (sent.speaker === 'cook') {
+                    speakerBadge = `<span class="badge" style="background:rgba(249,115,22,0.25); color:#fb923c; font-size:11px; border:1px solid rgba(249,115,22,0.5);"><i class="fa-solid fa-utensils"></i> Шеф-повар</span>`;
+                } else if (sent.speaker === 'toby') {
+                    speakerBadge = `<span class="badge" style="background:rgba(16,185,129,0.25); color:#34d399; font-size:11px; border:1px solid rgba(16,185,129,0.5);"><i class="fa-solid fa-graduation-cap"></i> Тоби (ученик)</span>`;
                 }
 
                 const isRevealed = !isBlindMode || revealedSentences.has(idx);

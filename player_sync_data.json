@@ -16,10 +16,10 @@
       "xp": 645,
       "maxXp": 645,
       "affinityLevel": 33,
-      "hp": 21928,
-      "maxHp": 21928,
-      "atk": 2347,
-      "def": 1785,
+      "hp": 21085,
+      "maxHp": 21085,
+      "atk": 2257,
+      "def": 1716,
       "skillName": "Aegis Shield",
       "skillDesc": "Taunts all enemies & increases DEF.",
       "skillIcon": "fa-shield",
@@ -23776,17 +23776,15 @@
   "writing_words": 1505,
   "listening_words": 4806,
   "speaking_words": 5,
-  "drills_cards": 240,
+  "drills_cards": 259,
   "visual_fluency_xp": 759,
-  "visual_fluency_completed": [
-    1
-  ],
+  "visual_fluency_completed": [],
   "completed_story_chapters": [
     1
   ],
-  "lastSyncedAt": "2026-09-08T18:10:34.714Z",
+  "lastSyncedAt": "2026-09-08T19:36:51.949Z",
   "eldrin_audiobook_state": {
-    "activeChapterId": "eldrin-ch-19",
+    "activeChapterId": "eldrin-ch-5",
     "currentSentenceIdx": 0,
     "playbackSpeed": 1,
     "narratorVoice": "Charon",
@@ -23803,6 +23801,6 @@
       "eldrin-ch-3",
       "eldrin-ch-4"
     ],
-    "lastSavedAt": "2026-09-08T18:10:33.693Z"
+    "lastSavedAt": "2026-09-08T17:53:44.152Z"
   }
 }
