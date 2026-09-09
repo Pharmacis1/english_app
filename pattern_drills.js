@@ -346,32 +346,123 @@ class PatternDrillsEngine {
             original: selectedItem.original,
             modifier: selectedItem.modifier,
             target: selectedItem.target,
+            distractors: distractors || [],
             options: allOptions,
             correctIdx: allOptions.indexOf(selectedItem.target),
             isRetry
         };
     }
 
+    expandContractions(text) {
+        if (!text) return '';
+        let s = ' ' + text.toLowerCase().replace(/[’`]/g, "'") + ' ';
+        const map = [
+            [/\bi'm\b/g, 'i am'],
+            [/\byou're\b/g, 'you are'],
+            [/\bhe's\b/g, 'he is'],
+            [/\bshe's\b/g, 'she is'],
+            [/\bit's\b/g, 'it is'],
+            [/\bwe're\b/g, 'we are'],
+            [/\bthey're\b/g, 'they are'],
+            [/\bthere's\b/g, 'there is'],
+            [/\bthere're\b/g, 'there are'],
+            [/\bthat's\b/g, 'that is'],
+            [/\bwhat's\b/g, 'what is'],
+            [/\bwho's\b/g, 'who is'],
+            [/\bwhere's\b/g, 'where is'],
+            [/\bhow's\b/g, 'how is'],
+            [/\bcan't\b/g, 'cannot'],
+            [/\bcan not\b/g, 'cannot'],
+            [/\bwon't\b/g, 'will not'],
+            [/\bdon't\b/g, 'do not'],
+            [/\bdoesn't\b/g, 'does not'],
+            [/\bdidn't\b/g, 'did not'],
+            [/\bisn't\b/g, 'is not'],
+            [/\baren't\b/g, 'are not'],
+            [/\bwasn't\b/g, 'was not'],
+            [/\bweren't\b/g, 'were not'],
+            [/\bhaven't\b/g, 'have not'],
+            [/\bhasn't\b/g, 'has not'],
+            [/\bhadn't\b/g, 'had not'],
+            [/\bwouldn't\b/g, 'would not'],
+            [/\bshouldn't\b/g, 'should not'],
+            [/\bcouldn't\b/g, 'could not'],
+            [/\bmustn't\b/g, 'must not'],
+            [/\bi'll\b/g, 'i will'],
+            [/\byou'll\b/g, 'you will'],
+            [/\bhe'll\b/g, 'he will'],
+            [/\bshe'll\b/g, 'she will'],
+            [/\bwe'll\b/g, 'we will'],
+            [/\bthey'll\b/g, 'they will'],
+            [/\bit'll\b/g, 'it will'],
+            [/\bi've\b/g, 'i have'],
+            [/\byou've\b/g, 'you have'],
+            [/\bwe've\b/g, 'we have'],
+            [/\bthey've\b/g, 'they have'],
+            [/\bi'd\b/g, 'i would'],
+            [/\byou'd\b/g, 'you would'],
+            [/\bhe'd\b/g, 'he would'],
+            [/\bshe'd\b/g, 'she would'],
+            [/\bwe'd\b/g, 'we would'],
+            [/\bthey'd\b/g, 'they would'],
+            [/\blet's\b/g, 'let us'],
+            [/\bgonna\b/g, 'going to'],
+            [/\bwanna\b/g, 'want to'],
+            [/\bgotta\b/g, 'got to']
+        ];
+        for (const [regex, repl] of map) {
+            s = s.replace(regex, repl);
+        }
+        return s.trim();
+    }
+
     normalizeSentence(str) {
         return (str || '')
             .toLowerCase()
+            .replace(/[’`]/g, "'")
             .replace(/[^a-z0-9\s']/gi, '')
             .replace(/\s+/g, ' ')
             .trim();
     }
 
-    checkSpokenAnswer(spokenText, targetText) {
+    checkSpokenAnswer(spokenText, targetText, distractors = []) {
         if (!spokenText || !targetText) return false;
-        const normSpoken = this.normalizeSentence(spokenText);
-        const normTarget = this.normalizeSentence(targetText);
-        if (normSpoken === normTarget) return true;
 
-        const cleanSpoken = normSpoken.replace(/'/g, '');
-        const cleanTarget = normTarget.replace(/'/g, '');
+        const expSpoken = this.normalizeSentence(this.expandContractions(spokenText));
+        const expTarget = this.normalizeSentence(this.expandContractions(targetText));
+        const cleanSpoken = this.normalizeSentence(spokenText).replace(/'/g, '');
+        const cleanTarget = this.normalizeSentence(targetText).replace(/'/g, '');
+
+        // 1. Explicitly check if spoken matched a known distractor (common grammar trap)
+        if (Array.isArray(distractors) && distractors.length > 0) {
+            for (const dist of distractors) {
+                const expDist = this.normalizeSentence(this.expandContractions(dist));
+                const cleanDist = this.normalizeSentence(dist).replace(/'/g, '');
+                if (expSpoken === expDist || cleanSpoken === cleanDist) {
+                    return false;
+                }
+            }
+        }
+
+        // 2. Direct exact matches (with expanded contractions, e.g. "I'm" == "I am", "doesn't" == "does not")
+        if (expSpoken === expTarget) return true;
         if (cleanSpoken === cleanTarget) return true;
 
-        const spokenWords = normSpoken.split(' ');
-        const targetWords = normTarget.split(' ');
+        // 3. Word token matching with critical auxiliary validation
+        const spokenWords = expSpoken.split(' ').filter(Boolean);
+        const targetWords = expTarget.split(' ').filter(Boolean);
+        if (targetWords.length === 0) return true;
+
+        const criticalAuxiliaries = ['am', 'is', 'are', 'was', 'were', 'do', 'does', 'did', 'not', 'will', 'would', 'can', 'cannot', 'could', 'should', 'must', 'have', 'has', 'had'];
+        for (const aux of criticalAuxiliaries) {
+            if (targetWords.includes(aux) && !spokenWords.includes(aux)) {
+                return false;
+            }
+            if (!targetWords.includes(aux) && spokenWords.includes(aux)) {
+                return false;
+            }
+        }
+
         let matches = 0;
         targetWords.forEach(w => {
             if (spokenWords.includes(w)) matches++;

@@ -3673,8 +3673,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function calculatePronunciationAccuracy(targetText, spokenText) {
         if (!targetText || !spokenText) return 0;
-        const cleanTarget = targetText.toLowerCase().replace(/\[correction:[\s\S]*?\]/gi, '').replace(/[^a-z0-9\s]/gi, '').split(/\s+/).filter(Boolean);
-        const cleanSpoken = spokenText.toLowerCase().replace(/[^a-z0-9\s]/gi, '').split(/\s+/).filter(Boolean);
+        const normTarget = (window.patternDrills && typeof window.patternDrills.expandContractions === 'function')
+            ? window.patternDrills.expandContractions(targetText)
+            : targetText;
+        const normSpoken = (window.patternDrills && typeof window.patternDrills.expandContractions === 'function')
+            ? window.patternDrills.expandContractions(spokenText)
+            : spokenText;
+
+        const cleanTarget = normTarget.toLowerCase().replace(/\[correction:[\s\S]*?\]/gi, '').replace(/[^a-z0-9\s]/gi, '').split(/\s+/).filter(Boolean);
+        const cleanSpoken = normSpoken.toLowerCase().replace(/[^a-z0-9\s]/gi, '').split(/\s+/).filter(Boolean);
         if (cleanTarget.length === 0) return 100;
 
         let matchedCount = 0;
@@ -7564,7 +7571,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         }
 
                         if (spokenFeedback) spokenFeedback.innerHTML = `Распознано: <b>"${cleanSpoken}"</b>`;
-                        const isOk = window.patternDrills.checkSpokenAnswer(cleanSpoken, currentCard.target);
+                        const distractorsList = currentCard.distractors || (currentCard.options ? currentCard.options.filter(o => o !== currentCard.target) : []);
+                        const isOk = window.patternDrills.checkSpokenAnswer(cleanSpoken, currentCard.target, distractorsList);
                         handleCardAnswer(isOk);
                     },
                     (isRec, statusMsg) => {
@@ -8431,7 +8439,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     } else {
                         // Chapter finished!
                         stopAudio();
-                        showToast(`🎉 <b>Глава ${curChapter.number} прослушана!</b> Пройдите квиз, чтобы зачислить слова и опыт! 🌟`, "linear-gradient(135deg, #f59e0b, #d97706)", "#fbbf24");
+                        showToast(`🎉 <b>Глава ${curChapter.number} прослушана!</b> Пройдите квиз, чтобы зачислить слова в навык аудирования! 🌟`, "linear-gradient(135deg, #f59e0b, #d97706)", "#fbbf24");
                         if (openQuizBtn) {
                             openQuizBtn.style.animation = "pulse 1.5s infinite";
                         }
@@ -8532,7 +8540,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         📖 Проверка понимания: <b>Глава ${curChapter.number}</b>
                     </div>
                     <div style="font-size:12px; color:#94a3b8;">
-                        Ответьте правильно на 3 вопроса, чтобы получить <b>+${curChapter.wordCount} слов</b> в Listening Skill и <b>+100 XP</b>!
+                        Ответьте правильно на 3 вопроса, чтобы получить <b>+${curChapter.wordCount} слов</b> в навык аудирования (Listening Skill)!
                     </div>
                 </div>
                 <div id="audiobook-quiz-questions-list" style="display:flex; flex-direction:column; gap:16px;">
@@ -8588,9 +8596,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         if (!wordAwardedChapters.includes(activeChapterId)) {
                             wordAwardedChapters.push(activeChapterId);
                             addListeningWords(curChapter.wordCount);
-                            addXP(100);
-                            triggerRPGReward("listen", "eldrin", "eldrin", 100, `🎧 +${curChapter.wordCount} Listening Words & +100 XP!`, "linear-gradient(135deg, #a855f7, #6366f1)");
-                            showToast(`🎧 <b>LISTENING SKILL PROGRESS!</b> +${curChapter.wordCount} слов зачислено! (+100 XP)`, "linear-gradient(135deg, #a855f7, #6366f1)", "#c084fc");
+                            showToast(`🎧 <b>LISTENING SKILL PROGRESS!</b> +${curChapter.wordCount} слов зачислено в навык аудирования!`, "linear-gradient(135deg, #a855f7, #6366f1)", "#c084fc");
                         }
 
                         try { recordAudioStoryStreakActivity(3); } catch(e) {}
