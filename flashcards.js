@@ -211,10 +211,38 @@ class FlashcardEngine {
         this.currentIndex = (this.currentIndex + 1) % activeCards.length;
     }
 
-    nextBatch() {
+    getTotalBatches() {
+        if (this.currentCategory === "🧠 Due for SRS Review") return 1;
         const allCards = this.decks[this.currentCategory] || [];
-        const maxBatches = Math.ceil(allCards.length / this.batchSize);
-        this.batchIndex = (this.batchIndex + 1) % Math.max(1, maxBatches);
+        return Math.max(1, Math.ceil(allCards.length / this.batchSize));
+    }
+
+    setBatch(index) {
+        const total = this.getTotalBatches();
+        this.batchIndex = Math.max(0, Math.min(index, total - 1));
+        this.currentIndex = 0;
+    }
+
+    prevBatch() {
+        const total = this.getTotalBatches();
+        this.batchIndex = (this.batchIndex - 1 + total) % total;
+        this.currentIndex = 0;
+    }
+
+    nextBatch() {
+        const total = this.getTotalBatches();
+        this.batchIndex = (this.batchIndex + 1) % total;
+        this.currentIndex = 0;
+    }
+
+    resetCurrentBatch() {
+        if (this.currentCategory === "🧠 Due for SRS Review") return;
+        const allCards = this.decks[this.currentCategory] || [];
+        const start = this.batchIndex * this.batchSize;
+        const batch = allCards.slice(start, start + this.batchSize);
+        batch.forEach(c => {
+            c.learningInSession = true;
+        });
         this.currentIndex = 0;
     }
 

@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css?v=11.083">
+    <link rel="stylesheet" href="styles.css?v=11.085">
 </head>
 <body class="hero-rpg-body">
 
@@ -608,23 +608,23 @@
             <div class="rpg-modal-header">
                 <div class="modal-header-title">
                     <i class="fa-solid fa-bolt" style="font-size:20px; color:#fbbf24;"></i>
-                    <h3>⚡ Pattern Drills &bull; Трансформатор фраз</h3>
+                    <h3>⚡ Pattern Drills</h3>
                     <span class="badge" style="background:rgba(245,158,11,0.2); color:#fbbf24; border:1px solid rgba(245,158,11,0.4); font-size:11px;" id="drills-header-progress-badge">
                         Card: 0 / 10,000 &bull; Lv. 1
                     </span>
                 </div>
                 <button class="modal-close-btn">&times;</button>
             </div>
-            <div class="rpg-modal-body" style="padding:24px;">
-                <!-- DRILLS TOP BAR: SETTINGS, COMBO & SPRINT -->
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; flex-wrap:wrap; gap:10px;">
-                    <div style="display:flex; align-items:center; gap:8px;">
-                        <span style="font-size:12px; color:var(--text-muted);">⏱️ Таймер:</span>
+            <div class="rpg-modal-body" style="padding:20px;">
+                <!-- DRILLS TOP BAR: SPEED & COMBO -->
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; flex-wrap:wrap; gap:8px;">
+                    <div style="display:flex; align-items:center; gap:6px;">
+                        <span style="font-size:14px;" title="Скорость таймера">⏱️</span>
                         <div class="btn-group" id="drills-timer-select-group">
-                            <button class="btn btn-sm btn-outline drills-speed-btn" data-sec="3">3 сек (Хардкор)</button>
+                            <button class="btn btn-sm btn-outline drills-speed-btn" data-sec="3">3 сек</button>
                             <button class="btn btn-sm btn-outline drills-speed-btn" data-sec="5">5 сек</button>
-                            <button class="btn btn-sm btn-outline drills-speed-btn active" data-sec="7">7 сек (Стандарт)</button>
-                            <button class="btn btn-sm btn-outline drills-speed-btn" data-sec="10">10 сек (Спокойный)</button>
+                            <button class="btn btn-sm btn-outline drills-speed-btn active" data-sec="7">7 сек</button>
+                            <button class="btn btn-sm btn-outline drills-speed-btn" data-sec="10">10 сек</button>
                         </div>
                     </div>
                     <div id="drills-live-combo-container">
@@ -634,13 +634,13 @@
 
                 <!-- MAIN DRILL CARD BOX -->
                 <div class="drills-card-box" id="drills-card-box">
-                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
                         <span style="font-size:11px; color:#94a3b8; font-family:monospace;" id="drills-sprint-step-text">КАРТОЧКА 1 ИЗ 10</span>
                         <span class="drills-modifier-badge" id="drills-card-modifier">❌ Negative</span>
                     </div>
 
                     <!-- ORIGINAL SENTENCE -->
-                    <div style="font-size:22px; font-weight:800; color:#ffffff; margin:12px 0; text-align:center; min-height:36px; display:flex; align-items:center; justify-content:center; gap:10px;" id="drills-card-original">
+                    <div style="font-size:21px; font-weight:800; color:#ffffff; margin:10px 0; text-align:center; min-height:36px; display:flex; align-items:center; justify-content:center; gap:10px;" id="drills-card-original">
                         <span>She works in the castle</span>
                         <button class="btn btn-sm btn-outline" id="drills-listen-original-btn" title="Прослушать" style="padding:2px 8px; font-size:12px;">
                             <i class="fa-solid fa-volume-high"></i>
@@ -653,27 +653,22 @@
                     </div>
 
                     <!-- VOICE INPUT & FEEDBACK -->
-                    <div style="text-align:center; margin:16px 0;">
-                        <button class="btn btn-record" id="drills-mic-btn" style="padding:12px 28px; font-size:15px; border-radius:30px;">
+                    <div style="text-align:center; margin:14px 0 8px 0;">
+                        <button class="btn btn-record" id="drills-mic-btn" style="padding:10px 24px; font-size:14px; border-radius:30px;">
                             <i class="fa-solid fa-microphone"></i> <span>Сказать ответ в микрофон</span>
                         </button>
-                        <div id="drills-spoken-feedback" style="font-size:13px; color:#94a3b8; margin-top:8px; min-height:20px;">
-                            Или выберите правильный вариант ниже на скорость:
-                        </div>
+                        <div id="drills-spoken-feedback" style="font-size:13px; color:#94a3b8; margin-top:6px; min-height:18px;"></div>
                     </div>
 
                     <!-- SPEED PICK OPTIONS -->
                     <div class="drills-opt-grid" id="drills-options-grid"></div>
 
                     <!-- FEEDBACK BOX -->
-                    <div id="drills-result-feedback" style="display:none; margin-top:16px; padding:12px; border-radius:12px; font-size:13px;"></div>
+                    <div id="drills-result-feedback" style="display:none; margin-top:14px; padding:10px 14px; border-radius:12px; font-size:13px;"></div>
                 </div>
 
                 <!-- CONTROLS & SKIP -->
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-top:16px;">
-                    <span style="font-size:11px; color:var(--text-muted);">
-                        💡 Совет: Говорите быстро и уверенно. Каждая трансформация автоматизирует грамматику.
-                    </span>
+                <div style="display:flex; justify-content:flex-end; align-items:center; margin-top:14px;">
                     <button class="btn btn-secondary btn-sm" id="drills-next-card-btn">
                         Следующая карточка <i class="fa-solid fa-forward-step"></i>
                     </button>
@@ -691,7 +686,7 @@
             <div class="rpg-modal-header">
                 <div class="modal-header-title">
                     <i class="fa-solid fa-book-open" style="font-size:20px; color:var(--gold);"></i>
-                    <h3>📖 Изучать слова героя</h3>
+                    <h3>📖 Слова</h3>
                 </div>
                 <button class="modal-close-btn">&times;</button>
             </div>
@@ -701,41 +696,48 @@
                         <div class="deck-tabs-wrapper" id="deck-tabs-wrapper">
                             <div class="deck-tabs" id="deck-tabs-container"></div>
                         </div>
-                        <button class="btn btn-outline btn-sm" id="btn-open-srs-forecast-fc" style="white-space:nowrap; margin-left:8px; background:rgba(99,102,241,0.15); border-color:rgba(99,102,241,0.4); color:#a5b4fc; font-weight:600;" title="Открыть график распределения повторений по дням">
-                            <i class="fa-solid fa-chart-simple"></i> График повторений
-                        </button>
-                        <button class="btn btn-primary btn-sm" id="add-custom-card-btn" style="white-space:nowrap; margin-left:6px;">
-                            <i class="fa-solid fa-plus"></i> Add Word
-                        </button>
+                        <div class="deck-actions-toolbar" id="deck-actions-toolbar">
+                            <button class="btn btn-outline btn-sm" id="btn-open-srs-forecast-fc" title="График повторений SRS">
+                                <i class="fa-solid fa-chart-simple"></i> <span>График</span>
+                            </button>
+                            <button class="btn btn-primary btn-sm" id="add-custom-card-btn" title="Добавить карточку">
+                                <i class="fa-solid fa-plus"></i> <span>Слово</span>
+                            </button>
+                        </div>
                     </div>
 
                     <div class="card-stage-container">
+                        <!-- Batch Navigation Strip -->
+                        <div class="batch-selector-strip" id="batch-selector-strip"></div>
+
                         <div class="flashcard-3d-wrapper" id="flashcard">
                             <div class="card-face card-front glass-card">
                                 <span class="card-category-tag" id="card-tag">IT & Tech</span>
                                 <h2 class="card-word" id="card-word">Refactor</h2>
                                 <span class="card-phonetic font-mono" id="card-phonetic">/riːˈfæk.tər/</span>
-                                <button class="audio-pronounce-btn" id="card-speak-btn" title="Listen Pronunciation">
+                                <button class="audio-pronounce-btn" id="card-speak-btn" title="Озвучить">
                                     <i class="fa-solid fa-volume-high"></i>
                                 </button>
-                                <p class="flip-hint"><i class="fa-solid fa-rotate"></i> Click card to flip</p>
+                                <p class="flip-hint"><i class="fa-solid fa-rotate"></i> <span>Нажмите для перевода</span></p>
                             </div>
                             <div class="card-face card-back glass-card">
                                 <div class="card-translation" id="card-translation">Рефакторинг</div>
                                 <div class="card-definition" id="card-definition">Restructuring existing code...</div>
                                 <div class="card-example-box">
-                                    <div class="example-label"><i class="fa-solid fa-quote-left"></i> Example:</div>
+                                    <div class="example-label"><i class="fa-solid fa-quote-left"></i> Пример:</div>
                                     <div class="example-text" id="card-example">"We need to refactor..."</div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="card-controls">
-                            <button class="rate-btn btn-again" data-rating="again"><i class="fa-solid fa-xmark"></i> Again</button>
-                            <button class="rate-btn btn-hard" data-rating="hard"><i class="fa-solid fa-triangle-exclamation"></i> Hard</button>
-                            <button class="rate-btn btn-good" data-rating="good"><i class="fa-solid fa-thumbs-up"></i> Good</button>
-                            <button class="rate-btn btn-easy" data-rating="easy"><i class="fa-solid fa-star"></i> Easy</button>
+                        <div class="card-controls" id="card-controls-container">
+                            <button class="rate-btn btn-again" data-rating="again"><i class="fa-solid fa-xmark"></i> <span>Снова</span></button>
+                            <button class="rate-btn btn-hard" data-rating="hard"><i class="fa-solid fa-triangle-exclamation"></i> <span>Трудно</span></button>
+                            <button class="rate-btn btn-good" data-rating="good"><i class="fa-solid fa-thumbs-up"></i> <span>Хорошо</span></button>
+                            <button class="rate-btn btn-easy" data-rating="easy"><i class="fa-solid fa-star"></i> <span>Легко</span></button>
                         </div>
+
+                        <div id="batch-action-box" class="batch-action-box" style="display:none;"></div>
                     </div>
                 </div>
             </div>
@@ -1007,88 +1009,82 @@
         <div class="rpg-modal-content modal-lg eldrin-audiobook-modal-container" style="max-width: 1040px; width: 95vw; height: 90vh; display: flex; flex-direction: column; background: rgba(15, 23, 42, 0.96); border: 1px solid rgba(168, 85, 247, 0.4); box-shadow: 0 0 40px rgba(168, 85, 247, 0.2);">
             
             <!-- HEADER -->
-            <div class="rpg-modal-header" style="flex-shrink: 0; padding: 14px 20px; border-bottom: 1px solid rgba(255,255,255,0.08); background: rgba(0,0,0,0.3);">
-                <div class="modal-header-title" style="display: flex; align-items: center; gap: 12px;">
-                    <div style="width: 44px; height: 44px; border-radius: 12px; background: linear-gradient(135deg, #a855f7, #6366f1); display: flex; align-items: center; justify-content: center; box-shadow: 0 0 15px rgba(168,85,247,0.4);">
-                        <i class="fa-solid fa-headphones" style="font-size: 20px; color: #fff;"></i>
+            <div class="rpg-modal-header audiobook-modal-header">
+                <div class="modal-header-title">
+                    <div class="audiobook-header-icon">
+                        <i class="fa-solid fa-headphones"></i>
                     </div>
                     <div>
-                        <h3 style="margin: 0; font-size: 17px; font-weight: 800; color: #e9d5ff; display: flex; align-items: center; gap: 8px;">
-                            🎧 Young Eldrin: The Apprentice of the Arcane Spire
-                            <span class="badge" style="background: rgba(168,85,247,0.2); color: #c084fc; font-size: 11px; border: 1px solid rgba(168,85,247,0.4);">CEFR A1 Audio Story</span>
+                        <h3 class="audiobook-title-heading">
+                            🎧 Young Eldrin <span class="badge badge-a1-tag">A0 → A1</span>
                         </h3>
-                        <div style="font-size: 12px; color: #94a3b8; font-weight: 500;">
-                            6 Глав • 1100 слов A1 • Тренировка чистого восприятия на слух
+                        <div class="audiobook-header-subtitle">
+                            50 серий • 25,000 слов • Тренировка чистого восприятия на слух
                         </div>
                     </div>
                 </div>
-                <div style="display: flex; align-items: center; gap: 10px;">
-                    <span id="audiobook-bookmark-badge" class="badge" style="background: rgba(59,130,246,0.15); color: #60a5fa; border: 1px solid rgba(59,130,246,0.3); font-size: 11px; padding: 4px 10px;">
-                        🔖 Глава 1 • Строка 1
+                <div class="audiobook-header-badges">
+                    <span id="audiobook-bookmark-badge" class="badge badge-bookmark">
+                        🔖 Гл. 1 • 1/33
                     </span>
-                    <span id="audiobook-progress-badge" class="badge" style="background: rgba(16,185,129,0.15); color: #10b981; border: 1px solid rgba(16,185,129,0.3); font-size: 11px; padding: 4px 10px; font-weight: 700;">
-                        ⭐ 0 / 6 Пройдено
+                    <span id="audiobook-progress-badge" class="badge badge-progress">
+                        ⭐ 0/20
                     </span>
                     <button class="modal-close-btn" id="close-eldrin-audiobook-btn">&times;</button>
                 </div>
             </div>
 
             <!-- PLAYER CONTROLS TOOLBAR -->
-            <div class="audiobook-toolbar" style="padding: 10px 20px; background: rgba(0,0,0,0.4); border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; flex-shrink: 0;">
-                
-                <!-- Main Play / Pause -->
-                <div style="display: flex; align-items: center; gap: 10px;">
-                    <button id="audiobook-main-play-btn" class="btn btn-primary" style="background: linear-gradient(135deg, #a855f7, #6366f1); border: none; font-weight: 700; padding: 7px 18px; border-radius: 8px; box-shadow: 0 0 15px rgba(168,85,247,0.4);">
-                        <i class="fa-solid fa-play"></i> <span id="audiobook-play-btn-text">Слушать главу</span>
+            <div class="audiobook-toolbar">
+                <!-- Play / Stop -->
+                <div class="audiobook-play-group">
+                    <button id="audiobook-main-play-btn" class="btn btn-primary audiobook-play-btn">
+                        <i class="fa-solid fa-play"></i> <span id="audiobook-play-btn-text">Слушать</span>
                     </button>
-                    <button id="audiobook-stop-btn" class="btn btn-outline" style="padding: 7px 12px; font-size: 12px;" title="Остановить">
+                    <button id="audiobook-stop-btn" class="btn btn-outline audiobook-stop-btn" title="Остановить">
                         <i class="fa-solid fa-stop"></i>
                     </button>
                 </div>
 
                 <!-- Speed Switcher -->
-                <div style="display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.05); padding: 4px 8px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);">
-                    <span style="font-size: 11px; color: #94a3b8; margin-right: 2px;"><i class="fa-solid fa-gauge-high"></i> Скорость:</span>
-                    <button class="audiobook-speed-btn btn btn-sm" data-speed="0.5" style="padding: 2px 8px; font-size: 11px;">0.5x</button>
-                    <button class="audiobook-speed-btn btn btn-sm" data-speed="0.75" style="padding: 2px 8px; font-size: 11px;">0.75x</button>
-                    <button class="audiobook-speed-btn btn btn-sm active" data-speed="1.0" style="padding: 2px 8px; font-size: 11px; background: var(--primary); color: #fff;">1.0x</button>
-                    <button class="audiobook-speed-btn btn btn-sm" data-speed="1.25" style="padding: 2px 8px; font-size: 11px;">1.25x</button>
+                <div class="audiobook-speed-pill">
+                    <i class="fa-solid fa-gauge-high speed-icon" title="Скорость воспроизведения"></i>
+                    <button class="audiobook-speed-btn btn btn-sm" data-speed="0.5">0.5x</button>
+                    <button class="audiobook-speed-btn btn btn-sm" data-speed="0.75">0.75x</button>
+                    <button class="audiobook-speed-btn btn btn-sm active" data-speed="1.0">1.0x</button>
+                    <button class="audiobook-speed-btn btn btn-sm" data-speed="1.25">1.25x</button>
                 </div>
 
-                <!-- Narrator Voice & Blind Mode Controls -->
-                <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
-                    <span class="badge" id="audiobook-engine-status-badge" style="background: rgba(16,185,129,0.15); color: #34d399; border: 1px solid rgba(16,185,129,0.3); font-size: 11px; padding: 4px 10px; display: flex; align-items: center; gap: 5px;">
-                        <i class="fa-solid fa-bolt" style="color: #34d399;"></i> <span>Без пауз (Локальный звук)</span>
-                    </span>
-
-                    <label style="display: flex; align-items: center; gap: 6px; font-size: 12px; color: #cbd5e1; cursor: pointer; user-select: none;">
-                        <input type="checkbox" id="audiobook-blind-mode-toggle" checked style="accent-color: #a855f7; cursor: pointer;">
-                        <span>👁️ Скрытый текст <em>(на слух)</em></span>
+                <!-- Blind Mode Control -->
+                <div class="audiobook-mode-group">
+                    <label class="audiobook-blind-label" title="Скрыть текст для тренировки чистого восприятия на слух">
+                        <input type="checkbox" id="audiobook-blind-mode-toggle" checked>
+                        <span>👁️ <span class="blind-label-text">Скрыть текст</span></span>
                     </label>
                 </div>
             </div>
 
             <!-- CHAPTERS TAB STRIP -->
-            <div class="audiobook-chapters-tabs" id="audiobook-chapters-tabs" style="padding: 10px 20px; display: flex; gap: 8px; overflow-x: auto; flex-shrink: 0; border-bottom: 1px solid rgba(255,255,255,0.06); background: rgba(0,0,0,0.2);">
+            <div class="audiobook-chapters-tabs" id="audiobook-chapters-tabs">
                 <!-- Dynamic Chapter Tabs -->
             </div>
 
             <!-- MAIN READER & SENTENCES CONTAINER -->
-            <div id="audiobook-reader-container" style="flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 12px;">
+            <div id="audiobook-reader-container" class="audiobook-reader-container">
                 <!-- Dynamic Sentences list -->
             </div>
 
             <!-- BOTTOM FOOTER / QUIZ TRIGGER -->
-            <div class="audiobook-footer" style="padding: 12px 20px; background: rgba(0,0,0,0.4); border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center; flex-shrink: 0;">
-                <div id="audiobook-chapter-stats" style="font-size: 12px; color: #94a3b8;">
-                    📖 <b>Глава 1:</b> 13 предложений • ~310 слов • Грамматика: <em>Present Simple & To Be</em>
+            <div class="audiobook-footer">
+                <div id="audiobook-chapter-stats" class="audiobook-chapter-stats">
+                    📖 <b>Гл. 1:</b> 33 предл. • ~500 слов
                 </div>
-                <div style="display: flex; gap: 10px; align-items: center;">
-                    <button id="audiobook-open-quiz-btn" class="btn btn-warning" style="font-weight: 700; font-size: 13px; padding: 8px 18px; border-radius: 8px; background: linear-gradient(135deg, #f59e0b, #d97706); border: none; box-shadow: 0 0 15px rgba(245,158,11,0.3);">
-                        <i class="fa-solid fa-circle-question"></i> Пройти квиз на понимание (+XP и Слова)
+                <div class="audiobook-footer-actions">
+                    <button id="audiobook-open-quiz-btn" class="btn btn-warning audiobook-quiz-btn">
+                        <i class="fa-solid fa-circle-question"></i> <span>Квиз (+Слова)</span>
                     </button>
-                    <button id="audiobook-next-chapter-btn" class="btn btn-primary hidden" style="font-weight: 700; font-size: 13px; padding: 8px 18px; border-radius: 8px; background: linear-gradient(135deg, #10b981, #059669); border: none;">
-                        Следующая глава <i class="fa-solid fa-arrow-right"></i>
+                    <button id="audiobook-next-chapter-btn" class="btn btn-primary audiobook-next-btn hidden">
+                        <span>Дальше</span> <i class="fa-solid fa-arrow-right"></i>
                     </button>
                 </div>
             </div>
@@ -1718,18 +1714,18 @@
         </div>
     </div>
 
-    <script src="scenarios.js?v=11.083"></script>
-    <script src="heroes.js?v=11.083"></script>
-    <script src="story_campaign.js?v=11.083"></script>
-    <script src="story_campaign_act1_expanded.js?v=11.083"></script>
-    <script src="story_campaign_act2_expanded.js?v=11.083"></script>
-    <script src="flashcards.js?v=11.083"></script>
-    <script src="grammar.js?v=11.083"></script>
-    <script src="ai_service.js?v=11.083"></script>
-    <script src="visual_fluency.js?v=11.083"></script>
-    <script src="pattern_drills.js?v=11.083"></script>
-    <script src="speaking_engine.js?v=11.083"></script>
-    <script src="eldrin_story.js?v=11.084"></script>
-    <script src="app.js?v=11.084"></script>
+    <script src="scenarios.js?v=11.084"></script>
+    <script src="heroes.js?v=11.084"></script>
+    <script src="story_campaign.js?v=11.084"></script>
+    <script src="story_campaign_act1_expanded.js?v=11.084"></script>
+    <script src="story_campaign_act2_expanded.js?v=11.084"></script>
+    <script src="flashcards.js?v=11.084"></script>
+    <script src="grammar.js?v=11.084"></script>
+    <script src="ai_service.js?v=11.084"></script>
+    <script src="visual_fluency.js?v=11.084"></script>
+    <script src="pattern_drills.js?v=11.084"></script>
+    <script src="speaking_engine.js?v=11.084"></script>
+    <script src="eldrin_story.js?v=11.085"></script>
+    <script src="app.js?v=11.085"></script>
 </body>
 </html>

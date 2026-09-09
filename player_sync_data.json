@@ -23782,7 +23782,7 @@
   "completed_story_chapters": [
     1
   ],
-  "lastSyncedAt": "2026-09-09T09:35:01.937Z",
+  "lastSyncedAt": "2026-09-09T09:44:52.369Z",
   "eldrin_audiobook_state": {
     "activeChapterId": "eldrin-ch-5",
     "currentSentenceIdx": 0,
@@ -23801,6 +23801,6 @@
       "eldrin-ch-3",
       "eldrin-ch-4"
     ],
-    "lastSavedAt": "2026-09-08T17:53:44.152Z"
+    "lastSavedAt": "2026-09-09T09:41:32.663Z"
   }
 }

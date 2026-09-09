@@ -4231,11 +4231,11 @@ document.addEventListener("DOMContentLoaded", () => {
                     avatarContent = `<i class="fa-solid ${hero.avatar || 'fa-user'}"></i>`;
                 }
             } else if (isSrsTab) {
-                heroName = "SRS Review";
+                heroName = "Повтор";
                 accentColor = "#ec4899";
                 avatarContent = `<i class="fa-solid fa-brain" style="color:#ec4899;"></i>`;
             } else if (cat.includes("IT")) {
-                heroName = "IT & Tech";
+                heroName = "IT";
                 accentColor = "#06b6d4";
                 avatarContent = `<i class="fa-solid fa-laptop-code" style="color:#06b6d4;"></i>`;
             }
@@ -4269,7 +4269,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     setTimeout(() => {
                         renderFlashcardsUI();
                         if (cardBack) cardBack.style.opacity = "1";
-                    }, 350);
+                    }, 300);
                 } else {
                     renderFlashcardsUI();
                 }
@@ -4277,28 +4277,57 @@ document.addEventListener("DOMContentLoaded", () => {
             deckTabsContainer.appendChild(btn);
         });
 
-        if (flashcardEngine.currentCategory !== "🧠 Due for SRS Review") {
-            const batchBtn = document.createElement("button");
-            batchBtn.className = "btn btn-sm btn-outline";
-            batchBtn.style.marginLeft = "auto";
-            batchBtn.innerHTML = `<i class="fa-solid fa-forward"></i> Batch ${flashcardEngine.batchIndex + 1} (10 Words) ▶️`;
-            batchBtn.addEventListener("click", () => {
-                flashcardEngine.nextBatch();
-                const wasFlipped = flashcardEl.classList.contains("flipped");
-                const cardBack = flashcardEl.querySelector(".card-back");
+        // Dedicated Batch Selector Strip
+        const batchStrip = document.getElementById("batch-selector-strip");
+        if (batchStrip) {
+            if (flashcardEngine.currentCategory === "🧠 Due for SRS Review") {
+                batchStrip.innerHTML = `
+                    <div style="width:100%; display:flex; justify-content:center;">
+                        <span class="badge font-mono" style="background:rgba(236,72,153,0.15); color:#f472b6; border:1px solid rgba(236,72,153,0.35); font-size:12px; padding:4px 12px; border-radius:10px;">
+                            <i class="fa-solid fa-brain"></i> Очередь SRS (${dueCount})
+                        </span>
+                    </div>
+                `;
+            } else {
+                const totalBatches = typeof flashcardEngine.getTotalBatches === 'function' ? flashcardEngine.getTotalBatches() : Math.max(1, Math.ceil((flashcardEngine.decks[flashcardEngine.currentCategory] || []).length / flashcardEngine.batchSize));
+                const currentBatchNum = flashcardEngine.batchIndex + 1;
+                const activeCards = flashcardEngine.getCategoryCards();
+                const cardCounterStr = activeCards.length > 0 ? ` &bull; ${flashcardEngine.currentIndex + 1}/${activeCards.length}` : '';
 
-                if (wasFlipped) {
-                    if (cardBack) cardBack.style.opacity = "0";
-                    flashcardEl.classList.remove("flipped");
-                    setTimeout(() => {
+                batchStrip.innerHTML = `
+                    <button class="batch-nav-btn" id="batch-prev-btn" ${currentBatchNum <= 1 ? 'disabled' : ''} title="Предыдущая порция">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <div class="batch-info-label font-mono">
+                        <i class="fa-solid fa-layer-group" style="color:var(--accent);"></i>
+                        <span>Порция ${currentBatchNum} / ${totalBatches}${cardCounterStr}</span>
+                    </div>
+                    <button class="batch-nav-btn" id="batch-next-btn" ${currentBatchNum >= totalBatches ? 'disabled' : ''} title="Следующая порция">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                `;
+
+                document.getElementById("batch-prev-btn")?.addEventListener("click", () => {
+                    flashcardEngine.prevBatch();
+                    const wasFlipped = flashcardEl.classList.contains("flipped");
+                    if (wasFlipped) {
+                        flashcardEl.classList.remove("flipped");
+                        setTimeout(() => renderFlashcardsUI(), 300);
+                    } else {
                         renderFlashcardsUI();
-                        if (cardBack) cardBack.style.opacity = "1";
-                    }, 350);
-                } else {
-                    renderFlashcardsUI();
-                }
-            });
-            deckTabsContainer.appendChild(batchBtn);
+                    }
+                });
+                document.getElementById("batch-next-btn")?.addEventListener("click", () => {
+                    flashcardEngine.nextBatch();
+                    const wasFlipped = flashcardEl.classList.contains("flipped");
+                    if (wasFlipped) {
+                        flashcardEl.classList.remove("flipped");
+                        setTimeout(() => renderFlashcardsUI(), 300);
+                    } else {
+                        renderFlashcardsUI();
+                    }
+                });
+            }
         }
 
         const cardControls = document.querySelector(".card-controls");
@@ -4306,34 +4335,31 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!batchActionBox && cardControls) {
             batchActionBox = document.createElement("div");
             batchActionBox.id = "batch-action-box";
-            batchActionBox.style.marginTop = "16px";
-            batchActionBox.style.textAlign = "center";
+            batchActionBox.className = "batch-action-box";
             cardControls.parentNode.insertBefore(batchActionBox, cardControls.nextSibling);
         }
 
         const currentCard = flashcardEngine.getCurrentCard();
         if (currentCard) {
-            if (cardControls) cardControls.style.display = "flex";
+            if (cardControls) cardControls.style.display = "grid";
             if (batchActionBox) batchActionBox.style.display = "none";
-
-            const intervalDays = currentCard.interval || 1;
-            const easeFactor = (currentCard.easeFactor || 2.5).toFixed(2);
-            const batchLabel = flashcardEngine.currentCategory === "🧠 Due for SRS Review" ? "SRS Queue" : `Batch ${flashcardEngine.batchIndex + 1}`;
 
             const cardHeroId = getHeroIdForCard(currentCard);
             const cardHeroObj = cardHeroId ? rpgEngine.heroes.find(h => h.id === cardHeroId) : null;
-            const categoryDisplay = cardHeroObj ? `🛡️ ${cardHeroObj.name}'s Word` : flashcardEngine.currentCategory;
+            const heroTagLabel = cardHeroObj ? `${cardHeroObj.name} (${cardHeroObj.cefrLevel?.split(' ')[0] || 'A0'})` : flashcardEngine.currentCategory.replace(" Pack", "");
             const nextReviewStr = formatTimeUntilReview(currentCard.nextReviewDate, currentCard.studied);
 
             cardTag.innerHTML = `
-                ${categoryDisplay} &bull; <small class="font-mono" style="color:var(--heart)">${batchLabel}</small>
-                &nbsp;&bull;&nbsp; 
-                <span style="background:rgba(99,102,241,0.2); color:#818cf8; border:1px solid rgba(99,102,241,0.4); padding:2px 8px; border-radius:10px; font-size:11px; font-weight:700;" class="font-mono" title="Next SRS Review Date">
+                <span>🛡️ ${heroTagLabel}</span>
+                <span style="opacity:0.4;">&bull;</span>
+                <span style="color:var(--heart); font-weight:700;">П.${flashcardEngine.batchIndex + 1}</span>
+                <span style="opacity:0.4;">&bull;</span>
+                <span class="font-mono srs-time-pill" title="Интервал повторения">
                     <i class="fa-solid fa-clock"></i> ${nextReviewStr}
                 </span>
             `;
 
-            // Dynamic SRS interval preview on rating buttons (Again, Hard, Good, Easy)
+            // Dynamic SRS interval preview on rating buttons
             const againBtn = document.querySelector(".rate-btn.btn-again");
             const hardBtn = document.querySelector(".rate-btn.btn-hard");
             const goodBtn = document.querySelector(".rate-btn.btn-good");
@@ -4355,10 +4381,10 @@ document.addEventListener("DOMContentLoaded", () => {
             else if (curReps + 1 === 2) easyDays = 10;
             else easyDays = Math.max(goodDays + 2, Math.round(curInterval * (curEase + 0.15) * 1.3));
 
-            if (againBtn) againBtn.innerHTML = `<i class="fa-solid fa-xmark"></i> Again <small class="font-mono" style="opacity:0.85; font-size:10px;">(&lt;10m)</small>`;
-            if (hardBtn) hardBtn.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> Hard <small class="font-mono" style="opacity:0.85; font-size:10px;">(${hardDays}d)</small>`;
-            if (goodBtn) goodBtn.innerHTML = `<i class="fa-solid fa-thumbs-up"></i> Good <small class="font-mono" style="opacity:0.85; font-size:10px;">(${goodDays}d)</small>`;
-            if (easyBtn) easyBtn.innerHTML = `<i class="fa-solid fa-star"></i> Easy <small class="font-mono" style="opacity:0.85; font-size:10px;">(${easyDays}d)</small>`;
+            if (againBtn) againBtn.innerHTML = `<i class="fa-solid fa-xmark"></i> <span>Снова</span> <small class="font-mono">&lt;10м</small>`;
+            if (hardBtn) hardBtn.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> <span>Трудно</span> <small class="font-mono">${hardDays}д</small>`;
+            if (goodBtn) goodBtn.innerHTML = `<i class="fa-solid fa-thumbs-up"></i> <span>Хорошо</span> <small class="font-mono">${goodDays}д</small>`;
+            if (easyBtn) easyBtn.innerHTML = `<i class="fa-solid fa-star"></i> <span>Легко</span> <small class="font-mono">${easyDays}д</small>`;
 
             cardWord.textContent = currentCard.word;
             cardPhonetic.textContent = currentCard.phonetic;
@@ -4368,17 +4394,32 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             if (cardControls) cardControls.style.display = "none";
             if (batchActionBox) {
-                batchActionBox.style.display = "block";
+                batchActionBox.style.display = "flex";
                 const isSrsQueue = flashcardEngine.currentCategory === "🧠 Due for SRS Review";
+                const totalBatches = typeof flashcardEngine.getTotalBatches === 'function' ? flashcardEngine.getTotalBatches() : Math.ceil((flashcardEngine.decks[flashcardEngine.currentCategory] || []).length / flashcardEngine.batchSize);
                 const nextBatchNum = flashcardEngine.batchIndex + 2;
+                const hasNextBatch = nextBatchNum <= totalBatches;
 
                 if (isSrsQueue) {
                     batchActionBox.innerHTML = `
-                        <button class="btn btn-primary btn-lg" style="padding:14px 28px; font-size:16px;">
-                            <i class="fa-solid fa-layer-group"></i> Return to Hero Decks
-                        </button>
+                        <div class="batch-complete-card glass-card">
+                            <div class="batch-complete-icon">🎉</div>
+                            <h3 class="batch-complete-title">Все слова повторены!</h3>
+                            <p class="batch-complete-sub">В очереди SRS сейчас нет карточек, требующих повторения.</p>
+                            <div class="batch-complete-actions">
+                                <button class="btn btn-primary btn-batch-action" id="btn-return-hero-decks">
+                                    <i class="fa-solid fa-layer-group"></i> <span>Учить слова героев</span>
+                                </button>
+                                <button class="btn btn-outline btn-batch-action" id="btn-view-word-stats">
+                                    <i class="fa-solid fa-chart-pie"></i> <span>Список слов</span>
+                                </button>
+                                <button class="btn btn-secondary btn-batch-action" id="btn-close-vocab-hub">
+                                    <i class="fa-solid fa-xmark"></i> <span>На главную</span>
+                                </button>
+                            </div>
+                        </div>
                     `;
-                    batchActionBox.querySelector("button").addEventListener("click", () => {
+                    document.getElementById("btn-return-hero-decks")?.addEventListener("click", () => {
                         const firstHeroDeck = Object.keys(flashcardEngine.decks).find(k => k !== "🧠 Due for SRS Review");
                         flashcardEngine.currentCategory = firstHeroDeck || "Valerius's Pack (A0)";
                         flashcardEngine.batchIndex = 0;
@@ -4386,30 +4427,80 @@ document.addEventListener("DOMContentLoaded", () => {
                         renderFlashcardsUI();
                     });
                 } else {
+                    const nextBtnHtml = hasNextBatch 
+                        ? `<button class="btn btn-primary btn-batch-action" id="btn-learn-next-batch">
+                             <i class="fa-solid fa-forward"></i> <span>Порция ${nextBatchNum} ➔</span>
+                           </button>`
+                        : `<button class="btn btn-primary btn-batch-action" id="btn-repeat-current-deck">
+                             <i class="fa-solid fa-rotate-right"></i> <span>Повторить колоду</span>
+                           </button>`;
+
                     batchActionBox.innerHTML = `
-                        <button class="btn btn-primary btn-lg" style="padding:14px 28px; font-size:16px; box-shadow:0 0 20px rgba(236,72,153,0.4);">
-                            <i class="fa-solid fa-forward"></i> Learn Next 10 Words (Batch ${nextBatchNum}) ▶️
-                        </button>
+                        <div class="batch-complete-card glass-card">
+                            <div class="batch-complete-icon">🎉</div>
+                            <h3 class="batch-complete-title">Порция ${flashcardEngine.batchIndex + 1} готова!</h3>
+                            <p class="batch-complete-sub">10 слов изучены и сохранены в интервальные повторения (SRS).</p>
+                            <div class="batch-complete-actions">
+                                ${nextBtnHtml}
+                                <button class="btn btn-outline btn-batch-action" id="btn-repeat-batch-now">
+                                    <i class="fa-solid fa-rotate-right"></i> <span>Повторить эту порцию</span>
+                                </button>
+                                <button class="btn btn-outline btn-batch-action" id="btn-open-stats-from-batch">
+                                    <i class="fa-solid fa-chart-pie"></i> <span>Все слова героя</span>
+                                </button>
+                                <button class="btn btn-secondary btn-batch-action" id="btn-close-vocab-hub">
+                                    <i class="fa-solid fa-xmark"></i> <span>На главную</span>
+                                </button>
+                            </div>
+                        </div>
                     `;
-                    batchActionBox.querySelector("button").addEventListener("click", () => {
+
+                    document.getElementById("btn-learn-next-batch")?.addEventListener("click", () => {
                         flashcardEngine.nextBatch();
                         renderFlashcardsUI();
                     });
+                    document.getElementById("btn-repeat-batch-now")?.addEventListener("click", () => {
+                        if (typeof flashcardEngine.resetCurrentBatch === 'function') {
+                            flashcardEngine.resetCurrentBatch();
+                        }
+                        renderFlashcardsUI();
+                    });
+                    document.getElementById("btn-repeat-current-deck")?.addEventListener("click", () => {
+                        flashcardEngine.batchIndex = 0;
+                        if (typeof flashcardEngine.resetCurrentBatch === 'function') {
+                            flashcardEngine.resetCurrentBatch();
+                        }
+                        renderFlashcardsUI();
+                    });
                 }
+
+                document.getElementById("btn-view-word-stats")?.addEventListener("click", () => {
+                    const hero = rpgEngine.heroes.find(h => h.id === activeShowcaseHeroId) || rpgEngine.heroes[0];
+                    document.getElementById("modal-hero-words")?.classList.add("hidden");
+                    openHeroWordStatsModal(hero);
+                });
+                document.getElementById("btn-open-stats-from-batch")?.addEventListener("click", () => {
+                    const hero = rpgEngine.heroes.find(h => flashcardEngine.currentCategory.toLowerCase().includes(h.name.toLowerCase())) || rpgEngine.heroes[0];
+                    document.getElementById("modal-hero-words")?.classList.add("hidden");
+                    openHeroWordStatsModal(hero);
+                });
+                document.getElementById("btn-close-vocab-hub")?.addEventListener("click", () => {
+                    document.getElementById("modal-hero-words")?.classList.add("hidden");
+                });
             }
 
             cardTag.textContent = flashcardEngine.currentCategory;
-            cardWord.textContent = flashcardEngine.currentCategory === "🧠 Due for SRS Review" ? "🎉 No SRS Reviews Due!" : `🎉 Batch ${flashcardEngine.batchIndex + 1} Complete!`;
-            cardPhonetic.textContent = "/done/";
+            cardWord.textContent = flashcardEngine.currentCategory === "🧠 Due for SRS Review" ? "🎉 Все повторено!" : `🎉 Порция ${flashcardEngine.batchIndex + 1} готова!`;
+            cardPhonetic.textContent = "/готово/";
             cardTranslation.textContent = flashcardEngine.currentCategory === "🧠 Due for SRS Review" 
                 ? "Все накопленные карточки повторены!" 
-                : `Отлично! Все 10 слов Порции ${flashcardEngine.batchIndex + 1} изучены и отложены на будущее.`;
+                : `10 слов изучены и запланированы в SRS.`;
             cardDefinition.textContent = flashcardEngine.currentCategory === "🧠 Due for SRS Review" 
-                ? "Cards you study in hero decks will appear here automatically when their review date arrives!"
-                : "Great job! SuperMemo SM-2 algorithm scheduled these 10 words into your review loop.";
+                ? "Карточки появятся здесь автоматически по расписанию SuperMemo SM-2."
+                : "Алгоритм SM-2 рассчитал оптимальные интервалы повторений.";
             cardExample.textContent = flashcardEngine.currentCategory === "🧠 Due for SRS Review" 
-                ? "Select a hero deck to learn new words!" 
-                : `Click the button below to start Batch ${flashcardEngine.batchIndex + 2}!`;
+                ? "Выберите колоду героя для новых слов!" 
+                : `Выберите действие ниже для продолжения.`;
         }
 
         const statsWordsEl = document.getElementById("stats-words-count");
@@ -4486,6 +4577,82 @@ document.addEventListener("DOMContentLoaded", () => {
             try { checkAndUpdateVocabLevel(); } catch(e) {}
         });
     });
+
+    // Wire up Add Custom Word Card Modal
+    const addCustomCardBtn = document.getElementById("add-custom-card-btn");
+    const addCardModal = document.getElementById("add-card-modal");
+    const closeAddCardModalBtn = document.getElementById("close-modal-btn");
+    const addCardForm = document.getElementById("add-card-form");
+
+    if (addCustomCardBtn && addCardModal) {
+        addCustomCardBtn.addEventListener("click", () => {
+            // Populate category select with unlocked heroes and current category
+            const catSelect = document.getElementById("new-category-select");
+            if (catSelect && flashcardEngine) {
+                catSelect.innerHTML = "";
+                Object.keys(flashcardEngine.decks).forEach(cat => {
+                    if (cat !== "🧠 Due for SRS Review") {
+                        const opt = document.createElement("option");
+                        opt.value = cat;
+                        opt.textContent = cat;
+                        if (cat === flashcardEngine.currentCategory) opt.selected = true;
+                        catSelect.appendChild(opt);
+                    }
+                });
+            }
+            addCardModal.classList.remove("hidden");
+        });
+    }
+
+    if (closeAddCardModalBtn && addCardModal) {
+        closeAddCardModalBtn.addEventListener("click", () => {
+            addCardModal.classList.add("hidden");
+        });
+    }
+
+    if (addCardForm && addCardModal) {
+        addCardForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const wordInput = document.getElementById("new-word-input");
+            const phoneticInput = document.getElementById("new-phonetic-input");
+            const transInput = document.getElementById("new-trans-input");
+            const exampleInput = document.getElementById("new-example-input");
+            const catSelect = document.getElementById("new-category-select");
+
+            const word = wordInput?.value.trim() || "";
+            const phonetic = phoneticInput?.value.trim() || "";
+            const translation = transInput?.value.trim() || "";
+            const example = exampleInput?.value.trim() || "";
+            const category = catSelect?.value || flashcardEngine.currentCategory || "IT & Tech";
+
+            if (word && translation) {
+                if (!flashcardEngine.decks[category]) {
+                    flashcardEngine.decks[category] = [];
+                }
+                flashcardEngine.decks[category].unshift({
+                    word,
+                    phonetic: phonetic ? (phonetic.startsWith('/') ? phonetic : `/${phonetic}/`) : '',
+                    translation,
+                    definition: "Пользовательское слово",
+                    example: example || "Custom vocabulary word.",
+                    rating: 0,
+                    interval: 1,
+                    easeFactor: 2.5,
+                    repetitions: 0,
+                    nextReviewDate: 0,
+                    studied: false,
+                    learningInSession: false
+                });
+                flashcardEngine.saveDecks();
+                flashcardEngine.currentCategory = category;
+                flashcardEngine.currentIndex = 0;
+                renderFlashcardsUI();
+                addCardModal.classList.add("hidden");
+                addCardForm.reset();
+                showToast(`✨ Карточка "<b>${word}</b>" успешно сохранена!`);
+            }
+        });
+    }
 
     // --- TAB 3: GRAMMAR LAB (STRICT CEFR GATING & SM-2 SRS REVIEWS) ---
     const grammarSrsEngine = new GrammarSRSEngine();
@@ -7350,7 +7517,6 @@ document.addEventListener("DOMContentLoaded", () => {
                                 <i class="fa-solid fa-volume-high"></i>
                             </button>
                         </div>
-                        <span style="font-size:11px; opacity:0.85;">(вернется через 2 карточки для закрепления)</span>
                     </div>
                 `;
                 attachTargetAudioListener();
@@ -7376,7 +7542,7 @@ document.addEventListener("DOMContentLoaded", () => {
             isCardAnswered = false;
             stopTimer();
             if (resultFeedback) resultFeedback.style.display = "none";
-            if (spokenFeedback) spokenFeedback.innerHTML = 'Или выберите правильный вариант ниже на скорость:';
+            if (spokenFeedback) spokenFeedback.innerHTML = '';
 
             currentCardIndexInSprint = (currentCardIndexInSprint % SPRINT_TOTAL) + 1;
             if (sprintStepText) sprintStepText.textContent = `КАРТОЧКА ${currentCardIndexInSprint} ИЗ ${SPRINT_TOTAL}`;
@@ -7402,7 +7568,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (modifierEl && currentCard) {
                 if (currentCard.isRetry) {
-                    modifierEl.innerHTML = `<span style="background:rgba(245,158,11,0.25); border:1px solid #f59e0b; color:#fbbf24; border-radius:4px; padding:1px 6px; font-size:10px; margin-right:4px;">🔁 Повтор ошибки</span> ${currentCard.modifier}`;
+                    modifierEl.innerHTML = `<span style="background:rgba(245,158,11,0.25); border:1px solid #f59e0b; color:#fbbf24; border-radius:4px; padding:1px 6px; font-size:10px; margin-right:4px;">🔁 Повтор</span> ${currentCard.modifier}`;
                 } else {
                     modifierEl.textContent = currentCard.modifier;
                 }
@@ -7480,7 +7646,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     resultFeedback.style.color = "#6ee7b7";
                     resultFeedback.innerHTML = `
                         <div style="display:flex; flex-direction:column; gap:6px; align-items:center;">
-                            <div>🎉 <b>Верно!</b> +1 карточка в Drills! (+${bonusHeroXp} Hero XP 🔥)</div>
+                            <div>🎉 <b>Верно!</b> +1 Drills (+${bonusHeroXp} XP 🔥)</div>
                             <div style="display:flex; align-items:center; gap:8px; background:rgba(0,0,0,0.3); padding:4px 12px; border-radius:6px;">
                                 <span style="font-weight:700; color:#fff;">"${currentCard.target}"</span>
                                 <button class="btn btn-sm btn-outline" id="drills-listen-target-btn" title="Прослушать эталонное произношение" style="padding:2px 8px; font-size:12px;">
@@ -7514,14 +7680,13 @@ document.addEventListener("DOMContentLoaded", () => {
                     resultFeedback.style.color = "#fca5a5";
                     resultFeedback.innerHTML = `
                         <div style="display:flex; flex-direction:column; gap:6px; align-items:center;">
-                            <div>❌ <b>Неверно.</b> Правильный ответ:</div>
+                            <div>❌ <b>Неверно:</b></div>
                             <div style="display:flex; align-items:center; gap:8px; background:rgba(0,0,0,0.3); padding:4px 12px; border-radius:6px;">
                                 <span style="font-weight:700; color:#fff;">"${currentCard.target}"</span>
                                 <button class="btn btn-sm btn-outline" id="drills-listen-target-btn" title="Прослушать эталонное произношение" style="padding:2px 8px; font-size:12px;">
                                     <i class="fa-solid fa-volume-high"></i>
                                 </button>
                             </div>
-                            <span style="font-size:11px; opacity:0.85;">(вернется через 2 карточки для закрепления)</span>
                         </div>
                     `;
                     attachTargetAudioListener();
@@ -8205,13 +8370,13 @@ document.addEventListener("DOMContentLoaded", () => {
         function updateBadges() {
             const curChapter = bookData.chapters.find(c => c.id === activeChapterId) || bookData.chapters[0];
             if (bookmarkBadge) {
-                bookmarkBadge.innerHTML = `🔖 Глава ${curChapter.number} • Строка ${currentSentenceIdx + 1}`;
+                bookmarkBadge.innerHTML = `🔖 Гл. ${curChapter.number} • ${currentSentenceIdx + 1}/${curChapter.sentences.length}`;
             }
             if (progressBadge) {
-                progressBadge.innerHTML = `⭐ ${completedChapters.length} / ${bookData.chapters.length} Пройдено`;
+                progressBadge.innerHTML = `⭐ ${completedChapters.length}/${bookData.chapters.length}`;
             }
             if (chapterStats) {
-                chapterStats.innerHTML = `📖 <b>${curChapter.titleRu}:</b> ${curChapter.sentences.length} предложений • ~${curChapter.wordCount} слов • Грамматика: <em>${curChapter.grammarFocus}</em>`;
+                chapterStats.innerHTML = `<span style="font-weight:700; color:#f1f5f9;">📖 Гл. ${curChapter.number}: ${curChapter.titleRu}</span> <span style="color:#94a3b8; font-size:11px;">(${curChapter.sentences.length} предл. • ~${curChapter.wordCount} сл.)</span>`;
             }
             if (nextChapterBtn) {
                 const isCompleted = completedChapters.includes(activeChapterId);
@@ -8230,9 +8395,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 const isActive = ch.id === activeChapterId;
                 const isDone = completedChapters.includes(ch.id);
                 return `
-                    <button class="btn btn-sm ${isActive ? 'btn-primary' : 'btn-outline'} audiobook-tab-btn" data-chapter-id="${ch.id}" style="padding: 6px 14px; border-radius: 8px; font-size: 12px; display: flex; align-items: center; gap: 6px; white-space: nowrap; ${isActive ? 'background: linear-gradient(135deg, #a855f7, #6366f1); border: none;' : ''}">
+                    <button class="btn btn-sm ${isActive ? 'btn-primary' : 'btn-outline'} audiobook-tab-btn" data-chapter-id="${ch.id}">
                         <i class="fa-solid ${ch.coverIcon}" style="color: ${ch.coverColor};"></i>
-                        <span>Глава ${ch.number}</span>
+                        <span>Гл. ${ch.number}</span>
                         ${isDone ? '<i class="fa-solid fa-circle-check" style="color: #10b981; font-size: 11px;"></i>' : ''}
                     </button>
                 `;
