@@ -1444,263 +1444,263 @@ const ELDRIN_AUDIOBOOK = {
             "titleEn": "Episode 6: Rain at the Window & Warm Herbal Tea",
             "titleRu": "Эпизод 6: Дождь за окном и горячий чай",
             "grammarFocus": "Weather & Senses (rain, cold, warm, wet, smell), Kitchen Vocabulary, Polite Requests",
-            "wordCount": 495,
+            "wordCount": 432,
             "coverIcon": "fa-cloud-showers-heavy",
             "coverColor": "#0ea5e9",
             "sentences": [
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">In the late afternoon, heavy dark clouds cover the sky over the Spire. The daylight turns grey and dim.</prosody></speak>",
-                    "en": "In the late afternoon, heavy dark clouds cover the sky over the Spire. The daylight turns grey and dim.",
-                    "ru": "Ближе к вечеру тяжелые темные тучи затягивают небо над Шпилем. Дневной свет становится серым и тусклым."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">In the late afternoon, dark clouds cover the sky. <break time=\"300ms\"/> The day becomes grey and dark.</prosody></speak>",
+                    "en": "In the late afternoon, dark clouds cover the sky. The day becomes grey and dark.",
+                    "ru": "В конце дня темные тучи закрывают небо. День становится серым и темным."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Cold wind blows strongly around the high stone towers. Loud raindrops tap like drums against the glass windows.</prosody></speak>",
-                    "en": "Cold wind blows strongly around the high stone towers. Loud rain drops tap like drums against the glass windows.",
-                    "ru": "Холодный ветер с силой дует вокруг высоких каменных башен. Громкие капли дождя стучат, как барабаны, в стеклянные окна."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Cold wind blows around the tall stone tower. <break time=\"300ms\"/> Cold rain falls on the glass windows.</prosody></speak>",
+                    "en": "Cold wind blows around the tall stone tower. Cold rain falls on the glass windows.",
+                    "ru": "Холодный ветер дует вокруг высокой каменной башни. Холодный дождь падает на стеклянные окна."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin climbs up the wooden ladder to the attic to close the top roof windows.</prosody></speak>",
-                    "en": "Eldrin climbs up the wooden ladder to the attic to close the top roof windows.",
-                    "ru": "Элдрин поднимается по деревянной лестнице на чердак, чтобы закрыть верхние окна на крыше."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin climbs to the attic to close the top roof windows.</prosody></speak>",
+                    "en": "Eldrin climbs to the attic to close the top roof windows.",
+                    "ru": "Элдрин поднимается на чердак, чтобы закрыть верхние окна на крыше."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Brrr! The wind is freezing up here! I must close all five wooden shutters before the rain gets inside.</prosody></speak>",
-                    "en": "— Brrr! The wind is freezing up here! I must close all five wooden window covers before the rain gets inside.",
-                    "ru": "— Брр! Ветер тут наверху ледяной! Я должен закрыть все пять деревянных ставен, пока дождь не попал внутрь."
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— The wind is icy up here! <break time=\"300ms\"/> I must close all five wood windows before the rain gets inside.</prosody></speak>",
+                    "en": "— The wind is icy up here! I must close all five wood windows before the rain gets inside.",
+                    "ru": "— Ветер здесь ледяной! Я должен закрыть все пять деревянных окон, пока дождь не попал внутрь."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He pulls the heavy wooden shutters shut one by one. Click, clack, thud! All five shutters are securely latched.</prosody></speak>",
-                    "en": "He pulls the heavy wooden window covers shut one by one. Click, clack, thud! All five window covers are safely latched.",
-                    "ru": "Он захлопывает тяжелые деревянные ставни одну за другой. Щелк, стук, бам! Все пять ставен надежно заперты."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He closes the five wood windows. <break time=\"300ms\"/> Now all five windows are shut.</prosody></speak>",
+                    "en": "He closes the five wood windows. Now all five windows are shut.",
+                    "ru": "Он закрывает пять деревянных окон. Теперь все пять окон закрыты."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Done! But my hair is completely wet, and my woollen jacket feels icy cold.</prosody></speak>",
-                    "en": "— Done! But my hair is completely wet, and my warm wool jacket feels icy cold.",
-                    "ru": "— Готово! Но мои волосы совсем мокрые, а шерстяная куртка ледяная на ощупь."
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Good! <break time=\"300ms\"/> But my hair is wet, and my warm jacket is cold now.</prosody></speak>",
+                    "en": "— Good! But my hair is wet, and my warm jacket is cold now.",
+                    "ru": "— Отлично! Но мои волосы промокли, и моя теплая куртка теперь холодная."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin hurries down the stairs to the warm academy kitchen on the first floor.</prosody></speak>",
-                    "en": "Eldrin hurries down the stairs to the warm academy kitchen on the first floor.",
-                    "ru": "Элдрин спешит вниз по лестнице на теплую кухню академии на первом этаже."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin walks down to the warm academy kitchen on the first floor.</prosody></speak>",
+                    "en": "Eldrin walks down to the warm academy kitchen on the first floor.",
+                    "ru": "Элдрин спускается в теплую кухню академии на первом этаже."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Inside the kitchen, orange flames dance cheerfully in the wide stone fireplace.</prosody></speak>",
-                    "en": "Inside the kitchen, orange flames dance cheerfully in the wide stone fireplace.",
-                    "ru": "На кухне оранжевые языки пламени весело пляшут в широком каменном камине."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Inside the kitchen, bright fire is in the large stone fireplace.</prosody></speak>",
+                    "en": "Inside the kitchen, bright fire is in the large stone fireplace.",
+                    "ru": "На кухне в большом каменном камине горит яркий огонь."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo stands near the hearth, stirring a large copper kettle of boiling water.</prosody></speak>",
-                    "en": "Leo stands near the fireplace, stirring a large copper kettle of boiling water.",
-                    "ru": "Лео стоит возле очага, помешивая большой медный чайник с закипающей водой."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo stands near the fireplace. <break time=\"300ms\"/> He has a large pot of hot water.</prosody></speak>",
+                    "en": "Leo stands near the fireplace. He has a large pot of hot water.",
+                    "ru": "Лео стоит возле камина. У него большой котелок с горячей водой."
                 },
                 {
                     "speaker": "leo",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Welcome back, Eldrin! Come stand close to the fire. You look like a wet puppy!</prosody></speak>",
-                    "en": "— Welcome back, Eldrin! Come stand close to the fire. You look like a wet puppy!",
-                    "ru": "— С возвращением, Элдрин! Подойди ближе к огню. Ты похож на мокрого щенка!"
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Welcome back, Eldrin! <break time=\"300ms\"/> Come near the warm fire. <break time=\"300ms\"/> You look cold!</prosody></speak>",
+                    "en": "— Welcome back, Eldrin! Come near the warm fire. You look cold!",
+                    "ru": "— С возвращением, Элдрин! Подойди к теплому огню. Ты выглядишь замерзшим!"
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— The rain is pouring so hard outside! Ah, the fireplace feels wonderfully warm on my cold hands.</prosody></speak>",
-                    "en": "— The rain is pouring so hard outside! Ah, the fireplace feels wonderfully warm on my cold hands.",
-                    "ru": "— Дождь на улице льет как из ведра! Ах, камин так чудесно греет мои озябшие руки."
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— The rain is strong outside! <break time=\"300ms\"/> Ah, this fireplace is warm on my cold hands!</prosody></speak>",
+                    "en": "— The rain is strong outside! Ah, this fireplace is warm on my cold hands!",
+                    "ru": "— На улице сильный дождь! Ах, этот камин так приятно греет мои холодные руки!"
                 },
                 {
                     "speaker": "leo",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Hang your wet jacket on this wooden peg by the hearth. It will be dry in twenty minutes.</prosody></speak>",
-                    "en": "— Hang your wet jacket on this wooden peg by the fireplace. It will be dry in twenty minutes.",
-                    "ru": "— Повесь свою мокрую куртку на этот деревянный крючок у очага. Она высохнет за двадцать минут."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Put your wet jacket on this wood shelf. <break time=\"300ms\"/> It can dry here in twenty minutes.</prosody></speak>",
+                    "en": "— Put your wet jacket on this wood shelf. It can dry here in twenty minutes.",
+                    "ru": "— Положи свою мокрую куртку на эту деревянную полку. Она высохнет здесь за двадцать минут."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Thank you, Leo. Are you making hot tea for us?</prosody></speak>",
-                    "en": "— Thank you, Leo. Are you making hot tea for us?",
-                    "ru": "— Спасибо, Лео. Ты завариваешь горячий чай для нас?"
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Thank you, Leo. <break time=\"300ms\"/> Do you make hot tea for us?</prosody></speak>",
+                    "en": "— Thank you, Leo. Do you make hot tea for us?",
+                    "ru": "— Спасибо, Лео. Ты завариваешь для нас горячий чай?"
                 },
                 {
                     "speaker": "leo",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Yes! What kind of herbal tea do you want today? We have mint, chamomile, and dried berries.</prosody></speak>",
-                    "en": "— Yes! What kind of herbal tea do you want today? We have mint, chamomile, and dried berries.",
-                    "ru": "— Да! Какой травяной чай ты хочешь сегодня? У нас есть мята, ромашка и сушеные ягоды."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Yes! <break time=\"300ms\"/> What tea do you want today? <break time=\"300ms\"/> We have mint tea and fruit tea.</prosody></speak>",
+                    "en": "— Yes! What tea do you want today? We have mint tea and fruit tea.",
+                    "ru": "— Да! Какой чай ты хочешь сегодня? У нас есть мятный чай и фруктовый чай."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— I love sweet mint tea on a rainy afternoon! Where is the green ceramic jar?</prosody></speak>",
-                    "en": "— I love sweet mint tea on a rainy afternoon! Where is the green clay jar?",
-                    "ru": "— Я обожаю сладкий мятный чай в дождливый день! Где зеленая керамическая банка?"
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— I love sweet mint tea on a rainy afternoon! <break time=\"300ms\"/> Where is the green clay pot?</prosody></speak>",
+                    "en": "— I love sweet mint tea on a rainy afternoon! Where is the green clay pot?",
+                    "ru": "— Я люблю сладкий мятный чай дождливым днем! Где зеленый глиняный горшочек?"
                 },
                 {
                     "speaker": "leo",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— It is on the top wooden shelf above the bread box. Can you reach it?</prosody></speak>",
-                    "en": "— It is on the top wooden shelf above the bread box. Can you reach it?",
-                    "ru": "— Она на верхней деревянной полке над хлебницей. Ты достанешь ее?"
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— It is on the top wood shelf above the bread box. <break time=\"300ms\"/> Can you take it?</prosody></speak>",
+                    "en": "— It is on the top wood shelf above the bread box. Can you take it?",
+                    "ru": "— Он на верхней деревянной полке над коробкой с хлебом. Ты можешь достать его?"
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin stands on his tiptoes. He gently takes down the green jar and opens the wooden lid.</prosody></speak>",
-                    "en": "Eldrin stands on his tiptoes. He gently takes down the green jar and opens the wooden lid.",
-                    "ru": "Элдрин встает на цыпочки. Он аккуратно снимает зеленую банку и открывает деревянную крышку."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin stands tall. <break time=\"300ms\"/> He takes the green clay pot from the shelf and opens the wood top.</prosody></speak>",
+                    "en": "Eldrin stands tall. He takes the green clay pot from the shelf and opens the wood top.",
+                    "ru": "Элдрин тянется вверх. Он берет зеленый глиняный горшочек с полки и открывает деревянную крышку."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Here it is! Mmm, smell the dried green leaves! They smell so fresh and sweet.</prosody></speak>",
-                    "en": "— Here it is! Mmm, smell the dried green leaves! They smell so fresh and sweet.",
-                    "ru": "— Вот она! Ммм, понюхай сушеные зеленые листья! Они пахнут так свежо и сладко."
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Here it is! <break time=\"300ms\"/> Smell the fresh green leaves! <break time=\"300ms\"/> They smell so sweet and nice.</prosody></speak>",
+                    "en": "— Here it is! Smell the fresh green leaves! They smell so sweet and nice.",
+                    "ru": "— Вот он! Понюхай свежие зеленые листья! Они пахнут так сладко и приятно."
                 },
                 {
                     "speaker": "leo",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Put two large spoonfuls of mint leaves into the white ceramic teapot.</prosody></speak>",
-                    "en": "— Put two large spoonfuls of mint leaves into the white clay teapot.",
-                    "ru": "— Положи две большие ложки листьев мяты в белый керамический заварочный чайник."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Put two big spoons of leaves into the white teapot.</prosody></speak>",
+                    "en": "— Put two big spoons of leaves into the white teapot.",
+                    "ru": "— Положи две большие ложки листьев в белый заварочный чайник."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin spoons the fragrant green leaves into the pot. Leo pours steaming hot water over them.</prosody></speak>",
-                    "en": "Eldrin spoons the nice smelling green leaves into the pot. Leo pours steaming hot water over them.",
-                    "ru": "Элдрин насыпает ароматные зеленые листья в чайник. Лео заливает их кипящей горячей водой."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin puts the green leaves into the pot. <break time=\"300ms\"/> Leo pours hot water on them.</prosody></speak>",
+                    "en": "Eldrin puts the green leaves into the pot. Leo pours hot water on them.",
+                    "ru": "Элдрин кладет зеленые листья в чайник. Лео наливает на них горячую воду."
                 },
                 {
                     "speaker": "leo",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Now we must wait five minutes so the tea becomes rich and golden.</prosody></speak>",
-                    "en": "— Now we must wait five minutes so the tea becomes rich and golden.",
-                    "ru": "— Теперь мы должны подождать пять минут, чтобы чай настоялся и стал насыщенным."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Now we must wait five minutes. <break time=\"300ms\"/> Then our hot tea is ready.</prosody></speak>",
+                    "en": "— Now we must wait five minutes. Then our hot tea is ready.",
+                    "ru": "— Теперь мы должны подождать пять минут. Тогда наш горячий чай будет готов."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The kitchen door creaks open. Master Corvinus enters, wiping raindrops from his woollen cloak.</prosody></speak>",
-                    "en": "The kitchen door creaks open. Master Corvinus enters, wiping rain drops from his warm wool cloak.",
-                    "ru": "Кухонная дверь со скрипом открывается. Мастер Корвинус входит, стряхивая капли дождя со своего шерстяного плаща."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The kitchen door opens. <break time=\"300ms\"/> Master Corvinus comes into the room. <break time=\"300ms\"/> He takes off his wet cloak.</prosody></speak>",
+                    "en": "The kitchen door opens. Master Corvinus comes into the room. He takes off his wet cloak.",
+                    "ru": "Дверь кухни открывается. Мастер Корвинус входит в комнату. Он снимает свой мокрый плащ."
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Good evening, boys. The storm is fierce tonight, but this kitchen smells like heaven.</prosody></speak>",
-                    "en": "— Good evening, boys. The storm is fierce tonight, but this kitchen smells like heaven.",
-                    "ru": "— Добрый вечер, мальчики. Буря сегодня свирепая, но на этой кухне пахнет просто райски."
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Good evening, boys. <break time=\"300ms\"/> The storm outside is bad, but this kitchen smells nice.</prosody></speak>",
+                    "en": "— Good evening, boys. The storm outside is bad, but this kitchen smells nice.",
+                    "ru": "— Добрый вечер, мальчики. Буря на улице сильная, но на этой кухне приятно пахнет."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Good evening, Master Corvinus! Sit with us by the fire! Our hot mint tea is ready.</prosody></speak>",
-                    "en": "— Good evening, Master Corvinus! Sit with us by the fire! Our hot mint tea is ready.",
-                    "ru": "— Добрый вечер, Мастер Корвинус! Садитесь с нами у огня! Наш горячий мятный чай готов."
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Good evening, Master Corvinus! <break time=\"300ms\"/> Come sit by the warm fire! <break time=\"300ms\"/> Our hot mint tea is ready.</prosody></speak>",
+                    "en": "— Good evening, Master Corvinus! Come sit by the warm fire! Our hot mint tea is ready.",
+                    "ru": "— Добрый вечер, Мастер Корвинус! Присаживайтесь к теплому огню! Наш горячий мятный чай готов."
                 },
                 {
                     "speaker": "leo",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Here is a clean clay mug for you, Professor. Would you like some wild flower honey with your tea?</prosody></speak>",
-                    "en": "— Here is a clean clay mug for you, Teacher. Would you like some wild flower honey with your tea?",
-                    "ru": "— Вот чистая глиняная кружка для вас, профессор. Хотите полевого меда к чаю?"
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Here is a clean cup for you, Teacher. <break time=\"300ms\"/> Do you want sweet sugar with your tea?</prosody></speak>",
+                    "en": "— Here is a clean cup for you, Teacher. Do you want sweet sugar with your tea?",
+                    "ru": "— Вот чистая чашка для вас, Учитель. Хотите сладкого сахара к чаю?"
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Just one small wooden spoon of honey, please. Thank you, Leo.</prosody></speak>",
-                    "en": "— Just one small wooden spoon of honey, please. Thank you, Leo.",
-                    "ru": "— Всего одну маленькую деревянную ложечку меда, пожалуйста. Спасибо, Лео."
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— One small spoon of sugar, please. <break time=\"300ms\"/> Thank you, Leo.</prosody></speak>",
+                    "en": "— One small spoon of sugar, please. Thank you, Leo.",
+                    "ru": "— Одну маленькую ложку сахара, пожалуйста. Спасибо, Лео."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo pours the steaming amber tea into three clay mugs. A sweet herbal cloud rises into the room.</prosody></speak>",
-                    "en": "Leo pours the steaming amber tea into three clay mugs. A sweet herbal cloud rises into the room.",
-                    "ru": "Лео разливает дымящийся янтарный чай по трем глиняным кружкам. Сладкое травяное облако поднимается в комнате."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo puts the hot tea into three clean cups. <break time=\"300ms\"/> The room smells very sweet.</prosody></speak>",
+                    "en": "Leo puts the hot tea into three clean cups. The room smells very sweet.",
+                    "ru": "Лео наливает горячий чай в три чистые чашки. В комнате пахнет очень сладко."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Master, will the heavy rain stop before tomorrow morning's market trip?</prosody></speak>",
-                    "en": "— Master, will the heavy rain stop before tomorrow morning's market trip?",
-                    "ru": "— Мастер, а сильный дождь прекратится до завтрашней утренней поездки на рынок?"
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Master, will the rain stop before tomorrow morning? <break time=\"300ms\"/> We have our trip to the market.</prosody></speak>",
+                    "en": "— Master, will the rain stop before tomorrow morning? We have our trip to the market.",
+                    "ru": "— Мастер, дождь прекратится до завтрашнего утра? У нас ведь поездка на рынок."
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Yes, Eldrin. The north wind will blow the rain clouds away before dawn.</prosody></speak>",
-                    "en": "— Yes, Eldrin. The north wind will blow the rain clouds away before dawn.",
-                    "ru": "— Да, Элдрин. Северный ветер унесет дождевые тучи еще до рассвета."
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Yes, Eldrin. <break time=\"300ms\"/> The cold north wind takes the rain away tonight.</prosody></speak>",
+                    "en": "— Yes, Eldrin. The cold north wind takes the rain away tonight.",
+                    "ru": "— Да, Элдрин. Холодный северный ветер унесет дождь этой ночью."
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Tomorrow morning will be crisp, clear, and sunny. The roads will be clean and fresh.</prosody></speak>",
-                    "en": "— Tomorrow morning will be crisp, clear, and sunny. The roads will be clean and fresh.",
-                    "ru": "— Завтрашнее утро будет бодрящим, ясным и солнечным. Дороги будут чистыми и свежими."
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Tomorrow morning will be clear and sunny. <break time=\"300ms\"/> The roads will be clean and fresh.</prosody></speak>",
+                    "en": "— Tomorrow morning will be clear and sunny. The roads will be clean and fresh.",
+                    "ru": "— Завтрашнее утро будет ясным и солнечным. Дороги будут чистыми и свежими."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— That is wonderful news! This hot tea is so soothing and warm.</prosody></speak>",
-                    "en": "— That is wonderful news! This hot tea is so calm and nice and warm.",
-                    "ru": "— Это чудесные новости! Этот горячий чай такой успокаивающий и теплый."
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— That is good news! <break time=\"300ms\"/> This hot tea is so nice and warm.</prosody></speak>",
+                    "en": "— That is good news! This hot tea is so nice and warm.",
+                    "ru": "— Это отличные новости! Этот горячий чай такой приятный и теплый."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The three companions sit peacefully by the crackling fire, drinking warm tea while rain drums against the window.</prosody></speak>",
-                    "en": "The three friends sit peacefully by the crackling fire, drinking warm tea while rain drums against the window.",
-                    "ru": "Трое спутников мирно сидят у потрескивающего огня, попивая теплый чай, пока дождь барабанит в окно."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The three friends sit by the fire. <break time=\"300ms\"/> They drink their warm tea together in peace.</prosody></speak>",
+                    "en": "The three friends sit by the fire. They drink their warm tea together in peace.",
+                    "ru": "Трое друзей сидят у огня. Они спокойно пьют свой теплый чай вместе."
                 }
             ],
             "quiz": [
                 {
-                    "question": "What did Eldrin close in the attic to keep the storm out?",
+                    "question": "Where did Eldrin go to close the roof windows from the cold rain?",
                     "options": [
-                        "Five wooden shutters",
-                        "A big iron safe",
-                        "The library door",
-                        "A bird cage"
-                    ],
-                    "correctIdx": 0
-                },
-                {
-                    "question": "What kind of tea did Leo and Eldrin prepare in the white ceramic teapot?",
-                    "options": [
-                        "Black coffee",
-                        "Hot mint tea with honey",
-                        "Cold apple juice",
-                        "Salty soup"
+                        "To the kitchen",
+                        "To the attic",
+                        "To the library",
+                        "To the town square"
                     ],
                     "correctIdx": 1
                 },
                 {
-                    "question": "What did Professor Corvinus say about tomorrow morning's weather?",
+                    "question": "What kind of tea did Eldrin and Leo make in the kitchen?",
                     "options": [
-                        "It will snow heavily",
-                        "The wind will clear the clouds and it will be sunny",
-                        "It will rain all day",
-                        "A dark fog will cover the school"
+                        "Black coffee",
+                        "Sweet mint tea",
+                        "Cold lemon water",
+                        "Apple juice"
+                    ],
+                    "correctIdx": 1
+                },
+                {
+                    "question": "According to Master Corvinus, what will the weather be like tomorrow morning?",
+                    "options": [
+                        "A heavy snow storm",
+                        "Clear and sunny",
+                        "Dark and rainy",
+                        "Very foggy and cold"
                     ],
                     "correctIdx": 1
                 }
