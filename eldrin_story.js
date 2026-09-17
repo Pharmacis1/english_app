@@ -1982,279 +1982,279 @@ const ELDRIN_AUDIOBOOK = {
             "titleEn": "Episode 8: The Heavy Chest in the Cellar",
             "titleRu": "Эпизод 8: Тяжелый сундук в подвале",
             "grammarFocus": "Action Verbs (carry, lift, pull, open, climb), Adjectives (heavy, light, dark, bright, cold)",
-            "wordCount": 488,
+            "wordCount": 382,
             "coverIcon": "fa-dungeon",
             "coverColor": "#64748b",
             "sentences": [
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Master Corvinus sits in his armchair in the library. He reviews a long parchment list.</prosody></speak>",
-                    "en": "Master Corvinus sits in his big chair in the library. He reviews a long paper list.",
-                    "ru": "Мастер Корвинус сидит в своем кресле в библиотеке. Он просматривает длинный список на пергаменте."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Master Corvinus sits in his big chair in the library. <break time=\"300ms\"/> He looks at a long paper.</prosody></speak>",
+                    "en": "Master Corvinus sits in his big chair in the library. He looks at a long paper.",
+                    "ru": "Мастер Корвинус сидит в своем большом кресле в библиотеке. Он смотрит на длинную бумагу."
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Eldrin and Leo, please come here. I need your strong young arms for a heavy task.</prosody></speak>",
-                    "en": "— Eldrin and Leo, please come here. I need your strong young arms for a heavy task.",
-                    "ru": "— Элдрин и Лео, подойдите сюда, пожалуйста. Мне нужны ваши крепкие молодые руки для тяжелой задачи."
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Eldrin and Leo, please come here. <break time=\"300ms\"/> I need your strong young arms. <break time=\"300ms\"/> I have a heavy task.</prosody></speak>",
+                    "en": "— Eldrin and Leo, please come here. I need your strong young arms. I have a heavy task.",
+                    "ru": "— Элдрин и Лео, подойдите сюда, пожалуйста. Мне нужны ваши сильные молодые руки. У меня тяжелое задание."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Yes, Master Corvinus! What do you need us to carry?</prosody></speak>",
-                    "en": "— Yes, Master Corvinus! What do you need us to carry?",
-                    "ru": "— Да, Мастер Корвинус! Что нам нужно перенести?"
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Yes, Master Corvinus! <break time=\"300ms\"/> What can we carry?</prosody></speak>",
+                    "en": "— Yes, Master Corvinus! What can we carry?",
+                    "ru": "— Да, Мастер Корвинус! Что нам нужно отнести?"
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— We need three bronze travel lanterns for our horse cart tomorrow morning.</prosody></speak>",
-                    "en": "— We need three metal travel lanterns for our horse cart tomorrow morning.",
-                    "ru": "— Нам нужны три бронзовых дорожных фонаря для нашей повозки на завтрашнее утро."
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— We need three metal lamps for tomorrow morning.</prosody></speak>",
+                    "en": "— We need three metal lamps for tomorrow morning.",
+                    "ru": "— Нам нужны три металлические лампы на завтрашнее утро."
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— They are stored inside the old oak chest in the cellar beneath the north tower.</prosody></speak>",
-                    "en": "— They are stored inside the old big tree chest in the cellar under the north tower.",
-                    "ru": "— Они хранятся в старом дубовом сундуке в подвале под северной башней."
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— They are in the old big tree box in the basement under the north tower.</prosody></speak>",
+                    "en": "— They are in the old big tree box in the basement under the north tower.",
+                    "ru": "— Они в старом деревянном сундуке в подвале под северной башней."
                 },
                 {
                     "speaker": "leo",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— We will go right away, Master! We will bring all three lanterns up to the hallway.</prosody></speak>",
-                    "en": "— We will go right away, Master! We will bring all three lanterns up to the hallway.",
-                    "ru": "— Мы пойдем прямо сейчас, Мастер! Мы принесем все три фонаря наверх в коридор."
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— We go now, Master! <break time=\"300ms\"/> We bring all three lamps to the hall.</prosody></speak>",
+                    "en": "— We go now, Master! We bring all three lamps to the hall.",
+                    "ru": "— Мы идем прямо сейчас, Мастер! Мы принесем все три лампы в зал."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo takes a brass candlestick with a thick white wax candle from the shelf and lights it.</prosody></speak>",
-                    "en": "Leo takes a yellow metal candlestick with a thick white wax candle from the shelf and lights it.",
-                    "ru": "Лео берет с полки латунный подсвечник с толстой белой восковой свечой и зажигает ее."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo takes a yellow metal lamp from the shelf.</prosody></speak>",
+                    "en": "Leo takes a yellow metal lamp from the shelf.",
+                    "ru": "Лео берет желтую металлическую лампу с полки."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin and Leo walk to the end of the stone corridor. They open the thick iron-bound cellar door.</prosody></speak>",
-                    "en": "Eldrin and Leo walk to the end of the stone corridor. They open the thick iron-tied cellar door.",
-                    "ru": "Элдрин и Лео идут в конец каменного коридора. Они открывают толстую обитую железом дверь подвала."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin and Leo walk to the end of the stone hall. <break time=\"300ms\"/> They open the thick iron door.</prosody></speak>",
+                    "en": "Eldrin and Leo walk to the end of the stone hall. They open the thick iron door.",
+                    "ru": "Элдрин и Лео идут в конец каменного зала. Они открывают толстую железную дверь."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">A cool, damp breeze rises from the dark stairway below. The smell of aged wood and cold stone fills the air.</prosody></speak>",
-                    "en": "A cool, damp breeze rises from the dark stairway below. The smell of aged wood and cold stone fills the air.",
-                    "ru": "Прохладный, влажный ветерок веет с темной лестницы внизу. Запах старого дерева и холодного камня наполняет воздух."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Cold air comes from the dark steps below. <break time=\"300ms\"/> The boys smell old wood and cold stone.</prosody></speak>",
+                    "en": "Cold air comes from the dark steps below. The boys smell old wood and cold stone.",
+                    "ru": "Холодный воздух веет от темных ступеней внизу. Мальчики чувствуют запах старого дерева и холодного камня."
                 },
                 {
                     "speaker": "leo",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Hold the handrail tightly, Eldrin. The stone steps are cold and steep.</prosody></speak>",
-                    "en": "— Hold the handrail tightly, Eldrin. The stone steps are cold and steep.",
-                    "ru": "— Держись крепче за перила, Элдрин. Каменные ступени холодные и крутые."
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Walk carefully, Eldrin. <break time=\"300ms\"/> The stone steps are cold.</prosody></speak>",
+                    "en": "— Walk carefully, Eldrin. The stone steps are cold.",
+                    "ru": "— Ступай осторожно, Элдрин. Каменные ступени холодные."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— I am walking slowly behind you, Leo. Let us count the steps together.</prosody></speak>",
-                    "en": "— I am walking slowly behind you, Leo. Let us count the steps together.",
-                    "ru": "— Я иду медленно за тобой, Лео. Давай посчитаем ступени вместе."
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— I walk slowly behind you, Leo. <break time=\"300ms\"/> Let us count the steps.</prosody></speak>",
+                    "en": "— I walk slowly behind you, Leo. Let us count the steps.",
+                    "ru": "— Я иду медленно за тобой, Лео. Давай считать ступени."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">They descend step by step into the quiet underground room.</prosody></speak>",
-                    "en": "They descend step by step into the quiet underground room.",
-                    "ru": "Они спускаются шаг за шагом в тихую подземную комнату."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">They walk down step by step into the quiet room.</prosody></speak>",
+                    "en": "They walk down step by step into the quiet room.",
+                    "ru": "Они спускаются шаг за шагом в тихую комнату."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— One, two, three, four, five... ten, eleven, twelve! Twelve steps down. We are on the cellar floor.</prosody></speak>",
-                    "en": "— One, two, three, four, five... ten, eleven, twelve! Twelve steps down. We are on the cellar floor.",
-                    "ru": "— Один, два, три, четыре, пять... десять, одиннадцать, двенадцать! Двенадцать ступеней вниз. Мы на полу подвала."
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— One, two, three, four, five... <break time=\"300ms\"/> ten, eleven, twelve! <break time=\"300ms\"/> Twelve steps down. <break time=\"300ms\"/> We are on the basement floor.</prosody></speak>",
+                    "en": "— One, two, three, four, five... ten, eleven, twelve! Twelve steps down. We are on the basement floor.",
+                    "ru": "— Один, два, три, четыре, пять... десять, одиннадцать, двенадцать! Двенадцать ступеней вниз. Мы в подвале."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The flickering yellow candle light casts long shadows across the stone arches.</prosody></speak>",
-                    "en": "The flickering yellow candle light casts long shadows across the stone arches.",
-                    "ru": "Мерцающий желтый свет свечи отбрасывает длинные тени по каменным сводам."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The yellow light makes long shadows on the stone wall.</prosody></speak>",
+                    "en": "The yellow light makes long shadows on the stone wall.",
+                    "ru": "Желтый свет отбрасывает длинные тени на каменную стену."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Tall wooden barrels of apples, sacks of potatoes, and neat stacks of firewood line the walls.</prosody></speak>",
-                    "en": "Tall wooden barrels of apples, sacks of potatoes, and neat stacks of firewood line the walls.",
-                    "ru": "Высокие деревянные бочки с яблоками, мешки с картошкой и аккуратные штабеля дров стоят вдоль стен."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Big tree barrels of apples, bags of potatoes, and wood are near the walls.</prosody></speak>",
+                    "en": "Big tree barrels of apples, bags of potatoes, and wood are near the walls.",
+                    "ru": "Деревянные бочки с яблоками, мешки с картошкой и дрова стоят у стен."
                 },
                 {
                     "speaker": "leo",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Look in the far right corner, under the arched stone alcove. There is the oak chest!</prosody></speak>",
-                    "en": "— Look in the far right corner, under the arched stone alcove. There is the big tree chest!",
-                    "ru": "— Посмотри в дальний правый угол, под арочную каменную нишу. Вон тот дубовый сундук!"
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Look to the right corner! <break time=\"300ms\"/> There is the big tree box!</prosody></speak>",
+                    "en": "— Look to the right corner! There is the big tree box!",
+                    "ru": "— Посмотри в правый угол! Вон тот деревянный сундук!"
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">They walk over to the massive oak chest. Thick black iron straps reinforce the corners.</prosody></speak>",
-                    "en": "They walk over to the massive big tree chest. Thick black iron straps reinforce the corners.",
-                    "ru": "Они подходят к массивному дубовому сундуку. Толстые черные железные полосы укрепляют его углы."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">They walk to the big tree box. <break time=\"300ms\"/> Thick black iron is on the sides.</prosody></speak>",
+                    "en": "They walk to the big tree box. Thick black iron is on the sides.",
+                    "ru": "Они подходят к деревянному сундуку. Толстое черное железо оковано по бокам."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Wow, this chest is huge! Let me lift the front iron latch.</prosody></speak>",
-                    "en": "— Wow, this chest is huge! Let me lift the front iron lock.",
-                    "ru": "— Ого, какой этот сундук огромный! Дай-ка я подниму переднюю железную защелку."
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— This box is very big! <break time=\"300ms\"/> Let me open the front iron lock.</prosody></speak>",
+                    "en": "— This box is very big! Let me open the front iron lock.",
+                    "ru": "— Этот сундук очень большой! Дай я открою передний железный замок."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin pulls the heavy iron ring with both hands. The latch does not budge at all.</prosody></speak>",
-                    "en": "Eldrin pulls the heavy iron ring with both hands. The lock does not budge at all.",
-                    "ru": "Элдрин тянет за тяжелое железное кольцо обеими руками. Защелка не двигается ни на миллиметр."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin pulls with both hands. <break time=\"300ms\"/> The iron lock does not open.</prosody></speak>",
+                    "en": "Eldrin pulls with both hands. The iron lock does not open.",
+                    "ru": "Элдрин тянет обеими руками. Железный замок не открывается."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Ugh! It is completely stuck! The iron is stiff from the cold cellar air.</prosody></speak>",
-                    "en": "— Ugh! It is completely stuck! The iron is stiff from the cold cellar air.",
-                    "ru": "— Уф! Она намертво застряла! Железо затвердело от холодного подвального воздуха."
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— The lock is hard! <break time=\"300ms\"/> It is cold here.</prosody></speak>",
+                    "en": "— The lock is hard! It is cold here.",
+                    "ru": "— Замок тугой! Здесь холодно."
                 },
                 {
                     "speaker": "leo",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Let us pull it together! Put your left hand here, and I will put my right hand there.</prosody></speak>",
-                    "en": "— Let us pull it together! Put your left hand here, and I will put my right hand there.",
-                    "ru": "— Давай потянем вместе! Положи левую руку сюда, а я положу правую руку туда."
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— We pull together! <break time=\"300ms\"/> Put your left hand here, and I put my right hand there.</prosody></speak>",
+                    "en": "— We pull together! Put your left hand here, and I put my right hand there.",
+                    "ru": "— Давай тянуть вместе! Положи левую руку сюда, а я положу правую руку туда."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Ready when you are, Leo! Count to three!</prosody></speak>",
-                    "en": "— Ready when you are, Leo! Count to three!",
-                    "ru": "— Готов, когда ты скажешь, Лео! Считай до трех!"
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— I am ready, Leo! <break time=\"300ms\"/> Count to three!</prosody></speak>",
+                    "en": "— I am ready, Leo! Count to three!",
+                    "ru": "— Я готов, Лео! Считай до трех!"
                 },
                 {
                     "speaker": "leo",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— One... two... three... PULL WITH ALL YOUR MIGHT!</prosody></speak>",
-                    "en": "— One... two... three... PULL WITH ALL YOUR MIGHT!",
-                    "ru": "— Раз... два... три... ТЯНИ изо всех сил!"
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— One... <break time=\"300ms\"/> two... <break time=\"300ms\"/> three... <break time=\"300ms\"/> pull!</prosody></speak>",
+                    "en": "— One... two... three... pull!",
+                    "ru": "— Раз... два... три... тянем!"
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">CREEEAK! With a loud metallic groan, the heavy iron latch flips open!</prosody></speak>",
-                    "en": "CREEEAK! With a loud metal groan, the heavy iron lock flips open!",
-                    "ru": "СКРИ-И-ИП! С громким металлическим стоном тяжелая защелка распахивается!"
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The heavy iron lock opens!</prosody></speak>",
+                    "en": "The heavy iron lock opens!",
+                    "ru": "Тяжелый железный замок открывается!"
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Together, Eldrin and Leo lift the heavy oak lid. It rests securely against the stone wall.</prosody></speak>",
-                    "en": "Together, Eldrin and Leo lift the heavy big tree lid. It rests safely against the stone wall.",
-                    "ru": "Вместе Элдрин и Лео поднимают тяжелую дубовую крышку. Она надежно упирается в каменную стену."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin and Leo lift the heavy tree top. <break time=\"300ms\"/> It rests by the stone wall.</prosody></speak>",
+                    "en": "Eldrin and Leo lift the heavy tree top. It rests by the stone wall.",
+                    "ru": "Элдрин и Лео поднимают тяжелую деревянную крышку. Она упирается в каменную стену."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Look inside! What is wrapped in that thick grey woollen blanket?</prosody></speak>",
-                    "en": "— Look inside! What is wrapped in that thick grey warm wool blanket?",
-                    "ru": "— Загляни внутрь! Что это завернуто в то толстое серое шерстяное одеяло?"
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Look inside! <break time=\"300ms\"/> What is under that grey warm blanket?</prosody></speak>",
+                    "en": "— Look inside! What is under that grey warm blanket?",
+                    "ru": "— Загляни внутрь! Что там под этим серым теплым одеялом?"
                 },
                 {
                     "speaker": "leo",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Let us unwrap the blanket carefully. Look! Three shiny bronze travel lanterns!</prosody></speak>",
-                    "en": "— Let us unwrap the blanket carefully. Look! Three shiny metal travel lanterns!",
-                    "ru": "— Давай развернем одеяло аккуратно. Смотри! Три блестящих бронзовых дорожных фонаря!"
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Look! <break time=\"300ms\"/> Three shiny metal lamps!</prosody></speak>",
+                    "en": "— Look! Three shiny metal lamps!",
+                    "ru": "— Смотри! Три блестящие металлические лампы!"
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The lanterns have clean glass windows, shiny bronze handles, and fresh cotton wicks inside.</prosody></speak>",
-                    "en": "The lanterns have clean glass windows, shiny metal handles, and fresh cotton wicks inside.",
-                    "ru": "У фонарей чистые стеклянные окошки, блестящие бронзовые ручки и свежие хлопковые фитили внутри."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The lamps have clean glass and metal parts.</prosody></speak>",
+                    "en": "The lamps have clean glass and metal parts.",
+                    "ru": "У ламп чистые стекла и металлические детали."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— They are in perfect condition! Not a single crack in the glass!</prosody></speak>",
-                    "en": "— They are in perfect condition! Not a single crack in the glass!",
-                    "ru": "— Они в идеальном состоянии! Ни единой трещинки на стекле!"
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— They are in good condition! <break time=\"300ms\"/> The glass is fine!</prosody></speak>",
+                    "en": "— They are in good condition! The glass is fine!",
+                    "ru": "— Они в хорошем состоянии! Стекло целое!"
                 },
                 {
                     "speaker": "leo",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— I will carry two lanterns by their bronze handles. Can you carry the third lantern and the candle?</prosody></speak>",
-                    "en": "— I will carry two lanterns by their metal handles. Can you carry the third lantern and the candle?",
-                    "ru": "— Я понесу два фонаря за их бронзовые ручки. Сможешь понести третий фонарь и свечу?"
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— I carry two lamps. <break time=\"300ms\"/> Can you carry the third lamp?</prosody></speak>",
+                    "en": "— I carry two lamps. Can you carry the third lamp?",
+                    "ru": "— Я понесу две лампы. Сможешь понести третью лампу?"
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Yes, absolutely! I will light the way ahead of us.</prosody></speak>",
-                    "en": "— Yes, absolutely! I will light the way ahead of us.",
-                    "ru": "— Да, конечно! Я буду освещать дорогу впереди нас."
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Yes! <break time=\"300ms\"/> I walk in front with the light.</prosody></speak>",
+                    "en": "— Yes! I walk in front with the light.",
+                    "ru": "— Да! Я пойду впереди со светом."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">They climb up the twelve stone stairs steadily and step into the warm, illuminated hallway.</prosody></speak>",
-                    "en": "They climb up the twelve stone stairs slowly and carefully and step into the warm, bright hallway.",
-                    "ru": "Они уверенно поднимаются по двенадцати каменным ступеням и выходят в теплый, освещенный коридор."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">They walk up the twelve stone steps carefully. <break time=\"300ms\"/> They step into the warm, bright hall.</prosody></speak>",
+                    "en": "They walk up the twelve stone steps carefully. They step into the warm, bright hall.",
+                    "ru": "Они осторожно поднимаются по двенадцати каменным ступеням. Они входят в теплый, светлый зал."
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Excellent work, boys! Three fine lanterns ready for our journey. Place them by the front door.</prosody></speak>",
-                    "en": "— Excellent work, boys! Three fine lanterns ready for our journey. Place them by the front door.",
-                    "ru": "— Отличная работа, мальчики! Три прекрасных фонаря готовы к нашему путешествию. Поставьте их у входной двери."
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Good work, boys! <break time=\"300ms\"/> Three fine lamps are ready for our journey. <break time=\"300ms\"/> Put them near the front door.</prosody></speak>",
+                    "en": "— Good work, boys! Three fine lamps are ready for our journey. Put them near the front door.",
+                    "ru": "— Отличная работа, мальчики! Три прекрасные лампы готовы к нашему путешествию. Поставьте их возле входной двери."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Mission accomplished, Master! Now our cart will have plenty of bright light on the road!</prosody></speak>",
-                    "en": "— Mission finished, Master! Now our cart will have plenty of bright light on the road!",
-                    "ru": "— Задание выполнено, Мастер! Теперь у нашей повозки будет много яркого света в пути!"
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— The work is finished, Master! <break time=\"300ms\"/> Now we have bright light on the road!</prosody></speak>",
+                    "en": "— The work is finished, Master! Now we have bright light on the road!",
+                    "ru": "— Работа закончена, Мастер! Теперь у нас будет яркий свет в дороге!"
                 }
             ],
             "quiz": [
                 {
-                    "question": "How many bronze travel lanterns were inside the oak chest in the cellar?",
+                    "question": "How many stone steps did the boys count going down into the basement?",
                     "options": [
-                        "One lantern",
-                        "Three bronze lanterns",
-                        "Ten lanterns",
-                        "None"
+                        "Five steps",
+                        "Twelve steps",
+                        "Twenty steps",
+                        "Fifty steps"
                     ],
                     "correctIdx": 1
                 },
                 {
-                    "question": "What was the latch on the heavy oak chest like?",
+                    "question": "How did Eldrin and Leo open the heavy iron lock on the box?",
                     "options": [
-                        "It opened easily with one finger",
-                        "It was stuck and required both boys to pull together",
-                        "It had a gold key in it",
-                        "It was broken in pieces"
+                        "With a golden key",
+                        "They pulled together on the count of three",
+                        "Master Corvinus opened it for them",
+                        "With a hammer"
                     ],
                     "correctIdx": 1
                 },
                 {
-                    "question": "Where did Master Corvinus ask the boys to place the retrieved lanterns?",
+                    "question": "What was inside the big box under the grey blanket?",
                     "options": [
-                        "Under the bed",
-                        "By the front entrance door",
-                        "In the garden fountain",
-                        "On the roof"
+                        "Three shiny metal lamps",
+                        "Old magical books",
+                        "Bags of potatoes and apples",
+                        "Dry firewood"
                     ],
-                    "correctIdx": 1
+                    "correctIdx": 0
                 }
             ]
         },
