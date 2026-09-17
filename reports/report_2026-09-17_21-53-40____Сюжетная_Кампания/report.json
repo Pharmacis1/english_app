@@ -1,0 +1,44 @@
+{
+  "id": "report_2026-09-17_21-53-40____Сюжетная_Кампания",
+  "timestamp": "2026-09-17T18:53:40.834Z",
+  "localTime": "17.09.2026, 22:53:38",
+  "category": "🎨 Вёрстка / Визуал",
+  "description": "1. Не адаптировано под мобильную версию\n2. С телефона персонажи показываются заблосенными, хотя они разблочены",
+  "mode": "⚔️ Сюжетная Кампания",
+  "hero": "Valerius Lvl 100",
+  "subContext": "Сценарий: Tech Job Interview",
+  "viewport": {
+    "width": 392,
+    "height": 791
+  },
+  "url": "https://englishpulse.share.zrok.io/index.html",
+  "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Mobile Safari/537.36",
+  "logs": [
+    {
+      "type": "warn",
+      "time": "21:28:18",
+      "msg": "[Audiobook Player] Audio play error: {}"
+    },
+    {
+      "type": "warn",
+      "time": "21:28:19",
+      "msg": "[Audiobook Player] Audio play error: {}"
+    },
+    {
+      "type": "warn",
+      "time": "21:28:23",
+      "msg": "[Audiobook Player] Audio play error: {}"
+    },
+    {
+      "type": "warn",
+      "time": "21:33:48",
+      "msg": "[Audiobook Player] Audio play error: {}"
+    },
+    {
+      "type": "warn",
+      "time": "21:52:43",
+      "msg": "[Audiobook Player] Audio play error: {}"
+    }
+  ],
+  "screenshotFile": "screenshot.jpg"
+}

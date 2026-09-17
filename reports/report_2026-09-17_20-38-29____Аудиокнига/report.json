@@ -1,0 +1,39 @@
+{
+  "id": "report_2026-09-17_20-38-29____Аудиокнига",
+  "timestamp": "2026-09-17T17:38:29.188Z",
+  "localTime": "17.09.2026, 21:38:27",
+  "category": "🐛 Баг / Ошибка",
+  "description": "Вверху выделена глава 5, а внизу указан эпизод 6",
+  "mode": "🎧 Аудиокнига",
+  "hero": "Valerius Lvl 100",
+  "subContext": "Сценарий: Tech Job Interview",
+  "viewport": {
+    "width": 392,
+    "height": 791
+  },
+  "url": "https://englishpulse.share.zrok.io/index.html",
+  "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Mobile Safari/537.36",
+  "logs": [
+    {
+      "type": "warn",
+      "time": "21:28:18",
+      "msg": "[Audiobook Player] Audio play error: {}"
+    },
+    {
+      "type": "warn",
+      "time": "21:28:19",
+      "msg": "[Audiobook Player] Audio play error: {}"
+    },
+    {
+      "type": "warn",
+      "time": "21:28:23",
+      "msg": "[Audiobook Player] Audio play error: {}"
+    },
+    {
+      "type": "warn",
+      "time": "21:33:48",
+      "msg": "[Audiobook Player] Audio play error: {}"
+    }
+  ],
+  "screenshotFile": "screenshot.jpg"
+}
