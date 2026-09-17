@@ -1713,263 +1713,263 @@ const ELDRIN_AUDIOBOOK = {
             "titleEn": "Episode 7: The Herb Garden on the Balcony",
             "titleRu": "Эпизод 7: Сад трав на балконе",
             "grammarFocus": "Numbers (one to twenty), Colors (green, yellow, purple), Gardening Verbs (water, trim, grow, pick)",
-            "wordCount": 487,
+            "wordCount": 361,
             "coverIcon": "fa-seedling",
             "coverColor": "#10b981",
             "sentences": [
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The sun rises brightly over the distant green mountains. The morning air smells sweet and clean after the rain.</prosody></speak>",
-                    "en": "The sun rises with bright light over the distant green mountains. The morning air smells sweet and clean after the rain.",
-                    "ru": "Солнце ярко встает над далекими зелеными горами. Утренний воздух пахнет свежестью и чистотой после дождя."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The bright sun is over the green mountain. <break time=\"300ms\"/> The morning air is sweet and fresh after the rain.</prosody></speak>",
+                    "en": "The bright sun is over the green mountain. The morning air is sweet and fresh after the rain.",
+                    "ru": "Яркое солнце встает над зеленой горой. Утренний воздух сладкий и свежий после дождя."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin steps out through the arched glass door onto the wide stone balcony.</prosody></speak>",
-                    "en": "Eldrin steps out through the arched glass door onto the wide stone balcony.",
-                    "ru": "Элдрин выходит через арочную стеклянную дверь на широкую каменную террасу балкона."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin walks out the glass door. <break time=\"300ms\"/> He is on the big stone balcony.</prosody></speak>",
+                    "en": "Eldrin walks out the glass door. He is on the big stone balcony.",
+                    "ru": "Элдрин выходит через стеклянную дверь. Он на большом каменном балконе."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The balcony overlooks the entire green valley below. Long rows of brown clay pots line the stone railing.</prosody></speak>",
-                    "en": "The balcony overlooks the entire green valley below. Long rows of brown clay pots line the stone railing.",
-                    "ru": "С балкона открывается вид на всю зеленую долину внизу. Длинные ряды коричневых глиняных горшков стоят вдоль каменных перил."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The balcony is above the green valley. <break time=\"300ms\"/> Long rows of brown clay pots stand on the stone.</prosody></speak>",
+                    "en": "The balcony is above the green valley. Long rows of brown clay pots stand on the stone.",
+                    "ru": "Балкон находится над зеленой долиной. Длинные ряды коричневых глиняных горшков стоят на камне."
                 },
                 {
                     "speaker": "kira",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Good morning, Eldrin! Look how happy all the plants are after last night's rainfall!</prosody></speak>",
-                    "en": "— Good morning, Eldrin! Look how happy all the plants are after last night's rainfall!",
-                    "ru": "— Доброе утро, Элдрин! Посмотри, как радуются все растения после ночного дождя!"
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Good morning, Eldrin! <break time=\"300ms\"/> Look, the plants are very happy after the night rain!</prosody></speak>",
+                    "en": "— Good morning, Eldrin! Look, the plants are very happy after the night rain!",
+                    "ru": "— Доброе утро, Элдрин! Посмотри, растения очень рады ночному дождю!"
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Good morning, Kira! The garden looks so green and colorful today. How many pots do we have here?</prosody></speak>",
-                    "en": "— Good morning, Kira! The garden looks so green and colorful today. How many pots do we have here?",
-                    "ru": "— Доброе утро, Кира! Сад выглядит таким зеленым и красочным сегодня. Сколько горшков у нас тут?"
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Good morning, Kira! <break time=\"300ms\"/> The garden is green and nice today. <break time=\"300ms\"/> How many pots do we have here?</prosody></speak>",
+                    "en": "— Good morning, Kira! The garden is green and nice today. How many pots do we have here?",
+                    "ru": "— Доброе утро, Кира! Сад сегодня такой зеленый и красивый. Сколько горшков у нас здесь?"
                 },
                 {
                     "speaker": "kira",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Exactly twenty brown clay pots! Ten on the left side, and ten on the right side.</prosody></speak>",
-                    "en": "— Exactly twenty brown clay pots! Ten on the left side, and ten on the right side.",
-                    "ru": "— Ровно двадцать коричневых глиняных горшков! Десять с левой стороны и десять с правой."
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— We have ten pots on the left and ten on the right!</prosody></speak>",
+                    "en": "— We have ten pots on the left and ten on the right!",
+                    "ru": "— У нас десять горшков слева и десять справа!"
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— What can I do to help you care for the garden this morning?</prosody></speak>",
-                    "en": "— What can I do to help you care for the garden this morning?",
-                    "ru": "— Чем я могу помочь тебе по уходу за садом этим утром?"
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— How can I help with the garden this morning?</prosody></speak>",
+                    "en": "— How can I help with the garden this morning?",
+                    "ru": "— Чем я могу помочь в саду этим утром?"
                 },
                 {
                     "speaker": "kira",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Take that big green watering can over by the brass water pump. Fill it to the top.</prosody></speak>",
-                    "en": "— Take that big green watering can over by the yellow metal water pump. Fill it to the top.",
-                    "ru": "— Возьми ту большую зеленую лейку возле латунной водяной колонки. Наполни ее доверху."
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Take that big green water can. <break time=\"300ms\"/> Fill it with water.</prosody></speak>",
+                    "en": "— Take that big green water can. Fill it with water.",
+                    "ru": "— Возьми ту большую зеленую лейку. Наполни ее водой."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin pumps the handle. Clear, cold mountain water gushes into the green can.</prosody></speak>",
-                    "en": "Eldrin pumps the handle. Clear, cold mountain water gushes into the green can.",
-                    "ru": "Элдрин качает ручку. Чистая, холодная горная вода струится в зеленую лейку."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin takes the cold mountain water. <break time=\"300ms\"/> The green can is full.</prosody></speak>",
+                    "en": "Eldrin takes the cold mountain water. The green can is full.",
+                    "ru": "Элдрин набирает холодную горную воду. Зеленая лейка полна."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— The can is full! How much water does each plant need, Kira?</prosody></speak>",
-                    "en": "— The can is full! How much water does each plant need, Kira?",
-                    "ru": "— Лейка полная! Сколько воды нужно каждому растению, Кира?"
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— How much water does each plant need, Kira?</prosody></speak>",
+                    "en": "— How much water does each plant need, Kira?",
+                    "ru": "— Сколько воды нужно каждому растению, Кира?"
                 },
                 {
                     "speaker": "kira",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— The young green thyme in the small pots needs just a little cup of water.</prosody></speak>",
-                    "en": "— The young green small herb in the small pots needs just a little cup of water.",
-                    "ru": "— Молодому зеленому тимьяну в маленьких горшках нужна всего одна маленькая чашечка воды."
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— The small green plant needs a little cup of water.</prosody></speak>",
+                    "en": "— The small green plant needs a little cup of water.",
+                    "ru": "— Маленькому зеленому растению нужна небольшая чашка воды."
                 },
                 {
                     "speaker": "kira",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— But the big rosemary bush in the corner needs half a can because its roots are very deep.</prosody></speak>",
-                    "en": "— But the big rosemary bush in the corner needs half a can because its roots are very deep.",
-                    "ru": "— А вот большому кусту розмарина в углу нужно пол-лейки, потому что его корни очень глубокие."
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— But the big plant in the corner needs half of the can. <break time=\"300ms\"/> Its roots are deep.</prosody></speak>",
+                    "en": "— But the big plant in the corner needs half of the can. Its roots are deep.",
+                    "ru": "— Но большому растению в углу нужна половина лейки. Его корни глубокие."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin carefully walks along the terrace, pouring water gently over the rich dark soil of each pot.</prosody></speak>",
-                    "en": "Eldrin carefully walks along the balcony, pouring water gently over the rich dark soil of each pot.",
-                    "ru": "Элдрин аккуратно идет вдоль террасы, бережно поливая плодородную темную землю в каждом горшке."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin walks and gives clean water to the dark soil of each pot.</prosody></speak>",
+                    "en": "Eldrin walks and gives clean water to the dark soil of each pot.",
+                    "ru": "Элдрин идет и поливает чистой водой темную почву в каждом горшке."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— One, two, three, four... ten pots watered! The soil is drinking the water greedily.</prosody></speak>",
-                    "en": "— One, two, three, four... ten pots watered! The soil is drinking the water greedily.",
-                    "ru": "— Один, два, три, четыре... десять горшков полито! Земля жадно пьет воду."
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— One, two, three, four... <break time=\"300ms\"/> ten pots have water!</prosody></speak>",
+                    "en": "— One, two, three, four... ten pots have water!",
+                    "ru": "— Один, два, три, четыре... десять горшков политы!"
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Kira bends over a pot with bright yellow flowers shaped like little golden suns.</prosody></speak>",
-                    "en": "Kira bends over a pot with bright yellow flowers shaped like little golden suns.",
-                    "ru": "Кира склоняется над горшком с ярко-желтыми цветами, похожими на маленькие золотые солнышки."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Kira looks at a pot with bright yellow flowers.</prosody></speak>",
+                    "en": "Kira looks at a pot with bright yellow flowers.",
+                    "ru": "Кира смотрит на горшок с ярко-желтыми цветами."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Look at those beautiful yellow flowers! Are they for making perfume or cooking soup?</prosody></speak>",
-                    "en": "— Look at those beautiful yellow flowers! Are they for making perfume or cooking soup?",
-                    "ru": "— Посмотри на эти красивые желтые цветы! Они для изготовления духов или для супа?"
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Look at those yellow flowers! <break time=\"300ms\"/> Are they for perfume or soup?</prosody></speak>",
+                    "en": "— Look at those yellow flowers! Are they for perfume or soup?",
+                    "ru": "— Посмотри на те желтые цветы! Они для духов или для супа?"
                 },
                 {
                     "speaker": "kira",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— They are calendula blossoms. Master Corvinus uses their petals to make soothing healing creams.</prosody></speak>",
-                    "en": "— They are calendula blossoms. Master Corvinus uses their petals to make calm and nice healing creams.",
-                    "ru": "— Это цветы календулы. Мастер Корвинус использует их лепестки для создания заживляющих кремов."
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— They are healing flowers. <break time=\"300ms\"/> Master Corvinus makes nice cream from them.</prosody></speak>",
+                    "en": "— They are healing flowers. Master Corvinus makes nice cream from them.",
+                    "ru": "— Это целебные цветы. Мастер Корвинус делает из них хорошую мазь."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— That is very useful. Look, there are some dry brown leaves at the base of the stems.</prosody></speak>",
-                    "en": "— That is very useful. Look, there are some dry brown leaves at the base of the stems.",
-                    "ru": "— Это очень полезно. Смотри, у основания стеблей есть сухие коричневые листья."
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— That is good. <break time=\"300ms\"/> Look, there are dry brown leaves under the plant.</prosody></speak>",
+                    "en": "— That is good. Look, there are dry brown leaves under the plant.",
+                    "ru": "— Это хорошо. Смотри, под растением сухие коричневые листья."
                 },
                 {
                     "speaker": "kira",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Good eyes! We must trim those dry leaves away so the fresh green leaves can grow strong.</prosody></speak>",
-                    "en": "— Good eyes! We must trim those dry leaves away so the fresh green leaves can grow strong.",
-                    "ru": "— Глаз-алмаз! Мы должны срезать эти сухие листья, чтобы свежие зеленые листочки росли крепкими."
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— We must cut the brown leaves. <break time=\"300ms\"/> Then new green leaves will grow strong.</prosody></speak>",
+                    "en": "— We must cut the brown leaves. Then new green leaves will grow strong.",
+                    "ru": "— Мы должны срезать коричневые листья. Тогда новые зеленые листья вырастут крепкими."
                 },
                 {
                     "speaker": "kira",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Take these small silver gardening shears. Hold the stem gently with two fingers.</prosody></speak>",
-                    "en": "— Take these small silver gardening big scissors. Hold the stem gently with two fingers.",
-                    "ru": "— Возьми эти маленькие серебряные садовые ножницы. Придерживай стебель аккуратно двумя пальцами."
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Take this small tool. <break time=\"300ms\"/> Hold the plant with two fingers.</prosody></speak>",
+                    "en": "— Take this small tool. Hold the plant with two fingers.",
+                    "ru": "— Возьми этот маленький инструмент. Держи растение двумя пальцами."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin takes the sharp silver shears. Snip, snip, snip! He cuts away the dry brown leaves cleanly.</prosody></speak>",
-                    "en": "Eldrin takes the sharp silver big scissors. Snip, snip, snip! He cuts away the dry brown leaves cleanly.",
-                    "ru": "Элдрин берет острые серебряные ножницы. Чик, чик, чик! Он чисто срезает сухие коричневые листья."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin cuts the brown leaves.</prosody></speak>",
+                    "en": "Eldrin cuts the brown leaves.",
+                    "ru": "Элдрин срезает коричневые листья."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— I placed all the trimmed leaves into this woven basket. Look how neat the plant looks now!</prosody></speak>",
-                    "en": "— I placed all the trimmed leaves into this woven basket. Look how neat the plant looks now!",
-                    "ru": "— Я сложил все срезанные листья в эту плетеную корзинку. Посмотри, как опрятно теперь выглядит растение!"
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— I put the leaves in this basket. <break time=\"300ms\"/> The plant looks good now!</prosody></speak>",
+                    "en": "— I put the leaves in this basket. The plant looks good now!",
+                    "ru": "— Я складываю листья в эту корзину. Теперь растение выглядит хорошо!"
                 },
                 {
                     "speaker": "kira",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— You have very gentle hands, Eldrin. You are a natural gardener!</prosody></speak>",
-                    "en": "— You have very gentle hands, Eldrin. You are a natural gardener!",
-                    "ru": "— У тебя очень чуткие руки, Элдрин. Ты прирожденный садовник!"
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— You have gentle hands, Eldrin. <break time=\"300ms\"/> You are a good worker!</prosody></speak>",
+                    "en": "— You have gentle hands, Eldrin. You are a good worker!",
+                    "ru": "— У тебя аккуратные руки, Элдрин. Ты хороший работник!"
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Master Corvinus steps onto the balcony carrying a round wooden bowl.</prosody></speak>",
-                    "en": "Master Corvinus steps onto the balcony carrying a round wooden bowl.",
-                    "ru": "Мастер Корвинус выходит на балкон с круглой деревянной чашей в руках."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Master Corvinus comes out with a round wood bowl.</prosody></speak>",
+                    "en": "Master Corvinus comes out with a round wood bowl.",
+                    "ru": "Мастер Корвинус выходит с круглой деревянной чашей."
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Good morning, my diligent young gardeners! <break time=\"300ms\"/> How is our balcony looking today?</prosody></speak>",
-                    "en": "— Good morning, my diligent young gardeners! How is our balcony looking today?",
-                    "ru": "— Доброе утро, мои прилежные юные садовники! Как выглядит наша балконная терраса сегодня?"
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Good morning, children! <break time=\"300ms\"/> How is our balcony?</prosody></speak>",
+                    "en": "— Good morning, children! How is our balcony?",
+                    "ru": "— Доброе утро, дети! Как поживает наш балкон?"
                 },
                 {
                     "speaker": "kira",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— All twenty pots are watered, weeded, and trimmed, Master Corvinus!</prosody></speak>",
-                    "en": "— All twenty pots are watered, weeded, and trimmed, Master Corvinus!",
-                    "ru": "— Все двадцать горшков политы, прополоты и подрезаны, Мастер Корвинус!"
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— All twenty pots are clean and have water, Master Corvinus!</prosody></speak>",
+                    "en": "— All twenty pots are clean and have water, Master Corvinus!",
+                    "ru": "— Все двадцать горшков чистые и политы, Мастер Корвинус!"
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Wonderful work! <break time=\"300ms\"/> Please pick five fresh sprigs of purple flower for our cart journey.</prosody></speak>",
-                    "en": "— Wonderful work! Please pick five fresh sprigs of purple flower for our cart journey.",
-                    "ru": "— Прекрасная работа! Пожалуйста, сорвите пять свежих веточек фиолетовой лаванды для нашей поездки на повозке."
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Great work! <break time=\"300ms\"/> Please bring five purple flowers for our trip.</prosody></speak>",
+                    "en": "— Great work! Please bring five purple flowers for our trip.",
+                    "ru": "— Отличная работа! Пожалуйста, принесите пять фиолетовых цветов для нашей поездки."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— One, two, three, four, five sprigs of lavender! Here they are in your bowl, Master.</prosody></speak>",
-                    "en": "— One, two, three, four, five sprigs of purple flower! Here they are in your bowl, Master.",
-                    "ru": "— Одна, две, три, четыре, пять веточек лаванды! Вот они в вашей чаше, Мастер."
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— One, two, three, four, five purple flowers! <break time=\"300ms\"/> They are in your bowl, Master.</prosody></speak>",
+                    "en": "— One, two, three, four, five purple flowers! They are in your bowl, Master.",
+                    "ru": "— Один, два, три, четыре, пять фиолетовых цветов! Они в вашей чаше, Мастер."
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Thank you, Eldrin. Lavender keeps the mind clear and calm during long travel.</prosody></speak>",
-                    "en": "— Thank you, Eldrin. Purple flower keeps the mind clear and calm during long travel.",
-                    "ru": "— Спасибо, Элдрин. Лаванда сохраняет ум ясным и спокойным во время долгой дороги."
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Thank you, Eldrin. <break time=\"300ms\"/> This flower gives peace during travel.</prosody></speak>",
+                    "en": "— Thank you, Eldrin. This flower gives peace during travel.",
+                    "ru": "— Спасибо, Элдрин. Этот цветок дарит спокойствие во время путешествия."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin and Kira wash their hands in the cool pump water, admiring the neat green terrace.</prosody></speak>",
-                    "en": "Eldrin and Kira wash their hands in the cool pump water, admiring the neat green balcony.",
-                    "ru": "Элдрин и Кира моют руки в прохладной воде из колонки, любуясь аккуратной зеленой террасой."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin and Kira wash their hands with cool water.</prosody></speak>",
+                    "en": "Eldrin and Kira wash their hands with cool water.",
+                    "ru": "Элдрин и Кира моют руки прохладной водой."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Working outside in the morning sun feels amazing! I am ready for our next task!</prosody></speak>",
-                    "en": "— Working outside in the morning sun feels amazing! I am ready for our next task!",
-                    "ru": "— Работать на свежем воздухе под утренним солнцем потрясающе! Я готов к следующему заданию!"
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— It feels good to work in the sun! <break time=\"300ms\"/> I am ready for our next plan!</prosody></speak>",
+                    "en": "— It feels good to work in the sun! I am ready for our next plan!",
+                    "ru": "— Приятно работать на солнышке! Я готов к нашему следующему плану!"
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Come inside, children. We have one more errand in the cellar before we pack our bags.</prosody></speak>",
-                    "en": "— Come inside, children. We have one more errand in the cellar before we pack our bags.",
-                    "ru": "— Пойдемте внутрь, дети. У нас есть еще одно дело в подвале, прежде чем мы соберем сумки."
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Come inside, children. <break time=\"300ms\"/> We must finish our bags before we go.</prosody></speak>",
+                    "en": "— Come inside, children. We must finish our bags before we go.",
+                    "ru": "— Заходите внутрь, дети. Мы должны собрать сумки перед выходом."
                 }
             ],
             "quiz": [
                 {
-                    "question": "How many clay pots are lined along the balcony terrace?",
+                    "question": "How many clay pots are on the stone balcony in total?",
                     "options": [
                         "Five pots",
-                        "Twenty pots",
+                        "Twenty pots (ten on each side)",
                         "Fifty pots",
                         "Only two big pots"
                     ],
                     "correctIdx": 1
                 },
                 {
-                    "question": "What did Eldrin use to trim away the dry brown leaves?",
+                    "question": "What are the bright yellow flowers used for?",
                     "options": [
-                        "A big sword",
-                        "Small silver gardening shears",
-                        "A wooden stick",
-                        "His teeth"
+                        "To make vegetable soup",
+                        "To make healing cream",
+                        "To make yellow paint",
+                        "To feed the birds"
                     ],
                     "correctIdx": 1
                 },
                 {
-                    "question": "Why did Master Corvinus ask for five sprigs of purple lavender?",
+                    "question": "Why did Master Corvinus ask for five purple flowers for the journey?",
                     "options": [
                         "To feed the horses",
-                        "To keep the mind clear and calm during travel",
-                        "To make blue ink",
-                        "To paint a picture"
+                        "Because they give peace during travel",
+                        "To sell them at the gate",
+                        "To make purple ink"
                     ],
                     "correctIdx": 1
                 }
