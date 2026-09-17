@@ -47,6 +47,9 @@ const HERO_VOICES = {
     nyx:      { voice: 'en-US-Neural2-F', pitch: '-0.5st', rate: '0.92' },
     solas:    { voice: 'en-US-Neural2-I', pitch: '0st', rate: '0.92' },
     selene:   { voice: 'en-US-Neural2-F', pitch: '+1st', rate: '0.90' },
+    freya:    { voice: 'en-US-Neural2-F', pitch: '+0.5st', rate: '0.94' },
+    frostina: { voice: 'en-US-Neural2-C', pitch: '+2.0st', rate: '0.92' },
+    oberon:   { voice: 'en-US-Neural2-A', pitch: '-2.5st', rate: '0.88' },
     eldrin:   { voice: 'en-US-Neural2-J', pitch: '-3.5st', rate: '0.88' }
 };
 

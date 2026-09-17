@@ -270,33 +270,53 @@ const STORY_CHAPTERS = [
         ],
         "paragraphs": [
             {
-                "en": "Thunder rumbled over the white towers of the Silver Bastion. Freya landed on the castle wall, her winged spear crackling with blue lightning.",
-                "ru": "Гром рокотал над белыми башнями Серебряного Бастиона. Фрейя приземлилась на стену замка, ее крылатое копье потрескивало синими молниями."
+                "speaker": "freya",
+                "en": "High in the sky is a Golden Citadel. It is on white clouds. The sun is bright. White birds fly near the windows. Freya stands on a balcony. She is a Valkyrie. She has gold wings. She has a silver breastplate. She has long blonde hair. She has a spear of light.",
+                "ru": "Высоко в небе находится Золотая Цитадель. Она стоит на белых облаках. Солнце яркое. Белые птицы летают возле окон. Фрейя стоит на балконе. Она валькирия. У нее золотые крылья. У нее серебряный нагрудник. У нее длинные светлые волосы. У нее копье света.",
+                "chunkedEn": "[pt: High in the sky] [v: is] [s: a Golden Citadel.]\n[s: It] [v: is] [pt: on white clouds.]\n[s: The sun] [v: is bright.]\n[s: White birds] [v: fly] [pt: near the windows.]\n[s: Freya] [v: stands] [pt: on a balcony.]\n[s: She] [v: is] [o: a Valkyrie.]\n[s: She] [v: has] [o: gold wings.]\n[s: She] [v: has] [o: a silver breastplate.]\n[s: She] [v: has] [o: long blonde hair.]\n[s: She] [v: has] [o: a spear of light.]"
             },
             {
-                "en": "Valerius saluted her with his heavy shield. \"Hail, Shieldmaiden! What news from the northern watch?\"",
-                "ru": "Валериус поприветствовал ее тяжелым щитом. \"Приветствую, Дева Щита! Какие вести с северного дозора?\""
+                "speaker": "valerius",
+                "en": "Valerius walks up the stairs. His armor is silver. He is quiet and respectful. \"Lady Freya,\" Valerius says. \"The land below has a problem. Black ash falls from the sky. Shadow animals attack our people. The King sends me. I need your blessing.\"",
+                "ru": "Валериус поднимается по лестнице. Его доспехи серебряные. Он спокоен и полон уважения. \"Госпожа Фрейя,\" — говорит Валериус. \"На земле внизу возникла беда. Черный пепел падает с неба. Теневые звери нападают на наш народ. Король послал меня. Мне нужно ваше благословение.\"",
+                "chunkedEn": "[s: Valerius] [v: walks up] [o: the stairs.]\n[s: His armor] [v: is silver.]\n[s: He] [v: is quiet and respectful.]\n[o: \"Lady Freya,\"] [s: Valerius] [v: says.]\n[s: \"The land below] [v: has] [o: a problem.]\n[s: Black ash] [v: falls] [pt: from the sky.]\n[s: Shadow animals] [v: attack] [o: our people.]\n[s: The King] [v: sends] [o: me.]\n[s: I] [v: need] [o: your blessing.\"]"
             },
             {
-                "en": "\"Black smoke rises above the Dead Peaks,\" Freya said with a stern face. \"The scouts say our lords want to lock the gates and ignore the other clans. That is cowardice!\"",
-                "ru": "\"Черный дым поднимается над Мертвыми Пиками,\" — сказала Фрейя со строгим лицом. \"Разведчики говорят, что наши лорды хотят запереть ворота и игнорировать другие кланы. Это трусость!\""
+                "speaker": "freya",
+                "en": "Freya looks at Valerius. Her eyes are blue. Her face is serious. \"The King sees the earth. But I see the stars, Valerius,\" she says. \"This is not a normal storm. An old door in the dark world is open. The Shadow King takes dark energy from old stars. The sky doors cannot protect people if the heroes on earth do not work together.\"",
+                "ru": "Фрейя смотрит на Валериуса. Ее глаза синие. Ее лицо серьезное. \"Король видит землю. Но я вижу звезды, Валериус,\" — говорит она. \"Это не обычная буря. Старая дверь в темный мир открыта. Теневой Король берет темную энергию из старых звезд. Небесные врата не смогут защитить людей, если герои на земле не будут действовать вместе.\"",
+                "chunkedEn": "[s: Freya] [v: looks] [pt: at Valerius.]\n[s: Her eyes] [v: are blue.]\n[s: Her face] [v: is serious.]\n[s: \"The King] [v: sees] [o: the earth.]\n[c: But] [s: I] [v: see] [o: the stars, Valerius,\"] [s: she] [v: says.]\n[s: \"This] [v: is not] [o: a normal storm.]\n[s: An old door in the dark world] [v: is open.]\n[s: The Shadow King] [v: takes] [o: dark energy] [pt: from old stars.]\n[s: The sky doors] [v: cannot protect] [o: people] [b: if] [s: the heroes on earth] [v: do not work together.\"]"
             },
             {
-                "en": "\"We must obey our oaths,\" Valerius replied firmly. But his hand trembled on his sword hilt. He knew the castle walls could not stop the falling ash.",
-                "ru": "\"Мы должны подчиняться нашим клятвам,\" — твердо ответил Валериус. Но его рука дрогнула на рукояти меча. Он знал, что стены замка не остановят падающий пепел."
+                "speaker": "freya",
+                "en": "She lifts her spear to the sky. Light goes up. Five old stars shine in the day sky. \"You need five old things. The first is the Heart of the Forest. Oberon protects it in the forest. The second is the Fire Stone. It is in Thorin's forge. You need to unite your kingdom with Zephyr's people and the north sorcerers.\"",
+                "ru": "Она поднимает копье к небу. Свет устремляется вверх. Пять старых звезд сияют на дневном небе. \"Тебе нужны пять древних вещей. Первая — Сердце Леса. Оберон охраняет его в лесу. Вторая — Камень Огня. Он находится в кузнице Торина. Тебе нужно объединить твое королевство с народом Зефира и северными магами.\"",
+                "chunkedEn": "[s: She] [v: lifts] [o: her spear] [pt: to the sky.]\n[s: Light] [v: goes up.]\n[s: Five old stars] [v: shine] [pt: in the day sky.]\n[s: \"You] [v: need] [o: five old things.]\n[s: The first] [v: is] [o: the Heart of the Forest.]\n[s: Oberon] [v: protects] [o: it] [pt: in the forest.]\n[s: The second] [v: is] [o: the Fire Stone.]\n[s: It] [v: is] [pt: in Thorin's forge.]\n[s: You] [v: need to unite] [o: your kingdom] [pt: with Zephyr's people and the north sorcerers.\"]"
+            },
+            {
+                "speaker": "valerius",
+                "en": "Valerius puts his hand on his heart. He makes a promise. \"I will find the heroes, Lady Freya. I will protect people. I will hold my shield against the shadow army.\"",
+                "ru": "Валериус кладет руку на сердце. Он дает обещание. \"Я найду героев, госпожа Фрейя. Я защищу людей. Я удержу свой щит против теневой армии.\"",
+                "chunkedEn": "[s: Valerius] [v: puts] [o: his hand] [pt: on his heart.]\n[s: He] [v: makes] [o: a promise.]\n[s: \"I] [v: will find] [o: the heroes, Lady Freya.]\n[s: I] [v: will protect] [o: people.]\n[s: I] [v: will hold] [o: my shield] [pt: against the shadow army.\"]"
+            },
+            {
+                "speaker": "freya",
+                "en": "Freya smiles. She touches his shoulder with her spear. A gold light appears on his armor. It protects him. \"Go now, knight,\" Freya says. \"The forest needs your help. The old trees are sad.\"",
+                "ru": "Фрейя улыбается. Она касается его плеча своим копьем. Золотой свет появляется на его доспехах. Он защищает его. \"Иди же, рыцарь,\" — говорит Фрейя. \"Лесу нужна твоя помощь. Старые деревья печалятся.\"",
+                "chunkedEn": "[s: Freya] [v: smiles.]\n[s: She] [v: touches] [o: his shoulder] [pt: with her spear.]\n[s: A gold light] [v: appears] [pt: on his armor.]\n[s: It] [v: protects] [o: him.]\n[v: \"Go] [adv: now,] [o: knight,\"] [s: Freya] [v: says.]\n[s: \"The forest] [v: needs] [o: your help.]\n[s: The old trees] [v: are sad.\"]"
             }
         ],
         "quiz": {
-            "question": "What did the lords of the Shield Clan want to do?",
+            "question": "What does Freya tell Valerius he needs to find to save the world?",
             "options": [
-                "Lock the gates and ignore others",
-                "Attack the forest immediately",
-                "Send food to the miners"
+                "Five old things, including the Heart of the Forest and the Fire Stone",
+                "A box of gold coins hidden in the mountain caves",
+                "A white bird from the highest cloud palace"
             ],
             "correctIndex": 0,
-            "rewardXp": 130
+            "rewardXp": 285
         },
-        "backgroundImg": "images/backgrounds/bg_castle.jpg",
+        "backgroundImg": "images/backgrounds/bg_temple.jpg",
         "locationEn": "Silver Bastion Ramparts",
         "locationRu": "Стены Серебряного Бастиона",
         "sceneIllustrationImg": "images/story/ch4_scene.jpg"
