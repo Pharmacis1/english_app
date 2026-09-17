@@ -2733,7 +2733,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let hasLocalUpdatesToPush = false;
             const todayStr = getTodayStreakDateStr ? getTodayStreakDateStr() : new Date().toISOString().split('T')[0];
 
-            // 1. HEROES MERGE (Always take maximum level/xp per hero)
+            // 1. HEROES MERGE (Always take maximum level/xp and union of unlocked state)
             if (Array.isArray(s.heroes) && s.heroes.length > 0) {
                 const localHeroes = rpgEngine.heroes;
                 let heroesChanged = false;
@@ -2742,12 +2742,19 @@ document.addEventListener("DOMContentLoaded", () => {
                     if (lh) {
                         const remoteLvl = rh.level || 1;
                         const localLvl = lh.level || 1;
+
+                        // Unlock synchronization (if unlocked on either device/server, unlock locally!)
+                        if (rh.unlocked && !lh.unlocked) {
+                            lh.unlocked = true;
+                            heroesChanged = true;
+                        }
+
                         if (remoteLvl > localLvl || (remoteLvl === localLvl && (rh.xp || 0) > (lh.xp || 0))) {
                             lh.level = rh.level;
                             lh.xp = rh.xp !== undefined ? rh.xp : lh.xp;
                             lh.maxXp = rh.maxXp || lh.maxXp;
                             lh.affinityLevel = Math.max(lh.affinityLevel || 1, rh.affinityLevel || 1);
-                            lh.unlocked = rh.unlocked !== undefined ? rh.unlocked : lh.unlocked;
+                            if (rh.unlocked !== undefined) lh.unlocked = !!(rh.unlocked || lh.unlocked);
                             heroesChanged = true;
                         } else if (localLvl > remoteLvl || (localLvl === remoteLvl && (lh.xp || 0) > (rh.xp || 0))) {
                             hasLocalUpdatesToPush = true;
@@ -2756,6 +2763,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
                 if (heroesChanged) {
                     rpgEngine.save();
+                    try { renderRPGHeader(); } catch(e) {}
+                    try { renderHeroShowcase(activeShowcaseHeroId); } catch(e) {}
+                    try { updateFloatingGrimoireVisibility(); } catch(e) {}
                 }
             }
 
@@ -4755,16 +4765,17 @@ document.addEventListener("DOMContentLoaded", () => {
             const curInterval = currentCard.interval || 1;
             const curEase = currentCard.easeFactor || 2.5;
             const curReps = currentCard.repetitions || 0;
+            const isRelearning = !!currentCard.learningInSession || curReps === 0;
 
-            const hardDays = Math.max(1, Math.round(curInterval * 1.2));
+            const hardDays = isRelearning ? 1 : Math.max(1, Math.round(curInterval * 1.2));
             
             let goodDays = 1;
-            if (curReps + 1 === 1) goodDays = 1;
+            if (isRelearning || curReps + 1 === 1) goodDays = 1;
             else if (curReps + 1 === 2) goodDays = 6;
             else goodDays = Math.round(curInterval * curEase);
 
             let easyDays = 4;
-            if (curReps + 1 === 1) easyDays = 4;
+            if (isRelearning || curReps + 1 === 1) easyDays = 4;
             else if (curReps + 1 === 2) easyDays = 10;
             else easyDays = Math.max(goodDays + 2, Math.round(curInterval * (curEase + 0.15) * 1.3));
 
@@ -5866,9 +5877,31 @@ document.addEventListener("DOMContentLoaded", () => {
         const modal = document.getElementById("hero-word-stats-modal");
         if (!modal || !hero) return;
 
+        const tabsEl = document.getElementById("word-stats-hero-tabs");
         const titleEl = document.getElementById("word-stats-modal-title");
         const summaryEl = document.getElementById("word-stats-hero-summary");
         const listEl = document.getElementById("word-stats-list-container");
+
+        if (tabsEl && typeof rpgEngine !== 'undefined' && rpgEngine.heroes) {
+            tabsEl.innerHTML = rpgEngine.heroes.map(h => {
+                const isActive = h.id === hero.id;
+                return `
+                    <button class="btn btn-sm ${isActive ? 'btn-primary' : 'btn-outline'} word-stats-hero-tab-btn" data-hero-id="${h.id}" style="padding:4px 10px; font-size:11px; white-space:nowrap; border-radius:20px; font-weight:700;">
+                        <span>${h.name}</span>
+                    </button>
+                `;
+            }).join("");
+
+            tabsEl.querySelectorAll(".word-stats-hero-tab-btn").forEach(btn => {
+                btn.addEventListener("click", () => {
+                    const hId = btn.getAttribute("data-hero-id");
+                    const targetHero = rpgEngine.heroes.find(h => h.id === hId);
+                    if (targetHero) {
+                        openHeroWordStatsModal(targetHero);
+                    }
+                });
+            });
+        }
 
         if (titleEl) titleEl.innerHTML = `<i class="fa-solid fa-chart-pie"></i> ${hero.name}'s Lifetime Word Usage`;
 
@@ -8676,6 +8709,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                 });
             }
+            updateNextBtnState();
         }
 
         function renderNextCard() {
@@ -8684,10 +8718,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 clearTimeout(autoAdvanceTimer);
                 autoAdvanceTimer = null;
             }
+            if (voiceService && typeof voiceService.stopListening === 'function') {
+                voiceService.stopListening();
+            }
+            if (micBtn) micBtn.classList.remove("recording");
             isCardAnswered = false;
             stopTimer();
             if (resultFeedback) resultFeedback.style.display = "none";
             if (spokenFeedback) spokenFeedback.innerHTML = '';
+            updateNextBtnState();
 
             currentCardIndexInSprint = (currentCardIndexInSprint % SPRINT_TOTAL) + 1;
             if (sprintStepText) sprintStepText.textContent = `КАРТОЧКА ${currentCardIndexInSprint} ИЗ ${SPRINT_TOTAL}`;
@@ -8747,6 +8786,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (isCardAnswered) return;
             isCardAnswered = true;
             stopTimer();
+            updateNextBtnState();
 
             if (optionsGrid && currentCard) {
                 const buttons = optionsGrid.querySelectorAll(".drills-opt-btn");
@@ -8839,6 +8879,20 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
+        function updateNextBtnState() {
+            if (!nextCardBtn) return;
+            const isRec = micBtn && (micBtn.classList.contains("recording") || voiceService.isRecording);
+            if (isRec || !isCardAnswered) {
+                nextCardBtn.style.opacity = "0.45";
+                nextCardBtn.style.cursor = "not-allowed";
+                nextCardBtn.title = isRec ? "Идет распознавание речи..." : "Сначала выберите ответ или дождитесь времени!";
+            } else {
+                nextCardBtn.style.opacity = "1";
+                nextCardBtn.style.cursor = "pointer";
+                nextCardBtn.title = "Следующая карточка";
+            }
+        }
+
         // Voice input with STT & smart timer pausing (using Groq Whisper Large v3 / Native STT)
         if (micBtn) {
             let autoStopTimer = null;
@@ -8850,6 +8904,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     if (autoStopTimer) clearTimeout(autoStopTimer);
                     voiceService.stopListening();
                     micBtn.classList.remove("recording");
+                    updateNextBtnState();
                     return;
                 }
 
@@ -8858,6 +8913,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (timerFillEl) timerFillEl.style.background = "#38bdf8";
 
                 micBtn.classList.add("recording");
+                updateNextBtnState();
                 if (spokenFeedback) spokenFeedback.innerHTML = '<span style="color:#fbbf24;">🎙️ <b>Идет запись...</b> Говорите фразу с паузами! <em>(нажмите еще раз для проверки или ждите 6 сек)</em></span>';
 
                 // Automatically finish recording after 6.5 seconds allowing natural pauses & question tags
@@ -8872,6 +8928,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     (spoken) => {
                         if (autoStopTimer) clearTimeout(autoStopTimer);
                         micBtn.classList.remove("recording");
+                        updateNextBtnState();
                         const cleanSpoken = (spoken || '').trim();
                         if (!cleanSpoken) {
                             if (spokenFeedback) spokenFeedback.innerHTML = '<span style="color:#f87171;">Не удалось расслышать. Нажмите микрофон еще раз или выберите вариант.</span>';
@@ -8884,6 +8941,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         const distractorsList = currentCard.distractors || (currentCard.options ? currentCard.options.filter(o => o !== currentCard.target) : []);
                         const isOk = window.patternDrills.checkSpokenAnswer(cleanSpoken, currentCard.target, distractorsList);
                         handleCardAnswer(isOk);
+                        updateNextBtnState();
                     },
                     (isRec, statusMsg) => {
                         if (isRec) {
@@ -8892,10 +8950,12 @@ document.addEventListener("DOMContentLoaded", () => {
                         } else {
                             micBtn.classList.remove("recording");
                         }
+                        updateNextBtnState();
                     },
                     (err) => {
                         if (autoStopTimer) clearTimeout(autoStopTimer);
                         micBtn.classList.remove("recording");
+                        updateNextBtnState();
                         if (!isCardAnswered) {
                             if (spokenFeedback) spokenFeedback.innerHTML = `<span style="color:#f87171;">⚠️ ${err || 'Ошибка записи'}. Выберите вариант или нажмите снова.</span>`;
                             timerRemainingMs = Math.max(4000, timerRemainingMs);
@@ -8908,6 +8968,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (nextCardBtn) {
             nextCardBtn.addEventListener("click", () => {
+                const isRec = micBtn && (micBtn.classList.contains("recording") || voiceService.isRecording);
+                if (isRec) {
+                    voiceService.stopListening();
+                    if (micBtn) micBtn.classList.remove("recording");
+                }
+                if (!isCardAnswered && !isRec) {
+                    // If user manually forces skip, count as timeout
+                    handleTimeOut();
+                    return;
+                }
                 renderNextCard();
             });
         }
@@ -9804,6 +9874,8 @@ document.addEventListener("DOMContentLoaded", () => {
             activeChapterId = chapterId;
             currentSentenceIdx = sentenceIndex;
             revealedSentences.clear();
+            const curChapter = bookData.chapters.find(c => c.id === activeChapterId) || bookData.chapters[0];
+            preloadChapterAudio(curChapter);
             renderTabs();
             renderSentences();
             updateBadges();
@@ -9949,6 +10021,21 @@ document.addEventListener("DOMContentLoaded", () => {
             updateBadges();
         }
 
+        const audioCache = new Map();
+
+        function preloadChapterAudio(chapter) {
+            if (!chapter || !Array.isArray(chapter.sentences)) return;
+            chapter.sentences.forEach((sent, idx) => {
+                const url = `/audio/audiobook/ch_${chapter.number}/sent_${idx + 1}.wav`;
+                if (!audioCache.has(url)) {
+                    const audio = new Audio();
+                    audio.preload = 'auto';
+                    audio.src = url;
+                    audioCache.set(url, audio);
+                }
+            });
+        }
+
         let activeAudioElement = null;
 
         function getVoiceForSentence(sent) {
@@ -10000,53 +10087,31 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             };
 
-            // Pre-fetch next sentence audio into browser memory buffer for 0.0s transition
-            if (idx < curChapter.sentences.length - 1) {
-                const nextUrl = `/audio/audiobook/ch_${curChapter.number}/sent_${idx + 2}.wav`;
-                const prefetch = new Audio();
-                prefetch.preload = 'auto';
-                prefetch.src = nextUrl;
-            }
-
             const localAudioUrl = `/audio/audiobook/ch_${curChapter.number}/sent_${idx + 1}.wav`;
 
-            // Check if pre-rendered local audio file exists via fast HEAD request
-            fetch(localAudioUrl, { method: 'HEAD' }).then(res => {
-                if (res.ok && res.status === 200) {
-                    // Pre-rendered local file exists! Play it cleanly. NEVER trigger Kokoro!
-                    const audio = new Audio(localAudioUrl);
-                    audio.defaultPlaybackRate = playbackSpeed;
-                    audio.playbackRate = playbackSpeed;
-                    audio.preservesPitch = true;
+            // Instant audio playback from pre-rendered file or cache with fast fallback
+            let audio = audioCache.get(localAudioUrl);
+            if (!audio) {
+                audio = new Audio(localAudioUrl);
+                audioCache.set(localAudioUrl, audio);
+            }
 
-                    audio.onplay = () => {
-                        if (playBtn) playBtn.innerHTML = `<i class="fa-solid fa-volume-high" style="color:#c084fc;"></i>`;
-                    };
+            audio.defaultPlaybackRate = playbackSpeed;
+            audio.playbackRate = playbackSpeed;
+            audio.preservesPitch = true;
+            audio.currentTime = 0;
 
-                    audio.onended = () => {
-                        activeAudioElement = null;
-                        onSentenceFinished();
-                    };
+            audio.onplay = () => {
+                if (playBtn) playBtn.innerHTML = `<i class="fa-solid fa-volume-high" style="color:#c084fc;"></i>`;
+            };
 
-                    activeAudioElement = audio;
-                    audio.play().catch(e => {
-                        console.warn("[Audiobook Player] Audio play error:", e);
-                    });
-                } else {
-                    // File is genuinely missing on disk -> fallback to live voice
-                    voiceService.speak(
-                        sent.en,
-                        () => {
-                            if (playBtn) playBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i>`;
-                        },
-                        () => {
-                            onSentenceFinished();
-                        },
-                        { geminiVoice: voiceName, heroName: sent.speaker, kokoroVoice: 'am_adam' },
-                        playbackSpeed
-                    );
-                }
-            }).catch(() => {
+            audio.onended = () => {
+                activeAudioElement = null;
+                onSentenceFinished();
+            };
+
+            audio.onerror = () => {
+                // Fallback to live AI voice if audio file is not found
                 voiceService.speak(
                     sent.en,
                     () => {
@@ -10058,6 +10123,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     { geminiVoice: voiceName, heroName: sent.speaker, kokoroVoice: 'am_adam' },
                     playbackSpeed
                 );
+            };
+
+            activeAudioElement = audio;
+            audio.play().catch(e => {
+                console.warn("[Audiobook Player] Play error, falling back to voiceService:", e);
+                if (audio.onerror) audio.onerror(e);
             });
         }
 

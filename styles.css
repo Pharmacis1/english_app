@@ -3673,21 +3673,38 @@ body {
     }
 
     .vocab-header-actions .btn {
-        padding: 4px 7px !important;
-        font-size: 11px !important;
+        padding: 4px 8px !important;
+        font-size: 12px !important;
         border-radius: 8px !important;
         gap: 4px !important;
-        height: 30px !important;
+        height: 32px !important;
         white-space: nowrap !important;
         flex-shrink: 0 !important;
         display: inline-flex !important;
         align-items: center !important;
+        justify-content: center !important;
     }
 
-    .vocab-header-actions .btn span {
-        font-size: 10.5px !important;
-        font-weight: 700 !important;
-        white-space: nowrap !important;
+    @media (max-width: 520px) {
+        .vocab-header-actions {
+            gap: 4px !important;
+            max-width: calc(100% - 90px) !important;
+        }
+
+        .vocab-header-actions .btn {
+            width: 32px !important;
+            height: 32px !important;
+            padding: 0 !important;
+        }
+
+        .vocab-header-actions .btn span {
+            display: none !important;
+        }
+
+        .vocab-header-actions .btn i {
+            font-size: 13px !important;
+            margin: 0 !important;
+        }
     }
 
     .hotkey-badge {
@@ -4008,6 +4025,34 @@ body {
         height: 100dvh !important;
         max-height: 100dvh !important;
         border-radius: 0 !important;
+    }
+
+    #story-view-hub .story-chapters-grid-container {
+        grid-template-columns: 1fr !important;
+        padding: 12px 14px !important;
+        gap: 12px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    #story-view-hub .story-acts-nav-bar {
+        padding: 10px 14px !important;
+        gap: 6px !important;
+    }
+
+    .story-act-tab-btn {
+        padding: 6px 12px !important;
+        font-size: 11.5px !important;
+    }
+
+    #story-view-hub .story-unlock-banner {
+        margin: 10px 14px 0 14px !important;
+        padding: 10px 12px !important;
+    }
+
+    .story-chapter-card {
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
 
     .story-reader-top-bar {

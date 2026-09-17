@@ -338,8 +338,8 @@ class FlashcardEngine {
                 card.interval = 1;
                 card.easeFactor = Math.max(1.3, card.easeFactor - 0.2);
                 card.nextReviewDate = Date.now();
+                card.learningInSession = true; // Mark as learning in session
                 if (isSrsMode) {
-                    card.learningInSession = false; // Stay in SRS Due queue!
                     const dueList = this.decks["🧠 Due for SRS Review"];
                     if (dueList && Array.isArray(dueList)) {
                         const idx = dueList.indexOf(card);
@@ -349,7 +349,8 @@ class FlashcardEngine {
                         }
                     }
                 } else {
-                    card.learningInSession = true; // Repeat in Hero Batch!
+                    // In Hero Batch Mode: advance index so current card cycles to end of batch
+                    this.nextCard();
                 }
                 break;
             case 'hard':
