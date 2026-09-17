@@ -2742,21 +2742,23 @@ document.addEventListener("DOMContentLoaded", () => {
                     if (lh) {
                         const remoteLvl = rh.level || 1;
                         const localLvl = lh.level || 1;
+                        const remoteXp = rh.xp || 0;
+                        const localXp = lh.xp || 0;
 
-                        // Unlock synchronization (if unlocked on either device/server, unlock locally!)
-                        if (rh.unlocked && !lh.unlocked) {
+                        // Unlock synchronization (if unlocked on either device/server, or level > 1 or xp > 0, unlock locally!)
+                        if ((rh.unlocked || remoteLvl > 1 || remoteXp > 0) && !lh.unlocked) {
                             lh.unlocked = true;
                             heroesChanged = true;
                         }
 
-                        if (remoteLvl > localLvl || (remoteLvl === localLvl && (rh.xp || 0) > (lh.xp || 0))) {
+                        if (remoteLvl > localLvl || (remoteLvl === localLvl && remoteXp > localXp)) {
                             lh.level = rh.level;
                             lh.xp = rh.xp !== undefined ? rh.xp : lh.xp;
                             lh.maxXp = rh.maxXp || lh.maxXp;
                             lh.affinityLevel = Math.max(lh.affinityLevel || 1, rh.affinityLevel || 1);
-                            if (rh.unlocked !== undefined) lh.unlocked = !!(rh.unlocked || lh.unlocked);
+                            if (rh.unlocked !== undefined || remoteLvl > 1 || remoteXp > 0) lh.unlocked = true;
                             heroesChanged = true;
-                        } else if (localLvl > remoteLvl || (localLvl === remoteLvl && (lh.xp || 0) > (rh.xp || 0))) {
+                        } else if (localLvl > remoteLvl || (localLvl === remoteLvl && localXp > remoteXp)) {
                             hasLocalUpdatesToPush = true;
                         }
                     }
@@ -2766,6 +2768,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     try { renderRPGHeader(); } catch(e) {}
                     try { renderHeroShowcase(activeShowcaseHeroId); } catch(e) {}
                     try { updateFloatingGrimoireVisibility(); } catch(e) {}
+                    try {
+                        const storyModal = document.getElementById("modal-hero-story");
+                        if (storyModal && !storyModal.classList.contains("hidden")) {
+                            renderStoryHub();
+                        }
+                    } catch(e) {}
                 }
             }
 
@@ -6361,38 +6369,69 @@ document.addEventListener("DOMContentLoaded", () => {
         updateStoryAudioUI();
     }
 
+    const storyChapterAudioCache = new Map();
+
+    function preloadStoryChapterAudio(chNumber, paragraphCount = 6) {
+        if (!chNumber || chNumber > 13) return;
+        for (let i = 1; i <= paragraphCount; i++) {
+            const url = `/audio/story_campaign/ch_${chNumber}/p_${i}.wav`;
+            if (!storyChapterAudioCache.has(url)) {
+                const audio = new Audio();
+                audio.preload = 'auto';
+                audio.src = url;
+                storyChapterAudioCache.set(url, audio);
+                if (typeof window.fetch === 'function') {
+                    fetch(url, { method: 'GET', cache: 'force-cache' }).catch(() => {});
+                }
+            }
+        }
+    }
+
     function playStoryParagraphAudio(chNumber, pIndex, text, speakerId, onStart, onEnd) {
-        const preRecordedUrl = `audio/story_campaign/ch_${chNumber}/p_${pIndex + 1}.wav`;
-        const audio = new Audio();
-        audio.src = preRecordedUrl;
-        let hasStarted = false;
-
-        audio.onplay = () => {
-            hasStarted = true;
-            if (window.voiceService) {
-                window.voiceService.currentAudio = audio;
+        if (chNumber <= 13) {
+            const preRecordedUrl = `/audio/story_campaign/ch_${chNumber}/p_${pIndex + 1}.wav`;
+            let audio = storyChapterAudioCache.get(preRecordedUrl);
+            if (!audio) {
+                audio = new Audio(preRecordedUrl);
+                storyChapterAudioCache.set(preRecordedUrl, audio);
+            } else {
+                try { audio.currentTime = 0; } catch(e) {}
             }
-            if (onStart) onStart();
-        };
 
-        audio.onended = () => {
-            if (window.voiceService && window.voiceService.currentAudio === audio) {
-                window.voiceService.currentAudio = null;
-            }
-            if (onEnd) onEnd();
-        };
+            let hasStarted = false;
 
-        audio.onerror = () => {
-            if (!hasStarted) {
-                playTextKokoroAudio(text, speakerId, onStart, onEnd);
-            }
-        };
+            audio.onplay = () => {
+                hasStarted = true;
+                if (window.voiceService) {
+                    window.voiceService.currentAudio = audio;
+                }
+                if (onStart) onStart();
+            };
 
-        audio.play().catch(err => {
-            if (!hasStarted) {
-                playTextKokoroAudio(text, speakerId, onStart, onEnd);
+            audio.onended = () => {
+                if (window.voiceService && window.voiceService.currentAudio === audio) {
+                    window.voiceService.currentAudio = null;
+                }
+                if (onEnd) onEnd();
+            };
+
+            audio.onerror = () => {
+                if (!hasStarted) {
+                    playTextKokoroAudio(text, speakerId, onStart, onEnd);
+                }
+            };
+
+            const p = audio.play();
+            if (p !== undefined) {
+                p.catch(err => {
+                    if (!hasStarted) {
+                        playTextKokoroAudio(text, speakerId, onStart, onEnd);
+                    }
+                });
             }
-        });
+        } else {
+            playTextKokoroAudio(text, speakerId, onStart, onEnd);
+        }
     }
 
     function playChapterParagraph(idx) {
@@ -6483,14 +6522,14 @@ document.addEventListener("DOMContentLoaded", () => {
     function checkStoryUnlockEligibility() {
         const totalHeroes = (rpgEngine && rpgEngine.heroes) ? rpgEngine.heroes : [];
         const eldrin = totalHeroes.find(h => h.id === 'eldrin');
-        const isEldrinUnlocked = !!(eldrin && eldrin.unlocked);
+        const isEldrinUnlocked = !!(eldrin && (eldrin.unlocked || eldrin.level > 1 || (eldrin.xp && eldrin.xp > 0)));
 
-        const unlockedHeroes = totalHeroes.filter(h => h.unlocked);
+        const unlockedHeroes = totalHeroes.filter(h => h.unlocked || h.level > 1 || (h.xp && h.xp > 0));
         const unlockedCount = unlockedHeroes.length;
         const totalCount = totalHeroes.length || 10;
 
         return {
-            eligible: isEldrinUnlocked,
+            eligible: isEldrinUnlocked || unlockedCount >= 10,
             isEldrinUnlocked,
             unlockedCount,
             totalCount
@@ -6612,7 +6651,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function getHeroById(heroId) {
         if (!rpgEngine || !rpgEngine.heroes || !heroId) return null;
         const cleanId = String(heroId).toLowerCase().trim();
-        return rpgEngine.heroes.find(h => {
+        const hero = rpgEngine.heroes.find(h => {
             const hId = (h.id || '').toLowerCase();
             const hName = (h.name || '').toLowerCase();
             return hId === cleanId || 
@@ -6620,6 +6659,11 @@ document.addEventListener("DOMContentLoaded", () => {
                    (hId === 'selene' && (cleanId === 'selena' || cleanId === 'селена')) ||
                    (cleanId === 'selene' && hId === 'selena');
         }) || null;
+
+        if (hero && (hero.level > 1 || (hero.xp && hero.xp > 0))) {
+            hero.unlocked = true;
+        }
+        return hero;
     }
 
     // Check if specific chapter requirements are satisfied
@@ -6637,7 +6681,7 @@ document.addEventListener("DOMContentLoaded", () => {
             for (const [heroId, reqLvl] of Object.entries(chapter.reqHeroLevels)) {
                 const hero = getHeroById(heroId);
                 const curLvl = hero ? (hero.level || 1) : 0;
-                const isHeroUnlocked = hero && hero.unlocked;
+                const isHeroUnlocked = hero && (hero.unlocked || curLvl > 1 || (hero.xp && hero.xp > 0));
 
                 if (!isHeroUnlocked) {
                     reasons.push(`${hero ? hero.name : heroId} не разблокирован`);
@@ -6832,6 +6876,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         currentReadingChapterObj = chapter;
         activeStoryChapterId = chapter.id;
+
+        // Preload chapter audio in background for gapless playback on mobile
+        preloadStoryChapterAudio(chapter.number, (chapter.paragraphs || []).length);
 
         const hubView = document.getElementById("story-view-hub");
         const readerView = document.getElementById("story-view-reader");

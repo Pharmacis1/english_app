@@ -207,9 +207,28 @@ app.post('/api/player/sync', async (req, res) => {
             ? statePayload.last_streak_date
             : (existing.last_streak_date || statePayload.last_streak_date || '');
 
+        let mergedHeroes = existing.heroes;
+        if (Array.isArray(statePayload.heroes) && statePayload.heroes.length > 0) {
+            const existingHeroes = Array.isArray(existing.heroes) ? existing.heroes : [];
+            mergedHeroes = statePayload.heroes.map((sh, idx) => {
+                const eh = existingHeroes.find(h => h.id === sh.id);
+                const bestLvl = Math.max(sh.level || 1, eh ? (eh.level || 1) : 1);
+                const bestXp = Math.max(sh.xp || 0, eh ? (eh.xp || 0) : 0);
+                const isUnlocked = Boolean(idx <= 1 || sh.unlocked || (eh && eh.unlocked) || bestLvl > 1 || bestXp > 0);
+                return {
+                    ...(eh || {}),
+                    ...sh,
+                    level: bestLvl,
+                    xp: bestXp,
+                    unlocked: isUnlocked
+                };
+            });
+        }
+
         const merged = {
             ...existing,
             ...statePayload,
+            heroes: mergedHeroes || statePayload.heroes || existing.heroes,
             streak: safeStreak,
             streak_days: safeStreak,
             last_streak_date: safeLastStreakDate,
@@ -223,9 +242,9 @@ app.post('/api/player/sync', async (req, res) => {
         fs.writeFileSync(syncFile, JSON.stringify(merged, null, 2), 'utf8');
 
         // Also sync heroes to fallback db if provided
-        if (statePayload.heroes && !db.isPostgresActive()) {
+        if (mergedHeroes && !db.isPostgresActive()) {
             const fallback = db.getFallbackDb();
-            fallback.heroes = statePayload.heroes;
+            fallback.heroes = mergedHeroes;
             if (statePayload.cards) fallback.cards = statePayload.cards;
             db.saveFallbackDb(fallback);
         }

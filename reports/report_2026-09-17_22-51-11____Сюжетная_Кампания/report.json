@@ -1,0 +1,24 @@
+{
+  "id": "report_2026-09-17_22-51-11____Сюжетная_Кампания",
+  "timestamp": "2026-09-17T19:51:11.888Z",
+  "localTime": "17.09.2026, 23:51:10",
+  "category": "🔊 Озвучка / Звук",
+  "description": "1. Верстка все еще не адаптирована для мобильного\n2. Звук не воспроизводится",
+  "mode": "⚔️ Сюжетная Кампания",
+  "hero": "Valerius Lvl 100",
+  "subContext": "Сценарий: Tech Job Interview",
+  "viewport": {
+    "width": 392,
+    "height": 791
+  },
+  "url": "https://englishpulse.share.zrok.io/index.html",
+  "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Mobile Safari/537.36",
+  "logs": [
+    {
+      "type": "error",
+      "time": "23:51:03",
+      "msg": "[Submit Report Error] {}"
+    }
+  ],
+  "screenshotFile": "screenshot.jpg"
+}

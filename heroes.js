@@ -1593,8 +1593,11 @@ class RPGEngine {
                         savedHero = parsed[defaultHero.id] || parsed[defaultHero.name];
                     }
 
-                    const reqQuests = HERO_UNLOCK_QUEST_THRESHOLDS[idx] !== undefined ? HERO_UNLOCK_QUEST_THRESHOLDS[idx] : 0;
-                    const isUnlockedByQuest = (idx <= 1) ? true : (totalCompletedQuests >= reqQuests);
+                    const isHeroUnlocked = (idx <= 1)
+                        || Boolean(savedHero && (savedHero.unlocked === true || savedHero.unlocked === 'true'))
+                        || Boolean(defaultHero.unlocked)
+                        || isUnlockedByQuest
+                        || Boolean(savedHero && ((parseInt(savedHero.level, 10) > 1) || (parseInt(savedHero.xp, 10) > 0)));
 
                     if (savedHero) {
                         let heroLevel = parseInt(savedHero.level, 10);
@@ -1642,7 +1645,7 @@ class RPGEngine {
                             xp: heroXp,
                             maxXp: calculatedMaxXp,
                             affinityLevel: heroAffinity,
-                            unlocked: (idx <= 1) ? true : isUnlockedByQuest,
+                            unlocked: isHeroUnlocked,
                             image: defaultHero.image,
                             faceImage: defaultHero.faceImage,
                             maxHp: baseMaxHp,
@@ -1655,14 +1658,14 @@ class RPGEngine {
 
                     return {
                         ...defaultHero,
-                        unlocked: (idx <= 1) ? true : isUnlockedByQuest
+                        unlocked: isHeroUnlocked
                     };
                 });
             } catch (e) {}
         }
         return HEROES_DATA.map((defaultHero, idx) => ({
             ...defaultHero,
-            unlocked: (idx <= 1) ? true : (totalCompletedQuests >= (HERO_UNLOCK_QUEST_THRESHOLDS[idx] || 0))
+            unlocked: (idx <= 1) ? true : (Boolean(defaultHero.unlocked) || (totalCompletedQuests >= (HERO_UNLOCK_QUEST_THRESHOLDS[idx] || 0)))
         }));
     }
 
@@ -1677,7 +1680,7 @@ class RPGEngine {
                 return;
             }
             const reqQuests = (HERO_UNLOCK_QUEST_THRESHOLDS[idx] !== undefined) ? HERO_UNLOCK_QUEST_THRESHOLDS[idx] : 0;
-            if (!h.unlocked && totalCompletedQuests >= reqQuests) {
+            if (!h.unlocked && (totalCompletedQuests >= reqQuests || (h.level && h.level > 1) || (h.xp && h.xp > 0))) {
                 h.unlocked = true;
                 newlyUnlockedNames.push(h.name);
             }
