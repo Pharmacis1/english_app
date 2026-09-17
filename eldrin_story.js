@@ -2265,263 +2265,263 @@ const ELDRIN_AUDIOBOOK = {
             "titleEn": "Episode 9: A Broken Quill & The Art of Sharpening",
             "titleRu": "Эпизод 9: Сломанное перо и искусство заточки",
             "grammarFocus": "Adverbs of Manner (carefully, slowly, smoothly), Crafting Verbs (cut, slice, sharpen, write)",
-            "wordCount": 486,
+            "wordCount": 359,
             "coverIcon": "fa-pen-nib",
             "coverColor": "#8b5cf6",
             "sentences": [
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">In the quiet archive room, afternoon sunlight streams through the high stained glass windows.</prosody></speak>",
-                    "en": "In the quiet archive room, afternoon sunlight streams through the high stained glass windows.",
-                    "ru": "В тихом архивном зале дневной солнечный свет льется сквозь высокие витражные окна."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin is in the quiet room in the afternoon. <break time=\"300ms\"/> Sunlight comes through the high window.</prosody></speak>",
+                    "en": "Eldrin is in the quiet room in the afternoon. Sunlight comes through the high window.",
+                    "ru": "Элдрин находится в тихой комнате днем. Солнечный свет проникает через высокое окно."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin sits at a small polished wooden desk, writing out the master's supply list on fresh parchment.</prosody></speak>",
-                    "en": "Eldrin sits at a small polished wooden desk, writing out the master's supply list on fresh paper.",
-                    "ru": "Элдрин сидит за маленьким полированным деревянным столом, выписывая список припасов мастера на свежем пергаменте."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin sits at the small wood desk. <break time=\"300ms\"/> He writes on clean paper.</prosody></speak>",
+                    "en": "Eldrin sits at the small wood desk. He writes on clean paper.",
+                    "ru": "Элдрин сидит за маленьким деревянным столом. Он пишет на чистой бумаге."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— 'Item three: five reams of clean writing parchment...' I am writing so neatly today.</prosody></speak>",
-                    "en": "— 'Item three: five sheets of clean writing paper...' I am writing so carefully today.",
-                    "ru": "— «Пункт третий: пять стопок чистого пергамента для записей...» Я пишу так аккуратно сегодня."
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— \"Number three: five clean sheets of paper...\" I write so carefully today.</prosody></speak>",
+                    "en": "— \"Number three: five clean sheets of paper...\" I write so carefully today.",
+                    "ru": "— «Номер три: пять чистых листов бумаги...» Я пишу так аккуратно сегодня."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">CRACK! Eldrin presses slightly too hard on the paper. The sharp white tip of his goose feather snaps!</prosody></speak>",
-                    "en": "CRACK! Eldrin presses slightly too hard on the paper. The sharp white tip of his goose feather snaps!",
-                    "ru": "ХРУСЬ! Элдрин нажимает на бумагу чуть сильнее, чем нужно. Острый белый кончик его гусиного пера ломается!"
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin presses hard on the paper. <break time=\"300ms\"/> The white pen breaks!</prosody></speak>",
+                    "en": "Eldrin presses hard on the paper. The white pen breaks!",
+                    "ru": "Элдрин сильно нажимает на бумагу. Белое перо ломается!"
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">A round black blot of ink drips from the broken nib and spreads on the bottom corner of the page.</prosody></speak>",
-                    "en": "A round black blot of ink drips from the broken pen tip and spreads on the bottom corner of the page.",
-                    "ru": "Круглая черная клякса чернил капает со сломанного кончика и расплывается в нижнем углу страницы."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Black color falls from the broken pen. <break time=\"300ms\"/> It makes a dirty mark on the bottom corner of the paper.</prosody></speak>",
+                    "en": "Black color falls from the broken pen. It makes a dirty mark on the bottom corner of the paper.",
+                    "ru": "Черная краска капает со сломанного пера. Она оставляет грязное пятно в нижнем углу бумаги."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Oh, no! My white goose quill is broken! Now it only makes thick ugly smudges.</prosody></speak>",
-                    "en": "— Oh, no! My white goose pen is broken! Now it only makes thick ugly smudges.",
-                    "ru": "— О нет! Мое белое гусиное перо сломалось! Теперь оно оставляет только толстые уродливые разводы."
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Oh no! <break time=\"300ms\"/> My white pen is broken! <break time=\"300ms\"/> It is dirty and bad now.</prosody></speak>",
+                    "en": "— Oh no! My white pen is broken! It is dirty and bad now.",
+                    "ru": "— О нет! Мое белое перо сломано! Теперь оно испорчено и испачкано."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin checks his wooden pencil case. There are no other quills inside.</prosody></speak>",
-                    "en": "Eldrin checks his wooden pencil case. There are no other pens inside.",
-                    "ru": "Элдрин проверяет свой деревянный пенал. Внутри больше нет других перьев."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin checks his wood box. <break time=\"300ms\"/> He has no other pens inside.</prosody></speak>",
+                    "en": "Eldrin checks his wood box. He has no other pens inside.",
+                    "ru": "Элдрин проверяет свою деревянную коробочку. Внутри нет других перьев."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— I do not have a spare pen. Should I throw this broken feather into the trash bin?</prosody></speak>",
-                    "en": "— I do not have a spare pen. Should I throw this broken feather into the trash bin?",
-                    "ru": "— У меня нет запасного пера. Мне выбросить это сломанное перо в корзину для мусора?"
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— I do not have another pen.</prosody></speak>",
+                    "en": "— I do not have another pen.",
+                    "ru": "— У меня нет другого пера."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Master Corvinus walks over from the bookshelf and sits quietly on the wooden stool beside Eldrin.</prosody></speak>",
-                    "en": "Master Corvinus walks over from the shelf and sits quietly on the wooden stool beside Eldrin.",
-                    "ru": "Мастер Корвинус подходит от книжной полки и тихо садится на деревянный табурет рядом с Элдрином."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Master Corvinus walks from the shelf. <break time=\"300ms\"/> He sits on the wood chair next to Eldrin.</prosody></speak>",
+                    "en": "Master Corvinus walks from the shelf. He sits on the wood chair next to Eldrin.",
+                    "ru": "Мастер Корвинус подходит от полки. Он садится на деревянный стул рядом с Элдрином."
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Never throw away a good feather, Eldrin. A true scholar knows how to craft and sharpen his own tools.</prosody></speak>",
-                    "en": "— Never throw away a good feather, Eldrin. A true student knows how to craft and sharpen his own tools.",
-                    "ru": "— Никогда не выбрасывай хорошее перо, Элдрин. Истинный ученый умеет сам создавать и точить свои инструменты."
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— A true student knows his tools. <break time=\"300ms\"/> You can fix and sharpen your pen.</prosody></speak>",
+                    "en": "— A true student knows his tools. You can fix and sharpen your pen.",
+                    "ru": "— Настоящий ученик знает свои инструменты. Ты можешь починить и заточить свое перо."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Can a broken quill really be repaired, Master?</prosody></speak>",
-                    "en": "— Can a broken pen really be repaired, Master?",
-                    "ru": "— А сломанное перо правда можно починить, Мастер?"
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Can we fix this broken pen, Master?</prosody></speak>",
+                    "en": "— Can we fix this broken pen, Master?",
+                    "ru": "— Мы можем починить это сломанное перо, Мастер?"
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Of course! <break time=\"300ms\"/> Watch closely. <break time=\"300ms\"/> I will teach you the ancient art of cutting a pen tip.</prosody></speak>",
-                    "en": "— Of course! Watch closely. I will teach you the ancient art of cutting a pen tip.",
-                    "ru": "— Конечно! Смотри внимательно. Я научу тебя древнему искусству вырезания кончика пера."
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Yes! <break time=\"300ms\"/> Watch and learn. <break time=\"300ms\"/> I will teach you the art of cutting a pen.</prosody></speak>",
+                    "en": "— Yes! Watch and learn. I will teach you the art of cutting a pen.",
+                    "ru": "— Да! Смотри и учись. Я научу тебя искусству затачивать перо."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The master reaches into his leather vest pocket. He takes out a small, beautiful pocketknife with a carved silver handle.</prosody></speak>",
-                    "en": "The master reaches into his leather vest pocket. He takes out a small, beautiful small knife with a carved silver handle.",
-                    "ru": "Мастер лезет в карман своего кожаного жилета. Он достает маленький красивый карманный ножик с резной серебряной рукоятью."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The master takes a small knife from his pocket. <break time=\"300ms\"/> It is a silver knife.</prosody></speak>",
+                    "en": "The master takes a small knife from his pocket. It is a silver knife.",
+                    "ru": "Мастер достает из кармана маленький ножик. Это серебряный ножик."
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— The blade of this knife is made of folded steel. It is sharper than a razor.</prosody></speak>",
-                    "en": "— The blade of this knife is made of folded steel. It is sharper than a razor.",
-                    "ru": "— Лезвие этого ножа сделано из кованой стали. Оно острее бритвы."
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— This knife is steel. <break time=\"300ms\"/> It is very sharp.</prosody></speak>",
+                    "en": "— This knife is steel. It is very sharp.",
+                    "ru": "— Этот нож стальной. Он очень острый."
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Step one: Hold the quill firmly in your left hand, like this.</prosody></speak>",
-                    "en": "— Step one: Hold the pen firmly in your left hand, like this.",
-                    "ru": "— Шаг первый: держи перо крепко в левой руке, вот так."
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Step one: Hold the pen in your left hand.</prosody></speak>",
+                    "en": "— Step one: Hold the pen in your left hand.",
+                    "ru": "— Шаг первый: держи перо в левой руке."
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Step two: Place the sharp blade at a smooth angle across the hollow stem.</prosody></speak>",
-                    "en": "— Step two: Place the sharp blade at a smooth angle across the hollow stem.",
-                    "ru": "— Шаг второй: приложи острое лезвие под плавным углом к полому стеблю."
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Step two: Put the sharp knife on the pen.</prosody></speak>",
+                    "en": "— Step two: Put the sharp knife on the pen.",
+                    "ru": "— Шаг второй: приложи острый нож к перу."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">With one clean, decisive slice, the master cuts away the damaged tip of the feather. Slice!</prosody></speak>",
-                    "en": "With one clean, decisive slice, the master cuts away the damaged tip of the feather. Slice!",
-                    "ru": "Одним чистым, уверенным срезом мастер отсекает поврежденный кончик пера. Вжик!"
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The master cuts the bad part of the pen.</prosody></speak>",
+                    "en": "The master cuts the bad part of the pen.",
+                    "ru": "Мастер срезает поврежденную часть пера."
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Step three: Make a tiny delicate slit in the exact center of the tip.</prosody></speak>",
-                    "en": "— Step three: Make a tiny very soft slit in the exact center of the tip.",
-                    "ru": "— Шаг третий: сделай крошечный аккуратный расщеп точно по центру кончика."
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Step three: Make a small cut in the center.</prosody></speak>",
+                    "en": "— Step three: Make a small cut in the center.",
+                    "ru": "— Шаг третий: сделай небольшой надрез по центру."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Why do we need a slit in the middle, Master Corvinus?</prosody></speak>",
-                    "en": "— Why do we need a slit in the middle, Master Corvinus?",
-                    "ru": "— А зачем нужен расщеп посередине, Мастер Корвинус?"
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Why do we make a cut in the center, Master?</prosody></speak>",
+                    "en": "— Why do we make a cut in the center, Master?",
+                    "ru": "— Почему мы делаем надрез по центру, Мастер?"
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— The slit holds the black ink and lets it flow onto the parchment smoothly and evenly.</prosody></speak>",
-                    "en": "— The slit holds the black ink and lets it flow onto the paper smoothly and evenly.",
-                    "ru": "— Расщеп удерживает черные чернила и позволяет им плавно и равномерно стекать на пергамент."
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— The cut carries the black color smoothly to the paper.</prosody></speak>",
+                    "en": "— The cut carries the black color smoothly to the paper.",
+                    "ru": "— Этот надрез плавно проводит чернила на бумагу."
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Step four: Shave the left edge and the right edge until the nib is thin and pointed.</prosody></speak>",
-                    "en": "— Step four: Shave the left edge and the right edge until the pen tip is thin and pointed.",
-                    "ru": "— Шаг четвертый: подрежь левый и правый край, пока кончик не станет тонким и заостренным."
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Step four: Cut the left side and the right side. <break time=\"300ms\"/> Make the point thin and sharp.</prosody></speak>",
+                    "en": "— Step four: Cut the left side and the right side. Make the point thin and sharp.",
+                    "ru": "— Шаг четвертый: подрежь левую и правую стороны. Сделай кончик тонким и острым."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Master Corvinus hands the newly shaped quill and the silver pocketknife to Eldrin.</prosody></speak>",
-                    "en": "Master Corvinus hands the newly shaped pen and the silver small knife to Eldrin.",
-                    "ru": "Мастер Корвинус передает заново вырезанное перо и серебряный ножик Элдрину."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Master Corvinus gives the pen and the silver knife to Eldrin.</prosody></speak>",
+                    "en": "Master Corvinus gives the pen and the silver knife to Eldrin.",
+                    "ru": "Мастер Корвинус отдает перо и серебряный ножик Элдрину."
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Now it is your turn to test your new nib on this scrap piece of paper.</prosody></speak>",
-                    "en": "— Now it is your turn to test your new pen tip on this scrap piece of paper.",
-                    "ru": "— Теперь твоя очередь испытать новый кончик на этом черновом листке бумаги."
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Now it is your turn. <break time=\"300ms\"/> Test your pen on this scrap piece of paper.</prosody></speak>",
+                    "en": "— Now it is your turn. Test your pen on this scrap piece of paper.",
+                    "ru": "— Теперь твоя очередь. Проверь перо на этом черновом клочке бумаги."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin gently dips the sharp new nib into the black inkwell.</prosody></speak>",
-                    "en": "Eldrin gently dips the sharp new pen tip into the black inkwell.",
-                    "ru": "Элдрин аккуратно макает острый новый кончик в чернильницу."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin puts the new pen tip into the black ink.</prosody></speak>",
+                    "en": "Eldrin puts the new pen tip into the black ink.",
+                    "ru": "Элдрин макает новый кончик пера в черные чернила."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He presses the pen to the paper and writes three words in elegant, thin lines: 'Knowledge is Light'.</prosody></speak>",
-                    "en": "He presses the pen to the paper and writes three words in elegant, thin lines: 'Knowledge is Light'.",
-                    "ru": "Он прижимает перо к бумаге и пишет три слова изящными тонкими линиями: «Знание — это Свет»."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He writes three words on the paper: \"Knowledge is Light.\"</prosody></speak>",
+                    "en": "He writes three words on the paper: \"Knowledge is Light.\"",
+                    "ru": "Он пишет три слова на бумаге: «Знание — это Свет»."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Wow! It writes so smoothly! The lines are crisp, thin, and beautiful!</prosody></speak>",
-                    "en": "— Wow! It writes so smoothly! The lines are crisp, thin, and beautiful!",
-                    "ru": "— Ого! Оно пишет так гладко! Линии четкие, тонкие и красивые!"
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— It writes so well! <break time=\"300ms\"/> The lines are thin and beautiful.</prosody></speak>",
+                    "en": "— It writes so well! The lines are thin and beautiful.",
+                    "ru": "— Оно пишет так хорошо! Линии тонкие и красивые."
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Excellent! You have the steady hand of a true master scribe, Eldrin.</prosody></speak>",
-                    "en": "— Excellent! You have the steady hand of a true master scribe, Eldrin.",
-                    "ru": "— Великолепно! У тебя твердая рука настоящего мастера-писца, Элдрин."
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Great! <break time=\"300ms\"/> You have a steady hand, Eldrin.</prosody></speak>",
+                    "en": "— Great! You have a steady hand, Eldrin.",
+                    "ru": "— Отлично! У тебя твердая рука, Элдрин."
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Keep this small silver pocketknife in your bag. A prepared scholar is never helpless.</prosody></speak>",
-                    "en": "— Keep this small silver small knife in your bag. A prepared student is never helpless.",
-                    "ru": "— Сохрани этот маленький серебряный ножик в своей сумке. Подготовленный ученый никогда не бывает беспомощным."
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Keep this silver knife in your bag. <break time=\"300ms\"/> A good student is always ready.</prosody></speak>",
+                    "en": "— Keep this silver knife in your bag. A good student is always ready.",
+                    "ru": "— Храни этот серебряный ножик в своей сумке. Хороший ученик всегда готов."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Is this knife a gift for me? Thank you so much, Master Corvinus! I will treasure it!</prosody></speak>",
-                    "en": "— Is this knife a gift for me? Thank you so much, Master Corvinus! I will treasure it!",
-                    "ru": "— Этот ножик — подарок мне? Спасибо вам огромное, Мастер Корвинус! Я буду беречь его!"
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Is this knife a gift for me? <break time=\"300ms\"/> Thank you, Master Corvinus!</prosody></speak>",
+                    "en": "— Is this knife a gift for me? Thank you, Master Corvinus!",
+                    "ru": "— Этот ножик — подарок для меня? Спасибо, Мастер Корвинус!"
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin places the sharpened quill and the silver knife carefully inside his leather pouch.</prosody></speak>",
-                    "en": "Eldrin places the sharpened pen and the silver knife carefully inside his leather pouch.",
-                    "ru": "Элдрин бережно кладет заточенное перо и серебряный ножик в свой кожаный кисет."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin puts the pen and the silver knife in his bag.</prosody></speak>",
+                    "en": "Eldrin puts the pen and the silver knife in his bag.",
+                    "ru": "Элдрин кладет перо и серебряный ножик в свою сумку."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Now I will finish copying the master's checklist with my wonderful new pen!</prosody></speak>",
-                    "en": "— Now I will finish copying the master's list with my wonderful new pen!",
-                    "ru": "— А теперь я закончу переписывать список покупок мастера моим замечательным новым пером!"
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Now I will finish the master's list with my new pen!</prosody></speak>",
+                    "en": "— Now I will finish the master's list with my new pen!",
+                    "ru": "— Теперь я закончу список мастера своим новым пером!"
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He continues writing with a bright smile of pride on his face.</prosody></speak>",
-                    "en": "He continues writing with a bright smile of pride on his face.",
-                    "ru": "Он продолжает писать с яркой улыбкой гордости на лице."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He writes with a happy smile on his face.</prosody></speak>",
+                    "en": "He writes with a happy smile on his face.",
+                    "ru": "Он пишет со счастливой улыбкой на лице."
                 }
             ],
             "quiz": [
                 {
-                    "question": "What happened to Eldrin's white quill while he was writing?",
+                    "question": "What happened when Eldrin pressed hard on the paper?",
                     "options": [
-                        "It fell in the tea",
-                        "The sharp tip snapped because he pressed too hard",
-                        "The cat took it",
-                        "It turned blue"
+                        "The wooden desk broke",
+                        "The white pen broke",
+                        "The ink bottle spilled",
+                        "The chair fell over"
                     ],
                     "correctIdx": 1
                 },
                 {
-                    "question": "Why did Master Corvinus make a tiny slit in the center of the quill nib?",
+                    "question": "Why did Master Corvinus say they make a cut in the center of the pen?",
                     "options": [
-                        "To make it whistle",
-                        "To hold the ink so it flows smoothly onto the paper",
-                        "To make it lighter",
-                        "To cut the paper"
+                        "To make the pen shorter",
+                        "To carry the ink smoothly to the paper",
+                        "To make the pen fit into the pocket",
+                        "To clean the old wood"
                     ],
                     "correctIdx": 1
                 },
                 {
-                    "question": "What words did Eldrin write on scrap paper to test his newly sharpened pen?",
+                    "question": "What words did Eldrin write on the paper to test his new pen tip?",
                     "options": [
-                        "'Knowledge is Light'",
-                        "'Good morning, world'",
-                        "'I want hot soup'",
-                        "'The dog is running'"
+                        "\"Knowledge is Light.\"",
+                        "\"Good morning, Master.\"",
+                        "\"Five sheets of paper.\"",
+                        "\"The Spire is tall.\""
                     ],
                     "correctIdx": 0
                 }
