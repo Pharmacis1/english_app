@@ -337,31 +337,45 @@ const STORY_CHAPTERS = [
         ],
         "paragraphs": [
             {
-                "en": "At the border of the forest, an enormous living tree fell to its knees. Dark poison dripped from its thick wooden bark.",
-                "ru": "На границе леса огромное живое дерево упало на колени. Темный яд капал с его толстой деревянной коры."
+                "speaker": "astraea",
+                "en": "In the old forest, big trees grow close. Green leaves make a roof. Soft green moss is on the ground. Big mushrooms give blue light. Clean water flows near the tree roots. Astraea walks on the path. She has her staff. The forest is very quiet. No birds sing. The air smells sweet and also bad.",
+                "ru": "В старом лесу большие деревья растут близко друг к другу. Зеленые листья образуют крышу. Мягкий зеленый мох лежит на земле. Большие грибы дают синий свет. Чистая вода течет возле корней деревьев. Астрея идет по тропинке. У нее ее посох. Лес очень тихий. Птицы не поют. Воздух пахнет сладко и в то же время дурно.",
+                "chunkedEn": "[pt: In the old forest,] [s: big trees] [v: grow close.]\n[s: Green leaves] [v: make] [o: a roof.]\n[s: Soft green moss] [v: is] [pt: on the ground.]\n[s: Big mushrooms] [v: give] [o: blue light.]\n[s: Clean water] [v: flows] [pt: near the tree roots.]\n[s: Astraea] [v: walks] [pt: on the path.]\n[s: She] [v: has] [o: her staff.]\n[s: The forest] [v: is very quiet.]\n[s: No birds] [v: sing.]\n[s: The air] [v: smells sweet and also bad.]"
             },
             {
-                "en": "Oberon channeled green nature magic, but his hands shook with fatigue. \"The roots are dying... The land is sick,\" the old druid groaned.",
-                "ru": "Оберон направлял зеленую магию природы, но его руки дрожали от усталости. \"Корни умирают... Земля больна,\" — застонал старый друид."
+                "speaker": "oberon",
+                "en": "In the middle of the forest sits Oberon. He is an old tree. He has a face on his trunk. His arms are branches with flowers. But today he is weak. He has pain. A black mark is on his chest. Purple bad magic is in him. His green leaves become grey.",
+                "ru": "Посреди леса сидит Оберон. Он старое дерево. У него есть лицо на стволе. Его руки — это ветви с цветами. Но сегодня он слаб. Он испытывает боль. Черная метка находится на его груди. Фиолетовая темная магия внутри него. Его зеленые листья становятся серыми.",
+                "chunkedEn": "[pt: In the middle of the forest] [v: sits] [s: Oberon.]\n[s: He] [v: is] [o: an old tree.]\n[s: He] [v: has] [o: a face] [pt: on his trunk.]\n[s: His arms] [v: are] [o: branches with flowers.]\n[c: But] [pt: today] [s: he] [v: is weak.]\n[s: He] [v: has] [o: pain.]\n[s: A black mark] [v: is] [pt: on his chest.]\n[s: Purple bad magic] [v: is] [pt: in him.]\n[s: His green leaves] [v: become grey.]"
             },
             {
-                "en": "Astraea knelt beside him quietly. She placed her glowing hands onto the tree trunk. Golden light flowed into the wood, washing away the black rot.",
-                "ru": "Астрея тихо опустилась рядом на колени. Она положила свои светящиеся руки на ствол дерева. Золотой свет потек в древесину, смывая черную гниль."
+                "speaker": "oberon",
+                "en": "Oberon opens his gold eyes. He looks at Astraea. He is sad. \"Child of the stars,\" Oberon says slowly. \"Dark roots are in my heart. A bad shadow animal drinks my life. If I fall, the magic wall around the forest breaks. Then shadow animals go to every village.\" Gold tears fall from his eyes.",
+                "ru": "Оберон открывает свои золотые глаза. Он смотрит на Астрею. Он печален. \"Дитя звезд,\" — медленно говорит Оберон. \"Темные корни проникли в мое сердце. Злой теневой зверь пьет мою жизнь. Если я паду, магическая стена вокруг леса рухнет. Тогда теневые звери пойдут в каждую деревню.\" Золотые слезы падают из его глаз.",
+                "chunkedEn": "[s: Oberon] [v: opens] [o: his gold eyes.]\n[s: He] [v: looks] [pt: at Astraea.]\n[s: He] [v: is sad.]\n[o: \"Child of the stars,\"] [s: Oberon] [v: says slowly.]\n[s: \"Dark roots] [v: are] [pt: in my heart.]\n[s: A bad shadow animal] [v: drinks] [o: my life.]\n[b: If] [s: I] [v: fall,] [s: the magic wall around the forest] [v: breaks.]\n[adv: Then] [s: shadow animals] [v: go] [pt: to every village.\"]\n[s: Gold tears] [v: fall] [pt: from his eyes.]"
             },
             {
-                "en": "\"You are a priestess of the Shield,\" Oberon said with wonder. \"Why do you heal our woods?\" — \"Because life has no clan borders,\" Astraea answered softly.",
-                "ru": "\"Ты жрица Щита,\" — с удивлением сказал Оберон. \"Почему ты лечишь наш лес?\" — \"Потому что у жизни нет клановых границ,\" — тихо ответила Астрея."
+                "speaker": "astraea",
+                "en": "Astraea kneels near the big roots. She is not afraid. She puts her hands on the dark wound. She closes her eyes. She sings an old song. Green light flows from her hands into the wood. The warm magic fights the cold bad magic. The purple mist goes away. New green plants and white flowers grow fast. Oberon's leaves become green again.",
+                "ru": "Астрея опускается на колени возле больших корней. Она не боится. Она кладет руки на темную рану. Она закрывает глаза. Она поет древнюю песню. Зеленый свет течет из ее рук в древесину. Теплая магия борется с холодной темной магией. Фиолетовый туман рассеивается. Новые зеленые растения и белые цветы быстро растут. Листья Оберона снова становятся зелеными.",
+                "chunkedEn": "[s: Astraea] [v: kneels] [pt: near the big roots.]\n[s: She] [v: is not afraid.]\n[s: She] [v: puts] [o: her hands] [pt: on the dark wound.]\n[s: She] [v: closes] [o: her eyes.]\n[s: She] [v: sings] [o: an old song.]\n[s: Green light] [v: flows] [pt: from her hands] [pt: into the wood.]\n[s: The warm magic] [v: fights] [o: the cold bad magic.]\n[s: The purple mist] [v: goes away.]\n[s: New green plants and white flowers] [v: grow fast.]\n[s: Oberon's leaves] [v: become green] [adv: again.]"
+            },
+            {
+                "speaker": "oberon",
+                "en": "Oberon stands up tall. His big branches go up to the sun. From his chest, he takes a green stone. It is the size of an apple. It has a heartbeat, like the forest. \"You save my life, healer,\" Oberon says. \"Take the Heart of the Forest. Give it to Valerius and the heroes. With this stone, you can break any dark wall in the world.\" Astraea takes the stone. She is thankful. She is ready to bring it to the heroes.",
+                "ru": "Оберон поднимается во весь рост. Его большие ветви тянутся к солнцу. Из своей груди он достает зеленый камень. Он размером с яблоко. У него есть биение сердца, как у леса. \"Ты спасла мою жизнь, целительница,\" — говорит Оберон. \"Возьми Сердце Леса. Отдай его Валериусу и героям. С этим камнем вы сможете разрушить любую темную стену в мире.\" Астрея берет камень. Она благодарна. Она готова отнести его героям.",
+                "chunkedEn": "[s: Oberon] [v: stands up tall.]\n[s: His big branches] [v: go up] [pt: to the sun.]\n[pt: From his chest,] [s: he] [v: takes] [o: a green stone.]\n[s: It] [v: is] [o: the size of an apple.]\n[s: It] [v: has] [o: a heartbeat,] [pt: like the forest.]\n[s: \"You] [v: save] [o: my life, healer,\"] [s: Oberon] [v: says.]\n[v: \"Take] [o: the Heart of the Forest.]\n[v: Give] [o: it] [pt: to Valerius and the heroes.]\n[pt: With this stone,] [s: you] [v: can break] [o: any dark wall] [pt: in the world.\"]\n[s: Astraea] [v: takes] [o: the stone.]\n[s: She] [v: is thankful.]\n[s: She] [v: is ready to bring] [o: it] [pt: to the heroes.]"
             }
         ],
         "quiz": {
-            "question": "Why did Astraea help the ancient treant?",
+            "question": "What does Oberon give to Astraea after she heals his dark wound?",
             "options": [
-                "She wanted to sell the wood",
-                "She believes life has no borders",
-                "Valerius ordered her to do so"
+                "The Heart of the Forest, a green stone with a heartbeat",
+                "A golden crown with flowers from the mountain",
+                "A magic wooden bow with sharp green arrows"
             ],
-            "correctIndex": 1,
-            "rewardXp": 140
+            "correctIndex": 0,
+            "rewardXp": 307
         },
         "backgroundImg": "images/backgrounds/bg_enchanted_grove.jpg",
         "locationEn": "The Wounded Ancient Grove",
@@ -382,35 +396,52 @@ const STORY_CHAPTERS = [
         "involvedHeroes": [
             "thorin",
             "ignis",
-            "selene"
+            "selene",
+            "valerius",
+            "astraea",
+            "zephyr"
         ],
         "paragraphs": [
             {
-                "en": "In the Great Forge, the magma river boiled. Clan elders shouted in anger, holding iron warhammers high in the smoky air.",
-                "ru": "В Великой Кузнице кипела река магмы. Старейшины клана кричали в гневе, поднимая железные боевые молоты высоко в задымленный воздух."
+                "speaker": "valerius",
+                "en": "The Silver Citadel has a big room. It has warm light from fire. Silver banners are on the walls. In the middle is a big round table made of wood. Six heroes come together: Valerius the knight, Astraea the priestess, Zephyr the ranger with his bow, Thorin the dwarf with his hammer, Selena the assassin, and Ignis the fire mage.",
+                "ru": "В Серебряной Цитадели есть большая комната. В ней теплый свет от огня. Серебряные знамена висят на стенах. Посередине стоит большой круглый стол из дерева. Шесть героев собираются вместе: Валериус — рыцарь, Астрея — жрица, Зефир — следопыт со своим луком, Торин — дворф со своим молотом, Селена — ассасин и Игнис — маг огня.",
+                "chunkedEn": "[s: The Silver Citadel] [v: has] [o: a big room.]\n[s: It] [v: has] [o: warm light] [pt: from fire.]\n[s: Silver banners] [v: are] [pt: on the walls.]\n[pt: In the middle] [v: is] [s: a big round table made of wood.]\n[s: Six heroes] [v: come together:] [o: Valerius the knight, Astraea the priestess, Zephyr the ranger with his bow, Thorin the dwarf with his hammer, Selena the assassin, and Ignis the fire mage.]"
             },
             {
-                "en": "\"The surface dwellers close our trade routes!\" the High Chieftain roared. \"Ignis, prepare our fire artillery! Thorin, sharpen the axes!\"",
-                "ru": "\"Жители поверхности перекрывают наши торговые пути!\" — взревел Верховный Вождь. \"Игнис, готовь огненную артиллерию! Торин, точи топоры!\""
+                "speaker": "valerius",
+                "en": "Valerius stands. He puts his hand on the table. \"Friends,\" Valerius says. \"The Ash Sun is above our world. Shadow animals attack our villages. A dark door opens under the Iron Mountains. We cannot win this war alone. We must fight together.\"",
+                "ru": "Валериус встает. Он кладет руку на стол. \"Друзья,\" — говорит Валериус. \"Пепельное Солнце висит над нашим миром. Теневые звери атакуют наши деревни. Темная дверь открывается под Железными Горами. Мы не сможем выиграть эту войну в одиночку. Мы должны сражаться вместе.\"",
+                "chunkedEn": "[s: Valerius] [v: stands.]\n[s: He] [v: puts] [o: his hand] [pt: on the table.]\n[o: \"Friends,\"] [s: Valerius] [v: says.]\n[s: \"The Ash Sun] [v: is] [pt: above our world.]\n[s: Shadow animals] [v: attack] [o: our villages.]\n[s: A dark door] [v: opens] [pt: under the Iron Mountains.]\n[s: We] [v: cannot win] [o: this war] [adv: alone.]\n[s: We] [v: must fight together.\"]"
             },
             {
-                "en": "Thorin stepped forward and slammed his shield down. \"Wait! The monsters attacking our lower gates are not knights. If we march up, we leave our families defenseless!\"",
-                "ru": "Торин шагнул вперед и с грохотом опустил щит. \"Стойте! Чудовища, атакующие наши нижние врата — не рыцари. Если мы пойдем наверх, мы оставим семьи без защиты!\""
+                "speaker": "thorin",
+                "en": "Astraea puts the green Heart of the Forest on the table. Its light shines on every face. Thorin looks with respect. He puts his silver metal next to the green stone. \"My forge is ready,\" Thorin says. \"With this silver and this green light, I will make weapons. They can cut through shadow armor easily!\"",
+                "ru": "Астрея кладет зеленое Сердце Леса на стол. Его свет озаряет каждое лицо. Торин смотрит с уважением. Он кладет свой серебряный металл рядом с зеленым камнем. \"Моя кузница готова,\" — говорит Торин. \"С этим серебром и этим зеленым светом я сделаю оружие. Оно сможет легко прорезать теневую броню!\"",
+                "chunkedEn": "[s: Astraea] [v: puts] [o: the green Heart of the Forest] [pt: on the table.]\n[s: Its light] [v: shines] [pt: on every face.]\n[s: Thorin] [v: looks] [pt: with respect.]\n[s: He] [v: puts] [o: his silver metal] [pt: next to the green stone.]\n[s: \"My forge] [v: is ready,\"] [s: Thorin] [v: says.]\n[pt: \"With this silver and this green light,] [s: I] [v: will make] [o: weapons.]\n[s: They] [v: can cut through] [o: shadow armor] [adv: easily!\"]"
             },
             {
-                "en": "Selena whispered into Thorin's ear from the darkness: \"The elders will not listen. We must find the truth ourselves before the war starts.\"",
-                "ru": "Селена прошептала Торину на ухо из темноты: \"Старейшины не станут слушать. Мы должны сами найти правду, пока не началась война.\""
+                "speaker": "selene",
+                "en": "Selena opens a map on the table. Her finger draws a red line through the mountain paths. \"My spies find the door to the Shadow Citadel. It is in the Black Caves. The path is narrow. Shadow guards protect it. But Zephyr and I can lead the group through the secret paths before the full moon.\"",
+                "ru": "Селена открывает карту на столе. Ее палец проводит красную линию через горные тропы. \"Мои шпионы нашли дверь в Теневую Цитадель. Она находится в Черных Пещерах. Путь узок. Теневые стражи охраняют его. Но мы с Зефиром сможем провести отряд тайными тропами до полнолуния.\"",
+                "chunkedEn": "[s: Selena] [v: opens] [o: a map] [pt: on the table.]\n[s: Her finger] [v: draws] [o: a red line] [pt: through the mountain paths.]\n[s: \"My spies] [v: find] [o: the door to the Shadow Citadel.]\n[s: It] [v: is] [pt: in the Black Caves.]\n[s: The path] [v: is narrow.]\n[s: Shadow guards] [v: protect] [o: it.]\n[c: But] [s: Zephyr and I] [v: can lead] [o: the group] [pt: through the secret paths] [pt: before the full moon.\"]"
+            },
+            {
+                "speaker": "ignis",
+                "en": "Ignis lifts his staff high. Orange fire goes up to the ceiling. It does not burn the stone. \"Then let's start!\" Ignis says happily. \"We will burn the shadow animals. We will bring back the true sun to the sky!\" All six heroes lift their weapons together. They make a promise. They are united and brave. Part One is finished. The heroes are together now. The big fight against the shadows begins.",
+                "ru": "Игнис поднимает свой посох высоко вверх. Оранжевый огонь поднимается к потолку. Он не обжигает камень. \"Тогда начнем!\" — радостно говорит Игнис. \"Мы сожжем теневых зверей. Мы вернем истинное солнце на небо!\" Все шесть героев вместе поднимают оружие. Они дают обещание. Они едины и отважны. Первая часть завершена. Теперь герои вместе. Начинается великая битва против теней.",
+                "chunkedEn": "[s: Ignis] [v: lifts] [o: his staff] [adv: high.]\n[s: Orange fire] [v: goes up] [pt: to the ceiling.]\n[s: It] [v: does not burn] [o: the stone.]\n[adv: \"Then] [v: let's start!\"] [s: Ignis] [v: says happily.]\n[s: \"We] [v: will burn] [o: the shadow animals.]\n[s: We] [v: will bring back] [o: the true sun] [pt: to the sky!\"]\n[s: All six heroes] [v: lift] [o: their weapons together.]\n[s: They] [v: make] [o: a promise.]\n[s: They] [v: are united and brave.]\n[s: Part One] [v: is finished.]\n[s: The heroes] [v: are together] [adv: now.]\n[s: The big fight against the shadows] [v: begins.]"
             }
         ],
         "quiz": {
-            "question": "What did Thorin warn the chieftain about?",
+            "question": "What do the six heroes decide to do at the round table?",
             "options": [
-                "The weather is too hot",
-                "Lower gates are under attack by monsters",
-                "The food is stolen"
+                "Unite their forces and fight the shadow army together",
+                "Return to their separate lands and lock the gates",
+                "Build a big wooden ship to cross the ocean"
             ],
-            "correctIndex": 1,
-            "rewardXp": 150
+            "correctIndex": 0,
+            "rewardXp": 282
         },
         "backgroundImg": "images/backgrounds/bg_crystal_caverns.jpg",
         "locationEn": "The Great Subterranean Forge",
