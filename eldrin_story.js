@@ -3051,249 +3051,249 @@ const ELDRIN_AUDIOBOOK = {
             "titleEn": "Episode 12: The Gatekeeper and the Town Pass",
             "titleRu": "Эпизод 12: Стражник ворот и городской пропуск",
             "grammarFocus": "Formal Inquiries (May I see...?), City Rules & Warnings, Modal Verbs",
-            "wordCount": 442,
+            "wordCount": 316,
             "coverIcon": "fa-shield-halved",
             "coverColor": "#3b82f6",
             "sentences": [
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The wooden cart comes to a complete halt before the massive stone archway of the North Gate.</prosody></speak>",
-                    "en": "The wooden cart comes to a complete stop before the massive stone big doorway of the North Gate.",
-                    "ru": "Деревянная повозка полностью останавливается перед массивной каменной аркой Северных Ворот."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The vehicle stops before the big stone door. <break time=\"300ms\"/> This is the North Gate.</prosody></speak>",
+                    "en": "The vehicle stops before the big stone door. This is the North Gate.",
+                    "ru": "Повозка останавливается перед большой каменной дверью. Это Северные Ворота."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Two tall city guards stand on watch, wearing polished iron chestplates and shiny iron helmets.</prosody></speak>",
-                    "en": "Two tall city guards stand on watch, wearing polished iron chestplates and shiny iron helmets.",
-                    "ru": "Двое высоких городских стражников стоят на часах в полированных железных кирасах и блестящих шлемах."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Two tall guards stand there. <break time=\"300ms\"/> They wear iron clothes and iron hats.</prosody></speak>",
+                    "en": "Two tall guards stand there. They wear iron clothes and iron hats.",
+                    "ru": "Там стоят два высоких стражника. На них железная броня и железные шлемы."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">They hold long wooden spears with sharp steel tips upright in their hands.</prosody></speak>",
-                    "en": "They hold long wooden spears with sharp steel tips upright in their hands.",
-                    "ru": "Они держат в руках длинные деревянные копья с острыми стальными наконечниками."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">They hold long spears in their hands.</prosody></speak>",
+                    "en": "They hold long spears in their hands.",
+                    "ru": "Они держат в руках длинные копья."
                 },
                 {
                     "speaker": "guard",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-3.5st\">— Stop, friends! <break time=\"300ms\"/> Welcome to the Lower Town. <break time=\"300ms\"/> State your name and business for the registry.</prosody></speak>",
-                    "en": "— Stop, friends! Welcome to the Lower Town. State your name and business for the registry.",
-                    "ru": "— Стойте, путники! Добро пожаловать в Нижний Город. Назовите ваши имена и цель визита для реестра."
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-3.5st\">— Stop, friends! <break time=\"300ms\"/> Welcome to the town. <break time=\"300ms\"/> What is your name? <break time=\"300ms\"/> What is your business?</prosody></speak>",
+                    "en": "— Stop, friends! Welcome to the town. What is your name? What is your business?",
+                    "ru": "— Стойте, друзья! Добро пожаловать в город. Как вас зовут? С какой вы целью?"
                 },
                 {
                     "speaker": "barnaby",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2.5st\">— Good morning, Captain Vance! <break time=\"300ms\"/> I have Teacher Corvinus and two students from the Spire Academy.</prosody></speak>",
-                    "en": "— Good morning, Captain Vance! I have Teacher Corvinus and two students from the Spire Academy.",
-                    "ru": "— Доброе утро, капитан Вэнс! Со мной профессор Корвинус и двое учеников из Академии Шпиля."
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2.5st\">— Good morning! <break time=\"300ms\"/> I have Master Corvinus and two students from the Academy.</prosody></speak>",
+                    "en": "— Good morning! I have Master Corvinus and two students from the Academy.",
+                    "ru": "— Доброе утро! Со мной Мастер Корвинус и двое учеников из Академии."
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Good morning, Captain. We are here to purchase essential autumn supplies at the market.</prosody></speak>",
-                    "en": "— Good morning, Captain. We are here to purchase essential autumn supplies at the market.",
-                    "ru": "— Доброе утро, капитан. Мы прибыли, чтобы закупить необходимые осенние припасы на рынке."
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Good morning. <break time=\"300ms\"/> We want to buy things at the market.</prosody></speak>",
+                    "en": "— Good morning. We want to buy things at the market.",
+                    "ru": "— Доброе утро. Мы хотим купить кое-какие вещи на рынке."
                 },
                 {
                     "speaker": "guard",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-3.5st\">— Ah, Teacher Corvinus! <break time=\"300ms\"/> Always an honor to see you. <break time=\"300ms\"/> May I examine your official entry pass, please?</prosody></speak>",
-                    "en": "— Ah, Teacher Corvinus! Always an honor to see you. May I examine your official entry pass, please?",
-                    "ru": "— А, профессор Корвинус! Всегда честь видеть вас. Могу я взглянуть на ваш официальный пропуск?"
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-3.5st\">— Ah, Master Corvinus! <break time=\"300ms\"/> Nice to see you. <break time=\"300ms\"/> Can I see your paper, please?</prosody></speak>",
+                    "en": "— Ah, Master Corvinus! Nice to see you. Can I see your paper, please?",
+                    "ru": "— А, Мастер Корвинус! Рад вас видеть. Могу я взглянуть на ваш документ, пожалуйста?"
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Eldrin, my boy, you are holding the official travel parchment in your leather pouch.</prosody></speak>",
-                    "en": "— Eldrin, my boy, you are holding the official travel paper in your leather pouch.",
-                    "ru": "— Элдрин, мой мальчик, официальный пергамент у тебя в кожаной сумке."
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Eldrin, my boy, you have the paper in your bag.</prosody></speak>",
+                    "en": "— Eldrin, my boy, you have the paper in your bag.",
+                    "ru": "— Элдрин, мой мальчик, документ у тебя в сумке."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Yes, Professor! Here it is!</prosody></speak>",
-                    "en": "— Yes, Teacher! Here it is!",
-                    "ru": "— Да, профессор! Вот он!"
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Yes, Master! <break time=\"300ms\"/> Here it is!</prosody></speak>",
+                    "en": "— Yes, Master! Here it is!",
+                    "ru": "— Да, Мастер! Вот он!"
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin carefully unbuttons his leather pouch and retrieves the thick cream-colored parchment.</prosody></speak>",
-                    "en": "Eldrin carefully unbuttons his leather pouch and retrieves the thick cream-colored paper.",
-                    "ru": "Элдрин аккуратно расстегивает кожаную сумку и достает плотный пергамент кремового цвета."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin opens his bag. <break time=\"300ms\"/> He takes out the paper.</prosody></speak>",
+                    "en": "Eldrin opens his bag. He takes out the paper.",
+                    "ru": "Элдрин открывает сумку. Он достает документ."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Here is our entry pass, Captain Vance. It has the official red owl wax seal of the Spire.</prosody></speak>",
-                    "en": "— Here is our entry pass, Captain Vance. It has the official red owl wax seal of the Spire.",
-                    "ru": "— Вот наш пропуск, капитан Вэнс. На нем официальная печать Шпиля в виде красной совы."
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Here is our paper, guard. <break time=\"300ms\"/> It has a red owl mark.</prosody></speak>",
+                    "en": "— Here is our paper, guard. It has a red owl mark.",
+                    "ru": "— Вот наш документ, стражник. На нем знак красной совы."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Captain Vance takes the parchment in his gauntleted hand and inspects the red wax seal closely.</prosody></speak>",
-                    "en": "Captain Vance takes the paper in his gauntleted hand and inspects the red wax seal closely.",
-                    "ru": "Капитан Вэнс берет пергамент рукой в латной перчатке и внимательно осматривает красную печать."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The guard takes the paper. <break time=\"300ms\"/> He looks at the red mark.</prosody></speak>",
+                    "en": "The guard takes the paper. He looks at the red mark.",
+                    "ru": "Стражник берет документ. Он смотрит на красный знак."
                 },
                 {
                     "speaker": "guard",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-3.5st\">— The seal is unbroken and completely authentic. <break time=\"300ms\"/> Let me stamp your paper for today's market day.</prosody></speak>",
-                    "en": "— The seal is unbroken and completely authentic. Let me stamp your paper for today's market day.",
-                    "ru": "— Печать цела и подлинна. Позвольте мне поставить штамп на ваш пергамент на сегодняшний базарный день."
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-3.5st\">— The mark is good. <break time=\"300ms\"/> I will stamp your paper for today.</prosody></speak>",
+                    "en": "— The mark is good. I will stamp your paper for today.",
+                    "ru": "— Знак подлинный. Я поставлю штамп на ваш документ на сегодня."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The captain walks to the guard table. He dips a heavy round bronze stamp into purple ink.</prosody></speak>",
-                    "en": "The captain walks to the guard table. He dips a heavy round metal stamp into purple ink.",
-                    "ru": "Капитан подходит к караульному столу. Он макает тяжелый круглый бронзовый штамп в фиолетовые чернила."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The guard walks to the table. <break time=\"300ms\"/> He puts a metal stamp into purple ink.</prosody></speak>",
+                    "en": "The guard walks to the table. He puts a metal stamp into purple ink.",
+                    "ru": "Стражник идет к столу. Он макает металлический штамп в фиолетовые чернила."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">THUMP! He presses the stamp firmly onto the bottom corner of the parchment.</prosody></speak>",
-                    "en": "THUMP! He presses the stamp firmly onto the bottom corner of the paper.",
-                    "ru": "БАМ! Он с силой прижимает штамп к нижнему углу пергамента."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Thump! <break time=\"300ms\"/> He puts the stamp on the paper.</prosody></speak>",
+                    "en": "Thump! He puts the stamp on the paper.",
+                    "ru": "Бум! Он ставит штамп на бумагу."
                 },
                 {
                     "speaker": "guard",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-3.5st\">— Here is your stamped pass, Eldrin. <break time=\"300ms\"/> Keep it safe in your pocket until you leave this evening.</prosody></speak>",
-                    "en": "— Here is your stamped pass, Eldrin. Keep it safe in your pocket until you leave this evening.",
-                    "ru": "— Вот твой проштампованный пропуск, Элдрин. Храни его в надежном месте до вечернего выезда."
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-3.5st\">— Here is your paper, Eldrin. <break time=\"300ms\"/> Keep it in your pocket until evening.</prosody></speak>",
+                    "en": "— Here is your paper, Eldrin. Keep it in your pocket until evening.",
+                    "ru": "— Вот твой документ, Элдрин. Держи его в кармане до вечера."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Thank you very much, Captain Vance! I will keep it right inside my buttoned pocket.</prosody></speak>",
-                    "en": "— Thank you very much, Captain Vance! I will keep it right inside my buttoned pocket.",
-                    "ru": "— Большое спасибо, капитан Вэнс! Я положу его прямо в карман на пуговице."
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Thank you very much! <break time=\"300ms\"/> I will keep it in my pocket.</prosody></speak>",
+                    "en": "— Thank you very much! I will keep it in my pocket.",
+                    "ru": "— Большое спасибо! Я буду держать его в кармане."
                 },
                 {
                     "speaker": "guard",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-3.5st\">— A word of advice for you young students: The central market square is extremely crowded today.</prosody></speak>",
-                    "en": "— A word of advice for you young students: The central market square is extremely crowded today.",
-                    "ru": "— Совет для вас, юные ученые: Центральная рыночная площадь сегодня чрезвычайно многолюдна."
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-3.5st\">— Listen, students: The market is very busy today.</prosody></speak>",
+                    "en": "— Listen, students: The market is very busy today.",
+                    "ru": "— Послушайте, ученики: рынок сегодня очень оживленный."
                 },
                 {
                     "speaker": "guard",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-3.5st\">— Watch out for heavy merchant carts, keep your coin purses close, and stay together at all times.</prosody></speak>",
-                    "en": "— Watch out for heavy merchant carts, keep your coin purses close, and stay together at all times.",
-                    "ru": "— Остерегайтесь тяжелых купеческих телег, держите кошельки при себе и всегда держитесь вместе."
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-3.5st\">— Watch the carts. <break time=\"300ms\"/> Keep your money close. <break time=\"300ms\"/> Stay together.</prosody></speak>",
+                    "en": "— Watch the carts. Keep your money close. Stay together.",
+                    "ru": "— Берегитесь повозок. Держите деньги ближе к себе. Держитесь вместе."
                 },
                 {
                     "speaker": "kira",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Thank you for the wise warning, Captain! We will stay right beside Professor Corvinus.</prosody></speak>",
-                    "en": "— Thank you for the wise warning, Captain! We will stay right beside Teacher Corvinus.",
-                    "ru": "— Спасибо за мудрое предостережение, капитан! Мы будем идти рядом с профессором Корвинусом."
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Thank you, guard! <break time=\"300ms\"/> We will stay near Master Corvinus.</prosody></speak>",
+                    "en": "— Thank you, guard! We will stay near Master Corvinus.",
+                    "ru": "— Спасибо, стражник! Мы будем держаться рядом с Мастером Корвинусом."
                 },
                 {
                     "speaker": "guard",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-3.5st\">— Open the main portcullis for the Academy cart! <break time=\"300ms\"/> Let them pass!</prosody></speak>",
-                    "en": "— Open the main portcullis for the Academy cart! Let them pass!",
-                    "ru": "— Поднять главную решетку для повозки Академии! Пропустить!"
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-3.5st\">— Open the door for the Academy vehicle! <break time=\"300ms\"/> Let them go!</prosody></speak>",
+                    "en": "— Open the door for the Academy vehicle! Let them go!",
+                    "ru": "— Откройте ворота для повозки Академии! Пропустите их!"
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">CLANK! RATTLE! Two guards turn large iron wheels on the wall.</prosody></speak>",
-                    "en": "CLANK! RATTLE! Two guards turn large iron wheels on the wall.",
-                    "ru": "ЛЯЗГ! ГРОХОТ! Двое стражников крутят большие железные колеса на стене."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Clank! <break time=\"300ms\"/> Rattle! <break time=\"300ms\"/> Two guards turn big iron wheels on the wall.</prosody></speak>",
+                    "en": "Clank! Rattle! Two guards turn big iron wheels on the wall.",
+                    "ru": "Лязг! Грохот! Двое стражников крутят большие железные колеса на стене."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Heavy iron chains pull the massive iron-spiked wooden gate upward into the stone arch.</prosody></speak>",
-                    "en": "Heavy iron chains pull the massive iron-spiked wooden gate upward into the stone arch.",
-                    "ru": "Тяжелые железные цепи поднимают массивную обитую железом деревянную решетку вверх в каменную арку."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Iron chains pull the big door up.</prosody></speak>",
+                    "en": "Iron chains pull the big door up.",
+                    "ru": "Железные цепи тянут большую дверь вверх."
                 },
                 {
                     "speaker": "barnaby",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2.5st\">— Giddy-up, White flower! <break time=\"300ms\"/> Giddy-up, Small green plant! <break time=\"300ms\"/> Through the gates we go!</prosody></speak>",
-                    "en": "— Giddy-up, White flower! Giddy-up, Small green plant! Through the gates we go!",
-                    "ru": "— Но, Дейзи! Но, Клевер! Въезжаем в ворота!"
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2.5st\">— Go, White flower! <break time=\"300ms\"/> Go, Small green plant! <break time=\"300ms\"/> We go through the door!</prosody></speak>",
+                    "en": "— Go, White flower! Go, Small green plant! We go through the door!",
+                    "ru": "— Вперед, Белый Цветок! Вперед, Маленький Зеленый Росток! Проезжаем через ворота!"
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The cart rolls across the wooden drawbridge and passes beneath the shadowy stone gatehouse.</prosody></speak>",
-                    "en": "The cart rolls across the wooden bridge and passes under the shadowy stone gatehouse.",
-                    "ru": "Повозка катится по деревянному подъемному мосту и проезжает под тенистой каменной надвратной башней."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The vehicle goes over the bridge and under the stone gate.</prosody></speak>",
+                    "en": "The vehicle goes over the bridge and under the stone gate.",
+                    "ru": "Повозка проезжает по мосту и под каменными воротами."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">As they emerge on the other side, the full sound and color of the Lower Town bursts into view!</prosody></speak>",
-                    "en": "As they emerge on the other side, the full sound and color of the Lower Town bursts into view!",
-                    "ru": "Когда они выезжают на другую сторону, вся палитра звуков и красок Нижнего Города предстает перед ними!"
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Now they can see and hear the town!</prosody></speak>",
+                    "en": "Now they can see and hear the town!",
+                    "ru": "Теперь они могут видеть и слышать город!"
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Look at all the colourful wooden signs, the tall stone houses, and the cobblestone streets!</prosody></speak>",
-                    "en": "— Look at all the colourful wooden signs, the tall stone houses, and the stone streets!",
-                    "ru": "— Посмотри на все эти разноцветные деревянные вывески, высокие каменные дома и мощеные улицы!"
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Look at the colorful signs, the tall stone houses, and the stone streets!</prosody></speak>",
+                    "en": "— Look at the colorful signs, the tall stone houses, and the stone streets!",
+                    "ru": "— Посмотри на красочные вывески, высокие каменные дома и мощеные улицы!"
                 },
                 {
                     "speaker": "kira",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— And smell the air! It smells like roasted nuts, fresh baked bread, and sweet flower honey!</prosody></speak>",
-                    "en": "— And smell the air! It smells like roasted nuts, fresh baked bread, and sweet flower honey!",
-                    "ru": "— А какой воздух! Пахнет жареными орехами, свежеиспеченным хлебом и сладким цветочным медом!"
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Smell the air! <break time=\"300ms\"/> It smells like nuts, bread, and sweet honey!</prosody></speak>",
+                    "en": "— Smell the air! It smells like nuts, bread, and sweet honey!",
+                    "ru": "— Вдохни этот воздух! Пахнет орехами, хлебом и сладким медом!"
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Welcome to the Lower Town, my young friends! Let us begin our market quest!</prosody></speak>",
-                    "en": "— Welcome to the Lower Town, my young friends! Let us begin our market quest!",
-                    "ru": "— Добро пожаловать в Нижний Город, мои юные друзья! Начнем наш рыночный квест!"
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Welcome to the town, my young friends! <break time=\"300ms\"/> Let's start our market day!</prosody></speak>",
+                    "en": "— Welcome to the town, my young friends! Let's start our market day!",
+                    "ru": "— Добро пожаловать в город, мои юные друзья! Начнем наш базарный день!"
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Barnaby steers the horses down the main street toward the bustling central town square.</prosody></speak>",
-                    "en": "Barnaby steers the horses down the main street toward the bustling central town square.",
-                    "ru": "Барнаби направляет лошадей по главной улице к шумной центральной городской площади."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Barnaby drives the horses down the street to the town square.</prosody></speak>",
+                    "en": "Barnaby drives the horses down the street to the town square.",
+                    "ru": "Барнаби правит лошадьми вниз по улице к городской площади."
                 }
             ],
             "quiz": [
                 {
-                    "question": "What kind of ink did Captain Vance use to stamp the entry pass?",
+                    "question": "What mark was on Eldrin's Academy paper?",
                     "options": [
-                        "Green ink",
-                        "Purple ink",
-                        "Golden paint",
-                        "Water"
+                        "A gold crown mark",
+                        "A red owl mark",
+                        "A green leaf mark",
+                        "A silver star mark"
                     ],
                     "correctIdx": 1
                 },
                 {
-                    "question": "What warning did the gatekeeper give to the young scholars?",
+                    "question": "What advice did the city guard give to the students?",
                     "options": [
-                        "Do not eat any bread",
-                        "Watch out for carts, keep purses close, and stay together",
-                        "Run as fast as you can",
-                        "Close your eyes"
+                        "To run quickly to the library",
+                        "To watch the carts, keep money close, and stay together",
+                        "To buy three green hats",
+                        "To wait outside until evening"
                     ],
                     "correctIdx": 1
                 },
                 {
-                    "question": "How was the massive wooden gate opened?",
+                    "question": "What delicious smells did Kira notice when they entered the town?",
                     "options": [
-                        "Guards turned large iron wheels with heavy chains",
-                        "With a tiny brass key",
-                        "By pushing with shoulders",
-                        "By magic spell"
+                        "Nuts, bread, and sweet honey",
+                        "Bitter tea and medicine",
+                        "Hot stone and cold water",
+                        "Apples and green grass"
                     ],
                     "correctIdx": 0
                 }
