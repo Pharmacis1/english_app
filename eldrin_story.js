@@ -2534,242 +2534,242 @@ const ELDRIN_AUDIOBOOK = {
             "titleEn": "Episode 10: Packing the Bags for Tomorrow's Journey",
             "titleRu": "Эпизод 10: Сборы в дорогу на завтра",
             "grammarFocus": "Checklist Vocabulary (backpack, coins, canteen, map), Modal Verbs (must, should, can), Future Plans",
-            "wordCount": 447,
+            "wordCount": 310,
             "coverIcon": "fa-suitcase-rolling",
             "coverColor": "#f59e0b",
             "sentences": [
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The evening bell chimes seven times across the academy dormitories. The sky outside is deep navy blue.</prosody></speak>",
-                    "en": "The evening bell chimes seven times across the academy dormitories. The sky outside is deep navy blue.",
-                    "ru": "Вечерний колокол звонит семь раз над общежитиями академии. Небо за окном темно-синее."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">It is seven o'clock in the evening at the academy. <break time=\"300ms\"/> The sky outside is blue.</prosody></speak>",
+                    "en": "It is seven o'clock in the evening at the academy. The sky outside is blue.",
+                    "ru": "Семь часов вечера в академии. Небо снаружи синее."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Inside Eldrin and Leo's dormitory room, three candles burn brightly on the heavy oak table.</prosody></speak>",
-                    "en": "Inside Eldrin and Leo's bedroom room, three candles burn with bright light on the heavy big tree table.",
-                    "ru": "В комнате общежития Элдрина и Лео три свечи ярко горят на тяжелом дубовом столе."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Inside the bedroom, three lamps give bright light on the big wood table.</prosody></speak>",
+                    "en": "Inside the bedroom, three lamps give bright light on the big wood table.",
+                    "ru": "Внутри спальни три лампы ярко освещают большой деревянный стол."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin, Leo, and Kira sit on wooden stools around the table with three sturdy canvas backpacks.</prosody></speak>",
-                    "en": "Eldrin, Leo, and Kira sit on wooden stools around the table with three sturdy cloth bags.",
-                    "ru": "Элдрин, Лео и Кира сидят на деревянных табуретах вокруг стола с тремя прочными холщовыми рюкзаками."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin, Leo, and Kira sit on chairs at the table with three bags.</prosody></speak>",
+                    "en": "Eldrin, Leo, and Kira sit on chairs at the table with three bags.",
+                    "ru": "Элдрин, Лео и Кира сидят на стульях за столом с тремя сумками."
                 },
                 {
                     "speaker": "kira",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Tomorrow is the big day! Let us review our packing checklist very carefully.</prosody></speak>",
-                    "en": "— Tomorrow is the big day! Let us review our packing list very carefully.",
-                    "ru": "— Завтра великий день! Давайте проверим наш упаковочный список очень внимательно."
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Tomorrow is an important day! <break time=\"300ms\"/> Let us check our plan!</prosody></speak>",
+                    "en": "— Tomorrow is an important day! Let us check our plan!",
+                    "ru": "— Завтра важный день! Давайте проверим наш план!"
                 },
                 {
                     "speaker": "leo",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Yes! We cannot afford to forget anything important when we go down to the Lower Town.</prosody></speak>",
-                    "en": "— Yes! We cannot afford to forget anything important when we go down to the Lower Town.",
-                    "ru": "— Да! Нам никак нельзя забыть что-то важное, когда мы поедем вниз в Нижний Город."
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Yes! <break time=\"300ms\"/> We cannot forget anything important when we go to the town.</prosody></speak>",
+                    "en": "— Yes! We cannot forget anything important when we go to the town.",
+                    "ru": "— Да! Мы не должны забыть ничего важного, когда отправимся в город."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— I have Master Corvinus's official shopping list right here on my desk. Let us check item by item!</prosody></speak>",
-                    "en": "— I have Master Corvinus's official shopping list right here on my desk. Let us check item by item!",
-                    "ru": "— У меня прямо тут на столе официальный список покупок Мастера Корвинуса. Давайте проверять пункт за пунктом!"
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— I have the shopping list from the master. <break time=\"300ms\"/> Let us check each thing!</prosody></speak>",
+                    "en": "— I have the shopping list from the master. Let us check each thing!",
+                    "ru": "— У меня список покупок от мастера. Давайте проверим каждую вещь!"
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— In my brown leather backpack, I have twenty shiny copper coins inside a secure pouch.</prosody></speak>",
-                    "en": "— In my brown leather bag, I have twenty shiny copper coins inside a secure pouch.",
-                    "ru": "— В моем коричневом кожаном рюкзаке двадцать блестящих медных монет в надежном кошельке."
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— In my brown bag, I have money. <break time=\"300ms\"/> I have twenty coins.</prosody></speak>",
+                    "en": "— In my brown bag, I have money. I have twenty coins.",
+                    "ru": "— В моей коричневой сумке деньги. У меня двадцать монет."
                 },
                 {
                     "speaker": "kira",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Good! Do you have your blank notebook and your sharpened quill with the inkpot?</prosody></speak>",
-                    "en": "— Good! Do you have your blank notebook and your sharpened pen with the inkpot?",
-                    "ru": "— Хорошо! А чистый блокнот и заточенное перо с чернильницей у тебя есть?"
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Good! <break time=\"300ms\"/> Do you have your notebook and your pen?</prosody></speak>",
+                    "en": "— Good! Do you have your notebook and your pen?",
+                    "ru": "— Хорошо! А блокнот и перо у тебя с собой?"
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Yes! My green notebook, the sharpened quill, and a tightly sealed wooden bottle of black ink are packed.</prosody></speak>",
-                    "en": "— Yes! My green notebook, the sharpened pen, and a tightly sealed wooden bottle of black ink are packed.",
-                    "ru": "— Да! Мой зеленый блокнот, заточенное перо и плотно закрытая деревянная бутылочка чернил упакованы."
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Yes! <break time=\"300ms\"/> My green notebook, the pen, and a black bottle are in the bag.</prosody></speak>",
+                    "en": "— Yes! My green notebook, the pen, and a black bottle are in the bag.",
+                    "ru": "— Да! Мой зеленый блокнот, перо и черная бутылочка лежат в сумке."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— And I also have Master Corvinus's silver pocketknife in the small side pocket.</prosody></speak>",
-                    "en": "— And I also have Master Corvinus's silver small knife in the small side pocket.",
-                    "ru": "— И еще у меня есть серебряный карманный ножик Мастера Корвинуса в маленьком боковом кармашке."
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— And I also have the small silver knife in the side pocket.</prosody></speak>",
+                    "en": "— And I also have the small silver knife in the side pocket.",
+                    "ru": "— И еще у меня маленький серебряный ножик в боковом кармане."
                 },
                 {
                     "speaker": "leo",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Excellent, Eldrin! Your bag is completely prepared.</prosody></speak>",
-                    "en": "— Excellent, Eldrin! Your bag is completely prepared.",
-                    "ru": "— Отлично, Элдрин! Твоя сумка полностью готова."
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Great! <break time=\"300ms\"/> Your bag is ready.</prosody></speak>",
+                    "en": "— Great! Your bag is ready.",
+                    "ru": "— Отлично! Твоя сумка готова."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— What about our food and provisions, Leo? What did you pack in your green canvas bag?</prosody></speak>",
-                    "en": "— What about our food and food, Leo? What did you pack in your green cloth bag?",
-                    "ru": "— А как насчет нашей еды и провизии, Лео? Что ты упаковал в свой зеленый холщовый мешок?"
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— What about our food, Leo? <break time=\"300ms\"/> What is in your green bag?</prosody></speak>",
+                    "en": "— What about our food, Leo? What is in your green bag?",
+                    "ru": "— А как насчет еды, Лео? Что в твоей зеленой сумке?"
                 },
                 {
                     "speaker": "leo",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— I packed four fresh red apples, half a loaf of crusty sourdough bread, and two wedges of hard yellow cheese.</prosody></speak>",
-                    "en": "— I packed four fresh red apples, half a loaf of hard fresh bread, and two wedges of hard yellow cheese.",
-                    "ru": "— Я упаковал четыре свежих красных яблока, полбуханки хрустящего хлеба на закваске и два куска твердого желтого сыра."
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— I have four fresh red apples, fresh bread, and yellow cheese.</prosody></speak>",
+                    "en": "— I have four fresh red apples, fresh bread, and yellow cheese.",
+                    "ru": "— У меня четыре свежих красных яблока, свежий хлеб и желтый сыр."
                 },
                 {
                     "speaker": "leo",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— And I filled our large leather canteen with cold fresh spring water from the kitchen well.</prosody></speak>",
-                    "en": "— And I filled our large leather water bottle with cold fresh spring water from the kitchen well.",
-                    "ru": "— И я наполнил нашу большую кожаную флягу холодной свежей родниковой водой из кухонного колодца."
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— And I have cold fresh water in a large bottle.</prosody></speak>",
+                    "en": "— And I have cold fresh water in a large bottle.",
+                    "ru": "— И у меня холодная свежая вода в большой бутылке."
                 },
                 {
                     "speaker": "kira",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Wonderful! We will not be hungry or thirsty on the long road.</prosody></speak>",
-                    "en": "— Wonderful! We will not be hungry or thirsty on the long road.",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Wonderful! <break time=\"300ms\"/> We are not hungry or thirsty on the long road.</prosody></speak>",
+                    "en": "— Wonderful! We are not hungry or thirsty on the long road.",
                     "ru": "— Замечательно! Мы не будем голодными или испытывать жажду в дальней дороге."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— And what do you have in your grey backpack, Kira?</prosody></speak>",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— And what do you have in your grey bag, Kira?</prosody></speak>",
                     "en": "— And what do you have in your grey bag, Kira?",
-                    "ru": "— А что у тебя в сером рюкзаке, Кира?"
+                    "ru": "— А что у тебя в серой сумке, Кира?"
                 },
                 {
                     "speaker": "kira",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— I have a detailed street map of the Lower Town market square.</prosody></speak>",
-                    "en": "— I have a detailed street map of the Lower Town market square.",
-                    "ru": "— У меня подробная карта улиц рыночной площади Нижнего Города."
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— I have a map of the town.</prosody></speak>",
+                    "en": "— I have a map of the town.",
+                    "ru": "— У меня карта города."
                 },
                 {
                     "speaker": "kira",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— I also have a strong coil of hemp rope, twenty meters long, in case we need to tie boxes on the cart.</prosody></speak>",
-                    "en": "— I also have a strong roll of thick rope, twenty meters long, in case we need to tie boxes on the cart.",
-                    "ru": "— Еще у меня крепкий моток пеньковой веревки длиной двадцать метров, на случай если нужно будет привязать ящики на повозке."
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— I also have long rope for the cart.</prosody></speak>",
+                    "en": "— I also have long rope for the cart.",
+                    "ru": "— Также у меня длинная веревка для повозки."
                 },
                 {
                     "speaker": "kira",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— And my warm wool travelling cloak, in case a cold wind blows through the mountain pass.</prosody></speak>",
-                    "en": "— And my warm wool travelling cloak, in case a cold wind blows through the mountain pass.",
-                    "ru": "— И мой теплый шерстяной дорожный плащ, на случай если холодный ветер подует в горном ущелье."
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— And I have my warm cloak for the cold wind in the mountains.</prosody></speak>",
+                    "en": "— And I have my warm cloak for the cold wind in the mountains.",
+                    "ru": "— И у меня мой теплый плащ от холодного ветра в горах."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">They zip and buckle all three backpacks. Everything is neat, organized, and ready by the door.</prosody></speak>",
-                    "en": "They zip and buckle all three bags. Everything is neat, organized, and ready by the door.",
-                    "ru": "Они застегивают все три рюкзака. Все аккуратно, организованно и готово у двери."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The three bags are ready by the door.</prosody></speak>",
+                    "en": "The three bags are ready by the door.",
+                    "ru": "Три сумки готовы возле двери."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— What exact time does Farmer Barnaby arrive with the horse cart tomorrow morning?</prosody></speak>",
-                    "en": "— What exact time does Farmer Barnaby arrive with the horse cart tomorrow morning?",
-                    "ru": "— В какое именно время фермер Барнаби приезжает с повозкой завтра утром?"
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— When does the man come with the horse?</prosody></speak>",
+                    "en": "— When does the man come with the horse?",
+                    "ru": "— Когда приедет человек с лошадью?"
                 },
                 {
                     "speaker": "leo",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— At six o'clock sharp at the academy's main wooden gate!</prosody></speak>",
-                    "en": "— At six o'clock sharp at the academy's main wooden gate!",
-                    "ru": "— Ровно в шесть часов у главных деревянных ворот академии!"
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— At six o'clock in the morning!</prosody></speak>",
+                    "en": "— At six o'clock in the morning!",
+                    "ru": "— В шесть часов утра!"
                 },
                 {
                     "speaker": "kira",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— That means we must wake up at five thirty, wash our faces, and put on our walking boots before sunrise.</prosody></speak>",
-                    "en": "— That means we must wake up at five thirty, wash our faces, and put on our walking boots before sunrise.",
-                    "ru": "— Это значит, что мы должны проснуться в полшестого, умыться и надеть походные сапоги до восхода солнца."
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— We must wake up early, wash our face, and put on our boots before the sun comes!</prosody></speak>",
+                    "en": "— We must wake up early, wash our face, and put on our boots before the sun comes!",
+                    "ru": "— Мы должны проснуться рано, умыться и надеть сапоги до восхода солнца!"
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— I am so excited for this trip! I want to see the blacksmith's forge, the book stalls, and the town fountain!</prosody></speak>",
-                    "en": "— I am so excited for this trip! I want to see the blacksmith's forge, the book stalls, and the town fountain!",
-                    "ru": "— Я так взволнован этой поездкой! Я хочу увидеть кузницу, книжные ряды и городской фонтан!"
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— I am happy about this trip! <break time=\"300ms\"/> I want to see the town and the books!</prosody></speak>",
+                    "en": "— I am happy about this trip! I want to see the town and the books!",
+                    "ru": "— Я так рад этой поездке! Хочу увидеть город и книги!"
                 },
                 {
                     "speaker": "leo",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— We all are! But now we must blow out the candles and get seven hours of deep sleep.</prosody></speak>",
-                    "en": "— We all are! But now we must blow out the candles and get seven hours of deep sleep.",
-                    "ru": "— Мы все тоже! Но сейчас мы должны задуть свечи и крепко поспать семь часов."
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— We all do! <break time=\"300ms\"/> But now we must sleep!</prosody></speak>",
+                    "en": "— We all do! But now we must sleep!",
+                    "ru": "— Мы все тоже! Но сейчас нам нужно спать!"
                 },
                 {
                     "speaker": "kira",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Good night, Eldrin! Good night, Leo! See you at dawn by the gate!</prosody></speak>",
-                    "en": "— Good night, Eldrin! Good night, Leo! See you at dawn by the gate!",
-                    "ru": "— Спокойной ночи, Элдрин! Спокойной ночи, Лео! Увидимся на рассвете у ворот!"
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Good night, Eldrin! <break time=\"300ms\"/> Good night, Leo! <break time=\"300ms\"/> See you in the morning!</prosody></speak>",
+                    "en": "— Good night, Eldrin! Good night, Leo! See you in the morning!",
+                    "ru": "— Спокойной ночи, Элдрин! Спокойной ночи, Лео! Увидимся утром!"
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Good night, Kira! Sleep well!</prosody></speak>",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Good night, Kira! <break time=\"300ms\"/> Sleep well!</prosody></speak>",
                     "en": "— Good night, Kira! Sleep well!",
-                    "ru": "— Спокойной ночи, Кира! Сладких снов!"
+                    "ru": "— Спокойной ночи, Кира! Приятных снов!"
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Kira slips out to her room. Eldrin and Leo blow out the flickering candles.</prosody></speak>",
-                    "en": "Kira slips out to her room. Eldrin and Leo blow out the flickering candles.",
-                    "ru": "Кира уходит в свою комнату. Элдрин и Лео задувают мерцающие свечи."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Kira goes to her room. <break time=\"300ms\"/> Eldrin and Leo close the lights.</prosody></speak>",
+                    "en": "Kira goes to her room. Eldrin and Leo close the lights.",
+                    "ru": "Кира идет в свою комнату. Элдрин и Лео гасят свет."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The dormitory falls into peaceful darkness. Act One is successfully completed, and an incredible adventure awaits at sunrise.</prosody></speak>",
-                    "en": "The bedroom falls into peaceful darkness. Act One is successfully completed, and an incredible adventure awaits at sunrise.",
-                    "ru": "Общежитие погружается в мирную темноту. Первый Акт успешно завершен, и на восходе солнца их ждет невероятное приключение."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The bedroom is dark and quiet. <break time=\"300ms\"/> Tomorrow is a big adventure!</prosody></speak>",
+                    "en": "The bedroom is dark and quiet. Tomorrow is a big adventure!",
+                    "ru": "В спальне темно и тихо. Завтра — большое приключение!"
                 }
             ],
             "quiz": [
                 {
-                    "question": "What time does Farmer Barnaby's horse cart leave the Spire in the morning?",
+                    "question": "What food and drinks did Leo pack in his green bag?",
                     "options": [
-                        "At ten o'clock",
-                        "At six o'clock sharp at the main gate",
-                        "At noon",
-                        "At midnight"
+                        "Meat, milk, and tea",
+                        "Four fresh red apples, fresh bread, yellow cheese, and water",
+                        "Strawberry jam and warm soup",
+                        "Potatoes and sugar"
                     ],
                     "correctIdx": 1
                 },
                 {
-                    "question": "What food did Leo pack in his green canvas backpack?",
+                    "question": "What useful items did Kira pack in her grey bag?",
                     "options": [
-                        "Four red apples, sourdough bread, yellow cheese, and fresh spring water",
-                        "Fish and lemons",
-                        "Only candy",
-                        "Hot soup"
+                        "A town map, long rope for the cart, and a warm cloak",
+                        "A silver knife and three metal lamps",
+                        "Ten clay flower pots",
+                        "Old heavy books"
                     ],
                     "correctIdx": 0
                 },
                 {
-                    "question": "What tool did Kira pack to secure boxes onto the wooden cart?",
+                    "question": "At what time does the man with the horse arrive tomorrow morning?",
                     "options": [
-                        "A roll of tape",
-                        "A strong twenty-meter coil of hemp rope",
-                        "Iron nails",
-                        "Heavy stones"
+                        "At four o'clock in the afternoon",
+                        "At six o'clock in the morning",
+                        "At nine o'clock in the evening",
+                        "At midnight"
                     ],
                     "correctIdx": 1
                 }
