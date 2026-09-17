@@ -2782,265 +2782,265 @@ const ELDRIN_AUDIOBOOK = {
             "titleEn": "Episode 11: The Morning Cart Ride Down the Mountain",
             "titleRu": "Эпизод 11: Утренняя поездка на повозке с горы",
             "grammarFocus": "Present Continuous & Motion Verbs (ride, roll, turn, look, slow down), Travel Vocabulary",
-            "wordCount": 493,
+            "wordCount": 390,
             "coverIcon": "fa-horse-head",
             "coverColor": "#10b981",
             "sentences": [
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">At five thirty in the morning, the golden rays of the sunrise paint the stone walls of the Spire.</prosody></speak>",
-                    "en": "At five thirty in the morning, the golden rays of the sunrise paint the stone walls of the Spire.",
-                    "ru": "В полшестого утра золотые лучи восхода окрашивают каменные стены Шпиля."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">It is half past five in the morning. <break time=\"300ms\"/> The sun is shining on the stone walls of the Spire.</prosody></speak>",
+                    "en": "It is half past five in the morning. The sun is shining on the stone walls of the Spire.",
+                    "ru": "Половина шестого утра. Солнце светит на каменные стены Шпиля."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin and Kira stand by the giant wooden gate with their backpacks strapped over their shoulders.</prosody></speak>",
-                    "en": "Eldrin and Kira stand by the giant wooden gate with their bags strapped over their shoulders.",
-                    "ru": "Элдрин и Кира стоят у гигантских деревянных ворот с рюкзаками за плечами."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin and Kira stand near a big door. <break time=\"300ms\"/> They have bags on their shoulders.</prosody></speak>",
+                    "en": "Eldrin and Kira stand near a big door. They have bags on their shoulders.",
+                    "ru": "Элдрин и Кира стоят возле большой двери. У них сумки на плечах."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Master Corvinus walks over, leaning on a polished wooden walking staff.</prosody></speak>",
-                    "en": "Master Corvinus walks over, leaning on a polished wooden walking staff.",
-                    "ru": "Мастер Корвинус подходит, опираясь на полированный деревянный посох."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Master Corvinus walks to them. <break time=\"300ms\"/> He has a staff in his hand.</prosody></speak>",
+                    "en": "Master Corvinus walks to them. He has a staff in his hand.",
+                    "ru": "Мастер Корвинус идет к ним. У него в руке посох."
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Good morning, early birds! You are both ready and punctual. Here comes our ride!</prosody></speak>",
-                    "en": "— Good morning, early birds! You are both ready and punctual. Here comes our ride!",
-                    "ru": "— Доброе утро, ранние пташки! Вы оба готовы и пунктуальны. А вот и наша повозка!"
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Good morning! <break time=\"300ms\"/> You are ready. <break time=\"300ms\"/> You are punctual. <break time=\"300ms\"/> Look! <break time=\"300ms\"/> Our ride is here!</prosody></speak>",
+                    "en": "— Good morning! You are ready. You are punctual. Look! Our ride is here!",
+                    "ru": "— Доброе утро! Вы готовы. Вы пунктуальны. Смотрите! Наш транспорт здесь!"
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The great wooden gate opens wide with a slow creak. A large wooden cart rolls up to the courtyard.</prosody></speak>",
-                    "en": "The great wooden gate opens wide with a slow creak. A large wooden cart rolls up to the courtyard.",
-                    "ru": "Огромные деревянные ворота с медленным скрипом распахиваются. Большой деревянный воз въезжает во двор."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The big door opens. <break time=\"300ms\"/> A vehicle comes to the yard.</prosody></speak>",
+                    "en": "The big door opens. A vehicle comes to the yard.",
+                    "ru": "Большая дверь открывается. Во двор въезжает повозка."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Farmer Barnaby sits on the driver's bench in a thick brown vest and a round straw hat.</prosody></speak>",
-                    "en": "Farmer Barnaby sits on the driver's bench in a thick brown vest and a round straw hat.",
-                    "ru": "Фермер Барнаби сидит на козлах в толстом коричневом жилете и круглой соломенной шляпе."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Barnaby is a driver. <break time=\"300ms\"/> He sits on the vehicle. <break time=\"300ms\"/> He wears a brown coat and a hat.</prosody></speak>",
+                    "en": "Barnaby is a driver. He sits on the vehicle. He wears a brown coat and a hat.",
+                    "ru": "Барнаби — возница. Он сидит на повозке. На нем коричневое пальто и шляпа."
                 },
                 {
                     "speaker": "barnaby",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2.5st\">— Good morning, students of the Spire! <break time=\"300ms\"/> Meet my two wonderful brown horses, White flower and Small green plant!</prosody></speak>",
-                    "en": "— Good morning, students of the Spire! Meet my two wonderful brown horses, White flower and Small green plant!",
-                    "ru": "— Доброе утро, ученые Шпиля! Познакомьтесь с моими двумя чудесными гнедыми лошадьми, Дейзи и Клевером!"
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2.5st\">— Good morning, students! <break time=\"300ms\"/> Meet my two brown horses. <break time=\"300ms\"/> Their names are White flower and Small green plant!</prosody></speak>",
+                    "en": "— Good morning, students! Meet my two brown horses. Their names are White flower and Small green plant!",
+                    "ru": "— Доброе утро, ученики! Познакомьтесь с моими двумя гнедыми лошадьми. Их зовут Белый Цветок и Маленький Зеленый Росток!"
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Good morning, Barnaby! The horses have such shiny brown coats and gentle brown eyes.</prosody></speak>",
-                    "en": "— Good morning, Barnaby! The horses have such shiny brown coats and gentle brown eyes.",
-                    "ru": "— Доброе утро, Барнаби! У лошадей такая лоснящаяся коричневая шерсть и добрые карие глаза."
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Good morning, Barnaby! <break time=\"300ms\"/> The horses have brown hair and brown eyes.</prosody></speak>",
+                    "en": "— Good morning, Barnaby! The horses have brown hair and brown eyes.",
+                    "ru": "— Доброе утро, Барнаби! У лошадей коричневая шерсть и карие глаза."
                 },
                 {
                     "speaker": "kira",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— May I pat Daisy's soft nose before we climb in, Barnaby?</prosody></speak>",
-                    "en": "— May I pat White flower's soft nose before we climb in, Barnaby?",
-                    "ru": "— Можно мне погладить Дейзи по мягкому носу, прежде чем мы сядем, Барнаби?"
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Barnaby, can I touch White flower's nose before we go in the vehicle?</prosody></speak>",
+                    "en": "— Barnaby, can I touch White flower's nose before we go in the vehicle?",
+                    "ru": "— Барнаби, можно мне потрогать нос Белого Цветка, прежде чем мы сядем в повозку?"
                 },
                 {
                     "speaker": "barnaby",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2.5st\">— Of course, young lady! <break time=\"300ms\"/> White flower loves gentle hands. <break time=\"300ms\"/> Give her this little piece of sweet apple.</prosody></speak>",
-                    "en": "— Of course, young lady! White flower loves gentle hands. Give her this little piece of sweet apple.",
-                    "ru": "— Конечно, барышня! Дейзи любит ласку. Дай ей этот маленький кусочек сладкого яблока."
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2.5st\">— Yes, young lady! <break time=\"300ms\"/> White flower likes soft hands. <break time=\"300ms\"/> Give her this piece of sweet apple.</prosody></speak>",
+                    "en": "— Yes, young lady! White flower likes soft hands. Give her this piece of sweet apple.",
+                    "ru": "— Да, барышня! Белый Цветок любит нежные руки. Дай ей этот кусочек сладкого яблока."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Daisy eats the apple from Kira's palm and neighs softly with pleasure.</prosody></speak>",
-                    "en": "White flower eats the apple from Kira's palm and neighs softly with pleasure.",
-                    "ru": "Дейзи съедает яблоко с ладони Киры и тихонько довольно ржет."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">White flower eats the apple from Kira's hand. <break time=\"300ms\"/> White flower is happy.</prosody></speak>",
+                    "en": "White flower eats the apple from Kira's hand. White flower is happy.",
+                    "ru": "Белый Цветок ест яблоко из руки Киры. Белый Цветок счастлива."
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Climb into the back cart bed, children. Sit down on these clean bundles of sweet dry hay.</prosody></speak>",
-                    "en": "— Climb into the back cart bed, children. Sit down on these clean bundles of sweet dry hay.",
-                    "ru": "— Залезайте в кузов, дети. Садитесь на эти чистые вязанки сухого душистого сена."
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Children, climb into the vehicle. <break time=\"300ms\"/> Sit down. <break time=\"300ms\"/> It is clean.</prosody></speak>",
+                    "en": "— Children, climb into the vehicle. Sit down. It is clean.",
+                    "ru": "— Дети, залезайте в повозку. Садитесь. Здесь чисто."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin and Kira climb over the wooden sideboards. The hay makes a soft and comfortable seat.</prosody></speak>",
-                    "en": "Eldrin and Kira climb over the wooden sides. The hay makes a soft and comfortable seat.",
-                    "ru": "Элдрин и Кира перелезают через деревянные борта. Сено образует мягкое и удобное сиденье."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin and Kira climb into the vehicle. <break time=\"300ms\"/> The seat is soft.</prosody></speak>",
+                    "en": "Eldrin and Kira climb into the vehicle. The seat is soft.",
+                    "ru": "Элдрин и Кира забираются в повозку. Сиденье мягкое."
                 },
                 {
                     "speaker": "barnaby",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2.5st\">— Hold on to the side rails, everyone! <break time=\"300ms\"/> Giddy-up, White flower! <break time=\"300ms\"/> Giddy-up, Small green plant!</prosody></speak>",
-                    "en": "— Hold on to the side rails, everyone! Giddy-up, White flower! Giddy-up, Small green plant!",
-                    "ru": "— Держитесь за поручни, все! Но, Дейзи! Но, Клевер!"
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2.5st\">— Everyone, sit down! <break time=\"300ms\"/> Go, White flower! <break time=\"300ms\"/> Go, Small green plant!</prosody></speak>",
+                    "en": "— Everyone, sit down! Go, White flower! Go, Small green plant!",
+                    "ru": "— Все садитесь! Вперед, Белый Цветок! Вперед, Маленький Зеленый Росток!"
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Clip-clop, clip-clop! The iron horseshoes click rhythmically against the stone gravel road.</prosody></speak>",
-                    "en": "Clip-clop, clip-clop! The iron horseshoes click rhythmically against the stone gravel road.",
-                    "ru": "Цок-цок, цок-цок! Железные подковы ритмично стучат по каменистой гравийной дороге."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Clip-clop, clip-clop! <break time=\"300ms\"/> The horses have iron shoes. <break time=\"300ms\"/> They walk on the stone road.</prosody></speak>",
+                    "en": "Clip-clop, clip-clop! The horses have iron shoes. They walk on the stone road.",
+                    "ru": "Цок-цок, цок-цок! У лошадей железные подковы. Они идут по каменной дороге."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The wooden cart rolls steadily down the winding mountain switchbacks.</prosody></speak>",
-                    "en": "The wooden cart rolls slowly and carefully down the turning mountain sharp turns.",
-                    "ru": "Деревянная повозка плавно катится вниз по извилистым горным серпантинам."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The vehicle goes down the mountain slowly.</prosody></speak>",
+                    "en": "The vehicle goes down the mountain slowly.",
+                    "ru": "Повозка медленно едет вниз по горе."
                 },
                 {
                     "speaker": "kira",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Look over the edge, Eldrin! Look at the vast green valley spreading out below us!</prosody></speak>",
-                    "en": "— Look over the edge, Eldrin! Look at the vast green valley spreading out below us!",
-                    "ru": "— Посмотри за край, Элдрин! Посмотри на бескрайнюю зеленую долину, расстилающуюся под нами!"
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Look, Eldrin! <break time=\"300ms\"/> Look at the big green valley below us!</prosody></speak>",
+                    "en": "— Look, Eldrin! Look at the big green valley below us!",
+                    "ru": "— Посмотри, Элдрин! Посмотри на большую зеленую долину под нами!"
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Wow! A thick blanket of pure white morning fog covers the winding river like cotton!</prosody></speak>",
-                    "en": "— Wow! A thick blanket of pure white morning fog covers the turning river like cotton!",
-                    "ru": "— Ого! Густое покрывало чистого белого утреннего тумана укрывает извилистую реку, словно вата!"
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Wow! <break time=\"300ms\"/> White fog is over the river, like a blanket!</prosody></speak>",
+                    "en": "— Wow! White fog is over the river, like a blanket!",
+                    "ru": "— Вау! Белый туман над рекой, словно одеяло!"
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— The morning breeze is fresh and cool. Breathe deeply, children. Pine air is very healthy for the lungs.</prosody></speak>",
-                    "en": "— The morning breeze is fresh and cool. Breathe deeply, children. Tall tree air is very healthy for the lungs.",
-                    "ru": "— Утренний ветерок свежий и прохладный. Дышите глубже, дети. Сосновый воздух очень полезен для легких."
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— The morning air is fresh and cool. <break time=\"300ms\"/> This air is healthy, children.</prosody></speak>",
+                    "en": "— The morning air is fresh and cool. This air is healthy, children.",
+                    "ru": "— Утренний воздух свежий и прохладный. Этот воздух полезен для здоровья, дети."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— How many minutes does it take to reach the valley floor, Farmer Barnaby?</prosody></speak>",
-                    "en": "— How many minutes does it take to reach the valley floor, Farmer Barnaby?",
-                    "ru": "— Сколько минут нужно, чтобы доехать до подножия долины, фермер Барнаби?"
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Barnaby, how many minutes to the valley?</prosody></speak>",
+                    "en": "— Barnaby, how many minutes to the valley?",
+                    "ru": "— Барнаби, сколько минут ехать до долины?"
                 },
                 {
                     "speaker": "barnaby",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2.5st\">— About thirty minutes down this gentle mountain slope, my boy! <break time=\"300ms\"/> The road is wide and safe.</prosody></speak>",
-                    "en": "— About thirty minutes down this gentle mountain slope, my boy! The road is wide and safe.",
-                    "ru": "— Около тридцати минут по этому пологому горному склону, мой мальчик! Дорога широкая и безопасная."
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2.5st\">— About thirty minutes down the mountain, my boy! <break time=\"300ms\"/> The road is good.</prosody></speak>",
+                    "en": "— About thirty minutes down the mountain, my boy! The road is good.",
+                    "ru": "— Около тридцати минут вниз с горы, мой мальчик! Дорога хорошая."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Tall evergreen pine trees stand along both sides of the gravel road like green guards.</prosody></speak>",
-                    "en": "Tall green tall trees stand along both sides of the gravel road like green guards.",
-                    "ru": "Высокие вечнозеленые сосны стоят по обеим сторонам гравийной дороги, как зеленые стражи."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Tall green trees stand on both sides of the road, like guards.</prosody></speak>",
+                    "en": "Tall green trees stand on both sides of the road, like guards.",
+                    "ru": "Высокие зеленые деревья стоят по обе стороны дороги, словно стражи."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">As they ride further down, the bright morning sun warms the valley and burns away the white fog.</prosody></speak>",
-                    "en": "As they ride further down, the bright morning sun warms the valley and burns away the white fog.",
-                    "ru": "По мере спуска яркое утреннее солнце согревает долину и рассеивает белый туман."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">They ride down. <break time=\"300ms\"/> The bright sun warms the valley. <break time=\"300ms\"/> The white fog goes away.</prosody></speak>",
+                    "en": "They ride down. The bright sun warms the valley. The white fog goes away.",
+                    "ru": "Они едут вниз. Яркое солнце согревает долину. Белый туман рассеивается."
                 },
                 {
                     "speaker": "kira",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Listen! Ding-dong, ding-dong! I can hear the tall church bells chiming in the town!</prosody></speak>",
-                    "en": "— Listen! Ding-dong, ding-dong! I can hear the tall church bells chiming in the town!",
-                    "ru": "— Послушайте! Дин-дон, дин-дон! Я слышу, как в городе звонят высокие церковные колокола!"
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Listen! <break time=\"300ms\"/> I can hear a sound from the town!</prosody></speak>",
+                    "en": "— Listen! I can hear a sound from the town!",
+                    "ru": "— Послушай! Я слышу звук из города!"
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Look ahead through the trees! I can see hundreds of red clay tile roofs and stone chimneys!</prosody></speak>",
-                    "en": "— Look ahead through the trees! I can see hundreds of red clay tile roofs and stone chimneys!",
-                    "ru": "— Посмотри вперед сквозь деревья! Я вижу сотни красных черепичных крыш и каменных труб!"
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Look! <break time=\"300ms\"/> I can see red clay roofs and stone chimneys between the trees!</prosody></speak>",
+                    "en": "— Look! I can see red clay roofs and stone chimneys between the trees!",
+                    "ru": "— Посмотри! Я вижу крыши из красной глины и каменные дымоходы между деревьями!"
                 },
                 {
                     "speaker": "barnaby",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2.5st\">— That is the Lower Town! <break time=\"300ms\"/> On market days, farmers and merchants come from fifty miles away.</prosody></speak>",
-                    "en": "— That is the Lower Town! On market days, farmers and merchants come from fifty miles away.",
-                    "ru": "— Это и есть Нижний Город! В базарные дни фермеры и купцы съезжаются за пятьдесят миль."
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2.5st\">— That is the town! <break time=\"300ms\"/> On market days, merchants come from far away.</prosody></speak>",
+                    "en": "— That is the town! On market days, merchants come from far away.",
+                    "ru": "— Это город! В базарные дни торговцы приезжают издалека."
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Prepare your passes and shopping lists, children. We are approaching the outer defensive walls.</prosody></speak>",
-                    "en": "— Prepare your passes and shopping lists, children. We are approaching the outer defensive walls.",
-                    "ru": "— Приготовьте ваши пропуска и списки покупок, дети. Мы приближаемся к внешним оборонительным стенам."
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Children, get ready. <break time=\"300ms\"/> We are near the big walls.</prosody></speak>",
+                    "en": "— Children, get ready. We are near the big walls.",
+                    "ru": "— Дети, приготовьтесь. Мы уже возле больших стен."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The road straightens out as they reach the valley floor. Massive grey stone walls rise ahead.</prosody></speak>",
-                    "en": "The road straightens out as they reach the valley floor. Massive grey stone walls rise ahead.",
-                    "ru": "Дорога выравнивается, когда они достигают дна долины. Массивные серые каменные стены вырастают впереди."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The road is straight now. <break time=\"300ms\"/> They reach the valley. <break time=\"300ms\"/> Big grey stone walls are there.</prosody></speak>",
+                    "en": "The road is straight now. They reach the valley. Big grey stone walls are there.",
+                    "ru": "Дорога теперь прямая. Они добираются до долины. Там стоят большие серые каменные стены."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Look at those huge wooden gates with iron spikes! The town looks like a giant fortress!</prosody></speak>",
-                    "en": "— Look at those huge wooden gates with iron spikes! The town looks like a giant fortress!",
-                    "ru": "— Посмотри на те огромные деревянные ворота с железными шипами! Город похож на гигантскую крепость!"
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Look at the big doors with iron! <break time=\"300ms\"/> The town looks like a big castle!</prosody></speak>",
+                    "en": "— Look at the big doors with iron! The town looks like a big castle!",
+                    "ru": "— Посмотри на большие ворота с железом! Город выглядит как большой замок!"
                 },
                 {
                     "speaker": "kira",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— I am so excited! Our market adventure is officially beginning!</prosody></speak>",
-                    "en": "— I am so excited! Our market adventure is officially beginning!",
-                    "ru": "— Я в таком предвкушении! Наше рыночное приключение официально начинается!"
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— I am happy! <break time=\"300ms\"/> Our market day is beginning!</prosody></speak>",
+                    "en": "— I am happy! Our market day is beginning!",
+                    "ru": "— Я счастлива! Наш базарный день начинается!"
                 },
                 {
                     "speaker": "barnaby",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2.5st\">— Whoa, White flower! <break time=\"300ms\"/> Whoa, Small green plant! <break time=\"300ms\"/> Slow down near the gatehouse!</prosody></speak>",
-                    "en": "— Whoa, White flower! Whoa, Small green plant! Slow down near the gatehouse!",
-                    "ru": "— Тпру, Дейзи! Тпру, Клевер! Притормозите возле караулки!"
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2.5st\">— Whoa, White flower! <break time=\"300ms\"/> Whoa, Small green plant! <break time=\"300ms\"/> Go slow near the door!</prosody></speak>",
+                    "en": "— Whoa, White flower! Whoa, Small green plant! Go slow near the door!",
+                    "ru": "— Тпру, Белый Цветок! Тпру, Маленький Зеленый Росток! Потише возле ворот!"
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The horses slow to a gentle walk as they halt before the arched stone entrance.</prosody></speak>",
-                    "en": "The horses slow to a gentle walk as they stop before the arched stone entrance.",
-                    "ru": "Лошади переходят на неспешный шаг и останавливаются перед арочным каменным въездом."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The horses slow down. <break time=\"300ms\"/> They walk. <break time=\"300ms\"/> They stop before the big stone door.</prosody></speak>",
+                    "en": "The horses slow down. They walk. They stop before the big stone door.",
+                    "ru": "Лошади замедляют шаг. Они идут шагом. Они останавливаются перед большой каменной дверью."
                 }
             ],
             "quiz": [
                 {
-                    "question": "What are the names of Farmer Barnaby's two horses?",
+                    "question": "What are the names of Farmer Barnaby's two brown horses?",
                     "options": [
-                        "Thunder and Lightning",
-                        "Daisy and Clover",
-                        "Leo and Eldrin",
-                        "Max and Ruby"
+                        "Sun and Moon",
+                        "White flower and Small green plant",
+                        "Red Apple and Green Leaf",
+                        "River and Stone"
                     ],
                     "correctIdx": 1
                 },
                 {
-                    "question": "What did Kira feed Daisy before climbing into the cart?",
+                    "question": "How long does Farmer Barnaby say it takes to drive down to the valley?",
                     "options": [
-                        "A piece of sweet apple",
-                        "A slice of cheese",
-                        "A cup of hot tea",
-                        "A flower"
+                        "About five minutes",
+                        "About thirty minutes",
+                        "Two hours",
+                        "All day long"
+                    ],
+                    "correctIdx": 1
+                },
+                {
+                    "question": "What did Eldrin see between the trees as they approached the town?",
+                    "options": [
+                        "Red clay roofs and stone chimneys",
+                        "Tall mountain guards",
+                        "A burning fireplace",
+                        "Big wooden boxes"
                     ],
                     "correctIdx": 0
-                },
-                {
-                    "question": "What sound did Kira hear in the distance as they approached the town?",
-                    "options": [
-                        "A roaring lion",
-                        "Church bells chiming ding-dong",
-                        "Thunder in the sky",
-                        "A barking dog"
-                    ],
-                    "correctIdx": 1
                 }
             ]
         },
