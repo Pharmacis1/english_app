@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css?v=11.085">
+    <link rel="stylesheet" href="styles.css?v=11.097">
 </head>
 <body class="hero-rpg-body">
 
@@ -50,6 +50,7 @@
                 <div class="rpg-header-stat-pill" id="rpg-header-vocab-pill" title="Навык словарного запаса (Vocabulary Level): 1 слово в долгосрочной памяти (интервал ≥21 дн.) = 1 XP. Прокачивается с 1 до 100 уровня (5 000 слов)"><span class="text-cyan">📚</span> Vocab <span class="text-cyan font-mono" id="rpg-header-vocab-lvl">Lv. 1</span></div>
             </div>
             <div class="rpg-header-actions">
+                <button class="icon-btn-game" id="report-issue-header-btn" title="Сообщить о проблеме (Скриншот + Описание)" style="color:#f87171; border-color:rgba(239,68,68,0.3);"><i class="fa-solid fa-bug"></i></button>
                 <button class="icon-btn-game" id="theme-toggle" title="Toggle Theme"><i class="fa-solid fa-moon"></i></button>
                 <button class="icon-btn-game" id="settings-toggle-btn" title="Settings"><i class="fa-solid fa-gear"></i></button>
             </div>
@@ -188,28 +189,49 @@
                 <!-- Action Buttons -->
                 <div class="hero-actions-grid">
                     <button class="hero-btn action-btn-words" id="btn-hero-words">
-                        <i class="fa-solid fa-book-open"></i> Vocab
+                        <i class="fa-solid fa-book-open"></i>
+                        <span class="btn-main-label">Vocab</span>
+                        <span class="btn-sub-label">Словарь & Карточки</span>
                     </button>
                     <button class="hero-btn action-btn-grammar" id="btn-hero-rules">
-                        <i class="fa-solid fa-scroll"></i> Grammar
+                        <i class="fa-solid fa-scroll"></i>
+                        <span class="btn-main-label">Grammar</span>
+                        <span class="btn-sub-label">Правила & Тесты</span>
                     </button>
                     <button class="hero-btn action-btn-chat" id="btn-hero-chat">
-                        <i class="fa-solid fa-comments"></i> Chat
+                        <i class="fa-solid fa-comments"></i>
+                        <span class="btn-main-label">Chat</span>
+                        <span class="btn-sub-label">Диалог с AI</span>
                     </button>
-                    <button class="hero-btn action-btn-call" id="btn-hero-call" style="background: linear-gradient(135deg, rgba(236, 72, 153, 0.2), rgba(139, 92, 246, 0.2)); border-color: rgba(236, 72, 153, 0.4);">
-                        <i class="fa-solid fa-microphone-lines" style="color: #f472b6;"></i> Speaking
+                    <button class="hero-btn action-btn-speech-drills" id="btn-hero-speech-drills">
+                        <i class="fa-solid fa-fire-flame-curved"></i>
+                        <span class="btn-main-label">Speech Drills</span>
+                        <span class="btn-sub-label">Разминка A1 (0/5)</span>
                     </button>
-                    <button class="hero-btn action-btn-drills" id="btn-hero-drills" style="background: linear-gradient(135deg, rgba(234, 179, 8, 0.2), rgba(245, 158, 11, 0.2)); border-color: rgba(234, 179, 8, 0.4);">
-                        <i class="fa-solid fa-bolt" style="color: #fbbf24;"></i> Drills
+                    <button class="hero-btn action-btn-call" id="btn-hero-call">
+                        <i class="fa-solid fa-microphone-lines"></i>
+                        <span class="btn-main-label">Speaking</span>
+                        <span class="btn-sub-label">Голосовая практика</span>
                     </button>
-                    <button class="hero-btn action-btn-stats" id="btn-hero-word-stats" style="background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(59, 130, 246, 0.2)); border-color: rgba(6, 182, 212, 0.4);">
-                        <i class="fa-solid fa-chart-pie" style="color: var(--accent);"></i> Stats
+                    <button class="hero-btn action-btn-drills" id="btn-hero-drills">
+                        <i class="fa-solid fa-bolt"></i>
+                        <span class="btn-main-label">Drills</span>
+                        <span class="btn-sub-label">Тренажёр шаблонов</span>
                     </button>
-                    <button class="hero-btn action-btn-story" id="btn-hero-story" style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(217, 119, 6, 0.2)); border-color: rgba(245, 158, 11, 0.4);">
-                        <i class="fa-solid fa-book-journal-whills" style="color: var(--warning);"></i> Story
+                    <button class="hero-btn action-btn-stats" id="btn-hero-word-stats">
+                        <i class="fa-solid fa-chart-pie"></i>
+                        <span class="btn-main-label">Stats</span>
+                        <span class="btn-sub-label">Прогресс и память</span>
                     </button>
-                    <button class="hero-btn action-btn-audiobook" id="btn-hero-audiobook" style="background: linear-gradient(135deg, rgba(168, 85, 247, 0.25), rgba(139, 92, 246, 0.25)); border-color: rgba(168, 85, 247, 0.5);">
-                        <i class="fa-solid fa-headphones" style="color: #c084fc;"></i> Audio Story
+                    <button class="hero-btn action-btn-story" id="btn-hero-story">
+                        <i class="fa-solid fa-dungeon"></i>
+                        <span class="btn-main-label">Story</span>
+                        <span class="btn-sub-label">Сюжетная кампания</span>
+                    </button>
+                    <button class="hero-btn action-btn-audiobook" id="btn-hero-audiobook">
+                        <i class="fa-solid fa-headphones"></i>
+                        <span class="btn-main-label">Audio Story</span>
+                        <span class="btn-sub-label">Аудиокнига с текстом</span>
                     </button>
                 </div>
             </div>
@@ -420,15 +442,23 @@
                             </div>
                             <button class="btn btn-sm btn-outline" id="sprint-new-topic-btn" style="font-size:11px; padding:4px 10px;"><i class="fa-solid fa-rotate"></i> Другая тема</button>
                         </div>
-                        <h4 id="sprint-topic-title" style="margin:0 0 6px 0; font-size:16px; color:#ffffff;">☀️ Моё идеальное утро</h4>
-                        <p id="sprint-topic-prompt" style="margin:0 0 10px 0; font-size:13px; color:#cbd5e1;">Describe your morning routine. What time do you wake up, what do you eat or drink, and what helps you start a good day?</p>
+                        <h4 id="sprint-topic-title" style="margin:0 0 6px 0; font-size:16px; color:#ffffff;">☀️ Моё утро (My Morning Routine)</h4>
+                        <p id="sprint-topic-prompt" style="margin:0 0 10px 0; font-size:13px; color:#cbd5e1;">Расскажите о своем обычном утре. Во сколько вы просыпаетесь, что едите на завтрак и что пьете? (Describe your morning routine).</p>
                         
                         <!-- GUIDING QUESTIONS -->
                         <div id="sprint-topic-questions" style="background:rgba(0,0,0,0.25); border-left:3px solid var(--primary); padding:8px 12px; border-radius:6px; margin-bottom:10px; font-size:12px; color:#94a3b8;">
+                            <div style="font-weight:700; color:#e2e8f0; margin-bottom:4px;">🧭 Опорные вопросы для рассказа:</div>
+                            <div style="margin-left:4px;">1. What time do you usually wake up?</div>
+                            <div style="margin-left:4px;">2. What do you eat and drink for breakfast?</div>
+                            <div style="margin-left:4px;">3. Do you feel happy and energetic in the morning?</div>
                         </div>
 
                         <div style="font-size:11px; color:#64748b; margin-bottom:4px;"><i class="fa-solid fa-lightbulb"></i> Полезные связки:</div>
-                        <div id="sprint-topic-hints" style="display:flex; flex-wrap:wrap; gap:6px;"></div>
+                        <div id="sprint-topic-hints" style="display:flex; flex-wrap:wrap; gap:6px;">
+                            <span class="badge" style="background:rgba(255,255,255,0.08); font-size:11px; padding:2px 8px; color:#cbd5e1; border:1px solid rgba(255,255,255,0.12);">Every morning, I usually wake up at...</span>
+                            <span class="badge" style="background:rgba(255,255,255,0.08); font-size:11px; padding:2px 8px; color:#cbd5e1; border:1px solid rgba(255,255,255,0.12);">For breakfast, I like to eat...</span>
+                            <span class="badge" style="background:rgba(255,255,255,0.08); font-size:11px; padding:2px 8px; color:#cbd5e1; border:1px solid rgba(255,255,255,0.12);">Also, I always drink a cup of...</span>
+                        </div>
                     </div>
 
                     <!-- ROUNDS TRACKER -->
@@ -475,13 +505,16 @@
                             <span id="sprint-review-badge" class="badge" style="background:rgba(56,189,248,0.2); color:#38bdf8; font-size:11px;">РАУНД 1 ЗАВЕРШЁН</span>
                         </div>
 
-                        <!-- AUDIO PLAYBACK BAR -->
-                        <div style="display:flex; align-items:center; gap:12px; background:rgba(0,0,0,0.3); padding:10px 14px; border-radius:10px; margin-bottom:14px; flex-wrap:wrap;">
+                        <!-- AUDIO PLAYBACK & DOWNLOAD BAR -->
+                        <div style="display:flex; align-items:center; gap:8px; background:rgba(0,0,0,0.3); padding:10px 14px; border-radius:10px; margin-bottom:14px; flex-wrap:wrap;">
                             <button type="button" class="btn btn-sm btn-primary" id="sprint-playback-btn" style="padding:6px 14px; font-size:13px; font-weight:600;">
                                 <i class="fa-solid fa-play"></i> <span>Прослушать свой голос</span>
                             </button>
+                            <button type="button" class="btn btn-sm btn-outline" id="sprint-download-btn" style="padding:6px 12px; font-size:13px; font-weight:600; color:#38bdf8; border-color:rgba(56,189,248,0.4);" title="Скачать аудиозапись (.mp4) на устройство">
+                                <i class="fa-solid fa-download"></i> <span>Скачать MP4</span>
+                            </button>
                             <audio id="sprint-audio-element" style="display:none;"></audio>
-                            <span id="sprint-playback-status" style="font-size:12px; color:#94a3b8;">🎧 Послушайте свою речь со стороны перед повторением</span>
+                            <span id="sprint-playback-status" style="font-size:12px; color:#94a3b8; margin-left:auto;">🎧 Послушайте свою речь со стороны перед повторением</span>
                         </div>
 
                         <!-- TRANSCRIPT -->
@@ -602,6 +635,124 @@
         </div>
     </div>
 
+    <!-- MODAL: SPEECH DRILLS (Речевой автомат A1) -->
+    <div class="rpg-modal-overlay hidden" id="modal-hero-speech-drills">
+        <div class="rpg-modal-content modal-lg" style="max-width: 760px;">
+            <div class="rpg-modal-header">
+                <div class="modal-header-title">
+                    <i class="fa-solid fa-fire-flame-curved" style="font-size:20px; color:#f43f5e;"></i>
+                    <h3>🔥 Speech Drills (Речевой автомат A1)</h3>
+                    <span class="badge" style="background:rgba(244,63,94,0.2); color:#fb7185; border:1px solid rgba(244,63,94,0.4); font-size:11px;" id="speech-drills-header-badge">
+                        Освоено: 0 / 165 (0%) &bull; Lv. 1
+                    </span>
+                </div>
+                <button class="modal-close-btn">&times;</button>
+            </div>
+            <div class="rpg-modal-body" style="padding:20px;">
+                <!-- TOP BAR: TIMER SPEED, COMBO, RESET -->
+                <div class="speech-drills-top-bar">
+                    <div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap;">
+                        <span style="font-size:13px; color:#94a3b8;" title="Таймер">⏱️</span>
+                        <div class="btn-group" id="speech-drills-speed-group">
+                            <button class="btn btn-sm btn-outline speech-speed-btn" data-sec="5">5 сек</button>
+                            <button class="btn btn-sm btn-outline speech-speed-btn active" data-sec="7">7 сек</button>
+                            <button class="btn btn-sm btn-outline speech-speed-btn" data-sec="10">10 сек</button>
+                            <button class="btn btn-sm btn-outline speech-speed-btn" data-sec="0">Без таймера</button>
+                        </div>
+                    </div>
+                    <div style="display:flex; align-items:center; gap:10px;">
+                        <span class="drills-combo-badge" id="speech-drills-combo-badge"><i class="fa-solid fa-fire"></i> Combo x0</span>
+                    </div>
+                </div>
+
+                <!-- OVERALL A1 MASTERY PROGRESS BAR -->
+                <div class="speech-drills-mastery-container">
+                    <div class="speech-drills-mastery-header">
+                        <span style="font-size:12px; font-weight:700; color:#cbd5e1;"><i class="fa-solid fa-award" style="color:#fbbf24;"></i> Прогресс A1 Mastery:</span>
+                        <span style="font-size:12px; font-weight:700; color:#38bdf8;" id="speech-drills-mastery-text">0 / 165 фраз освоено (0%)</span>
+                    </div>
+                    <div class="speech-drills-progress-track">
+                        <div class="speech-drills-progress-fill" id="speech-drills-progress-fill" style="width: 0%;"></div>
+                    </div>
+                </div>
+
+                <!-- MAIN CARD BOX -->
+                <div class="speech-drills-card-box" id="speech-drills-card-box">
+                    <!-- CARD HEADER: REPETITIONS (0/5) & CATEGORY -->
+                    <div class="speech-drills-card-header">
+                        <div class="speech-reps-tracker" title="5 успешных повторений для полного освоения фразы">
+                            <span class="speech-reps-label">Освоение фразы:</span>
+                            <div class="speech-reps-dots" id="speech-reps-dots">
+                                <span class="speech-rep-dot"></span>
+                                <span class="speech-rep-dot"></span>
+                                <span class="speech-rep-dot"></span>
+                                <span class="speech-rep-dot"></span>
+                                <span class="speech-rep-dot"></span>
+                            </div>
+                            <span class="speech-reps-num" id="speech-reps-num">0/5</span>
+                        </div>
+                        <span class="speech-pattern-category-badge" id="speech-pattern-category-badge">🎯 Владение и предметы</span>
+                    </div>
+
+                    <!-- RUSSIAN PHRASE PROMPT (MAIN TARGET) -->
+                    <div class="speech-ru-prompt-wrapper">
+                        <div class="speech-ru-label">Переведите и произнесите на английском:</div>
+                        <div class="speech-ru-text" id="speech-ru-text">«У меня есть ноутбук.»</div>
+                    </div>
+
+                    <!-- HIDDEN TEMPLATE HINT (ACCORDION) -->
+                    <div class="speech-hint-wrapper">
+                        <button type="button" class="speech-hint-toggle-btn" id="speech-hint-toggle-btn">
+                            <i class="fa-solid fa-lightbulb"></i> <span id="speech-hint-toggle-label">Показать грамматический шаблон</span>
+                        </button>
+                        <div class="speech-hint-content hidden" id="speech-hint-content">
+                            <div class="speech-hint-template" id="speech-hint-template">Шаблон: <strong>I have a [ ... ]</strong></div>
+                            <div class="speech-hint-word" id="speech-hint-word">Слово: <em>laptop</em></div>
+                        </div>
+                    </div>
+
+                    <!-- COUNTDOWN TIMER TRACK -->
+                    <div class="speech-timer-track" id="speech-timer-track">
+                        <div class="speech-timer-fill" id="speech-timer-fill"></div>
+                    </div>
+
+                    <!-- VOICE INTERACTION AREA -->
+                    <div class="speech-voice-area">
+                        <button type="button" class="btn speech-mic-btn" id="speech-mic-btn">
+                            <div class="speech-mic-pulse-ring"></div>
+                            <i class="fa-solid fa-microphone speech-mic-icon"></i>
+                            <span class="speech-mic-label" id="speech-mic-label">Нажмите или зажмите Пробел</span>
+                        </button>
+
+                        <div class="speech-status-hint" id="speech-status-hint">
+                            Скажите фразу на английском целиком
+                        </div>
+
+                        <!-- SPOKEN TRANSCRIPTION BUBBLE -->
+                        <div class="speech-transcript-box hidden" id="speech-transcript-box">
+                            <div class="speech-transcript-title"><i class="fa-solid fa-wand-magic-sparkles"></i> Groq Whisper услышал:</div>
+                            <div class="speech-transcript-text" id="speech-transcript-text">"..."</div>
+                        </div>
+
+                        <!-- RESULT / FEEDBACK BOX -->
+                        <div class="speech-feedback-card hidden" id="speech-feedback-card">
+                            <div class="speech-feedback-status" id="speech-feedback-status"></div>
+                            <div class="speech-feedback-target" id="speech-feedback-target"></div>
+                            <div class="speech-feedback-actions">
+                                <button type="button" class="btn btn-sm btn-outline speech-listen-target-btn" id="speech-listen-target-btn">
+                                    <i class="fa-solid fa-volume-high"></i> <span>Послушать эталон</span>
+                                </button>
+                                <button type="button" class="btn btn-sm btn-primary speech-next-card-btn" id="speech-next-card-btn">
+                                    <span>Дальше &rarr;</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- MODAL: PATTERN DRILLS (Трансформатор фраз) -->
     <div class="rpg-modal-overlay hidden" id="modal-hero-drills">
         <div class="rpg-modal-content modal-lg" style="max-width: 720px;">
@@ -676,38 +827,60 @@
             </div>
         </div>
     </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- MODAL: HERO WORDS (Flashcards Deck) -->
+    <!-- MODAL: HERO WORDS (Flashcards & SRS Hub) -->
     <div class="rpg-modal-overlay hidden" id="modal-hero-words">
         <div class="rpg-modal-content modal-lg">
             <div class="rpg-modal-header">
                 <div class="modal-header-title">
                     <i class="fa-solid fa-book-open" style="font-size:20px; color:var(--gold);"></i>
-                    <h3>📖 Слова</h3>
+                    <h3>Слова</h3>
                 </div>
-                <button class="modal-close-btn">&times;</button>
+                <div class="vocab-header-actions">
+                    <button class="btn btn-outline btn-sm btn-blind-mode" id="btn-toggle-blind-mode" title="Скрывать написание слова (тренировка восприятия на слух)">
+                        <i class="fa-solid fa-eye-slash"></i> <span>Слух</span>
+                    </button>
+                    <button class="btn btn-outline btn-sm btn-autoplay-mode" id="btn-toggle-vocab-autoplay" title="Автоматически озвучивать слово при переходе к новой карточке">
+                        <i class="fa-solid fa-volume-high"></i> <span>Авто</span>
+                    </button>
+                    <button class="btn btn-outline btn-sm" id="btn-sync-vocab-state" title="Синхронизировать прогресс с сервером / ПК">
+                        <i class="fa-solid fa-rotate"></i> <span>Синхр</span>
+                    </button>
+                    <button class="btn btn-outline btn-sm" id="btn-open-srs-forecast-fc" title="График повторений SRS">
+                        <i class="fa-solid fa-chart-simple"></i>
+                    </button>
+                    <button class="btn btn-primary btn-sm" id="add-custom-card-btn" title="Добавить слово">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                    <button class="modal-close-btn">&times;</button>
+                </div>
             </div>
             <div class="rpg-modal-body">
                 <div class="flashcards-layout">
-                    <div class="deck-selector-bar glass-card">
+                    
+                    <!-- TOP PRIMARY MODE SELECTOR: SRS REVIEW vs HERO DECKS -->
+                    <div class="vocab-mode-selector glass-card">
+                        <button class="vocab-mode-tab active" id="tab-vocab-srs-mode">
+                            <i class="fa-solid fa-brain" style="color:var(--heart);"></i>
+                            <span>Повторение (SRS)</span>
+                            <span class="badge badge-due-count font-mono" id="vocab-due-badge">0</span>
+                        </button>
+                        <button class="vocab-mode-tab" id="tab-vocab-decks-mode">
+                            <i class="fa-solid fa-layer-group" style="color:var(--accent);"></i>
+                            <span>Колоды героев</span>
+                            <span class="badge font-mono" id="vocab-heroes-count" style="background:rgba(6,182,212,0.2); color:#22d3ee;">10</span>
+                        </button>
+                    </div>
+
+                    <!-- HERO SELECTION PANEL (Shown when in Hero Decks mode) -->
+                    <div class="hero-decks-selector-panel glass-card hidden" id="hero-decks-selector-panel">
                         <div class="deck-tabs-wrapper" id="deck-tabs-wrapper">
                             <div class="deck-tabs" id="deck-tabs-container"></div>
-                        </div>
-                        <div class="deck-actions-toolbar" id="deck-actions-toolbar">
-                            <button class="btn btn-outline btn-sm" id="btn-open-srs-forecast-fc" title="График повторений SRS">
-                                <i class="fa-solid fa-chart-simple"></i> <span>График</span>
-                            </button>
-                            <button class="btn btn-primary btn-sm" id="add-custom-card-btn" title="Добавить карточку">
-                                <i class="fa-solid fa-plus"></i> <span>Слово</span>
-                            </button>
                         </div>
                     </div>
 
                     <div class="card-stage-container">
-                        <!-- Batch Navigation Strip -->
+                        <!-- Batch Navigation Strip / SRS Queue Status -->
                         <div class="batch-selector-strip" id="batch-selector-strip"></div>
 
                         <div class="flashcard-3d-wrapper" id="flashcard">
@@ -715,12 +888,16 @@
                                 <span class="card-category-tag" id="card-tag">IT & Tech</span>
                                 <h2 class="card-word" id="card-word">Refactor</h2>
                                 <span class="card-phonetic font-mono" id="card-phonetic">/riːˈfæk.tər/</span>
-                                <button class="audio-pronounce-btn" id="card-speak-btn" title="Озвучить">
+                                <button class="audio-pronounce-btn" id="card-speak-btn" title="Озвучить (Клавиша R)">
                                     <i class="fa-solid fa-volume-high"></i>
                                 </button>
-                                <p class="flip-hint"><i class="fa-solid fa-rotate"></i> <span>Нажмите для перевода</span></p>
+                                <p class="flip-hint" id="card-flip-hint"><i class="fa-solid fa-rotate"></i> <span>Нажмите для перевода</span> <kbd class="hotkey-badge font-mono">Пробел</kbd></p>
                             </div>
                             <div class="card-face card-back glass-card">
+                                <div class="card-back-word-header" id="card-back-word-header">
+                                    <span id="card-back-word">Refactor</span>
+                                    <small id="card-back-phonetic" class="font-mono">/riːˈfæk.tər/</small>
+                                </div>
                                 <div class="card-translation" id="card-translation">Рефакторинг</div>
                                 <div class="card-definition" id="card-definition">Restructuring existing code...</div>
                                 <div class="card-example-box">
@@ -1714,18 +1891,106 @@
         </div>
     </div>
 
-    <script src="scenarios.js?v=11.084"></script>
-    <script src="heroes.js?v=11.084"></script>
-    <script src="story_campaign.js?v=11.084"></script>
-    <script src="story_campaign_act1_expanded.js?v=11.084"></script>
-    <script src="story_campaign_act2_expanded.js?v=11.084"></script>
-    <script src="flashcards.js?v=11.084"></script>
-    <script src="grammar.js?v=11.084"></script>
-    <script src="ai_service.js?v=11.084"></script>
-    <script src="visual_fluency.js?v=11.084"></script>
-    <script src="pattern_drills.js?v=11.084"></script>
-    <script src="speaking_engine.js?v=11.084"></script>
-    <script src="eldrin_story.js?v=11.085"></script>
-    <script src="app.js?v=11.085"></script>
+    <!-- FLOATING REPORT ISSUE ACTION BUTTON (Available on all screens & modes) -->
+    <button id="report-issue-floating-btn" class="report-issue-floating-btn" title="Сообщить о проблеме (Скриншот экрана)">
+        <i class="fa-solid fa-bug"></i>
+        <span>Сообщить о проблеме</span>
+    </button>
+
+    <!-- SCREENSHOT CAPTURE TOAST -->
+    <div id="report-issue-capture-toast" class="report-capture-toast hidden">
+        <i class="fa-solid fa-camera fa-spin"></i> Создание снимка экрана...
+    </div>
+
+    <!-- MODAL: REPORT ISSUE / BUG & FEEDBACK -->
+    <div class="rpg-modal-overlay hidden" id="modal-report-issue" style="z-index: 100002 !important;">
+        <div class="rpg-modal-content modal-md report-modal-content">
+            <div class="rpg-modal-header" style="background: linear-gradient(135deg, rgba(239,68,68,0.15), rgba(99,102,241,0.1));">
+                <div class="modal-header-title" style="display:flex; align-items:center; gap:10px;">
+                    <div class="report-header-icon-box">
+                        <i class="fa-solid fa-bug" style="font-size:18px; color:#f87171;"></i>
+                    </div>
+                    <div>
+                        <h3 style="margin:0; font-size:18px; color:#f8fafc;">Сообщить о проблеме</h3>
+                        <p style="margin:0; font-size:11px; color:#94a3b8;">Скриншот сделан автоматически и будет прикреплён к отчёту</p>
+                    </div>
+                </div>
+                <button class="modal-close-btn">&times;</button>
+            </div>
+            <div class="rpg-modal-body report-modal-body" style="padding:18px 24px; display:flex; flex-direction:column; gap:16px; overflow-y:auto; max-height:75vh;">
+                <!-- Context Info Badges -->
+                <div class="report-meta-badges-row">
+                    <div class="report-meta-badge"><i class="fa-solid fa-gamepad" style="color:#818cf8;"></i> <span id="report-issue-mode-badge">Главный экран</span></div>
+                    <div class="report-meta-badge"><i class="fa-solid fa-user-shield" style="color:#f59e0b;"></i> <span id="report-issue-hero-badge">Valerius</span></div>
+                    <div class="report-meta-badge"><i class="fa-regular fa-clock" style="color:#06b6d4;"></i> <span id="report-issue-time-badge">--:--:--</span></div>
+                </div>
+
+                <!-- Screenshot Preview Box -->
+                <div class="report-screenshot-box" title="Нажмите, чтобы открыть скриншот на весь экран">
+                    <img id="report-issue-preview-img" alt="Captured screenshot" class="report-preview-image">
+                    <div class="report-screenshot-overlay-hint">
+                        <i class="fa-solid fa-magnifying-glass-plus"></i> Нажмите для увеличения
+                    </div>
+                </div>
+
+                <!-- Category Selector -->
+                <div>
+                    <label class="report-label">Категория проблемы:</label>
+                    <div class="report-categories-grid">
+                        <button type="button" class="report-cat-btn active" data-category="🐛 Баг / Ошибка">
+                            <i class="fa-solid fa-bug"></i> Баг / Ошибка
+                        </button>
+                        <button type="button" class="report-cat-btn" data-category="🔊 Озвучка / Звук">
+                            <i class="fa-solid fa-volume-high"></i> Звук / Озвучка
+                        </button>
+                        <button type="button" class="report-cat-btn" data-category="📝 Текст / Перевод">
+                            <i class="fa-solid fa-spell-check"></i> Текст / Перевод
+                        </button>
+                        <button type="button" class="report-cat-btn" data-category="🎨 Вёрстка / Визуал">
+                            <i class="fa-solid fa-palette"></i> Вёрстка
+                        </button>
+                        <button type="button" class="report-cat-btn" data-category="💡 Идея / Пожелание">
+                            <i class="fa-solid fa-lightbulb"></i> Пожелание
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Description Input (Optional) -->
+                <div>
+                    <label class="report-label" for="report-issue-description">
+                        Что пошло не так? <span style="font-weight:400; color:#94a3b8; font-size:12px;">(необязательно, можно отправить без текста)</span>:
+                    </label>
+                    <textarea id="report-issue-description" class="report-textarea" rows="3" placeholder="Опишите проблему или оставьте пустым..."></textarea>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="report-actions-row">
+                    <button type="button" class="btn btn-secondary" id="btn-cancel-report-issue">
+                        Отмена
+                    </button>
+                    <button type="button" class="btn btn-primary btn-report-submit" id="btn-submit-report-issue">
+                        <i class="fa-solid fa-paper-plane"></i> Отправить отчёт
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/html2canvas.min.js"></script>
+    <script src="scenarios.js?v=11.097"></script>
+    <script src="heroes.js?v=11.097"></script>
+    <script src="story_campaign.js?v=11.097"></script>
+    <script src="story_campaign_act1_expanded.js?v=11.097"></script>
+    <script src="story_campaign_act2_expanded.js?v=11.097"></script>
+    <script src="flashcards.js?v=11.097"></script>
+    <script src="grammar.js?v=11.097"></script>
+    <script src="ai_service.js?v=11.097"></script>
+    <script src="visual_fluency.js?v=11.097"></script>
+    <script src="pattern_drills.js?v=11.097"></script>
+    <script src="speaking_engine.js?v=11.097"></script>
+    <script src="speech_drills.js?v=11.097"></script>
+    <script src="eldrin_story.js?v=11.098"></script>
+    <script src="app.js?v=11.098"></script>
+    <script src="report_issue.js?v=1.0"></script>
 </body>
 </html>

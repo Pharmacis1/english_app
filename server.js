@@ -2,6 +2,7 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
+const fs = require('fs');
 const db = require('./db');
 require('dotenv').config();
 
@@ -194,7 +195,31 @@ app.post('/api/player/sync', async (req, res) => {
         if (fs.existsSync(syncFile)) {
             try { existing = JSON.parse(fs.readFileSync(syncFile, 'utf8')); } catch(e) {}
         }
-        const merged = { ...existing, ...statePayload, lastSyncedAt: new Date().toISOString() };
+
+        const safeStreak = Math.max(
+            existing.streak || 0,
+            existing.streak_days || 0,
+            statePayload.streak || 0,
+            statePayload.streak_days || 0
+        );
+
+        const safeLastStreakDate = (statePayload.last_streak_date && statePayload.last_streak_date >= (existing.last_streak_date || ''))
+            ? statePayload.last_streak_date
+            : (existing.last_streak_date || statePayload.last_streak_date || '');
+
+        const merged = {
+            ...existing,
+            ...statePayload,
+            streak: safeStreak,
+            streak_days: safeStreak,
+            last_streak_date: safeLastStreakDate,
+            writing_words: Math.max(existing.writing_words || 0, statePayload.writing_words || 0),
+            listening_words: Math.max(existing.listening_words || 0, statePayload.listening_words || 0),
+            speaking_words: Math.max(existing.speaking_words || 0, statePayload.speaking_words || 0),
+            drills_cards: Math.max(existing.drills_cards || 0, statePayload.drills_cards || 0),
+            visual_fluency_xp: Math.max(existing.visual_fluency_xp || 0, statePayload.visual_fluency_xp || 0),
+            lastSyncedAt: new Date().toISOString()
+        };
         fs.writeFileSync(syncFile, JSON.stringify(merged, null, 2), 'utf8');
 
         // Also sync heroes to fallback db if provided
@@ -428,7 +453,8 @@ app.post('/api/ai/stt-groq', async (req, res) => {
 
         const apiKey = clientApiKey || process.env.GROQ_API_KEY || '';
         if (!apiKey) return res.status(401).json({ success: false, error: "Groq API Key is not set. Add it in Settings or .env file." });
-        const rawBase64 = audioBase64.replace(/^data:audio\/\w+;base64,/, '');
+        const commaIdx = audioBase64.indexOf(',');
+        const rawBase64 = commaIdx !== -1 ? audioBase64.substring(commaIdx + 1) : audioBase64;
         const audioBuffer = Buffer.from(rawBase64, 'base64');
         const formData = new FormData();
         const blob = new Blob([audioBuffer], { type: 'audio/webm' });
@@ -552,6 +578,147 @@ app.post('/api/ai/gemini-tts', async (req, res) => {
         return res.status(500).json({ success: false, fallback: true, error: `Gemini TTS server error: ${err.message}` });
     }
 });
+
+// 13. POST /api/reports — Save issue report with screenshot and metadata into reports/ directory
+app.post('/api/reports', (req, res) => {
+    try {
+        const { screenshot, description, category, metadata } = req.body;
+        if (!screenshot) {
+            return res.status(400).json({ success: false, error: 'Screenshot data is required' });
+        }
+
+        const reportsDir = path.join(__dirname, 'reports');
+        if (!fs.existsSync(reportsDir)) {
+            fs.mkdirSync(reportsDir, { recursive: true });
+        }
+
+        const now = new Date();
+        const pad = (n) => String(n).padStart(2, '0');
+        const dateTag = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}_${pad(now.getHours())}-${pad(now.getMinutes())}-${pad(now.getSeconds())}`;
+        const rawMode = (metadata && metadata.activeMode) ? metadata.activeMode : 'general';
+        const modeTag = rawMode.replace(/[^a-zA-Z0-9а-яА-ЯёЁ_-]/g, '_').substring(0, 30);
+        const folderName = `report_${dateTag}_${modeTag}`;
+        const reportFolder = path.join(reportsDir, folderName);
+
+        fs.mkdirSync(reportFolder, { recursive: true });
+
+        // Save screenshot
+        const isJpeg = screenshot.startsWith('data:image/jpeg') || screenshot.startsWith('data:image/jpg');
+        const ext = isJpeg ? 'jpg' : 'png';
+        const screenshotFileName = `screenshot.${ext}`;
+        const base64Data = screenshot.replace(/^data:image\/\w+;base64,/, '');
+        const imgBuffer = Buffer.from(base64Data, 'base64');
+        fs.writeFileSync(path.join(reportFolder, screenshotFileName), imgBuffer);
+
+        // Save report.json
+        const localTimeStr = (metadata && metadata.localTime) ? metadata.localTime : now.toLocaleString('ru-RU');
+        const reportData = {
+            id: folderName,
+            timestamp: now.toISOString(),
+            localTime: localTimeStr,
+            category: category || 'Баг / Ошибка',
+            description: (description && description.trim()) ? description.trim() : '(Без текста описания)',
+            mode: (metadata && metadata.activeMode) || 'Unknown',
+            hero: (metadata && metadata.activeHero) || 'Unknown',
+            subContext: (metadata && metadata.subContext) || '',
+            viewport: (metadata && metadata.viewport) || {},
+            url: (metadata && metadata.url) || '',
+            userAgent: (metadata && metadata.userAgent) || '',
+            logs: (metadata && metadata.recentLogs) || [],
+            screenshotFile: screenshotFileName
+        };
+        fs.writeFileSync(path.join(reportFolder, 'report.json'), JSON.stringify(reportData, null, 2), 'utf-8');
+
+        // Save report.md
+        const logsFormatted = reportData.logs && reportData.logs.length > 0
+            ? '```json\n' + JSON.stringify(reportData.logs, null, 2) + '\n```'
+            : '_Логов ошибок консоли нет_';
+
+        const reportMd = `# 🐞 Отчёт о проблеме: ${folderName}
+
+- **📅 Дата и время:** ${reportData.localTime}
+- **🕹️ Режим / Экран:** ${reportData.mode}
+- **👤 Активный герой:** ${reportData.hero}
+- **🏷️ Категория:** ${reportData.category}
+- **📐 Разрешение экрана:** ${reportData.viewport.width || '?'}x${reportData.viewport.height || '?'}
+
+---
+
+## 📝 Описание пользователя
+> ${reportData.description.replace(/\n/g, '\n> ')}
+
+---
+
+## 📸 Скриншот экрана
+![Скриншот проблемы](./${screenshotFileName})
+
+---
+
+## 🛠️ Дополнительная информация
+- **URL:** \`${reportData.url}\`
+- **Контекст:** ${reportData.subContext || '—'}
+- **User Agent:** \`${reportData.userAgent}\`
+
+### 📋 Последние логи / ошибки браузера:
+${logsFormatted}
+`;
+        fs.writeFileSync(path.join(reportFolder, 'report.md'), reportMd, 'utf-8');
+
+        // Append to REPORTS_INDEX.md
+        const indexFile = path.join(reportsDir, 'REPORTS_INDEX.md');
+        let indexHeader = '';
+        if (!fs.existsSync(indexFile)) {
+            indexHeader = `# 📋 Журнал сообщений о проблемах (Bug & Feedback Reports)\n\n| Дата | Режим | Категория | Описание | Ссылка |\n|---|---|---|---|---|\n`;
+        }
+        const shortDesc = reportData.description.replace(/[\r\n]+/g, ' ').substring(0, 80);
+        const indexRow = `| ${reportData.localTime} | ${reportData.mode} | ${reportData.category} | ${shortDesc} | [Открыть отчёт](./${folderName}/report.md) |\n`;
+
+        if (!fs.existsSync(indexFile)) {
+            fs.writeFileSync(indexFile, indexHeader + indexRow, 'utf-8');
+        } else {
+            fs.appendFileSync(indexFile, indexRow, 'utf-8');
+        }
+
+        console.log(`[Bug Report] New report saved: ${folderName}`);
+        return res.json({
+            success: true,
+            reportId: folderName,
+            folder: `reports/${folderName}`,
+            message: 'Отчёт успешно сохранён!'
+        });
+    } catch (err) {
+        console.error('[Bug Report Error]', err);
+        return res.status(500).json({ success: false, error: err.message });
+    }
+});
+
+// 14. GET /api/reports — Get list of all saved reports
+app.get('/api/reports', (req, res) => {
+    try {
+        const reportsDir = path.join(__dirname, 'reports');
+        if (!fs.existsSync(reportsDir)) {
+            return res.json({ success: true, reports: [] });
+        }
+        const items = fs.readdirSync(reportsDir, { withFileTypes: true });
+        const reports = [];
+        for (const item of items) {
+            if (item.isDirectory() && item.name.startsWith('report_')) {
+                const jsonPath = path.join(reportsDir, item.name, 'report.json');
+                if (fs.existsSync(jsonPath)) {
+                    try {
+                        const data = JSON.parse(fs.readFileSync(jsonPath, 'utf-8'));
+                        reports.push(data);
+                    } catch (e) {}
+                }
+            }
+        }
+        reports.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+        res.json({ success: true, reports });
+    } catch (err) {
+        res.status(500).json({ success: false, error: err.message });
+    }
+});
+
 // Shutdown Endpoint
 app.post('/api/admin/shutdown', (req, res) => {
     res.json({ success: true, message: "Server shutting down..." });

@@ -34,6 +34,51 @@ class FlashcardEngine {
         localStorage.setItem(key, current + 1);
     }
 
+    getCardByWord(wordStr, heroId = null) {
+        if (!wordStr || !this.decks) return null;
+        const lower = wordStr.toLowerCase().trim();
+        for (const cat of Object.keys(this.decks)) {
+            if (cat === "🧠 Due for SRS Review") continue;
+            const deck = this.decks[cat];
+            if (Array.isArray(deck)) {
+                const found = deck.find(c => c && c.word && c.word.toLowerCase().trim() === lower && (!heroId || !c.heroId || c.heroId === heroId));
+                if (found) return found;
+            }
+        }
+        return null;
+    }
+
+    getWordMemoryStats(wordStr, heroId = null) {
+        const card = this.getCardByWord(wordStr, heroId);
+        if (!card || !card.studied) {
+            return {
+                score: 0,
+                studied: false,
+                interval: 0,
+                repetitions: 0,
+                easeFactor: 2.5,
+                inLongTermMemory: false,
+                label: "Не изучено (0 дн)"
+            };
+        }
+
+        const interval = typeof card.interval === 'number' ? card.interval : 1;
+        const repetitions = typeof card.repetitions === 'number' ? card.repetitions : 0;
+        const easeFactor = typeof card.easeFactor === 'number' ? card.easeFactor : 2.5;
+        const inLongTermMemory = interval >= 21;
+        const score = interval + (repetitions * 0.1) + Math.max(0, (easeFactor - 1.3) * 0.01);
+
+        return {
+            score,
+            studied: true,
+            interval,
+            repetitions,
+            easeFactor,
+            inLongTermMemory,
+            label: inLongTermMemory ? `Долгосрочная (${interval} дн)` : `Интервал: ${interval} дн`
+        };
+    }
+
     computeDueCards(targetDecks = null) {
         const sourceDecks = targetDecks || this.decks || {};
         const dueCards = [];
@@ -41,7 +86,7 @@ class FlashcardEngine {
         Object.keys(sourceDecks).forEach(cat => {
             if (cat === "🧠 Due for SRS Review") return;
             (sourceDecks[cat] || []).forEach(card => {
-                if (card.studied && !card.learningInSession && card.nextReviewDate && card.nextReviewDate <= now) {
+                if (card.studied && card.nextReviewDate && card.nextReviewDate <= now) {
                     if (!card.heroId && typeof HEROES_DATA !== 'undefined') {
                         const hero = HEROES_DATA.find(h => cat.includes(h.name));
                         if (hero) card.heroId = hero.id;
@@ -56,7 +101,7 @@ class FlashcardEngine {
     loadDecks() {
         const decks = { ...GENERAL_DECKS };
         let localHeroes = [];
-        if (typeof rpgEngine !== 'undefined' && rpgEngine.heroes) {
+        if (typeof rpgEngine !== 'undefined' && rpgEngine.heroes && rpgEngine.heroes.length > 0) {
             localHeroes = rpgEngine.heroes;
         } else if (typeof HEROES_DATA !== 'undefined' && Array.isArray(HEROES_DATA)) {
             localHeroes = HEROES_DATA;
@@ -66,7 +111,8 @@ class FlashcardEngine {
             }
         }
 
-        localHeroes.filter(h => h && h.unlocked).forEach(h => {
+        localHeroes.forEach(h => {
+            if (!h) return;
             const cefrLabel = h.cefrLevel ? h.cefrLevel.split(' ')[0] : 'A0';
             const deckName = `${h.name}'s Pack (${cefrLabel})`;
 
@@ -105,10 +151,10 @@ class FlashcardEngine {
             }
         });
 
-        const savedSrs = localStorage.getItem("english_pulse_decks_srs_v10");
-        if (savedSrs) {
+        const savedSrsRaw = localStorage.getItem("english_pulse_decks_srs_v10") || localStorage.getItem("english_rpg_flashcard_decks");
+        if (savedSrsRaw) {
             try {
-                const parsedSaved = JSON.parse(savedSrs);
+                const parsedSaved = JSON.parse(savedSrsRaw);
                 Object.keys(parsedSaved).forEach(cat => {
                     if (decks[cat]) {
                         parsedSaved[cat].forEach((savedCard, idx) => {
@@ -122,6 +168,8 @@ class FlashcardEngine {
                                 if (savedCard.heroId) decks[cat][idx].heroId = savedCard.heroId;
                             }
                         });
+                    } else if (Array.isArray(parsedSaved[cat]) && cat !== "🧠 Due for SRS Review") {
+                        decks[cat] = parsedSaved[cat];
                     }
                 });
             } catch(e) {}
@@ -141,7 +189,9 @@ class FlashcardEngine {
     }
 
     saveDecks() {
-        localStorage.setItem("english_pulse_decks_srs_v10", JSON.stringify(this.decks));
+        const serialized = JSON.stringify(this.decks);
+        localStorage.setItem("english_pulse_decks_srs_v10", serialized);
+        localStorage.setItem("english_rpg_flashcard_decks", serialized);
     }
 
     // Due cards count: returns active SRS queue length if in SRS mode, otherwise computes remaining due cards
@@ -355,9 +405,23 @@ class FlashcardEngine {
 
         this.saveDecks();
         if (!isSrsMode) {
-            this.nextCard();
+            const activeCards = this.getCategoryCards();
+            if (activeCards.length === 0) {
+                this.currentIndex = 0;
+            } else if (grade === 'again') {
+                this.currentIndex = (this.currentIndex + 1) % activeCards.length;
+            } else {
+                this.currentIndex = this.currentIndex % activeCards.length;
+            }
         } else {
-            this.currentIndex = 0;
+            const dueList = this.decks["🧠 Due for SRS Review"] || [];
+            if (dueList.length === 0) {
+                this.currentIndex = 0;
+            } else if (grade === 'again') {
+                this.currentIndex = 0;
+            } else {
+                this.currentIndex = this.currentIndex % dueList.length;
+            }
         }
         return { success: true };
     }

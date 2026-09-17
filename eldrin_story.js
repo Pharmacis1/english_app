@@ -1168,270 +1168,270 @@ const ELDRIN_AUDIOBOOK = {
             "titleEn": "Episode 5: A Letter for Master Corvinus",
             "titleRu": "Эпизод 5: Письмо для Мастера Корвинуса",
             "grammarFocus": "Reading & Writing Vocabulary (letter, envelope, seal, glasses), Future Plans (We will go)",
-            "wordCount": 507,
+            "wordCount": 417,
             "coverIcon": "fa-envelope-open-text",
             "coverColor": "#6366f1",
             "sentences": [
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">It is four o'clock in the afternoon. A loud knock echoes on the thick oak front door.</prosody></speak>",
-                    "en": "It is four o'clock in the afternoon. A loud knock echoes on the thick big tree front door.",
-                    "ru": "Четыре часа дня. Громкий стук разносится по толстой дубовой входной двери."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">It is four o'clock in the afternoon. <break time=\"300ms\"/> A man knocks on the big tree door.</prosody></speak>",
+                    "en": "It is four o'clock in the afternoon. A man knocks on the big tree door.",
+                    "ru": "Четыре часа дня. Мужчина стучит в большую деревянную дверь."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin opens the door. A tall postman in a long grey wool coat stands on the porch.</prosody></speak>",
-                    "en": "Eldrin opens the door. A tall postman in a long grey wool coat stands on the porch.",
-                    "ru": "Элдрин открывает дверь. Высокий почтальон в длинном сером шерстяном пальто стоит на крыльце."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin opens the door. <break time=\"300ms\"/> A tall worker in a grey coat stands outside.</prosody></speak>",
+                    "en": "Eldrin opens the door. A tall worker in a grey coat stands outside.",
+                    "ru": "Элдрин открывает дверь. Снаружи стоит высокий рабочий в сером пальто."
                 },
                 {
                     "speaker": "postman",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+0.5st\">— Good afternoon, young apprentice. <break time=\"300ms\"/> Is Master Corvinus in his study room upstairs?</prosody></speak>",
-                    "en": "— Good afternoon, young apprentice. Is Master Corvinus in his study room upstairs?",
-                    "ru": "— Добрый день, юный ученик. Мастер Корвинус у себя в кабинете наверху?"
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+0.5st\">— Good afternoon, student! <break time=\"300ms\"/> Is Master Corvinus in his room?</prosody></speak>",
+                    "en": "— Good afternoon, student! Is Master Corvinus in his room?",
+                    "ru": "— Добрый день, ученик! Мастер Корвинус у себя в комнате?"
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Good afternoon, sir! Yes, the master is reading an ancient manuscript in his study.</prosody></speak>",
-                    "en": "— Good afternoon, sir! Yes, the master is reading an ancient manuscript in his study.",
-                    "ru": "— Добрый день, сэр! Да, мастер читает древнюю рукопись в своем кабинете."
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Good afternoon, sir! <break time=\"300ms\"/> Yes, the master is in his room. <break time=\"300ms\"/> He reads an old book.</prosody></speak>",
+                    "en": "— Good afternoon, sir! Yes, the master is in his room. He reads an old book.",
+                    "ru": "— Добрый день, сэр! Да, мастер в своей комнате. Он читает старую книгу."
                 },
                 {
                     "speaker": "postman",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+0.5st\">— Here is an urgent letter from the Mayor of the Lower Town. <break time=\"300ms\"/> Please deliver it safely into his hands.</prosody></speak>",
-                    "en": "— Here is an urgent letter from the Mayor of the Lower Town. Please deliver it safely into his hands.",
-                    "ru": "— Вот срочное письмо от мэра Нижнего Города. Пожалуйста, передайте его лично ему в руки."
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+0.5st\">— Here is an important letter from the town. <break time=\"300ms\"/> Please give it to him.</prosody></speak>",
+                    "en": "— Here is an important letter from the town. Please give it to him.",
+                    "ru": "— Вот важное письмо из города. Пожалуйста, передайте ему."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The postman hands over a thick cream envelope with a shiny red wax seal shaped like a wise owl.</prosody></speak>",
-                    "en": "The postman hands over a thick cream envelope with a shiny red wax seal shaped like a wise owl.",
-                    "ru": "Почтальон передает плотный кремовый конверт с блестящей красной сургучной печатью в виде мудрой совы."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The worker gives a thick cream envelope. <break time=\"300ms\"/> It has a red owl seal.</prosody></speak>",
+                    "en": "The worker gives a thick cream envelope. It has a red owl seal.",
+                    "ru": "Рабочий передает плотный кремовый конверт. На нем красная печать с совой."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Thank you, sir! I will take it to him right this second. Have a safe journey back!</prosody></speak>",
-                    "en": "— Thank you, sir! I will take it to him right this second. Have a safe journey back!",
-                    "ru": "— Спасибо, сэр! Я отнесу его сию же секунду. Счастливого пути обратно!"
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Thank you, sir! <break time=\"300ms\"/> I take it to him right now. <break time=\"300ms\"/> Have a good journey!</prosody></speak>",
+                    "en": "— Thank you, sir! I take it to him right now. Have a good journey!",
+                    "ru": "— Спасибо, сэр! Я отнесу его прямо сейчас. Доброго пути!"
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin runs up the stone tower stairs. He knocks gently on the master's wooden door.</prosody></speak>",
-                    "en": "Eldrin runs up the stone tower stairs. He knocks gently on the master's wooden door.",
-                    "ru": "Элдрин бежит вверх по каменной лестнице башни. Он тихонько стучит в деревянную дверь мастера."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin runs up the stone tower stairs. <break time=\"300ms\"/> He knocks on the wooden door.</prosody></speak>",
+                    "en": "Eldrin runs up the stone tower stairs. He knocks on the wooden door.",
+                    "ru": "Элдрин бежит вверх по каменной лестнице башни. Он стучит в деревянную дверь."
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Come in, Eldrin. What brings you to my study this afternoon?</prosody></speak>",
-                    "en": "— Come in, Eldrin. What brings you to my study this afternoon?",
-                    "ru": "— Войди, Элдрин. Что привело тебя в мой кабинет сегодня днем?"
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Come in, Eldrin. <break time=\"300ms\"/> What is the matter this afternoon?</prosody></speak>",
+                    "en": "— Come in, Eldrin. What is the matter this afternoon?",
+                    "ru": "— Войди, Элдрин. Что случилось сегодня днем?"
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Master Corvinus, the town postman just brought an important letter with a red owl seal!</prosody></speak>",
-                    "en": "— Master Corvinus, the town postman just brought an important letter with a red owl seal!",
-                    "ru": "— Мастер Корвинус, городской почтальон только что принес важное письмо с печатью в виде красной совы!"
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Master Corvinus, the town worker brought an important letter! <break time=\"300ms\"/> It has a red owl on it!</prosody></speak>",
+                    "en": "— Master Corvinus, the town worker brought an important letter! It has a red owl on it!",
+                    "ru": "— Мастер Корвинус, городской рабочий принес важное письмо! На нем красная сова!"
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Ah, the official message from the city! Thank you, my boy. Let me read it immediately.</prosody></speak>",
-                    "en": "— Ah, the official message from the city! Thank you, my boy. Let me read it immediately.",
-                    "ru": "— А, официальное послание из города! Спасибо, мой мальчик. Дай я немедленно прочту его."
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Ah, a message from the city! <break time=\"300ms\"/> Thank you, my boy. <break time=\"300ms\"/> Let me read it now.</prosody></speak>",
+                    "en": "— Ah, a message from the city! Thank you, my boy. Let me read it now.",
+                    "ru": "— Ах, весточка из города! Спасибо, мой мальчик. Дай-ка я его прочту."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The old master pats his pockets. He looks on his wide desk covered with books and maps.</prosody></speak>",
-                    "en": "The old master pats his pockets. He looks on his wide desk covered with books and maps.",
-                    "ru": "Старый мастер похлопывает по карманам. Он осматривает свой широкий стол, заваленный книгами и картами."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The old master checks his clothes. <break time=\"300ms\"/> He looks at his big desk. <break time=\"300ms\"/> Many books and maps are on the desk.</prosody></speak>",
+                    "en": "The old master checks his clothes. He looks at his big desk. Many books and maps are on the desk.",
+                    "ru": "Старый мастер проверяет одежду. Он смотрит на свой большой стол. На столе лежит много книг и карт."
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Oh dear me. Where did I leave my silver reading glasses? I cannot read the small letters without them.</prosody></speak>",
-                    "en": "— Oh dear me. Where did I leave my silver reading glasses? I cannot read the small letters without them.",
-                    "ru": "— О боже мой. Где же я оставил свои серебряные очки для чтения? Я не могу разобрать мелкие буквы без них."
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Oh dear! <break time=\"300ms\"/> Where are my glasses? <break time=\"300ms\"/> I cannot read the small words without them.</prosody></speak>",
+                    "en": "— Oh dear! Where are my glasses? I cannot read the small words without them.",
+                    "ru": "— О боже! Где мои очки? Без них я не могу прочесть мелкие слова."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Do not worry, Professor. Sit comfortably in your armchair. I will find them for you!</prosody></speak>",
-                    "en": "— Do not worry, Teacher. Sit nicely in your big chair. I will find them for you!",
-                    "ru": "— Не переживайте, профессор. Устраивайтесь поудобнее в кресле. Я найду их для вас!"
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Do not worry, Teacher. <break time=\"300ms\"/> Sit in your big chair. <break time=\"300ms\"/> I will find them for you!</prosody></speak>",
+                    "en": "— Do not worry, Teacher. Sit in your big chair. I will find them for you!",
+                    "ru": "— Не волнуйтесь, Учитель. Садитесь в свое большое кресло. Я найду их для вас!"
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin begins searching the cozy, circular tower room methodically.</prosody></speak>",
-                    "en": "Eldrin begins searching the cozy, circular tower room carefully.",
-                    "ru": "Элдрин начинает методично обыскивать уютную круглую комнату башни."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin looks around the warm room.</prosody></speak>",
+                    "en": "Eldrin looks around the warm room.",
+                    "ru": "Элдрин оглядывает теплую комнату."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Are they inside the top wooden drawer of your writing desk?</prosody></speak>",
-                    "en": "— Are they inside the top wooden drawer of your writing desk?",
-                    "ru": "— Они в верхнем деревянном ящике вашего письменного стола?"
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Are they inside the top desk box?</prosody></speak>",
+                    "en": "— Are they inside the top desk box?",
+                    "ru": "— Они в верхнем ящике стола?"
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin opens the desk drawer. Inside are only black quills, a small brass bell, and clean paper.</prosody></speak>",
-                    "en": "Eldrin opens the desk drawer. Inside are only black pens, a small yellow metal bell, and clean paper.",
-                    "ru": "Элдрин открывает ящик стола. Внутри только черные перья, маленький латунный колокольчик и чистая бумага."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin opens the desk box. <break time=\"300ms\"/> Inside are black pens and clean paper.</prosody></speak>",
+                    "en": "Eldrin opens the desk box. Inside are black pens and clean paper.",
+                    "ru": "Элдрин открывает ящик стола. Внутри черные ручки и чистая бумага."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Not in the drawer. What about the tall bookshelf near the globe?</prosody></speak>",
-                    "en": "— Not in the drawer. What about the tall shelf near the globe?",
-                    "ru": "— В ящике нет. А как насчет высокой книжной полки возле глобуса?"
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Not in the box. <break time=\"300ms\"/> Are they on the tall shelf?</prosody></speak>",
+                    "en": "— Not in the box. Are they on the tall shelf?",
+                    "ru": "— В ящике нет. Они на высокой полке?"
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He checks the second shelf and the third shelf. Only dusty leather books rest there.</prosody></speak>",
-                    "en": "He checks the second shelf and the third shelf. Only dusty leather books rest there.",
-                    "ru": "Он проверяет вторую и третью полки. Там стоят только пыльные кожаные книги."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He looks at the shelf. <break time=\"300ms\"/> Only old books are there.</prosody></speak>",
+                    "en": "He looks at the shelf. Only old books are there.",
+                    "ru": "Он смотрит на полку. Там только старые книги."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Not on the bookshelf. Let me look near the large arched window with the sunshine.</prosody></speak>",
-                    "en": "— Not on the shelf. Let me look near the large arched window with the sunshine.",
-                    "ru": "— На полке нет. Посмотрю-ка я возле большого арочного окна с солнечным светом."
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Not on the shelf. <break time=\"300ms\"/> Let me look near the big window.</prosody></speak>",
+                    "en": "— Not on the shelf. Let me look near the big window.",
+                    "ru": "— На полке нет. Посмотрю-ка я возле большого окна."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">On the wide stone windowsill, next to a blooming purple flowerpot, two silver glass rims glisten in the sun.</prosody></speak>",
-                    "en": "On the wide stone window edge, next to a blooming purple flowerpot, two silver glass rims glisten in the sun.",
-                    "ru": "На широком каменном подоконнике, рядом с цветущим фиолетовым горшком, на солнце блестят две серебряные оправы."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Near the window sits a purple flower in a pot. <break time=\"300ms\"/> Two silver glasses shine in the sun.</prosody></speak>",
+                    "en": "Near the window sits a purple flower in a pot. Two silver glasses shine in the sun.",
+                    "ru": "Возле окна в горшке стоит фиолетовый цветок. Серебряные очки блестят на солнце."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Here they are, Master! Your silver glasses are resting on the sunny windowsill!</prosody></speak>",
-                    "en": "— Here they are, Master! Your silver glasses are resting on the sunny window edge!",
-                    "ru": "— Вот же они, Мастер! Ваши серебряные очки лежат на солнечном подоконнике!"
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Here they are, Master! <break time=\"300ms\"/> Your silver glasses are near the sunny window!</prosody></speak>",
+                    "en": "— Here they are, Master! Your silver glasses are near the sunny window!",
+                    "ru": "— Вот же они, Мастер! Ваши серебряные очки возле солнечного окна!"
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Wonderful eyes, Eldrin! Thank you very much. I put them down when I watered the flowers.</prosody></speak>",
-                    "en": "— Wonderful eyes, Eldrin! Thank you very much. I put them down when I watered the flowers.",
-                    "ru": "— Прекрасное зрение, Элдрин! Большое спасибо. Я положил их туда, когда поливал цветы."
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Good eyes, Eldrin! <break time=\"300ms\"/> Thank you very much. <break time=\"300ms\"/> I put them down when I gave water to the flowers.</prosody></speak>",
+                    "en": "— Good eyes, Eldrin! Thank you very much. I put them down when I gave water to the flowers.",
+                    "ru": "— Зоркий глаз, Элдрин! Большое спасибо. Я положил их, когда поливал цветы."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Master Corvinus puts on the silver glasses and carefully breaks the red wax seal with a letter knife.</prosody></speak>",
-                    "en": "Master Corvinus puts on the silver glasses and carefully breaks the red wax seal with a letter knife.",
-                    "ru": "Мастер Корвинус надевает серебряные очки и аккуратно вскрывает красную печать ножом для писем."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Master Corvinus puts on the glasses. <break time=\"300ms\"/> He opens the letter with a knife.</prosody></speak>",
+                    "en": "Master Corvinus puts on the glasses. He opens the letter with a knife.",
+                    "ru": "Мастер Корвинус надевает очки. Он вскрывает письмо ножом."
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Let us see what the Mayor writes... Ah! Splendid news! Truly wonderful news!</prosody></speak>",
-                    "en": "— Let us see what the Mayor writes... Ah! Very good news! Truly wonderful news!",
-                    "ru": "— Посмотрим, что пишет мэр... А! Великолепные новости! Поистине чудесные новости!"
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Let us read the news... <break time=\"300ms\"/> Ah! <break time=\"300ms\"/> Very good news! <break time=\"300ms\"/> Truly great news!</prosody></speak>",
+                    "en": "— Let us read the news... Ah! Very good news! Truly great news!",
+                    "ru": "— Давайте прочтем новости... Ах! Очень хорошие вести! Поистине отличные вести!"
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— What does the letter say, Professor? Is it a secret?</prosody></speak>",
-                    "en": "— What does the letter say, Teacher? Is it a secret?",
-                    "ru": "— Что написано в письме, профессор? Это секрет?"
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— What does the letter say, Teacher?</prosody></speak>",
+                    "en": "— What does the letter say, Teacher?",
+                    "ru": "— Что написано в письме, Учитель?"
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— No secret at all! Tomorrow is the Grand Autumn Market in the Lower Town square!</prosody></speak>",
-                    "en": "— No secret at all! Tomorrow is the Grand Autumn Market in the Lower Town square!",
-                    "ru": "— Вовсе не секрет! Завтра на площади Нижнего Города проходит Большой Осенний Рынок!"
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Tomorrow is the Grand Autumn Market in the town square!</prosody></speak>",
+                    "en": "— Tomorrow is the Grand Autumn Market in the town square!",
+                    "ru": "— Завтра на городской площади состоится Большая Осенняя Ярмарка!"
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— The Academy needs fresh supplies: mountain herbs, writing parchment, and new lantern oil.</prosody></speak>",
-                    "en": "— The Academy needs fresh supplies: mountain herbs, writing paper, and new lantern oil.",
-                    "ru": "— Академии нужны свежие припасы: горные травы, бумага для писем и новое ламповое масло."
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— The Academy needs food, plants, paper, and lamp oil!</prosody></speak>",
+                    "en": "— The Academy needs food, plants, paper, and lamp oil!",
+                    "ru": "— Академии нужны еда, растения, бумага и масло для ламп!"
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Are we going down to the town market together in the morning?</prosody></speak>",
-                    "en": "— Are we going down to the town market together in the morning?",
-                    "ru": "— Мы поедем на городской рынок вместе завтра утром?"
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Are we going to the town market together in the morning?</prosody></speak>",
+                    "en": "— Are we going to the town market together in the morning?",
+                    "ru": "— Мы отправимся на городской рынок вместе утром?"
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Yes! You and Kira will accompany me in the morning horse cart to help choose the supplies.</prosody></speak>",
-                    "en": "— Yes! You and Kira will accompany me in the morning horse cart to help choose the supplies.",
-                    "ru": "— Да! Ты и Кира поедете со мной на утренней повозке, чтобы помочь выбрать припасы."
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Yes! <break time=\"300ms\"/> You and Kira are going to travel with me in the horse cart. <break time=\"300ms\"/> We will choose the things.</prosody></speak>",
+                    "en": "— Yes! You and Kira are going to travel with me in the horse cart. We will choose the things.",
+                    "ru": "— Да! Ты и Кира поедете со мной на повозке. Мы будем выбирать припасы."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Hooray! That will be my first trip to the market! I will get my boots and bag ready right now!</prosody></speak>",
-                    "en": "— Hooray! That will be my first trip to the market! I will get my boots and bag ready right now!",
-                    "ru": "— Ура! Это будет моя первая поездка на рынок! Я прямо сейчас приготовлю сапоги и сумку!"
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Hooray! <break time=\"300ms\"/> That is my first trip to the market! <break time=\"300ms\"/> I am ready now! <break time=\"300ms\"/> My boots and bag are ready!</prosody></speak>",
+                    "en": "— Hooray! That is my first trip to the market! I am ready now! My boots and bag are ready!",
+                    "ru": "— Ура! Это моя первая поездка на рынок! Я уже готов! Мои сапоги и сумка готовы!"
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Get a good night of sleep, Eldrin. The horse cart leaves at sunrise tomorrow!</prosody></speak>",
-                    "en": "— Get a good night of sleep, Eldrin. The horse cart leaves at sunrise tomorrow!",
-                    "ru": "— Выспись как следует, Элдрин. Повозка отправляется завтра на рассвете!"
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Sleep well, Eldrin. <break time=\"300ms\"/> We leave early tomorrow!</prosody></speak>",
+                    "en": "— Sleep well, Eldrin. We leave early tomorrow!",
+                    "ru": "— Спокойной ночи, Элдрин. Мы выезжаем завтра рано!"
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin smiles with excitement as he runs back to his dormitory to share the news with Leo.</prosody></speak>",
-                    "en": "Eldrin smiles with excitement as he runs back to his bedroom to share the news with Leo.",
-                    "ru": "Элдрин взволнованно улыбается и бежит обратно в общежитие, чтобы поделиться новостью с Лео."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin smiles and runs to his bedroom to tell the news to Leo.</prosody></speak>",
+                    "en": "Eldrin smiles and runs to his bedroom to tell the news to Leo.",
+                    "ru": "Элдрин улыбается и бежит в спальню, чтобы рассказать новости Лео."
                 }
             ],
             "quiz": [
                 {
-                    "question": "What kind of animal was stamped on the red wax seal of the letter?",
+                    "question": "What image was on the red seal of the letter?",
                     "options": [
                         "A fierce dragon",
-                        "A wise owl",
+                        "A red owl",
                         "A fast horse",
                         "A sleeping cat"
                     ],
                     "correctIdx": 1
                 },
                 {
-                    "question": "Where did Eldrin find Professor Corvinus's reading glasses?",
+                    "question": "Where did Eldrin find Master Corvinus's silver glasses?",
                     "options": [
-                        "Inside the table drawer",
-                        "Under the bed",
-                        "On the sunny windowsill next to a purple flowerpot",
-                        "In the kitchen"
+                        "Inside the top desk box",
+                        "On the tall shelf with old books",
+                        "Near the sunny window next to a purple flower in a pot",
+                        "Under the big chair"
                     ],
                     "correctIdx": 2
                 },
                 {
-                    "question": "What exciting event is happening in the Lower Town tomorrow?",
+                    "question": "What exciting event is happening in the town square tomorrow?",
                     "options": [
-                        "A big sword fight",
+                        "A sword tournament",
                         "The Grand Autumn Market",
-                        "A heavy winter storm",
-                        "A horse race"
+                        "A magic show",
+                        "A heavy storm"
                     ],
                     "correctIdx": 1
                 }

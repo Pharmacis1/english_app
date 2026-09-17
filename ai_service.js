@@ -100,27 +100,34 @@ class AIService {
         let priorityWord = "";
 
         if (unUsedFocusWords.length >= 5) {
-            // Case 1: Pick 5 random un-used words from today's 20 Focus Words
-            const shuffledUnused = [...unUsedFocusWords].sort(() => 0.5 - Math.random());
-            targetFiveWords = shuffledUnused.slice(0, 5);
+            // Case 1: Pick the 5 least memorized unused focus words (maintains SRS memory ascending order)
+            targetFiveWords = unUsedFocusWords.slice(0, 5);
             priorityWord = targetFiveWords[0];
         } else if (unUsedFocusWords.length > 0) {
-            // Case 1b: Take all remaining un-used focus words, top up to 5 with other focus words
-            const shuffledUnused = [...unUsedFocusWords].sort(() => 0.5 - Math.random());
+            // Case 1b: Take all remaining unused focus words, top up to 5 with other least memorized focus words
             const usedFocusWords = focusWords.filter(w => !unUsedFocusWords.includes(w));
-            const shuffledUsed = [...usedFocusWords].sort(() => 0.5 - Math.random());
-            targetFiveWords = Array.from(new Set([...shuffledUnused, ...shuffledUsed])).slice(0, 5);
-            priorityWord = shuffledUnused[0]; // Guaranteed unused word!
+            targetFiveWords = Array.from(new Set([...unUsedFocusWords, ...usedFocusWords])).slice(0, 5);
+            priorityWord = unUsedFocusWords[0]; // Guaranteed least memorized unused word!
         } else {
             // Case 2: ALL 20 Focus Words of the day have ALREADY been used today!
-            // Fallback: Pick 5 words from the overall anti-top (least used in lifetime history for this hero)
-            let allWords = activeHero.words ? activeHero.words.map(w => typeof w === 'string' ? w : (Array.isArray(w) ? w[0] : (w.word || ""))) : [];
+            // Fallback: Pick 5 words from all hero words that are least in long-term memory (and least used in chat)
+            let allWords = activeHero.words ? [...activeHero.words] : [];
             allWords.sort((wA, wB) => {
-                const countA = (typeof window !== 'undefined' && typeof window.getAllTimeWordUsageCount === 'function') ? window.getAllTimeWordUsageCount(activeHero.id, wA) : 0;
-                const countB = (typeof window !== 'undefined' && typeof window.getAllTimeWordUsageCount === 'function') ? window.getAllTimeWordUsageCount(activeHero.id, wB) : 0;
+                const strA = typeof wA === 'string' ? wA : (Array.isArray(wA) ? wA[0] : (wA.word || ""));
+                const strB = typeof wB === 'string' ? wB : (Array.isArray(wB) ? wB[0] : (wB.word || ""));
+                const memA = (typeof window !== 'undefined' && typeof window.getWordVocabMemoryScore === 'function') 
+                    ? window.getWordVocabMemoryScore(activeHero.id, strA).score 
+                    : 0;
+                const memB = (typeof window !== 'undefined' && typeof window.getWordVocabMemoryScore === 'function') 
+                    ? window.getWordVocabMemoryScore(activeHero.id, strB).score 
+                    : 0;
+                if (memA !== memB) return memA - memB;
+
+                const countA = (typeof window !== 'undefined' && typeof window.getAllTimeWordUsageCount === 'function') ? window.getAllTimeWordUsageCount(activeHero.id, strA) : 0;
+                const countB = (typeof window !== 'undefined' && typeof window.getAllTimeWordUsageCount === 'function') ? window.getAllTimeWordUsageCount(activeHero.id, strB) : 0;
                 return countA - countB;
             });
-            targetFiveWords = allWords.slice(0, 5);
+            targetFiveWords = allWords.slice(0, 5).map(w => typeof w === 'string' ? w : (Array.isArray(w) ? w[0] : (w.word || "")));
             priorityWord = targetFiveWords[0];
         }
 
@@ -142,6 +149,10 @@ class AIService {
             }
         }
 
+        const memStats = (typeof window !== 'undefined' && typeof window.getWordVocabMemoryScore === 'function') 
+            ? window.getWordVocabMemoryScore(activeHero.id, firstTargetLower) 
+            : null;
+
         const fiveWordsList = targetFiveWords.map(w => w.toLowerCase()).join(", ");
         const primaryTarget = firstTargetLower;
 
@@ -150,6 +161,7 @@ class AIService {
             primary: primaryTarget,
             meaning: targetMeaning,
             example: targetExample,
+            memoryLabel: memStats ? memStats.label : "",
             fiveWords: targetFiveWords.map(w => w.toLowerCase()),
             unusedCount: unUsedFocusWords.length
         };
@@ -408,25 +420,31 @@ RULES:
     async analyzeSpeakingSprint(transcript, topic) {
         if (!transcript || transcript.trim().length < 5) {
             return {
-                praise: "Вы сделали первый шаг! В следующем раунде постарайтесь сказать на 1-2 предложения больше.",
+                praise: "Вы сделали отличный первый шаг! В следующем раунде попробуйте сказать ещё 1-2 простых предложения.",
                 corrections: [],
-                boosters: (topic && topic.hints) || ["First of all...", "In my opinion...", "For example..."]
+                boosters: (topic && topic.hints) || ["I like...", "Every day, I...", "There is a...", "My favorite... is..."]
             };
         }
 
         try {
             const topicTitle = (topic && topic.title) || "Daily Life";
-            const systemPrompt = `You are a friendly, encouraging English speaking fluency coach (CEFR A1-B2).
+            const systemPrompt = `You are a warm, encouraging English speaking fluency coach for BEGINNER students (CEFR Level A1).
 The student just completed a 60-second or 45-second speaking sprint on the topic: "${topicTitle}".
-Analyze the student's spoken transcript. Provide brief, constructive feedback in RUSSIAN with practical English examples.
+Analyze the student's spoken transcript for LEVEL A1.
+Keep your feedback simple, clear, and very encouraging.
+
+RULES FOR A1 LEVEL:
+1. Praise simple, clear, and correct sentences (1 sentence in Russian quoting a good phrase).
+2. Keep corrections very simple: focus only on basic A1 grammar (e.g., 'he likes' vs 'he like', 'I have', 'there is/are', basic word order). Explain why in 1 simple sentence in Russian.
+3. Suggest 2-3 VERY SIMPLE A1-level sentence starters / boosters for the next round (e.g., "Also, I like...", "In my city, there is...", "I think that..."). Do NOT suggest complex B2 idioms like 'unique vibe', 'furthermore', or 'in addition'.
 
 You MUST return valid raw JSON in this exact structure without markdown backticks:
 {
-  "praise": "Краткая похвала на русском (1 предложение с цитатой удачного оборота)",
+  "praise": "Краткая ободряющая похвала на русском (1 предложение с цитатой удачного простого оборота)",
   "corrections": [
-    { "original": "фрагмент с ошибкой", "improved": "исправленный естественный вариант", "why": "краткое понятное пояснение на русском" }
+    { "original": "фрагмент с базовой ошибкой", "improved": "простой правильный вариант (A1)", "why": "простое понятное пояснение правила на русском" }
   ],
-  "boosters": ["2-3 полезные вводные связки на английском для следующего раунда, например: 'What I enjoy most is...', 'In addition...'"]
+  "boosters": ["2-3 простые вводные связки уровня A1, например: 'Also, I like...', 'There is a...', 'My favorite...'"]
 }`;
 
             const response = await fetch('/api/ai/chat', {
@@ -454,12 +472,75 @@ You MUST return valid raw JSON in this exact structure without markdown backtick
             console.warn("[AI Service] Speaking sprint analysis error:", e);
         }
 
-        // Offline / Fallback heuristic analysis
+        // Offline / Fallback heuristic analysis (A1 Level)
         return {
-            praise: "Отличная попытка! Главное — продолжать говорить без долгих пауз.",
+            praise: "Отличная попытка! Главное — говорить простыми фразами без долгих пауз.",
             corrections: [],
-            boosters: (topic && topic.hints) || ["To be honest...", "For instance...", "What I mean is..."]
+            boosters: (topic && topic.hints) || ["I like...", "There is a...", "Every day I...", "In my opinion..."]
         };
+    }
+
+    /**
+     * Transcribe an audio Blob directly using Groq Whisper Large v3 or Local Whisper
+     * @param {Blob} audioBlob
+     * @param {string} prompt
+     * @returns {Promise<string>}
+     */
+    async transcribeAudioBlob(audioBlob, prompt = "English speech, CEFR Level A1, everyday conversation: I like, my favorite, every day, there is, there are, breakfast, friends, city, work, food, hobby.") {
+        if (!audioBlob || audioBlob.size < 100) return "";
+
+        return new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(audioBlob);
+            reader.onloadend = async () => {
+                const base64Data = reader.result;
+                const apiKey = this.groqApiKey || localStorage.getItem("groq_api_key") || "";
+
+                // 1. Primary: Groq Cloud Whisper Large v3 (Fastest & Most Accurate)
+                try {
+                    const res = await fetch('/api/ai/stt-groq', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            audioBase64: base64Data,
+                            apiKey: apiKey,
+                            prompt: prompt || 'English speech, CEFR Level A1, everyday conversation: I like, my favorite, every day, there is, there are, breakfast, friends, city, work, food, hobby.'
+                        })
+                    });
+                    const data = await res.json();
+                    if (res.ok && data.success && data.text) {
+                        return resolve(data.text.trim());
+                    } else if (data.error) {
+                        console.warn("[AI Service] Groq STT returned:", data.error);
+                    }
+                } catch (e) {
+                    console.warn("[AI Service] Groq STT blob transcription error:", e);
+                }
+
+                // 2. Fallback: Local Whisper STT Server (if configured)
+                if (this.sttEngine === 'whisper' || this.sttEndpoint) {
+                    try {
+                        const res = await fetch('/api/ai/stt', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                audioBase64: base64Data,
+                                endpoint: this.sttEndpoint || 'http://127.0.0.1:8000'
+                            })
+                        });
+                        const data = await res.json();
+                        if (res.ok && data.success && data.text) {
+                            return resolve(data.text.trim());
+                        }
+                    } catch (e) {
+                        console.warn("[AI Service] Local Whisper STT blob transcription error:", e);
+                    }
+                }
+
+                resolve("");
+            };
+            reader.onerror = () => resolve("");
+        });
     }
 
     parseAIOutput(rawText) {
@@ -605,19 +686,42 @@ class VoiceService {
         if (groqApiKey) localStorage.setItem("groq_api_key", groqApiKey);
     }
 
-    setSpeechSpeed(speed) {
-        this.speechSpeed = parseFloat(speed) || 1.0;
-        localStorage.setItem("hero_chat_voice_speed", this.speechSpeed);
-        if (this.currentAudio) {
-            try {
-                this.currentAudio.playbackRate = this.speechSpeed;
-                this.currentAudio.defaultPlaybackRate = this.speechSpeed;
-            } catch (e) {}
-        }
+    preloadWordAudios(words = []) {
+        if (!Array.isArray(words) || words.length === 0) return;
+        if (!this.preloadedAudioSet) this.preloadedAudioSet = new Set();
+
+        words.forEach(w => {
+            if (!w || typeof w !== 'string') return;
+            const cleanText = w.replace(/[*_#`]/g, '').trim();
+            if (!cleanText) return;
+            const cleanKey = cleanText.toLowerCase().replace(/[^a-z0-9]/g, '_').replace(/_+/g, '_').replace(/^_|_$/g, '');
+            if (!cleanKey) return;
+
+            const urls = [
+                `/audio/words/${cleanKey}.wav`,
+                `/audio/drills/${cleanKey}.wav`,
+                `/audio/warmup/${cleanKey}.wav`
+            ];
+
+            urls.forEach(url => {
+                if (!this.preloadedAudioSet.has(url)) {
+                    this.preloadedAudioSet.add(url);
+                    try {
+                        const a = new Audio();
+                        a.preload = 'auto';
+                        a.src = url;
+                        if (typeof window.fetch === 'function') {
+                            fetch(url, { method: 'GET', cache: 'force-cache' }).catch(() => {});
+                        }
+                    } catch(e) {}
+                }
+            });
+        });
     }
 
     async speak(text, onStart = null, onEnd = null, heroVoiceConfig = null, customSpeed = null) {
         this.stopSpeech();
+        const mySpeechId = this.activeSpeechSession;
 
         if (!text || typeof text !== 'string') return;
         const cleanText = text.replace(/[*_#`]/g, '').trim();
@@ -631,35 +735,57 @@ class VoiceService {
         const rate = Math.max(0.1, Math.min(10, baseRate * effectiveSpeed));
         const gender = heroVoiceConfig?.gender || null;
 
-        // 0. Pre-recorded Offline Vocabulary Audio Check (Zero tokens, instant 0.0s latency)
-        const wordCount = cleanText.split(/\s+/).length;
-        if (wordCount <= 3) {
-            const cleanKey = cleanText.toLowerCase().replace(/[^a-z0-9]/g, '_');
-            const localWordUrl = `/audio/words/${cleanKey}.wav`;
+        // 0. Pre-recorded Offline Audio Check (Warmup phrases, Drills & Words: 0 tokens, instant 0.0s playback)
+        const cleanKey = cleanText.toLowerCase().replace(/[^a-z0-9]/g, '_').replace(/_+/g, '_').replace(/^_|_$/g, '');
+        const candidateAudioUrls = [
+            `/audio/warmup/${cleanKey}.wav`,
+            `/audio/drills/${cleanKey}.wav`,
+            `/audio/words/${cleanKey}.wav`
+        ];
+
+        for (const localAudioUrl of candidateAudioUrls) {
             try {
-                const checkRes = await fetch(localWordUrl, { method: 'HEAD' });
-                if (checkRes.ok && checkRes.status === 200) {
-                    if (onStart) onStart();
-                    const audio = new Audio(localWordUrl);
+                if (mySpeechId !== this.activeSpeechSession) return;
+                let started = false;
+                const played = await new Promise((resolve) => {
+                    const audio = new Audio(localAudioUrl);
                     audio.defaultPlaybackRate = effectiveSpeed;
                     audio.playbackRate = effectiveSpeed;
                     audio.preservesPitch = true;
                     this.currentAudio = audio;
+
+                    audio.onplay = () => {
+                        started = true;
+                        if (mySpeechId === this.activeSpeechSession && onStart) onStart();
+                    };
                     audio.onended = () => {
                         this.currentAudio = null;
-                        if (onEnd) onEnd();
+                        if (mySpeechId === this.activeSpeechSession && onEnd) onEnd();
+                        resolve(true);
                     };
                     audio.onerror = () => {
                         this.currentAudio = null;
-                        this.speakNative(cleanText, onStart, onEnd, pitch, rate, gender);
+                        resolve(false);
                     };
-                    audio.play().catch(() => audio.onerror());
-                    return;
-                }
+
+                    const p = audio.play();
+                    if (p !== undefined) {
+                        p.catch(() => {
+                            if (!started) {
+                                this.currentAudio = null;
+                                resolve(false);
+                            }
+                        });
+                    }
+                });
+
+                if (played) return;
             } catch (e) {
-                // Proceed to online pipeline if file check fails
+                // Try next candidate or fall through
             }
         }
+
+        if (mySpeechId !== this.activeSpeechSession) return;
 
         // 1. Google Gemini Live Audio (Rich Emotional Intonations)
         const geminiKey = localStorage.getItem("gemini_api_key") || "";
@@ -683,8 +809,9 @@ class VoiceService {
                             })
                         });
                     } catch(fetchErr) {
-                        // Retry once after brief pause in case of server reload or transient glitch
+                        if (mySpeechId !== this.activeSpeechSession) return;
                         await new Promise(r => setTimeout(r, 600));
+                        if (mySpeechId !== this.activeSpeechSession) return;
                         res = await fetch('/api/ai/gemini-tts', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
@@ -695,6 +822,8 @@ class VoiceService {
                             })
                         }).catch(() => null);
                     }
+
+                    if (mySpeechId !== this.activeSpeechSession) return;
 
                     if (res) {
                         const contentType = res.headers.get('Content-Type') || '';
@@ -707,6 +836,8 @@ class VoiceService {
                         }
                     }
                 }
+
+                if (mySpeechId !== this.activeSpeechSession) return;
 
                 if (blob) {
                     console.log(`🔊 [Voice Output] ✨ Engine: "GEMINI LIVE AUDIO" | Voice: "${geminiVoice}" | Hero: "${heroVoiceConfig?.heroName || heroVoiceConfig?.heroId || 'Hero'}" | Speed: ${effectiveSpeed}x | Text: "${cleanText}"`);
@@ -730,14 +861,22 @@ class VoiceService {
 
                     audio.onended = () => {
                         URL.revokeObjectURL(audioUrl);
-                        if (onEnd) onEnd();
+                        this.currentAudio = null;
+                        if (mySpeechId === this.activeSpeechSession && onEnd) onEnd();
                     };
                     audio.onerror = () => {
                         URL.revokeObjectURL(audioUrl);
-                        this.speakNative(cleanText, onStart, onEnd, pitch, rate, gender);
+                        this.currentAudio = null;
+                        if (mySpeechId === this.activeSpeechSession) {
+                            this.speakNative(cleanText, onStart, onEnd, pitch, rate, gender);
+                        }
                     };
 
                     this.currentAudio = audio;
+                    if (mySpeechId !== this.activeSpeechSession) {
+                        URL.revokeObjectURL(audioUrl);
+                        return;
+                    }
                     await audio.play();
                     applyRate();
                     return;
@@ -746,6 +885,8 @@ class VoiceService {
                 console.warn("Gemini TTS failed, trying Kokoro/Native fallback:", e);
             }
         }
+
+        if (mySpeechId !== this.activeSpeechSession) return;
 
         // 2. Local Kokoro Studio TTS
         if (this.ttsEngine === 'kokoro' || this.ttsEngine === 'gemini') {
@@ -765,6 +906,8 @@ class VoiceService {
                         })
                     });
 
+                    if (mySpeechId !== this.activeSpeechSession) return;
+
                     const contentType = res.headers.get('Content-Type') || '';
                     if (res.ok && contentType.includes('audio')) {
                         blob = await res.blob();
@@ -773,6 +916,8 @@ class VoiceService {
                         console.warn("Kokoro TTS endpoint returned non-200. Falling back to Browser Native Speech Synthesis.");
                     }
                 }
+
+                if (mySpeechId !== this.activeSpeechSession) return;
 
                 if (blob) {
                     if (onStart) onStart();
@@ -795,14 +940,22 @@ class VoiceService {
 
                     audio.onended = () => {
                         URL.revokeObjectURL(audioUrl);
-                        if (onEnd) onEnd();
+                        this.currentAudio = null;
+                        if (mySpeechId === this.activeSpeechSession && onEnd) onEnd();
                     };
                     audio.onerror = () => {
                         URL.revokeObjectURL(audioUrl);
-                        this.speakNative(cleanText, onStart, onEnd, pitch, rate, gender);
+                        this.currentAudio = null;
+                        if (mySpeechId === this.activeSpeechSession) {
+                            this.speakNative(cleanText, onStart, onEnd, pitch, rate, gender);
+                        }
                     };
 
                     this.currentAudio = audio;
+                    if (mySpeechId !== this.activeSpeechSession) {
+                        URL.revokeObjectURL(audioUrl);
+                        return;
+                    }
                     await audio.play();
                     applyRate();
                     return;
@@ -812,6 +965,7 @@ class VoiceService {
             }
         }
 
+        if (mySpeechId !== this.activeSpeechSession) return;
         this.speakNative(cleanText, onStart, onEnd, pitch, rate, gender);
     }
 
@@ -877,11 +1031,20 @@ class VoiceService {
     }
 
     stopSpeech() {
+        this.activeSpeechSession = (this.activeSpeechSession || 0) + 1;
         if ('speechSynthesis' in window) {
-            window.speechSynthesis.cancel();
+            try {
+                window.speechSynthesis.cancel();
+                if (window.speechSynthesis.paused) window.speechSynthesis.resume();
+            } catch(e){}
         }
         if (this.currentAudio) {
-            this.currentAudio.pause();
+            try {
+                this.currentAudio.pause();
+                this.currentAudio.currentTime = 0;
+                this.currentAudio.removeAttribute('src');
+                this.currentAudio.load();
+            } catch(e){}
             this.currentAudio = null;
         }
     }

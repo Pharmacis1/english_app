@@ -135,205 +135,580 @@ class SpeakingFluencyEngine {
         ];
 
         this.topics = [
-            // 1. Daily Routine & Habits
+            // 1. Daily Routine & Habits (A1)
             {
                 id: "morning_routine",
                 category: "daily",
-                title: "☀️ Моё идеальное утро (My Morning Routine)",
-                prompt: "Describe your morning routine. What time do you wake up, what do you eat or drink, and what helps you start a good day?",
+                title: "☀️ Моё утро (My Morning Routine)",
+                prompt: "Расскажите о своем обычном утре. Во сколько вы просыпаетесь, что едите на завтрак и что пьете? (Describe your morning routine).",
                 questions: [
                     "What time do you usually wake up?",
-                    "What is your favorite breakfast or morning drink?",
-                    "How do you feel in the morning: energetic or sleepy?"
+                    "What do you eat and drink for breakfast?",
+                    "Do you feel happy and energetic in the morning?"
                 ],
-                hints: ["Usually, I wake up around...", "First of all, I have...", "What I really enjoy in the morning is..."]
+                hints: ["Every morning, I usually wake up at...", "For breakfast, I like to eat...", "Also, I always drink a cup of..."]
             },
             {
                 id: "lazy_sunday",
                 category: "daily",
-                title: "🛋️ Идеальное ленивое воскресенье (My Lazy Sunday)",
-                prompt: "Tell how you like to spend a relaxing day off. Where do you go, what do you do, and who do you spend time with?",
+                title: "🛋️ Мой выходной (My Day Off)",
+                prompt: "Как вы проводите выходной день? Чем любите заниматься дома или на улице? (How do you spend your day off?).",
                 questions: [
-                    "Do you stay at home or go outside?",
-                    "What movies, music, or hobbies do you enjoy on weekends?",
-                    "Why is this kind of rest important for you?"
+                    "Do you stay at home or go for a walk?",
+                    "Who do you spend your day with?",
+                    "What is your favorite hobby on weekends?"
                 ],
-                hints: ["On my day off, I prefer to...", "In the afternoon, I usually...", "To be honest, the best way to relax is..."]
+                hints: ["On my day off, I like to sleep and...", "In the afternoon, I often go for a walk with...", "Also, I enjoy listening to music and..."]
             },
             {
                 id: "working_day",
                 category: "daily",
-                title: "💼 Мой рабочий день (A Typical Working Day)",
-                prompt: "Describe what a normal working or study day looks like for you. What tasks do you do, and how do you stay focused?",
+                title: "💼 Моя работа или учеба (My Work or Study)",
+                prompt: "Расскажите о своей работе или учебе. Где вы работаете и что делаете каждый день? (Tell about your job or study).",
                 questions: [
-                    "Where do you work: in an office or from home?",
-                    "What is the most interesting or difficult part of your work?",
-                    "When do you usually finish your workday?"
+                    "Where do you work: in an office or at home?",
+                    "What do you do at work every day?",
+                    "Do you like your work and why?"
                 ],
-                hints: ["My workday usually begins with...", "The most important task for me is...", "After finishing work, I like to..."]
+                hints: ["I work in an office / from home as a...", "Every day, I work with a computer and...", "I like my job because it is..."]
             },
 
-            // 2. Travel & Places
+            // 2. Travel & Places (A1)
             {
                 id: "memorable_trip",
                 category: "travel",
-                title: "🌍 Незабываемое путешествие (A Memorable Vacation)",
-                prompt: "Tell about a memorable trip, vacation, or weekend getaway. Where did you go, what did you see, and what was the atmosphere like?",
+                title: "🌍 Моя поездка (A Trip I Remember)",
+                prompt: "Расскажите о поездке в другой город или на природу. Куда вы ездили и какая была погода? (Tell about a trip).",
                 questions: [
-                    "Which city or country did you visit?",
-                    "What was the most beautiful or surprising thing you saw?",
-                    "Would you like to go back there again?"
+                    "What city or place did you visit?",
+                    "Who did you go with (family or friends)?",
+                    "What was the weather like?"
                 ],
-                hints: ["A few months ago, I visited...", "The place was truly amazing because...", "What impressed me most was..."]
+                hints: ["Last year, I visited a very nice place named...", "I went there with my...", "The weather was warm and sunny, and I saw..."]
             },
             {
                 id: "favorite_city",
                 category: "travel",
-                title: "🏙️ Мой любимый город (My Favorite City or Place)",
-                prompt: "Describe your hometown or a city you love walking in. What places do you recommend visiting, and what makes it special?",
+                title: "🏙️ Мой город (My Favorite City or Town)",
+                prompt: "Опишите ваш город. Какие красивые места в нем есть и куда можно сходить? (Describe your city).",
                 questions: [
-                    "What are the best walking spots in this city?",
-                    "What is the weather and atmosphere like?",
-                    "Why do you feel comfortable there?"
+                    "Is your city big or small?",
+                    "What is your favorite place in the city?",
+                    "What can you see and do there?"
                 ],
-                hints: ["My favorite city has a unique vibe because...", "If you visit, you should definitely check out...", "I love walking along..."]
+                hints: ["I live in a beautiful city named...", "There is a big green park and nice cafes...", "I often walk here with my friends because..."]
             },
             {
                 id: "dream_destination",
                 category: "travel",
-                title: "✈️ Путешествие мечты (My Dream Trip)",
-                prompt: "If you could fly anywhere in the world tomorrow, where would you go and what would you do there first?",
+                title: "✈️ Место мечты (A Place I Want to Visit)",
+                prompt: "В какую страну или город вы мечтаете поехать и что хотите там увидеть? (Where do you want to travel?).",
                 questions: [
-                    "Which country or island do you dream of visiting?",
-                    "Who would you take with you on this journey?",
-                    "What local food or sights would you try first?"
+                    "What country do you want to visit?",
+                    "Who do you want to take with you?",
+                    "What do you want to see: sea, mountains, or museums?"
                 ],
-                hints: ["I have always dreamed of traveling to...", "The first thing I would do there is...", "I think it would be an unforgettable experience because..."]
+                hints: ["I really want to travel to...", "I want to go there with my...", "I want to see the sea and try local..."]
             },
 
-            // 3. Food & Cafes
+            // 3. Food & Cafes (A1)
             {
                 id: "favorite_dish",
                 category: "food",
-                title: "🍝 Любимая еда и готовка (My Favorite Food)",
-                prompt: "Talk about your favorite dish, cuisine, or a meal you love cooking. Why do you like it so much?",
+                title: "🍝 Моя любимая еда (My Favorite Food)",
+                prompt: "Какую еду вы любите? Что вы готовите дома или любите есть на ужин? (Tell about your favorite food).",
                 questions: [
-                    "What is your all-time favorite meal?",
-                    "Do you prefer cooking at home or eating out?",
-                    "What ingredients make this food so delicious?"
+                    "What is your favorite food or meal?",
+                    "Do you like cooking at home?",
+                    "What drinks do you like: tea, coffee, or juice?"
                 ],
-                hints: ["When it comes to food, I really love...", "I often prepare it by...", "For me, the secret ingredient is..."]
+                hints: ["My favorite food is... because it is delicious.", "I often cook... at home for dinner.", "Also, I really like to drink..."]
             },
             {
                 id: "cozy_cafe",
                 category: "food",
-                title: "☕ Уютное кафе или ресторан (A Cozy Place to Eat)",
-                prompt: "Describe a cafe, bakery, or restaurant you really enjoy visiting. What is the interior, service, and dessert like?",
+                title: "☕ Моё любимое кафе (A Cozy Cafe)",
+                prompt: "Расскажите про уютное кафе или ресторан, куда вы любите приходить. (Describe a cafe you like).",
                 questions: [
-                    "What kind of drinks or desserts do you order there?",
-                    "Is it a quiet spot for thinking, or a lively place with friends?",
-                    "Why do you recommend this place?"
+                    "Where is this cafe located?",
+                    "What do you usually order to eat and drink?",
+                    "Why do you like this place?"
                 ],
-                hints: ["There is a lovely cafe near my place where...", "The atmosphere is very warm and cozy because...", "I always order their delicious..."]
+                hints: ["There is a lovely cafe near my house...", "I usually order coffee and a delicious cake...", "I like this place because it is quiet and..."]
             },
 
-            // 4. Shopping & Lifestyle
+            // 4. Shopping & Lifestyle (A1)
             {
                 id: "great_purchase",
                 category: "shopping",
-                title: "🛍️ Удачная покупка (A Great Purchase I Love)",
-                prompt: "Tell about an item, gadget, or piece of clothing you bought recently that made your life better or happier.",
+                title: "🛍️ Моя любимая вещь (A Thing I Like)",
+                prompt: "Расскажите о вещи, одежде или телефоне, который вы любите использовать. (Tell about something you bought).",
                 questions: [
-                    "What did you buy and where?",
-                    "How often do you use it in everyday life?",
-                    "Why was it definitely worth the money?"
+                    "What is this item (phone, shoes, bag)?",
+                    "What color is it and do you use it every day?",
+                    "Why do you like it?"
                 ],
-                hints: ["Recently, I bought a new...", "It turned out to be very useful because...", "I am really satisfied with this purchase because..."]
+                hints: ["I have a very nice...", "I use it every day because it is convenient...", "I really like it because it is..."]
             },
             {
                 id: "ideal_home",
                 category: "shopping",
-                title: "🏡 Мой уютный дом (My Cozy Space)",
-                prompt: "Describe your room or apartment. What makes your home comfortable, and what is your favorite corner?",
+                title: "🏡 Мой уютный дом (My Cozy Room)",
+                prompt: "Опишите вашу комнату или квартиру. Какая мебель там есть и что делает ее уютной? (Describe your room).",
                 questions: [
-                    "What colors, plants, or furniture make your room cozy?",
-                    "Where do you spend most of your evening time?",
-                    "What is one thing you would like to add to your interior?"
+                    "What rooms are there in your flat?",
+                    "What furniture is in your favorite room?",
+                    "What do you like to do in your room?"
                 ],
-                hints: ["My home is a place where I feel...", "In my living room, there is a comfortable...", "What makes it feel warm and welcoming is..."]
+                hints: ["I live in a comfortable flat with...", "In my room, there is a big bed, a desk, and...", "I like spending time here because it is warm and..."]
             },
 
-            // 5. Leisure, Movies & Books
+            // 5. Leisure & Hobbies (A1)
             {
                 id: "great_movie",
                 category: "leisure",
-                title: "🎬 Фильм или сериал (A Movie or Show I Recommend)",
-                prompt: "Talk about a movie, show, or book that caught your attention. What was the storyline and why was it interesting?",
+                title: "🎬 Мой любимый фильм (A Movie I Like)",
+                prompt: "Расскажите о фильме, мультике или сериале, который вам нравится. (Tell about a movie you like).",
                 questions: [
-                    "What is the title and genre of the show/book?",
-                    "Who was your favorite character and why?",
-                    "What main message or emotion did you get from it?"
+                    "What is the title of the movie or show?",
+                    "Is it a comedy, a drama, or a cartoon?",
+                    "Who is your favorite character in it?"
                 ],
-                hints: ["Not so long ago, I watched...", "The story is about...", "What I liked most about the plot was..."]
+                hints: ["I really like the movie called...", "It is a very funny and interesting story about...", "I like the main hero because..."]
             },
             {
-                id: "stress_relief",
+                id: "pets_and_animals",
                 category: "leisure",
-                title: "🌿 Как я отдыхаю и заряжаюсь (How I Recharge)",
-                prompt: "Explain how you handle stress after a busy week. What activities or small rituals give you peace and energy?",
+                title: "🐱 Мой питомец или животные (My Pet or Favorite Animal)",
+                prompt: "Расскажите о своем питомце (кошке, собаке) или любимом животном. (Tell about your pet or animal).",
                 questions: [
-                    "Do walks, music, baths, sports, or silence help you most?",
-                    "Do you prefer being alone or talking with close friends?",
-                    "How do you feel after taking time for yourself?"
+                    "Do you have a cat, dog, or other pet?",
+                    "What is its name and what color is it?",
+                    "What does it like to do every day?"
                 ],
-                hints: ["Whenever I feel exhausted, I usually...", "Listening to calm music and taking a walk helps me...", "After an hour of rest, I feel much more..."]
-            },
-
-            // 6. Real Life Stories
-            {
-                id: "funny_story",
-                category: "stories",
-                title: "🎈 Забавная или курьёзная история (A Funny Story)",
-                prompt: "Tell a short funny, awkward, or unexpected story that happened to you, your friends, or your pets.",
-                questions: [
-                    "When and where did this funny event happen?",
-                    "What unexpected thing occurred?",
-                    "How did you and the people around you react?"
-                ],
-                hints: ["One day, a funny thing happened when...", "Suddenly, without any warning...", "In the end, everyone started laughing because..."]
-            },
-            {
-                id: "new_skill",
-                category: "stories",
-                title: "🎯 Новый навык или хобби (Something New I Learned)",
-                prompt: "Describe a new skill, sport, language, or recipe you tried learning recently. How was the experience?",
-                questions: [
-                    "What inspired you to start learning this?",
-                    "What was challenging at the beginning?",
-                    "How do you feel about your current progress?"
-                ],
-                hints: ["I decided to learn something new because...", "At first, it seemed quite challenging, but...", "Now I feel much more confident in..."]
+                hints: ["I have a lovely pet named...", "It is very friendly, cute, and...", "Every day, it likes to play and eat..."]
             }
         ];
 
-        // Everyday Real-Life Blitz Questions Pool
+        // Everyday Real-Life Blitz Questions Pool (A1 Level)
         this.blitzPool = [
-            { question: "What do you usually have for breakfast?", sample: "I usually have two eggs, some toast, and a cup of black coffee." },
-            { question: "What is your favorite season of the year and why?", sample: "I love autumn because the air is fresh and the trees look golden." },
-            { question: "Do you prefer tea or coffee in the morning?", sample: "I definitely prefer strong coffee because it gives me energy." },
-            { question: "What was the last movie or TV show you watched?", sample: "I recently watched a thrilling detective series on Netflix." },
-            { question: "Where did you go last weekend?", sample: "Last weekend I went for a long walk in the central park with my friend." },
-            { question: "What is your favorite way to spend a Friday evening?", sample: "I like ordering delicious pizza and watching a good movie at home." },
-            { question: "What is one country you would love to visit?", sample: "I would love to visit Italy for its history, art, and amazing pasta." },
-            { question: "How do you usually get to work or study?", sample: "I usually take the subway because it is fast and avoids traffic jams." },
-            { question: "What is your favorite dish to cook at home?", sample: "I love making homemade pasta with creamy mushroom sauce." },
-            { question: "What makes you smile when you have a hard day?", sample: "A warm cup of tea and a funny video from a friend always make me smile." },
-            { question: "Do you prefer dogs or cats, and why?", sample: "I prefer cats because they are independent, calm, and very soft." },
-            { question: "What is your favorite book or author?", sample: "I enjoy reading psychological books that help me understand people better." },
-            { question: "What time do you usually go to bed on weekdays?", sample: "On weekdays I try to go to bed around eleven o'clock at night." },
-            { question: "What sport or physical activity do you enjoy?", sample: "I enjoy swimming and yoga because they help my back stay healthy." },
-            { question: "What was the best gift you ever received?", sample: "The best gift was a trip to the seaside for my birthday." }
+            { question: "What do you usually have for breakfast?", sample: "I usually have two eggs, some bread, and a cup of hot tea." },
+            { question: "What is your favorite color and why?", sample: "My favorite color is blue because it is calm and beautiful." },
+            { question: "Do you prefer tea or coffee in the morning?", sample: "I prefer coffee with milk because it helps me wake up." },
+            { question: "What is the weather like today?", sample: "Today the weather is sunny, warm, and very pleasant." },
+            { question: "Where do you like to go on weekends?", sample: "On weekends, I like to go to the park with my friends." },
+            { question: "What is your favorite fruit?", sample: "My favorite fruits are red apples and sweet bananas." },
+            { question: "What time do you usually go to bed?", sample: "I usually go to bed around eleven o'clock at night." },
+            { question: "Do you prefer cats or dogs?", sample: "I prefer cats because they are quiet, cute, and soft." },
+            { question: "What is your favorite dish for dinner?", sample: "For dinner, I really love chicken with potatoes and salad." },
+            { question: "What country would you love to visit?", sample: "I would love to visit Italy to see beautiful cities and eat pizza." },
+            { question: "How do you usually travel around the city?", sample: "I usually take the bus or walk on foot." },
+            { question: "What do you like to do in the evening?", sample: "In the evening, I like to watch a good movie and drink tea." },
+            { question: "What is your favorite season: summer or winter?", sample: "I love summer because it is warm and I can wear light clothes." },
+            { question: "Do you like listening to music?", sample: "Yes, I listen to calm pop music every day on my phone." },
+            { question: "What makes you smile when you have a hard day?", sample: "Talking with my family and a sweet dessert always make me smile." }
         ];
+
+        // 10 Key Substitution Warm-up Patterns (Level A1 Automation)
+        this.warmupPatterns = [
+            {
+                id: "have_a",
+                template: "I have a [ ... ]",
+                prefix: "I have a ",
+                suffix: ".",
+                translation: "У меня есть...",
+                slots: [
+                    { word: "laptop", translation: "ноутбук", full: "I have a laptop." },
+                    { word: "cat", translation: "кошка", full: "I have a cat." },
+                    { word: "question", translation: "вопрос", full: "I have a question." },
+                    { word: "big family", translation: "большая семья", full: "I have a big family." },
+                    { word: "cup of coffee", translation: "чашка кофе", full: "I have a cup of coffee." },
+                    { word: "new phone", translation: "новый телефон", full: "I have a new phone." },
+                    { word: "car", translation: "машина", full: "I have a car." },
+                    { word: "good idea", translation: "хорошая идея", full: "I have a good idea." }
+                ]
+            },
+            {
+                id: "like_to",
+                template: "I like to [ ... ]",
+                prefix: "I like to ",
+                suffix: ".",
+                translation: "Мне нравится...",
+                slots: [
+                    { word: "drink hot tea", translation: "пить горячий чай", full: "I like to drink hot tea." },
+                    { word: "read books", translation: "читать книги", full: "I like to read books." },
+                    { word: "walk in the park", translation: "гулять в парке", full: "I like to walk in the park." },
+                    { word: "cook dinner", translation: "готовить ужин", full: "I like to cook dinner." },
+                    { word: "listen to music", translation: "слушать музыку", full: "I like to listen to music." },
+                    { word: "sleep late", translation: "долго спать", full: "I like to sleep late." },
+                    { word: "learn English", translation: "учить английский", full: "I like to learn English." },
+                    { word: "watch movies", translation: "смотреть фильмы", full: "I like to watch movies." }
+                ]
+            },
+            {
+                id: "there_is",
+                template: "There is a [ ... ]",
+                prefix: "There is a ",
+                suffix: ".",
+                translation: "Здесь находится / есть...",
+                slots: [
+                    { word: "nice cafe nearby", translation: "хорошее кафе рядом", full: "There is a nice cafe nearby." },
+                    { word: "big green park", translation: "большой зеленый парк", full: "There is a big green park." },
+                    { word: "subway station here", translation: "станция метро здесь", full: "There is a subway station here." },
+                    { word: "good supermarket", translation: "хороший супермаркет", full: "There is a good supermarket." },
+                    { word: "small table in my room", translation: "маленький столик в моей комнате", full: "There is a small table in my room." },
+                    { word: "pharmacy on this street", translation: "аптека на этой улице", full: "There is a pharmacy on this street." },
+                    { word: "comfortable chair", translation: "удобное кресло", full: "There is a comfortable chair." }
+                ]
+            },
+            {
+                id: "need_some",
+                template: "I need some [ ... ]",
+                prefix: "I need some ",
+                suffix: ".",
+                translation: "Мне нужно немного...",
+                slots: [
+                    { word: "cold water", translation: "холодной воды", full: "I need some cold water." },
+                    { word: "hot coffee", translation: "горячего кофе", full: "I need some hot coffee." },
+                    { word: "fresh bread", translation: "свежего хлеба", full: "I need some fresh bread." },
+                    { word: "free time", translation: "свободного времени", full: "I need some free time." },
+                    { word: "help with this", translation: "помощи с этим", full: "I need some help with this." },
+                    { word: "rest today", translation: "отдыха сегодня", full: "I need some rest today." },
+                    { word: "sleep", translation: "сна", full: "I need some sleep." }
+                ]
+            },
+            {
+                id: "every_day",
+                template: "Every day I [ ... ]",
+                prefix: "Every day I ",
+                suffix: ".",
+                translation: "Каждый день я...",
+                slots: [
+                    { word: "wake up early", translation: "просыпаюсь рано", full: "Every day I wake up early." },
+                    { word: "drink coffee with milk", translation: "пью кофе с молоком", full: "Every day I drink coffee with milk." },
+                    { word: "work on my computer", translation: "работаю за компьютером", full: "Every day I work on my computer." },
+                    { word: "talk to my friends", translation: "общаюсь с друзьями", full: "Every day I talk to my friends." },
+                    { word: "take a morning walk", translation: "совершаю утреннюю прогулку", full: "Every day I take a morning walk." },
+                    { word: "cook healthy food", translation: "готовлю здоровую еду", full: "Every day I cook healthy food." },
+                    { word: "learn new words", translation: "учу новые слова", full: "Every day I learn new words." }
+                ]
+            },
+            {
+                id: "want_to_buy",
+                template: "I want to buy a [ ... ]",
+                prefix: "I want to buy a ",
+                suffix: ".",
+                translation: "Я хочу купить...",
+                slots: [
+                    { word: "warm jacket", translation: "теплую куртку", full: "I want to buy a warm jacket." },
+                    { word: "new laptop", translation: "новый ноутбук", full: "I want to buy a new laptop." },
+                    { word: "cup of cappuccino", translation: "чашку капучино", full: "I want to buy a cup of cappuccino." },
+                    { word: "ticket to London", translation: "билет в Лондон", full: "I want to buy a ticket to London." },
+                    { word: "beautiful gift", translation: "красивый подарок", full: "I want to buy a beautiful gift." },
+                    { word: "book in English", translation: "книгу на английском", full: "I want to buy a book in English." },
+                    { word: "comfortable bag", translation: "удобную сумку", full: "I want to buy a comfortable bag." }
+                ]
+            },
+            {
+                id: "can_do",
+                template: "I can [ ... ]",
+                prefix: "I can ",
+                suffix: ".",
+                translation: "Я могу / умею...",
+                slots: [
+                    { word: "speak English a little", translation: "немного говорить по-английски", full: "I can speak English a little." },
+                    { word: "cook delicious pasta", translation: "готовить вкусную пасту", full: "I can cook delicious pasta." },
+                    { word: "swim very well", translation: "очень хорошо плавать", full: "I can swim very well." },
+                    { word: "drive a car", translation: "водить машину", full: "I can drive a car." },
+                    { word: "play the guitar", translation: "играть на гитаре", full: "I can play the guitar." },
+                    { word: "help you today", translation: "помочь тебе сегодня", full: "I can help you today." }
+                ]
+            },
+            {
+                id: "she_doesnt_like",
+                template: "She doesn't like [ ... ]",
+                prefix: "She doesn't like ",
+                suffix: ".",
+                translation: "Она не любит...",
+                slots: [
+                    { word: "cold weather", translation: "холодную погоду", full: "She doesn't like cold weather." },
+                    { word: "fast food", translation: "фастфуд", full: "She doesn't like fast food." },
+                    { word: "black coffee", translation: "черный кофе", full: "She doesn't like black coffee." },
+                    { word: "waking up early", translation: "рано просыпаться", full: "She doesn't like waking up early." },
+                    { word: "rainy days", translation: "дождливые дни", full: "She doesn't like rainy days." },
+                    { word: "noisy places", translation: "шумные места", full: "She doesn't like noisy places." }
+                ]
+            },
+            {
+                id: "do_you_have",
+                template: "Do you have [ ... ] ?",
+                prefix: "Do you have ",
+                suffix: "?",
+                translation: "У вас есть...?",
+                slots: [
+                    { word: "a pen", translation: "ручка", full: "Do you have a pen?" },
+                    { word: "some free time", translation: "немного свободного времени", full: "Do you have some free time?" },
+                    { word: "a pet at home", translation: "домашний питомец дома", full: "Do you have a pet at home?" },
+                    { word: "free Wi-Fi here", translation: "бесплатный Wi-Fi здесь", full: "Do you have free Wi-Fi here?" },
+                    { word: "any questions", translation: "какие-нибудь вопросы", full: "Do you have any questions?" },
+                    { word: "a bottle of water", translation: "бутылка воды", full: "Do you have a bottle of water?" }
+                ]
+            },
+            {
+                id: "there_are_many",
+                template: "There are many [ ... ]",
+                prefix: "There are many ",
+                suffix: ".",
+                translation: "Здесь много...",
+                slots: [
+                    { word: "good cafes in my city", translation: "хороших кафе в моем городе", full: "There are many good cafes in my city." },
+                    { word: "big shops nearby", translation: "больших магазинов рядом", full: "There are many big shops nearby." },
+                    { word: "friendly people here", translation: "дружелюбных людей здесь", full: "There are many friendly people here." },
+                    { word: "nice parks in the center", translation: "красивых парков в центре", full: "There are many nice parks in the center." },
+                    { word: "interesting books at home", translation: "интересных книг дома", full: "There are many interesting books at home." },
+                    { word: "cars on the street", translation: "машин на улице", full: "There are many cars on the street." },
+                    { word: "students in the room", translation: "студентов в комнате", full: "There are many students in the room." }
+                ]
+            },
+            {
+                id: "dont_have",
+                template: "I don't have [ ... ]",
+                prefix: "I don't have ",
+                suffix: ".",
+                translation: "У меня нет...",
+                slots: [
+                    { word: "a car", translation: "машины", full: "I don't have a car." },
+                    { word: "a cat", translation: "кошки", full: "I don't have a cat." },
+                    { word: "a laptop with me", translation: "ноутбука с собой", full: "I don't have a laptop with me." },
+                    { word: "much free time today", translation: "много свободного времени сегодня", full: "I don't have much free time today." },
+                    { word: "a credit card", translation: "кредитной карты", full: "I don't have a credit card." },
+                    { word: "any cash", translation: "наличных денег", full: "I don't have any cash." },
+                    { word: "a brother or sister", translation: "брата или сестры", full: "I don't have a brother or sister." }
+                ]
+            },
+            {
+                id: "would_like_cup",
+                template: "I would like a cup of [ ... ], please",
+                prefix: "I would like a cup of ",
+                suffix: ", please.",
+                translation: "Я бы хотел(а) чашку..., пожалуйста",
+                slots: [
+                    { word: "hot coffee", translation: "горячего кофе", full: "I would like a cup of hot coffee, please." },
+                    { word: "black tea", translation: "черного чая", full: "I would like a cup of black tea, please." },
+                    { word: "green tea", translation: "зеленого чая", full: "I would like a cup of green tea, please." },
+                    { word: "hot chocolate", translation: "горячего шоколада", full: "I would like a cup of hot chocolate, please." },
+                    { word: "warm water with lemon", translation: "теплой воды с лимоном", full: "I would like a cup of warm water with lemon, please." },
+                    { word: "cappuccino", translation: "капучино", full: "I would like a cup of cappuccino, please." },
+                    { word: "sweet tea", translation: "сладкого чая", full: "I would like a cup of sweet tea, please." }
+                ]
+            },
+            {
+                id: "can_i_have",
+                template: "Can I have a [ ... ], please?",
+                prefix: "Can I have a ",
+                suffix: ", please?",
+                translation: "Можно мне..., пожалуйста?",
+                slots: [
+                    { word: "glass of water", translation: "стакан воды", full: "Can I have a glass of water, please?" },
+                    { word: "menu", translation: "меню", full: "Can I have a menu, please?" },
+                    { word: "cup of coffee", translation: "чашку кофе", full: "Can I have a cup of coffee, please?" },
+                    { word: "sandwich", translation: "сэндвич", full: "Can I have a sandwich, please?" },
+                    { word: "receipt", translation: "чек", full: "Can I have a receipt, please?" },
+                    { word: "napkin", translation: "салфетку", full: "Can I have a napkin, please?" },
+                    { word: "bottle of juice", translation: "бутылку сока", full: "Can I have a bottle of juice, please?" }
+                ]
+            },
+            {
+                id: "want_to_go",
+                template: "I want to go to [ ... ]",
+                prefix: "I want to go to ",
+                suffix: ".",
+                translation: "Я хочу пойти / поехать в...",
+                slots: [
+                    { word: "the park", translation: "парк", full: "I want to go to the park." },
+                    { word: "the cafe", translation: "кафе", full: "I want to go to the cafe." },
+                    { word: "the cinema", translation: "кинотеатр", full: "I want to go to the cinema." },
+                    { word: "Italy this summer", translation: "Италию этим летом", full: "I want to go to Italy this summer." },
+                    { word: "bed early", translation: "спать пораньше", full: "I want to go to bed early." },
+                    { word: "the supermarket", translation: "супермаркет", full: "I want to go to the supermarket." },
+                    { word: "the beach", translation: "пляж", full: "I want to go to the beach." }
+                ]
+            },
+            {
+                id: "my_favorite_is",
+                template: "My favorite [ ... ] is...",
+                prefix: "My favorite ",
+                suffix: ".",
+                translation: "Мой любимый / Моя любимая...",
+                slots: [
+                    { word: "drink is hot tea", translation: "напиток — горячий чай", full: "My favorite drink is hot tea." },
+                    { word: "color is blue", translation: "цвет — синий", full: "My favorite color is blue." },
+                    { word: "city is London", translation: "город — Лондон", full: "My favorite city is London." },
+                    { word: "season is summer", translation: "время года — лето", full: "My favorite season is summer." },
+                    { word: "food is Italian pizza", translation: "еда — итальянская пицца", full: "My favorite food is Italian pizza." },
+                    { word: "pet is a small cat", translation: "питомец — маленькая кошка", full: "My favorite pet is a small cat." },
+                    { word: "day of the week is Saturday", translation: "день недели — суббота", full: "My favorite day of the week is Saturday." }
+                ]
+            },
+            {
+                id: "think_it_is",
+                template: "I think it is very [ ... ]",
+                prefix: "I think it is very ",
+                suffix: ".",
+                translation: "Я думаю, это очень...",
+                slots: [
+                    { word: "beautiful", translation: "красиво", full: "I think it is very beautiful." },
+                    { word: "interesting", translation: "интересно", full: "I think it is very interesting." },
+                    { word: "important", translation: "важно", full: "I think it is very important." },
+                    { word: "easy to do", translation: "легко сделать", full: "I think it is very easy to do." },
+                    { word: "delicious", translation: "вкусно", full: "I think it is very delicious." },
+                    { word: "useful for me", translation: "полезно для меня", full: "I think it is very useful for me." },
+                    { word: "comfortable", translation: "удобно / комфортно", full: "I think it is very comfortable." }
+                ]
+            },
+            {
+                id: "in_the_morning_usually",
+                template: "In the morning I usually [ ... ]",
+                prefix: "In the morning I usually ",
+                suffix: ".",
+                translation: "Утром я обычно...",
+                slots: [
+                    { word: "drink black coffee", translation: "пью черный кофе", full: "In the morning I usually drink black coffee." },
+                    { word: "eat two eggs", translation: "ем два яйца", full: "In the morning I usually eat two eggs." },
+                    { word: "take a warm shower", translation: "принимаю теплый душ", full: "In the morning I usually take a warm shower." },
+                    { word: "listen to calm music", translation: "слушаю спокойную музыку", full: "In the morning I usually listen to calm music." },
+                    { word: "check my messages", translation: "проверяю сообщения", full: "In the morning I usually check my messages." },
+                    { word: "read the news", translation: "читаю новости", full: "In the morning I usually read the news." },
+                    { word: "go for a short walk", translation: "иду на короткую прогулку", full: "In the morning I usually go for a short walk." }
+                ]
+            },
+            {
+                id: "after_work_like",
+                template: "After work I like to [ ... ]",
+                prefix: "After work I like to ",
+                suffix: ".",
+                translation: "После работы мне нравится...",
+                slots: [
+                    { word: "relax at home", translation: "отдыхать дома", full: "After work I like to relax at home." },
+                    { word: "walk in the green park", translation: "гулять в зеленом парке", full: "After work I like to walk in the green park." },
+                    { word: "cook dinner with music", translation: "готовить ужин под музыку", full: "After work I like to cook dinner with music." },
+                    { word: "watch a good movie", translation: "смотреть хороший фильм", full: "After work I like to watch a good movie." },
+                    { word: "talk to my family", translation: "разговаривать с семьей", full: "After work I like to talk to my family." },
+                    { word: "read an interesting book", translation: "читать интересную книгу", full: "After work I like to read an interesting book." }
+                ]
+            },
+            {
+                id: "on_weekends_often",
+                template: "On weekends we often [ ... ]",
+                prefix: "On weekends we often ",
+                suffix: ".",
+                translation: "По выходным мы часто...",
+                slots: [
+                    { word: "meet our good friends", translation: "встречаемся с хорошими друзьями", full: "On weekends we often meet our good friends." },
+                    { word: "go to a nice cafe", translation: "ходим в приятное кафе", full: "On weekends we often go to a nice cafe." },
+                    { word: "sleep late in the morning", translation: "долго спим утром", full: "On weekends we often sleep late in the morning." },
+                    { word: "clean the whole house", translation: "убираем весь дом", full: "On weekends we often clean the whole house." },
+                    { word: "watch funny movies together", translation: "вместе смотрим смешные фильмы", full: "On weekends we often watch funny movies together." },
+                    { word: "go for a long walk", translation: "отправляемся на долгую прогулку", full: "On weekends we often go for a long walk." }
+                ]
+            },
+            {
+                id: "am_very_now",
+                template: "I am very [ ... ] right now",
+                prefix: "I am very ",
+                suffix: " right now.",
+                translation: "Сейчас я очень...",
+                slots: [
+                    { word: "happy", translation: "счастлив(а)", full: "I am very happy right now." },
+                    { word: "tired", translation: "устал(а)", full: "I am very tired right now." },
+                    { word: "hungry", translation: "голоден / голодна", full: "I am very hungry right now." },
+                    { word: "busy with work", translation: "занят(а) работой", full: "I am very busy with work right now." },
+                    { word: "calm and relaxed", translation: "спокоен(йна) и расслаблен(а)", full: "I am very calm and relaxed right now." },
+                    { word: "ready to speak English", translation: "готов(а) говорить по-английски", full: "I am very ready to speak English right now." }
+                ]
+            },
+            {
+                id: "it_is_too",
+                template: "It is too [ ... ] today",
+                prefix: "It is too ",
+                suffix: " today.",
+                translation: "Сегодня слишком...",
+                slots: [
+                    { word: "cold outside", translation: "холодно на улице", full: "It is too cold outside today." },
+                    { word: "hot in the room", translation: "жарко в комнате", full: "It is too hot in the room today." },
+                    { word: "noisy here", translation: "шумно здесь", full: "It is too noisy here today." },
+                    { word: "late to go out", translation: "поздно выходить на улицу", full: "It is too late to go out today." },
+                    { word: "dark outside", translation: "темно на улице", full: "It is too dark outside today." },
+                    { word: "expensive", translation: "дорого", full: "It is too expensive today." }
+                ]
+            },
+            {
+                id: "where_is_nearest",
+                template: "Where is the nearest [ ... ] ?",
+                prefix: "Where is the nearest ",
+                suffix: "?",
+                translation: "Где находится ближайший(ая)...?",
+                slots: [
+                    { word: "subway station", translation: "станция метро", full: "Where is the nearest subway station?" },
+                    { word: "pharmacy", translation: "аптека", full: "Where is the nearest pharmacy?" },
+                    { word: "supermarket", translation: "супермаркет", full: "Where is the nearest supermarket?" },
+                    { word: "coffee shop", translation: "кофейня", full: "Where is the nearest coffee shop?" },
+                    { word: "bus stop", translation: "автобусная остановка", full: "Where is the nearest bus stop?" },
+                    { word: "bank with ATM", translation: "банк с банкоматом", full: "Where is the nearest bank with ATM?" }
+                ]
+            },
+            {
+                id: "how_much_is",
+                template: "How much is this [ ... ] ?",
+                prefix: "How much is this ",
+                suffix: "?",
+                translation: "Сколько стоит этот(эта)...?",
+                slots: [
+                    { word: "cup of coffee", translation: "чашка кофе", full: "How much is this cup of coffee?" },
+                    { word: "white t-shirt", translation: "белая футболка", full: "How much is this white t-shirt?" },
+                    { word: "English book", translation: "книга на английском", full: "How much is this English book?" },
+                    { word: "bottle of water", translation: "бутылка воды", full: "How much is this bottle of water?" },
+                    { word: "train ticket", translation: "билет на поезд", full: "How much is this train ticket?" },
+                    { word: "tasty sandwich", translation: "вкусный сэндвич", full: "How much is this tasty sandwich?" }
+                ]
+            },
+            {
+                id: "last_weekend_went",
+                template: "Last weekend I went to [ ... ]",
+                prefix: "Last weekend I went to ",
+                suffix: ".",
+                translation: "В прошлые выходные я ездил(а) / ходил(а) в...",
+                slots: [
+                    { word: "the central park", translation: "центральный парк", full: "Last weekend I went to the central park." },
+                    { word: "a lovely cafe", translation: "уютное кафе", full: "Last weekend I went to a lovely cafe." },
+                    { word: "the cinema with my friends", translation: "кинотеатр с друзьями", full: "Last weekend I went to the cinema with my friends." },
+                    { word: "the big supermarket", translation: "большой супермаркет", full: "Last weekend I went to the big supermarket." },
+                    { word: "another beautiful city", translation: "другой красивый город", full: "Last weekend I went to another beautiful city." },
+                    { word: "the sandy beach", translation: "песчаный пляж", full: "Last weekend I went to the sandy beach." }
+                ]
+            },
+            {
+                id: "i_am_learning",
+                template: "I am learning [ ... ]",
+                prefix: "I am learning ",
+                suffix: ".",
+                translation: "Я учусь / изучаю...",
+                slots: [
+                    { word: "English every day", translation: "английский каждый день", full: "I am learning English every day." },
+                    { word: "new English words", translation: "новые английские слова", full: "I am learning new English words." },
+                    { word: "how to drive a car", translation: "как водить машину", full: "I am learning how to drive a car." },
+                    { word: "how to cook pasta", translation: "как готовить пасту", full: "I am learning how to cook pasta." },
+                    { word: "to speak fluently", translation: "говорить свободно", full: "I am learning to speak fluently." },
+                    { word: "to play the piano", translation: "играть на пианино", full: "I am learning to play the piano." }
+                ]
+            }
+        ];
+    }
+
+    getRandomWarmupPattern(excludeId = null) {
+        const pool = excludeId ? this.warmupPatterns.filter(p => p.id !== excludeId) : this.warmupPatterns;
+        const list = pool.length > 0 ? pool : this.warmupPatterns;
+        return list[Math.floor(Math.random() * list.length)];
     }
 
     getRandomTopic(categoryId = "all") {

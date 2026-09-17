@@ -448,27 +448,47 @@ class PatternDrillsEngine {
         if (expSpoken === expTarget) return true;
         if (cleanSpoken === cleanTarget) return true;
 
-        // 3. Word token matching with critical auxiliary validation
+        // 3. Strict sequential token matching (words MUST be in the exact grammatical order)
         const spokenWords = expSpoken.split(' ').filter(Boolean);
         const targetWords = expTarget.split(' ').filter(Boolean);
         if (targetWords.length === 0) return true;
 
-        const criticalAuxiliaries = ['am', 'is', 'are', 'was', 'were', 'do', 'does', 'did', 'not', 'will', 'would', 'can', 'cannot', 'could', 'should', 'must', 'have', 'has', 'had'];
-        for (const aux of criticalAuxiliaries) {
-            if (targetWords.includes(aux) && !spokenWords.includes(aux)) {
-                return false;
-            }
-            if (!targetWords.includes(aux) && spokenWords.includes(aux)) {
+        // Length check: Reject if user spoke too many extra words (e.g. double tags or rambling self-corrections)
+        if (Math.abs(spokenWords.length - targetWords.length) > 1) {
+            return false;
+        }
+
+        // Check auxiliary position in Questions (e.g. "Did the doctor..." vs "The doctor did...")
+        const questionStarters = ['did', 'do', 'does', 'is', 'are', 'was', 'were', 'can', 'will', 'have', 'has'];
+        if (questionStarters.includes(targetWords[0]) && spokenWords[0] !== targetWords[0]) {
+            return false;
+        }
+
+        // Check tag question endings (last words must match tag question structure)
+        if (targetText.includes('?')) {
+            const lastTargetWord = targetWords[targetWords.length - 1];
+            const lastSpokenWord = spokenWords[spokenWords.length - 1];
+            if (lastTargetWord !== lastSpokenWord) {
                 return false;
             }
         }
 
-        let matches = 0;
-        targetWords.forEach(w => {
-            if (spokenWords.includes(w)) matches++;
-        });
-        const ratio = matches / targetWords.length;
-        return ratio >= 0.85;
+        // Position-by-position sequential alignment (allowing at most 1 minor STT glitch on content words, NEVER on grammar auxiliaries)
+        let mismatchCount = 0;
+        const maxLen = Math.max(spokenWords.length, targetWords.length);
+        for (let i = 0; i < maxLen; i++) {
+            const sWord = spokenWords[i];
+            const tWord = targetWords[i];
+            if (sWord !== tWord) {
+                mismatchCount++;
+                const grammarWords = ['am', 'is', 'are', 'was', 'were', 'do', 'does', 'did', 'not', 'will', 'would', 'can', 'cannot', 'could', 'should', 'must', 'have', 'has', 'had', 'i', 'you', 'he', 'she', 'it', 'we', 'they', 'there'];
+                if ((tWord && grammarWords.includes(tWord)) || (sWord && grammarWords.includes(sWord))) {
+                    return false;
+                }
+            }
+        }
+
+        return mismatchCount <= 1 && targetWords.length >= 5;
     }
 }
 

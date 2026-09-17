@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Instantiate Core Services
     const aiService = new AIService();
     const flashcardEngine = new FlashcardEngine();
+    window.flashcardEngine = flashcardEngine;
     const rpgEngine = new RPGEngine();
     const voiceService = new VoiceService();
     window.voiceService = voiceService;
@@ -598,15 +599,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (btnWordStats) {
         btnWordStats.addEventListener("click", () => {
-            const hero = rpgEngine.heroes.find(h => h.id === activeShowcaseHeroId) || rpgEngine.heroes[0];
-            openHeroWordStatsModal(hero);
+            try {
+                const hero = (typeof rpgEngine !== 'undefined' && rpgEngine.heroes)
+                    ? (rpgEngine.heroes.find(h => h.id === activeShowcaseHeroId) || rpgEngine.heroes[0])
+                    : null;
+                openHeroWordStatsModal(hero);
+            } catch (err) {
+                console.error("Error opening word stats:", err);
+                const modal = document.getElementById("hero-word-stats-modal");
+                if (modal) modal.classList.remove("hidden");
+            }
         });
     }
 
     if (btnStory) {
         btnStory.addEventListener("click", () => {
-            const hero = rpgEngine.heroes.find(h => h.id === activeShowcaseHeroId) || rpgEngine.heroes[0];
-            openHeroStoryModal(hero);
+            try {
+                const hero = (typeof rpgEngine !== 'undefined' && rpgEngine.heroes)
+                    ? (rpgEngine.heroes.find(h => h.id === activeShowcaseHeroId) || rpgEngine.heroes[0])
+                    : null;
+                openHeroStoryModal(hero);
+            } catch (err) {
+                console.error("Error opening story campaign:", err);
+                const modal = document.getElementById("modal-hero-story");
+                if (modal) modal.classList.remove("hidden");
+            }
         });
     }
 
@@ -1264,14 +1281,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (btnChat) {
         btnChat.addEventListener("click", () => {
-            currentScenarioCategory = 'heroes';
-            const heroScenario = SCENARIOS.find(sc => sc.isHeroScenario && sc.heroId === activeShowcaseHeroId) || SCENARIOS.find(sc => sc.isHeroScenario);
-            if (heroScenario) {
-                selectScenario(heroScenario);
+            try {
+                currentScenarioCategory = 'heroes';
+                if (typeof SCENARIOS !== 'undefined' && Array.isArray(SCENARIOS)) {
+                    const heroScenario = SCENARIOS.find(sc => sc.isHeroScenario && sc.heroId === activeShowcaseHeroId) || SCENARIOS.find(sc => sc.isHeroScenario);
+                    if (heroScenario) {
+                        selectScenario(heroScenario);
+                    }
+                }
+                const scListContainer = document.getElementById("scenarios-list");
+                if (scListContainer) scListContainer.classList.add("hidden");
+            } catch (err) {
+                console.error("Error opening chat:", err);
             }
-            const scListContainer = document.getElementById("scenarios-list");
-            if (scListContainer) scListContainer.classList.add("hidden");
-
             const chatModal = document.getElementById("modal-hero-chat");
             if (chatModal) chatModal.classList.remove("hidden");
         });
@@ -1279,8 +1301,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (btnCall) {
         btnCall.addEventListener("click", () => {
-            activeLiveHeroId = activeShowcaseHeroId;
-            renderLiveHeroPicker();
+            try {
+                activeLiveHeroId = activeShowcaseHeroId;
+                renderLiveHeroPicker();
+                if (typeof window.setup432Sprint === "function") {
+                    window.setup432Sprint();
+                }
+            } catch (err) {
+                console.error("Error opening speaking studio:", err);
+            }
             const liveModal = document.getElementById("modal-hero-live");
             if (liveModal) liveModal.classList.remove("hidden");
         });
@@ -1288,15 +1317,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (btnWords) {
         btnWords.addEventListener("click", () => {
-            const hero = rpgEngine.heroes.find(h => h.id === activeShowcaseHeroId) || rpgEngine.heroes[0];
-            if (hero) {
-                const cefrLabel = hero.cefrLevel.split(' ')[0];
-                const deckName = `${hero.name}'s Pack (${cefrLabel})`;
-                flashcardEngine.currentCategory = deckName;
-                flashcardEngine.batchIndex = 0;
-                flashcardEngine.currentIndex = 0;
+            try {
+                if (typeof flashcardEngine !== 'undefined') {
+                    flashcardEngine.decks = flashcardEngine.loadDecks();
+                    const dueCount = flashcardEngine.getDueCardsCount();
+                    if (dueCount > 0) {
+                        flashcardEngine.currentCategory = "🧠 Due for SRS Review";
+                        flashcardEngine.batchIndex = 0;
+                        flashcardEngine.currentIndex = 0;
+                        flashcardEngine.refreshDueCards();
+                    } else {
+                        const hero = (typeof rpgEngine !== 'undefined' && rpgEngine.heroes) 
+                            ? (rpgEngine.heroes.find(h => h.id === activeShowcaseHeroId) || rpgEngine.heroes[0]) 
+                            : null;
+                        if (hero) {
+                            const cefrLabel = hero.cefrLevel ? hero.cefrLevel.split(' ')[0] : 'A0';
+                            const deckName = `${hero.name}'s Pack (${cefrLabel})`;
+                            flashcardEngine.currentCategory = deckName;
+                            flashcardEngine.autoAdvanceBatch();
+                            flashcardEngine.currentIndex = 0;
+                        }
+                    }
+                }
+                lastAutoPlayedCardKey = "";
+                renderFlashcardsUI();
+            } catch (err) {
+                console.error("Error opening words modal:", err);
             }
-            renderFlashcardsUI();
             const wordsModal = document.getElementById("modal-hero-words");
             if (wordsModal) wordsModal.classList.remove("hidden");
         });
@@ -1304,6 +1351,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (btnRules) {
         btnRules.addEventListener("click", () => {
+            try {
+                renderGrammarUI();
+            } catch (err) {
+                console.error("Error rendering grammar:", err);
+            }
             const grammarModal = document.getElementById("modal-hero-grammar");
             if (grammarModal) grammarModal.classList.remove("hidden");
         });
@@ -1326,7 +1378,10 @@ document.addEventListener("DOMContentLoaded", () => {
     // Modal Close Buttons
     document.querySelectorAll(".modal-close-btn").forEach(btn => {
         btn.addEventListener("click", () => {
-            btn.closest(".rpg-modal-overlay").classList.add("hidden");
+            if (window.voiceService && typeof window.voiceService.stopSpeech === 'function') {
+                window.voiceService.stopSpeech();
+            }
+            btn.closest(".rpg-modal-overlay")?.classList.add("hidden");
         });
     });
 
@@ -1340,7 +1395,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    function showToast(msg, bg = "linear-gradient(135deg, #1e1b4b, #312e81)", borderColor = "#818cf8") {
+    function showToast(msg, bg = "linear-gradient(135deg, #1e1b4b, #312e81)", borderColor = "#818cf8", duration = 3000) {
         let container = document.getElementById("toast-container");
         if (!container) {
             container = document.createElement("div");
@@ -1353,26 +1408,25 @@ document.addEventListener("DOMContentLoaded", () => {
         toast.style.background = bg;
         toast.style.border = `1.5px solid ${borderColor}`;
         toast.style.color = "white";
-        toast.style.padding = "12px 18px";
+        toast.style.padding = "10px 16px";
         toast.style.borderRadius = "12px";
         toast.style.boxShadow = "0 10px 25px rgba(0,0,0,0.5)";
         toast.style.fontSize = "13px";
         toast.style.fontWeight = "600";
         toast.style.lineHeight = "1.4";
-        toast.style.pointerEvents = "auto";
         toast.innerHTML = msg;
 
         container.appendChild(toast);
 
-        while (container.children.length > 4) {
+        while (container.children.length > 3) {
             container.removeChild(container.firstChild);
         }
 
         setTimeout(() => {
             toast.style.opacity = "0";
-            toast.style.transform = "translateX(100%)";
+            toast.style.transform = window.innerWidth <= 768 ? "translateY(-20px)" : "translateX(100%)";
             setTimeout(() => toast.remove(), 300);
-        }, 4000);
+        }, duration);
     }
 
     function triggerRPGReward(activity, targetHeroIds = null, materialSourceHeroId = null, customBaseXp = null, customToastMsg = null, customBg = null) {
@@ -1389,13 +1443,16 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         const bg = customBg || (reward.isFocusBonus ? "linear-gradient(135deg, #ec4899, #8b5cf6)" : "rgba(236, 72, 153, 0.9)");
-        const toastMsg = customToastMsg || `<i class="fa-solid fa-bolt"></i> ${heroNamesStr} Gained +${reward.xpAmount} XP!${bonusTag}${blockedMsg}`;
+        const toastMsg = customToastMsg || (activity === "card" 
+            ? `<i class="fa-solid fa-bolt"></i> +${reward.xpAmount} XP <b>${heroNamesStr}</b>${bonusTag}`
+            : `<i class="fa-solid fa-bolt"></i> ${heroNamesStr} Gained +${reward.xpAmount} XP!${bonusTag}${blockedMsg}`);
 
-        showToast(toastMsg, bg);
+        const toastDuration = activity === "card" ? 1800 : 3500;
+        showToast(toastMsg, bg, "#818cf8", toastDuration);
 
         if (reward.leveledUpHeroes && reward.leveledUpHeroes.length > 0) {
             reward.leveledUpHeroes.forEach(lvlData => {
-                showToast(`🎉 <b>LEVEL UP!</b> ${lvlData.hero.name} достиг <b>Уровня ${lvlData.newLevel}</b>! (+${lvlData.hpGain} HP, +${lvlData.atkGain} ATK, +${lvlData.defGain} DEF)`, "linear-gradient(135deg, #f59e0b, #ec4899)", "#fbbf24");
+                showToast(`🎉 <b>LEVEL UP!</b> ${lvlData.hero.name} достиг <b>Уровня ${lvlData.newLevel}</b>! (+${lvlData.hpGain} HP, +${lvlData.atkGain} ATK, +${lvlData.defGain} DEF)`, "linear-gradient(135deg, #f59e0b, #ec4899)", "#fbbf24", 4500);
             });
             updateChatHeroExpBar(true, reward.leveledUpHeroes[0]);
         } else {
@@ -2059,6 +2116,10 @@ document.addEventListener("DOMContentLoaded", () => {
             localStorage.setItem("english_pulse_last_streak_date", todayStr);
             localStorage.setItem("english_pulse_last_quest_date", todayStr);
             localStorage.setItem("english_pulse_streak", currentStreak);
+            localStorage.setItem("english_rpg_streak_days", currentStreak);
+            if (typeof syncPlayerStateToServer === 'function') {
+                syncPlayerStateToServer(true);
+            }
 
             const triggerSection = (progress.completedPathways && progress.completedPathways.length > 0)
                 ? progress.completedPathways[0].name
@@ -2202,6 +2263,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const m = document.getElementById("modal-hero-drills");
             if (m) m.classList.remove("hidden");
         } else if (modalId === 'modal-hero-live') {
+            if (typeof window.setup432Sprint === "function") {
+                window.setup432Sprint();
+            }
             const m = document.getElementById("modal-hero-live");
             if (m) m.classList.remove("hidden");
         } else if (modalId === 'modal-hero-story') {
@@ -2603,14 +2667,33 @@ document.addEventListener("DOMContentLoaded", () => {
     let syncTimeout = null;
 
     function getFullPlayerStateObject() {
+        const todayStr = getTodayStreakDateStr ? getTodayStreakDateStr() : new Date().toISOString().split('T')[0];
+        const streakVal = parseInt(localStorage.getItem("english_pulse_streak") || localStorage.getItem("english_rpg_streak_days") || "0", 10);
+        const freezeVal = parseInt(localStorage.getItem("english_pulse_freeze_count") || "1", 10);
+        const lastStreakDate = localStorage.getItem("english_pulse_last_streak_date") || localStorage.getItem("english_pulse_last_quest_date") || "";
+
         return {
             heroes: rpgEngine.heroes,
             cards: (typeof flashcardEngine !== 'undefined' && flashcardEngine.decks) ? flashcardEngine.decks : (JSON.parse(localStorage.getItem("english_rpg_flashcard_decks") || "{}")),
-            streak: parseInt(localStorage.getItem("english_rpg_streak_days") || "0", 10),
+            streak: streakVal,
+            streak_days: streakVal,
+            freeze_count: freezeVal,
+            last_streak_date: lastStreakDate,
+            last_quest_date: lastStreakDate,
+            today_streak_date: todayStr,
+            today_daily_progress: {
+                vocab_cards: parseInt(localStorage.getItem(`english_pulse_today_vocab_cards_${todayStr}`) || '0', 10),
+                grammar_done: parseInt(localStorage.getItem(`english_pulse_today_grammar_done_${todayStr}`) || '0', 10),
+                drills_cards: parseInt(localStorage.getItem(`english_pulse_today_drills_cards_${todayStr}`) || '0', 10),
+                speaking_words: parseInt(localStorage.getItem(`english_pulse_today_speaking_words_${todayStr}`) || '0', 10),
+                story_done: parseInt(localStorage.getItem(`english_pulse_today_story_done_${todayStr}`) || '0', 10),
+                audiobook_sentences: parseInt(localStorage.getItem(`english_pulse_today_audiobook_sentences_${todayStr}`) || '0', 10)
+            },
             writing_words: parseInt(localStorage.getItem("english_pulse_writing_words") || "0", 10),
             listening_words: parseInt(localStorage.getItem("english_pulse_listening_words") || "0", 10),
             speaking_words: parseInt(localStorage.getItem("english_pulse_speaking_words") || "0", 10),
             drills_cards: parseInt(localStorage.getItem("english_pulse_drills_cards") || "0", 10),
+            speech_drills_mastery: JSON.parse(localStorage.getItem("english_pulse_speech_drills_mastery") || "{}"),
             visual_fluency_xp: parseInt(localStorage.getItem("visual_fluency_xp") || "0", 10),
             visual_fluency_completed: JSON.parse(localStorage.getItem("visual_fluency_completed_chapters") || "[]"),
             completed_story_chapters: JSON.parse(localStorage.getItem("english_rpg_completed_story_chapters") || "[]"),
@@ -2636,7 +2719,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (immediate) {
             await executeSync();
         } else {
-            syncTimeout = setTimeout(executeSync, 1000);
+            syncTimeout = setTimeout(executeSync, 800);
         }
     }
 
@@ -2645,66 +2728,195 @@ document.addEventListener("DOMContentLoaded", () => {
             const resp = await fetch("/api/player/sync");
             if (!resp.ok) return;
             const data = await resp.json();
-            
-            const localHeroes = rpgEngine.heroes;
-            const localTotalHeroLvl = localHeroes.reduce((sum, h) => sum + (h.level || 1), 0);
-            
-            if (data.success && data.state && Array.isArray(data.state.heroes) && data.state.heroes.length > 0) {
-                const remoteHeroes = data.state.heroes;
-                const remoteTotalHeroLvl = remoteHeroes.reduce((sum, h) => sum + (h.level || 1), 0);
+            if (!data.success || !data.state) return;
+            const s = data.state;
+            let hasLocalUpdatesToPush = false;
+            const todayStr = getTodayStreakDateStr ? getTodayStreakDateStr() : new Date().toISOString().split('T')[0];
 
-                if (remoteTotalHeroLvl > localTotalHeroLvl || (remoteTotalHeroLvl === localTotalHeroLvl && remoteTotalHeroLvl > 10)) {
-                    // Mobile pulling newer/equal progress from PC/Server
-                    remoteHeroes.forEach(rh => {
-                        const lh = localHeroes.find(h => h.id === rh.id);
-                        if (lh) {
-                            lh.level = rh.level || lh.level;
+            // 1. HEROES MERGE (Always take maximum level/xp per hero)
+            if (Array.isArray(s.heroes) && s.heroes.length > 0) {
+                const localHeroes = rpgEngine.heroes;
+                let heroesChanged = false;
+                s.heroes.forEach(rh => {
+                    const lh = localHeroes.find(h => h.id === rh.id);
+                    if (lh) {
+                        const remoteLvl = rh.level || 1;
+                        const localLvl = lh.level || 1;
+                        if (remoteLvl > localLvl || (remoteLvl === localLvl && (rh.xp || 0) > (lh.xp || 0))) {
+                            lh.level = rh.level;
                             lh.xp = rh.xp !== undefined ? rh.xp : lh.xp;
                             lh.maxXp = rh.maxXp || lh.maxXp;
-                            lh.affinityLevel = rh.affinityLevel || lh.affinityLevel;
+                            lh.affinityLevel = Math.max(lh.affinityLevel || 1, rh.affinityLevel || 1);
                             lh.unlocked = rh.unlocked !== undefined ? rh.unlocked : lh.unlocked;
+                            heroesChanged = true;
+                        } else if (localLvl > remoteLvl || (localLvl === remoteLvl && (lh.xp || 0) > (rh.xp || 0))) {
+                            hasLocalUpdatesToPush = true;
+                        }
+                    }
+                });
+                if (heroesChanged) {
+                    rpgEngine.save();
+                }
+            }
+
+            // 2. STREAK MERGE (Intelligently resolve multi-device streak)
+            const localStreak = parseInt(localStorage.getItem("english_pulse_streak") || localStorage.getItem("english_rpg_streak_days") || "0", 10);
+            const remoteStreak = Math.max(s.streak || 0, s.streak_days || 0);
+            const localLastDate = localStorage.getItem("english_pulse_last_streak_date") || localStorage.getItem("english_pulse_last_quest_date") || "";
+            const remoteLastDate = s.last_streak_date || s.last_quest_date || "";
+
+            const bestStreak = Math.max(localStreak, remoteStreak);
+            const bestLastDate = (remoteLastDate >= localLastDate) ? remoteLastDate : (localLastDate || remoteLastDate);
+
+            if (bestStreak > 0) {
+                localStorage.setItem("english_pulse_streak", bestStreak.toString());
+                localStorage.setItem("english_rpg_streak_days", bestStreak.toString());
+            }
+            if (bestLastDate) {
+                localStorage.setItem("english_pulse_last_streak_date", bestLastDate);
+                localStorage.setItem("english_pulse_last_quest_date", bestLastDate);
+            }
+            if (s.freeze_count !== undefined) {
+                const localFreeze = parseInt(localStorage.getItem("english_pulse_freeze_count") || "1", 10);
+                localStorage.setItem("english_pulse_freeze_count", Math.min(localFreeze, parseInt(s.freeze_count, 10)).toString());
+            }
+            if (localStreak > remoteStreak) {
+                hasLocalUpdatesToPush = true;
+            }
+
+            // 3. TODAY'S ACTIVITY MERGE
+            if (s.today_daily_progress && s.today_streak_date === todayStr) {
+                const p = s.today_daily_progress;
+                const mergeCounter = (key, remoteVal) => {
+                    if (remoteVal !== undefined && remoteVal !== null) {
+                        const cur = parseInt(localStorage.getItem(key) || '0', 10);
+                        const maxVal = Math.max(cur, parseInt(remoteVal, 10));
+                        localStorage.setItem(key, maxVal.toString());
+                        if (cur > parseInt(remoteVal, 10)) hasLocalUpdatesToPush = true;
+                    }
+                };
+                mergeCounter(`english_pulse_today_vocab_cards_${todayStr}`, p.vocab_cards);
+                mergeCounter(`english_pulse_today_grammar_done_${todayStr}`, p.grammar_done);
+                mergeCounter(`english_pulse_today_drills_cards_${todayStr}`, p.drills_cards);
+                mergeCounter(`english_pulse_today_speaking_words_${todayStr}`, p.speaking_words);
+                mergeCounter(`english_pulse_today_story_done_${todayStr}`, p.story_done);
+                mergeCounter(`english_pulse_today_audiobook_sentences_${todayStr}`, p.audiobook_sentences);
+            }
+
+            // 4. SKILL WORDS & XP STATS MERGE (Take highest progress made)
+            const mergeSkillStat = (localKey, remoteVal, engineReloadCallback) => {
+                if (remoteVal !== undefined && remoteVal !== null) {
+                    const localVal = parseInt(localStorage.getItem(localKey) || "0", 10);
+                    const remoteNum = parseInt(remoteVal, 10);
+                    if (remoteNum > localVal) {
+                        localStorage.setItem(localKey, remoteNum.toString());
+                        if (engineReloadCallback) engineReloadCallback();
+                    } else if (localVal > remoteNum) {
+                        hasLocalUpdatesToPush = true;
+                    }
+                }
+            };
+
+            mergeSkillStat("english_pulse_writing_words", s.writing_words);
+            mergeSkillStat("english_pulse_listening_words", s.listening_words);
+            mergeSkillStat("english_pulse_speaking_words", s.speaking_words, () => {
+                if (window.speakingEngine && typeof window.speakingEngine.loadState === 'function') window.speakingEngine.loadState();
+            });
+            mergeSkillStat("english_pulse_drills_cards", s.drills_cards, () => {
+                if (window.patternDrills && typeof window.patternDrills.loadState === 'function') window.patternDrills.loadState();
+            });
+            mergeSkillStat("visual_fluency_xp", s.visual_fluency_xp, () => {
+                if (window.visualFluency && typeof window.visualFluency.loadState === 'function') window.visualFluency.loadState();
+            });
+
+            if (s.speech_drills_mastery && typeof s.speech_drills_mastery === 'object') {
+                try {
+                    const localRaw = localStorage.getItem("english_pulse_speech_drills_mastery");
+                    const localMastery = localRaw ? JSON.parse(localRaw) : {};
+                    let changed = false;
+                    Object.keys(s.speech_drills_mastery).forEach(id => {
+                        const rReps = parseInt(s.speech_drills_mastery[id] || 0, 10);
+                        const lReps = parseInt(localMastery[id] || 0, 10);
+                        if (rReps > lReps) {
+                            localMastery[id] = rReps;
+                            changed = true;
                         }
                     });
-                    rpgEngine.save();
+                    if (changed) {
+                        localStorage.setItem("english_pulse_speech_drills_mastery", JSON.stringify(localMastery));
+                        if (window.speechDrillsEngine) window.speechDrillsEngine.loadState();
+                    }
+                } catch(e) {}
+            }
 
-                    const s = data.state;
-                    if (s.writing_words !== undefined) localStorage.setItem("english_pulse_writing_words", s.writing_words.toString());
-                    if (s.listening_words !== undefined) localStorage.setItem("english_pulse_listening_words", s.listening_words.toString());
-                    if (s.speaking_words !== undefined) {
-                        localStorage.setItem("english_pulse_speaking_words", s.speaking_words.toString());
-                        if (window.speakingEngine) window.speakingEngine.loadState();
-                    }
-                    if (s.drills_cards !== undefined) {
-                        localStorage.setItem("english_pulse_drills_cards", s.drills_cards.toString());
-                        if (window.patternDrills) window.patternDrills.loadState();
-                    }
-                    if (s.visual_fluency_xp !== undefined) {
-                        localStorage.setItem("visual_fluency_xp", s.visual_fluency_xp.toString());
-                        if (window.visualFluency) window.visualFluency.loadState();
-                    }
-                    if (s.streak !== undefined) localStorage.setItem("english_rpg_streak_days", s.streak.toString());
-                    if (s.cards && Object.keys(s.cards).length > 0) {
-                        localStorage.setItem("english_rpg_flashcard_decks", JSON.stringify(s.cards));
-                        if (typeof flashcardEngine !== 'undefined') flashcardEngine.decks = s.cards;
-                    }
-                    if (s.completed_story_chapters) {
-                        localStorage.setItem("english_rpg_completed_story_chapters", JSON.stringify(s.completed_story_chapters));
-                    }
-                    if (s.eldrin_audiobook_state) {
-                        localStorage.setItem("eldrin_audiobook_state", JSON.stringify(s.eldrin_audiobook_state));
-                        if (typeof window.loadEldrinAudiobookState === 'function') window.loadEldrinAudiobookState(s.eldrin_audiobook_state);
-                    }
+            // 5. CARDS SRS DECKS MERGE
+            if (s.cards && Object.keys(s.cards).length > 0) {
+                const wordsModal = document.getElementById("modal-hero-words");
+                const isVocabOpen = wordsModal && !wordsModal.classList.contains("hidden");
 
-                    renderRPGHeader();
-                    renderHeroShowcase(activeShowcaseHeroId || rpgEngine.heroes[0].id);
-                    renderBottomHeroCarousel();
-                } else if (localTotalHeroLvl > remoteTotalHeroLvl) {
-                    // Local PC has newer progress, push to server immediately!
-                    syncPlayerStateToServer(true);
+                if (typeof flashcardEngine !== 'undefined' && flashcardEngine.decks) {
+                    let localModified = false;
+                    Object.keys(s.cards).forEach(cat => {
+                        if (cat === "🧠 Due for SRS Review") return;
+                        if (!flashcardEngine.decks[cat]) {
+                            flashcardEngine.decks[cat] = s.cards[cat];
+                        } else {
+                            const localList = flashcardEngine.decks[cat];
+                            (s.cards[cat] || []).forEach(remoteCard => {
+                                const localCard = localList.find(c => c.word && remoteCard.word && c.word.toLowerCase() === remoteCard.word.toLowerCase());
+                                if (localCard) {
+                                    const remoteReps = remoteCard.repetitions || 0;
+                                    const localReps = localCard.repetitions || 0;
+                                    const remoteNext = remoteCard.nextReviewDate || 0;
+                                    const localNext = localCard.nextReviewDate || 0;
+                                    if (remoteReps > localReps || remoteNext > localNext) {
+                                        localCard.studied = remoteCard.studied || localCard.studied;
+                                        localCard.repetitions = remoteReps;
+                                        localCard.interval = remoteCard.interval || localCard.interval;
+                                        localCard.easeFactor = remoteCard.easeFactor || localCard.easeFactor;
+                                        localCard.nextReviewDate = remoteNext;
+                                    } else if (localReps > remoteReps || localNext > remoteNext) {
+                                        localModified = true;
+                                    }
+                                }
+                            });
+                        }
+                    });
+                    flashcardEngine.saveDecks();
+                    if (localModified) hasLocalUpdatesToPush = true;
+                    // Protect in-progress study session: do not wipe active SRS review queue while user is reviewing!
+                    if (!isVocabOpen) {
+                        flashcardEngine.refreshDueCards();
+                    }
+                } else {
+                    const cardsJson = JSON.stringify(s.cards);
+                    localStorage.setItem("english_pulse_decks_srs_v10", cardsJson);
+                    localStorage.setItem("english_rpg_flashcard_decks", cardsJson);
                 }
-            } else if (localTotalHeroLvl > 10) {
-                // Initial push from PC to server
-                syncPlayerStateToServer(true);
+            }
+
+            // 6. STORY CAMPAIGN CHAPTERS MERGE
+            if (Array.isArray(s.completed_story_chapters)) {
+                const localChapters = JSON.parse(localStorage.getItem("english_rpg_completed_story_chapters") || "[]");
+                const mergedChapters = Array.from(new Set([...localChapters, ...s.completed_story_chapters]));
+                localStorage.setItem("english_rpg_completed_story_chapters", JSON.stringify(mergedChapters));
+                if (localChapters.length > s.completed_story_chapters.length) hasLocalUpdatesToPush = true;
+            }
+
+            // 7. AUDIOBOOK PROGRESS
+            if (s.eldrin_audiobook_state) {
+                localStorage.setItem("eldrin_audiobook_state", JSON.stringify(s.eldrin_audiobook_state));
+                if (typeof window.loadEldrinAudiobookState === 'function') window.loadEldrinAudiobookState(s.eldrin_audiobook_state);
+            }
+
+            // 8. UPDATE UI & PUSH BACK IF NEEDED
+            checkAndUpdateDailyStreak();
+            renderRPGHeader();
+            renderHeroShowcase(activeShowcaseHeroId || rpgEngine.heroes[0].id);
+            renderBottomHeroCarousel();
+
+            if (hasLocalUpdatesToPush) {
+                syncPlayerStateToServer(false);
             }
         } catch(e) {
             // Offline fallback
@@ -3023,6 +3235,36 @@ document.addEventListener("DOMContentLoaded", () => {
         return { count, percentage, total };
     }
 
+    function getWordVocabMemoryScore(heroId, wordStr) {
+        if (!wordStr) return { score: 0, studied: false, interval: 0, repetitions: 0, easeFactor: 2.5, inLongTermMemory: false, label: "Не изучено (0 дн)" };
+        if (flashcardEngine && typeof flashcardEngine.getWordMemoryStats === 'function') {
+            return flashcardEngine.getWordMemoryStats(wordStr, heroId);
+        }
+        try {
+            const raw = localStorage.getItem("english_pulse_decks_srs_v10") || localStorage.getItem("english_rpg_flashcard_decks");
+            if (raw) {
+                const parsed = JSON.parse(raw);
+                const lower = wordStr.toLowerCase().trim();
+                for (const cat of Object.keys(parsed)) {
+                    if (cat === "🧠 Due for SRS Review") continue;
+                    const deck = parsed[cat];
+                    if (Array.isArray(deck)) {
+                        const card = deck.find(c => c && c.word && c.word.toLowerCase().trim() === lower && (!heroId || !c.heroId || c.heroId === heroId));
+                        if (card && card.studied) {
+                            const interval = typeof card.interval === 'number' ? card.interval : 1;
+                            const repetitions = typeof card.repetitions === 'number' ? card.repetitions : 0;
+                            const easeFactor = typeof card.easeFactor === 'number' ? card.easeFactor : 2.5;
+                            const inLongTermMemory = interval >= 21;
+                            const score = interval + (repetitions * 0.1) + Math.max(0, (easeFactor - 1.3) * 0.01);
+                            return { score, studied: true, interval, repetitions, easeFactor, inLongTermMemory, label: inLongTermMemory ? `Долгосрочная (${interval} дн)` : `Интервал: ${interval} дн` };
+                        }
+                    }
+                }
+            }
+        } catch(e) {}
+        return { score: 0, studied: false, interval: 0, repetitions: 0, easeFactor: 2.5, inLongTermMemory: false, label: "Не изучено (0 дн)" };
+    }
+
     function getHeroAntiRatingFocusWords(hero, targetCount = 20) {
         if (!hero || !hero.words || hero.words.length === 0) return [];
         
@@ -3043,6 +3285,14 @@ document.addEventListener("DOMContentLoaded", () => {
             const pA = getWordProps(a);
             const pB = getWordProps(b);
             
+            // 1. Primary: Flashcard SRS memory score (ascending: least in long-term memory first)
+            const memA = getWordVocabMemoryScore(hero.id, pA.word);
+            const memB = getWordVocabMemoryScore(hero.id, pB.word);
+            if (memA.score !== memB.score) {
+                return memA.score - memB.score;
+            }
+
+            // 2. Secondary: Prior chat usage count (words less practiced in chat come first)
             const allTimeA = getAllTimeWordUsageCount(hero.id, pA.word);
             const todayA = getWordUsageCount(hero.id, pA.word);
             const priorA = Math.max(0, allTimeA - todayA);
@@ -3055,6 +3305,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 return priorA - priorB;
             }
             
+            // 3. Tertiary: Deterministic daily seed hash for rotation among equal candidates
             return getWordDateHash(pA.word) - getWordDateHash(pB.word);
         });
         
@@ -3063,6 +3314,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.getWordUsageCount = getWordUsageCount;
     window.getAllTimeWordUsageCount = getAllTimeWordUsageCount;
+    window.getWordVocabMemoryScore = getWordVocabMemoryScore;
     window.getHeroAntiRatingFocusWords = getHeroAntiRatingFocusWords;
 
     function getWordVariants(baseWord) {
@@ -3323,7 +3575,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (activeVocabViewMode === "focus") {
                 modeTitleEl.innerHTML = `🎯 Focus Words (${usedFocusCount}/20)`;
                 modeTitleEl.style.color = "#60a5fa";
-                modeTitleEl.title = "Showing 20 least-used Focus Words for today's Daily Quest (Click to show All 110 words)";
+                modeTitleEl.title = "Showing 20 Focus Words (least in long-term memory) for today's Daily Quest (Click to show All words)";
             } else {
                 modeTitleEl.innerHTML = `📚 All Words (${targetHero.words ? targetHero.words.length : 110})`;
                 modeTitleEl.style.color = "#fbbf24";
@@ -3366,6 +3618,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const w = getWordProps(wObj);
                 const currentUsage = getWordUsageCount(targetHero.id, w.word);
                 const allTimeStats = getWordAllTimeStats(targetHero.id, w.word, targetHero.words);
+                const memStats = getWordVocabMemoryScore(targetHero.id, w.word);
                 
                 let tierClass = "tier-mastered";
                 let tierTooltip = "⚪ Mastered (+1 XP)";
@@ -3386,7 +3639,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 chip.className = `btn btn-sm word-chip-item ${tierClass}`;
                 chip.dataset.word = w.word.toLowerCase();
                 chip.dataset.translation = (w.translation || '').toLowerCase();
-                chip.title = `${w.word} ${w.phonetic || ''} — ${w.translation || ''} | ${tierTooltip} | Lifetime: ${allTimeStats.count} times (${allTimeStats.percentage}%) (Click to listen 🔊)`;
+                chip.title = `${w.word} ${w.phonetic || ''} — ${w.translation || ''} | Память SRS: ${memStats.label} | ${tierTooltip} | Lifetime: ${allTimeStats.count} times (${allTimeStats.percentage}%) (Click to listen 🔊)`;
                 chip.innerHTML = `<strong>${w.word}</strong>`;
 
                 chip.addEventListener("click", () => {
@@ -3839,6 +4092,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const fWords = currentFocusInfo.fiveWords || [];
                 const unused = currentFocusInfo.unusedCount !== undefined ? currentFocusInfo.unusedCount : 20;
                 const meaning = currentFocusInfo.meaning ? `("${currentFocusInfo.meaning}")` : '';
+                const memLabel = currentFocusInfo.memoryLabel ? `<span style="font-size:10px; color:#f0abfc; background:rgba(147, 51, 234, 0.3); border:1px solid rgba(168, 85, 247, 0.3); padding:1px 5px; border-radius:4px; margin-left:4px;">🧠 Память: ${currentFocusInfo.memoryLabel}</span>` : '';
 
                 focusBtnHtml = `
                     <button class="focus-msg-btn btn btn-sm" style="font-size:10px; margin-left:8px; padding:1px 6px; border-radius:4px; background:rgba(147, 51, 234, 0.2); border:1px solid rgba(168, 85, 247, 0.4); color:#e9d5ff; font-weight:600; cursor:pointer;" title="Посмотреть фокусные слова AI на этот ход">
@@ -3852,6 +4106,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             <span style="color:#cbd5e1;">Главная цель хода:</span> 
                             <strong style="background:#9333ea; color:#ffffff; padding:2px 7px; border-radius:4px; letter-spacing:0.5px; text-transform:capitalize;">${pWord}</strong> 
                             ${meaning ? `<span style="color:#c084fc; font-style:italic;">${meaning}</span>` : ''}
+                            ${memLabel}
                         </div>
                         <div style="margin-bottom:4px; display:flex; flex-wrap:wrap; align-items:center; gap:4px;">
                             <span style="color:#cbd5e1;">5 фокусных слов для AI:</span> 
@@ -4179,7 +4434,59 @@ document.addEventListener("DOMContentLoaded", () => {
     const cardTranslation = document.getElementById("card-translation");
     const cardDefinition = document.getElementById("card-definition");
     const cardExample = document.getElementById("card-example");
+    const cardBackWord = document.getElementById("card-back-word");
+    const cardBackPhonetic = document.getElementById("card-back-phonetic");
+    const btnToggleBlindMode = document.getElementById("btn-toggle-blind-mode");
+    const btnToggleVocabAutoplay = document.getElementById("btn-toggle-vocab-autoplay");
     const rateBtns = document.querySelectorAll(".rate-btn");
+
+    let isBlindMode = localStorage.getItem("english_pulse_vocab_blind_mode") === "true";
+    let isVocabAutoplay = localStorage.getItem("english_pulse_vocab_autoplay") !== "false";
+    let isCurrentWordUnmasked = false;
+    let lastAutoPlayedCardKey = "";
+
+    if (btnToggleBlindMode) {
+        btnToggleBlindMode.addEventListener("click", () => {
+            isBlindMode = !isBlindMode;
+            localStorage.setItem("english_pulse_vocab_blind_mode", isBlindMode ? "true" : "false");
+            isCurrentWordUnmasked = false;
+            showToast(
+                isBlindMode 
+                    ? "🎧 Режим «На слух» включен! Слово скрыто — тренируйте восприятие на слух." 
+                    : "👁️ Режим «На слух» выключен (написание открыто).",
+                isBlindMode ? "linear-gradient(135deg, #ec4899, #be185d)" : "linear-gradient(135deg, #1e1b4b, #312e81)",
+                isBlindMode ? "#f472b6" : "#818cf8",
+                2500
+            );
+            renderFlashcardsUI();
+        });
+    }
+
+    if (btnToggleVocabAutoplay) {
+        btnToggleVocabAutoplay.addEventListener("click", () => {
+            isVocabAutoplay = !isVocabAutoplay;
+            localStorage.setItem("english_pulse_vocab_autoplay", isVocabAutoplay ? "true" : "false");
+            showToast(
+                isVocabAutoplay 
+                    ? "🔊 Автозвук включен! Слово озвучивается сразу при показе карточки." 
+                    : "🔇 Автозвук выключен.",
+                isVocabAutoplay ? "linear-gradient(135deg, #0e7490, #0369a1)" : "linear-gradient(135deg, #334155, #1e293b)",
+                isVocabAutoplay ? "#38bdf8" : "#94a3b8",
+                2200
+            );
+            renderFlashcardsUI();
+        });
+    }
+
+    if (cardWord) {
+        cardWord.addEventListener("click", (e) => {
+            if (isBlindMode && !isCurrentWordUnmasked && flashcardEngine.getCurrentCard()) {
+                e.stopPropagation();
+                isCurrentWordUnmasked = true;
+                renderFlashcardsUI();
+            }
+        });
+    }
 
     function formatTimeUntilReview(nextReviewDate, studied) {
         if (!studied || !nextReviewDate) return "✨ New Word";
@@ -4199,17 +4506,80 @@ document.addEventListener("DOMContentLoaded", () => {
         return `⏳ in ${diffMonths}mo`;
     }
 
+    let isRatingCardInProgress = false;
+
     function renderFlashcardsUI() {
         if (!deckTabsContainer) return;
         deckTabsContainer.innerHTML = "";
-        flashcardEngine.decks = flashcardEngine.loadDecks();
+        if (!flashcardEngine.decks) {
+            flashcardEngine.decks = flashcardEngine.loadDecks();
+        }
 
         const dueCount = flashcardEngine.getDueCardsCount();
+        const isSrsMode = flashcardEngine.currentCategory === "🧠 Due for SRS Review";
 
-        Object.keys(flashcardEngine.decks).forEach(cat => {
+    // 0. Update Blind Mode & Autoplay Buttons State
+        if (btnToggleBlindMode) {
+            if (isBlindMode) {
+                btnToggleBlindMode.classList.add("active");
+                btnToggleBlindMode.innerHTML = `<i class="fa-solid fa-eye-slash" style="color:#ffffff;"></i> <span>Слух: ВКЛ</span>`;
+            } else {
+                btnToggleBlindMode.classList.remove("active");
+                btnToggleBlindMode.innerHTML = `<i class="fa-solid fa-eye"></i> <span>Слух</span>`;
+            }
+        }
+
+        if (btnToggleVocabAutoplay) {
+            if (isVocabAutoplay) {
+                btnToggleVocabAutoplay.classList.add("active");
+                btnToggleVocabAutoplay.innerHTML = `<i class="fa-solid fa-volume-high" style="color:#ffffff;"></i> <span>Авто: ВКЛ</span>`;
+            } else {
+                btnToggleVocabAutoplay.classList.remove("active");
+                btnToggleVocabAutoplay.innerHTML = `<i class="fa-solid fa-volume-xmark"></i> <span>Авто</span>`;
+            }
+        }
+
+        // 1. Update Mode Tabs & Badges
+        const tabVocabSrs = document.getElementById("tab-vocab-srs-mode");
+        const tabVocabDecks = document.getElementById("tab-vocab-decks-mode");
+        const dueBadge = document.getElementById("vocab-due-badge");
+        const heroesCountBadge = document.getElementById("vocab-heroes-count");
+        const heroDecksPanel = document.getElementById("hero-decks-selector-panel");
+
+        if (dueBadge) {
+            dueBadge.textContent = dueCount;
+            if (dueCount > 0) {
+                dueBadge.style.background = "var(--heart)";
+                dueBadge.style.color = "#ffffff";
+                dueBadge.style.boxShadow = "0 0 10px rgba(236,72,153,0.5)";
+            } else {
+                dueBadge.style.background = "rgba(255,255,255,0.1)";
+                dueBadge.style.color = "var(--text-muted)";
+                dueBadge.style.boxShadow = "none";
+            }
+        }
+
+        const heroDeckKeys = Object.keys(flashcardEngine.decks).filter(k => k !== "🧠 Due for SRS Review");
+        if (heroesCountBadge) {
+            heroesCountBadge.textContent = heroDeckKeys.length;
+        }
+
+        if (tabVocabSrs && tabVocabDecks) {
+            if (isSrsMode) {
+                tabVocabSrs.classList.add("active");
+                tabVocabDecks.classList.remove("active");
+                if (heroDecksPanel) heroDecksPanel.classList.add("hidden");
+            } else {
+                tabVocabSrs.classList.remove("active");
+                tabVocabDecks.classList.add("active");
+                if (heroDecksPanel) heroDecksPanel.classList.remove("hidden");
+            }
+        }
+
+        // 2. Render Hero Decks in the spacious drawer when in Hero Decks mode
+        heroDeckKeys.forEach(cat => {
             const btn = document.createElement("button");
-            const isSrsTab = cat === "🧠 Due for SRS Review";
-            const badgeCount = isSrsTab ? dueCount : flashcardEngine.decks[cat].length;
+            const badgeCount = flashcardEngine.decks[cat].length;
             const isActive = cat === flashcardEngine.currentCategory;
 
             let hero = null;
@@ -4220,45 +4590,45 @@ document.addEventListener("DOMContentLoaded", () => {
             let heroName = cat;
             let avatarContent = `<i class="fa-solid fa-layer-group"></i>`;
             let accentColor = "#6366f1";
+            let rankTag = "Deck";
 
             if (hero) {
                 heroName = hero.name;
                 accentColor = hero.color || "#6366f1";
+                rankTag = hero.cefrLevel ? hero.cefrLevel.split(' ')[0] : 'A0';
                 const avatarSrc = hero.faceImage || hero.image;
                 if (avatarSrc) {
                     avatarContent = `<img src="${avatarSrc}" class="tab-avatar-img" alt="${hero.name}">`;
                 } else {
                     avatarContent = `<i class="fa-solid ${hero.avatar || 'fa-user'}"></i>`;
                 }
-            } else if (isSrsTab) {
-                heroName = "Повтор";
-                accentColor = "#ec4899";
-                avatarContent = `<i class="fa-solid fa-brain" style="color:#ec4899;"></i>`;
             } else if (cat.includes("IT")) {
-                heroName = "IT";
+                heroName = "IT & Tech";
                 accentColor = "#06b6d4";
+                rankTag = "Tech";
                 avatarContent = `<i class="fa-solid fa-laptop-code" style="color:#06b6d4;"></i>`;
             }
 
-            btn.className = `hero-avatar-tab-chip ${isActive ? 'active' : ''} ${isSrsTab ? 'srs-tab' : ''}`;
+            btn.className = `hero-deck-card-chip ${isActive ? 'active' : ''}`;
             btn.style.setProperty("--hero-color", accentColor);
-            btn.title = cat;
             btn.innerHTML = `
-                <div class="avatar-circle-wrapper">
+                <div class="deck-chip-avatar-wrap">
                     ${avatarContent}
-                    <span class="badge-count" style="background:${isSrsTab ? '#ec4899' : accentColor};">${badgeCount}</span>
                 </div>
-                <span class="tab-hero-name">${heroName}</span>
+                <div class="deck-chip-info">
+                    <div class="deck-chip-name-row">
+                        <span class="deck-chip-name">${heroName}</span>
+                        <span class="deck-chip-rank">${rankTag}</span>
+                    </div>
+                    <span class="deck-chip-count">${badgeCount} слов</span>
+                </div>
             `;
 
             btn.addEventListener("click", () => {
                 flashcardEngine.currentCategory = cat;
-                if (isSrsTab) {
-                    flashcardEngine.refreshDueCards();
-                } else {
-                    flashcardEngine.autoAdvanceBatch();
-                }
+                flashcardEngine.autoAdvanceBatch();
                 flashcardEngine.currentIndex = 0;
+                isCurrentWordUnmasked = false;
                 
                 const wasFlipped = flashcardEl.classList.contains("flipped");
                 const cardBack = flashcardEl.querySelector(".card-back");
@@ -4277,21 +4647,35 @@ document.addEventListener("DOMContentLoaded", () => {
             deckTabsContainer.appendChild(btn);
         });
 
-        // Dedicated Batch Selector Strip
+        // 3. Render Batch Selector Strip / SRS Queue Status
         const batchStrip = document.getElementById("batch-selector-strip");
+        const activeCards = flashcardEngine.getCategoryCards();
+
+        // 4. Preload Audio for Active & Upcoming Cards (Instant mobile playback)
+        if (window.voiceService && typeof window.voiceService.preloadWordAudios === 'function' && activeCards.length > 0) {
+            const upcomingWords = [];
+            const curIdx = flashcardEngine.currentIndex;
+            for (let i = 0; i < Math.min(6, activeCards.length); i++) {
+                const c = activeCards[(curIdx + i) % activeCards.length];
+                if (c && c.word) upcomingWords.push(c.word);
+            }
+            window.voiceService.preloadWordAudios(upcomingWords);
+        }
+
         if (batchStrip) {
-            if (flashcardEngine.currentCategory === "🧠 Due for SRS Review") {
+            if (isSrsMode) {
+                const srsIndexText = activeCards.length > 0 ? `Карточка ${flashcardEngine.currentIndex + 1} из ${activeCards.length}` : 'Очередь пуста';
                 batchStrip.innerHTML = `
-                    <div style="width:100%; display:flex; justify-content:center;">
-                        <span class="badge font-mono" style="background:rgba(236,72,153,0.15); color:#f472b6; border:1px solid rgba(236,72,153,0.35); font-size:12px; padding:4px 12px; border-radius:10px;">
-                            <i class="fa-solid fa-brain"></i> Очередь SRS (${dueCount})
-                        </span>
+                    <div class="batch-strip-srs-box font-mono">
+                        <span class="srs-pulse-dot"></span>
+                        <i class="fa-solid fa-brain" style="color:var(--heart);"></i>
+                        <span style="font-weight:700;">Повторение SRS:</span>
+                        <span style="color:var(--heart); font-weight:800;">${srsIndexText}</span>
                     </div>
                 `;
             } else {
                 const totalBatches = typeof flashcardEngine.getTotalBatches === 'function' ? flashcardEngine.getTotalBatches() : Math.max(1, Math.ceil((flashcardEngine.decks[flashcardEngine.currentCategory] || []).length / flashcardEngine.batchSize));
                 const currentBatchNum = flashcardEngine.batchIndex + 1;
-                const activeCards = flashcardEngine.getCategoryCards();
                 const cardCounterStr = activeCards.length > 0 ? ` &bull; ${flashcardEngine.currentIndex + 1}/${activeCards.length}` : '';
 
                 batchStrip.innerHTML = `
@@ -4309,6 +4693,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 document.getElementById("batch-prev-btn")?.addEventListener("click", () => {
                     flashcardEngine.prevBatch();
+                    isCurrentWordUnmasked = false;
                     const wasFlipped = flashcardEl.classList.contains("flipped");
                     if (wasFlipped) {
                         flashcardEl.classList.remove("flipped");
@@ -4319,6 +4704,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
                 document.getElementById("batch-next-btn")?.addEventListener("click", () => {
                     flashcardEngine.nextBatch();
+                    isCurrentWordUnmasked = false;
                     const wasFlipped = flashcardEl.classList.contains("flipped");
                     if (wasFlipped) {
                         flashcardEl.classList.remove("flipped");
@@ -4346,20 +4732,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const cardHeroId = getHeroIdForCard(currentCard);
             const cardHeroObj = cardHeroId ? rpgEngine.heroes.find(h => h.id === cardHeroId) : null;
-            const heroTagLabel = cardHeroObj ? `${cardHeroObj.name} (${cardHeroObj.cefrLevel?.split(' ')[0] || 'A0'})` : flashcardEngine.currentCategory.replace(" Pack", "");
+            const heroTagLabel = cardHeroObj ? `${cardHeroObj.name} (${cardHeroObj.cefrLevel?.split(' ')[0] || 'A0'})` : (isSrsMode ? "SRS" : flashcardEngine.currentCategory.replace(" Pack", ""));
             const nextReviewStr = formatTimeUntilReview(currentCard.nextReviewDate, currentCard.studied);
+            const modeTag = isSrsMode ? `<span style="color:var(--heart); font-weight:700;">🧠 SRS</span>` : `<span style="color:var(--heart); font-weight:700;">П.${flashcardEngine.batchIndex + 1}</span>`;
 
             cardTag.innerHTML = `
                 <span>🛡️ ${heroTagLabel}</span>
                 <span style="opacity:0.4;">&bull;</span>
-                <span style="color:var(--heart); font-weight:700;">П.${flashcardEngine.batchIndex + 1}</span>
+                ${modeTag}
                 <span style="opacity:0.4;">&bull;</span>
                 <span class="font-mono srs-time-pill" title="Интервал повторения">
                     <i class="fa-solid fa-clock"></i> ${nextReviewStr}
                 </span>
             `;
 
-            // Dynamic SRS interval preview on rating buttons
+            // Dynamic SRS interval preview on rating buttons (with desktop hotkey badges)
             const againBtn = document.querySelector(".rate-btn.btn-again");
             const hardBtn = document.querySelector(".rate-btn.btn-hard");
             const goodBtn = document.querySelector(".rate-btn.btn-good");
@@ -4381,37 +4768,84 @@ document.addEventListener("DOMContentLoaded", () => {
             else if (curReps + 1 === 2) easyDays = 10;
             else easyDays = Math.max(goodDays + 2, Math.round(curInterval * (curEase + 0.15) * 1.3));
 
-            if (againBtn) againBtn.innerHTML = `<i class="fa-solid fa-xmark"></i> <span>Снова</span> <small class="font-mono">&lt;10м</small>`;
-            if (hardBtn) hardBtn.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> <span>Трудно</span> <small class="font-mono">${hardDays}д</small>`;
-            if (goodBtn) goodBtn.innerHTML = `<i class="fa-solid fa-thumbs-up"></i> <span>Хорошо</span> <small class="font-mono">${goodDays}д</small>`;
-            if (easyBtn) easyBtn.innerHTML = `<i class="fa-solid fa-star"></i> <span>Легко</span> <small class="font-mono">${easyDays}д</small>`;
+            if (againBtn) againBtn.innerHTML = `<i class="fa-solid fa-xmark"></i> <span>Снова <kbd class="hotkey-badge font-mono">1</kbd></span> <small class="font-mono">&lt;10м</small>`;
+            if (hardBtn) hardBtn.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> <span>Трудно <kbd class="hotkey-badge font-mono">2</kbd></span> <small class="font-mono">${hardDays}д</small>`;
+            if (goodBtn) goodBtn.innerHTML = `<i class="fa-solid fa-thumbs-up"></i> <span>Хорошо <kbd class="hotkey-badge font-mono">3</kbd></span> <small class="font-mono">${goodDays}д</small>`;
+            if (easyBtn) easyBtn.innerHTML = `<i class="fa-solid fa-star"></i> <span>Легко <kbd class="hotkey-badge font-mono">4</kbd></span> <small class="font-mono">${easyDays}д</small>`;
 
-            cardWord.textContent = currentCard.word;
-            cardPhonetic.textContent = currentCard.phonetic;
+            // Blind Mode UI logic for Front Face
+            if (isBlindMode) {
+                flashcardEl?.classList.add("blind-mode");
+                if (!isCurrentWordUnmasked) {
+                    cardWord.classList.add("blind-hidden");
+                    cardWord.innerHTML = `<i class="fa-solid fa-eye-slash" style="margin-right:6px;"></i> <span>Нажмите, чтобы подсмотреть</span>`;
+                    cardWord.title = "Нажмите, чтобы подсмотреть написание";
+                    cardPhonetic.classList.add("blind-hidden");
+                    cardPhonetic.textContent = "";
+                } else {
+                    cardWord.classList.remove("blind-hidden");
+                    cardWord.innerHTML = `<span>${currentCard.word}</span> <small style="font-size:12px; opacity:0.8; margin-left:6px; font-weight:normal;">(👁️ открыто)</small>`;
+                    cardWord.title = "Слово открыто";
+                    cardPhonetic.classList.remove("blind-hidden");
+                    cardPhonetic.textContent = currentCard.phonetic || "";
+                }
+            } else {
+                flashcardEl?.classList.remove("blind-mode");
+                cardWord.classList.remove("blind-hidden");
+                cardWord.textContent = currentCard.word;
+                cardWord.title = "";
+                cardPhonetic.classList.remove("blind-hidden");
+                cardPhonetic.textContent = currentCard.phonetic || "";
+            }
+
+            // Back Face Details
+            if (cardBackWord) cardBackWord.textContent = currentCard.word;
+            if (cardBackPhonetic) cardBackPhonetic.textContent = currentCard.phonetic || "";
             cardTranslation.textContent = currentCard.translation;
             cardDefinition.textContent = currentCard.definition;
             cardExample.textContent = `"${currentCard.example}"`;
+
+            // Auto-play audio when card appears (if enabled & not yet played for this specific card)
+            const cardWordKey = `${currentCard.word}_${flashcardEngine.currentIndex}_${flashcardEngine.currentCategory}`;
+            if (isVocabAutoplay && lastAutoPlayedCardKey !== cardWordKey) {
+                lastAutoPlayedCardKey = cardWordKey;
+                const cardHeroId = getHeroIdForCard(currentCard) || getHeroIdFromCategory(flashcardEngine.currentCategory);
+                const heroObj = cardHeroId ? rpgEngine.heroes.find(h => h.id === cardHeroId) : null;
+                const heroVoiceConfig = heroObj?.voiceConfig || null;
+
+                if (cardSpeakBtn) cardSpeakBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i>`;
+                flashcardEngine.speak(
+                    currentCard.word,
+                    () => { if (cardSpeakBtn) cardSpeakBtn.innerHTML = `<i class="fa-solid fa-wave-square fa-beat"></i>`; },
+                    () => { if (cardSpeakBtn) cardSpeakBtn.innerHTML = `<i class="fa-solid fa-volume-high"></i>`; },
+                    heroVoiceConfig
+                );
+            }
         } else {
             if (cardControls) cardControls.style.display = "none";
+            flashcardEl?.classList.remove("blind-mode");
+            cardWord.classList.remove("blind-hidden");
+            if (cardBackWord) cardBackWord.textContent = isSrsMode ? "SRS" : "Готово";
+            if (cardBackPhonetic) cardBackPhonetic.textContent = "";
+
             if (batchActionBox) {
                 batchActionBox.style.display = "flex";
-                const isSrsQueue = flashcardEngine.currentCategory === "🧠 Due for SRS Review";
                 const totalBatches = typeof flashcardEngine.getTotalBatches === 'function' ? flashcardEngine.getTotalBatches() : Math.ceil((flashcardEngine.decks[flashcardEngine.currentCategory] || []).length / flashcardEngine.batchSize);
                 const nextBatchNum = flashcardEngine.batchIndex + 2;
                 const hasNextBatch = nextBatchNum <= totalBatches;
 
-                if (isSrsQueue) {
+                if (isSrsMode) {
                     batchActionBox.innerHTML = `
                         <div class="batch-complete-card glass-card">
                             <div class="batch-complete-icon">🎉</div>
                             <h3 class="batch-complete-title">Все слова повторены!</h3>
-                            <p class="batch-complete-sub">В очереди SRS сейчас нет карточек, требующих повторения.</p>
+                            <p class="batch-complete-sub">0 слов в очереди SRS. Отличная работа! Интервалы повторений рассчитаны алгоритмом SM-2.</p>
                             <div class="batch-complete-actions">
                                 <button class="btn btn-primary btn-batch-action" id="btn-return-hero-decks">
-                                    <i class="fa-solid fa-layer-group"></i> <span>Учить слова героев</span>
+                                    <i class="fa-solid fa-layer-group"></i> <span>Учить новые слова по колодам ➔</span>
                                 </button>
                                 <button class="btn btn-outline btn-batch-action" id="btn-view-word-stats">
-                                    <i class="fa-solid fa-chart-pie"></i> <span>Список слов</span>
+                                    <i class="fa-solid fa-chart-pie"></i> <span>Список всех слов</span>
                                 </button>
                                 <button class="btn btn-secondary btn-batch-action" id="btn-close-vocab-hub">
                                     <i class="fa-solid fa-xmark"></i> <span>На главную</span>
@@ -4422,8 +4856,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     document.getElementById("btn-return-hero-decks")?.addEventListener("click", () => {
                         const firstHeroDeck = Object.keys(flashcardEngine.decks).find(k => k !== "🧠 Due for SRS Review");
                         flashcardEngine.currentCategory = firstHeroDeck || "Valerius's Pack (A0)";
-                        flashcardEngine.batchIndex = 0;
+                        flashcardEngine.autoAdvanceBatch();
                         flashcardEngine.currentIndex = 0;
+                        isCurrentWordUnmasked = false;
                         renderFlashcardsUI();
                     });
                 } else {
@@ -4445,8 +4880,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                 <button class="btn btn-outline btn-batch-action" id="btn-repeat-batch-now">
                                     <i class="fa-solid fa-rotate-right"></i> <span>Повторить эту порцию</span>
                                 </button>
-                                <button class="btn btn-outline btn-batch-action" id="btn-open-stats-from-batch">
-                                    <i class="fa-solid fa-chart-pie"></i> <span>Все слова героя</span>
+                                <button class="btn btn-outline btn-batch-action" id="btn-switch-to-srs-from-batch">
+                                    <i class="fa-solid fa-brain"></i> <span>К повторениям SRS (${dueCount})</span>
                                 </button>
                                 <button class="btn btn-secondary btn-batch-action" id="btn-close-vocab-hub">
                                     <i class="fa-solid fa-xmark"></i> <span>На главную</span>
@@ -4457,12 +4892,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     document.getElementById("btn-learn-next-batch")?.addEventListener("click", () => {
                         flashcardEngine.nextBatch();
+                        isCurrentWordUnmasked = false;
                         renderFlashcardsUI();
                     });
                     document.getElementById("btn-repeat-batch-now")?.addEventListener("click", () => {
                         if (typeof flashcardEngine.resetCurrentBatch === 'function') {
                             flashcardEngine.resetCurrentBatch();
                         }
+                        isCurrentWordUnmasked = false;
                         renderFlashcardsUI();
                     });
                     document.getElementById("btn-repeat-current-deck")?.addEventListener("click", () => {
@@ -4470,6 +4907,15 @@ document.addEventListener("DOMContentLoaded", () => {
                         if (typeof flashcardEngine.resetCurrentBatch === 'function') {
                             flashcardEngine.resetCurrentBatch();
                         }
+                        isCurrentWordUnmasked = false;
+                        renderFlashcardsUI();
+                    });
+                    document.getElementById("btn-switch-to-srs-from-batch")?.addEventListener("click", () => {
+                        flashcardEngine.currentCategory = "🧠 Due for SRS Review";
+                        flashcardEngine.batchIndex = 0;
+                        flashcardEngine.currentIndex = 0;
+                        flashcardEngine.refreshDueCards();
+                        isCurrentWordUnmasked = false;
                         renderFlashcardsUI();
                     });
                 }
@@ -4490,15 +4936,15 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             cardTag.textContent = flashcardEngine.currentCategory;
-            cardWord.textContent = flashcardEngine.currentCategory === "🧠 Due for SRS Review" ? "🎉 Все повторено!" : `🎉 Порция ${flashcardEngine.batchIndex + 1} готова!`;
+            cardWord.textContent = isSrsMode ? "🎉 Все повторено!" : `🎉 Порция ${flashcardEngine.batchIndex + 1} готова!`;
             cardPhonetic.textContent = "/готово/";
-            cardTranslation.textContent = flashcardEngine.currentCategory === "🧠 Due for SRS Review" 
+            cardTranslation.textContent = isSrsMode 
                 ? "Все накопленные карточки повторены!" 
                 : `10 слов изучены и запланированы в SRS.`;
-            cardDefinition.textContent = flashcardEngine.currentCategory === "🧠 Due for SRS Review" 
+            cardDefinition.textContent = isSrsMode 
                 ? "Карточки появятся здесь автоматически по расписанию SuperMemo SM-2."
                 : "Алгоритм SM-2 рассчитал оптимальные интервалы повторений.";
-            cardExample.textContent = flashcardEngine.currentCategory === "🧠 Due for SRS Review" 
+            cardExample.textContent = isSrsMode 
                 ? "Выберите колоду героя для новых слов!" 
                 : `Выберите действие ниже для продолжения.`;
         }
@@ -4511,20 +4957,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
     flashcardEl.addEventListener("click", (e) => {
         if (e.target.closest("#card-speak-btn")) return;
+        if (e.target.closest("#card-word") && isBlindMode && !isCurrentWordUnmasked) return;
         flashcardEl.classList.toggle("flipped");
     });
 
     cardSpeakBtn.addEventListener("click", (e) => {
         e.stopPropagation();
+        if (window.voiceService && typeof window.voiceService.stopSpeech === 'function') {
+            window.voiceService.stopSpeech();
+        }
         const card = flashcardEngine.getCurrentCard();
-        if (card) {
-            const cardHeroId = getHeroIdForCard(card) || getHeroIdFromCategory(flashcardEngine.currentCategory);
+        const wordText = (card && card.word) ? card.word : (document.getElementById("card-word")?.textContent || "").trim();
+        if (wordText && !wordText.startsWith("🎉")) {
+            const cardHeroId = card ? (getHeroIdForCard(card) || getHeroIdFromCategory(flashcardEngine.currentCategory)) : null;
             const heroObj = cardHeroId ? rpgEngine.heroes.find(h => h.id === cardHeroId) : null;
             const heroVoiceConfig = heroObj?.voiceConfig || null;
 
             cardSpeakBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i>`;
             flashcardEngine.speak(
-                card.word,
+                wordText,
                 () => { cardSpeakBtn.innerHTML = `<i class="fa-solid fa-wave-square fa-beat"></i>`; },
                 () => { cardSpeakBtn.innerHTML = `<i class="fa-solid fa-volume-high"></i>`; },
                 heroVoiceConfig
@@ -4534,38 +4985,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
     rateBtns.forEach(btn => {
         btn.addEventListener("click", () => {
+            if (isRatingCardInProgress) return;
+            isRatingCardInProgress = true;
+
+            if (window.voiceService && typeof window.voiceService.stopSpeech === 'function') {
+                window.voiceService.stopSpeech();
+            }
+            if (cardSpeakBtn) cardSpeakBtn.innerHTML = `<i class="fa-solid fa-volume-high"></i>`;
+
             const rating = btn.getAttribute("data-rating");
             const currentCard = flashcardEngine.getCurrentCard();
             const targetHeroId = getHeroIdForCard(currentCard) || getHeroIdFromCategory(flashcardEngine.currentCategory);
             
             const rateResult = flashcardEngine.rateCard(rating);
             if (!rateResult.success) {
+                isRatingCardInProgress = false;
                 alert(rateResult.message);
                 if (rateResult.reason === "review_required") {
                     flashcardEngine.currentCategory = "🧠 Due for SRS Review";
                     flashcardEngine.batchIndex = 0;
                     flashcardEngine.currentIndex = 0;
+                    flashcardEngine.refreshDueCards();
+                    isCurrentWordUnmasked = false;
                     renderFlashcardsUI();
                 }
                 return;
             }
 
-            const wasFlipped = flashcardEl.classList.contains("flipped");
-            const cardBack = flashcardEl.querySelector(".card-back");
-
-            if (wasFlipped) {
-                if (cardBack) cardBack.style.opacity = "0";
-                flashcardEl.classList.remove("flipped");
-                setTimeout(() => {
-                    renderFlashcardsUI();
-                    if (cardBack) cardBack.style.opacity = "1";
-                }, 350);
-            } else {
-                renderFlashcardsUI();
-            }
-
             let cardXp = 0;
-            if (rating === 'hard') cardXp = 4;
+            if (rating === 'again') {
+                showToast("🔄 Слово отправлено в конец очереди на повторение!", "linear-gradient(135deg, #ef4444, #991b1b)", "#f87171", 2200);
+            } else if (rating === 'hard') cardXp = 4;
             else if (rating === 'good') cardXp = 8;
             else if (rating === 'easy') cardXp = 16;
 
@@ -4575,7 +5025,99 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             try { recordVocabStreakActivity(1); } catch(e) {}
             try { checkAndUpdateVocabLevel(); } catch(e) {}
+            try { syncPlayerStateToServer(false); } catch(e) {}
+
+            isCurrentWordUnmasked = false;
+
+            const wasFlipped = flashcardEl.classList.contains("flipped");
+            const cardBack = flashcardEl.querySelector(".card-back");
+
+            if (wasFlipped) {
+                if (cardBack) cardBack.style.opacity = "0";
+                flashcardEl.classList.remove("flipped");
+                setTimeout(() => {
+                    isRatingCardInProgress = false;
+                    renderFlashcardsUI();
+                    if (cardBack) cardBack.style.opacity = "1";
+                }, 180);
+            } else {
+                isRatingCardInProgress = false;
+                renderFlashcardsUI();
+            }
         });
+    });
+
+    // --- FLASHCARDS KEYBOARD HOTKEYS (PC / Web) ---
+    document.addEventListener("keydown", (e) => {
+        const wordsModal = document.getElementById("modal-hero-words");
+        if (!wordsModal || wordsModal.classList.contains("hidden")) return;
+
+        // Ignore hotkeys when typing in search or input fields
+        const activeEl = document.activeElement;
+        if (activeEl && (activeEl.tagName === "INPUT" || activeEl.tagName === "TEXTAREA" || activeEl.tagName === "SELECT")) return;
+
+        const currentCard = flashcardEngine.getCurrentCard();
+        if (!currentCard) return;
+
+        const key = e.key;
+
+        // Space / Enter: Flip card
+        if (key === " " || key === "Enter") {
+            e.preventDefault();
+            if (flashcardEl) flashcardEl.classList.toggle("flipped");
+            return;
+        }
+
+        // R or A or S: Replay audio pronunciation
+        if (key.toLowerCase() === "r" || key.toLowerCase() === "a" || key.toLowerCase() === "s") {
+            e.preventDefault();
+            if (cardSpeakBtn) cardSpeakBtn.click();
+            return;
+        }
+
+        // H or P: Peek hidden word in blind mode
+        if (key.toLowerCase() === "h" || key.toLowerCase() === "p") {
+            if (isBlindMode && !isCurrentWordUnmasked) {
+                e.preventDefault();
+                isCurrentWordUnmasked = true;
+                renderFlashcardsUI();
+                return;
+            }
+        }
+
+        // Number keys 1-4: Rate card
+        if (key === "1") {
+            e.preventDefault();
+            document.querySelector(".rate-btn.btn-again")?.click();
+            return;
+        }
+        if (key === "2") {
+            e.preventDefault();
+            document.querySelector(".rate-btn.btn-hard")?.click();
+            return;
+        }
+        if (key === "3") {
+            e.preventDefault();
+            document.querySelector(".rate-btn.btn-good")?.click();
+            return;
+        }
+        if (key === "4") {
+            e.preventDefault();
+            document.querySelector(".rate-btn.btn-easy")?.click();
+            return;
+        }
+
+        // ArrowLeft / ArrowRight: Prev / Next batch
+        if (key === "ArrowLeft") {
+            e.preventDefault();
+            document.getElementById("batch-prev-btn")?.click();
+            return;
+        }
+        if (key === "ArrowRight") {
+            e.preventDefault();
+            document.getElementById("batch-next-btn")?.click();
+            return;
+        }
     });
 
     // Wire up Add Custom Word Card Modal
@@ -4650,6 +5192,51 @@ document.addEventListener("DOMContentLoaded", () => {
                 addCardModal.classList.add("hidden");
                 addCardForm.reset();
                 showToast(`✨ Карточка "<b>${word}</b>" успешно сохранена!`);
+            }
+        });
+    }
+
+    // Wire up Vocab Primary Mode Switcher (SRS Review vs Hero Decks)
+    const tabVocabSrs = document.getElementById("tab-vocab-srs-mode");
+    const tabVocabDecks = document.getElementById("tab-vocab-decks-mode");
+    const btnSyncVocab = document.getElementById("btn-sync-vocab-state");
+
+    if (tabVocabSrs) {
+        tabVocabSrs.addEventListener("click", () => {
+            flashcardEngine.currentCategory = "🧠 Due for SRS Review";
+            flashcardEngine.batchIndex = 0;
+            flashcardEngine.currentIndex = 0;
+            flashcardEngine.refreshDueCards();
+            renderFlashcardsUI();
+        });
+    }
+
+    if (tabVocabDecks) {
+        tabVocabDecks.addEventListener("click", () => {
+            if (flashcardEngine.currentCategory === "🧠 Due for SRS Review") {
+                const firstHeroDeck = Object.keys(flashcardEngine.decks).find(k => k !== "🧠 Due for SRS Review");
+                flashcardEngine.currentCategory = firstHeroDeck || "Valerius's Pack (A0)";
+                flashcardEngine.autoAdvanceBatch();
+                flashcardEngine.currentIndex = 0;
+            }
+            renderFlashcardsUI();
+        });
+    }
+
+    if (btnSyncVocab) {
+        btnSyncVocab.addEventListener("click", async () => {
+            btnSyncVocab.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> <span>Синхр...</span>`;
+            try {
+                await loadPlayerStateFromServer();
+                flashcardEngine.decks = flashcardEngine.loadDecks();
+                flashcardEngine.refreshDueCards();
+                renderFlashcardsUI();
+                const dueNow = flashcardEngine.getDueCardsCount();
+                showToast(`✨ Синхронизировано с ПК! В очереди SRS: <b>${dueNow} слов</b>`, "linear-gradient(135deg, #10b981, #3b82f6)", "#34d399");
+            } catch (e) {
+                showToast("⚠️ Ошибка синхронизации с сервером", "linear-gradient(135deg, #ef4444, #dc2626)", "#f87171");
+            } finally {
+                btnSyncVocab.innerHTML = `<i class="fa-solid fa-rotate"></i> <span>Синхр</span>`;
             }
         });
     }
@@ -7353,6 +7940,564 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // =========================================================================
+    // SPEECH DRILLS & A1 MASTERY UI ENGINE (GROQ WHISPER STT & 5-REP RETRIEVAL)
+    // =========================================================================
+    function initSpeechDrillsUI() {
+        const btnSpeechDrills = document.getElementById("btn-hero-speech-drills");
+        const speechModal = document.getElementById("modal-hero-speech-drills");
+        const headerBadge = document.getElementById("speech-drills-header-badge");
+        const masteryText = document.getElementById("speech-drills-mastery-text");
+        const masteryFill = document.getElementById("speech-drills-progress-fill");
+        const comboBadge = document.getElementById("speech-drills-combo-badge");
+        const repsDots = document.getElementById("speech-reps-dots");
+        const repsNum = document.getElementById("speech-reps-num");
+        const categoryBadge = document.getElementById("speech-pattern-category-badge");
+        const ruText = document.getElementById("speech-ru-text");
+        const hintToggleBtn = document.getElementById("speech-hint-toggle-btn");
+        const hintToggleLabel = document.getElementById("speech-hint-toggle-label");
+        const hintContent = document.getElementById("speech-hint-content");
+        const hintTemplate = document.getElementById("speech-hint-template");
+        const hintWord = document.getElementById("speech-hint-word");
+        const timerTrack = document.getElementById("speech-timer-track");
+        const timerFill = document.getElementById("speech-timer-fill");
+        const micBtn = document.getElementById("speech-mic-btn");
+        const statusHint = document.getElementById("speech-status-hint");
+        const transcriptBox = document.getElementById("speech-transcript-box");
+        const transcriptText = document.getElementById("speech-transcript-text");
+        const feedbackCard = document.getElementById("speech-feedback-card");
+        const feedbackStatus = document.getElementById("speech-feedback-status");
+        const feedbackTarget = document.getElementById("speech-feedback-target");
+        const listenTargetBtn = document.getElementById("speech-listen-target-btn");
+        const nextCardBtn = document.getElementById("speech-next-card-btn");
+
+        let timerSeconds = parseInt(localStorage.getItem("speech_drills_timer_sec") || "7", 10);
+        let timerRemainingMs = timerSeconds * 1000;
+        let timerInterval = null;
+        let currentItem = null;
+        let isCardAnswered = false;
+        let isRecording = false;
+        let mediaRecorder = null;
+        let mediaStream = null;
+        let audioChunks = [];
+        let autoAdvanceTimer = null;
+
+        function updateMasteryHeader() {
+            if (!window.speechDrillsEngine) return;
+            const stats = window.speechDrillsEngine.getStats();
+            if (masteryText) masteryText.textContent = `${stats.masteredCount} / ${stats.totalItems} фраз освоено (${stats.percent}%)`;
+            if (masteryFill) masteryFill.style.width = `${stats.percent}%`;
+            if (headerBadge) headerBadge.textContent = `Освоено: ${stats.masteredCount} / ${stats.totalItems} (${stats.percent}%) • Lv. ${stats.level}`;
+
+            const btnSub = document.querySelector("#btn-hero-speech-drills .btn-sub-label");
+            if (btnSub) btnSub.textContent = `Разминка A1 (${stats.masteredCount}/${stats.totalItems})`;
+        }
+
+        function updateComboUI() {
+            if (!comboBadge || !window.speechDrillsEngine) return;
+            const combo = window.speechDrillsEngine.currentCombo;
+            comboBadge.innerHTML = `<i class="fa-solid fa-fire"></i> Combo x${combo}`;
+            if (combo >= 10) {
+                comboBadge.style.background = "linear-gradient(135deg, #ec4899, #8b5cf6)";
+                comboBadge.style.boxShadow = "0 0 25px rgba(236,72,153,0.8)";
+            } else if (combo >= 5) {
+                comboBadge.style.background = "linear-gradient(135deg, #f59e0b, #ef4444)";
+                comboBadge.style.boxShadow = "0 0 20px rgba(245,158,11,0.7)";
+            } else {
+                comboBadge.style.background = "linear-gradient(135deg, #ef4444, #f97316)";
+                comboBadge.style.boxShadow = "0 0 15px rgba(239,68,68,0.5)";
+            }
+        }
+
+        function stopTimer() {
+            if (timerInterval) clearInterval(timerInterval);
+            timerInterval = null;
+        }
+
+        function startTimer() {
+            stopTimer();
+            if (timerSeconds <= 0) {
+                if (timerTrack) timerTrack.style.display = "none";
+                return;
+            }
+            if (timerTrack) timerTrack.style.display = "block";
+            timerRemainingMs = timerSeconds * 1000;
+            const stepMs = 50;
+            timerInterval = setInterval(() => {
+                timerRemainingMs -= stepMs;
+                const ratio = Math.max(0, timerRemainingMs / (timerSeconds * 1000));
+                if (timerFill) {
+                    timerFill.style.width = `${ratio * 100}%`;
+                    if (ratio < 0.3) {
+                        timerFill.style.background = "#ef4444";
+                    } else if (ratio < 0.6) {
+                        timerFill.style.background = "#f59e0b";
+                    } else {
+                        timerFill.style.background = "linear-gradient(90deg, #10b981, #38bdf8)";
+                    }
+                }
+                if (timerRemainingMs <= 0) {
+                    stopTimer();
+                    handleTimeout();
+                }
+            }, stepMs);
+        }
+
+        function handleTimeout() {
+            if (isCardAnswered) return;
+            isCardAnswered = true;
+            if (isRecording) stopRecording(false);
+
+            if (window.speechDrillsEngine && currentItem) {
+                window.speechDrillsEngine.recordFailure(currentItem.id);
+            }
+            updateComboUI();
+
+            // Auto-reveal hint
+            if (hintContent) hintContent.classList.remove("hidden");
+            if (hintToggleLabel) hintToggleLabel.textContent = "Скрыть грамматический шаблон";
+
+            if (feedbackCard) {
+                feedbackCard.className = "speech-feedback-card wrong";
+                feedbackCard.classList.remove("hidden");
+            }
+            if (feedbackStatus) {
+                feedbackStatus.textContent = "⏱️ Время вышло!";
+            }
+            if (feedbackTarget && currentItem) {
+                feedbackTarget.innerHTML = `Правильный вариант: <strong>${currentItem.en}</strong>`;
+            }
+            if (statusHint) statusHint.textContent = "Послушайте эталон и перейдите к следующей фразе";
+        }
+
+        function syncSpeedButtons() {
+            document.querySelectorAll(".speech-speed-btn").forEach(b => {
+                const sec = parseInt(b.getAttribute("data-sec") || "7", 10);
+                if (sec === timerSeconds) {
+                    b.classList.add("active");
+                } else {
+                    b.classList.remove("active");
+                }
+            });
+        }
+        syncSpeedButtons();
+
+        document.querySelectorAll(".speech-speed-btn").forEach(btn => {
+            btn.addEventListener("click", () => {
+                document.querySelectorAll(".speech-speed-btn").forEach(b => b.classList.remove("active"));
+                btn.classList.add("active");
+                timerSeconds = parseInt(btn.getAttribute("data-sec") || "7", 10);
+                localStorage.setItem("speech_drills_timer_sec", timerSeconds.toString());
+                if (timerSeconds <= 0) {
+                    stopTimer();
+                    if (timerTrack) timerTrack.style.display = "none";
+                } else {
+                    if (timerTrack) timerTrack.style.display = "block";
+                    if (!isCardAnswered && !isRecording) {
+                        startTimer();
+                    }
+                }
+            });
+        });
+
+        // Hint toggle button
+        if (hintToggleBtn) {
+            hintToggleBtn.addEventListener("click", () => {
+                if (!hintContent) return;
+                const isHidden = hintContent.classList.contains("hidden");
+                if (isHidden) {
+                    hintContent.classList.remove("hidden");
+                    if (hintToggleLabel) hintToggleLabel.textContent = "Скрыть грамматический шаблон";
+                } else {
+                    hintContent.classList.add("hidden");
+                    if (hintToggleLabel) hintToggleLabel.textContent = "Показать грамматический шаблон";
+                }
+            });
+        }
+
+        function renderItem(item) {
+            if (!item) return;
+            currentItem = item;
+            isCardAnswered = false;
+            if (autoAdvanceTimer) {
+                clearTimeout(autoAdvanceTimer);
+                autoAdvanceTimer = null;
+            }
+
+            // Reset feedbacks & inputs
+            if (feedbackCard) feedbackCard.classList.add("hidden");
+            if (transcriptBox) transcriptBox.classList.add("hidden");
+            if (hintContent) hintContent.classList.add("hidden");
+            if (hintToggleLabel) hintToggleLabel.textContent = "Показать грамматический шаблон";
+
+            // Set Russian Prompt
+            if (ruText) ruText.textContent = `«${item.ru}»`;
+            if (categoryBadge) categoryBadge.textContent = `🎯 ${item.patternCategory}`;
+
+            // Set Hint Data
+            if (hintTemplate) hintTemplate.innerHTML = `Шаблон: <strong>${item.patternTemplate}</strong>`;
+            if (hintWord) hintWord.innerHTML = `Слово: <em>${item.word}</em>`;
+
+            // Reps Indicator (5 Dots)
+            const reps = window.speechDrillsEngine ? window.speechDrillsEngine.getReps(item.id) : 0;
+            if (repsDots) {
+                repsDots.innerHTML = [1, 2, 3, 4, 5].map(idx =>
+                    `<span class="speech-rep-dot ${idx <= reps ? 'active' : ''}"></span>`
+                ).join("");
+            }
+            if (repsNum) repsNum.textContent = `${reps}/5`;
+
+            // Update Masteries & Combo
+            updateMasteryHeader();
+            updateComboUI();
+
+            // Status message
+            if (statusHint) statusHint.textContent = "Нажмите на микрофон или зажмите Пробел";
+
+            // Start countdown
+            startTimer();
+        }
+
+        function loadNextItem() {
+            if (!window.speechDrillsEngine) return;
+            const excludeId = currentItem ? currentItem.id : null;
+            const next = window.speechDrillsEngine.getRandomItem(excludeId);
+            renderItem(next);
+        }
+
+        let recordingMaxTimer = null;
+
+        // Dedicated Groq Whisper STT Recording Engine
+        async function startRecording() {
+            if (isCardAnswered || isRecording) return;
+            try {
+                // Stop countdown timer
+                stopTimer();
+
+                audioChunks = [];
+
+                // Visual recording state in timer bar
+                if (timerTrack) timerTrack.style.display = "block";
+                if (timerFill) {
+                    timerFill.style.width = "100%";
+                    timerFill.style.background = "linear-gradient(90deg, #ec4899, #ef4444)";
+                }
+
+                // MediaRecorder audio capture with high quality echo & noise cancellation
+                mediaStream = await navigator.mediaDevices.getUserMedia({
+                    audio: {
+                        echoCancellation: true,
+                        noiseSuppression: true,
+                        autoGainControl: true
+                    }
+                });
+
+                const mimeType = MediaRecorder.isTypeSupported('audio/webm;codecs=opus')
+                    ? 'audio/webm;codecs=opus'
+                    : (MediaRecorder.isTypeSupported('audio/webm') ? 'audio/webm' : '');
+
+                mediaRecorder = mimeType ? new MediaRecorder(mediaStream, { mimeType }) : new MediaRecorder(mediaStream);
+
+                mediaRecorder.ondataavailable = (e) => {
+                    if (e.data && e.data.size > 0) audioChunks.push(e.data);
+                };
+
+                mediaRecorder.onstop = async () => {
+                    if (mediaStream) {
+                        mediaStream.getTracks().forEach(t => t.stop());
+                        mediaStream = null;
+                    }
+                    const finalBlob = audioChunks.length > 0
+                        ? new Blob(audioChunks, { type: mimeType || 'audio/webm' })
+                        : null;
+                    await processSpokenAudio(finalBlob);
+                };
+
+                mediaRecorder.start(100);
+                isRecording = true;
+                if (micBtn) micBtn.classList.add("recording");
+                if (statusHint) statusHint.innerHTML = "🎙️ <b>Идет запись...</b> Произнесите фразу целиком и нажмите микрофон (или Пробел)";
+
+                // Safety timeout (15 sec)
+                if (recordingMaxTimer) clearTimeout(recordingMaxTimer);
+                recordingMaxTimer = setTimeout(() => {
+                    if (isRecording) {
+                        stopRecording(true);
+                    }
+                }, 15000);
+            } catch (err) {
+                console.warn("[Speech Drills] Microphone error:", err);
+                if (statusHint) statusHint.textContent = "⚠️ Микрофон недоступен. Проверьте разрешения браузера.";
+            }
+        }
+
+        function stopRecording(process = true) {
+            if (recordingMaxTimer) {
+                clearTimeout(recordingMaxTimer);
+                recordingMaxTimer = null;
+            }
+            if (!isRecording) return;
+            isRecording = false;
+            if (micBtn) micBtn.classList.remove("recording");
+            if (statusHint) statusHint.innerHTML = "⚡ <b>Groq Whisper Large v3</b> распознаёт речь...";
+
+            if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+                if (process) {
+                    try {
+                        if (typeof mediaRecorder.requestData === 'function') mediaRecorder.requestData();
+                        mediaRecorder.stop();
+                    } catch (e) {}
+                } else {
+                    try {
+                        mediaRecorder.ondataavailable = null;
+                        mediaRecorder.onstop = null;
+                        mediaRecorder.stop();
+                    } catch (e) {}
+                    if (mediaStream) {
+                        mediaStream.getTracks().forEach(t => t.stop());
+                        mediaStream = null;
+                    }
+                }
+            } else if (mediaStream) {
+                mediaStream.getTracks().forEach(t => t.stop());
+                mediaStream = null;
+            }
+        }
+
+        async function processSpokenAudio(blob) {
+            if (!currentItem || isCardAnswered) return;
+            stopTimer();
+
+            let spokenText = "";
+            let sttProvider = "Groq Whisper Large v3";
+            const promptContext = `English speech CEFR Level A1. Construction: ${currentItem.patternTemplate}. Target sentence: ${currentItem.en}`;
+
+            // 1. Primary: Groq Cloud Whisper Large v3
+            if (blob && blob.size > 100 && aiService && typeof aiService.transcribeAudioBlob === "function") {
+                try {
+                    spokenText = await aiService.transcribeAudioBlob(blob, promptContext);
+                } catch (e) {
+                    console.warn("[Speech Drills] Groq STT error:", e);
+                }
+            }
+
+            // 2. Fallback only if Groq was unavailable
+            if (!spokenText && window.SpeechRecognition) {
+                sttProvider = "Browser Web Speech (Fallback)";
+            }
+
+            if (transcriptBox) transcriptBox.classList.remove("hidden");
+            if (transcriptText) {
+                transcriptText.innerHTML = spokenText
+                    ? `«${spokenText}» <span style="display:inline-block; margin-left:6px; font-size:10px; padding:2px 6px; border-radius:10px; background:rgba(56,189,248,0.15); color:#38bdf8; border:1px solid rgba(56,189,248,0.3);"><i class="fa-solid fa-bolt"></i> ${sttProvider}</span>`
+                    : `<em>(Речь не распознана)</em>`;
+            }
+
+            // Validate against target
+            const validation = window.speechDrillsEngine.validateSpeech(spokenText, currentItem.en);
+
+            if (validation.isCorrect) {
+                handleSuccess(spokenText);
+            } else {
+                handleFailure(spokenText);
+            }
+        }
+
+        function handleSuccess(spokenText) {
+            isCardAnswered = true;
+            stopTimer();
+
+            const result = window.speechDrillsEngine.recordSuccess(currentItem.id);
+            updateMasteryHeader();
+            updateComboUI();
+
+            // Update 5-dot reps
+            if (repsDots) {
+                repsDots.innerHTML = [1, 2, 3, 4, 5].map(idx =>
+                    `<span class="speech-rep-dot ${idx <= result.reps ? 'active' : ''}"></span>`
+                ).join("");
+            }
+            if (repsNum) repsNum.textContent = `${result.reps}/5`;
+
+            // Give Hero XP
+            const hero = (typeof rpgEngine !== 'undefined' && rpgEngine.heroes)
+                ? (rpgEngine.heroes.find(h => h.id === (activeShowcaseHeroId || 'valerius')) || rpgEngine.heroes[0])
+                : null;
+            if (hero && typeof rpgEngine.gainHeroXp === "function") {
+                rpgEngine.gainHeroXp(hero, 15);
+            }
+
+            if (feedbackCard) {
+                feedbackCard.className = "speech-feedback-card correct";
+                feedbackCard.classList.remove("hidden");
+            }
+
+            if (result.nowMastered) {
+                if (feedbackStatus) feedbackStatus.innerHTML = `🏆 ФРАЗА ПОЛНОСТЬЮ ОСВОЕНА (5/5)! (+50 XP)`;
+                if (hero && typeof rpgEngine.gainHeroXp === "function") {
+                    rpgEngine.gainHeroXp(hero, 50);
+                }
+                if (typeof showToast === "function") {
+                    showToast(`🏆 <b>ФРАЗА ОСВОЕНА (5/5)!</b> «${currentItem.en}» переведена в освоенные!`, "linear-gradient(135deg, #10b981, #059669)", "#34d399");
+                }
+            } else {
+                if (feedbackStatus) feedbackStatus.innerHTML = `🎉 Отлично! Верно сказано (${result.reps}/5) (+15 XP)`;
+            }
+
+            if (feedbackTarget) {
+                feedbackTarget.innerHTML = `Эталон: <strong>${currentItem.en}</strong>`;
+            }
+
+            if (statusHint) statusHint.textContent = "✨ Молодец! Переход к следующей фразе...";
+
+            // Auto advance after 1.4s
+            autoAdvanceTimer = setTimeout(() => {
+                loadNextItem();
+            }, 1400);
+        }
+
+        function handleFailure(spokenText) {
+            isCardAnswered = true;
+            stopTimer();
+
+            window.speechDrillsEngine.recordFailure(currentItem.id);
+            updateComboUI();
+
+            // Auto-reveal hint
+            if (hintContent) hintContent.classList.remove("hidden");
+            if (hintToggleLabel) hintToggleLabel.textContent = "Скрыть грамматический шаблон";
+
+            if (feedbackCard) {
+                feedbackCard.className = "speech-feedback-card wrong";
+                feedbackCard.classList.remove("hidden");
+            }
+            if (feedbackStatus) {
+                feedbackStatus.textContent = "⚠️ Не совсем точно, попробуйте повторить!";
+            }
+            if (feedbackTarget) {
+                feedbackTarget.innerHTML = `Правильный вариант: <strong>${currentItem.en}</strong>`;
+            }
+            if (statusHint) statusHint.textContent = "Послушайте эталон и нажмите 'Дальше' для продолжения";
+        }
+
+        // Mic Button Click Handler
+        if (micBtn) {
+            micBtn.addEventListener("click", () => {
+                if (isCardAnswered) {
+                    loadNextItem();
+                    return;
+                }
+                if (isRecording) {
+                    stopRecording(true);
+                } else {
+                    startRecording();
+                }
+            });
+        }
+
+        // Spacebar shortcut
+        window.addEventListener("keydown", (e) => {
+            if (speechModal && !speechModal.classList.contains("hidden")) {
+                if (e.code === "Space" && e.target.tagName !== "INPUT" && e.target.tagName !== "TEXTAREA") {
+                    e.preventDefault();
+                    if (!isRecording && !isCardAnswered) {
+                        startRecording();
+                    } else if (isRecording) {
+                        stopRecording(true);
+                    } else if (isCardAnswered) {
+                        loadNextItem();
+                    }
+                } else if (e.code === "Enter" && isCardAnswered) {
+                    e.preventDefault();
+                    loadNextItem();
+                }
+            }
+        });
+
+        // Next Card Button
+        if (nextCardBtn) {
+            nextCardBtn.addEventListener("click", () => {
+                loadNextItem();
+            });
+        }
+
+        // Play Speech Drill Audio (Pre-recorded Google Studio Voice -> Kokoro Fallback)
+        function playSpeechItemAudio(item, onStart, onEnd) {
+            if (!item || !item.en) return;
+            const cleanKey = item.en.toLowerCase().replace(/[^a-z0-9]/g, '_').replace(/_+/g, '_').replace(/^_|_$/g, '');
+            const candidateUrls = [
+                `/audio/speech_drills/${item.id}.wav`,
+                `/audio/speech_drills/${cleanKey}.wav`,
+                `/audio/warmup/${cleanKey}.wav`
+            ];
+
+            let played = false;
+            const tryPlayNext = (idx) => {
+                if (idx >= candidateUrls.length) {
+                    // Fallback to Kokoro TTS
+                    playTextKokoroAudio(item.en, activeShowcaseHeroId || 'valerius', onStart, onEnd);
+                    return;
+                }
+                const url = candidateUrls[idx];
+                fetch(url, { method: 'HEAD' }).then(res => {
+                    if (res.ok && res.status === 200) {
+                        if (onStart) onStart();
+                        const a = new Audio(url);
+                        a.onended = () => { if (onEnd) onEnd(); };
+                        a.onerror = () => tryPlayNext(idx + 1);
+                        a.play().catch(() => tryPlayNext(idx + 1));
+                    } else {
+                        tryPlayNext(idx + 1);
+                    }
+                }).catch(() => tryPlayNext(idx + 1));
+            };
+
+            tryPlayNext(0);
+        }
+
+        // Listen Target Button
+        if (listenTargetBtn) {
+            listenTargetBtn.addEventListener("click", (e) => {
+                e.stopPropagation();
+                if (autoAdvanceTimer) {
+                    clearTimeout(autoAdvanceTimer);
+                    autoAdvanceTimer = null;
+                }
+                if (!currentItem) return;
+                const icon = listenTargetBtn.querySelector("i");
+                if (icon) icon.className = "fa-solid fa-spinner fa-spin";
+                playSpeechItemAudio(
+                    currentItem,
+                    () => { if (icon) icon.className = "fa-solid fa-volume-high fa-beat"; },
+                    () => { if (icon) icon.className = "fa-solid fa-volume-high"; }
+                );
+            });
+        }
+
+        // Open Speech Drills Modal
+        if (btnSpeechDrills) {
+            btnSpeechDrills.addEventListener("click", () => {
+                if (speechModal) {
+                    speechModal.classList.remove("hidden");
+                    updateMasteryHeader();
+                    loadNextItem();
+                }
+            });
+        }
+
+        // Stop on modal close
+        if (speechModal) {
+            const closeBtn = speechModal.querySelector(".modal-close-btn");
+            if (closeBtn) {
+                closeBtn.addEventListener("click", () => {
+                    stopTimer();
+                    if (isRecording) stopRecording(false);
+                    if (autoAdvanceTimer) clearTimeout(autoAdvanceTimer);
+                });
+            }
+        }
+    }
+
+    // =========================================================================
     // PATTERN DRILLS & SPEED TRANSFORMATION UI ENGINE
     // =========================================================================
     function initPatternDrillsUI() {
@@ -7785,19 +8930,25 @@ document.addEventListener("DOMContentLoaded", () => {
     // SPEAKING & FLUENCY STUDIO UI ENGINE (4/3/2 SPRINT & BLITZ Q&A)
     // =========================================================================
     function initSpeakingStudioUI() {
+        const tabWarmup = document.getElementById("tab-speaking-warmup");
         const tab432 = document.getElementById("tab-speaking-432");
         const tabBlitz = document.getElementById("tab-speaking-blitz");
         const tabFree = document.getElementById("tab-speaking-free");
 
+        const viewWarmup = document.getElementById("speaking-view-warmup");
         const view432 = document.getElementById("speaking-view-432");
         const viewBlitz = document.getElementById("speaking-view-blitz");
         const viewFree = document.getElementById("speaking-view-free");
 
         function switchTab(viewName) {
-            [tab432, tabBlitz, tabFree].forEach(t => t && t.classList.remove("active"));
-            [view432, viewBlitz, viewFree].forEach(v => v && (v.style.display = "none"));
+            [tabWarmup, tab432, tabBlitz, tabFree].forEach(t => t && t.classList.remove("active"));
+            [viewWarmup, view432, viewBlitz, viewFree].forEach(v => v && (v.style.display = "none"));
 
-            if (viewName === "432") {
+            if (viewName === "warmup") {
+                if (tabWarmup) tabWarmup.classList.add("active");
+                if (viewWarmup) viewWarmup.style.display = "block";
+                setupWarmup();
+            } else if (viewName === "432") {
                 if (tab432) tab432.classList.add("active");
                 if (view432) view432.style.display = "block";
                 setup432Sprint();
@@ -7812,9 +8963,122 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
+        if (tabWarmup) tabWarmup.onclick = () => switchTab("warmup");
         if (tab432) tab432.onclick = () => switchTab("432");
         if (tabBlitz) tabBlitz.onclick = () => switchTab("blitz");
         if (tabFree) tabFree.onclick = () => switchTab("free");
+
+        // === 0. RECHEWAYA RAZMINKA (SUBSTITUTION WARM-UP ENGINE) ===
+        let currentWarmupPattern = null;
+        let currentWarmupSlotIdx = 0;
+
+        const warmupBadge = document.getElementById("warmup-badge");
+        const warmupNewPatternBtn = document.getElementById("warmup-new-pattern-btn");
+        const warmupTemplateLabel = document.getElementById("warmup-template-label");
+        const warmupTranslationLabel = document.getElementById("warmup-translation-label");
+        const warmupPrefixText = document.getElementById("warmup-prefix-text");
+        const warmupSlotText = document.getElementById("warmup-slot-text");
+        const warmupSuffixText = document.getElementById("warmup-suffix-text");
+        const warmupSlotTranslation = document.getElementById("warmup-slot-translation");
+        const warmupProgressPills = document.getElementById("warmup-progress-pills");
+        const warmupListenBtn = document.getElementById("warmup-listen-btn");
+        const warmupNextBtn = document.getElementById("warmup-next-btn");
+        const warmupGoSprintBtn = document.getElementById("warmup-go-sprint-btn");
+
+        function setupWarmup() {
+            if (!currentWarmupPattern) {
+                loadNewWarmupPattern();
+            } else {
+                renderWarmupSlot();
+            }
+        }
+
+        function loadNewWarmupPattern() {
+            if (!window.speakingEngine || !window.speakingEngine.warmupPatterns) return;
+            const excludeId = currentWarmupPattern ? currentWarmupPattern.id : null;
+            currentWarmupPattern = window.speakingEngine.getRandomWarmupPattern(excludeId);
+            currentWarmupSlotIdx = 0;
+            renderWarmupSlot();
+        }
+
+        function renderWarmupSlot() {
+            if (!currentWarmupPattern) return;
+            const total = currentWarmupPattern.slots.length;
+            const currentSlot = currentWarmupPattern.slots[currentWarmupSlotIdx] || currentWarmupPattern.slots[0];
+
+            if (warmupBadge) {
+                warmupBadge.textContent = `🔥 РАЗМИНКА: СЛОВО ${currentWarmupSlotIdx + 1} ИЗ ${total}`;
+            }
+            if (warmupTemplateLabel) warmupTemplateLabel.textContent = currentWarmupPattern.template;
+            if (warmupTranslationLabel) warmupTranslationLabel.textContent = currentWarmupPattern.translation;
+
+            if (warmupPrefixText) warmupPrefixText.textContent = currentWarmupPattern.prefix;
+            if (warmupSuffixText) warmupSuffixText.textContent = currentWarmupPattern.suffix;
+            if (warmupSlotText) {
+                warmupSlotText.textContent = currentSlot.word;
+                // Pulse animation
+                warmupSlotText.style.animation = "none";
+                setTimeout(() => { warmupSlotText.style.animation = "pulse 0.4s ease"; }, 10);
+            }
+            if (warmupSlotTranslation) {
+                warmupSlotTranslation.textContent = `«${currentSlot.translation}»`;
+            }
+
+            if (warmupProgressPills) {
+                warmupProgressPills.innerHTML = currentWarmupPattern.slots.map((s, idx) => {
+                    let color = "rgba(255,255,255,0.15)";
+                    let textCol = "#94a3b8";
+                    if (idx < currentWarmupSlotIdx) {
+                        color = "rgba(52,211,153,0.3)";
+                        textCol = "#34d399";
+                    } else if (idx === currentWarmupSlotIdx) {
+                        color = "rgba(236,72,153,0.35)";
+                        textCol = "#f472b6";
+                    }
+                    return `<span style="font-size:11px; padding:2px 8px; border-radius:12px; background:${color}; color:${textCol}; border:1px solid ${color}; font-weight:${idx === currentWarmupSlotIdx ? '700' : '500'};">${idx + 1}. ${s.word}</span>`;
+                }).join("");
+            }
+
+            if (warmupNextBtn) {
+                const isLast = currentWarmupSlotIdx >= total - 1;
+                warmupNextBtn.innerHTML = isLast
+                    ? `<span>🎉 Завершить серию (+50 XP) &rarr;</span>`
+                    : `<span>Сказала! Следующее (${currentWarmupSlotIdx + 2}/${total}) &rarr;</span>`;
+            }
+        }
+
+        function advanceWarmupSlot() {
+            if (!currentWarmupPattern) return;
+            const total = currentWarmupPattern.slots.length;
+            if (currentWarmupSlotIdx < total - 1) {
+                currentWarmupSlotIdx++;
+                renderWarmupSlot();
+            } else {
+                // Completed whole pattern!
+                const hero = (typeof rpgEngine !== 'undefined' && rpgEngine.heroes)
+                    ? (rpgEngine.heroes.find(h => h.id === (activeShowcaseHeroId || 'valerius')) || rpgEngine.heroes[0])
+                    : null;
+                if (hero && typeof rpgEngine.gainHeroXp === "function") {
+                    rpgEngine.gainHeroXp(hero, 50);
+                }
+                if (typeof showToast === "function") {
+                    showToast("🔥 <b>РАЗМИНКА ЗАВЕРШЕНА!</b> Речевой аппарат разогрет (+50 Hero XP)!", "linear-gradient(135deg, #ec4899, #8b5cf6)", "#f472b6");
+                }
+                loadNewWarmupPattern();
+            }
+        }
+
+        function speakWarmupPhrase() {
+            if (!currentWarmupPattern || typeof voiceService === 'undefined' || !voiceService.speak) return;
+            const currentSlot = currentWarmupPattern.slots[currentWarmupSlotIdx] || currentWarmupPattern.slots[0];
+            const phrase = currentSlot.full || `${currentWarmupPattern.prefix}${currentSlot.word}${currentWarmupPattern.suffix}`;
+            voiceService.speak(phrase);
+        }
+
+        if (warmupNewPatternBtn) warmupNewPatternBtn.onclick = loadNewWarmupPattern;
+        if (warmupNextBtn) warmupNextBtn.onclick = advanceWarmupSlot;
+        if (warmupListenBtn) warmupListenBtn.onclick = speakWarmupPhrase;
+        if (warmupGoSprintBtn) warmupGoSprintBtn.onclick = () => switchTab("432");
 
         // === 4/3/2 SPRINT LOGIC (VERSION 2.0 WITH AUDIO RECORDING & AI FEEDBACK) ===
         let currentTopic = null;
@@ -7828,6 +9092,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let roundAudioUrls = ["", "", ""];
         let sprintRecognition = null;
         let mediaRecorder = null;
+        let mediaStream = null;
         let audioChunks = [];
         let currentRoundTranscript = "";
 
@@ -7933,48 +9198,65 @@ document.addEventListener("DOMContentLoaded", () => {
             isSprintRecording = true;
             currentRoundTranscript = "";
             audioChunks = [];
-            if (liveTranscript) liveTranscript.innerHTML = '<em>🎙️ Слушаю вас... Говорите свободно и непрерывно!</em>';
+            if (liveTranscript) liveTranscript.innerHTML = '<em>🎙️ Слушаю вас... Говорите свободно простыми предложениями (A1)!</em>';
             if (liveWordCount) liveWordCount.textContent = 'Слов в этом раунде: 0';
 
-            // 1. Start Audio Blob Recording via MediaRecorder
+            // 1. Start Audio Blob Recording via MediaRecorder (MP4 prioritized)
             try {
-                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-                mediaRecorder = new MediaRecorder(stream);
+                mediaStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                let recOptions = {};
+                if (typeof MediaRecorder !== 'undefined' && typeof MediaRecorder.isTypeSupported === 'function') {
+                    if (MediaRecorder.isTypeSupported('audio/mp4')) {
+                        recOptions = { mimeType: 'audio/mp4' };
+                    } else if (MediaRecorder.isTypeSupported('audio/webm;codecs=opus')) {
+                        recOptions = { mimeType: 'audio/webm;codecs=opus' };
+                    } else if (MediaRecorder.isTypeSupported('audio/webm')) {
+                        recOptions = { mimeType: 'audio/webm' };
+                    }
+                }
+                mediaRecorder = new MediaRecorder(mediaStream, recOptions);
                 mediaRecorder.ondataavailable = (e) => {
                     if (e.data.size > 0) audioChunks.push(e.data);
                 };
-                mediaRecorder.start();
+                mediaRecorder.start(250); // Collect in chunks every 250ms
             } catch (err) {
                 console.warn("MediaRecorder mic access error:", err);
             }
 
-            // 2. Start Live Speech Recognition
+            // 2. Start Live Speech Recognition with Auto-Restart for mobile browsers
             const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
             if (SpeechRecognition) {
-                sprintRecognition = new SpeechRecognition();
-                sprintRecognition.lang = "en-US";
-                sprintRecognition.continuous = true;
-                sprintRecognition.interimResults = true;
+                try {
+                    sprintRecognition = new SpeechRecognition();
+                    sprintRecognition.lang = "en-US";
+                    sprintRecognition.continuous = true;
+                    sprintRecognition.interimResults = true;
 
-                sprintRecognition.onresult = (evt) => {
-                    let interim = '';
-                    let final = '';
-                    for (let i = evt.resultIndex; i < evt.results.length; ++i) {
-                        if (evt.results[i].isFinal) {
-                            final += evt.results[i][0].transcript + ' ';
-                        } else {
-                            interim += evt.results[i][0].transcript;
+                    sprintRecognition.onresult = (evt) => {
+                        let interim = '';
+                        let final = '';
+                        for (let i = evt.resultIndex; i < evt.results.length; ++i) {
+                            if (evt.results[i].isFinal) {
+                                final += evt.results[i][0].transcript + ' ';
+                            } else {
+                                interim += evt.results[i][0].transcript;
+                            }
                         }
-                    }
-                    currentRoundTranscript += final;
-                    const fullText = (currentRoundTranscript + ' ' + interim).trim();
-                    if (liveTranscript) liveTranscript.textContent = fullText;
-                    const wCount = window.speakingEngine ? window.speakingEngine.countEnglishWords(fullText) : 0;
-                    if (liveWordCount) liveWordCount.textContent = `Слов в этом раунде: ${wCount}`;
-                };
+                        currentRoundTranscript += final;
+                        const fullText = (currentRoundTranscript + ' ' + interim).trim();
+                        if (liveTranscript) liveTranscript.textContent = fullText;
+                        const wCount = window.speakingEngine ? window.speakingEngine.countEnglishWords(fullText) : 0;
+                        if (liveWordCount) liveWordCount.textContent = `Слов в этом раунде: ${wCount}`;
+                    };
 
-                sprintRecognition.onerror = () => {};
-                try { sprintRecognition.start(); } catch(e) {}
+                    sprintRecognition.onerror = (err) => {
+                        console.warn("Sprint SpeechRecognition error:", err.error);
+                    };
+
+                    sprintRecognition.start();
+                } catch(e) {
+                    console.warn("SpeechRecognition start failed:", e);
+                }
             }
 
             if (toggleRecBtn) {
@@ -7992,76 +9274,73 @@ document.addEventListener("DOMContentLoaded", () => {
             }, 1000);
         }
 
-        function finishSprintRound() {
+        async function finishSprintRound() {
             if (sprintTimer) clearInterval(sprintTimer);
             sprintTimer = null;
             isSprintRecording = false;
 
             if (sprintRecognition) {
-                try { sprintRecognition.stop(); } catch(e) {}
+                try { 
+                    sprintRecognition.onend = null;
+                    sprintRecognition.stop(); 
+                } catch(e) {}
             }
 
+            let capturedBlob = null;
             if (mediaRecorder && mediaRecorder.state !== 'inactive') {
-                mediaRecorder.onstop = () => {
-                    const blob = new Blob(audioChunks, { type: 'audio/webm' });
-                    roundAudioBlobs[currentRound - 1] = blob;
-                    roundAudioUrls[currentRound - 1] = URL.createObjectURL(blob);
-                };
-                mediaRecorder.stop();
+                await new Promise((resolve) => {
+                    mediaRecorder.onstop = () => {
+                        capturedBlob = new Blob(audioChunks, { type: 'audio/webm' });
+                        roundAudioBlobs[currentRound - 1] = capturedBlob;
+                        roundAudioUrls[currentRound - 1] = URL.createObjectURL(capturedBlob);
+                        resolve();
+                    };
+                    try { mediaRecorder.stop(); } catch(e) { resolve(); }
+                });
+            } else if (audioChunks.length > 0) {
+                capturedBlob = new Blob(audioChunks, { type: 'audio/webm' });
+                roundAudioBlobs[currentRound - 1] = capturedBlob;
+                roundAudioUrls[currentRound - 1] = URL.createObjectURL(capturedBlob);
             }
 
-            const cleanTranscript = currentRoundTranscript.trim();
-            sprintTranscripts[currentRound - 1] = cleanTranscript;
-            const roundWords = window.speakingEngine ? window.speakingEngine.countEnglishWords(cleanTranscript) : 0;
-            sprintRoundWords[currentRound - 1] = roundWords;
-
-            // Award words into Speaking skill
-            if (roundWords > 0 && window.speakingEngine) {
-                const addRes = window.speakingEngine.addWords(roundWords);
-                updateSpeakingUI();
-
-                // Award Hero XP
-                const hero = rpgEngine.heroes.find(h => h.id === (activeShowcaseHeroId || 'valerius'));
-                if (hero && typeof rpgEngine.gainHeroXp === "function") {
-                    rpgEngine.gainHeroXp(hero, roundWords * 2);
-                }
-
-                if (addRes && addRes.leveledUp) {
-                    showToast(`🎙️ <b>SPEAKING LEVEL UP!</b> Level <b>${addRes.newLevel}</b> reached! (${addRes.totalWords.toLocaleString()} / 300,000 words spoken)`, "linear-gradient(135deg, #ec4899, #8b5cf6)", "#f472b6");
-                }
+            if (mediaStream) {
+                try {
+                    mediaStream.getTracks().forEach(track => track.stop());
+                } catch(e) {}
+                mediaStream = null;
             }
+
+            let initialBrowserTranscript = currentRoundTranscript.trim();
+            sprintTranscripts[currentRound - 1] = initialBrowserTranscript;
 
             updateRoundIndicators();
 
             if (currentRound < 3) {
                 // Show Inter-Round Review & Polish Panel!
-                showInterRoundReviewPanel();
+                showInterRoundReviewPanel(capturedBlob);
             } else {
                 // Sprint fully completed!
-                showFinalSprintSummary();
+                showFinalSprintSummary(capturedBlob);
             }
         }
 
-        function showInterRoundReviewPanel() {
+        async function showInterRoundReviewPanel(audioBlob) {
             if (recordingBox) recordingBox.classList.add("hidden");
             if (reviewPanel) reviewPanel.classList.remove("hidden");
 
-            const dur = [60, 45, 30][currentRound - 1];
+            const roundIdx = currentRound - 1;
+            const dur = [60, 45, 30][roundIdx];
             const nextDur = [60, 45, 30][currentRound];
-            const words = sprintRoundWords[currentRound - 1];
-            const wpm = Math.round((words / dur) * 60);
 
             if (reviewTitle) reviewTitle.innerHTML = `<i class="fa-solid fa-headphones-simple"></i> Анализ Раунда ${currentRound} & Подготовка к Раунду ${currentRound + 1}`;
-            if (reviewBadge) reviewBadge.textContent = `РАУНД ${currentRound} (${dur} СЕК): ${words} СЛОВ • ${wpm} WPM`;
-
-            if (reviewTranscript) {
-                reviewTranscript.textContent = sprintTranscripts[currentRound - 1] || "(Текст не распознан / Вы говорили тихо)";
-            }
+            if (reviewBadge) reviewBadge.innerHTML = `<span style="color:#38bdf8;"><i class="fa-solid fa-bolt fa-spin"></i> Groq Whisper v3 распознает речь...</span>`;
+            if (reviewTranscript) reviewTranscript.innerHTML = '<em><i class="fa-solid fa-bolt fa-spin" style="color:#38bdf8;"></i> [Groq Whisper Large v3] Превращаю аудиозапись в точный текст...</em>';
+            if (aiFeedbackContent) aiFeedbackContent.innerHTML = '<em><i class="fa-solid fa-spinner fa-spin"></i> Ожидание распознавания речи перед анализом...</em>';
 
             // Audio Playback Listener
             if (playbackBtn && audioElement) {
                 playbackBtn.onclick = () => {
-                    const url = roundAudioUrls[currentRound - 1];
+                    const url = roundAudioUrls[roundIdx];
                     if (url) {
                         audioElement.src = url;
                         audioElement.play();
@@ -8075,10 +9354,82 @@ document.addEventListener("DOMContentLoaded", () => {
                 };
             }
 
-            // Fetch AI Feedback asynchronously
-            if (aiFeedbackContent) {
-                aiFeedbackContent.innerHTML = '<em><i class="fa-solid fa-spinner fa-spin"></i> AI анализирует вашу речь и готовит подсказки ко 2-му раунду...</em>';
-                aiService.analyzeSpeakingSprint(sprintTranscripts[currentRound - 1], currentTopic).then(feedback => {
+            // Audio Download Button Listener (.mp4 format)
+            const downloadBtn = document.getElementById("sprint-download-btn");
+            if (downloadBtn) {
+                downloadBtn.onclick = () => {
+                    const url = roundAudioUrls[roundIdx];
+                    if (url) {
+                        const a = document.createElement("a");
+                        a.href = url;
+                        const dateStr = new Date().toISOString().slice(0, 10);
+                        a.download = `my-speaking-round-${currentRound}-${dateStr}.mp4`;
+                        document.body.appendChild(a);
+                        a.click();
+                        document.body.removeChild(a);
+                        if (typeof showToast === "function") {
+                            showToast("⬇️ Аудиозапись (.mp4) сохраняется на ваше устройство!", "linear-gradient(135deg, #38bdf8, #0284c7)", "#38bdf8");
+                        }
+                    } else {
+                        if (typeof showToast === "function") {
+                            showToast("⚠️ Аудиозапись ещё не готова", "#ef4444", "#ef4444");
+                        }
+                    }
+                };
+            }
+
+            // PRIMARY: High-precision Transcription via Groq Whisper Large v3
+            let finalTranscript = sprintTranscripts[roundIdx] || "";
+            const currentBlob = audioBlob || roundAudioBlobs[roundIdx];
+
+            if (currentBlob && currentBlob.size > 500 && aiService && typeof aiService.transcribeAudioBlob === 'function') {
+                try {
+                    const promptContext = currentTopic ? `Topic: ${currentTopic.title}. Prompt: ${currentTopic.prompt}. CEFR A1 simple English everyday speech.` : "English speech, Level A1, everyday simple conversation.";
+                    const groqText = await aiService.transcribeAudioBlob(currentBlob, promptContext);
+                    if (groqText && groqText.trim().length > 0) {
+                        finalTranscript = groqText.trim();
+                    }
+                } catch(err) {
+                    console.warn("Groq Whisper transcription fallback:", err);
+                }
+            }
+
+            // Apply final recognized text & metrics
+            sprintTranscripts[roundIdx] = finalTranscript;
+            let words = window.speakingEngine ? window.speakingEngine.countEnglishWords(finalTranscript) : 0;
+            sprintRoundWords[roundIdx] = words;
+            let wpm = Math.round((words / dur) * 60);
+
+            if (reviewTranscript) {
+                reviewTranscript.textContent = finalTranscript || "(Текст не распознан / Вы говорили тихо)";
+            }
+            if (reviewBadge) {
+                reviewBadge.textContent = `РАУНД ${currentRound} (${dur} СЕК): ${words} СЛОВ • ${wpm} WPM`;
+            }
+            updateRoundIndicators();
+
+            // Award words into Speaking skill & Hero XP
+            if (words > 0 && window.speakingEngine) {
+                const addRes = window.speakingEngine.addWords(words);
+                updateSpeakingUI();
+
+                const hero = rpgEngine.heroes.find(h => h.id === (activeShowcaseHeroId || 'valerius'));
+                if (hero && typeof rpgEngine.gainHeroXp === "function") {
+                    rpgEngine.gainHeroXp(hero, words * 2);
+                }
+
+                if (addRes && addRes.leveledUp) {
+                    showToast(`🎙️ <b>SPEAKING LEVEL UP!</b> Level <b>${addRes.newLevel}</b> reached! (${addRes.totalWords.toLocaleString()} / 300,000 words spoken)`, "linear-gradient(135deg, #ec4899, #8b5cf6)", "#f472b6");
+                }
+            }
+
+            // Run AI feedback with high-accuracy transcript
+            runAiFeedback(finalTranscript);
+
+            function runAiFeedback(textToAnalyze) {
+                if (!aiFeedbackContent) return;
+                aiFeedbackContent.innerHTML = '<em><i class="fa-solid fa-spinner fa-spin"></i> AI речевой коуч (A1) анализирует вашу речь и готовит подсказки...</em>';
+                aiService.analyzeSpeakingSprint(textToAnalyze, currentTopic).then(feedback => {
                     if (!feedback) return;
                     let html = '';
                     if (feedback.praise) {
@@ -8086,7 +9437,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                     if (feedback.corrections && feedback.corrections.length > 0) {
                         html += `<div style="margin-bottom:8px;">
-                            <div style="font-weight:700; color:#fbbf24; margin-bottom:4px;"><i class="fa-solid fa-wrench"></i> Как сделать речь ещё чище:</div>
+                            <div style="font-weight:700; color:#fbbf24; margin-bottom:4px;"><i class="fa-solid fa-wrench"></i> Простые подсказки (A1):</div>
                             ${feedback.corrections.map(c => `
                                 <div style="background:rgba(0,0,0,0.3); padding:6px 10px; border-radius:6px; margin-bottom:4px; font-size:11px;">
                                     <span style="color:#f87171; text-decoration:line-through;">${c.original}</span> &rarr; <strong style="color:#34d399;">${c.improved}</strong>
@@ -8119,10 +9470,35 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-        function showFinalSprintSummary() {
+        async function showFinalSprintSummary(audioBlob3) {
             if (recordingBox) recordingBox.classList.add("hidden");
             if (reviewPanel) reviewPanel.classList.add("hidden");
             if (finalSummaryPanel) finalSummaryPanel.classList.remove("hidden");
+
+            // PRIMARY: High-precision Transcription for Round 3 via Groq Whisper Large v3
+            const currentBlob3 = audioBlob3 || roundAudioBlobs[2];
+            if (currentBlob3 && currentBlob3.size > 500 && aiService && typeof aiService.transcribeAudioBlob === 'function') {
+                try {
+                    const promptContext = currentTopic ? `Topic: ${currentTopic.title}. Prompt: ${currentTopic.prompt}. CEFR A1 simple English everyday speech.` : "English speech, Level A1, everyday simple conversation.";
+                    const groqText3 = await aiService.transcribeAudioBlob(currentBlob3, promptContext);
+                    if (groqText3 && groqText3.trim().length > 0) {
+                        sprintTranscripts[2] = groqText3.trim();
+                    }
+                } catch(e) {}
+            }
+
+            const clean3 = (sprintTranscripts[2] || "").trim();
+            const w3 = window.speakingEngine ? window.speakingEngine.countEnglishWords(clean3) : 0;
+            sprintRoundWords[2] = w3;
+            if (w3 > 0 && window.speakingEngine) {
+                window.speakingEngine.addWords(w3);
+                updateSpeakingUI();
+
+                const hero = rpgEngine.heroes.find(h => h.id === (activeShowcaseHeroId || 'valerius'));
+                if (hero && typeof rpgEngine.gainHeroXp === "function") {
+                    rpgEngine.gainHeroXp(hero, w3 * 2);
+                }
+            }
 
             const totalSprintWords = sprintRoundWords[0] + sprintRoundWords[1] + sprintRoundWords[2];
 
@@ -8132,15 +9508,21 @@ document.addEventListener("DOMContentLoaded", () => {
                     const w = sprintRoundWords[r - 1];
                     const wpm = Math.round((w / dur) * 60);
                     const hasAudio = !!roundAudioUrls[r - 1];
+                    const dateStr = new Date().toISOString().slice(0, 10);
                     return `
                         <div style="background:rgba(0,0,0,0.35); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:12px;">
                             <div style="font-size:12px; font-weight:700; color:#fbbf24; margin-bottom:4px;">Раунд ${r} (${dur} сек)</div>
                             <div style="font-size:16px; font-weight:800; color:#fff;">${w} слов</div>
                             <div style="font-size:12px; color:#38bdf8; margin-bottom:8px;">${wpm} WPM (темп)</div>
                             ${hasAudio ? `
-                                <button type="button" class="btn btn-sm btn-outline" style="font-size:11px; padding:3px 8px;" onclick="const a = new Audio('${roundAudioUrls[r - 1]}'); a.play();">
-                                    <i class="fa-solid fa-play"></i> Послушать
-                                </button>
+                                <div style="display:flex; gap:6px; flex-wrap:wrap;">
+                                    <button type="button" class="btn btn-sm btn-outline" style="font-size:11px; padding:3px 8px;" onclick="const a = new Audio('${roundAudioUrls[r - 1]}'); a.play();">
+                                        <i class="fa-solid fa-play"></i> Послушать
+                                    </button>
+                                    <a href="${roundAudioUrls[r - 1]}" download="my-speaking-round-${r}-${dateStr}.mp4" class="btn btn-sm btn-outline" style="font-size:11px; padding:3px 8px; color:#38bdf8; border-color:rgba(56,189,248,0.4); text-decoration:none;" title="Скачать аудиофайл (.mp4)">
+                                        <i class="fa-solid fa-download"></i> MP4
+                                    </a>
+                                </div>
                             ` : ''}
                         </div>
                     `;
@@ -8270,6 +9652,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             );
         }
+
+        // Export globals and auto-initialize first topic on startup
+        window.setup432Sprint = setup432Sprint;
+        window.loadSpeakingTopic = loadNewTopic;
+        loadNewTopic();
+        setup432Sprint();
     }
 
     // =========================================================================
@@ -8892,10 +10280,23 @@ document.addEventListener("DOMContentLoaded", () => {
     try { renderSpeakingHeroTargetChips(); } catch (e) {}
     try { renderFlashcardsUI(); } catch (e) {}
     try { renderGrammarUI(); } catch (e) {}
+    try { initSpeechDrillsUI(); } catch (e) { console.error("Speech Drills init error:", e); }
     try { initPatternDrillsUI(); } catch (e) { console.error("Drills init error:", e); }
     try { initSpeakingStudioUI(); } catch (e) { console.error("Speaking init error:", e); }
     try { initEldrinAudiobookUI(); } catch (e) { console.error("Audiobook init error:", e); }
     try { renderRPGHeader(); } catch (e) {}
     try { renderHeroShowcase(rpgEngine.heroes[0].id); } catch (e) { console.error("Hero Showcase Render Error:", e); }
     try { loadPlayerStateFromServer(); } catch (e) {}
+
+    // Multi-device live sync: auto-fetch on tab focus/visibility change
+    document.addEventListener("visibilitychange", () => {
+        if (document.visibilityState === "visible") {
+            try { loadPlayerStateFromServer(); } catch (e) {}
+        }
+    });
+
+    // Periodic background sync every 30s
+    setInterval(() => {
+        try { loadPlayerStateFromServer(); } catch (e) {}
+    }, 30000);
 });
