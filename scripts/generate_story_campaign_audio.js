@@ -43,6 +43,7 @@ const HERO_VOICES = {
     ignis:    { voice: 'en-US-Neural2-J', pitch: '-2st', rate: '0.96' },
     lyra:     { voice: 'en-US-Neural2-F', pitch: '+2.5st', rate: '0.96' },
     torin:    { voice: 'en-US-Neural2-D', pitch: '-4st', rate: '0.88' },
+    thorin:   { voice: 'en-US-Neural2-D', pitch: '-4st', rate: '0.88' },
     nyx:      { voice: 'en-US-Neural2-F', pitch: '-0.5st', rate: '0.92' },
     solas:    { voice: 'en-US-Neural2-I', pitch: '0st', rate: '0.92' },
     selene:   { voice: 'en-US-Neural2-F', pitch: '+1st', rate: '0.90' },
@@ -124,13 +125,15 @@ async function run() {
         console.log(`\n📖 Voicing Chapter ${ch.number}: "${ch.titleEn}" (${ch.paragraphs ? ch.paragraphs.length : 0} paragraphs)...`);
         if (!ch.paragraphs) continue;
 
+        const forceRebuild = args.includes('--force');
+
         for (let idx = 0; idx < ch.paragraphs.length; idx++) {
             const p = ch.paragraphs[idx];
-            const speaker = (ch.involvedHeroes && ch.involvedHeroes[idx % ch.involvedHeroes.length]) || 'valerius';
+            const speaker = p.speaker || (ch.involvedHeroes && ch.involvedHeroes[idx % ch.involvedHeroes.length]) || 'valerius';
             const outPath = path.join(chDir, `p_${idx + 1}.wav`);
             totalChars += p.en.length;
 
-            if (fs.existsSync(outPath) && fs.statSync(outPath).size > 1000) {
+            if (!forceRebuild && fs.existsSync(outPath) && fs.statSync(outPath).size > 1000) {
                 console.log(`  [#${idx + 1}/${ch.paragraphs.length}] (${speaker}) already exists, skipping.`);
                 continue;
             }

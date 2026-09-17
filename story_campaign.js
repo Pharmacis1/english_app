@@ -185,33 +185,71 @@ const STORY_CHAPTERS = [
         ],
         "paragraphs": [
             {
-                "en": "Deep under the mountains, heavy hammers hit glowing iron. Thorin wiped sweat from his bearded face. \"Why are the magic crystals turning grey?\" he growled.",
-                "ru": "Глубоко под горами тяжелые молоты били по раскаленному железу. Торин вытер пот с бородатого лица. \"Почему магические кристаллы сереют?\" — прорычал он."
+                "speaker": "thorin",
+                "en": "Under the big mountain, the world is dark and hot. Thorin stands at his iron anvil. He is a strong warrior. He has gloves and bronze armor. His hammer is glowing. He crafts red hot steel. CLANG! CLANG! CLANG! Gold sparks fly every time.",
+                "ru": "Под большой горой мир темный и горячий. Торин стоит у своей железной наковальни. Он сильный воин. У него есть перчатки и бронзовые доспехи. Его молот светится. Он кует раскаленную сталь. БУМ! БУМ! БУМ! Золотые искры летят каждый раз.",
+                "chunkedEn": "[pt: Under the big mountain,] [s: the world] [v: is dark and hot.]\n[s: Thorin] [v: stands] [pt: at his iron anvil.]\n[s: He] [v: is] [o: a strong warrior.]\n[s: He] [v: has] [o: gloves and bronze armor.]\n[s: His hammer] [v: is glowing.]\n[s: He] [v: crafts] [o: red hot steel.]\n[o: CLANG! CLANG! CLANG!]\n[s: Gold sparks] [v: fly] [pt: every time.]"
             },
             {
-                "en": "Ignis swung his red staff. \"The wood witches are using ice spells on our tunnels! Let me burn their roots!\"",
-                "ru": "Игнис взмахнул красным посохом. \"Лесные ведьмы используют ледяные заклинания на наших туннелях! Дай мне сжечь их корни!\""
+                "speaker": "selene",
+                "en": "Now Selena comes in the dark shadow. She is an assassin. She has silver hair and purple eyes. She has black boots. Her boots are quiet on the hard rock. She has two daggers at her belt.",
+                "ru": "Теперь в темной тени появляется Селена. Она ассасин. У нее серебряные волосы и фиолетовые глаза. На ней черные сапоги. Ее сапоги ступают тихо по твердой скале. У нее два кинжала на поясе.",
+                "chunkedEn": "[adv: Now] [s: Selena] [v: comes] [pt: in the dark shadow.]\n[s: She] [v: is] [o: an assassin.]\n[s: She] [v: has] [o: silver hair and purple eyes.]\n[s: She] [v: has] [o: black boots.]\n[s: Her boots] [v: are quiet] [pt: on the hard rock.]\n[s: She] [v: has] [o: two daggers] [pt: at her belt.]"
             },
             {
-                "en": "A dark shadow detached from the stone wall. Selena stepped into the light, holding two obsidian daggers. \"You are blind, both of you,\" she whispered coldly.",
-                "ru": "Темная тень отделилась от каменной стены. Селена шагнула на свет, держа два обсидиановых кинжала. \"Вы слепы, оба,\" — холодно прошептала она."
+                "speaker": "selene",
+                "en": "\"The mountain can hear your hammer, Smith,\" Selena says. She smiles a little. \"The old kings in the stone rooms can hear you.\"",
+                "ru": "\"Гора слышит твой молот, Кузнец,\" — говорит Селена. Она слегка улыбается. \"Старые короли в каменных залах слышат тебя.\"",
+                "chunkedEn": "[s: \"The mountain] [v: can hear] [o: your hammer, Smith,\"] [s: Selena] [v: says.]\n[s: She] [v: smiles a little.]\n[s: \"The old kings in the stone rooms] [v: can hear] [o: you.\"]"
             },
             {
-                "en": "\"I explored the lowest abyss,\" Selena continued. \"There are no druids there. Strange monsters with purple eyes are crawling from the cracks in the bedrock.\"",
-                "ru": "\"Я исследовала самую глубокую бездну,\" — продолжила Селена. \"Там нет никаких друидов. Странные чудовища с фиолетовыми глазами лезут из трещин в скальной породе.\""
+                "speaker": "thorin",
+                "en": "Thorin stops his hammer. He smiles at Selena. \"Steel is not soft,\" he says. \"Good swords need fire and iron. But why do you visit my hot forge today? You like the cold castle and the quiet city.\"",
+                "ru": "Торин останавливает свой молот. Он улыбается Селене. \"Сталь не мягкая,\" — говорит он. \"Хорошим мечам нужны огонь и железо. Но почему ты навещаешь мою горячую кузницу сегодня? Ты любишь холодный замок и тихий город.\"",
+                "chunkedEn": "[s: Thorin] [v: stops] [o: his hammer.]\n[s: He] [v: smiles] [pt: at Selena.]\n[s: \"Steel] [v: is not soft,\"] [s: he] [v: says.]\n[s: \"Good swords] [v: need] [o: fire and iron.]\n[c: But] [w: why] [v: do] [s: you] [v: visit] [o: my hot forge] [pt: today?]\n[s: You] [v: like] [o: the cold castle and the quiet city.\"]"
+            },
+            {
+                "speaker": "selene",
+                "en": "Selena walks to the wood table. She opens a small bag. Inside are pieces of purple crystal. The crystal is cold. \"I found these crystals in a cave,\" Selena says. \"It is under the old mine. Workers go there. They hear dark voices in the stone walls. Five workers went there yesterday. They do not come back.\"",
+                "ru": "Селена идет к деревянному столу. Она открывает маленький мешочек. Внутри лежат кусочки фиолетового кристалла. Кристалл холодный. \"Я нашла эти кристаллы в пещере,\" — говорит Селена. \"Она находится под старой шахтой. Рабочие ходят туда. Они слышат темные голоса в каменных стенах. Пятеро рабочих пошли туда вчера. Они не вернулись.\"",
+                "chunkedEn": "[s: Selena] [v: walks] [pt: to the wood table.]\n[s: She] [v: opens] [o: a small bag.]\n[pt: Inside] [v: are] [s: pieces of purple crystal.]\n[s: The crystal] [v: is cold.]\n[s: \"I] [v: found] [o: these crystals] [pt: in a cave,\"] [s: Selena] [v: says.]\n[s: \"It] [v: is] [pt: under the old mine.]\n[s: Workers] [v: go] [pt: there.]\n[s: They] [v: hear] [o: dark voices] [pt: in the stone walls.]\n[s: Five workers] [v: went] [pt: there] [pt: yesterday.]\n[s: They] [v: do not come back.\"]"
+            },
+            {
+                "speaker": "ignis",
+                "en": "The door opens. Hot air comes in. Ignis comes in. He has his staff. His eyes are bright and red. \"This is a bad magic stone!\" Ignis says. \"It is from an old war. This stone can become a bad shadow. If iron breaks this stone, it is very dangerous!\"",
+                "ru": "Дверь открывается. Горячий воздух входит внутрь. Входит Игнис. У него его посох. Его глаза яркие и красные. \"Это камень темной магии!\" — говорит Игнис. \"Он из старой войны. Этот камень может стать злой тенью. Если железо разобьет этот камень, это очень опасно!\"",
+                "chunkedEn": "[s: The door] [v: opens.]\n[s: Hot air] [v: comes in.]\n[s: Ignis] [v: comes in.]\n[s: He] [v: has] [o: his staff.]\n[s: His eyes] [v: are bright and red.]\n[s: \"This] [v: is] [o: a bad magic stone!\"] [s: Ignis] [v: says.]\n[s: \"It] [v: is] [pt: from an old war.]\n[s: This stone] [v: can become] [o: a bad shadow.]\n[b: If] [s: iron] [v: breaks] [o: this stone,] [s: it] [v: is very dangerous!\"]"
+            },
+            {
+                "speaker": "thorin",
+                "en": "Thorin takes a crystal piece. He looks at it near the fire. \"This is not our mountain stone,\" he says. \"Someone made this stone by bad magic. We need good steel to fix this. I have temple silver. But I need Astraea's blessing too. She can help me craft a strong sword.\"",
+                "ru": "Торин берет кусочек кристалла. Он смотрит на него возле огня. \"Это не наш горный камень,\" — говорит он. \"Кто-то создал этот камень с помощью темной магии. Нам нужна хорошая сталь, чтобы исправить это. У меня есть храмовое серебро. Но мне также нужно благословение Астреи. Она может помочь мне выковать крепкий меч.\"",
+                "chunkedEn": "[s: Thorin] [v: takes] [o: a crystal piece.]\n[s: He] [v: looks] [pt: at it] [pt: near the fire.]\n[s: \"This] [v: is not] [o: our mountain stone,\"] [s: he] [v: says.]\n[s: \"Someone] [v: made] [o: this stone] [pt: by bad magic.]\n[s: We] [v: need] [o: good steel] [v: to fix] [o: this.]\n[s: I] [v: have] [o: temple silver.]\n[c: But] [s: I] [v: need] [o: Astraea's blessing] [adv: too.]\n[s: She] [v: can help me craft] [o: a strong sword.\"]"
+            },
+            {
+                "speaker": "selene",
+                "en": "Selena hides her daggers in her cloak. She looks at the door. \"We need to find Valerius and Astraea. They are near the river,\" she says. \"This bad magic is dangerous for our world.\"",
+                "ru": "Селена прячет кинжалы в плащ. Она смотрит на дверь. \"Нам нужно найти Валериуса и Астрею. Они возле реки,\" — говорит она. \"Эта темная магия опасна для нашего мира.\"",
+                "chunkedEn": "[s: Selena] [v: hides] [o: her daggers] [pt: in her cloak.]\n[s: She] [v: looks] [pt: at the door.]\n[s: \"We] [v: need to find] [o: Valerius and Astraea.]\n[s: They] [v: are] [pt: near the river,\"] [s: she] [v: says.]\n[s: \"This bad magic] [v: is dangerous] [pt: for our world.\"]"
+            },
+            {
+                "speaker": "thorin",
+                "en": "Thorin takes his hammer. Ignis smiles. He is ready. The three heroes leave the forge. They go to find the knights.",
+                "ru": "Торин берет свой молот. Игнис улыбается. Он готов. Трое героев покидают кузницу. Они идут искать рыцарей.",
+                "chunkedEn": "[s: Thorin] [v: takes] [o: his hammer.]\n[s: Ignis] [v: smiles.]\n[s: He] [v: is ready.]\n[s: The three heroes] [v: leave] [o: the forge.]\n[s: They] [v: go to find] [o: the knights.]"
             }
         ],
         "quiz": {
-            "question": "Where did Selena find strange monsters?",
+            "question": "What did Selena find in the cave under the old mine?",
             "options": [
-                "In the lowest underground abyss",
-                "In the royal palace",
-                "On the river boat"
+                "Pieces of cold purple crystal with dark magic",
+                "A golden treasure chest from the old kings",
+                "A basket of fresh red apples and sweet bread"
             ],
             "correctIndex": 0,
-            "rewardXp": 120
+            "rewardXp": 356
         },
-        "backgroundImg": "images/backgrounds/bg_crystal_caverns.jpg",
+        "backgroundImg": "images/backgrounds/bg_dungeon.jpg",
         "locationEn": "Deep Iron Mines",
         "locationRu": "Глубинные Шахты Горна",
         "sceneIllustrationImg": "images/story/ch3_scene.jpg"
