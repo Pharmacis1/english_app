@@ -3844,277 +3844,277 @@ const ELDRIN_AUDIOBOOK = {
             "titleEn": "Episode 15: The Blacksmith's Sparking Forge",
             "titleRu": "Эпизод 15: Искрящаяся кузница",
             "grammarFocus": "Metalworking Verbs (strike, hammer, glow, heat, cool, hiss), Senses (loud, hot, fiery)",
-            "wordCount": 546,
+            "wordCount": 362,
             "coverIcon": "fa-fire",
             "coverColor": "#ef4444",
             "sentences": [
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin, Kira, and Master Corvinus walk back to the wagon parking area.</prosody></speak>",
-                    "en": "Eldrin, Kira, and Master Corvinus walk back to the wagon parking area.",
-                    "ru": "Элдрин, Кира и Мастер Корвинус возвращаются на стоянку повозок."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin, Kira, and Master Corvinus walk to the wagon.</prosody></speak>",
+                    "en": "Eldrin, Kira, and Master Corvinus walk to the wagon.",
+                    "ru": "Элдрин, Кира и Мастер Корвинус идут к повозке."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Farmer Barnaby kneels by the back right wheel of the wooden cart, shaking his head.</prosody></speak>",
-                    "en": "Farmer Barnaby kneels by the back right wheel of the wooden cart, shaking his head.",
-                    "ru": "Фермер Барнаби сидит на корточках возле заднего правого колеса деревянной повозки, качая головой."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Barnaby looks at the back wheel. <break time=\"300ms\"/> He is not happy.</prosody></speak>",
+                    "en": "Barnaby looks at the back wheel. He is not happy.",
+                    "ru": "Барнаби смотрит на заднее колесо. Он недоволен."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Farmer Barnaby, is everything alright with our cart?</prosody></speak>",
-                    "en": "— Farmer Barnaby, is everything alright with our cart?",
-                    "ru": "— Фермер Барнаби, все в порядке с нашей повозкой?"
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Barnaby, is the cart okay?</prosody></speak>",
+                    "en": "— Barnaby, is the cart okay?",
+                    "ru": "— Барнаби, с повозкой все в порядке?"
                 },
                 {
                     "speaker": "barnaby",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2.5st\">— Look closely at this rear big tree wheel, Eldrin. <break time=\"300ms\"/> The thick iron edge around the wood is loose and shakes.</prosody></speak>",
-                    "en": "— Look closely at this rear big tree wheel, Eldrin. The thick iron edge around the wood is loose and shakes.",
-                    "ru": "— Посмотри внимательно на это заднее дубовое колесо, Элдрин. Толстый железный обод вокруг дерева разболтался и шатается."
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2.5st\">— Look at this wheel, Eldrin. <break time=\"300ms\"/> The iron part is not good. <break time=\"300ms\"/> It moves.</prosody></speak>",
+                    "en": "— Look at this wheel, Eldrin. The iron part is not good. It moves.",
+                    "ru": "— Посмотри на это колесо, Элдрин. Железная часть не в порядке. Она шатается."
                 },
                 {
                     "speaker": "kira",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Oh no! Can we still drive up the steep mountain road with a loose wheel rim?</prosody></speak>",
-                    "en": "— Oh no! Can we still drive up the steep mountain road with a loose wheel edge?",
-                    "ru": "— О нет! А мы сможем ехать вверх по крутой горной дороге с расшатанным ободом колеса?"
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Oh no! <break time=\"300ms\"/> Can we go up the mountain road now?</prosody></speak>",
+                    "en": "— Oh no! Can we go up the mountain road now?",
+                    "ru": "— О нет! Можем ли мы теперь ехать вверх по горной дороге?"
                 },
                 {
                     "speaker": "barnaby",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2.5st\">— Absolutely not! <break time=\"300ms\"/> On the rocky mountain sharp turns, the wheel would break in five minutes.</prosody></speak>",
-                    "en": "— Absolutely not! On the rocky mountain sharp turns, the wheel would break in five minutes.",
-                    "ru": "— Ни в коем случае! На каменистых горных серпантинах колесо сломается за пять минут."
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2.5st\">— No! <break time=\"300ms\"/> The road is not easy. <break time=\"300ms\"/> The wheel will break.</prosody></speak>",
+                    "en": "— No! The road is not easy. The wheel will break.",
+                    "ru": "— Нет! Дорога непростая. Колесо сломается."
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Do not worry, Barnaby. Listen! Do you hear that rhythmic CLANG, CLANG, CLANG down the street?</prosody></speak>",
-                    "en": "— Do not worry, Barnaby. Listen! Do you hear that steady CLANG, CLANG, CLANG down the street?",
-                    "ru": "— Не волнуйся, Барнаби. Послушай! Слышишь этот ритмичный ДЗЫНЬ, ДЗЫНЬ, ДЗЫНЬ вниз по улице?"
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Do not worry. <break time=\"300ms\"/> Listen! <break time=\"300ms\"/> Do you hear this sound? <break time=\"300ms\"/> Clang! <break time=\"300ms\"/> Clang! <break time=\"300ms\"/> Clang!</prosody></speak>",
+                    "en": "— Do not worry. Listen! Do you hear this sound? Clang! Clang! Clang!",
+                    "ru": "— Не волнуйтесь. Послушайте! Слышите этот звук? Дзынь! Дзынь! Дзынь!"
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— That is Blacksmith Bruno's forge! Let us roll the cart over to his workshop immediately!</prosody></speak>",
-                    "en": "— That is Blacksmith Bruno's forge! Let us roll the cart over to his workshop immediately!",
-                    "ru": "— Это же кузница кузнеца Бруно! Давайте подкатим повозку к его мастерской немедленно!"
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— That is Bruno's forge! <break time=\"300ms\"/> Let's go there now!</prosody></speak>",
+                    "en": "— That is Bruno's forge! Let's go there now!",
+                    "ru": "— Это кузница Бруно! Пойдемте туда сейчас же!"
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">They push the cart around the corner into the blacksmith's spacious stone yard.</prosody></speak>",
-                    "en": "They push the cart around the corner into the blacksmith's very big stone yard.",
-                    "ru": "Они катят повозку за угол в просторный каменный двор кузнеца."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">They walk to the blacksmith's yard. <break time=\"300ms\"/> It is a big stone place.</prosody></speak>",
+                    "en": "They walk to the blacksmith's yard. It is a big stone place.",
+                    "ru": "Они идут во двор кузнеца. Это большое каменное место."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Inside the stone forge, a massive coal furnace burns with roaring orange and yellow flames.</prosody></speak>",
-                    "en": "Inside the stone forge, a massive coal big fire burns with very loud orange and yellow flames.",
-                    "ru": "В каменной кузнице массивная угольная печь пылает ревущим оранжево-желтым пламенем."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Inside, there is a big fire. <break time=\"300ms\"/> The fire is orange and yellow. <break time=\"300ms\"/> It is very hot.</prosody></speak>",
+                    "en": "Inside, there is a big fire. The fire is orange and yellow. It is very hot.",
+                    "ru": "Внутри горит большой огонь. Пламя оранжевое и желтое. Оно очень горячее."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Blacksmith Bruno stands by a huge steel anvil. He is tall and broad-shouldered with a thick black beard and leather apron.</prosody></speak>",
-                    "en": "Blacksmith Bruno stands by a huge steel heavy metal block. He is tall and wide-with big shoulders with a thick black beard and leather apron.",
-                    "ru": "Кузнец Бруно стоит у огромной стальной наковальни. Он высокий и широкоплечий, с густой черной бородой и в кожаном фартуке."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Bruno stands near the fire. <break time=\"300ms\"/> He is big and strong. <break time=\"300ms\"/> He has a black beard.</prosody></speak>",
+                    "en": "Bruno stands near the fire. He is big and strong. He has a black beard.",
+                    "ru": "Бруно стоит возле огня. Он большой и сильный. У него черная борода."
                 },
                 {
                     "speaker": "smith",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-4.5st\">— Ho-ho! <break time=\"300ms\"/> Hello, Teacher Corvinus! <break time=\"300ms\"/> What brings the Academy cart to my very hot workshop?</prosody></speak>",
-                    "en": "— Ho-ho! Hello, Teacher Corvinus! What brings the Academy cart to my very hot workshop?",
-                    "ru": "— Хо-хо! Приветствую, профессор Корвинус! Что привело повозку Академии в мою огненную мастерскую?"
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-4.5st\">— Hello, Corvinus! <break time=\"300ms\"/> Why are you here today?</prosody></speak>",
+                    "en": "— Hello, Corvinus! Why are you here today?",
+                    "ru": "— Здравствуй, Корвинус! Почему вы здесь сегодня?"
                 },
                 {
                     "speaker": "barnaby",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2.5st\">— Master Bruno! <break time=\"300ms\"/> The iron tire on our back wheel is loose. <break time=\"300ms\"/> We need your hammer and heat!</prosody></speak>",
-                    "en": "— Master Bruno! The iron tire on our back wheel is loose. We need your hammer and heat!",
-                    "ru": "— Мастер Бруно! Железная шина на нашем заднем колесе разболталась. Нам нужны твой молот и жар!"
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2.5st\">— Bruno, we need help! <break time=\"300ms\"/> The iron on our wheel is not good.</prosody></speak>",
+                    "en": "— Bruno, we need help! The iron on our wheel is not good.",
+                    "ru": "— Бруно, нам нужна помощь! Железо на нашем колесе не в порядке."
                 },
                 {
                     "speaker": "smith",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-4.5st\">— A simple fix for an honest cart! <break time=\"300ms\"/> Step back to a safe distance, young students! <break time=\"300ms\"/> Watch the bright tiny fires fly!</prosody></speak>",
-                    "en": "— A simple fix for an honest cart! Step back to a safe distance, young students! Watch the bright tiny fires fly!",
-                    "ru": "— Простая работа для честной повозки! Отойдите на безопасное расстояние, юные ученые! Смотрите, как летят яркие искры!"
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-4.5st\">— I can fix this! <break time=\"300ms\"/> Students, please stand back. <break time=\"300ms\"/> It is hot here!</prosody></speak>",
+                    "en": "— I can fix this! Students, please stand back. It is hot here!",
+                    "ru": "— Я могу починить это! Ученики, отойдите назад, пожалуйста. Здесь жарко!"
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Bruno uses heavy iron pry bars to slip the wobbly iron hoop off the wooden wheel.</prosody></speak>",
-                    "en": "Bruno uses heavy iron pull off bars to slip the not steady iron metal ring off the wooden wheel.",
-                    "ru": "Бруно использует тяжелые железные монтировки, чтобы снять расшатанный железный обруч с деревянного колеса."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Bruno takes the iron off the wheel. <break time=\"300ms\"/> He uses his tools.</prosody></speak>",
+                    "en": "Bruno takes the iron off the wheel. He uses his tools.",
+                    "ru": "Бруно снимает железо с колеса. Он использует свои инструменты."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He grabs the iron hoop with long blacksmith tongs and places it directly into the glowing coal fire.</prosody></speak>",
-                    "en": "He grabs the iron metal ring with long blacksmith metal tool and places it directly into the glowing coal fire.",
-                    "ru": "Он берет железный обруч длинными кузнечными клещами и кладет его прямо в раскаленный угольный огонь."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He puts the iron into the fire.</prosody></speak>",
+                    "en": "He puts the iron into the fire.",
+                    "ru": "Он кладет железо в огонь."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He pulls the leather bellows handle up and down. WHOOSH, WHOOSH! The fire glows bright orange and white!</prosody></speak>",
-                    "en": "He pulls the leather air pump handle up and down. WHOOSH, WHOOSH! The fire glows bright orange and white!",
-                    "ru": "Он качает ручку кожаных мехов вверх и вниз. ВЖУХ, ВЖУХ! Огонь разгорается до ярко-оранжевого и белого свечения!"
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He uses air to make the fire bigger. <break time=\"300ms\"/> Whoosh! <break time=\"300ms\"/> Whoosh! <break time=\"300ms\"/> The fire is now very bright!</prosody></speak>",
+                    "en": "He uses air to make the fire bigger. Whoosh! Whoosh! The fire is now very bright!",
+                    "ru": "Он нагнетает воздух, чтобы раздуть огонь сильнее. Вууш! Вууш! Огонь теперь очень яркий!"
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Look at the intense heat! The black iron is turning glowing bright red like a burning sunset!</prosody></speak>",
-                    "en": "— Look at the very strong heat! The black iron is turning glowing bright red like a burning sunset!",
-                    "ru": "— Посмотри на этот сильный жар! Черное железо становится светящимся ярко-красным, как пылающий закат!"
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Look! <break time=\"300ms\"/> The iron is red now! <break time=\"300ms\"/> It is very hot!</prosody></speak>",
+                    "en": "— Look! The iron is red now! It is very hot!",
+                    "ru": "— Смотри! Железо теперь красное! Оно очень горячее!"
                 },
                 {
                     "speaker": "smith",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-4.5st\">— Heat gets bigger the metal, young man! <break time=\"300ms\"/> Now it will fit over the big tree wheel easily!</prosody></speak>",
-                    "en": "— Heat gets bigger the metal, young man! Now it will fit over the big tree wheel easily!",
-                    "ru": "— Жар расширяет металл, юноша! Теперь он легко налезет на дубовое колесо!"
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-4.5st\">— Yes! <break time=\"300ms\"/> Hot iron is good iron. <break time=\"300ms\"/> Now it will fit the wheel.</prosody></speak>",
+                    "en": "— Yes! Hot iron is good iron. Now it will fit the wheel.",
+                    "ru": "— Да! Горячее железо — податливое железо. Теперь оно сядет на колесо."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Bruno pulls the glowing red iron ring from the fire with his long tongs.</prosody></speak>",
-                    "en": "Bruno pulls the glowing red iron ring from the fire with his long metal tool.",
-                    "ru": "Бруно достает светящееся красное железное кольцо из огня своими длинными клещами."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Bruno takes the hot iron. <break time=\"300ms\"/> He puts it on the wheel.</prosody></speak>",
+                    "en": "Bruno takes the hot iron. He puts it on the wheel.",
+                    "ru": "Бруно берет раскаленное железо. Он надевает его на колесо."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He places the hot ring over the wooden wheel. CLANG! CLANG! CLANG! He strikes it with his heavy steel hammer!</prosody></speak>",
-                    "en": "He places the hot ring over the wooden wheel. CLANG! CLANG! CLANG! He strikes it with his heavy steel hammer!",
-                    "ru": "Он надевает горячее кольцо на деревянное колесо. БАМ! БАМ! БАМ! Он бьет по нему своим тяжелым стальным молотом!"
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Clang! <break time=\"300ms\"/> Clang! <break time=\"300ms\"/> Clang! <break time=\"300ms\"/> He hits it with his hammer.</prosody></speak>",
+                    "en": "Clang! Clang! Clang! He hits it with his hammer.",
+                    "ru": "Кланг! Дзынь! Дзынь! Он бьет по нему молотом."
                 },
                 {
                     "speaker": "kira",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Look at the golden sparks flying like fireflies across the stone floor!</prosody></speak>",
-                    "en": "— Look at the golden tiny fires flying like fireflies across the stone floor!",
-                    "ru": "— Посмотри на золотые искры, летящие как светлячки по каменному полу!"
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Look! <break time=\"300ms\"/> Small fires are flying! <break time=\"300ms\"/> It is beautiful!</prosody></speak>",
+                    "en": "— Look! Small fires are flying! It is beautiful!",
+                    "ru": "— Смотри! Маленькие искры летят! Это красиво!"
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The glowing iron hoop sits perfectly aligned around the oak wheel spokes.</prosody></speak>",
-                    "en": "The glowing iron metal ring sits perfectly aligned around the big tree wheel thin parts.",
-                    "ru": "Раскаленный железный обруч идеально встает вокруг дубовых спиц колеса."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The iron is now on the wheel. <break time=\"300ms\"/> It is in the right place.</prosody></speak>",
+                    "en": "The iron is now on the wheel. It is in the right place.",
+                    "ru": "Железо теперь на колесе. Оно на своем месте."
                 },
                 {
                     "speaker": "smith",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-4.5st\">— Now for the magic of cold well water! <break time=\"300ms\"/> Watch closely!</prosody></speak>",
-                    "en": "— Now for the magic of cold well water! Watch closely!",
-                    "ru": "— А теперь магия холодной колодезной воды! Смотрите внимательно!"
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-4.5st\">— Now, look. <break time=\"300ms\"/> I use cold water.</prosody></speak>",
+                    "en": "— Now, look. I use cold water.",
+                    "ru": "— А теперь смотрите. Я использую холодную воду."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Bruno lifts a large wooden bucket filled to the brim with icy well water.</prosody></speak>",
-                    "en": "Bruno lifts a large wooden bucket filled to the brim with icy well water.",
-                    "ru": "Бруно поднимает большое деревянное ведро, наполненное до краев ледяной колодезной водой."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Bruno takes a bucket of cold water.</prosody></speak>",
+                    "en": "Bruno takes a bucket of cold water.",
+                    "ru": "Бруно берет ведро холодной воды."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He pours the cold water all over the red-hot iron rim. <emphasis level=\"strong\">HISSSSSSS!</emphasis></prosody></speak>",
-                    "en": "He pours the cold water all over the red-hot iron edge. <strong voice level=\"strong\">HISSSSSSS!</emphasis>",
-                    "ru": "Он выливает холодную воду на раскаленный железный обод. Ш-Ш-Ш-Ш-Ш-Ш!"
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He puts the water on the hot iron. <break time=\"300ms\"/> Hiss!</prosody></speak>",
+                    "en": "He puts the water on the hot iron. Hiss!",
+                    "ru": "Он выливает воду на горячее железо. Пшшш!"
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">A giant cloud of pure white steam shoots up into the air with a loud roar!</prosody></speak>",
-                    "en": "A giant cloud of pure white steam shoots up into the air with a loud roar!",
-                    "ru": "Гигантское облако чистейшего белого пара взмывает в воздух с громким шипением!"
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">White smoke goes up into the air. <break time=\"300ms\"/> It is loud.</prosody></speak>",
+                    "en": "White smoke goes up into the air. It is loud.",
+                    "ru": "Белый пар поднимается в воздух. Это громко."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Wow! Look at all that white steam! That was incredible!</prosody></speak>",
-                    "en": "— Wow! Look at all that white steam! That was incredible!",
-                    "ru": "— Ого! Посмотри на этот белый пар! Это было невероятно!"
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Wow! <break time=\"300ms\"/> So much smoke! <break time=\"300ms\"/> This is amazing!</prosody></speak>",
+                    "en": "— Wow! So much smoke! This is amazing!",
+                    "ru": "— Вау! Так много дыма! Это потрясающе!"
                 },
                 {
                     "speaker": "kira",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Look, the iron cooled down instantly! It shrank and locked super tight around the oak wood!</prosody></speak>",
-                    "en": "— Look, the iron cooled down instantly! It got smaller and locked super tight around the big tree wood!",
-                    "ru": "— Смотри, железо мгновенно остыло! Оно сжалось и намертво охватило дубовое дерево!"
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Look! <break time=\"300ms\"/> The iron is small now. <break time=\"300ms\"/> It is tight on the wheel!</prosody></speak>",
+                    "en": "— Look! The iron is small now. It is tight on the wheel!",
+                    "ru": "— Смотри! Железо сжалось. Оно плотно сидит на колесе!"
                 },
                 {
                     "speaker": "smith",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-4.5st\">— That wheel is now stronger than new! <break time=\"300ms\"/> It will carry your cart safely for ten full years!</prosody></speak>",
-                    "en": "— That wheel is now stronger than new! It will carry your cart safely for ten full years!",
-                    "ru": "— Это колесо теперь крепче нового! Оно будет надежно возить вашу повозку целых десять лет!"
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-4.5st\">— This wheel is strong now! <break time=\"300ms\"/> It is better than new. <break time=\"300ms\"/> It will work for many years.</prosody></speak>",
+                    "en": "— This wheel is strong now! It is better than new. It will work for many years.",
+                    "ru": "— Это колесо теперь крепкое! Оно лучше нового. Оно прослужит много лет."
                 },
                 {
                     "speaker": "barnaby",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2.5st\">— Thank you with all my heart, Master Bruno! <break time=\"300ms\"/> You saved our journey home!</prosody></speak>",
-                    "en": "— Thank you with all my heart, Master Bruno! You saved our journey home!",
-                    "ru": "— Спасибо от всего сердца, мастер Бруно! Ты спас нашу дорогу домой!"
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2.5st\">— Thank you, Bruno! <break time=\"300ms\"/> You are very good at your work!</prosody></speak>",
+                    "en": "— Thank you, Bruno! You are very good at your work!",
+                    "ru": "— Спасибо, Бруно! Ты настоящий мастер своего дела!"
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Craftsmanship at its finest. Here are five silver coins for your masterwork, Bruno.</prosody></speak>",
-                    "en": "— Good work at its finest. Here are five silver coins for your best work, Bruno.",
-                    "ru": "— Мастерство высшей пробы. Вот пять серебряных монет за твою великолепную работу, Бруно."
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Good work, Bruno. <break time=\"300ms\"/> Here is money for you.</prosody></speak>",
+                    "en": "— Good work, Bruno. Here is money for you.",
+                    "ru": "— Отличная работа, Бруно. Вот плата для тебя."
                 },
                 {
                     "speaker": "smith",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-4.5st\">— A pleasure serving the Spire Academy! <break time=\"300ms\"/> Safe travels up the mountain trails, young friends!</prosody></speak>",
-                    "en": "— A pleasure serving the Spire Academy! Safe travels up the mountain trails, young friends!",
-                    "ru": "— Рад служить Академии Шпиля! Безопасного пути по горным тропам, юные друзья!"
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-4.5st\">— Thank you! <break time=\"300ms\"/> Have a safe trip up the mountain, friends!</prosody></speak>",
+                    "en": "— Thank you! Have a safe trip up the mountain, friends!",
+                    "ru": "— Спасибо! Безопасной поездки на гору, друзья!"
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Barnaby rolls the cart back into place, and the wheel spins smoothly without a single wobble.</prosody></speak>",
-                    "en": "Barnaby rolls the cart back into place, and the wheel spins smoothly without a single shake.",
-                    "ru": "Барнаби ставит повозку на место, и колесо крутится плавно, без единого колебания."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Barnaby puts the wheel back on the cart. <break time=\"300ms\"/> It does not move now. <break time=\"300ms\"/> It is good.</prosody></speak>",
+                    "en": "Barnaby puts the wheel back on the cart. It does not move now. It is good.",
+                    "ru": "Барнаби ставит колесо обратно на повозку. Теперь оно не шатается. Все в порядке."
                 }
             ],
             "quiz": [
                 {
-                    "question": "What problem did Farmer Barnaby discover on the cart's back right wheel?",
+                    "question": "What was wrong with the cart when Barnaby checked it?",
                     "options": [
-                        "A flat rubber tire",
-                        "The thick iron rim was loose and wobbly",
-                        "The wheel was completely missing",
-                        "A mouse was inside it"
+                        "The horses were too tired",
+                        "The iron part on the back wheel was loose and moved",
+                        "The food bag was missing",
+                        "The wooden door was broken"
                     ],
                     "correctIdx": 1
                 },
                 {
-                    "question": "Why did Blacksmith Bruno heat the iron hoop in the glowing coal furnace?",
+                    "question": "How did Blacksmith Bruno make the iron ring fit tightly on the wheel?",
                     "options": [
-                        "To melt it into water",
-                        "Because heat expands metal so it fits over the wood easily",
-                        "To paint it red",
-                        "To cook food"
+                        "He tied it with long rope",
+                        "He heated the iron in the fire, hammered it, and cooled it with cold water",
+                        "He glued it with tree sap",
+                        "He cut the wooden wheel in half"
                     ],
                     "correctIdx": 1
                 },
                 {
-                    "question": "What happened when Bruno poured cold well water onto the hot iron rim?",
+                    "question": "What happened when Bruno poured cold water on the hot iron?",
                     "options": [
-                        "The wheel caught on fire",
-                        "It hissed loudly and shot a giant cloud of white steam as the metal shrank tight",
-                        "The wheel broke into two pieces",
-                        "Nothing happened"
+                        "The water turned into ice",
+                        "White smoke went up with a loud hiss sound",
+                        "The fire got much bigger",
+                        "The wheel broke into pieces"
                     ],
                     "correctIdx": 1
                 }
