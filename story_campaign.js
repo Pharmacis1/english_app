@@ -549,39 +549,55 @@ const STORY_CHAPTERS = [
         ],
         "paragraphs": [
             {
-                "en": "Thick grey fog covered the Misty Hills. Zephyr sat on a tall pine tree, holding his bow ready. He heard quiet breathing below.",
-                "ru": "Густой серый туман покрывал Туманные Холмы. Зефир сидел на высокой сосне, держа лук наготове. Внизу он услышал тихое дыхание."
+                "speaker": "zephyr",
+                "en": "The forest is quiet. Grey fog is on the hill. The trees are green and tall. The wind is cold. Zephyr is on a branch. He has a bow and an arrow. His cloak is green. He looks at the valley. He listens.",
+                "ru": "Лес тихий. Серый туман лежит на холме. Деревья зеленые и высокие. Ветер холодный. Зефир сидит на ветке. У него есть лук и стрела. Его плащ зеленый. Он смотрит на долину. Он слушает.",
+                "chunkedEn": "[s: The forest] [v: is quiet.]\n[s: Grey fog] [v: is] [pt: on the hill.]\n[s: The trees] [v: are green and tall.]\n[s: The wind] [v: is cold.]\n[s: Zephyr] [v: is] [pt: on a branch.]\n[s: He] [v: has] [o: a bow and an arrow.]\n[s: His cloak] [v: is green.]\n[s: He] [v: looks] [pt: at the valley.]\n[s: He] [v: listens.]"
             },
             {
-                "en": "\"Do not shoot, wind walker,\" Selena's voice came from the empty air behind his back. A cold dagger touched his shoulder.",
-                "ru": "\"Не стреляй, шагающий по ветру,\" — раздался голос Селены из пустого воздуха за его спиной. Холодный кинжал коснулся его плеча."
+                "speaker": "selene",
+                "en": "Selene comes near him. She walks very quietly. She sits on the branch too. Her hair is black. Her eyes are purple. She has two daggers. She smiles. Selene says, \"Hello, Zephyr.\" Zephyr says, \"Hello, Selene. Look at the valley.\"",
+                "ru": "Селена подходит к нему. Она идет очень тихо. Она тоже садится на ветку. Ее волосы черные. Ее глаза фиолетовые. У нее два кинжала. Она улыбается. Селена говорит: \"Привет, Зефир.\" Зефир говорит: \"Привет, Селена. Посмотри на долину.\"",
+                "chunkedEn": "[s: Selene] [v: comes] [pt: near him.]\n[s: She] [v: walks] [adv: very quietly.]\n[s: She] [v: sits] [pt: on the branch] [adv: too.]\n[s: Her hair] [v: is black.]\n[s: Her eyes] [v: are purple.]\n[s: She] [v: has] [o: two daggers.]\n[s: She] [v: smiles.]\n[s: Selene] [v: says,] [o: \"Hello, Zephyr.\"]\n[s: Zephyr] [v: says,] [o: \"Hello, Selene.] [v: Look] [pt: at the valley.\"]"
             },
             {
-                "en": "\"You are good, shadow stalker,\" Zephyr chuckled softly. \"Did you come to assassinate me?\" — \"No. Look down into the valley.\"",
-                "ru": "\"А ты хороша, теневая охотница,\" — тихо усмехнулся Зефир. \"Ты пришла меня убить?\" — \"Нет. Посмотри вниз, в долину.\""
+                "speaker": "zephyr",
+                "en": "They look down. Zephyr sees people near a bridge. They are merchants. They go to the market at the border. The merchants walk slowly. They talk. One merchant stops. He drinks water from a bottle. Another merchant carries a big bag.",
+                "ru": "Они смотрят вниз. Зефир видит людей возле моста. Это торговцы. Они идут на рынок на границе. Торговцы идут медленно. Они разговаривают. Один торговец останавливается. Он пьет воду из бутылки. Другой торговец несет большую сумку.",
+                "chunkedEn": "[s: They] [v: look down.]\n[s: Zephyr] [v: sees] [o: people] [pt: near a bridge.]\n[s: They] [v: are] [o: merchants.]\n[s: They] [v: go] [pt: to the market] [pt: at the border.]\n[s: The merchants] [v: walk slowly.]\n[s: They] [v: talk.]\n[s: One merchant] [v: stops.]\n[s: He] [v: drinks] [o: water] [pt: from a bottle.]\n[s: Another merchant] [v: carries] [o: a big bag.]"
             },
             {
-                "en": "Through the fog, dozens of red glowing eyes appeared. A pack of Ash Hounds was stalking a group of peaceful travelers.",
-                "ru": "Сквозь туман проступили десятки красных светящихся глаз. Стая Пепельных Гончих выслеживала группу мирных путников."
+                "speaker": "selene",
+                "en": "Zephyr looks again. He sees wolves near the road. The wolves walk in the bushes. They wait near the merchants. Selene says, \"The wolves want to fight the merchants. This is bad.\"",
+                "ru": "Зефир смотрит снова. Он видит волков возле дороги. Волки ходят в кустах. Они ждут возле торговцев. Селена говорит: \"Волки хотят напасть на торговцев. Это плохо.\"",
+                "chunkedEn": "[s: Zephyr] [v: looks] [adv: again.]\n[s: He] [v: sees] [o: wolves] [pt: near the road.]\n[s: The wolves] [v: walk] [pt: in the bushes.]\n[s: They] [v: wait] [pt: near the merchants.]\n[s: Selene] [v: says,] [o: \"The wolves] [v: want to fight] [o: the merchants.]\n[s: This] [v: is bad.\"]"
             },
             {
-                "en": "\"Together?\" Zephyr notched two arrows. Selena grinned in the dark: \"Back to back. Let us show them no mercy.\"",
-                "ru": "\"Вместе?\" — Зефир наложил две стрелы. Селена усмехнулась во тьме: \"Спина к спине. Не проявим к ним пощады.\""
+                "speaker": "zephyr",
+                "en": "Zephyr stands up. He takes his bow. He takes an arrow. Selene stands up too. She takes her daggers in her hands. Zephyr says, \"I am a warrior. I protect people in the forest. Are you ready to help me?\" Selene says, \"Yes. I am ready.\"",
+                "ru": "Зефир встает. Он берет свой лук. Он берет стрелу. Селена тоже встает. Она берет свои кинжалы в руки. Зефир говорит: \"Я воин. Я защищаю людей в лесу. Ты готова помочь мне?\" Селена говорит: \"Да. Я готова.\"",
+                "chunkedEn": "[s: Zephyr] [v: stands up.]\n[s: He] [v: takes] [o: his bow.]\n[s: He] [v: takes] [o: an arrow.]\n[s: Selene] [v: stands up] [adv: too.]\n[s: She] [v: takes] [o: her daggers] [pt: in her hands.]\n[s: Zephyr] [v: says,] [o: \"I] [v: am] [o: a warrior.]\n[s: I] [v: protect] [o: people] [pt: in the forest.]\n[v: Are] [s: you] [v: ready to help] [o: me?\"]\n[s: Selene] [v: says,] [o: \"Yes.] [s: I] [v: am ready.\"]"
+            },
+            {
+                "speaker": "selene",
+                "en": "Zephyr looks at Selene. Selene looks at Zephyr. They smile. Selene says, \"We are a good team.\" Zephyr and Selene walk down the hill. They go to the valley. They want to help the merchants. Zephyr holds his bow. Selene holds her daggers. They are brave. They do not stop. They do not wait. They come near the road. The merchants see them. The merchants stop. The wolves see them too. Zephyr and Selene stand together. They are ready to fight.",
+                "ru": "Зефир смотрит на Селену. Селена смотрит на Зефира. Они улыбаются. Селена говорит: \"Мы хорошая команда.\" Зефир и Селена спускаются с холма. Они идут в долину. Они хотят помочь торговцам. Зефир держит свой лук. Селена держит свои кинжалы. Они храбрые. Они не останавливаются. Они не ждут. Они подходят к дороге. Торговцы видят их. Торговцы останавливаются. Волки тоже видят их. Зефир и Селена стоят вместе. Они готовы к бою.",
+                "chunkedEn": "[s: Zephyr] [v: looks] [pt: at Selene.]\n[s: Selene] [v: looks] [pt: at Zephyr.]\n[s: They] [v: smile.]\n[s: Selene] [v: says,] [o: \"We] [v: are] [o: a good team.\"]\n[s: Zephyr and Selene] [v: walk down] [o: the hill.]\n[s: They] [v: go] [pt: to the valley.]\n[s: They] [v: want to help] [o: the merchants.]\n[s: Zephyr] [v: holds] [o: his bow.]\n[s: Selene] [v: holds] [o: her daggers.]\n[s: They] [v: are brave.]\n[s: They] [v: do not stop.]\n[s: They] [v: do not wait.]\n[s: They] [v: come] [pt: near the road.]\n[s: The merchants] [v: see] [o: them.]\n[s: The merchants] [v: stop.]\n[s: The wolves] [v: see] [o: them] [adv: too.]\n[s: Zephyr and Selene] [v: stand together.]\n[s: They] [v: are ready to fight.]"
             }
         ],
         "quiz": {
-            "question": "What did Selena and Zephyr see in the valley?",
+            "question": "Why do Zephyr and Selene walk down the hill to the road?",
             "options": [
-                "A royal carriage",
-                "A pack of Ash Hounds with glowing eyes",
-                "A magic waterfall"
+                "To protect the merchants from the wolves",
+                "To buy water and bags at the market",
+                "To hunt birds in the foggy forest"
             ],
-            "correctIndex": 1,
-            "rewardXp": 170
+            "correctIndex": 0,
+            "rewardXp": 299
         },
-        "backgroundImg": "images/backgrounds/bg_mountains.jpg",
-        "locationEn": "Misty Hills Foothills",
-        "locationRu": "Предгорья Туманных Холмов"
+        "backgroundImg": "images/backgrounds/bg_forest.jpg",
+        "locationEn": "The Misty Hills & Pine Forest Valley",
+        "locationRu": "Туманные Холмы и Долина Соснового Леса"
     },
     {
         "id": "ch-9",

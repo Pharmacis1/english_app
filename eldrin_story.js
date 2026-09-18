@@ -3303,261 +3303,240 @@ const ELDRIN_AUDIOBOOK = {
             "id": "eldrin-ch-13",
             "number": 13,
             "act": 2,
-            "titleEn": "Episode 13: The Baker's Warm Pretzel Stall",
-            "titleRu": "Эпизод 13: Лавка пекаря с горячими брецелями",
-            "grammarFocus": "Shopping & Buying Phrases (How much is...?, Here are four coins), Numbers & Prices, Food Vocabulary",
-            "wordCount": 338,
+            "titleEn": "Episode 13: The Baker's Warm Bread Stall",
+            "titleRu": "Эпизод 13: Лавка пекаря с горячим хлебом",
+            "grammarFocus": "Shopping & Buying Phrases (How much is...?, Here are five coins), Numbers & Prices, Food Vocabulary",
+            "wordCount": 240,
             "coverIcon": "fa-bread-slice",
             "coverColor": "#f59e0b",
             "sentences": [
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The vehicle stops near the market.</prosody></speak>",
-                    "en": "The vehicle stops near the market.",
-                    "ru": "Повозка останавливается возле рынка."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin and Kira arrive at the market.</prosody></speak>",
+                    "en": "Eldrin and Kira arrive at the market.",
+                    "ru": "Элдрин и Кира приходят на рынок."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin and Kira jump down onto the stone street.</prosody></speak>",
-                    "en": "Eldrin and Kira jump down onto the stone street.",
-                    "ru": "Элдрин и Кира спрыгивают на каменную улицу."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">A good smell fills the street. <break time=\"300ms\"/> It smells like bread.</prosody></speak>",
-                    "en": "A good smell fills the street. It smells like bread.",
-                    "ru": "Приятный аромат наполняет улицу. Пахнет хлебом."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">They walk on the street. <break time=\"300ms\"/> The air smells sweet and warm.</prosody></speak>",
+                    "en": "They walk on the street. The air smells sweet and warm.",
+                    "ru": "Они идут по улице. Воздух пахнет сладко и тепло."
                 },
                 {
                     "speaker": "eldrin",
                     "voice": "Puck",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Mmm! <break time=\"300ms\"/> That smell is amazing! <break time=\"300ms\"/> My nose wants to go this way!</prosody></speak>",
-                    "en": "— Mmm! That smell is amazing! My nose wants to go this way!",
-                    "ru": "— Ммм! Этот запах потрясающий! Мой нос прямо тянется в эту сторону!"
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Mmm! <break time=\"300ms\"/> This smell is very nice!</prosody></speak>",
+                    "en": "— Mmm! This smell is very nice!",
+                    "ru": "— Ммм! Этот запах очень приятный!"
                 },
                 {
                     "speaker": "kira",
                     "voice": "Aoede",
-                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Look at that shop! <break time=\"300ms\"/> It has a red and white cloth!</prosody></speak>",
-                    "en": "— Look at that shop! It has a red and white cloth!",
-                    "ru": "— Посмотри на ту лавку! У нее красно-белый навес!"
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Look at that shop! <break time=\"300ms\"/> It is red and white.</prosody></speak>",
+                    "en": "— Look at that shop! It is red and white.",
+                    "ru": "— Посмотри на ту лавку! Она красно-белая."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">There is a picture of bread on the sign above the shop.</prosody></speak>",
-                    "en": "There is a picture of bread on the sign above the shop.",
-                    "ru": "На вывеске над лавкой нарисован хлеб."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The shop sells bread. <break time=\"300ms\"/> A chef named Hans works there.</prosody></speak>",
+                    "en": "The shop sells bread. A chef named Hans works there.",
+                    "ru": "В лавке продается хлеб. Там работает пекарь по имени Ганс."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">A baker, Hans, stands behind the table. <break time=\"300ms\"/> He wears white clothes.</prosody></speak>",
-                    "en": "A baker, Hans, stands behind the table. He wears white clothes.",
-                    "ru": "Пекарь Ганс стоит за столом. На нем белая одежда."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He takes bread from the fire with a tool.</prosody></speak>",
-                    "en": "He takes bread from the fire with a tool.",
-                    "ru": "Он достает хлеб из печи с помощью лопатки."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The bread is brown and hot. <break time=\"300ms\"/> It has salt on top.</prosody></speak>",
-                    "en": "The bread is brown and hot. It has salt on top.",
-                    "ru": "Хлеб румяный и горячий. Сверху он посыпан солью."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Hans wears a white shirt. <break time=\"300ms\"/> He is happy.</prosody></speak>",
+                    "en": "Hans wears a white shirt. He is happy.",
+                    "ru": "На Гансе белая рубашка. Он доволен."
                 },
                 {
                     "speaker": "baker",
                     "voice": "Kore",
-                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"-0.5st\">— Good morning, young friends! <break time=\"300ms\"/> Fresh bread from the fire, five minutes ago!</prosody></speak>",
-                    "en": "— Good morning, young friends! Fresh bread from the fire, five minutes ago!",
-                    "ru": "— Доброе утро, юные друзья! Свежий хлеб прямо из печи, всего пять минут назад!"
+                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"-0.5st\">— Good morning, friends! <break time=\"300ms\"/> The bread is fresh and hot!</prosody></speak>",
+                    "en": "— Good morning, friends! The bread is fresh and hot!",
+                    "ru": "— Доброе утро, друзья! Хлеб свежий и горячий!"
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Good morning, Master Hans. <break time=\"300ms\"/> Your shop always smells the best in this country.</prosody></speak>",
-                    "en": "— Good morning, Master Hans. Your shop always smells the best in this country.",
-                    "ru": "— Доброе утро, мастер Ганс. В вашей лавке всегда самые лучшие запахи в этой округе."
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Good morning, Chef Hans. <break time=\"300ms\"/> This shop is the best in the country!</prosody></speak>",
+                    "en": "— Good morning, Chef Hans. This shop is the best in the country!",
+                    "ru": "— Доброе утро, шеф Ганс. Ваша лавка — лучшая в этой округе!"
                 },
                 {
                     "speaker": "baker",
                     "voice": "Kore",
-                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"-0.5st\">— Ah, Master Corvinus! <break time=\"300ms\"/> Nice to see you! <break time=\"300ms\"/> What can I give your students today?</prosody></speak>",
-                    "en": "— Ah, Master Corvinus! Nice to see you! What can I give your students today?",
-                    "ru": "— А, Мастер Корвинус! Рад вас видеть! Чем я могу угостить ваших учеников сегодня?"
+                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"-0.5st\">— Teacher Corvinus! Nice to see you! <break time=\"300ms\"/> What can I give your students today?</prosody></speak>",
+                    "en": "— Teacher Corvinus! Nice to see you! What can I give your students today?",
+                    "ru": "— Учитель Корвинус! Рад вас видеть! Чем я могу угостить ваших учеников сегодня?"
                 },
                 {
                     "speaker": "kira",
                     "voice": "Aoede",
-                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— How much is the big bread with salt, please?</prosody></speak>",
-                    "en": "— How much is the big bread with salt, please?",
-                    "ru": "— Сколько стоит большой хлеб с солью, подскажите?"
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— How much is one bread, please?</prosody></speak>",
+                    "en": "— How much is one bread, please?",
+                    "ru": "— Сколько стоит одна буханка хлеба, подскажите?"
                 },
                 {
                     "speaker": "baker",
                     "voice": "Kore",
-                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"-0.5st\">— Two copper coins for one bread, or three big breads for five copper coins!</prosody></speak>",
-                    "en": "— Two copper coins for one bread, or three big breads for five copper coins!",
-                    "ru": "— Две медные монеты за один хлеб, или три больших хлеба за пять медных монет!"
+                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"-0.5st\">— Two coins for one bread. <break time=\"300ms\"/> Or three breads for five coins!</prosody></speak>",
+                    "en": "— Two coins for one bread. Or three breads for five coins!",
+                    "ru": "— Две монеты за один хлеб. Или три хлеба за пять монет!"
                 },
                 {
                     "speaker": "eldrin",
                     "voice": "Puck",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— That is a good price! <break time=\"300ms\"/> We are three people: Kira, me, and Master Corvinus.</prosody></speak>",
-                    "en": "— That is a good price! We are three people: Kira, me, and Master Corvinus.",
-                    "ru": "— Это хорошая цена! Нас трое: Кира, я и Мастер Корвинус."
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— That is a good price! <break time=\"300ms\"/> We are three people: Kira, me, and Teacher Corvinus.</prosody></speak>",
+                    "en": "— That is a good price! We are three people: Kira, me, and Teacher Corvinus.",
+                    "ru": "— Это отличная цена! Нас как раз трое: Кира, я и Учитель Корвинус."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin takes out his brown coin purse.</prosody></speak>",
-                    "en": "Eldrin takes out his brown coin purse.",
-                    "ru": "Элдрин достает свой коричневый кошелек для монет."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin opens his brown bag.</prosody></speak>",
+                    "en": "Eldrin opens his brown bag.",
+                    "ru": "Элдрин открывает свою коричневую сумку."
                 },
                 {
                     "speaker": "eldrin",
                     "voice": "Puck",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— One, two, three, four, five copper coins.</prosody></speak>",
-                    "en": "— One, two, three, four, five copper coins.",
-                    "ru": "— Одна, две, три, четыре, пять медных монет."
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— One, two, three, four, five coins.</prosody></speak>",
+                    "en": "— One, two, three, four, five coins.",
+                    "ru": "— Раз, два, три, четыре, пять монет."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin puts five copper coins on the table.</prosody></speak>",
-                    "en": "Eldrin puts five copper coins on the table.",
-                    "ru": "Элдрин кладет пять медных монет на стол."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin gives five coins to Chef Hans.</prosody></speak>",
+                    "en": "Eldrin gives five coins to Chef Hans.",
+                    "ru": "Элдрин передает пять монет шефу Гансу."
                 },
                 {
                     "speaker": "eldrin",
                     "voice": "Puck",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Here are five copper coins, Master Hans. <break time=\"300ms\"/> Three breads with salt, please!</prosody></speak>",
-                    "en": "— Here are five copper coins, Master Hans. Three breads with salt, please!",
-                    "ru": "— Вот пять медных монет, мастер Ганс. Три хлеба с солью, пожалуйста!"
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Here are five coins. <break time=\"300ms\"/> Three breads, please!</prosody></speak>",
+                    "en": "— Here are five coins. Three breads, please!",
+                    "ru": "— Вот пять монет. Три хлеба, пожалуйста!"
                 },
                 {
                     "speaker": "baker",
                     "voice": "Kore",
-                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"-0.5st\">— Good! <break time=\"300ms\"/> Thank you very much!</prosody></speak>",
-                    "en": "— Good! Thank you very much!",
-                    "ru": "— Отлично! Большое спасибо!"
+                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"-0.5st\">— Thank you very much!</prosody></speak>",
+                    "en": "— Thank you very much!",
+                    "ru": "— Большое спасибо!"
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Baker Hans takes three hot breads with his tool. <break time=\"300ms\"/> He puts each one in brown paper.</prosody></speak>",
-                    "en": "Baker Hans takes three hot breads with his tool. He puts each one in brown paper.",
-                    "ru": "Пекарь Ганс берет три горячих хлеба лопаткой. Он заворачивает каждый в коричневую бумагу."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Chef Hans gives three hot breads. <break time=\"300ms\"/> He wraps them in paper.</prosody></speak>",
+                    "en": "Chef Hans gives three hot breads. He wraps them in paper.",
+                    "ru": "Шеф Ганс дает три горячих хлеба. Он заворачивает их в бумагу."
                 },
                 {
                     "speaker": "baker",
                     "voice": "Kore",
-                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"-0.5st\">— Here you go! <break time=\"300ms\"/> Be careful, they are hot. <break time=\"300ms\"/> Enjoy, young students!</prosody></speak>",
-                    "en": "— Here you go! Be careful, they are hot. Enjoy, young students!",
-                    "ru": "— Вот, пожалуйста! Осторожно, они горячие. Приятного аппетита, юные ученики!"
+                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"-0.5st\">— Here you are! <break time=\"300ms\"/> Be careful, the bread is hot. <break time=\"300ms\"/> Enjoy!</prosody></speak>",
+                    "en": "— Here you are! Be careful, the bread is hot. Enjoy!",
+                    "ru": "— Вот, держите! Осторожно, хлеб горячий. Приятного аппетита!"
                 },
                 {
                     "speaker": "kira",
                     "voice": "Aoede",
-                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Thank you so much, Master Hans! <break time=\"300ms\"/> Have a good market day!</prosody></speak>",
-                    "en": "— Thank you so much, Master Hans! Have a good market day!",
-                    "ru": "— Большое спасибо, мастер Ганс! Удачного базарного дня!"
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Thank you, Chef Hans! <break time=\"300ms\"/> Have a good day!</prosody></speak>",
+                    "en": "— Thank you, Chef Hans! Have a good day!",
+                    "ru": "— Спасибо, шеф Ганс! Хорошего дня!"
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">They sit on a bench near the shop. <break time=\"300ms\"/> The paper is warm in their hands.</prosody></speak>",
-                    "en": "They sit on a bench near the shop. The paper is warm in their hands.",
-                    "ru": "Они садятся на скамейку возле лавки. Бумага теплая в их руках."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">They sit near the shop.</prosody></speak>",
+                    "en": "They sit near the shop.",
+                    "ru": "Они садятся возле лавки."
                 },
                 {
                     "speaker": "kira",
                     "voice": "Aoede",
-                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Listen! <break time=\"300ms\"/> The outside is hard, and the inside is soft!</prosody></speak>",
-                    "en": "— Listen! The outside is hard, and the inside is soft!",
-                    "ru": "— Послушай! Снаружи корочка твердая, а внутри мягкий мякиш!"
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— This bread is so tasty! <break time=\"300ms\"/> It is hard outside and soft inside.</prosody></speak>",
+                    "en": "— This bread is so tasty! It is hard outside and soft inside.",
+                    "ru": "— Этот хлеб такой вкусный! Снаружи корочка твердая, а внутри он мягкий."
                 },
                 {
                     "speaker": "eldrin",
                     "voice": "Puck",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— And the salt gives it a very good flavor!</prosody></speak>",
-                    "en": "— And the salt gives it a very good flavor!",
-                    "ru": "— А соль придает ему очень приятный вкус!"
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— And it has salt. <break time=\"300ms\"/> I like it!</prosody></speak>",
+                    "en": "— And it has salt. I like it!",
+                    "ru": "— И он с солью. Мне нравится!"
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— There is nothing better than fresh bread after a morning ride.</prosody></speak>",
-                    "en": "— There is nothing better than fresh bread after a morning ride.",
-                    "ru": "— Нет ничего лучше свежего хлеба после утренней поездки."
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Fresh bread in the morning is the best.</prosody></speak>",
+                    "en": "— Fresh bread in the morning is the best.",
+                    "ru": "— Свежий хлеб утром — лучшее начало дня."
                 },
                 {
                     "speaker": "eldrin",
                     "voice": "Puck",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— I have energy now! <break time=\"300ms\"/> What is next on the list, Master Corvinus?</prosody></speak>",
-                    "en": "— I have energy now! What is next on the list, Master Corvinus?",
-                    "ru": "— Теперь у меня есть силы! Что следующее в списке, Мастер Корвинус?"
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— I have a lot of energy now! <break time=\"300ms\"/> Where do we go now, Teacher?</prosody></speak>",
+                    "en": "— I have a lot of energy now! Where do we go now, Teacher?",
+                    "ru": "— У меня теперь куча энергии! Куда мы пойдем дальше, Учитель?"
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Next is the shop in the center of the market. <break time=\"300ms\"/> We must see merchant Selma.</prosody></speak>",
-                    "en": "— Next is the shop in the center of the market. We must see merchant Selma.",
-                    "ru": "— Дальше лавка в центре рынка. Мы должны навестить торговку Сельму."
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Now we go to the next shop, in the center of the market. <break time=\"300ms\"/> We visit Selma.</prosody></speak>",
+                    "en": "— Now we go to the next shop, in the center of the market. We visit Selma.",
+                    "ru": "— Теперь мы идем в следующую лавку, в центре рынка. Навестим Сельму."
                 },
                 {
                     "speaker": "kira",
                     "voice": "Aoede",
-                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Let's finish our bread and go to the market!</prosody></speak>",
-                    "en": "— Let's finish our bread and go to the market!",
-                    "ru": "— Давайте доедим наш хлеб и пойдем на рынок!"
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Let's finish the bread and go to the market center!</prosody></speak>",
+                    "en": "— Let's finish the bread and go to the market center!",
+                    "ru": "— Давайте доедим хлеб и пойдем в центр рынка!"
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The three friends finish their bread. <break time=\"300ms\"/> They walk to the colorful shops.</prosody></speak>",
-                    "en": "The three friends finish their bread. They walk to the colorful shops.",
-                    "ru": "Трое друзей доедают свой хлеб. Они идут к красочным лавкам."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">They finish the bread. <break time=\"300ms\"/> They walk to the market center.</prosody></speak>",
+                    "en": "They finish the bread. They walk to the market center.",
+                    "ru": "Они доедают хлеб. Они идут в центр рынка."
                 }
             ],
             "quiz": [
                 {
-                    "question": "How much did Eldrin pay for the three fresh breads?",
+                    "question": "How much did Eldrin pay Chef Hans for the three hot breads?",
                     "options": [
-                        "Two copper coins",
-                        "Five copper coins",
-                        "Ten silver coins",
-                        "One gold coin"
+                        "Two coins",
+                        "Five coins",
+                        "Ten coins",
+                        "One coin"
                     ],
                     "correctIdx": 1
                 },
                 {
-                    "question": "How did Kira describe the fresh bread when they ate it?",
+                    "question": "How did Kira describe the fresh bread?",
                     "options": [
-                        "It was cold and sweet",
-                        "The outside was hard, and the inside was soft",
-                        "It was bitter and dark",
-                        "It was too dry"
+                        "It is cold and sweet",
+                        "It is hard outside and soft inside",
+                        "It is bitter and dark",
+                        "It is too spicy"
                     ],
                     "correctIdx": 1
                 },
                 {
-                    "question": "Who does Master Corvinus say they must visit next at the market?",
+                    "question": "Who do Eldrin, Kira, and Teacher Corvinus visit next at the market center?",
                     "options": [
-                        "Farmer Barnaby",
-                        "Merchant Selma",
-                        "Blacksmith Bruno",
-                        "City Guard Vance"
+                        "Selma",
+                        "Barnaby",
+                        "Bruno",
+                        "Vance"
                     ],
-                    "correctIdx": 1
+                    "correctIdx": 0
                 }
             ]
         },
