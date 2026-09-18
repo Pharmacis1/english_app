@@ -7195,6 +7195,16 @@ document.addEventListener("DOMContentLoaded", () => {
             };
         }
 
+        // Retell Sprint 4/3/2 button setup
+        const retellBtn = document.getElementById("btn-story-retell-chapter");
+        if (retellBtn) {
+            retellBtn.onclick = () => {
+                if (typeof window.startChapter432Retell === 'function') {
+                    window.startChapter432Retell(chapter, 'story_campaign');
+                }
+            };
+        }
+
         // Render Comprehension Quiz
         renderStoryComprehensionQuiz(chapter);
 
@@ -7304,7 +7314,15 @@ document.addEventListener("DOMContentLoaded", () => {
                     try { updateReadingUI(); } catch(e) {}
                 }
 
-                feedbackBox.innerHTML = `🎉 <b>Верно!</b> Глава успешно пройдена! Получено +${quiz.rewardXp} XP для участников отряда.${vfMsg}`;
+                feedbackBox.innerHTML = `
+                    🎉 <b>Верно!</b> Глава успешно пройдена! Получено +${quiz.rewardXp} XP для участников отряда.${vfMsg}
+                    <div style="margin-top:12px; padding-top:10px; border-top:1px dashed rgba(255,255,255,0.15); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
+                        <span style="font-size:12px; color:#cbd5e1;"><i class="fa-solid fa-lightbulb" style="color:#fbbf24;"></i> Хотите закрепить сюжет в активной речи?</span>
+                        <button type="button" class="btn btn-sm btn-outline" style="color:#f472b6; border-color:rgba(236,72,153,0.5); font-weight:700;" onclick="if(typeof window.startChapter432Retell==='function') window.startChapter432Retell(window.currentReadingChapterObj || { id: '${chapter.id}', number: ${chapter.number}, titleEn: '${(chapter.titleEn||'').replace(/'/g, "\\'")}' }, 'story_campaign')">
+                            <i class="fa-solid fa-microphone-lines"></i> 🎙️ Пересказать (4/3/2)
+                        </button>
+                    </div>
+                `;
 
                 try { recordStoryStreakActivity(1); } catch(e) {}
 
@@ -9241,10 +9259,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const summaryTotalWords = document.getElementById("sprint-summary-total-words");
         const restartAllBtn = document.getElementById("sprint-restart-all-btn");
 
-        function loadNewTopic() {
-            if (!window.speakingEngine) return;
-            const cat = categorySelect ? categorySelect.value : "all";
-            currentTopic = window.speakingEngine.getRandomTopic(cat);
+        function loadTopicData(topicObj) {
+            currentTopic = topicObj;
             if (!currentTopic) return;
 
             if (topicTitle) topicTitle.textContent = currentTopic.title;
@@ -9261,6 +9277,61 @@ document.addEventListener("DOMContentLoaded", () => {
                 topicHints.innerHTML = currentTopic.hints.map(h => `<span class="badge" style="background:rgba(255,255,255,0.08); font-size:11px; padding:2px 8px; color:#cbd5e1; border:1px solid rgba(255,255,255,0.12);">${h}</span>`).join("");
             }
         }
+
+        function loadNewTopic() {
+            if (!window.speakingEngine) return;
+            const cat = categorySelect ? categorySelect.value : "all";
+            const topic = window.speakingEngine.getRandomTopic(cat);
+            if (topic) loadTopicData(topic);
+        }
+
+        window.startChapter432Retell = function(chapterObj, source = 'story_campaign') {
+            if (!chapterObj) return;
+
+            const chNum = chapterObj.number || chapterObj.id || 1;
+            let chTitle = "";
+            let heroName = "the heroes";
+            if (source === 'audiobook') {
+                chTitle = `Аудиокнига: Глава ${chNum}` + (chapterObj.title ? ` (${chapterObj.title})` : '');
+                heroName = "Young Eldrin";
+            } else {
+                chTitle = `История: Глава ${chNum}` + (chapterObj.titleEn ? ` — ${chapterObj.titleEn}` : '');
+                heroName = (chapterObj.involvedHeroes && chapterObj.involvedHeroes.length > 0)
+                    ? chapterObj.involvedHeroes.map(h => h.charAt(0).toUpperCase() + h.slice(1)).join(' and ')
+                    : "the heroes";
+            }
+
+            const customTopic = {
+                id: `retell_${source}_ch_${chNum}`,
+                category: "stories",
+                title: `📖 Пересказ: ${chTitle}`,
+                prompt: `Перескажите сюжет этой главы своими словами за 60, затем 45, затем 30 секунд. Кто главные герои, что произошло и чем всё закончилось? (Retell this chapter in your own words).`,
+                questions: [
+                    `Who are the main characters in this chapter (${heroName}) and where are they?`,
+                    "What happened in this part of the story (the problem, discovery or action)?",
+                    "How does this chapter end or what are they going to do next?"
+                ],
+                hints: [
+                    `In this chapter, ${heroName}...`,
+                    "First, they wanted to... and then...",
+                    "Suddenly, they saw / found...",
+                    "Finally, they decided to..."
+                ]
+            };
+
+            const liveModal = document.getElementById("modal-hero-live");
+            if (liveModal) {
+                liveModal.classList.remove("hidden");
+            }
+
+            switchTab("432");
+            loadTopicData(customTopic);
+            setup432Sprint();
+
+            if (typeof showToast === "function") {
+                showToast(`🎙️ <b>Спринт пересказа (4/3/2)</b> активирован для главы ${chNum}!`, "linear-gradient(135deg, #ec4899, #8b5cf6)", "#f472b6");
+            }
+        };
 
         if (categorySelect) categorySelect.onchange = loadNewTopic;
         if (newTopicBtn) newTopicBtn.onclick = loadNewTopic;
@@ -10262,7 +10333,15 @@ document.addEventListener("DOMContentLoaded", () => {
                         feedbackEl.style.background = "rgba(16,185,129,0.2)";
                         feedbackEl.style.border = "1px solid rgba(16,185,129,0.4)";
                         feedbackEl.style.color = "#6ee7b7";
-                        feedbackEl.innerHTML = `🎉 <b>Блестяще! Все ответы верны!</b>`;
+                        feedbackEl.innerHTML = `
+                            🎉 <b>Блестяще! Все ответы верны!</b>
+                            <div style="margin-top:12px; padding-top:10px; border-top:1px dashed rgba(255,255,255,0.15); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
+                                <span style="font-size:12px; color:#cbd5e1;"><i class="fa-solid fa-lightbulb" style="color:#fbbf24;"></i> Закрепите главу в активной речи:</span>
+                                <button type="button" class="btn btn-sm btn-outline" style="color:#f472b6; border-color:rgba(236,72,153,0.5); font-weight:700;" onclick="const mq=document.getElementById('modal-audiobook-quiz'); if(mq) mq.classList.add('hidden'); if(typeof window.startChapter432Retell==='function') { const c = (typeof ELDRIN_AUDIOBOOK !== 'undefined' ? ELDRIN_AUDIOBOOK.chapters : []).find(ch => ch.id === '${activeChapterId}') || { number: 1, title: 'Chapter 1' }; window.startChapter432Retell(c, 'audiobook'); }">
+                                    <i class="fa-solid fa-microphone-lines"></i> 🎙️ Пересказать (4/3/2)
+                                </button>
+                            </div>
+                        `;
 
                         if (!wordAwardedChapters.includes(activeChapterId)) {
                             wordAwardedChapters.push(activeChapterId);
@@ -10369,6 +10448,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 showToast(`🔊 Скорость аудиокниги: ${playbackSpeed}x`, "rgba(168, 85, 247, 0.9)");
             });
         });
+
+        const retellAudiobookBtn = document.getElementById("audiobook-open-retell-btn");
+        if (retellAudiobookBtn) {
+            retellAudiobookBtn.addEventListener("click", () => {
+                const curChapter = bookData.chapters.find(c => c.id === activeChapterId) || bookData.chapters[0];
+                if (typeof window.startChapter432Retell === 'function') {
+                    window.startChapter432Retell(curChapter, 'audiobook');
+                }
+            });
+        }
 
         if (openQuizBtn) {
             openQuizBtn.addEventListener("click", () => {
