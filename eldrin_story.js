@@ -3547,256 +3547,291 @@ const ELDRIN_AUDIOBOOK = {
             "titleEn": "Episode 14: The Herb & Spice Merchant",
             "titleRu": "Эпизод 14: Торговка травами и пряностями",
             "grammarFocus": "Weights & Quantities (grams, ounces, scales, sacks), Describing Colors and Scents",
-            "wordCount": 497,
+            "wordCount": 490,
             "coverIcon": "fa-mortar-pestle",
             "coverColor": "#ec4899",
             "sentences": [
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin, Kira, and Master Corvinus walk into the grand spice pavilion in the center of the market square.</prosody></speak>",
-                    "en": "Eldrin, Kira, and Master Corvinus walk into the grand spice big tent in the center of the market square.",
-                    "ru": "Элдрин, Кира и Мастер Корвинус входят в большой павильон пряностей в центре рыночной площади."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Eldrin, Kira, and Master Corvinus walk into the market in the center of town.</prosody></speak>",
+                    "en": "Eldrin, Kira, and Master Corvinus walk into the market in the center of town.",
+                    "ru": "Элдрин, Кира и Мастер Корвинус входят на рынок в центре города."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Dozens of silk banners in purple, crimson, and gold hang from the wooden rafters above.</prosody></speak>",
-                    "en": "Dozens of silk banners in purple, dark red, and gold hang from the wooden ceiling beams above.",
-                    "ru": "Десятки шелковых флагов фиолетового, малинового и золотого цветов свисают с деревянных стропил наверху."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Many shops stand near each other. <break time=\"300ms\"/> People walk and look at the shops.</prosody></speak>",
+                    "en": "Many shops stand near each other. People walk and look at the shops.",
+                    "ru": "Многие лавки стоят рядом друг с другом. Люди гуляют и осматривают лавки."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Tall pyramids of colorful powders fill open wooden boxes: yellow ginger, red pepper, and blue flower root.</prosody></speak>",
-                    "en": "Tall pyramids of colorful powders fill open wooden boxes: yellow ginger, red pepper, and blue flower root.",
-                    "ru": "Высокие пирамидки разноцветных порошков наполняют открытые кедровые ящики: желтый имбирь, красная паприка и синий корень ириса."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">One shop has many boxes on a table. <break time=\"300ms\"/> In the boxes are beautiful things: rings, and small colorful stones.</prosody></speak>",
+                    "en": "One shop has many boxes on a table. In the boxes are beautiful things: rings, and small colorful stones.",
+                    "ru": "В одной лавке на столе стоит много коробочек. В коробочках лежат красивые вещи: кольца и маленькие разноцветные камни."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Look at all these incredible colors! It looks like a painter's rainbow spread across the tables!</prosody></speak>",
-                    "en": "— Look at all these incredible colors! It looks like a painter's rainbow spread across the tables!",
-                    "ru": "— Посмотри на все эти невероятные цвета! Это похоже на радугу художника, рассыпанную по столам!"
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Look at this! <break time=\"300ms\"/> So many colors! <break time=\"300ms\"/> Red, blue, green, and purple stones!</prosody></speak>",
+                    "en": "— Look at this! So many colors! Red, blue, green, and purple stones!",
+                    "ru": "— Посмотри на это! Так много цветов! Красные, синие, зеленые и фиолетовые камни!"
                 },
                 {
                     "speaker": "kira",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— And the rich scents! Cinnamon, dried mountain sage, and crushed clove buds!</prosody></speak>",
-                    "en": "— And the rich scents! Cinnamon, dried mountain green herb, and crushed small spice small pieces!",
-                    "ru": "— А какие богатые запахи! Корица, сушеный горный шалфей и молотые бутоны гвоздики!"
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— This shop has jewelry! <break time=\"300ms\"/> Look, a ring with a red stone!</prosody></speak>",
+                    "en": "— This shop has jewelry! Look, a ring with a red stone!",
+                    "ru": "— В этой лавке украшения! Смотри, кольцо с красным камнем!"
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Behind a long mahogany counter stands merchant Selma, wearing a green silk dress and gold earrings.</prosody></speak>",
-                    "en": "Behind a long dark wood counter stands merchant Selma, wearing a green silk dress and gold ear rings.",
-                    "ru": "За длинным прилавком из красного дерева стоит купчиха Сельма в зеленом шелковом платье и золотых сережках."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Behind the table stands a woman. <break time=\"300ms\"/> Her name is Selma. <break time=\"300ms\"/> She has a nice smile.</prosody></speak>",
+                    "en": "Behind the table stands a woman. Her name is Selma. She has a nice smile.",
+                    "ru": "За столом стоит женщина. Ее зовут Сельма. У нее приятная улыбка."
                 },
                 {
                     "speaker": "selma",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.95\" pitch=\"+1.5st\">— Ah, Teacher Corvinus! <break time=\"300ms\"/> Peace and good wishes to you! <break time=\"300ms\"/> Welcome back to my simple spice tent!</prosody></speak>",
-                    "en": "— Ah, Teacher Corvinus! Peace and good wishes to you! Welcome back to my simple spice tent!",
-                    "ru": "— А, профессор Корвинус! Мир и благословение вам! Добро пожаловать снова в мою скромную палатку пряностей!"
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.95\" pitch=\"+1.5st\">— Hello, Master Corvinus! <break time=\"300ms\"/> Nice to see you! <break time=\"300ms\"/> Welcome to my shop.</prosody></speak>",
+                    "en": "— Hello, Master Corvinus! Nice to see you! Welcome to my shop.",
+                    "ru": "— Здравствуйте, Мастер Корвинус! Рада вас видеть! Добро пожаловать в мою лавку."
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Good morning, Selma. It is always a true delight to visit your fragrant shop.</prosody></speak>",
-                    "en": "— Good morning, Selma. It is always a true delight to visit your nice smelling shop.",
-                    "ru": "— Доброе утро, Сельма. Всегда истинное удовольствие зайти в вашу благоухающую лавку."
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Hello, Selma. <break time=\"300ms\"/> It is always nice to visit your shop. <break time=\"300ms\"/> Your jewelry is very beautiful.</prosody></speak>",
+                    "en": "— Hello, Selma. It is always nice to visit your shop. Your jewelry is very beautiful.",
+                    "ru": "— Здравствуй, Сельма. Всегда приятно заглянуть в твою лавку. Твои украшения очень красивые."
                 },
                 {
                     "speaker": "selma",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.95\" pitch=\"+1.5st\">— And who are these two bright young students with wide, curious eyes?</prosody></speak>",
-                    "en": "— And who are these two bright young students with wide, curious eyes?",
-                    "ru": "— А кто эти двое смышленых юных ученых с широко распахнутыми любознательными глазами?"
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.95\" pitch=\"+1.5st\">— And who are these two young people?</prosody></speak>",
+                    "en": "— And who are these two young people?",
+                    "ru": "— А кто эти двое молодых людей?"
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Meet my top apprentices, Eldrin and Kira. They are helping me manage the Academy's autumn shopping today.</prosody></speak>",
-                    "en": "— Meet my top apprentices, Eldrin and Kira. They are helping me manage the Academy's autumn shopping today.",
-                    "ru": "— Познакомьтесь с моими лучшими учениками, Элдрином и Кирой. Они помогают мне с осенними закупками Академии сегодня."
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— This is Eldrin, and this is Kira. <break time=\"300ms\"/> They are my students. <break time=\"300ms\"/> We want to see your jewelry today.</prosody></speak>",
+                    "en": "— This is Eldrin, and this is Kira. They are my students. We want to see your jewelry today.",
+                    "ru": "— Это Элдрин, а это Кира. Они мои ученики. Мы хотим посмотреть твои украшения сегодня."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Good morning, Lady Selma! Your shop is the most colorful place in the entire market!</prosody></speak>",
-                    "en": "— Good morning, Lady Selma! Your shop is the most colorful place in the entire market!",
-                    "ru": "— Доброе утро, госпожа Сельма! Ваша лавка — самое красочное место на всем рынке!"
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Hello, Selma! <break time=\"300ms\"/> Your shop is very nice. <break time=\"300ms\"/> I like all the colorful stones.</prosody></speak>",
+                    "en": "— Hello, Selma! Your shop is very nice. I like all the colorful stones.",
+                    "ru": "— Здравствуйте, Сельма! Ваша лавка очень красивая. Мне нравятся все эти разноцветные камни."
                 },
                 {
                     "speaker": "selma",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.95\" pitch=\"+1.5st\">— Thank you, young master! <break time=\"300ms\"/> How may I assist the Spire Academy this morning?</prosody></speak>",
-                    "en": "— Thank you, young master! How may I assist the Spire Academy this morning?",
-                    "ru": "— Спасибо, юный мастер! Чем я могу помочь Академии Шпиля этим утром?"
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.95\" pitch=\"+1.5st\">— Thank you! <break time=\"300ms\"/> What jewelry do you want to see today?</prosody></speak>",
+                    "en": "— Thank you! What jewelry do you want to see today?",
+                    "ru": "— Спасибо! Какое украшение вы хотите посмотреть сегодня?"
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— We need two large linen sacks of dried mountain thyme and one jar of crushed blue iris root.</prosody></speak>",
-                    "en": "— We need two large cloth sacks of dried mountain small herb and one jar of crushed blue flower root.",
-                    "ru": "— Нам нужно два больших льняных мешка сушеного горного тимьяна и одна банка измельченного корня синего ириса."
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— We want to see a ring, please. <break time=\"300ms\"/> Do you have a ring with a blue stone?</prosody></speak>",
+                    "en": "— We want to see a ring, please. Do you have a ring with a blue stone?",
+                    "ru": "— Мы хотим посмотреть кольцо, пожалуйста. У тебя есть кольцо с синим камнем?"
                 },
                 {
                     "speaker": "selma",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.95\" pitch=\"+1.5st\">— I have the finest mountain small herb harvested from the most sunny southern peaks last week.</prosody></speak>",
-                    "en": "— I have the finest mountain small herb harvested from the most sunny southern peaks last week.",
-                    "ru": "— У меня лучший горный тимьян, собранный с самых солнечных южных вершин на прошлой неделе."
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.95\" pitch=\"+1.5st\">— Yes! <break time=\"300ms\"/> I have a very nice ring. <break time=\"300ms\"/> The blue stone is a sapphire. <break time=\"300ms\"/> It is from the mountain.</prosody></speak>",
+                    "en": "— Yes! I have a very nice ring. The blue stone is a sapphire. It is from the mountain.",
+                    "ru": "— Да! У меня есть прекрасное кольцо. Синий камень — это сапфир. Он с гор."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Selma takes a pair of polished brass balance scales with two suspended copper pans.</prosody></speak>",
-                    "en": "Selma takes a pair of polished yellow metal balance scales with two suspended copper pans.",
-                    "ru": "Сельма берет полированные латунные весы с двумя подвесными медными чашами."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">She places a round bronze weight of five hundred grams onto the left copper pan.</prosody></speak>",
-                    "en": "She places a round metal weight of five hundred grams onto the left copper pan.",
-                    "ru": "Она кладет круглую бронзовую гирьку в пятьсот граммов на левую медную чашу."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Then she scoops fragrant green thyme with a wooden shovel into the right pan.</prosody></speak>",
-                    "en": "Then she scoops nice smelling green small herb with a wooden shovel into the right pan.",
-                    "ru": "Затем деревянным совком насыпает ароматный зеленый тимьян в правую чашу."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Selma takes a small box. <break time=\"300ms\"/> She opens the box and shows the ring to Corvinus.</prosody></speak>",
+                    "en": "Selma takes a small box. She opens the box and shows the ring to Corvinus.",
+                    "ru": "Сельма берет маленькую коробочку. Она открывает коробочку и показывает кольцо Корвинусу."
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Look, Kira! The balance beam is slowly moving! The right side is rising...</prosody></speak>",
-                    "en": "— Look, Kira! The balance beam is slowly moving! The right side is rising...",
-                    "ru": "— Смотри, Кира! Коромысло весов медленно движется! Правая сторона поднимается..."
-                },
-                {
-                    "speaker": "selma",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.95\" pitch=\"+1.5st\">— Just three more dried leaves... <break time=\"300ms\"/> and CLICK! <break time=\"300ms\"/> The golden needle points straight to the center mark!</prosody></speak>",
-                    "en": "— Just three more dried leaves... and CLICK! The golden needle points straight to the center mark!",
-                    "ru": "— Еще всего три сухих листочка... и ЩЕЛК! Золотая стрелка указывает ровно на центральную метку!"
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Look, Kira! <break time=\"300ms\"/> The blue stone is beautiful! <break time=\"300ms\"/> It is like the sky.</prosody></speak>",
+                    "en": "— Look, Kira! The blue stone is beautiful! It is like the sky.",
+                    "ru": "— Посмотри, Кира! Синий камень прекрасен! Он как небо."
                 },
                 {
                     "speaker": "kira",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— That is five hundred grams of pure mountain thyme! The scale is perfectly balanced!</prosody></speak>",
-                    "en": "— That is five hundred grams of pure mountain small herb! The scale is perfectly balanced!",
-                    "ru": "— Это пятьсот граммов чистого горного тимьяна! Весы идеально уравновешены!"
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Yes! <break time=\"300ms\"/> I like it very much! <break time=\"300ms\"/> How much money is the ring, Selma?</prosody></speak>",
+                    "en": "— Yes! I like it very much! How much money is the ring, Selma?",
+                    "ru": "— Да! Мне оно очень нравится! Сколько стоит это кольцо, Сельма?"
                 },
                 {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Selma pours the weighed thyme into two clean linen bags and ties them with brown string.</prosody></speak>",
-                    "en": "Selma pours the weighed small herb into two clean cloth bags and ties them with brown string.",
-                    "ru": "Сельма пересыпает взвешенный тимьян в два чистых льняных мешка и завязывает их коричневой бечевкой."
-                },
-                {
-                    "speaker": "narrator",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Then she takes a small glass jar filled with soft, pale-blue iris root powder.</prosody></speak>",
-                    "en": "Then she takes a small glass jar filled with soft, pale-blue flower root powder.",
-                    "ru": "Затем она берет маленькую стеклянную баночку, наполненную мягким нежно-голубым порошком корня ириса."
-                },
-                {
-                    "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Why is the blue iris powder so important for our library, Master Corvinus?</prosody></speak>",
-                    "en": "— Why is the blue flower powder so important for our library, Master Corvinus?",
-                    "ru": "— А почему порошок синего ириса так важен для нашей библиотеки, Мастер Корвинус?"
+                    "speaker": "selma",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.95\" pitch=\"+1.5st\">— The ring is ten silver coins. <break time=\"300ms\"/> It is not cheap, but it is very good.</prosody></speak>",
+                    "en": "— The ring is ten silver coins. It is not cheap, but it is very good.",
+                    "ru": "— Кольцо стоит десять серебряных монет. Это недешево, но оно очень качественное."
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Blue iris powder absorbs moisture from the air and protects ancient parchment from tiny book insects.</prosody></speak>",
-                    "en": "— blue flower powder takes in water from the air and keeps safe ancient paper from tiny book insects.",
-                    "ru": "— Порошок синего ириса впитывает влагу из воздуха и защищает старинный пергамент от мелких книжных насекомых."
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Ten coins? <break time=\"300ms\"/> That is expensive. <break time=\"300ms\"/> Do you have a discount today?</prosody></speak>",
+                    "en": "— Ten coins? That is expensive. Do you have a discount today?",
+                    "ru": "— Десять монет? Это дорого. Есть ли у тебя скидка сегодня?"
                 },
                 {
                     "speaker": "selma",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.95\" pitch=\"+1.5st\">— Yes, Master! <break time=\"300ms\"/> Today is a sale. <break time=\"300ms\"/> I can give you a discount. <break time=\"300ms\"/> The price is now eight coins.</prosody></speak>",
+                    "en": "— Yes, Master! Today is a sale. I can give you a discount. The price is now eight coins.",
+                    "ru": "— Да, Мастер! Сегодня распродажа. Я могу сделать вам скидку. Цена теперь восемь монет."
+                },
+                {
+                    "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.95\" pitch=\"+1.5st\">— And it has a wonderful scent of fresh mountain rain and wild violets!</prosody></speak>",
-                    "en": "— And it has a wonderful scent of fresh mountain rain and wild violets!",
-                    "ru": "— И у него чудесный аромат свежего горного дождя и диких фиалок!"
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Corvinus looks at the ring one more time. <break time=\"300ms\"/> He thinks it is a good price now.</prosody></speak>",
+                    "en": "Corvinus looks at the ring one more time. He thinks it is a good price now.",
+                    "ru": "Корвинус смотрит на кольцо еще раз. Он считает, что теперь цена хорошая."
+                },
+                {
+                    "speaker": "corvinus",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Good. <break time=\"300ms\"/> I want to buy this ring. <break time=\"300ms\"/> Here are eight silver coins.</prosody></speak>",
+                    "en": "— Good. I want to buy this ring. Here are eight silver coins.",
+                    "ru": "— Хорошо. Я хочу купить это кольцо. Вот восемь серебряных монет."
+                },
+                {
+                    "speaker": "selma",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.95\" pitch=\"+1.5st\">— Thank you! <break time=\"300ms\"/> Here is your ring, and here is your receipt.</prosody></speak>",
+                    "en": "— Thank you! Here is your ring, and here is your receipt.",
+                    "ru": "— Спасибо! Вот ваше кольцо, а вот ваша квитанция."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Selma gives the small box with the ring to Kira. <break time=\"300ms\"/> Kira is very happy.</prosody></speak>",
+                    "en": "Selma gives the small box with the ring to Kira. Kira is very happy.",
+                    "ru": "Сельма отдает маленькую коробочку с кольцом Кире. Кира очень счастлива."
                 },
                 {
                     "speaker": "kira",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Let me pack the glass jar into Eldrin's backpack, wrapped inside this soft woollen cloth.</prosody></speak>",
-                    "en": "— Let me pack the glass jar into Eldrin's bag, wrapped inside this soft warm wool cloth.",
-                    "ru": "— Давай я упакую стеклянную баночку в рюкзак Элдрина, завернув ее в эту мягкую шерстяную ткань."
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Thank you, Selma! <break time=\"300ms\"/> Can I also see a necklace with a green stone?</prosody></speak>",
+                    "en": "— Thank you, Selma! Can I also see a necklace with a green stone?",
+                    "ru": "— Спасибо, Сельма! Могу я также взглянуть на ожерелье с зеленым камнем?"
+                },
+                {
+                    "speaker": "selma",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.95\" pitch=\"+1.5st\">— Yes, of course! <break time=\"300ms\"/> This green stone is an emerald. <break time=\"300ms\"/> Look, it is very bright.</prosody></speak>",
+                    "en": "— Yes, of course! This green stone is an emerald. Look, it is very bright.",
+                    "ru": "— Да, конечно! Этот зеленый камень — изумруд. Посмотри, какой он яркий."
+                },
+                {
+                    "speaker": "eldrin",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Wow! <break time=\"300ms\"/> It is beautiful! <break time=\"300ms\"/> Kira, do you want to buy it too?</prosody></speak>",
+                    "en": "— Wow! It is beautiful! Kira, do you want to buy it too?",
+                    "ru": "— Вау! Оно прекрасное! Кира, ты хочешь купить его тоже?"
+                },
+                {
+                    "speaker": "kira",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— I want to buy it, but I don't have money today. <break time=\"300ms\"/> Maybe next time.</prosody></speak>",
+                    "en": "— I want to buy it, but I don't have money today. Maybe next time.",
+                    "ru": "— Я хочу купить его, но сегодня у меня нет денег. Может быть, в следующий раз."
+                },
+                {
+                    "speaker": "selma",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.95\" pitch=\"+1.5st\">— No problem, Kira! <break time=\"300ms\"/> Come back another day. <break time=\"300ms\"/> I will have more jewelry to show you.</prosody></speak>",
+                    "en": "— No problem, Kira! Come back another day. I will have more jewelry to show you.",
+                    "ru": "— Никаких проблем, Кира! Приходи в другой день. У меня будет больше украшений, чтобы показать тебе."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Kira secures the jar and the two thyme sacks safely in the center of Eldrin's leather pack.</prosody></speak>",
-                    "en": "Kira makes safe the jar and the two small herb sacks safely in the center of Eldrin's leather pack.",
-                    "ru": "Кира надежно укладывает баночку и два мешочка с тимьяном в центр кожаного рюкзака Элдрина."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Corvinus takes the small box with the ring and gives it to Eldrin to carry.</prosody></speak>",
+                    "en": "Corvinus takes the small box with the ring and gives it to Eldrin to carry.",
+                    "ru": "Корвинус берет маленькую коробочку с кольцом и отдает ее Элдрину, чтобы нести."
+                },
+                {
+                    "speaker": "eldrin",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— I will carry the box carefully. <break time=\"300ms\"/> This ring is a gift, right, Master?</prosody></speak>",
+                    "en": "— I will carry the box carefully. This ring is a gift, right, Master?",
+                    "ru": "— Я понесу коробочку осторожно. Это кольцо — подарок, верно, Мастер?"
                 },
                 {
                     "speaker": "corvinus",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Thank you, Selma. Here are twelve silver coins for the herbs and the iris root.</prosody></speak>",
-                    "en": "— Thank you, Selma. Here are twelve silver coins for the herbs and the blue flower root.",
-                    "ru": "— Спасибо, Сельма. Вот двенадцать серебряных монет за травы и корень ириса."
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Yes, Eldrin. <break time=\"300ms\"/> This ring is a gift for the Academy. <break time=\"300ms\"/> It is very important.</prosody></speak>",
+                    "en": "— Yes, Eldrin. This ring is a gift for the Academy. It is very important.",
+                    "ru": "— Да, Элдрин. Это кольцо — подарок для Академии. Оно очень важное."
                 },
                 {
                     "speaker": "selma",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.95\" pitch=\"+1.5st\">— Thank you, Teacher! <break time=\"300ms\"/> May your studies at the Spire shine with bright light this season!</prosody></speak>",
-                    "en": "— Thank you, Teacher! May your studies at the Spire shine with bright light this season!",
-                    "ru": "— Спасибо, профессор! Пусть ваши ученые труды в Шпиле сияют ярко в этом сезоне!"
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.95\" pitch=\"+1.5st\">— Thank you for your trade today, Master Corvinus! <break time=\"300ms\"/> Good luck with your students!</prosody></speak>",
+                    "en": "— Thank you for your trade today, Master Corvinus! Good luck with your students!",
+                    "ru": "— Спасибо за покупку сегодня, Мастер Корвинус! Удачи вам с учениками!"
                 },
                 {
                     "speaker": "eldrin",
-                    "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Goodbye, Lady Selma! Thank you for showing us how your beautiful scales work!</prosody></speak>",
-                    "en": "— Goodbye, Lady Selma! Thank you for showing us how your beautiful scales work!",
-                    "ru": "— До свидания, госпожа Сельма! Спасибо, что показали нам, как работают ваши красивые весы!"
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Goodbye, Selma! <break time=\"300ms\"/> Thank you for showing us your beautiful jewelry!</prosody></speak>",
+                    "en": "— Goodbye, Selma! Thank you for showing us your beautiful jewelry!",
+                    "ru": "— До свидания, Сельма! Спасибо, что показали нам свои прекрасные украшения!"
+                },
+                {
+                    "speaker": "kira",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Goodbye! <break time=\"300ms\"/> I will come back for the emerald necklace!</prosody></speak>",
+                    "en": "— Goodbye! I will come back for the emerald necklace!",
+                    "ru": "— До свидания! Я вернусь за изумрудным ожерельем!"
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">They wave goodbye and step out of the fragrant pavilion into the sunny marketplace.</prosody></speak>",
-                    "en": "They wave goodbye and step out of the nice smelling big tent into the sunny marketplace.",
-                    "ru": "Они машут на прощание и выходят из благоухающего павильона на солнечную рыночную площадь."
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Corvinus, Eldrin, and Kira walk away from the shop. <break time=\"300ms\"/> They are happy with the ring and the trade.</prosody></speak>",
+                    "en": "Corvinus, Eldrin, and Kira walk away from the shop. They are happy with the ring and the trade.",
+                    "ru": "Корвинус, Элдрин и Кира отходят от лавки. Они довольны кольцом и покупкой."
                 }
             ],
             "quiz": [
                 {
-                    "question": "What metal were merchant Selma's balanced scales made of?",
+                    "question": "What kind of blue stone was in the ring Master Corvinus bought?",
                     "options": [
-                        "Polished brass and copper pans",
-                        "Wooden sticks",
-                        "Clay",
-                        "Silver wire"
-                    ],
-                    "correctIdx": 0
-                },
-                {
-                    "question": "Why is blue iris root powder essential for the Great Library?",
-                    "options": [
-                        "To make blue soup",
-                        "To absorb moisture and protect ancient parchment from book insects",
-                        "To paint the walls",
-                        "To feed the birds"
+                        "A ruby",
+                        "A sapphire from the mountain",
+                        "An emerald",
+                        "A white pearl"
                     ],
                     "correctIdx": 1
                 },
                 {
-                    "question": "How did Kira pack the glass jar of iris powder to keep it safe?",
+                    "question": "How much did Master Corvinus pay for the ring after the discount?",
                     "options": [
-                        "She threw it in the cart",
-                        "She wrapped it inside a soft woollen cloth in Eldrin's backpack",
-                        "She carried it in her shoe",
-                        "She gave it to the horse"
+                        "Ten silver coins",
+                        "Eight silver coins",
+                        "Five copper coins",
+                        "Two gold coins"
+                    ],
+                    "correctIdx": 1
+                },
+                {
+                    "question": "What green jewelry did Kira look at and promise to return for?",
+                    "options": [
+                        "A green hat",
+                        "An emerald necklace",
+                        "A pair of green boots",
+                        "A green book"
                     ],
                     "correctIdx": 1
                 }
