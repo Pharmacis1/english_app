@@ -978,11 +978,6 @@ const STORY_CHAPTERS = [
         "number": 14,
         "titleEn": "The Black Rain",
         "titleRu": "Черный дождь",
-        "reqHeroLevels": {
-            "valerius": 47,
-            "thorin": 47,
-            "ignis": 47
-        },
         "involvedHeroes": [
             "valerius",
             "thorin",
@@ -990,31 +985,63 @@ const STORY_CHAPTERS = [
         ],
         "paragraphs": [
             {
-                "en": "The sky turned dark as obsidian. Heavy black rain began to pour, hissing as it touched the grass and stones.",
-                "ru": "Небо стало темным, как обсидиан. Полил тяжелый черный дождь, шипя при падении на траву и камни."
+                "speaker": "valerius",
+                "en": "The three heroes walk into the dark valley. The sky above them is black. A cold wind comes through the trees. After a minute, black rain falls from the clouds. It falls on the grass, on the rocks, and on their bags. The three heroes stop and look up. \"Look out!\" Valerius says. His silver cloak is on his shoulders. \"This rain is bad! It is a storm of the Black Sun! It is like fire on wood and clothes. We need a room now!\"",
+                "ru": "Трое героев идут в темную долину. Небо над ними черное. Холодный ветер веет сквозь деревья. Через минуту черный дождь начинает падать из облаков. Он падает на траву, на камни и на их мешки. Трое героев останавливаются и смотрят вверх. \"Берегитесь!\" — говорит Валериус. Его серебряный плащ на его плечах. \"Этот дождь дурной! Это буря Черного Солнца! Он словно огонь на дереве и одежде. Нам нужно укрытие прямо сейчас!\"",
+                "chunkedEn": "[s: The three heroes] [v: walk] [pt: into the dark valley.]\n[s: The sky above them] [v: is black.]\n[s: A cold wind] [v: comes] [pt: through the trees.]\n[pt: After a minute,] [s: black rain] [v: falls] [pt: from the clouds.]\n[s: It] [v: falls] [pt: on the grass,] [pt: on the rocks,] [c: and] [pt: on their bags.]\n[s: The three heroes] [v: stop and look up.]\n[v: \"Look out!\"] [s: Valerius] [v: says.]\n[s: His silver cloak] [v: is] [pt: on his shoulders.]\n[s: \"This rain] [v: is bad!]\n[s: It] [v: is] [o: a storm of the Black Sun!]\n[s: It] [v: is] [pt: like fire] [pt: on wood and clothes.]\n[s: We] [v: need] [o: a room] [adv: now!\"]"
             },
             {
-                "en": "Hundreds of Ash Stalkers rushed out of the burning ravine. Valerius slammed his great silver shield into the mud, forming a wall of light.",
-                "ru": "Сотни Пепельных Ловцов вырвались из горящего оврага. Валериус вонзил свой огромный серебряный щит в грязь, образовав стену света."
+                "speaker": "thorin",
+                "en": "Thorin cleans the black rain from his bronze armor. \"Look there!\" the short hero says. He shows the tower with his iron hammer. \"There is an old tower on the other side of the valley! But the road is narrow and dangerous.\" Before they can run, a crowd of Stalkers comes out of the fog. They have red eyes, black armor, and long daggers. A big Stalker jumps toward their boxes of food and water.",
+                "ru": "Торин счищает черный дождь со своей бронзовой брони. \"Посмотрите туда!\" — говорит невысокий герой. Он указывает на башню своим железным молотом. \"На другой стороне долины есть старая башня! Но дорога узкая и опасная.\" Прежде чем они успевают побежать, толпа Ловцов выходит из тумана. У них красные глаза, черная броня и длинные кинжалы. Большой Ловец прыгает к их ящикам с едой и водой.",
+                "chunkedEn": "[s: Thorin] [v: cleans] [o: the black rain] [pt: from his bronze armor.]\n[v: \"Look] [adv: there!\"] [s: the short hero] [v: says.]\n[s: He] [v: shows] [o: the tower] [pt: with his iron hammer.]\n[v: \"There is] [s: an old tower] [pt: on the other side of the valley!]\n[c: But] [s: the road] [v: is narrow and dangerous.\"]\n[b: Before] [s: they] [v: can run,] [s: a crowd of Stalkers] [v: comes out] [pt: of the fog.]\n[s: They] [v: have] [o: red eyes, black armor, and long daggers.]\n[s: A big Stalker] [v: jumps] [pt: toward their boxes of food and water.]"
             },
             {
-                "en": "Thorin roared, swinging his battleaxe left and right, crushing dark helmets. \"Stay behind me, pyromancer! Cast your biggest spell!\"",
-                "ru": "Торин взревел, размахивая секирой налево и направо, сокрушая темные шлемы. \"Стой за мной, пиромант! Кастуй свое сильнейшее заклинание!\""
+                "speaker": "valerius",
+                "en": "\"Guard the food!\" Valerius says. He runs to the boxes and stands with his big silver shield on the ground. A bright gold light comes from the shield. It stops the rain and the first Stalkers. \"Stand strong!\" he says. \"We need our food and our water!\"",
+                "ru": "\"Охраняйте еду!\" — говорит Валериус. Он бежит к ящикам и ставит свой большой серебряный щит на землю. Яркий золотой свет исходит от щита. Он останавливает дождь и первых Ловцов. \"Держитесь крепко!\" — говорит он. \"Нам нужны наша еда и наша вода!\"",
+                "chunkedEn": "[v: \"Guard] [o: the food!\"] [s: Valerius] [v: says.]\n[s: He] [v: runs] [pt: to the boxes] [c: and] [v: stands] [pt: with his big silver shield on the ground.]\n[s: A bright gold light] [v: comes] [pt: from the shield.]\n[s: It] [v: stops] [o: the rain and the first Stalkers.]\n[v: \"Stand strong!\"] [s: he] [v: says.]\n[s: \"We] [v: need] [o: our food and our water!\"]"
             },
             {
-                "en": "Ignis chanted with burning eyes. A colossal wall of flame swept across the plains, turning the vanguard of the horde into pure dust.",
-                "ru": "Игнис напевал заклинание с горящими глазами. Колоссальная стена пламени пронеслась по равнинам, обращая авангард орды в чистый пепел."
+                "speaker": "thorin",
+                "en": "Thorin is angry. He takes his heavy hammer and breaks the armor of two Stalkers. \"Stand behind me, Ignis!\" he calls. \"My hammer is strong, but the crowd is big! We need your fire!\"",
+                "ru": "Торин в ярости. Он берет свой тяжелый молот и разбивает броню двух Ловцов. \"Стой за мной, Игнис!\" — кричит он. \"Мой молот силен, но толпа велика! Нам нужен твой огонь!\"",
+                "chunkedEn": "[s: Thorin] [v: is angry.]\n[s: He] [v: takes] [o: his heavy hammer] [c: and] [v: breaks] [o: the armor of two Stalkers.]\n[v: \"Stand] [pt: behind me,] [o: Ignis!\"] [s: he] [v: calls.]\n[s: \"My hammer] [v: is strong,] [c: but] [s: the crowd] [v: is big!]\n[s: We] [v: need] [o: your fire!\"]"
+            },
+            {
+                "speaker": "ignis",
+                "en": "Ignis stands behind the silver shield. He is afraid. \"The rain is heavy!\" the wizard says. \"Every time I call my fire, the rain stops it! My sparks are weak!\" \"Think, Ignis!\" Valerius says. He stands against three Stalkers with his shield. \"You are the master of the Flame Peak! Your fire is stronger than their dark magic!\"",
+                "ru": "Игнис стоит за серебряным щитом. Он напуган. \"Дождь сильный!\" — говорит маг. \"Каждый раз, когда я призываю свой огонь, дождь гасит его! Мои искры слабы!\" \"Соберись, Игнис!\" — говорит Валериус. Он стоит против трех Ловцов со своим щитом. \"Ты мастер Огненного Пика! Твой огонь сильнее их темной магии!\"",
+                "chunkedEn": "[s: Ignis] [v: stands] [pt: behind the silver shield.]\n[s: He] [v: is afraid.]\n[s: \"The rain] [v: is heavy!\"] [s: the wizard] [v: says.]\n[pt: \"Every time] [s: I] [v: call] [o: my fire,] [s: the rain] [v: stops] [o: it!]\n[s: My sparks] [v: are weak!\"]\n[v: \"Think,] [o: Ignis!\"] [s: Valerius] [v: says.]\n[s: He] [v: stands] [pt: against three Stalkers] [pt: with his shield.]\n[s: \"You] [v: are] [o: the master of the Flame Peak!]\n[s: Your fire] [v: is stronger] [pt: than their dark magic!\"]"
+            },
+            {
+                "speaker": "ignis",
+                "en": "Ignis closes his eyes. He takes his staff in both hands. Inside his heart, a red spark comes. His hair and his eyes become gold. \"Fire of the old sun, hear me!\" Ignis says. A big wall of red fire goes across the ground. It is so hot that the rain in the sky goes away. The Stalkers are afraid. They run away into the caves.",
+                "ru": "Игнис закрывает глаза. Он берет свой посох в обе руки. Внутри его сердца рождается красная искра. Его волосы и глаза становятся золотыми. \"Огонь древнего солнца, услышь меня!\" — говорит Игнис. Большая стена красного огня идет по земле. Она настолько горяча, что дождь в небе исчезает. Ловцы напуганы. Они убегают в пещеры.",
+                "chunkedEn": "[s: Ignis] [v: closes] [o: his eyes.]\n[s: He] [v: takes] [o: his staff] [pt: in both hands.]\n[pt: Inside his heart,] [s: a red spark] [v: comes.]\n[s: His hair and his eyes] [v: become] [o: gold.]\n[o: \"Fire of the old sun,] [v: hear] [o: me!\"] [s: Ignis] [v: says.]\n[s: A big wall of red fire] [v: goes] [pt: across the ground.]\n[s: It] [v: is so hot] [b: that] [s: the rain in the sky] [v: goes away.]\n[s: The Stalkers] [v: are afraid.]\n[s: They] [v: run away] [pt: into the caves.]"
+            },
+            {
+                "speaker": "valerius",
+                "en": "\"Now! Run to the tower!\" Valerius says. Thorin and Valerius take the boxes and move them over the old stone bridge. After a minute, the bridge breaks and falls down. They come to the big door of the tower. Thorin closes the door and locks it. Outside, the black rain falls on the stone walls. Inside, it is warm.",
+                "ru": "\"Сейчас! Бегите к башне!\" — говорит Валериус. Торин и Валериус берут ящики и переносят их через старый каменный мост. Через минуту мост ломается и падает вниз. Они подходят к большой двери башни. Торин закрывает дверь и запирает ее. Снаружи черный дождь падает на каменные стены. Внутри тепло.",
+                "chunkedEn": "[adv: \"Now!] [v: Run] [pt: to the tower!\"] [s: Valerius] [v: says.]\n[s: Thorin and Valerius] [v: take] [o: the boxes] [c: and] [v: move] [o: them] [pt: over the old stone bridge.]\n[pt: After a minute,] [s: the bridge] [v: breaks and falls down.]\n[s: They] [v: come] [pt: to the big door of the tower.]\n[s: Thorin] [v: closes] [o: the door] [c: and] [v: locks] [o: it.]\n[adv: Outside,] [s: the black rain] [v: falls] [pt: on the stone walls.]\n[adv: Inside,] [s: it] [v: is warm.]"
+            },
+            {
+                "speaker": "thorin",
+                "en": "Ignis falls down on his knee. He is weak. Thorin gives him water. Ignis drinks it. Thorin smiles and says, \"That was a great fire, wizard! You cooked the Stalkers like potatoes!\" Valerius stands near Ignis and smiles. He touches Ignis's shoulder. \"You are great, my friends! We protect our food and our water. Now rest near the fire.\" They open the boxes. They eat bread and cheese and drink tea. Ignis smiles. The fire is warm and the tower is quiet. \"Tomorrow, we climb the mountain,\" Valerius says. \"We find Archmage Eldrin.\"",
+                "ru": "Игнис опускается на колено. Он слаб. Торин дает ему воды. Игнис пьет ее. Торин улыбается и говорит: \"Это был отличный огонь, волшебник! Ты поджарил Ловцов, как картошку!\" Валериус стоит рядом с Игнисом и улыбается. Он касается плеча Игниса: \"Вы великолепны, друзья мои! Мы защитили нашу еду и воду. Теперь отдохните у огня.\" Они открывают ящики. Они едят хлеб и сыр и пьют чай. Игнис улыбается. Огонь теплый, и в башне тихо. \"Завтра мы поднимемся на гору,\" — говорит Валериус. \"Мы найдем Архимага Эльдрина.\"",
+                "chunkedEn": "[s: Ignis] [v: falls down] [pt: on his knee.]\n[s: He] [v: is weak.]\n[s: Thorin] [v: gives] [o: him water.]\n[s: Ignis] [v: drinks] [o: it.]\n[s: Thorin] [v: smiles] [c: and] [v: says,]\n[s: \"That] [v: was] [o: a great fire, wizard!]\n[s: You] [v: cooked] [o: the Stalkers] [pt: like potatoes!\"]\n[s: Valerius] [v: stands] [pt: near Ignis] [c: and] [v: smiles.]\n[s: He] [v: touches] [o: Ignis's shoulder.]\n[s: \"You] [v: are great,] [o: my friends!]\n[s: We] [v: protect] [o: our food and our water.]\n[adv: Now] [v: rest] [pt: near the fire.\"]\n[s: They] [v: open] [o: the boxes.]\n[s: They] [v: eat] [o: bread and cheese] [c: and] [v: drink] [o: tea.]\n[s: Ignis] [v: smiles.]\n[s: The fire] [v: is warm] [c: and] [s: the tower] [v: is quiet.]\n[pt: \"Tomorrow,] [s: we] [v: climb] [o: the mountain,\"] [s: Valerius] [v: says.]\n[s: \"We] [v: find] [o: Archmage Eldrin.\"]"
             }
         ],
         "quiz": {
-            "question": "How did the three heroes stop the monster attack?",
+            "question": "How did Ignis stop the Stalkers and the black rain?",
             "options": [
-                "They ran away",
-                "Valerius held the line, Thorin attacked, and Ignis unleashed flame",
-                "They climbed trees"
+                "He created a great wall of fire that vaporized the rain and scared the Stalkers away",
+                "He froze the ground with an ice spell",
+                "He shot three whirlwind arrows from the tower"
             ],
-            "correctIndex": 1,
-            "rewardXp": 230
+            "correctIndex": 0,
+            "rewardXp": 517
         },
         "backgroundImg": "images/backgrounds/bg_forest.jpg",
         "locationEn": "The River Watch Outpost",
