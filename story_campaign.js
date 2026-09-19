@@ -821,47 +821,75 @@ const STORY_CHAPTERS = [
         "id": "ch-12",
         "actId": 2,
         "number": 12,
-        "titleEn": "Echoes of the Earth",
-        "titleRu": "Эхо земли",
-        "reqHeroLevels": {
-            "oberon": 42,
-            "thorin": 42
-        },
+        "titleEn": "Shadows in the Court",
+        "titleRu": "Тени при дворе",
         "involvedHeroes": [
-            "oberon",
-            "thorin"
+            "valerius",
+            "freya"
         ],
         "paragraphs": [
             {
-                "en": "A massive earthquake shook the border mountains. Boulders rolled down the hills, and giant roots cracked open.",
-                "ru": "Мощное землетрясение потрясло пограничные горы. Валуны покатились с холмов, а гигантские корни лопнули."
+                "speaker": "valerius",
+                "en": "The Silver Citadel was always a bright home. It had truth and honor. The hall was big and tall. It had gold and blue curtains and tall windows. But today the hall was cold and dark. The old noble was at the long gold table. Five nobles were also there. Their faces were angry. They were quiet.",
+                "ru": "Серебряная Цитадель всегда была светлым домом. В ней были правда и честь. Зал был большим и высоким. В нем были золотые и синие шторы и высокие окна. Но сегодня зал был холодным и темным. Старый дворянин сидел за длинным золотым столом. Пять дворян также были там. Их лица были сердитыми. Они молчали.",
+                "chunkedEn": "[s: The Silver Citadel] [v: was] [adv: always] [o: a bright home.]\n[s: It] [v: had] [o: truth and honor.]\n[s: The hall] [v: was big and tall.]\n[s: It] [v: had] [o: gold and blue curtains and tall windows.]\n[c: But] [pt: today] [s: the hall] [v: was cold and dark.]\n[s: The old noble] [v: was] [pt: at the long gold table.]\n[s: Five nobles] [v: were] [adv: also there.]\n[s: Their faces] [v: were angry.]\n[s: They] [v: were quiet.]"
             },
             {
-                "en": "Oberon and Thorin met at the mouth of a newly opened fissure. Green steam and black sulfur poured out together.",
-                "ru": "Оберон и Торин встретились у жерла свежей расщелины. Зеленый пар и черная сера вырывались наружу."
+                "speaker": "valerius",
+                "en": "Valerius and Freya stood in front of the group. They had bright armor. Valerius took an iron box. He came near the table. He opened the box. Inside the box were black bone arrows and Shadow Guild papers. Valerius and Freya found these things in an old mine. The nobles looked at the box. They looked at the arrows. The old noble took a black arrow. He looked at it.",
+                "ru": "Валериус и Фрейя стояли перед собранием. На них были сияющие доспехи. Валериус взял железный ящик. Он подошел к столу. Он открыл ящик. Внутри ящика были стрелы из черной кости и бумаги Гильдии Теней. Валериус и Фрейя нашли эти вещи в старой шахте. Дворяне посмотрели на ящик. Они посмотрели на стрелы. Старый дворянин взял черную стрелу. Он посмотрел на нее.",
+                "chunkedEn": "[s: Valerius and Freya] [v: stood] [pt: in front of the group.]\n[s: They] [v: had] [o: bright armor.]\n[s: Valerius] [v: took] [o: an iron box.]\n[s: He] [v: came] [pt: near the table.]\n[s: He] [v: opened] [o: the box.]\n[pt: Inside the box] [v: were] [s: black bone arrows and Shadow Guild papers.]\n[s: Valerius and Freya] [v: found] [o: these things] [pt: in an old mine.]\n[s: The nobles] [v: looked] [pt: at the box.]\n[s: They] [v: looked] [pt: at the arrows.]\n[s: The old noble] [v: took] [o: a black arrow.]\n[s: He] [v: looked] [pt: at it.]"
             },
             {
-                "en": "\"Listen to the stone,\" Thorin whispered, putting his ear to the basalt rock. \"Something huge is waking up deep beneath the Rift.\"",
-                "ru": "\"Послушай камень,\" — прошептал Торин, приложив ухо к базальтовой скале. \"Что-то огромное просыпается глубоко под Разломом.\""
+                "speaker": "valerius",
+                "en": "Valerius said, \"Sirs, look at these things! The mountain smiths and the forest scouts never made these fights on the border roads. This is the truth! A bad man is in our citadel. He gave gold. The Shadow Guild took the gold. He wants a war between our three countries!\"",
+                "ru": "Валериус сказал: \"Господа, посмотрите на эти вещи! Горные кузнецы и лесные следопыты никогда не устраивали этих стычек на пограничных дорогах. Это правда! В нашей цитадели есть дурной человек. Он дал золото. Гильдия Теней взяла золото. Он хочет войны между тремя нашими странами!\"",
+                "chunkedEn": "[s: Valerius] [v: said,] [o: \"Sirs,] [v: look] [pt: at these things!] [s: The mountain smiths and the forest scouts] [adv: never] [v: made] [o: these fights] [pt: on the border roads.]\n[s: This] [v: is] [o: the truth!]\n[s: A bad man] [v: is] [pt: in our citadel.]\n[s: He] [v: gave] [o: gold.]\n[s: The Shadow Guild] [v: took] [o: the gold.]\n[s: He] [v: wants] [o: a war] [pt: between our three countries!\"]"
             },
             {
-                "en": "\"The heartbeat of the earth is fast and full of pain,\" Oberon agreed. \"Our petty clan quarrels will bury us all if we do not unite.\"",
-                "ru": "\"Сердцебиение земли частое и полное боли,\" — согласился Оберон. \"Наши мелкие клановые ссоры похоронят нас всех, если мы не объединимся.\""
+                "speaker": "valerius",
+                "en": "The old noble was angry. He said, \"No, Valerius! You know nothing! You drink and talk. Your friends are wild scouts and dirty smiths! The King wants peace. We need five big squads. Silver knights are going to go in the mines. They are going to make fire in the wild forests. Our country is going to be strong!\"",
+                "ru": "Старый дворянин рассердился. Он сказал: \"Нет, Валериус! Ты ничего не знаешь! Ты пьешь и болтаешь. Твои друзья — дикие следопыты и грязные кузнецы! Король хочет мира. Нам нужны пять больших отрядов. Серебряные рыцари пойдут в шахты. Они устроят пожары в диких лесах. Наша страна будет сильной!\"",
+                "chunkedEn": "[s: The old noble] [v: was angry.]\n[s: He] [v: said,] [o: \"No, Valerius!]\n[s: You] [v: know] [o: nothing!]\n[s: You] [v: drink and talk.]\n[s: Your friends] [v: are] [o: wild scouts and dirty smiths!]\n[s: The King] [v: wants] [o: peace.]\n[s: We] [v: need] [o: five big squads.]\n[s: Silver knights] [v: are going to go] [pt: in the mines.]\n[s: They] [v: are going to make] [o: fire] [pt: in the wild forests.]\n[s: Our country] [v: is going to be strong!\"]"
+            },
+            {
+                "speaker": "freya",
+                "en": "Freya was angry. She came near the table. She took her spear. The spear was on the stone floor. BOOM! Blue sparks flew. The nobles jumped. They were afraid. Freya said in a strong voice, \"Be quiet, you old man! You are afraid, and you are weak! You are going to send good men. They are going to die!\"",
+                "ru": "Фрейя рассердилась. Она подошла к столу. Она взяла свое копье. Копье ударило в каменный пол. БУМ! Синие искры полетели во все стороны. Дворяне подскочили. Они испугались. Фрейя сказала сильным голосом: \"Помолчи, старик! Ты напуган, и ты слаб! Ты собираешься отправить хороших людей. Они погибнут!\"",
+                "chunkedEn": "[s: Freya] [v: was angry.]\n[s: She] [v: came] [pt: near the table.]\n[s: She] [v: took] [o: her spear.]\n[s: The spear] [v: was] [pt: on the stone floor.]\n[o: BOOM!]\n[s: Blue sparks] [v: flew.]\n[s: The nobles] [v: jumped.]\n[s: They] [v: were afraid.]\n[s: Freya] [v: said] [pt: in a strong voice,]\n[v: \"Be quiet,] [o: you old man!]\n[s: You] [v: are afraid,] [c: and] [s: you] [v: are weak!]\n[s: You] [v: are going to send] [o: good men.]\n[s: They] [v: are going to die!\"]"
+            },
+            {
+                "speaker": "freya",
+                "en": "Freya took a paper. She showed the paper. \"Look at this name!\" she said. \"It is Malakor's name. Malakor is our Guard Master. Where is he today? He went far away. He is now in the east mountains. The Dark Sun is his friend!\" The nobles looked at the paper. They looked at each other. The old noble's face was white. He took the paper. He read the name. He was silent. One noble asked, \"Is it true?\" \"Yes, it is true,\" Freya said.",
+                "ru": "Фрейя взяла бумагу. Она показала бумагу. \"Посмотрите на это имя!\" — сказала она. \"Это имя Малакора. Малакор — наш начальник стражи. Где он сегодня? Он ушел далеко. Сейчас он в восточных горах. Темное Солнце — его друг!\" Дворяне посмотрели на бумагу. Они переглянулись. Лицо старого дворянина побелело. Он взял бумагу. Он прочитал имя. Он молчал. Один дворянин спросил: \"Это правда?\" \"Да, это правда,\" — сказала Фрейя.",
+                "chunkedEn": "[s: Freya] [v: took] [o: a paper.]\n[s: She] [v: showed] [o: the paper.]\n[v: \"Look] [pt: at this name!\"] [s: she] [v: said.]\n[s: \"It] [v: is] [o: Malakor's name.]\n[s: Malakor] [v: is] [o: our Guard Master.]\n[w: Where] [v: is] [s: he] [pt: today?]\n[s: He] [v: went] [adv: far away.]\n[s: He] [v: is] [adv: now] [pt: in the east mountains.]\n[s: The Dark Sun] [v: is] [o: his friend!\"]\n[s: The nobles] [v: looked] [pt: at the paper.]\n[s: They] [v: looked] [pt: at each other.]\n[s: The old noble's face] [v: was white.]\n[s: He] [v: took] [o: the paper.]\n[s: He] [v: read] [o: the name.]\n[s: He] [v: was silent.]\n[s: One noble] [v: asked,] [w: \"Is] [s: it] [o: true?\"]\n[o: \"Yes,] [s: it] [v: is true,\"] [s: Freya] [v: said.]"
+            },
+            {
+                "speaker": "valerius",
+                "en": "Valerius looked at the nobles. He said in a quiet voice, \"Stop the bad games now. We need the Ten Heroes. Call the Ten Heroes! Our cities need one team. When our three countries fight, the Dark Sun is going to win. It is going to bring fire. Everyone is going to die.\"",
+                "ru": "Валериус посмотрел на дворян. Он сказал спокойным голосом: \"Прекратите дурные игры сейчас же. Нам нужны Десять Героев. Призовите Десять Героев! Нашим городам нужна единая команда. Когда три наши страны сражаются друг с другом, Темное Солнце победит. Оно принесет огонь. Все погибнут.\"",
+                "chunkedEn": "[s: Valerius] [v: looked] [pt: at the nobles.]\n[s: He] [v: said] [pt: in a quiet voice,]\n[v: \"Stop] [o: the bad games] [adv: now.]\n[s: We] [v: need] [o: the Ten Heroes.]\n[v: Call] [o: the Ten Heroes!]\n[s: Our cities] [v: need] [o: one team.]\n[b: When] [s: our three countries] [v: fight,] [s: the Dark Sun] [v: is going to win.]\n[s: It] [v: is going to bring] [o: fire.]\n[s: Everyone] [v: is going to die.\"]"
+            },
+            {
+                "speaker": "freya",
+                "en": "Freya looked at the old noble. \"Now you know the truth,\" she said. \"Say yes! We are ready!\" Nobody said a word. The hall was quiet. The old noble looked at the box again. He looked at the door. Valerius was ready. Freya was ready. They waited.",
+                "ru": "Фрейя посмотрела на старого дворянина. \"Теперь вы знаете правду,\" — сказала она. \"Скажите да! Мы готовы!\" Никто не произнес ни слова. В зале было тихо. Старый дворянин снова посмотрел на ящик. Он посмотрел на дверь. Валериус был готов. Фрейя была готова. Они ждали.",
+                "chunkedEn": "[s: Freya] [v: looked] [pt: at the old noble.]\n[adv: \"Now] [s: you] [v: know] [o: the truth,\"] [s: she] [v: said.]\n[v: \"Say yes!]\n[s: We] [v: are ready!\"]\n[s: Nobody] [v: said] [o: a word.]\n[s: The hall] [v: was quiet.]\n[s: The old noble] [v: looked] [pt: at the box] [adv: again.]\n[s: He] [v: looked] [pt: at the door.]\n[s: Valerius] [v: was ready.]\n[s: Freya] [v: was ready.]\n[s: They] [v: waited.]"
             }
         ],
         "quiz": {
-            "question": "What did Thorin and Oberon hear inside the earth fissure?",
+            "question": "Whose name was on the traitorous Shadow Guild document shown to the nobles?",
             "options": [
-                "A singing bird",
-                "The heartbeat of a waking beast",
-                "Running water"
+                "Lord Malakor, the Guard Master",
+                "Thorin, the mountain blacksmith",
+                "Zephyr, the forest scout"
             ],
-            "correctIndex": 1,
-            "rewardXp": 210
+            "correctIndex": 0,
+            "rewardXp": 479
         },
-        "backgroundImg": "images/backgrounds/bg_enchanted_grove.jpg",
-        "locationEn": "The Bedrock Fissure",
-        "locationRu": "Расщелина в Скальной Породе"
+        "backgroundImg": "images/valerius_castle.png",
+        "locationEn": "The Royal Citadel Council Room",
+        "locationRu": "Зал Совета Королевской Цитадели"
     },
     {
         "id": "ch-13",
