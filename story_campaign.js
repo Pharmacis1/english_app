@@ -1053,41 +1053,69 @@ const STORY_CHAPTERS = [
         "number": 15,
         "titleEn": "Silent Mercy",
         "titleRu": "Тихое милосердие",
-        "reqHeroLevels": {
-            "astraea": 50,
-            "selene": 50
-        },
         "involvedHeroes": [
             "astraea",
             "selene"
         ],
         "paragraphs": [
             {
-                "en": "Selena leaned against a ruined pillar in the old church. Her black armor was torn, and dark venom was burning her blood.",
-                "ru": "Селена прислонилась к разрушенной колонне в старой церкви. Ее черная броня была разорвана, а темный яд сжигал ее кровь."
+                "speaker": "selene",
+                "en": "Cold grey fog is in the valley. Selena walks and walks. She goes to an old temple. The stone door is broken. Selena goes in through the door. Her black armor is old and dirty. Her blood is dark purple. The blood is on her shoulder. A dangerous dark animal fights her in the hills. Now she has a big pain in her body. The pain is like fire in her blood.",
+                "ru": "Холодный серый туман стелется в долине. Селена идет и идет. Она подходит к старому храму. Каменная дверь сломана. Селена входит через дверь. Ее черная броня старая и грязная. Ее кровь темно-фиолетовая. Кровь на ее плече. Опасный темный зверь сражался с ней на холмах. Теперь у нее сильная боль в теле. Боль словно огонь в ее крови.",
+                "chunkedEn": "[s: Cold grey fog] [v: is] [pt: in the valley.]\n[s: Selena] [v: walks and walks.]\n[s: She] [v: goes] [pt: to an old temple.]\n[s: The stone door] [v: is broken.]\n[s: Selena] [v: goes in] [pt: through the door.]\n[s: Her black armor] [v: is old and dirty.]\n[s: Her blood] [v: is] [o: dark purple.]\n[s: The blood] [v: is] [pt: on her shoulder.]\n[s: A dangerous dark animal] [v: fights] [o: her] [pt: in the hills.]\n[adv: Now] [s: she] [v: has] [o: a big pain] [pt: in her body.]\n[s: The pain] [v: is] [pt: like fire] [pt: in her blood.]"
             },
             {
-                "en": "She raised her dagger as footsteps approached. Astraea knelt gently before her and pushed the blade away with a warm hand.",
-                "ru": "Она подняла кинжал, услышав шаги. Астрея мягко опустилась перед ней на колени и отвела лезвие теплой рукой."
+                "speaker": "selene",
+                "en": "Selena falls on her knees near a big stone. She is weak. She cannot see. Her eyes are dark. She has a pain in her chest. \"Not here,\" she says. \"I do not want this. I do not want to die.\"",
+                "ru": "Селена падает на колени возле большого камня. Она слаба. Она не видит. В ее глазах темно. У нее боль в груди. \"Не здесь,\" — говорит она. \"Я не хочу этого. Я не хочу умирать.\"",
+                "chunkedEn": "[s: Selena] [v: falls] [pt: on her knees] [pt: near a big stone.]\n[s: She] [v: is weak.]\n[s: She] [v: cannot see.]\n[s: Her eyes] [v: are dark.]\n[s: She] [v: has] [o: a pain] [pt: in her chest.]\n[o: \"Not here,\"] [s: she] [v: says.]\n[s: \"I] [v: do not want] [o: this.]\n[s: I] [v: do not want to die.\"]"
             },
             {
-                "en": "\"Be still, shadow daughter,\" Astraea whispered. A sphere of celestial light enveloped Selena's wounds, burning the poison away.",
-                "ru": "\"Не двигайся, дитя теней,\" — прошептала Астрея. Сфера небесного света окутала раны Селены, выжигая яд."
+                "speaker": "selene",
+                "en": "Now Selena hears something. Someone comes near. Selena takes her silver dagger. Her hand is weak, but she is ready to fight. She looks into the fog with her purple eyes.",
+                "ru": "Вдруг Селена слышит что-то. Кто-то приближается. Селена берет свой серебряный кинжал. Ее рука слаба, но она готова сражаться. Она смотрит в туман своими фиолетовыми глазами.",
+                "chunkedEn": "[adv: Now] [s: Selena] [v: hears] [o: something.]\n[s: Someone] [v: comes] [adv: near.]\n[s: Selena] [v: takes] [o: her silver dagger.]\n[s: Her hand] [v: is weak,] [c: but] [s: she] [v: is ready to fight.]\n[s: She] [v: looks] [pt: into the fog] [pt: with her purple eyes.]"
             },
             {
-                "en": "Selena opened her eyes in disbelief. \"Your elders say my clan are murderers. Why save a killer?\" — \"Because I choose hope, not history,\" Astraea answered.",
-                "ru": "Селена с недоверием открыла глаза. \"Твои старейшины говорят, что мой клан — убийцы. Зачем спасать душегуба?\" — \"Потому что я выбираю надежду, а не прошлые обиды,\" — ответила Астрея."
+                "speaker": "astraea",
+                "en": "A woman in a white dress comes out of the fog. She is Astraea, a woman of the stars. She has a small silver bowl in her hand. In the bowl there is a warm light. Astraea goes to Selena. She has no sword. She has no dagger. Her warm hand moves the dagger away. \"Be quiet, my friend,\" Astraea says. \"Do not be afraid. I am here to help you. Give me your hand.\" Selena looks at her. Astraea smiles.",
+                "ru": "Женщина в белом платье выходит из тумана. Это Астрея, женщина звезд. В руке у нее маленькая серебряная чаша. В чаше горит теплый свет. Астрея подходит к Селене. У нее нет меча. У нее нет кинжала. Ее теплая рука отводит кинжал в сторону. \"Успокойся, мой друг,\" — говорит Астрея. \"Не бойся. Я здесь, чтобы помочь тебе. Дай мне свою руку.\" Селена смотрит на нее. Астрея улыбается.",
+                "chunkedEn": "[s: A woman in a white dress] [v: comes out] [pt: of the fog.]\n[s: She] [v: is] [o: Astraea, a woman of the stars.]\n[s: She] [v: has] [o: a small silver bowl] [pt: in her hand.]\n[pt: In the bowl] [v: there is] [s: a warm light.]\n[s: Astraea] [v: goes] [pt: to Selena.]\n[s: She] [v: has] [o: no sword.]\n[s: She] [v: has] [o: no dagger.]\n[s: Her warm hand] [v: moves] [o: the dagger] [adv: away.]\n[v: \"Be quiet,] [o: my friend,\"] [s: Astraea] [v: says.]\n[v: \"Do not be afraid.]\n[s: I] [v: am] [adv: here] [v: to help] [o: you.]\n[v: Give] [o: me] [o: your hand.\"]\n[s: Selena] [v: looks] [pt: at her.]\n[s: Astraea] [v: smiles.]"
+            },
+            {
+                "speaker": "astraea",
+                "en": "Astraea closes her eyes. She sings an old song. A big warm light comes to Selena's body. The light is like the sun. The bad blood goes out of her body. The pain goes away. Selena opens her eyes. She looks at her shoulder. The blood is not there. Selena is strong again.",
+                "ru": "Астрея закрывает глаза. Она поет старинную песню. Большой теплый свет окутывает тело Селены. Свет подобен солнцу. Дурная кровь покидает ее тело. Боль уходит. Селена открывает глаза. Она смотрит на свое плечо. Крови больше нет. Селена снова полна сил.",
+                "chunkedEn": "[s: Astraea] [v: closes] [o: her eyes.]\n[s: She] [v: sings] [o: an old song.]\n[s: A big warm light] [v: comes] [pt: to Selena's body.]\n[s: The light] [v: is] [pt: like the sun.]\n[s: The bad blood] [v: goes out] [pt: of her body.]\n[s: The pain] [v: goes away.]\n[s: Selena] [v: opens] [o: her eyes.]\n[s: She] [v: looks] [pt: at her shoulder.]\n[s: The blood] [v: is not] [adv: there.]\n[s: Selena] [v: is strong] [adv: again.]"
+            },
+            {
+                "speaker": "selene",
+                "en": "Now Selena hears something on the roof. Two dark animals jump through the window! They are big and black. They are behind Astraea. They want to fight her. Astraea does not see them. \"Astraea, behind you!\" Selena says. Selena is fast now. She is like the wind. Astraea has the bowl in her hand. She makes a big bright light. The animals cannot see. Selena jumps up with her two daggers. She cuts the first animal. She cuts the second animal. Both animals fall on the floor. They die.",
+                "ru": "Вдруг Селена слышит шум на крыше. Два темных зверя прыгают через окно! Они большие и черные. Они позади Астреи. Они хотят напасть на нее. Астрея не видит их. \"Астрея, сзади!\" — кричит Селена. Селена теперь быстра. Она подобна ветру. У Астреи чаша в руке. Она создает яркий свет. Звери ничего не видят. Селена подпрыгивает со своими двумя кинжалами. Она разит первого зверя. Она разит второго зверя. Оба зверя падают на пол. Они погибают.",
+                "chunkedEn": "[adv: Now] [s: Selena] [v: hears] [o: something] [pt: on the roof.]\n[s: Two dark animals] [v: jump] [pt: through the window!]\n[s: They] [v: are big and black.]\n[s: They] [v: are] [pt: behind Astraea.]\n[s: They] [v: want to fight] [o: her.]\n[s: Astraea] [v: does not see] [o: them.]\n[o: \"Astraea,] [pt: behind you!\"] [s: Selena] [v: says.]\n[s: Selena] [v: is fast] [adv: now.]\n[s: She] [v: is] [pt: like the wind.]\n[s: Astraea] [v: has] [o: the bowl] [pt: in her hand.]\n[s: She] [v: makes] [o: a big bright light.]\n[s: The animals] [v: cannot see.]\n[s: Selena] [v: jumps up] [pt: with her two daggers.]\n[s: She] [v: cuts] [o: the first animal.]\n[s: She] [v: cuts] [o: the second animal.]\n[s: Both animals] [v: fall] [pt: on the floor.]\n[s: They] [v: die.]"
+            },
+            {
+                "speaker": "astraea",
+                "en": "Selena stands near the old stone table. She cleans her daggers. Her daggers are at her belt. She looks at Astraea. She does not understand. \"In your temple, people say: my guild is bad,\" Selena says. \"They say we have no honor. Why do you help me?\" Astraea looks into Selena's eyes. She smiles. \"Our world has a big problem,\" she says. \"The bad sun wants war. It wants us to fight each other. Old war is not good for our people. I choose peace. I see a hero in you. You are not a bad woman.\"",
+                "ru": "Селена стоит возле старого каменного стола. Она очищает свои кинжалы. Кинжалы у нее на поясе. Она смотрит на Астрею. Она не понимает. \"В твоем храме люди говорят: моя гильдия дурная,\" — говорит Селена. \"Они говорят, что у нас нет чести. Почему ты помогаешь мне?\" Астрея смотрит в глаза Селене. Она улыбается. \"У нашего мира большая беда,\" — говорит она. \"Дурное солнце хочет войны. Оно хочет, чтобы мы воевали друг с другом. Старая вражда не нужна нашему народу. Я выбираю мир. Я вижу в тебе героя. Ты не плохой человек.\"",
+                "chunkedEn": "[s: Selena] [v: stands] [pt: near the old stone table.]\n[s: She] [v: cleans] [o: her daggers.]\n[s: Her daggers] [v: are] [pt: at her belt.]\n[s: She] [v: looks] [pt: at Astraea.]\n[s: She] [v: does not understand.]\n[pt: \"In your temple,] [s: people] [v: say:] [s: my guild] [v: is bad,\"] [s: Selena] [v: says.]\n[s: \"They] [v: say] [s: we] [v: have] [o: no honor.]\n[w: Why] [v: do] [s: you] [v: help] [o: me?\"]\n[s: Astraea] [v: looks] [pt: into Selena's eyes.]\n[s: She] [v: smiles.]\n[s: \"Our world] [v: has] [o: a big problem,\"] [s: she] [v: says.]\n[s: \"The bad sun] [v: wants] [o: war.]\n[s: It] [v: wants] [o: us] [v: to fight] [o: each other.]\n[s: Old war] [v: is not good] [pt: for our people.]\n[s: I] [v: choose] [o: peace.]\n[s: I] [v: see] [o: a hero] [pt: in you.]\n[s: You] [v: are not] [o: a bad woman.\"]"
+            },
+            {
+                "speaker": "selene",
+                "en": "Selena is quiet for a moment. She bows her head. Her hand is on her heart. \"Thank you,\" she says. \"My daggers and my life are for you. I protect your light.\" The woman of the stars and the woman of the shadows go out of the temple. The morning sun is bright in the sky. The light is on the road to the Star Peak.",
+                "ru": "Селена молчит мгновение. Она склоняет голову. Ее рука на ее сердце. \"Спасибо,\" — говорит она. \"Мои кинжалы и моя жизнь для тебя. Я защищу твой свет.\" Женщина звезд и женщина теней выходят из храма. Утреннее солнце ярко светит на небе. Свет озаряет дорогу к Звездному Пику.",
+                "chunkedEn": "[s: Selena] [v: is quiet] [pt: for a moment.]\n[s: She] [v: bows] [o: her head.]\n[s: Her hand] [v: is] [pt: on her heart.]\n[o: \"Thank you,\"] [s: she] [v: says.]\n[s: \"My daggers and my life] [v: are] [pt: for you.]\n[s: I] [v: protect] [o: your light.\"]\n[s: The woman of the stars and the woman of the shadows] [v: go out] [pt: of the temple.]\n[s: The morning sun] [v: is bright] [pt: in the sky.]\n[s: The light] [v: is] [pt: on the road to the Star Peak.]"
             }
         ],
         "quiz": {
-            "question": "Why was Selena surprised by Astraea's help?",
+            "question": "Why did Astraea choose to heal Selena in the old temple?",
             "options": [
-                "Astraea was a stranger",
-                "Their clans were enemies, yet Astraea healed her",
-                "The light was too bright"
+                "Because Astraea chose peace and saw a hero in Selena",
+                "Because Selena paid her with gold",
+                "Because Astraea was afraid of Selena's daggers"
             ],
-            "correctIndex": 1,
-            "rewardXp": 240
+            "correctIndex": 0,
+            "rewardXp": 530
         },
         "backgroundImg": "images/backgrounds/bg_castle.jpg",
         "locationEn": "The Ruined Chapel of Light",
