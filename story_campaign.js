@@ -1292,31 +1292,63 @@ const STORY_CHAPTERS = [
         ],
         "paragraphs": [
             {
-                "en": "The Subterranean Iron Fortress shook. A gigantic Ash Behemoth was smashing its armored head against the main steel gate.",
-                "ru": "Подземная Железная Крепость содрогалась. Гигантский Пепельный Бегемот бил своей бронированной головой в главные стальные ворота."
+                "speaker": "thorin",
+                "en": "Under the great mountain, the Iron Fortress was full of Fire and Metal. Old Smiths made things day and night. They made swords, shields and armor. Thorin walked through the Hall. He had his heavy War hammer and his bronze armor. Red Fire gave bright Light to the tall Stone walls. Thorin looked at the workers and smiled. He liked the Iron Fortress. It was his Home. He wanted to protect it.",
+                "ru": "Под великой горой Железная Крепость была полна Огня и Металла. Старые Кузнецы создавали вещи день и ночь. Они ковали мечи, щиты и броню. Торин шел по Залу. У него был тяжелый Боевой молот и бронзовые доспехи. Красный Огонь давал яркий Свет высоким Каменным стенам. Торин смотрел на рабочих и улыбался. Ему нравилась Железная Крепость. Это был его Дом. Он хотел защитить его.",
+                "chunkedEn": "[pt: Under the great mountain,] [s: the Iron Fortress] [v: was full] [pt: of Fire and Metal.]\n[s: Old Smiths] [v: made] [o: things] [adv: day and night.]\n[s: They] [v: made] [o: swords, shields and armor.]\n[s: Thorin] [v: walked] [pt: through the Hall.]\n[s: He] [v: had] [o: his heavy War hammer and his bronze armor.]\n[s: Red Fire] [v: gave] [o: bright Light] [pt: to the tall Stone walls.]\n[s: Thorin] [v: looked] [pt: at the workers] [c: and] [v: smiled.]\n[s: He] [v: liked] [o: the Iron Fortress.]\n[s: It] [v: was] [o: his Home.]\n[s: He] [v: wanted to protect] [o: it.]"
             },
             {
-                "en": "Thorin held the inner gate beam with his bare hands, his muscles screaming. \"I cannot hold it alone!\"",
-                "ru": "Торин держал внутренний засов ворот голыми руками, его мышцы стонали от напряжения. \"Я не удержу один!\""
+                "speaker": "thorin",
+                "en": "After that, a big thing moved the Iron Fortress. Stones came down from the roof. The workers were afraid. They ran and left their tools on the floor. Thorin looked outside. He saw a big animal. It was the Ash Behemoth! It had heavy stone armor. It was Red and Black. The Ash Behemoth ran at the big steel door again and again. Every time, the Metal broke a little.",
+                "ru": "После этого нечто огромное сотрясло Железную Крепость. Камни падали с крыши. Рабочие были напуганы. Они бежали и бросали свои инструменты на пол. Торин выглянул наружу. Он увидел огромное чудовище. Это был Пепельный Бегемот! У него была тяжелая каменная броня. Он был Красно-Черным. Пепельный Бегемот снова и снова таранил большую стальную дверь. Каждый раз металл немного ломался.",
+                "chunkedEn": "[pt: After that,] [s: a big thing] [v: moved] [o: the Iron Fortress.]\n[s: Stones] [v: came down] [pt: from the roof.]\n[s: The workers] [v: were afraid.]\n[s: They] [v: ran] [c: and] [v: left] [o: their tools] [pt: on the floor.]\n[s: Thorin] [v: looked] [adv: outside.]\n[s: He] [v: saw] [o: a big animal.]\n[s: It] [v: was] [o: the Ash Behemoth!]\n[s: It] [v: had] [o: heavy stone armor.]\n[s: It] [v: was Red and Black.]\n[s: The Ash Behemoth] [v: ran] [pt: at the big steel door] [adv: again and again.]\n[adv: Every time,] [s: the Metal] [v: broke] [adv: a little.]"
             },
             {
-                "en": "Freya descended like thunder from a ventilation shaft, bracing her spear against the gate to lock the lock. \"You are not alone, dwarven warrior!\"",
-                "ru": "Фрейя спустилась подобно грому из вентиляционной шахты, уперев свое копье в ворота, чтобы заклинить замок. \"Ты не один, воитель дворфов!\""
+                "speaker": "thorin",
+                "en": "\"The door is breaking!\" a Smith called. \"If the Ash Behemoth comes in, we all die!\" Thorin ran to the door. He left his hammer on the floor. He took the big iron bar with his hands. He stood there and used all his Power. His face was red. His boots moved on the Stone floor. \"I can't protect the door alone!\" Thorin said. \"The Ash Behemoth is strong and I am weak now! Help me!\"",
+                "ru": "\"Дверь ломается!\" — крикнул Кузнец. \"Если Пепельный Бегемот войдет, мы все погибнем!\" Торин побежал к двери. Он оставил свой молот на полу. Он схватил большую железную балку руками. Он стоял там и использовал всю свою Силу. Его лицо было красным. Его сапоги скользили по Каменному полу. \"Я не могу защитить дверь один!\" — сказал Торин. \"Пепельный Бегемот силен, а я сейчас слаб! Помогите мне!\"",
+                "chunkedEn": "[s: \"The door] [v: is breaking!\"] [s: a Smith] [v: called.]\n[c: \"If] [s: the Ash Behemoth] [v: comes in,] [s: we all] [v: die!\"]\n[s: Thorin] [v: ran] [pt: to the door.]\n[s: He] [v: left] [o: his hammer] [pt: on the floor.]\n[s: He] [v: took] [o: the big iron bar] [pt: with his hands.]\n[s: He] [v: stood] [adv: there] [c: and] [v: used] [o: all his Power.]\n[s: His face] [v: was red.]\n[s: His boots] [v: moved] [pt: on the Stone floor.]\n[s: \"I] [v: can't protect] [o: the door] [adv: alone!\"] [s: Thorin] [v: said.]\n[s: \"The Ash Behemoth] [v: is strong] [c: and] [s: I] [v: am weak] [adv: now!]\n[v: Help] [o: me!\"]"
             },
             {
-                "en": "Selena slipped through the iron bars into the dark. Ten seconds later, the monster outside shrieked and collapsed as Selena severed its spine from behind.",
-                "ru": "Селена проскользнула сквозь железные прутья во тьму. Спустя десять секунд чудовище снаружи взвизгнуло и рухнуло, когда Селена перерезала ему позвоночник со спины."
+                "speaker": "freya",
+                "en": "Soon, a bright Light came from the top window. It was Freya, the Valkyrie! She had steel armor and bright wings. She flew down fast and came next to Thorin. She took her spear and made the door strong. Blue Sparks came from her hands to the iron bar. \"Stand strong, Thorin!\" Freya said. The Ash Behemoth came at the door again, but the door stood.",
+                "ru": "Вскоре яркий Свет засиял из верхнего окна. Это была Фрейя, Валькирия! У нее были стальные доспехи и сияющие крылья. Она быстро спустилась и встала рядом с Торином. Она взяла свое копье и укрепила дверь. Синие Искры полетели из ее рук в железную балку. \"Держись крепко, Торин!\" — сказала Фрейя. Пепельный Бегемот снова ударил в дверь, но дверь выстояла.",
+                "chunkedEn": "[adv: Soon,] [s: a bright Light] [v: came] [pt: from the top window.]\n[s: It] [v: was] [o: Freya, the Valkyrie!]\n[s: She] [v: had] [o: steel armor and bright wings.]\n[s: She] [v: flew down fast] [c: and] [v: came] [pt: next to Thorin.]\n[s: She] [v: took] [o: her spear] [c: and] [v: made] [o: the door] [o: strong.]\n[s: Blue Sparks] [v: came] [pt: from her hands] [pt: to the iron bar.]\n[o: \"Stand strong,] [o: Thorin!\"] [s: Freya] [v: said.]\n[s: The Ash Behemoth] [v: came] [pt: at the door] [adv: again,] [c: but] [s: the door] [v: stood.]"
+            },
+            {
+                "speaker": "selene",
+                "en": "\"We can't do this from inside!\" Freya said. \"Someone needs to cut the Ash Behemoth from behind!\" Selena came out of the dark Shadow behind the Forge. Her purple eyes were cold and quiet. She had two daggers in her hands. \"Stand at the door,\" Selena said. \"The Ash Behemoth needs to look at you. I am going to go behind it.\" Thorin and Freya looked at Selena. \"Yes! Go!\" they said.",
+                "ru": "\"Мы не справимся изнутри!\" — сказала Фрейя. \"Кто-то должен сразить Пепельного Бегемота со спины!\" Селена вышла из темной Тени позади Кузницы. Ее фиолетовые глаза были холодными и спокойными. В ее руках было два кинжала. \"Стойте у двери,\" — сказала Селена. \"Пепельный Бегемот должен смотреть на вас. Я обойду его сзади.\" Торин и Фрейя посмотрели на Селену. \"Да! Иди!\" — сказали они.",
+                "chunkedEn": "[s: \"We] [v: can't do] [o: this] [pt: from inside!\"] [s: Freya] [v: said.]\n[s: \"Someone] [v: needs to cut] [o: the Ash Behemoth] [pt: from behind!\"]\n[s: Selena] [v: came out] [pt: of the dark Shadow] [pt: behind the Forge.]\n[s: Her purple eyes] [v: were cold and quiet.]\n[s: She] [v: had] [o: two daggers] [pt: in her hands.]\n[v: \"Stand] [pt: at the door,\"] [s: Selena] [v: said.]\n[s: \"The Ash Behemoth] [v: needs to look] [pt: at you.]\n[s: I] [v: am going to go] [pt: behind it.\"]\n[s: Thorin and Freya] [v: looked] [pt: at Selena.]\n[o: \"Yes! Go!\"] [s: they] [v: said.]"
+            },
+            {
+                "speaker": "selene",
+                "en": "Selena became like a Shadow. She went quickly through the small iron window of the Iron Fortress. Outside, the Ash Behemoth was ready to run again. Selena walked silently on the dark Cave wall. She jumped on the back of the Ash Behemoth. It never saw her. She was quick. She took her two daggers and cut its neck.",
+                "ru": "Селена стала словно Тень. Она быстро проскользнула через маленькое железное окно Железной Крепости. Снаружи Пепельный Бегемот снова готовился к атаке. Селена бесшумно ступала по стене темной Пещеры. Она прыгнула на спину Пепельного Бегемота. Он совсем не заметил ее. Она была быстрой. Она взяла два кинжала и перерезала ему шею.",
+                "chunkedEn": "[s: Selena] [v: became] [pt: like a Shadow.]\n[s: She] [v: went quickly] [pt: through the small iron window of the Iron Fortress.]\n[adv: Outside,] [s: the Ash Behemoth] [v: was ready to run] [adv: again.]\n[s: Selena] [v: walked silently] [pt: on the dark Cave wall.]\n[s: She] [v: jumped] [pt: on the back of the Ash Behemoth.]\n[s: It] [adv: never] [v: saw] [o: her.]\n[s: She] [v: was quick.]\n[s: She] [v: took] [o: her two daggers] [c: and] [v: cut] [o: its neck.]"
+            },
+            {
+                "speaker": "thorin",
+                "en": "The Ash Behemoth was in pain. It called out. After that, it came down on the ground. It never moved again. After a minute, Selena came back through the window. Thorin and Freya left the iron bar. They rested. Thorin took his hammer and smiled. \"By the Forge! You are great, Shadow girl!\" he said.",
+                "ru": "Пепельный Бегемот взвыл от боли. Он закричал. После этого он рухнул на землю. Он больше никогда не двигался. Через минуту Селена вернулась через окно. Торин и Фрейя отпустили железную балку. Они перевели дух. Торин взял свой молот и улыбнулся. \"Клянусь Кузницей! Ты великолепна, девочка-Тень!\" — сказал он.",
+                "chunkedEn": "[s: The Ash Behemoth] [v: was] [pt: in pain.]\n[s: It] [v: called out.]\n[pt: After that,] [s: it] [v: came down] [pt: on the ground.]\n[s: It] [adv: never] [v: moved] [adv: again.]\n[pt: After a minute,] [s: Selena] [v: came back] [pt: through the window.]\n[s: Thorin and Freya] [v: left] [o: the iron bar.]\n[s: They] [v: rested.]\n[s: Thorin] [v: took] [o: his hammer] [c: and] [v: smiled.]\n[o: \"By the Forge!] [s: You] [v: are] [o: great,] [o: Shadow girl!\"] [s: he] [v: said.]"
+            },
+            {
+                "speaker": "freya",
+                "en": "Freya smiled and gave her hand to Thorin and Selena. \"We are a team,\" Freya said. \"We are strong. No animal can break our walls. Now we are ready for another battle.\" The workers came back. They looked at the door. \"Thank you!\" said the Smiths. Then they all went to the Hall. They drank water and ate bread.",
+                "ru": "Фрейя улыбнулась и протянула руку Торину и Селене. \"Мы команда,\" — сказала Фрейя. \"Мы сильны. Никакое чудовище не сможет сломать наши стены. Теперь мы готовы к следующей битве.\" Рабочие вернулись. Они посмотрели на дверь. \"Спасибо!\" — сказали Кузнецы. Затем все пошли в Зал. Они пили воду и ели хлеб.",
+                "chunkedEn": "[s: Freya] [v: smiled] [c: and] [v: gave] [o: her hand] [pt: to Thorin and Selena.]\n[s: \"We] [v: are] [o: a team,\"] [s: Freya] [v: said.]\n[s: \"We] [v: are strong.]\n[s: No animal] [v: can break] [o: our walls.]\n[adv: Now] [s: we] [v: are ready] [pt: for another battle.\"]\n[s: The workers] [v: came back.]\n[s: They] [v: looked] [pt: at the door.]\n[o: \"Thank you!\"] [v: said] [s: the Smiths.]\n[adv: Then] [s: they all] [v: went] [pt: to the Hall.]\n[s: They] [v: drank] [o: water] [c: and] [v: ate] [o: bread.]"
             }
         ],
         "quiz": {
-            "question": "Who struck the finishing blow on the Ash Behemoth?",
+            "question": "How did Selena defeat the Ash Behemoth outside the Iron Fortress?",
             "options": [
-                "Thorin with his hammer",
-                "Selena from behind in the shadows",
-                "Freya from the air"
+                "She jumped on its back from the shadows and cut its neck with her daggers",
+                "She shot it with giant ice arrows from the high window",
+                "She smashed it with Thorin's heavy iron hammer"
             ],
-            "correctIndex": 1,
-            "rewardXp": 270
+            "correctIndex": 0,
+            "rewardXp": 529
         },
         "backgroundImg": "images/backgrounds/bg_crystal_caverns.jpg",
         "locationEn": "Subterranean Iron Fortress",
