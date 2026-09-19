@@ -1127,11 +1127,6 @@ const STORY_CHAPTERS = [
         "number": 16,
         "titleEn": "Arrow in the Sky",
         "titleRu": "Стрела в небесах",
-        "reqHeroLevels": {
-            "zephyr": 52,
-            "frostina": 52,
-            "freya": 52
-        },
         "involvedHeroes": [
             "zephyr",
             "frostina",
@@ -1139,31 +1134,63 @@ const STORY_CHAPTERS = [
         ],
         "paragraphs": [
             {
-                "en": "A swarm of Ash Harpies descended upon the mountain villages, screeching with shrill voices and dropping burning coal onto thatched roofs.",
-                "ru": "Рой Пепельных Гарпий спикировал на горные деревни, пронзительно визжа и сбрасывая горящие угли на соломенные крыши."
+                "speaker": "zephyr",
+                "en": "Zephyr, Freya, and Frostina were in a small mountain village. It was a cold autumn morning. The wind was strong. The village was near the top of the peak. It was a peaceful day. The people cut wood and made food for the winter. Children played in the snow. The heroes drank tea and ate apples and cheese.",
+                "ru": "Зефир, Фрейя и Фростина были в маленькой горной деревне. Было холодное осеннее утро. Ветер был сильным. Деревня находилась возле вершины пика. Это был мирный день. Люди рубили дрова и готовили еду на зиму. Дети играли в снегу. Герои пили чай и ели яблоки и сыр.",
+                "chunkedEn": "[s: Zephyr, Freya, and Frostina] [v: were] [pt: in a small mountain village.]\n[s: It] [v: was] [o: a cold autumn morning.]\n[s: The wind] [v: was strong.]\n[s: The village] [v: was] [pt: near the top of the peak.]\n[s: It] [v: was] [o: a peaceful day.]\n[s: The people] [v: cut] [o: wood] [c: and] [v: made] [o: food] [pt: for the winter.]\n[s: Children] [v: played] [pt: in the snow.]\n[s: The heroes] [v: drank] [o: tea] [c: and] [v: ate] [o: apples and cheese.]"
             },
             {
-                "en": "Frostina raised her icy staff, creating a massive dome of frost over the village homes. The fire coals cooled instantly.",
-                "ru": "Фростина подняла ледяной посох, воздвигнув огромный купол мороза над домами деревни. Угли мгновенно остыли."
+                "speaker": "zephyr",
+                "en": "Zephyr stood near the tower with his bow. He looked at the sky. At this moment, he saw a black cloud. It came fast toward the village. \"Look at the sky!\" Zephyr said. \"It is no storm cloud! Those are birds! Hundreds of big black birds!\" The birds had iron wings and red eyes. They had hot coal in their feet. They flew over the village. The coal fell on the roofs of the houses. Fire was everywhere.",
+                "ru": "Зефир стоял возле башни со своим луком. Он смотрел на небо. В этот момент он увидел черную тучу. Она быстро приближалась к деревне. \"Посмотрите на небо!\" — сказал Зефир. \"Это не грозовая туча! Это птицы! Сотни больших черных птиц!\" У птиц были железные крылья и красные глаза. У них были горячие угли в лапах. Они летели над деревней. Угли падали на крыши домов. Огонь был повсюду.",
+                "chunkedEn": "[s: Zephyr] [v: stood] [pt: near the tower] [pt: with his bow.]\n[s: He] [v: looked] [pt: at the sky.]\n[pt: At this moment,] [s: he] [v: saw] [o: a black cloud.]\n[s: It] [v: came fast] [pt: toward the village.]\n[v: \"Look] [pt: at the sky!\"] [s: Zephyr] [v: said.]\n[s: \"It] [v: is] [o: no storm cloud!]\n[s: Those] [v: are] [o: birds!]\n[o: Hundreds of big black birds!\"]\n[s: The birds] [v: had] [o: iron wings and red eyes.]\n[s: They] [v: had] [o: hot coal] [pt: in their feet.]\n[s: They] [v: flew] [pt: over the village.]\n[s: The coal] [v: fell] [pt: on the roofs of the houses.]\n[s: Fire] [v: was] [adv: everywhere.]"
             },
             {
-                "en": "Freya rode the thunder wind, cutting the Harpy Matron in half with her lightning spear.",
-                "ru": "Фрейя оседлала грозовой ветер, разрубив Матрону Гарпий пополам своим копьем-молнией."
+                "speaker": "frostina",
+                "en": "The mothers took their children. They ran to the basement. They were afraid. \"The birds want to end our village!\" Frostina said. Frostina was an ice wizard. She ran to the center of the square. She had a crystal staff. She took it and looked at the red sky. \"Cold of the north, protect this home!\" she said.",
+                "ru": "Матери взяли своих детей. Они побежали в подвал. Они боялись. \"Птицы хотят уничтожить нашу деревню!\" — сказала Фростина. Фростина была ледяным магом. Она побежала в центр площади. У нее был хрустальный посох. Она взяла его и посмотрела на красное небо. \"Холод севера, защити этот дом!\" — сказала она.",
+                "chunkedEn": "[s: The mothers] [v: took] [o: their children.]\n[s: They] [v: ran] [pt: to the basement.]\n[s: They] [v: were afraid.]\n[s: \"The birds] [v: want to end] [o: our village!\"] [s: Frostina] [v: said.]\n[s: Frostina] [v: was] [o: an ice wizard.]\n[s: She] [v: ran] [pt: to the center of the square.]\n[s: She] [v: had] [o: a crystal staff.]\n[s: She] [v: took] [o: it] [c: and] [v: looked] [pt: at the red sky.]\n[o: \"Cold of the north,] [v: protect] [o: this home!\"] [s: she] [v: said.]"
             },
             {
-                "en": "Zephyr fired three whirlwind arrows at once, blowing the remaining monsters off the cliffs into the deep ravines.",
-                "ru": "Зефир выпустил три стрелы-вихря разом, сдувая оставшихся монстров с утесов в глубокие ущелья."
+                "speaker": "frostina",
+                "en": "Blue ice and white snow came from her staff. In a moment, a big wall of ice was over the village. The hot coal fell on the ice. It became grey stones. The people under the ice were fine. They looked at the wall and smiled.",
+                "ru": "Синий лед и белый снег вырвались из ее посоха. В один миг большая ледяная стена накрыла деревню. Горячие угли падали на лед. Они превращались в серые камни. С людьми под льдом все было хорошо. Они смотрели на стену и улыбались.",
+                "chunkedEn": "[s: Blue ice and white snow] [v: came] [pt: from her staff.]\n[pt: In a moment,] [s: a big wall of ice] [v: was] [pt: over the village.]\n[s: The hot coal] [v: fell] [pt: on the ice.]\n[s: It] [v: became] [o: grey stones.]\n[s: The people under the ice] [v: were fine.]\n[s: They] [v: looked] [pt: at the wall] [c: and] [v: smiled.]"
+            },
+            {
+                "speaker": "freya",
+                "en": "Above the ice, the sky was red. The mother of the birds came. She was big and black. She had a big stone in her feet. She came down fast toward Frostina. She wanted to break the ice. \"Stop!\" a strong voice said from the clouds. It was Freya, the Valkyrie. She had gold wings and a spear. The spear had blue light and thunder. She flew fast in the wind. She came down like a star.",
+                "ru": "Над льдом небо было красным. Прилетела мать птиц. Она была большой и черной. В ее лапах был огромный камень. Она быстро спускалась к Фростине. Она хотела сломать лед. \"Стой!\" — раздался сильный голос из облаков. Это была Фрейя, Валькирия. У нее были золотые крылья и копье. У копья был синий свет и гром. Она быстро летела в ветре. Она спустилась, словно звезда.",
+                "chunkedEn": "[pt: Above the ice,] [s: the sky] [v: was red.]\n[s: The mother of the birds] [v: came.]\n[s: She] [v: was big and black.]\n[s: She] [v: had] [o: a big stone] [pt: in her feet.]\n[s: She] [v: came down fast] [pt: toward Frostina.]\n[s: She] [v: wanted to break] [o: the ice.]\n[o: \"Stop!\"] [s: a strong voice] [v: said] [pt: from the clouds.]\n[s: It] [v: was] [o: Freya, the Valkyrie.]\n[s: She] [v: had] [o: gold wings and a spear.]\n[s: The spear] [v: had] [o: blue light and thunder.]\n[s: She] [v: flew fast] [pt: in the wind.]\n[s: She] [v: came down] [pt: like a star.]"
+            },
+            {
+                "speaker": "freya",
+                "en": "The mother bird sent the stone at Freya. But Freya was fast. She went away from the stone. After that, she came to the mother bird. Her spear went into the mother bird. There was a big light in the sky. The mother bird fell down into the valley. The other birds were afraid and angry. They came around Freya. They wanted to fight her.",
+                "ru": "Мать птиц метнула камень во Фрейю. Но Фрейя была быстра. Она уклонилась от камня. После этого она подлетела к матери птиц. Ее копье вонзилось в мать птиц. В небе вспыхнул яркий свет. Мать птиц упала в долину. Другие птицы были испуганы и злы. Они окружили Фрейю. Они хотели напасть на нее.",
+                "chunkedEn": "[s: The mother bird] [v: sent] [o: the stone] [pt: at Freya.]\n[c: But] [s: Freya] [v: was fast.]\n[s: She] [v: went away] [pt: from the stone.]\n[pt: After that,] [s: she] [v: came] [pt: to the mother bird.]\n[s: Her spear] [v: went] [pt: into the mother bird.]\n[v: There was] [s: a big light] [pt: in the sky.]\n[s: The mother bird] [v: fell down] [pt: into the valley.]\n[s: The other birds] [v: were afraid and angry.]\n[s: They] [v: came] [pt: around Freya.]\n[s: They] [v: wanted to fight] [o: her.]"
+            },
+            {
+                "speaker": "zephyr",
+                "en": "\"I am with you, Lady Freya!\" Zephyr said from the tower. He stood in the wind. He took his silver bow and three green arrows. \"Wind, clean the sky!\" he said. The arrows flew in the air. A big storm came. The wind took all the black birds. It took them away from the mountain and into the valley.",
+                "ru": "\"Я с вами, леди Фрейя!\" — крикнул Зефир с башни. Он стоял на ветру. Он взял свой серебряный лук и три зеленые стрелы. \"Ветер, очисти небо!\" — сказал он. Стрелы полетели в воздух. Налетела большая буря. Ветер подхватил всех черных птиц. Он унес их прочь от горы и сбросил в долину.",
+                "chunkedEn": "[o: \"I] [v: am] [pt: with you,] [o: Lady Freya!\"] [s: Zephyr] [v: said] [pt: from the tower.]\n[s: He] [v: stood] [pt: in the wind.]\n[s: He] [v: took] [o: his silver bow and three green arrows.]\n[o: \"Wind,] [v: clean] [o: the sky!\"] [s: he] [v: said.]\n[s: The arrows] [v: flew] [pt: in the air.]\n[s: A big storm] [v: came.]\n[s: The wind] [v: took] [o: all the black birds.]\n[s: It] [v: took] [o: them] [adv: away] [pt: from the mountain] [c: and] [pt: into the valley.]"
+            },
+            {
+                "speaker": "freya",
+                "en": "The sky became blue again. The morning sun was warm. The ice wall became water. The people came out. They were happy. They gave flowers to the heroes. Freya came down to the square. She had a smile. Zephyr took his bow on his back. Frostina had her staff in her hand. \"This is a great team,\" Zephyr said. \"Ice for the wall, thunder for the fight, and wind for the sky.\" Freya looked at the path to the top. \"The sky is clean now, friends. The path to the Star Peak is open. We are going to climb and find Archmage Eldrin!\"",
+                "ru": "Небо снова стало синим. Утреннее солнце было теплым. Ледяная стена растаяла в воду. Люди вышли наружу. Они были счастливы. Они дарили цветы героям. Фрейя спустилась на площадь. Она улыбалась. Зефир убрал лук за спину. Фростина держала посох в руке. \"Это отличная команда,\" — сказал Зефир. \"Лед для защиты, гром для битвы и ветер для неба.\" Фрейя посмотрела на тропу к вершине. \"Небо чисто теперь, друзья. Путь к Звездному Пику открыт. Мы поднимемся и найдем Архимага Эльдрина!\"",
+                "chunkedEn": "[s: The sky] [v: became] [o: blue] [adv: again.]\n[s: The morning sun] [v: was warm.]\n[s: The ice wall] [v: became] [o: water.]\n[s: The people] [v: came out.]\n[s: They] [v: were happy.]\n[s: They] [v: gave] [o: flowers] [pt: to the heroes.]\n[s: Freya] [v: came down] [pt: to the square.]\n[s: She] [v: had] [o: a smile.]\n[s: Zephyr] [v: took] [o: his bow] [pt: on his back.]\n[s: Frostina] [v: had] [o: her staff] [pt: in her hand.]\n[s: \"This] [v: is] [o: a great team,\"] [s: Zephyr] [v: said.]\n[s: \"Ice] [pt: for the wall,] [s: thunder] [pt: for the fight,] [c: and] [s: wind] [pt: for the sky.\"]\n[s: Freya] [v: looked] [pt: at the path to the top.]\n[s: \"The sky] [v: is clean] [adv: now,] [o: friends.]\n[s: The path to the Star Peak] [v: is open.]\n[s: We] [v: are going to climb] [c: and] [v: find] [o: Archmage Eldrin!\"]"
             }
         ],
         "quiz": {
-            "question": "How did Frostina protect the village houses?",
+            "question": "How did Zephyr, Frostina, and Freya protect the mountain village?",
             "options": [
-                "She dug trenches",
-                "She created a frost dome that cooled the fire coals",
-                "She hid under a rock"
+                "Frostina made an ice dome, Freya defeated the mother bird, and Zephyr blew the swarm away with wind arrows",
+                "They hid inside the cellar until the birds left",
+                "They used dark spells to control the birds"
             ],
-            "correctIndex": 1,
-            "rewardXp": 250
+            "correctIndex": 0,
+            "rewardXp": 544
         },
         "backgroundImg": "images/backgrounds/bg_sky_terrace.jpg",
         "locationEn": "High Cliff Mountain Villages",
