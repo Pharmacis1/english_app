@@ -1,0 +1,18 @@
+{
+  "id": "report_2026-09-18_23-00-19____Сюжетная_Кампания",
+  "timestamp": "2026-09-18T20:00:19.961Z",
+  "localTime": "19.09.2026, 00:00:20",
+  "category": "🎨 Вёрстка / Визуал",
+  "description": "Получаетая, копка \"слушать\" не дает тексту распределиться по всему экрану, пространство под кнопкой всегда пустое. \nЕсли на неё нажать, то кнопка будет называться \"пауза\", занимать меньше места, а текст займет больше места \nНадо, чтобы текст распределился по всему экрану телефона независимо от этой кнопки",
+  "mode": "⚔️ Сюжетная Кампания",
+  "hero": "Valerius Lvl 100",
+  "subContext": "Сценарий: Tech Job Interview",
+  "viewport": {
+    "width": 392,
+    "height": 791
+  },
+  "url": "https://englishpulse.share.zrok.io/index.html",
+  "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Mobile Safari/537.36",
+  "logs": [],
+  "screenshotFile": "screenshot.jpg"
+}
