@@ -1370,31 +1370,63 @@ const STORY_CHAPTERS = [
         ],
         "paragraphs": [
             {
-                "en": "At the fallen outpost of the Silver Shield, blood and broken shields covered the ground. The gates had been opened from the inside.",
-                "ru": "На павшем аванпосте Серебряного Щита земля была покрыта кровью и сломанными щитами. Ворота были открыты изнутри."
+                "speaker": "valerius",
+                "en": "Cold snow fell on the outpost of the Silver Shield. The mountain road was empty. It was quiet. Valerius and Frostina walked in the big square. Broken shields and broken spears were on the ground. Coal was also on the ground. The ground was cold and dirty. Nobody was there.",
+                "ru": "Холодный снег падал на аванпост Серебряного Щита. Горная дорога была пуста. Было тихо. Валериус и Фростина шли по большой площади. Сломанные щиты и сломанные копья лежали на земле. Угли также были на земле. Земля была холодной и грязной. Там никого не было.",
+                "chunkedEn": "[s: Cold snow] [v: fell] [pt: on the outpost of the Silver Shield.]\n[s: The mountain road] [v: was empty.]\n[s: It] [v: was quiet.]\n[s: Valerius and Frostina] [v: walked] [pt: in the big square.]\n[s: Broken shields and broken spears] [v: were] [pt: on the ground.]\n[s: Coal] [v: was] [adv: also] [pt: on the ground.]\n[s: The ground] [v: was cold and dirty.]\n[s: Nobody] [v: was] [adv: there.]"
             },
             {
-                "en": "Valerius picked up an officer's signet ring from the ashes. It bore the crest of his own Supreme Commander.",
-                "ru": "Валериус поднял из пепла офицерский перстень-печатку. На нем был герб его собственного Верховного Главнокомандующего."
+                "speaker": "valerius",
+                "en": "Valerius looked at the great iron door. His silver armor was bright in the grey winter light. He took a lock in his hand and looked at it. \"Look at the locks, Frostina,\" he said in a quiet voice. \"The war did not break this door. Someone opened it from the inside.\"",
+                "ru": "Валериус посмотрел на огромную железную дверь. Его серебряные доспехи ярко сияли в сером зимнем свете. Он взял замок в руку и посмотрел на него. \"Посмотри на замки, Фростина,\" — сказал он тихим голосом. \"Война не ломала эту дверь. Кто-то открыл ее изнутри.\"",
+                "chunkedEn": "[s: Valerius] [v: looked] [pt: at the great iron door.]\n[s: His silver armor] [v: was bright] [pt: in the grey winter light.]\n[s: He] [v: took] [o: a lock] [pt: in his hand] [c: and] [v: looked] [pt: at it.]\n[v: \"Look] [pt: at the locks,] [o: Frostina,\"] [s: he] [v: said] [pt: in a quiet voice.]\n[s: \"The war] [v: did not break] [o: this door.]\n[s: Someone] [v: opened] [o: it] [pt: from the inside.\"]"
             },
             {
-                "en": "Frostina stepped through the snow. \"Our leaders have made deals with the dark to preserve their thrones, Valerius. The corruption is in our own high halls.\"",
-                "ru": "Фростина шагнула по снегу. \"Наши лидеры заключили сделки с тьмой, чтобы сохранить свои троны, Валериус. Скверна проникла в наши собственные высокие залы.\""
+                "speaker": "frostina",
+                "en": "Frostina walked in the snow. Her white cloak moved in the cold wind. She had her ice staff in her hand. She looked at the empty rooms. \"The tales are true,\" she said. \"The warriors here did not lose a good fight. Their own master sold them.\"",
+                "ru": "Фростина шла по снегу. Ее белый плащ развевался на холодном ветру. В руке у нее был ледяной посох. Она посмотрела на пустые комнаты. \"Сказания правдивы,\" — сказала она. \"Воины здесь не проиграли честный бой. Их собственный господин предал их.\"",
+                "chunkedEn": "[s: Frostina] [v: walked] [pt: in the snow.]\n[s: Her white cloak] [v: moved] [pt: in the cold wind.]\n[s: She] [v: had] [o: her ice staff] [pt: in her hand.]\n[s: She] [v: looked] [pt: at the empty rooms.]\n[s: \"The tales] [v: are true,\"] [s: she] [v: said.]\n[s: \"The warriors here] [v: did not lose] [o: a good fight.]\n[s: Their own master] [v: sold] [o: them.\"]"
             },
             {
-                "en": "Valerius stripped the golden eagle crest from his armor. \"Then my oath to the lords is dead. From this day, I serve only the light and the innocent.\"",
-                "ru": "Валериус сорвал герб золотого орла со своих доспехов. \"Тогда моя клятва лордам мертва. С этого дня я служу лишь свету и невинным.\""
+                "speaker": "valerius",
+                "en": "They went into the big room. Maps were on the floor. An iron box was open and empty. Frostina took a map and looked at it. Valerius went to the stone fireplace. He looked at the coal. His finger touched a small piece of metal. He took it and cleaned the dark coal from it. It was a heavy gold ring.",
+                "ru": "Они вошли в большую комнату. Карты лежали на полу. Железный ящик был открыт и пуст. Фростина взяла карту и посмотрела на нее. Валериус подошел к каменному камину. Он посмотрел на угли. Его палец коснулся маленького кусочка металла. Он взял его и счистил с него темную сажу. Это было тяжелое золотое кольцо.",
+                "chunkedEn": "[s: They] [v: went] [pt: into the big room.]\n[s: Maps] [v: were] [pt: on the floor.]\n[s: An iron box] [v: was open and empty.]\n[s: Frostina] [v: took] [o: a map] [c: and] [v: looked] [pt: at it.]\n[s: Valerius] [v: went] [pt: to the stone fireplace.]\n[s: He] [v: looked] [pt: at the coal.]\n[s: His finger] [v: touched] [o: a small piece of metal.]\n[s: He] [v: took] [o: it] [c: and] [v: cleaned] [o: the dark coal] [pt: from it.]\n[s: It] [v: was] [o: a heavy gold ring.]"
+            },
+            {
+                "speaker": "valerius",
+                "en": "Valerius was afraid. His eyes were big. \"By the Light...\" he said in a quiet voice. \"This is the mark of the Grand Master of our Citadel! The Grand Master of the Silver Shield told the men to leave the border.\"",
+                "ru": "Валериус был потрясен. Его глаза были широко раскрыты. \"Клянусь Светом...\" — сказал он тихим голосом. \"Это знак Великого Магистра нашей Цитадели! Великий Магистр Серебряного Щита приказал людям оставить границу.\"",
+                "chunkedEn": "[s: Valerius] [v: was afraid.]\n[s: His eyes] [v: were big.]\n[o: \"By the Light...\"] [s: he] [v: said] [pt: in a quiet voice.]\n[s: \"This] [v: is] [o: the mark of the Grand Master of our Citadel!]\n[s: The Grand Master of the Silver Shield] [v: told] [o: the men to leave the border.\"]"
+            },
+            {
+                "speaker": "frostina",
+                "en": "Frostina took his arm. Her hand was soft on his shoulder. \"Our masters sold this place to the Shadow Cult,\" she said in a quiet voice. \"They wanted power and gold. They did not care if fire came to the villages. The bad people are not far away. They are inside the halls of our city, Valerius.\"",
+                "ru": "Фростина взяла его за руку. Ее рука мягко легла на его плечо. \"Наши владыки продали это место Культу Теней,\" — сказала она тихим голосом. \"Они хотели власти и золота. Им было все равно, что огонь придет в деревни. Предатели не где-то далеко. Они внутри залов нашего города, Валериус.\"",
+                "chunkedEn": "[s: Frostina] [v: took] [o: his arm.]\n[s: Her hand] [v: was soft] [pt: on his shoulder.]\n[s: \"Our masters] [v: sold] [o: this place] [pt: to the Shadow Cult,\"] [s: she] [v: said] [pt: in a quiet voice.]\n[s: \"They] [v: wanted] [o: power and gold.]\n[s: They] [v: did not care] [c: if] [s: fire] [v: came] [pt: to the villages.]\n[s: The bad people] [v: are not] [adv: far away.]\n[s: They] [v: are] [pt: inside the halls of our city,] [o: Valerius.\"]"
+            },
+            {
+                "speaker": "frostina",
+                "en": "Now three shadow stalkers jumped from the tower! Their daggers were black. \"Knights die and tell no tales!\" one assassin said. He ran to Valerius. \"Not today!\" Frostina called. She took her crystal staff. A blizzard came from the ground! It froze the three warriors. They were pieces of blue ice before they could fight.",
+                "ru": "Вдруг три теневых преследователя спрыгнули с башни! Их кинжалы были черными. \"Рыцари умирают и не рассказывают историй!\" — сказал один убийца. Он побежал к Валериусу. \"Не сегодня!\" — крикнула Фростина. Она взяла свой хрустальный посох. Метель поднялась от земли! Она заморозила трех воинов. Они превратились в глыбы синего льда, прежде чем успели вступить в бой.",
+                "chunkedEn": "[adv: Now] [s: three shadow stalkers] [v: jumped] [pt: from the tower!]\n[s: Their daggers] [v: were black.]\n[s: \"Knights] [v: die] [c: and] [v: tell] [o: no tales!\"] [s: one assassin] [v: said.]\n[s: He] [v: ran] [pt: to Valerius.]\n[o: \"Not today!\"] [s: Frostina] [v: called.]\n[s: She] [v: took] [o: her crystal staff.]\n[s: A blizzard] [v: came] [pt: from the ground!]\n[s: It] [v: froze] [o: the three warriors.]\n[s: They] [v: were] [o: pieces of blue ice] [c: before] [s: they] [v: could fight.]"
+            },
+            {
+                "speaker": "valerius",
+                "en": "Valerius stood up. He looked at the gold ring. He looked at the Eagle on his silver armor. He took the Eagle from his armor. He left it in the snow. \"My Honor is not for bad masters,\" he said. \"Now I see the truth. From this day, I help no king who sells his people to the Dark. I fight for good people and for the Light.\" Frostina smiled. \"Now we go and find Archmage Eldrin and our friends, Valerius,\" she said. \"We are going to bring the truth to the Light. We are going to end this war.\" Valerius took the gold ring. They walked from the outpost.",
+                "ru": "Валериус поднялся. Он посмотрел на золотое кольцо. Он посмотрел на Орла на своих серебряных доспехах. Он сорвал Орла со своей брони. Он оставил его в снегу. \"Моя Честь не для дурных господ,\" — сказал он. \"Теперь я вижу правду. С этого дня я не служу ни одному королю, который предает свой народ Тьме. Я сражаюсь за добрых людей и за Свет.\" Фростина улыбнулась. \"Теперь мы пойдем и найдем Архимага Эльдрина и наших друзей, Валериус,\" — сказала она. \"Мы явим правду Свету. Мы положим конец этой войне.\" Валериус взял золотое кольцо. Они покинули аванпост.",
+                "chunkedEn": "[s: Valerius] [v: stood up.]\n[s: He] [v: looked] [pt: at the gold ring.]\n[s: He] [v: looked] [pt: at the Eagle] [pt: on his silver armor.]\n[s: He] [v: took] [o: the Eagle] [pt: from his armor.]\n[s: He] [v: left] [o: it] [pt: in the snow.]\n[s: \"My Honor] [v: is not] [pt: for bad masters,\"] [s: he] [v: said.]\n[adv: \"Now] [s: I] [v: see] [o: the truth.]\n[pt: From this day,] [s: I] [v: help] [o: no king] [s: who] [v: sells] [o: his people] [pt: to the Dark.]\n[s: I] [v: fight] [pt: for good people] [c: and] [pt: for the Light.\"]\n[s: Frostina] [v: smiled.]\n[adv: \"Now] [s: we] [v: go] [c: and] [v: find] [o: Archmage Eldrin and our friends, Valerius,\"] [s: she] [v: said.]\n[s: \"We] [v: are going to bring] [o: the truth] [pt: to the Light.]\n[s: We] [v: are going to end] [o: this war.\"]\n[s: Valerius] [v: took] [o: the gold ring.]\n[s: They] [v: walked] [pt: from the outpost.]"
             }
         ],
         "quiz": {
-            "question": "What did Valerius do after finding the commander's ring in the ashes?",
+            "question": "What did Valerius do after finding the Grand Master's gold ring in the fireplace?",
             "options": [
-                "He gave up fighting",
-                "He stripped his lord's crest and renounced false masters",
-                "He returned to the palace"
+                "He tore the Eagle crest from his armor and renounced his oath to corrupt rulers",
+                "He joined the Shadow Cult and gave them his silver sword",
+                "He hid the ring and returned to the Citadel to become a lord"
             ],
-            "correctIndex": 1,
-            "rewardXp": 280
+            "correctIndex": 0,
+            "rewardXp": 473
         },
         "backgroundImg": "images/backgrounds/bg_castle.jpg",
         "locationEn": "The Fallen Silver Outpost",
