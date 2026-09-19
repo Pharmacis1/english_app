@@ -1450,31 +1450,63 @@ const STORY_CHAPTERS = [
         ],
         "paragraphs": [
             {
-                "en": "Three royal messengers stood on the border stones, reading royal proclamations simultaneously under the pouring ash rain.",
-                "ru": "Трое королевских вестников стояли на межевых камнях, одновременно зачитывая королевские указы под проливным пепельным дождем."
+                "speaker": "valerius",
+                "en": "It is a cold, grey day. The rain falls on the border river. Black rocks stand between three countries: the Silver Citadel, the Mountain Forge, and the Emerald Forest. In the center of the valley stands the Border Stone. Three men stand on the rocks. They have gold paper in their hands. The wind is strong. The men speak with big voices.",
+                "ru": "Это холодный, серый день. Дождь падает на пограничную реку. Черные скалы высятся между тремя странами: Серебряной Цитаделью, Горным Горном и Изумрудным Лесом. В центре долины стоит Межевой Камень. Трое мужчин стоят на скалах. В их руках золотые свитки. Ветер силен. Мужчины говорят громкими голосами.",
+                "chunkedEn": "[s: It] [v: is] [o: a cold, grey day.]\n[s: The rain] [v: falls] [pt: on the border river.]\n[s: Black rocks] [v: stand] [pt: between three countries: the Silver Citadel, the Mountain Forge, and the Emerald Forest.]\n[pt: In the center of the valley] [v: stands] [s: the Border Stone.]\n[s: Three men] [v: stand] [pt: on the rocks.]\n[s: They] [v: have] [o: gold paper] [pt: in their hands.]\n[s: The wind] [v: is strong.]\n[s: The men] [v: speak] [pt: with big voices.]"
             },
             {
-                "en": "\"Valerius and Astraea are declared traitors of the Shield! Thorin, Ignis, and Selena are exiled from the Forge! Oberon, Frostina, and Zephyr are banished from the Circle!\"",
-                "ru": "\"Валериус и Астрея объявлены предателями Щита! Торин, Игнис и Селена изгнаны из Горна! Оберон, Фростина и Зефир изгнаны из Круга!\""
+                "speaker": "valerius",
+                "en": "\"Hear us! Valerius and Astraea can't live with the Silver Shield now. Thorin, Ignis, and Selena can't live in the Mountain Forge now. Oberon, Frostina, and Zephyr can't live in the Emerald Forest now. Go away forever!\" The three men leave the valley. It is quiet. Now eight people come to the river from three paths. They are heroes.",
+                "ru": "\"Услышьте нас! Валериус и Астрея не могут больше жить с Серебряным Щитом. Торин, Игнис и Селена не могут больше жить в Горном Горне. Оберон, Фростина и Зефир не могут больше жить в Изумрудном Лесу. Уходите навсегда!\" Трое мужчин покидают долину. Тихо. Теперь восемь человек подходят к реке с трех троп. Они — герои.",
+                "chunkedEn": "[o: \"Hear us!]\n[s: Valerius and Astraea] [v: can't live] [pt: with the Silver Shield] [adv: now.]\n[s: Thorin, Ignis, and Selena] [v: can't live] [pt: in the Mountain Forge] [adv: now.]\n[s: Oberon, Frostina, and Zephyr] [v: can't live] [pt: in the Emerald Forest] [adv: now.]\n[v: Go away] [adv: forever!\"]\n[s: The three men] [v: leave] [o: the valley.]\n[s: It] [v: is quiet.]\n[adv: Now] [s: eight people] [v: come] [pt: to the river] [pt: from three paths.]\n[s: They] [v: are] [o: heroes.]"
             },
             {
-                "en": "The warriors looked at each other across the river. They were stripped of titles, homes, and clan honors.",
-                "ru": "Воины посмотрели друг на друга через реку. Они были лишены титулов, домов и клановых почестей."
+                "speaker": "valerius",
+                "en": "Valerius and Astraea come from the north. They have silver armor and star light. Thorin, Ignis, and Selena come from the mountain. They have big hammers and fire staffs. Oberon, Frostina, and Zephyr come from the forest. They have wood bows and ice magic. The heroes meet at the Border Stone. They look at each other. Nobody speaks. They have no home. They have no money. They have no realm. Their kings say, \"Go away!\" because the heroes don't want a war.",
+                "ru": "Валериус и Астрея идут с севера. У них серебряные доспехи и звездный свет. Торин, Игнис и Селена идут с горы. У них большие молоты и огненные посохи. Оберон, Фростина и Зефир идут из леса. У них деревянные луки и магия льда. Герои встречаются у Межевого Камня. Они смотрят друг на друга. Никто не говорит. У них нет дома. У них нет денег. У них нет королевства. Их короли говорят: \"Уходите!\", потому что герои не хотят войны.",
+                "chunkedEn": "[s: Valerius and Astraea] [v: come] [pt: from the north.]\n[s: They] [v: have] [o: silver armor and star light.]\n[s: Thorin, Ignis, and Selena] [v: come] [pt: from the mountain.]\n[s: They] [v: have] [o: big hammers and fire staffs.]\n[s: Oberon, Frostina, and Zephyr] [v: come] [pt: from the forest.]\n[s: They] [v: have] [o: wood bows and ice magic.]\n[s: The heroes] [v: meet] [pt: at the Border Stone.]\n[s: They] [v: look] [pt: at each other.]\n[s: Nobody] [v: speaks.]\n[s: They] [v: have] [o: no home.]\n[s: They] [v: have] [o: no money.]\n[s: They] [v: have] [o: no realm.]\n[s: Their kings] [v: say,] [o: \"Go away!\"] [c: because] [s: the heroes] [v: don't want] [o: a war.]"
             },
             {
-                "en": "\"We have no kingdoms now,\" Thorin laughed fiercely, wiping rain from his face. \"Good! Now we can finally save the world.\"",
-                "ru": "\"У нас больше нет королевств,\" — яростно рассмеялся Торин, смахивая дождь с лица. \"Отлично! Теперь мы наконец-то можем спасти мир.\""
+                "speaker": "oberon",
+                "en": "Astraea looks at the sky. The rain is cold. She takes a blanket from her bag and gives the blanket to Frostina. \"Thank you,\" Frostina says. Selena takes a coat from her bag. She gives the coat to Zephyr. \"Thank you!\" Zephyr says. Oberon touches the old stone with his hand. \"We have no home today,\" the forest guard says. \"Our people say we are bad. But we choose peace and love.\"",
+                "ru": "Астрея смотрит на небо. Дождь холодный. Она достает одеяло из сумки и дает одеяло Фростине. \"Спасибо,\" — говорит Фростина. Селена достает плащ из сумки. Она дает плащ Зефиру. \"Спасибо!\" — говорит Зефир. Оберон касается старого камня рукой. \"У нас нет дома сегодня,\" — говорит страж леса. \"Наш народ говорит, что мы плохие. Но мы выбираем мир и любовь.\"",
+                "chunkedEn": "[s: Astraea] [v: looks] [pt: at the sky.]\n[s: The rain] [v: is cold.]\n[s: She] [v: takes] [o: a blanket] [pt: from her bag] [c: and] [v: gives] [o: the blanket] [pt: to Frostina.]\n[o: \"Thank you,\"] [s: Frostina] [v: says.]\n[s: Selena] [v: takes] [o: a coat] [pt: from her bag.]\n[s: She] [v: gives] [o: the coat] [pt: to Zephyr.]\n[o: \"Thank you!\"] [s: Zephyr] [v: says.]\n[s: Oberon] [v: touches] [o: the old stone] [pt: with his hand.]\n[s: \"We] [v: have] [o: no home] [pt: today,\"] [s: the forest guard] [v: says.]\n[s: \"Our people] [v: say] [s: we] [v: are bad.]\n[c: But] [s: we] [v: choose] [o: peace and love.\"]"
+            },
+            {
+                "speaker": "valerius",
+                "en": "Valerius stands tall. \"A name from bad kings is nothing,\" the knight says. \"They sell our outposts to the dark. They want us to fight each other. The Shadow Cult grows. The kings don't say the truth. Today we have freedom.\" Thorin smiles. He is happy. Everyone looks at him. \"Why are you happy, Thorin?\" Selena asks. She smiles too.",
+                "ru": "Валериус стоит прямо. \"Имя от дурных королей ничего не значит,\" — говорит рыцарь. \"Они продают наши аванпосты тьме. Они хотят, чтобы мы сражались друг с другом. Культ Теней растет. Короли не говорят правды. Сегодня у нас есть свобода.\" Торин улыбается. Он счастлив. Все смотрят на него. \"Почему ты рад, Торин?\" — спрашивает Селена. Она тоже улыбается.",
+                "chunkedEn": "[s: Valerius] [v: stands] [adv: tall.]\n[s: \"A name from bad kings] [v: is] [o: nothing,\"] [s: the knight] [v: says.]\n[s: \"They] [v: sell] [o: our outposts] [pt: to the dark.]\n[s: They] [v: want] [o: us to fight each other.]\n[s: The Shadow Cult] [v: grows.]\n[s: The kings] [v: don't say] [o: the truth.]\n[pt: Today] [s: we] [v: have] [o: freedom.\"]\n[s: Thorin] [v: smiles.]\n[s: He] [v: is happy.]\n[s: Everyone] [v: looks] [pt: at him.]\n[o: \"Why] [v: are] [s: you] [o: happy, Thorin?\"] [s: Selena] [v: asks.]\n[s: She] [v: smiles] [adv: too.]"
+            },
+            {
+                "speaker": "thorin",
+                "en": "\"Because we have no masters now!\" Thorin says. \"No king says, 'Go and fight!' We are the strongest warriors and wizards in the realm. We stand next to each other. Good! Now we can protect the world.\" Ignis has a red flame in his hand. \"Thorin is right,\" he says. \"We aren't three teams now. We are one team.\" Then Ignis takes wood from the ground and makes a small fire. \"Come here,\" he says. \"The fire is warm.\" The heroes come near the fire. Frostina looks at the flame and smiles. \"It is hot,\" she says.",
+                "ru": "\"Потому что теперь у нас нет господ!\" — говорит Торин. \"Ни один король не говорит: 'Иди и сражайся!' Мы — сильнейшие воины и маги в королевстве. Мы стоим плечом к плечу. Отлично! Теперь мы можем защитить мир.\" У Игниса в руке красное пламя. \"Торин прав,\" — говорит он. \"Мы больше не три команды. Мы — одна команда.\" Затем Игнис берет ветки с земли и разводит небольшой костер. \"Идите сюда,\" — говорит он. \"Огонь теплый.\" Герои подходят к костру. Фростина смотрит на пламя и улыбается. \"Он горячий,\" — говорит она.",
+                "chunkedEn": "[c: \"Because] [s: we] [v: have] [o: no masters] [adv: now!\"] [s: Thorin] [v: says.]\n[s: \"No king] [v: says,] [o: 'Go and fight!']\n[s: We] [v: are] [o: the strongest warriors and wizards] [pt: in the realm.]\n[s: We] [v: stand] [pt: next to each other.]\n[o: Good!]\n[adv: Now] [s: we] [v: can protect] [o: the world.\"]\n[s: Ignis] [v: has] [o: a red flame] [pt: in his hand.]\n[s: \"Thorin] [v: is right,\"] [s: he] [v: says.]\n[s: \"We] [v: aren't] [o: three teams] [adv: now.]\n[s: We] [v: are] [o: one team.\"]\n[adv: Then] [s: Ignis] [v: takes] [o: wood] [pt: from the ground] [c: and] [v: makes] [o: a small fire.]\n[v: \"Come] [adv: here,\"] [s: he] [v: says.]\n[s: \"The fire] [v: is warm.\"]\n[s: The heroes] [v: come] [pt: near the fire.]\n[s: Frostina] [v: looks] [pt: at the flame] [c: and] [v: smiles.]\n[s: \"It] [v: is hot,\"] [s: she] [v: says.]"
+            },
+            {
+                "speaker": "oberon",
+                "en": "Frostina takes bread from her bag. She gives the bread to all the heroes. Thorin cuts the bread with his knife. They eat the bread and drink water from the river. \"Good bread!\" Thorin says. Astraea washes her hands in the river. Valerius cleans his shield with a coat. Valerius asks, \"Do we have a map?\" \"Yes, I have a map,\" Oberon answers. He takes the map from his bag. The heroes look at the map with him. Oberon shows the path with his finger. \"We go north, and then we go to the mountain,\" he says.",
+                "ru": "Фростина достает хлеб из сумки. Она дает хлеб всем героям. Торин режет хлеб своим ножом. Они едят хлеб и пьют воду из реки. \"Хороший хлеб!\" — говорит Торин. Астрея моет руки в реке. Валериус чистит свой щит плащом. Валериус спрашивает: \"У нас есть карта?\" \"Да, у меня есть карта,\" — отвечает Оберон. Он достает карту из сумки. Герои смотрят на карту вместе с ним. Оберон показывает путь пальцем. \"Мы идем на север, а затем поднимаемся на гору,\" — говорит он.",
+                "chunkedEn": "[s: Frostina] [v: takes] [o: bread] [pt: from her bag.]\n[s: She] [v: gives] [o: the bread] [pt: to all the heroes.]\n[s: Thorin] [v: cuts] [o: the bread] [pt: with his knife.]\n[s: They] [v: eat] [o: the bread] [c: and] [v: drink] [o: water] [pt: from the river.]\n[o: \"Good bread!\"] [s: Thorin] [v: says.]\n[s: Astraea] [v: washes] [o: her hands] [pt: in the river.]\n[s: Valerius] [v: cleans] [o: his shield] [pt: with a coat.]\n[s: Valerius] [v: asks,] [o: \"Do we have a map?\"]\n[o: \"Yes,] [s: I] [v: have] [o: a map,\"] [s: Oberon] [v: answers.]\n[s: He] [v: takes] [o: the map] [pt: from his bag.]\n[s: The heroes] [v: look] [pt: at the map] [pt: with him.]\n[s: Oberon] [v: shows] [o: the path] [pt: with his finger.]\n[s: \"We] [v: go] [adv: north,] [c: and] [adv: then] [s: we] [v: go] [pt: to the mountain,\"] [s: he] [v: says.]"
+            },
+            {
+                "speaker": "thorin",
+                "en": "Zephyr takes an arrow and smiles. \"Astral Peak is far, but we can go there. Archmage Eldrin waits for us in the Spire.\" The heroes rest near the fire for one hour. Selena checks her staff. Thorin looks at his hammer. Zephyr counts the arrows and closes his bag. Astraea takes her silver bowl. The bowl has warm star light. The light is on all eight heroes. \"We go to the light,\" she says. \"We are one.\" Ignis stops the fire. The heroes take their bags and close them. They look at the tall mountains. Then all eight start to walk.",
+                "ru": "Зефир берет стрелу и улыбается. \"Астральный Пик далеко, но мы сможем дойти туда. Архимаг Эльдрин ждет нас в Шпиле.\" Герои отдыхают у костра один час. Селена проверяет свой посох. Торин осматривает свой молот. Зефир пересчитывает стрелы и закрывает сумку. Астрея берет свою серебряную чашу. В чаше теплый звездный свет. Свет озаряет всех восьмерых героев. \"Мы идем к свету,\" — говорит она. \"Мы едины.\" Игнис тушит костер. Герои берут свои сумки и закрывают их. Они смотрят на высокие горы. Затем все восемь начинают свой путь.",
+                "chunkedEn": "[s: Zephyr] [v: takes] [o: an arrow] [c: and] [v: smiles.]\n[s: \"Astral Peak] [v: is] [adv: far,] [c: but] [s: we] [v: can go] [adv: there.]\n[s: Archmage Eldrin] [v: waits] [pt: for us] [pt: in the Spire.\"]\n[s: The heroes] [v: rest] [pt: near the fire] [pt: for one hour.]\n[s: Selena] [v: checks] [o: her staff.]\n[s: Thorin] [v: looks] [pt: at his hammer.]\n[s: Zephyr] [v: counts] [o: the arrows] [c: and] [v: closes] [o: his bag.]\n[s: Astraea] [v: takes] [o: her silver bowl.]\n[s: The bowl] [v: has] [o: warm star light.]\n[s: The light] [v: is] [pt: on all eight heroes.]\n[s: \"We] [v: go] [pt: to the light,\"] [s: she] [v: says.]\n[s: \"We] [v: are] [o: one.\"]\n[s: Ignis] [v: stops] [o: the fire.]\n[s: The heroes] [v: take] [o: their bags] [c: and] [v: close] [o: them.]\n[s: They] [v: look] [pt: at the tall mountains.]\n[adv: Then] [s: all eight] [v: start to walk.]"
             }
         ],
         "quiz": {
-            "question": "Why were the heroes exiled by their leaders?",
+            "question": "Why did the heroes decide to unite at the Border Stone?",
             "options": [
-                "They stole gold",
-                "They united and helped other clans instead of fighting them",
-                "They were too weak"
+                "Because they were exiled by corrupt kings and chose to save the world together as one team",
+                "Because they wanted to steal gold from the Mountain Forge",
+                "Because they surrendered to the Shadow Cult"
             ],
-            "correctIndex": 1,
-            "rewardXp": 300
+            "correctIndex": 0,
+            "rewardXp": 630
         },
         "backgroundImg": "images/backgrounds/bg_forest.jpg",
         "locationEn": "The Three Clan Border Stone",
