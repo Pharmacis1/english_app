@@ -1212,31 +1212,63 @@ const STORY_CHAPTERS = [
         ],
         "paragraphs": [
             {
-                "en": "Cursed black flames were eating through the heart of the Sacred Grove. Ancient oak trees screamed in green spiritual agony.",
-                "ru": "Проклятое черное пламя пожирало сердце Священной Рощи. Древние дубы кричали в зеленой духовной агонии."
+                "speaker": "oberon",
+                "en": "The Sacred Grove was quiet. It was evening. Old trees stood in the grove. They were big and tall. Green leaves were on the branches. Birds and animals lived in the trees. Oberon walked in the Sacred Grove. He was a guard of the forest. He had a big staff of wood. Ignis walked next to him. Ignis was young. He had a red cloak. He had a staff with a ruby crystal. Ignis was a fire wizard. \"It is a good evening, my friend,\" Oberon said. \"Yes,\" Ignis said. \"The forest is peaceful.\" They smiled. They were happy.",
+                "ru": "Священная Роща была тихой. Был вечер. Старые деревья стояли в роще. Они были большими и высокими. Зеленые листья были на ветвях. Птицы и животные жили на деревьях. Оберон гулял по Священной Роще. Он был стражем леса. У него был большой деревянный посох. Игнис шел рядом с ним. Игнис был молод. На нем был красный плащ. У него был посох с рубиновым кристаллом. Игнис был магом огня. \"Это хороший вечер, мой друг,\" — сказал Оберон. \"Да,\" — сказал Игнис. \"Лес спокоен.\" Они улыбнулись. Они были счастливы.",
+                "chunkedEn": "[s: The Sacred Grove] [v: was quiet.]\n[s: It] [v: was] [o: evening.]\n[s: Old trees] [v: stood] [pt: in the grove.]\n[s: They] [v: were big and tall.]\n[s: Green leaves] [v: were] [pt: on the branches.]\n[s: Birds and animals] [v: lived] [pt: in the trees.]\n[s: Oberon] [v: walked] [pt: in the Sacred Grove.]\n[s: He] [v: was] [o: a guard of the forest.]\n[s: He] [v: had] [o: a big staff of wood.]\n[s: Ignis] [v: walked] [pt: next to him.]\n[s: Ignis] [v: was young.]\n[s: He] [v: had] [o: a red cloak.]\n[s: He] [v: had] [o: a staff] [pt: with a ruby crystal.]\n[s: Ignis] [v: was] [o: a fire wizard.]\n[o: \"It] [v: is] [o: a good evening,] [o: my friend,\"] [s: Oberon] [v: said.]\n[o: \"Yes,\"] [s: Ignis] [v: said.]\n[s: \"The forest] [v: is peaceful.\"]\n[s: They] [v: smiled.]\n[s: They] [v: were happy.]"
             },
             {
-                "en": "Oberon fell to his knees, his nature spells failing against the dark corruption. \"Fire is evil... It consumes everything!\"",
-                "ru": "Оберон упал на колени, его заклинания природы были бессильны против темной порчи. \"Огонь — это зло... Он пожирает все!\""
+                "speaker": "oberon",
+                "en": "Now the forest was not quiet. They heard something. The ground began to move. Oberon looked at the ground. Ignis also looked at the ground. Fire came out of the ground. It was purple and black. It was a bad fire. It was the fire of the Shadow Cult. The black fire came to the trees. It ate the roots. It ate the old wood. The green leaves became black. The birds and animals ran away.",
+                "ru": "Теперь лес не был тихим. Они что-то услышали. Земля начала двигаться. Оберон посмотрел на землю. Игнис тоже посмотрел на землю. Огонь вырвался из-под земли. Он был фиолетовым и черным. Это был злой огонь. Это был огонь Культа Теней. Черный огонь подступил к деревьям. Он пожирал корни. Он пожирал древнюю древесину. Зеленые листья становились черными. Птицы и животные убегали.",
+                "chunkedEn": "[adv: Now] [s: the forest] [v: was not quiet.]\n[s: They] [v: heard] [o: something.]\n[s: The ground] [v: began to move.]\n[s: Oberon] [v: looked] [pt: at the ground.]\n[s: Ignis] [adv: also] [v: looked] [pt: at the ground.]\n[s: Fire] [v: came out] [pt: of the ground.]\n[s: It] [v: was purple and black.]\n[s: It] [v: was] [o: a bad fire.]\n[s: It] [v: was] [o: the fire of the Shadow Cult.]\n[s: The black fire] [v: came] [pt: to the trees.]\n[s: It] [v: ate] [o: the roots.]\n[s: It] [v: ate] [o: the old wood.]\n[s: The green leaves] [v: became] [o: black.]\n[s: The birds and animals] [v: ran away.]"
             },
             {
-                "en": "Ignis dashed into the inferno. He did not cast fire—he inhaled it! He drew the black cursed flames into his ruby crystal staff.",
-                "ru": "Игнис ворвался в пекло. Он не бросал огонь — он втягивал его! Он втянул черное проклятое пламя в свой посох с рубиновым кристаллом."
+                "speaker": "oberon",
+                "en": "\"Our forest is sick!\" Oberon said. \"The heart of our forest is sick!\" He was angry and afraid. His eyes were green. Oberon took his staff. He called water from the earth. The water ran to the fire. Green branches ran to the fire. But the fire did not stop. It ate the branches. It came to the Elder Tree.",
+                "ru": "\"Наш лес болен!\" — сказал Оберон. \"Сердце нашего леса больно!\" Он был зол и испуган. Его глаза были зелеными. Оберон взял свой посох. Он призвал воду из земли. Вода устремилась к огню. Зеленые ветви устремились к огню. Но огонь не останавливался. Он пожирал ветви. Он подбирался к Древу Старейшин.",
+                "chunkedEn": "[s: \"Our forest] [v: is sick!\"] [s: Oberon] [v: said.]\n[s: \"The heart of our forest] [v: is sick!\"]\n[s: He] [v: was angry and afraid.]\n[s: His eyes] [v: were green.]\n[s: Oberon] [v: took] [o: his staff.]\n[s: He] [v: called] [o: water] [pt: from the earth.]\n[s: The water] [v: ran] [pt: to the fire.]\n[s: Green branches] [v: ran] [pt: to the fire.]\n[c: But] [s: the fire] [v: did not stop.]\n[s: It] [v: ate] [o: the branches.]\n[s: It] [v: came] [pt: to the Elder Tree.]"
             },
             {
-                "en": "\"Fire is not evil, old tree man,\" Ignis panted, smoke rising from his robe. \"Fire is a hunger. It depends on who feeds it.\" Oberon looked at him with new respect.",
-                "ru": "\"Огонь — не зло, старый древесный человек,\" — тяжело дыша произнес Игнис, пока от его мантии шел дым. \"Огонь — это голод. Все зависит от того, кто его кормит.\" Оберон посмотрел на него с новым уважением."
+                "speaker": "ignis",
+                "en": "Oberon was on his knees on the hot ground. \"My magic cannot help,\" he said. \"Fire is bad. Fire takes life!\" Ignis looked at the Elder Tree. It was hot. But he did not go away. \"Fire is not bad,\" Ignis said. \"Fire is energy. Bad hands give it bad food. Look at me!\"",
+                "ru": "Оберон стоял на коленях на горячей земле. \"Моя магия не может помочь,\" — сказал он. \"Огонь — это зло. Огонь отнимает жизнь!\" Игнис посмотрел на Древо Старейшин. Было жарко. Но он не ушел. \"Огонь — не зло,\" — сказал Игнис. \"Огонь — это энергия. Злые руки дают ему плохую пищу. Посмотри на меня!\"",
+                "chunkedEn": "[s: Oberon] [v: was] [pt: on his knees] [pt: on the hot ground.]\n[s: \"My magic] [v: cannot help,\"] [s: he] [v: said.]\n[s: \"Fire] [v: is bad.]\n[s: Fire] [v: takes] [o: life!\"]\n[s: Ignis] [v: looked] [pt: at the Elder Tree.]\n[s: It] [v: was hot.]\n[c: But] [s: he] [v: did not go away.]\n[s: \"Fire] [v: is not bad,\"] [s: Ignis] [v: said.]\n[s: \"Fire] [v: is] [o: energy.]\n[s: Bad hands] [v: give] [o: it] [o: bad food.]\n[v: Look] [pt: at me!\"]"
+            },
+            {
+                "speaker": "ignis",
+                "en": "Ignis ran to the black fire. He did not use his fire on the trees. He stood on the ground. He had his staff in his hands. He said an old spell. His red crystal was bright. The black fire came to Ignis's staff. It left the roots. It went into the crystal. Ignis was hot. Sparks were around his face. His hands had pain. \"I will not lose this grove!\" he said.",
+                "ru": "Игнис побежал к черному огню. Он не стал направлять свой огонь на деревья. Он встал на землю. Он держал свой посох в руках. Он произнес древнее заклинание. Его красный кристалл ярко засиял. Черный огонь устремился к посоху Игниса. Он покинул корни. Он вошел в кристалл. Игнису было жарко. Искры летали вокруг его лица. В руках была боль. \"Я не потеряю эту рощу!\" — сказал он.",
+                "chunkedEn": "[s: Ignis] [v: ran] [pt: to the black fire.]\n[s: He] [v: did not use] [o: his fire] [pt: on the trees.]\n[s: He] [v: stood] [pt: on the ground.]\n[s: He] [v: had] [o: his staff] [pt: in his hands.]\n[s: He] [v: said] [o: an old spell.]\n[s: His red crystal] [v: was bright.]\n[s: The black fire] [v: came] [pt: to Ignis's staff.]\n[s: It] [v: left] [o: the roots.]\n[s: It] [v: went] [pt: into the crystal.]\n[s: Ignis] [v: was hot.]\n[s: Sparks] [v: were] [pt: around his face.]\n[s: His hands] [v: had] [o: pain.]\n[s: \"I] [v: will not lose] [o: this grove!\"] [s: he] [v: said.]"
+            },
+            {
+                "speaker": "oberon",
+                "en": "Oberon looked at Ignis. He saw a brave boy. Oberon got up fast. \"I will help you, boy!\" he said. He took his staff. Green leaves and cool water came to Ignis's legs and shoulders. They protected him from the fire.",
+                "ru": "Оберон посмотрел на Игниса. Он увидел храброго юношу. Оберон быстро поднялся. \"Я помогу тебе, парень!\" — сказал он. Он взял свой посох. Зеленые листья и прохладная вода укутали ноги и плечи Игниса. Они защищали его от огня.",
+                "chunkedEn": "[s: Oberon] [v: looked] [pt: at Ignis.]\n[s: He] [v: saw] [o: a brave boy.]\n[s: Oberon] [v: got up fast.]\n[s: \"I] [v: will help] [o: you,] [o: boy!\"] [s: he] [v: said.]\n[s: He] [v: took] [o: his staff.]\n[s: Green leaves and cool water] [v: came] [pt: to Ignis's legs and shoulders.]\n[s: They] [v: protected] [o: him] [pt: from the fire.]"
+            },
+            {
+                "speaker": "ignis",
+                "en": "Ignis took the last black fire into his crystal. The crystal was white and bright. It locked the dark fire. The air was cool and fresh again. Ignis was on one knee. He was weak. Oberon came to him. He took Ignis's shoulder with his hand. A green light healed Ignis's hands.",
+                "ru": "Игнис вобрал последний черный огонь в свой кристалл. Кристалл стал белым и ярким. Он запер темный огонь. Воздух снова стал прохладным и свежим. Игнис стоял на одном колене. Он был слаб. Оберон подошел к нему. Он положил руку на плечо Игниса. Зеленый свет исцелил руки Игниса.",
+                "chunkedEn": "[s: Ignis] [v: took] [o: the last black fire] [pt: into his crystal.]\n[s: The crystal] [v: was white and bright.]\n[s: It] [v: locked] [o: the dark fire.]\n[s: The air] [v: was cool and fresh] [adv: again.]\n[s: Ignis] [v: was] [pt: on one knee.]\n[s: He] [v: was weak.]\n[s: Oberon] [v: came] [pt: to him.]\n[s: He] [v: took] [o: Ignis's shoulder] [pt: with his hand.]\n[s: A green light] [v: healed] [o: Ignis's hands.]"
+            },
+            {
+                "speaker": "oberon",
+                "en": "Oberon smiled. \"Please, my friend,\" he said. \"I did not know your fire. Your fire is good. Today your fire helped my people and my home.\" Ignis also smiled. \"We did it,\" he said. \"We are a team. Now we go and find our friends.\"",
+                "ru": "Оберон улыбнулся. \"Прости, мой друг,\" — сказал он. \"Я не знал твоего огня. Твой огонь добрый. Сегодня твой огонь помог моему народу и моему дому.\" Игнис тоже улыбнулся. \"Мы сделали это,\" — сказал он. \"Мы команда. Теперь мы пойдем и найдем наших друзей.\"",
+                "chunkedEn": "[s: Oberon] [v: smiled.]\n[o: \"Please,] [o: my friend,\"] [s: he] [v: said.]\n[s: \"I] [v: did not know] [o: your fire.]\n[s: Your fire] [v: is good.]\n[pt: Today] [s: your fire] [v: helped] [o: my people and my home.\"]\n[s: Ignis] [adv: also] [v: smiled.]\n[s: \"We] [v: did] [o: it,\"] [s: he] [v: said.]\n[s: \"We] [v: are] [o: a team.]\n[adv: Now] [s: we] [v: go] [c: and] [v: find] [o: our friends.\"]"
             }
         ],
         "quiz": {
-            "question": "What did Ignis do with the cursed black fire in the grove?",
+            "question": "How did Ignis save the Sacred Grove from the cursed black fire?",
             "options": [
-                "He ran away from it",
-                "He absorbed it into his ruby staff",
-                "He blew water on it"
+                "By absorbing the dark flames into his ruby crystal staff",
+                "By cutting down the ancient Elder Tree with an axe",
+                "By running away to the mountain fortress"
             ],
-            "correctIndex": 1,
-            "rewardXp": 260
+            "correctIndex": 0,
+            "rewardXp": 500
         },
         "backgroundImg": "images/backgrounds/bg_enchanted_grove.jpg",
         "locationEn": "The Heart of the Sacred Grove",
