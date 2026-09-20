@@ -1770,31 +1770,63 @@ const STORY_CHAPTERS = [
         ],
         "paragraphs": [
             {
-                "en": "On the high balcony overlooking the dark valley, Valerius and Thorin watched the distant fires of the Ash Horde.",
-                "ru": "На высоком балконе с видом на темную долину Валериус и Торин наблюдали за далекими огнями Пепельной Орды."
+                "speaker": "valerius",
+                "en": "The night is cold. Valerius and Thorin stand on the top of the Astral Spire. They are near the stone wall. The wind is strong. Below them, the valley is dark. Valerius takes a cup of tea. He drinks it, and it is hot. Thorin eats bread and cheese. \"Do you want bread?\" Thorin asks. \"No, thank you,\" Valerius says. \"I am not hungry.\"",
+                "ru": "Ночь холодная. Валериус и Торин стоят на вершине Астрального Шпиля. Они возле каменной стены. Ветер сильный. Внизу под ними долина темна. Валериус берет чашку чая. Он пьет его, и он горячий. Торин ест хлеб и сыр. \"Хочешь хлеба?\" — спрашивает Торин. \"Нет, спасибо,\" — говорит Валериус. \"Я не голоден.\"",
+                "chunkedEn": "[s: The night] [v: is cold.]\n[s: Valerius and Thorin] [v: stand] [pt: on the top of the Astral Spire.]\n[s: They] [v: are] [pt: near the stone wall.]\n[s: The wind] [v: is strong.]\n[pt: Below them,] [s: the valley] [v: is dark.]\n[s: Valerius] [v: takes] [o: a cup of tea.]\n[s: He] [v: drinks] [o: it,] [c: and] [s: it] [v: is hot.]\n[s: Thorin] [v: eats] [o: bread and cheese.]\n[o: \"Do you want bread?\"] [s: Thorin] [v: asks.]\n[o: \"No, thank you,\"] [s: Valerius] [v: says.]\n[s: \"I] [v: am not] [o: hungry.\"]"
             },
             {
-                "en": "\"My shield is heavy, friend,\" Valerius said quietly. \"For ten years, I fought only for the orders of corrupt lords. I forgot what honor meant.\"",
-                "ru": "\"Мой щит тяжел, друг,\" — тихо сказал Валериус. \"Десять лет я сражался лишь по приказам продажных лордов. Я забыл, что значит честь.\""
+                "speaker": "thorin",
+                "en": "Far away, they see red fires in the hills. The Ash Horde comes. It has a thousand animals with fire and iron. Thorin looks at the fires. He is quiet. Valerius looks at his silver shield. The shield is old, and it has marks. He touches the cold steel with his hand.",
+                "ru": "Вдали они видят красные огни на холмах. Пепельная Орда приближается. У нее тысяча зверей с огнем и железом. Торин смотрит на огни. Он молчит. Валериус смотрит на свой серебряный щит. Щит старый, и на нем следы битв. Он касается холодной стали рукой.",
+                "chunkedEn": "[adv: Far away,] [s: they] [v: see] [o: red fires] [pt: in the hills.]\n[s: The Ash Horde] [v: comes.]\n[s: It] [v: has] [o: a thousand animals] [pt: with fire and iron.]\n[s: Thorin] [v: looks] [pt: at the fires.]\n[s: He] [v: is quiet.]\n[s: Valerius] [v: looks] [pt: at his silver shield.]\n[s: The shield] [v: is old,] [c: and] [s: it] [v: has] [o: marks.]\n[s: He] [v: touches] [o: the cold steel] [pt: with his hand.]"
             },
             {
-                "en": "Thorin struck the paladin's shoulder with his iron fist. \"Honor is not a title written on parchment, knight. Honor is standing between the monster and the weak.\"",
-                "ru": "Торин ударил паладина по плечу железным кулаком. \"Честь — это не титул на пергаменте, рыцарь. Честь — это стоять между чудовищем и слабыми.\""
+                "speaker": "valerius",
+                "en": "\"My shield is heavy this night, Thorin,\" Valerius says in a quiet voice. \"For ten years, I fought for bad kings in the Silver Citadel. I believed their words. I protected their gold. I forgot the truth about honor.\"",
+                "ru": "\"Мой щит тяжел этой ночью, Торин,\" — говорит Валериус тихим голосом. \"Десять лет я сражался за дурных королей в Серебряной Цитадели. Я верил их словам. Я защищал их золото. Я забыл правду о чести.\"",
+                "chunkedEn": "[s: \"My shield] [v: is heavy] [pt: this night, Thorin,\"] [s: Valerius] [v: says] [pt: in a quiet voice.]\n[pt: \"For ten years,] [s: I] [v: fought] [pt: for bad kings] [pt: in the Silver Citadel.]\n[s: I] [v: believed] [o: their words.]\n[s: I] [v: protected] [o: their gold.]\n[s: I] [v: forgot] [o: the truth] [pt: about honor.\"]"
             },
             {
-                "en": "Valerius smiled in the darkness. \"When the time comes, Thorin: you break their skulls, and I will take the hits.\"",
-                "ru": "Валериус улыбнулся во тьме. \"Когда придет время, Торин: ты сокрушаешь их черепа, а я принимаю удары.\""
+                "speaker": "thorin",
+                "en": "Thorin looks at the knight. His bronze armor is shining in the light of the stars. Thorin smiles and touches Valerius on the shoulder. \"Be happy, my friend!\" Thorin says. \"Honor is not gold. Honor is not paper. Honor is easy: you stand between the bad animals and the people. You protect people who have no sword.\"",
+                "ru": "Торин смотрит на рыцаря. Его бронзовая броня сияет в свете звезд. Торин улыбается и касается плеча Валериуса. \"Будь счастлив, мой друг!\" — говорит Торин. \"Честь — это не золото. Честь — это не бумага. Честь проста: ты стоишь между дурными зверями и народом. Ты защищаешь людей, у которых нет меча.\"",
+                "chunkedEn": "[s: Thorin] [v: looks] [pt: at the knight.]\n[s: His bronze armor] [v: is shining] [pt: in the light of the stars.]\n[s: Thorin] [v: smiles] [c: and] [v: touches] [o: Valerius] [pt: on the shoulder.]\n[v: \"Be happy,] [o: my friend!\"] [s: Thorin] [v: says.]\n[s: \"Honor] [v: is not] [o: gold.]\n[s: Honor] [v: is not] [o: paper.]\n[s: Honor] [v: is easy:] [s: you] [v: stand] [pt: between the bad animals and the people.]\n[s: You] [v: protect] [o: people] [s: who] [v: have] [o: no sword.\"]"
+            },
+            {
+                "speaker": "valerius",
+                "en": "Valerius looks at Thorin. He smiles. \"You have great wisdom, Thorin,\" Valerius says. \"In the Citadel, they said: smiths like stone and metal. They do not have a heart. But you have a big heart.\" Thorin smiles and drinks water. \"Thank you, knight,\" he says.",
+                "ru": "Валериус смотрит на Торина. Он улыбается. \"У тебя великая мудрость, Торин,\" — говорит Валериус. \"В Цитадели говорили: кузнецы любят камень и металл. У них нет сердца. Но у тебя большое сердце.\" Торин улыбается и пьет воду. \"Спасибо, рыцарь,\" — говорит он.",
+                "chunkedEn": "[s: Valerius] [v: looks] [pt: at Thorin.]\n[s: He] [v: smiles.]\n[s: \"You] [v: have] [o: great wisdom, Thorin,\"] [s: Valerius] [v: says.]\n[pt: \"In the Citadel,] [s: they] [v: said:] [s: smiths] [v: like] [o: stone and metal.]\n[s: They] [v: do not have] [o: a heart.]\n[c: But] [s: you] [v: have] [o: a big heart.\"]\n[s: Thorin] [v: smiles] [c: and] [v: drinks] [o: water.]\n[o: \"Thank you, knight,\"] [s: he] [v: says.]"
+            },
+            {
+                "speaker": "thorin",
+                "en": "Now two big black birds fly from the dark clouds above the Astral Spire. They have long feet and red eyes. Their mouths are iron. They come fast toward Thorin and Valerius! \"Look above!\" Thorin says. He takes his war hammer from his back. The hammer is bright with fire. \"Come, birds!\" he says. \"My hammer is hungry!\"",
+                "ru": "Вдруг две большие черные птицы вылетают из темных облаков над Астральным Шпилем. У них длинные лапы и красные глаза. Их клювы железные. Они стремительно приближаются к Торину и Валериусу! \"Смотри наверх!\" — кричит Торин. Он снимает боевой молот со спины. Молот пылает огнем. \"Летите сюда, птицы!\" — говорит он. \"Мой молот проголодался!\"",
+                "chunkedEn": "[adv: Now] [s: two big black birds] [v: fly] [pt: from the dark clouds] [pt: above the Astral Spire.]\n[s: They] [v: have] [o: long feet and red eyes.]\n[s: Their mouths] [v: are] [o: iron.]\n[s: They] [v: come] [adv: fast] [pt: toward Thorin and Valerius!]\n[v: \"Look] [adv: above!\"] [s: Thorin] [v: says.]\n[s: He] [v: takes] [o: his war hammer] [pt: from his back.]\n[s: The hammer] [v: is bright] [pt: with fire.]\n[v: \"Come,] [o: birds!\"] [s: he] [v: says.]\n[s: \"My hammer] [v: is hungry!\"]"
+            },
+            {
+                "speaker": "valerius",
+                "en": "Valerius runs forward. He takes his big silver shield. A white light comes from the shield. The first bird comes to the shield, but the light is bright, and the bird cannot see. It falls on the stone floor. \"Now, Thorin! Fight!\" Valerius says. Thorin jumps forward with a big voice. He breaks the first bird with his heavy hammer. Fire is everywhere! The second bird comes to Thorin's back. Valerius moves his shield, and the bird falls. Thorin also breaks the second bird.",
+                "ru": "Валериус бежит вперед. Он берет свой большой серебряный щит. Белый свет исходит от щита. Первая птица летит на щит, но свет яркий, и птица ничего не видит. Она падает на каменный пол. \"Сейчас, Торин! Бей!\" — кричит Валериус. Торин прыгает вперед с громким кличем. Он разбивает первую птицу своим тяжелым молотом. Огонь повсюду! Вторая птица нападает со спины Торина. Валериус двигает щит, и птица падает. Торин также разбивает вторую птицу.",
+                "chunkedEn": "[s: Valerius] [v: runs] [adv: forward.]\n[s: He] [v: takes] [o: his big silver shield.]\n[s: A white light] [v: comes] [pt: from the shield.]\n[s: The first bird] [v: comes] [pt: to the shield,] [c: but] [s: the light] [v: is bright,] [c: and] [s: the bird] [v: cannot see.]\n[s: It] [v: falls] [pt: on the stone floor.]\n[adv: \"Now,] [o: Thorin!] [v: Fight!\"] [s: Valerius] [v: says.]\n[s: Thorin] [v: jumps forward] [pt: with a big voice.]\n[s: He] [v: breaks] [o: the first bird] [pt: with his heavy hammer.]\n[s: Fire] [v: is] [adv: everywhere!]\n[s: The second bird] [v: comes] [pt: to Thorin's back.]\n[s: Valerius] [v: moves] [o: his shield,] [c: and] [s: the bird] [v: falls.]\n[s: Thorin] [adv: also] [v: breaks] [o: the second bird.]"
+            },
+            {
+                "speaker": "thorin",
+                "en": "Now it is quiet again. The wind is cold. Thorin smiles and rests his hammer on the floor. Valerius cleans his shield. They look at the valley. The red fires are far away. They wait for the morning. \"We are a good team, master Thorin,\" Valerius says. \"When the Ash Horde comes, you break their armor, and I protect you with my shield.\" Thorin takes his hand. \"Yes, knight!\" Thorin says. \"Shield and hammer! Nothing can break us!\"",
+                "ru": "Теперь снова тихо. Ветер холодный. Торин улыбается и опускает молот на пол. Валериус чистит свой щит. Они смотрят на долину. Красные огни далеко. Они ждут утра. \"Мы хорошая команда, мастер Торин,\" — говорит Валериус. \"Когда придет Пепельная Орда, ты разобьешь их броню, а я защищу тебя своим щитом.\" Торин пожимает его руку. \"Да, рыцарь!\" — говорит Торин. \"Щит и молот! Ничто не сломит нас!\"",
+                "chunkedEn": "[adv: Now] [s: it] [v: is quiet] [adv: again.]\n[s: The wind] [v: is cold.]\n[s: Thorin] [v: smiles] [c: and] [v: rests] [o: his hammer] [pt: on the floor.]\n[s: Valerius] [v: cleans] [o: his shield.]\n[s: They] [v: look] [pt: at the valley.]\n[s: The red fires] [v: are] [adv: far away.]\n[s: They] [v: wait] [pt: for the morning.]\n[s: \"We] [v: are] [o: a good team, master Thorin,\"] [s: Valerius] [v: says.]\n[c: \"When] [s: the Ash Horde] [v: comes,] [s: you] [v: break] [o: their armor,] [c: and] [s: I] [v: protect] [o: you] [pt: with my shield.\"]\n[s: Thorin] [v: takes] [o: his hand.]\n[o: \"Yes, knight!\"] [s: Thorin] [v: says.]\n[o: \"Shield and hammer!] [s: Nothing] [v: can break] [o: us!\"]"
             }
         ],
         "quiz": {
             "question": "What is Thorin's definition of honor?",
             "options": [
-                "Having a lot of gold",
-                "Standing between the monster and the weak",
-                "Obeying all kings"
+                "Standing between the bad animals and the people who have no sword",
+                "Having a lot of gold and paper",
+                "Sitting quietly in the Citadel"
             ],
-            "correctIndex": 1,
-            "rewardXp": 340
+            "correctIndex": 0,
+            "rewardXp": 477
         },
         "backgroundImg": "images/backgrounds/bg_sky_terrace.jpg",
         "locationEn": "Astral Peak High Balcony",
