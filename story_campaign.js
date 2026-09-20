@@ -2486,31 +2486,63 @@ const STORY_CHAPTERS = [
         ],
         "paragraphs": [
             {
-                "en": "At the Inner Gate of the Rift stood the Grand Inquisitor of the Shield Clan—the man who had ordered the exile of Valerius.",
-                "ru": "У Внутренних Врат Разлома стоял Великий Инквизитор Клана Щита — человек, отдавший приказ об изгнании Валериуса."
+                "speaker": "valerius",
+                "en": "The ten heroes walk on the black road. They walk and walk. Now they come to the Inner Gate of the Ash Rift. The big doors are made of black stone and red iron. Dark lights glow on the stone. They are red like blood. The ten heroes stop. In front of the doors, a tall man stands on a stone platform. He is in silver and black clothes. In his hand he has a key. The key glows. It can open the door of the Ash Titan.",
+                "ru": "Десять героев идут по черной дороге. Они идут и идут. Теперь они подходят к Внутренним Вратам Пепельного Разлома. Большие двери сделаны из черного камня и красного железа. Темные огни светятся на камне. Они красные, как кровь. Десять героев останавливаются. Перед дверями на каменной платформе стоит высокий человек. Он в серебряных и черных одеждах. В руке у него ключ. Ключ светится. Он может открыть дверь Пепельного Титана.",
+                "chunkedEn": "[s: The ten heroes] [v: walk] [pt: on the black road.]\n[s: They] [v: walk and walk.]\n[adv: Now] [s: they] [v: come] [pt: to the Inner Gate of the Ash Rift.]\n[s: The big doors] [v: are made] [pt: of black stone and red iron.]\n[s: Dark lights] [v: glow] [pt: on the stone.]\n[s: They] [v: are red] [pt: like blood.]\n[s: The ten heroes] [v: stop.]\n[pt: In front of the doors,] [s: a tall man] [v: stands] [pt: on a stone platform.]\n[s: He] [v: is] [pt: in silver and black clothes.]\n[pt: In his hand] [s: he] [v: has] [o: a key.]\n[s: The key] [v: glows.]\n[s: It] [v: can open] [o: the door of the Ash Titan.]"
             },
             {
-                "en": "He held the dark key to the Titan's cage. \"You are too late, outcasts! The dark lords offered me eternal life and supreme dominion over all three clans!\"",
-                "ru": "Он держал темный ключ от клетки Титана. \"Вы опоздали, изгои! Темные владыки предложили мне вечную жизнь и верховную власть над всеми тремя кланами!\""
+                "speaker": "valerius",
+                "en": "Valerius looks at the man. He is afraid and angry. He takes his silver sword. \"Malakor!\" Valerius says. \"You are the Grand Master of the Silver Citadel! You told the King that I was a bad man! You sent me far away. It was cold there!\"",
+                "ru": "Валериус смотрит на человека. Он напуган и разгневан. Он достает свой серебряный меч. \"Малакор!\" — говорит Валериус. \"Ты Великий Магистр Серебряной Цитадели! Ты сказал Королю, что я предатель! Ты изгнал меня далеко. Там было холодно!\"",
+                "chunkedEn": "[s: Valerius] [v: looks] [pt: at the man.]\n[s: He] [v: is afraid and angry.]\n[s: He] [v: takes] [o: his silver sword.]\n[o: \"Malakor!\"] [s: Valerius] [v: says.]\n[o: \"You] [v: are] [o: the Grand Master of the Silver Citadel!]\n[s: You] [v: told] [o: the King] [c: that] [s: I] [v: was] [o: a bad man!]\n[s: You] [v: sent] [o: me] [adv: far away.]\n[s: It] [v: was cold] [pt: there!\"]"
             },
             {
-                "en": "\"So you were the traitor in the prophecy,\" Valerius said with deep sorrow. \"Not one of our squad, but the corruption of our old leaders!\"",
-                "ru": "\"Значит, ты был тем предателем из пророчества,\" — с глубокой скорбью сказал Валериус. \"Не кто-то из нашего отряда, а гниль наших старых правителей!\""
+                "speaker": "valerius",
+                "en": "Malakor smiles. His eyes are like purple fire. \"Weak knight!\" Malakor says. \"You always cared for honor and duty, but honor is weak! The dark kings of the Ash Rift gave me a long life and power over all three realms. With this key I can open the door and wake up the Ash Titan. All kings are going to bow to me!\"",
+                "ru": "Малакор усмехается. Его глаза подобны фиолетовому огню. \"Слабый рыцарь!\" — говорит Малакор. \"Ты всегда заботился о чести и долге, но честь слаба! Темные короли Пепельного Разлома даровали мне долгую жизнь и власть над всеми тремя королевствами. Этим ключом я открою дверь и разбужу Пепельного Титана. Все короли склонятся передо мной!\"",
+                "chunkedEn": "[s: Malakor] [v: smiles.]\n[s: His eyes] [v: are] [pt: like purple fire.]\n[o: \"Weak knight!\"] [s: Malakor] [v: says.]\n[s: \"You] [adv: always] [v: cared] [pt: for honor and duty,]\n[c: but] [s: honor] [v: is weak!]\n[s: The dark kings of the Ash Rift] [v: gave] [o: me a long life and power] [pt: over all three realms.]\n[pt: With this key] [s: I] [v: can open] [o: the door] [c: and] [v: wake up] [o: the Ash Titan.]\n[s: All kings] [v: are going to bow] [pt: to me!\"]"
             },
             {
-                "en": "The squad stood united. Ten weapons gleamed with ten different colors of power. The Inquisitor's false confidence vanished.",
-                "ru": "Отряд стоял плечом к плечу. Десять видов оружия сияли десятью разными цветами силы. Ложная уверенность Инквизитора испарилась."
+                "speaker": "selene",
+                "en": "Selena looks at Malakor. She comes from the shadows. Her purple daggers shine with power. \"So it was you,\" Selena says in a cold voice. \"You took the plans of the realms. You sent the shadow animals to make us angry with each other. You wanted our people to fight, and you wanted to open the door of the Ash Titan!\"",
+                "ru": "Селена смотрит на Малакора. Она выходит из теней. Ее фиолетовые кинжалы сияют силой. \"Так это был ты,\" — говорит Селена холодным голосом. \"Ты украл планы королевств. Ты послал теневых тварей, чтобы стравить нас друг с другом. Ты хотел, чтобы наши народы воевали, пока ты откроешь дверь Пепельного Титана!\"",
+                "chunkedEn": "[s: Selena] [v: looks] [pt: at Malakor.]\n[s: She] [v: comes] [pt: from the shadows.]\n[s: Her purple daggers] [v: shine] [pt: with power.]\n[o: \"So it was you,\"] [s: Selena] [v: says] [pt: in a cold voice.]\n[s: \"You] [v: took] [o: the plans of the realms.]\n[s: You] [v: sent] [o: the shadow animals] [pt: to make us angry with each other.]\n[s: You] [v: wanted] [o: our people to fight,] [c: and] [s: you] [v: wanted to open] [o: the door of the Ash Titan!\"]"
+            },
+            {
+                "speaker": "selene",
+                "en": "Malakor smiles again. \"Yes, little Selena!\" he says. \"And your squad believed the old legend! You thought: 'One of my friends is bad!' You did not know who was good. But the bad thing came from your Silver Citadel!\"",
+                "ru": "Малакор снова улыбается. \"Да, маленькая Селена!\" — говорит он. \"И ваш отряд поверил в древнюю легенду! Вы думали: 'Один из моих друзей — предатель!' Вы не знали, кто на самом деле добр. Но зло пришло из вашей собственной Серебряной Цитадели!\"",
+                "chunkedEn": "[s: Malakor] [v: smiles] [adv: again.]\n[o: \"Yes, little Selena!\"] [s: he] [v: says.]\n[c: \"And] [s: your squad] [v: believed] [o: the old legend!]\n[s: You] [v: thought:] [o: 'One of my friends is bad!']\n[s: You] [v: did not know] [o: who was good.]\n[c: But] [s: the bad thing] [v: came] [pt: from your Silver Citadel!\"]"
+            },
+            {
+                "speaker": "valerius",
+                "en": "Valerius looks at his friends. He sees Thorin. Thorin has his big bronze hammer. He sees Selena, Freya, Frostina, Zephyr, Astraea, Ignis, Oberon, and Eldrin. They stand next to him. Valerius has peace and courage in his heart. \"The legend did not speak of our squad,\" Valerius says in a strong voice. \"It spoke of bad people in our old Citadel. But now we are one team!\"",
+                "ru": "Валериус смотрит на своих друзей. Он видит Торина. У Торина его большой бронзовый молот. Он видит Селену, Фрейю, Фростину, Зефира, Астрею, Игниса, Оберона и Эльдрина. Они стоят рядом с ним. В сердце Валериуса воцаряются мир и мужество. \"Легенда говорила не о нашем отряде,\" — твердым голосом произносит Валериус. \"Она говорила о порочных правителях нашей старой Цитадели. Но теперь мы — одна команда!\"",
+                "chunkedEn": "[s: Valerius] [v: looks] [pt: at his friends.]\n[s: He] [v: sees] [o: Thorin.]\n[s: Thorin] [v: has] [o: his big bronze hammer.]\n[s: He] [v: sees] [o: Selena, Freya, Frostina, Zephyr, Astraea, Ignis, Oberon, and Eldrin.]\n[s: They] [v: stand] [pt: next to him.]\n[s: Valerius] [v: has] [o: peace and courage] [pt: in his heart.]\n[s: \"The legend] [v: did not speak] [pt: of our squad,\"] [s: Valerius] [v: says] [pt: in a strong voice.]\n[s: \"It] [v: spoke] [pt: of bad people in our old Citadel.]\n[c: But] [adv: now] [s: we] [v: are] [o: one team!\"]"
+            },
+            {
+                "speaker": "thorin",
+                "en": "Thorin looks at Valerius and smiles. He takes his heavy hammer and his bronze shield. \"Good, knight!\" Thorin says in a big voice. \"We made a real team in the fire of battle! Your dark king is nothing. We are ten hearts, old bad man!\"",
+                "ru": "Торин смотрит на Валериуса и улыбается. Он берет свой тяжелый молот и бронзовый щит. \"Отлично сказано, рыцарь!\" — громогласно говорит Торин. \"Мы сковали настоящую команду в огне битвы! Твой темный владыка ничто. Мы — десять сердец, старый злодей!\"",
+                "chunkedEn": "[s: Thorin] [v: looks] [pt: at Valerius] [c: and] [v: smiles.]\n[s: He] [v: takes] [o: his heavy hammer and his bronze shield.]\n[o: \"Good, knight!\"] [s: Thorin] [v: says] [pt: in a big voice.]\n[s: \"We] [v: made] [o: a real team] [pt: in the fire of battle!]\n[s: Your dark king] [v: is] [o: nothing.]\n[s: We] [v: are] [o: ten hearts, old bad man!\"]"
+            },
+            {
+                "speaker": "valerius",
+                "en": "One by one, the ten heroes stand. Each hero takes a sword, a spear, a staff, or a hammer. Ten bright lights come. They are silver, gold, red, green, blue, and purple. The lights make the Ash Rift bright. The bright light is stronger than the purple dark. Malakor goes back to the iron door. He does not smile now. He is afraid. The battle for the three realms begins.",
+                "ru": "Один за другим встают десять героев. Каждый герой берет меч, копье, посох или молот. Десять ярких огней загораются в руках. Они серебряные, золотые, красные, зеленые, синие и фиолетовые. Огни озаряют Пепельный Разлом. Яркий свет сильнее фиолетовой тьмы. Малакор пятится к железной двери. Он больше не улыбается. Он напуган. Битва за три королевства начинается.",
+                "chunkedEn": "[adv: One by one,] [s: the ten heroes] [v: stand.]\n[s: Each hero] [v: takes] [o: a sword, a spear, a staff, or a hammer.]\n[s: Ten bright lights] [v: come.]\n[s: They] [v: are] [o: silver, gold, red, green, blue, and purple.]\n[s: The lights] [v: make] [o: the Ash Rift bright.]\n[s: The bright light] [v: is stronger] [pt: than the purple dark.]\n[s: Malakor] [v: goes back] [pt: to the iron door.]\n[s: He] [v: does not smile] [adv: now.]\n[s: He] [v: is afraid.]\n[s: The battle for the three realms] [v: begins.]"
             }
         ],
         "quiz": {
             "question": "Who was the real traitor mentioned in the ancient prophecy?",
             "options": [
-                "The corrupt Grand Inquisitor who made a deal with darkness",
-                "Selena",
-                "Thorin"
+                "Grand Master Malakor from the Silver Citadel who made a deal with darkness",
+                "Selena the shadow scout",
+                "Thorin the mountain smith"
             ],
             "correctIndex": 0,
-            "rewardXp": 450
+            "rewardXp": 479
         },
         "backgroundImg": "images/backgrounds/bg_dragon_volcano.jpg",
         "locationEn": "The Threshold of the Rift",
