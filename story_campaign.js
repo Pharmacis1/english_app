@@ -2090,31 +2090,63 @@ const STORY_CHAPTERS = [
         ],
         "paragraphs": [
             {
-                "en": "The ten outcasts marched into the Dead Desolation. The ground was black glass, and the air smelled of sulfur and dead magic.",
-                "ru": "Десять изгоев вступили в Мертвые Пустоши. Земля была черным стеклом, а воздух пах серой и мертвой магией."
+                "speaker": "valerius",
+                "en": "It is morning. The sun is behind black clouds. Ten heroes leave the Astral Spire. The Astral Spire is a peaceful home. Now the heroes go down to the Dead Desolation. There are no green trees here. The ground is black and grey. The air smells bad. There are no rivers, and there is no grass. The heroes look at the dark sky. They are brave, but the road is difficult.",
+                "ru": "Утро. Солнце скрыто за черными тучами. Десять героев покидают Астральный Шпиль. Астральный Шпиль — мирный дом. Теперь герои спускаются в Мертвые Пустоши. Здесь нет зеленых деревьев. Земля черная и серая. Воздух дурно пахнет. Здесь нет рек и нет травы. Герои смотрят на темное небо. Они храбры, но дорога трудна.",
+                "chunkedEn": "[s: It] [v: is] [pt: morning.]\n[s: The sun] [v: is] [pt: behind black clouds.]\n[s: Ten heroes] [v: leave] [o: the Astral Spire.]\n[s: The Astral Spire] [v: is] [o: a peaceful home.]\n[adv: Now] [s: the heroes] [v: go down] [pt: to the Dead Desolation.]\n[v: There are] [s: no green trees] [adv: here.]\n[s: The ground] [v: is] [o: black and grey.]\n[s: The air] [v: smells] [o: bad.]\n[v: There are] [s: no rivers,] [c: and] [v: there is] [s: no grass.]\n[s: The heroes] [v: look] [pt: at the dark sky.]\n[s: They] [v: are brave,] [c: but] [s: the road] [v: is difficult.]"
             },
             {
-                "en": "No water flowed, and no green grass grew here. Every step required willpower and courage.",
-                "ru": "Здесь не текла вода и не росла зеленая трава. Каждый шаг требовал силы воли и мужества."
+                "speaker": "valerius",
+                "en": "The stones are hard and big. The boots of the heroes are old. The wind is cold. Every walk is hard. The heroes need courage. Zephyr and Selena walk behind the heroes. They look at the sky. Valerius stands in front. His armor is silver, but it is grey now. His eyes shine. Valerius looks at the map. \"Go, friends!\" Valerius says. \"Never stop in the valley! The air is bad!\"",
+                "ru": "Камни твердые и большие. Сапоги героев старые. Ветер холодный. Каждый шаг дается тяжело. Героям нужно мужество. Зефир и Селена идут позади героев. Они смотрят на небо. Валериус стоит во главе. Его броня серебряная, но теперь она серая от пыли. Его глаза сияют. Валериус смотрит на карту. \"Вперед, друзья!\" — говорит Валериус. \"Никогда не останавливайтесь в долине! Воздух ядовит!\"",
+                "chunkedEn": "[s: The stones] [v: are] [o: hard and big.]\n[s: The boots of the heroes] [v: are old.]\n[s: The wind] [v: is cold.]\n[s: Every walk] [v: is hard.]\n[s: The heroes] [v: need] [o: courage.]\n[s: Zephyr and Selena] [v: walk] [pt: behind the heroes.]\n[s: They] [v: look] [pt: at the sky.]\n[s: Valerius] [v: stands] [pt: in front.]\n[s: His armor] [v: is silver,] [c: but] [s: it] [v: is] [o: grey] [adv: now.]\n[s: His eyes] [v: shine.]\n[s: Valerius] [v: looks] [pt: at the map.]\n[v: \"Go,] [o: friends!\"] [s: Valerius] [v: says.]\n[adv: \"Never] [v: stop] [pt: in the valley!]\n[s: The air] [v: is bad!\"]"
             },
             {
-                "en": "Oberon used his druid staff to purify tiny puddles of mud, while Ignis kept the team warm during the freezing nights.",
-                "ru": "Оберон использовал свой друидский посох, чтобы очищать крошечные лужицы грязи, а Игнис согревал команду морозными ночами."
+                "speaker": "thorin",
+                "en": "Thorin walks next to Valerius. He has a big heavy bag on his shoulders. Thorin smiles. \"This valley is bad!\" Thorin says. \"The stones are hard, and the ground wants my boots! But my legs are strong like stone. We can walk in this valley!\"",
+                "ru": "Торин идет рядом с Валериусом. У него на плечах большая тяжелая сумка. Торин улыбается. \"Эта долина ужасна!\" — говорит Торин. \"Камни твердые, и земля так и норовит содрать мои сапоги! Но мои ноги крепкие, как камень. Мы сможем пройти по этой долине!\"",
+                "chunkedEn": "[s: Thorin] [v: walks] [pt: next to Valerius.]\n[s: He] [v: has] [o: a big heavy bag] [pt: on his shoulders.]\n[s: Thorin] [v: smiles.]\n[s: \"This valley] [v: is bad!\"] [s: Thorin] [v: says.]\n[s: \"The stones] [v: are hard,] [c: and] [s: the ground] [v: wants] [o: my boots!]\n[c: But] [s: my legs] [v: are strong] [pt: like stone.]\n[s: We] [v: can walk] [pt: in this valley!\"]"
             },
             {
-                "en": "In the distance, the crimson maw of the Rift opened wide, pulsing like an evil burning heart.",
-                "ru": "Вдалеке зияло багровое жерло Разлома, пульсируя словно злое пылающее сердце."
+                "speaker": "oberon",
+                "en": "It is noon. The heroes stop near an old stone wall. The bottles are empty. They have no water. They are hungry and thirsty. Selena looks at the bottles. Zephyr looks at the bottles. Thorin looks between the rocks. He sees a small pond. The water in the pond is black and dirty. It is bad water.",
+                "ru": "Полдень. Герои останавливаются возле старой каменной стены. Фляги пусты. У них нет воды. Они голодны и хотят пить. Селена смотрит на фляги. Зефир смотрит на фляги. Торин смотрит между скал. Он видит небольшой пруд. Вода в пруду черная и грязная. Это плохая вода.",
+                "chunkedEn": "[s: It] [v: is] [pt: noon.]\n[s: The heroes] [v: stop] [pt: near an old stone wall.]\n[s: The bottles] [v: are empty.]\n[s: They] [v: have] [o: no water.]\n[s: They] [v: are] [o: hungry and thirsty.]\n[s: Selena] [v: looks] [pt: at the bottles.]\n[s: Zephyr] [v: looks] [pt: at the bottles.]\n[s: Thorin] [v: looks] [pt: between the rocks.]\n[s: He] [v: sees] [o: a small pond.]\n[s: The water in the pond] [v: is] [o: black and dirty.]\n[s: It] [v: is] [o: bad water.]"
+            },
+            {
+                "speaker": "oberon",
+                "en": "Oberon comes to the pond. He is old and kind. He has a wooden staff. Oberon touches the water with his staff. A soft green light comes from the staff. The heroes look at Oberon. \"Magic of the earth, make this water clean,\" Oberon says. The black water is gone! The water is clean and cold!",
+                "ru": "Оберон подходит к пруду. Он стар и добр. У него деревянный посох. Оберон касается воды своим посохом. Мягкий зеленый свет исходит от посоха. Герои смотрят на Оберона. \"Магия земли, сделай эту воду чистой,\" — говорит Оберон. Черная вода исчезла! Вода чистая и холодная!",
+                "chunkedEn": "[s: Oberon] [v: comes] [pt: to the pond.]\n[s: He] [v: is] [o: old and kind.]\n[s: He] [v: has] [o: a wooden staff.]\n[s: Oberon] [v: touches] [o: the water] [pt: with his staff.]\n[s: A soft green light] [v: comes] [pt: from the staff.]\n[s: The heroes] [v: look] [pt: at Oberon.]\n[s: \"Magic of the earth,] [v: make] [o: this water clean,\"] [s: Oberon] [v: says.]\n[s: The black water] [v: is gone!]\n[s: The water] [v: is] [o: clean and cold!]"
+            },
+            {
+                "speaker": "oberon",
+                "en": "\"Drink, my friends,\" Oberon says with a smile. \"The earth remembers life.\" The heroes drink the water. Thorin eats bread. Valerius drinks water. Oberon smiles. They rest. Selena and Zephyr stand on the big rocks. They look for scouts. They see no scouts.",
+                "ru": "\"Пейте, друзья мои,\" — говорит Оберон с улыбкой. \"Земля помнит жизнь.\" Герои пьют воду. Торин ест хлеб. Валериус пьет воду. Оберон улыбается. Они отдыхают. Селена и Зефир стоят на больших скалах. Они высматривают разведчиков врага. Они не видят разведчиков.",
+                "chunkedEn": "[v: \"Drink,] [o: my friends,\"] [s: Oberon] [v: says] [pt: with a smile.]\n[s: \"The earth] [v: remembers] [o: life.\"]\n[s: The heroes] [v: drink] [o: the water.]\n[s: Thorin] [v: eats] [o: bread.]\n[s: Valerius] [v: drinks] [o: water.]\n[s: Oberon] [v: smiles.]\n[s: They] [v: rest.]\n[s: Selena and Zephyr] [v: stand] [pt: on the big rocks.]\n[s: They] [v: look] [pt: for scouts.]\n[s: They] [v: see] [o: no scouts.]"
+            },
+            {
+                "speaker": "ignis",
+                "en": "Night falls. The wind is cold, and the temperature is below zero. The heroes go into a black cave. Selena takes a blanket. Thorin takes a blanket. Ignis stands in the center. Ignis is young. He has fire in his hands. The fire is red and warm. The heroes stand near Ignis. The heroes eat food near the fire. Now they are warm, and bad things are far away.",
+                "ru": "Наступает ночь. Ветер холодный, а температура ниже нуля. Герои укрываются в черной пещере. Селена берет одеяло. Торин берет одеяло. Игнис стоит в центре. Игнис молод. У него огонь в руках. Огонь красный и теплый. Герои стоят рядом с Игнисом. Герои едят пищу возле огня. Теперь они согреты, и беды далеко.",
+                "chunkedEn": "[s: Night] [v: falls.]\n[s: The wind] [v: is cold,] [c: and] [s: the temperature] [v: is] [pt: below zero.]\n[s: The heroes] [v: go] [pt: into a black cave.]\n[s: Selena] [v: takes] [o: a blanket.]\n[s: Thorin] [v: takes] [o: a blanket.]\n[s: Ignis] [v: stands] [pt: in the center.]\n[s: Ignis] [v: is young.]\n[s: He] [v: has] [o: fire] [pt: in his hands.]\n[s: The fire] [v: is] [o: red and warm.]\n[s: The heroes] [v: stand] [pt: near Ignis.]\n[s: The heroes] [v: eat] [o: food] [pt: near the fire.]\n[adv: Now] [s: they] [v: are warm,] [c: and] [s: bad things] [v: are] [adv: far away.]"
+            },
+            {
+                "speaker": "valerius",
+                "en": "Valerius stands at the mouth of the cave. He looks far across the valley. The sky is red. He sees the Ash Rift. The Ash Rift is big, like a fire in the earth. Purple thunder dances above the Ash Rift. \"The Ash Rift is near,\" Valerius says. Valerius asks, \"Are you ready?\" The heroes say, \"Yes!\" Thorin takes his war hammer. \"Tomorrow, we finish this war,\" Thorin says. Ignis smiles. Selena looks at the sky. The heroes sleep near the fire.",
+                "ru": "Валериус стоит у входа в пещеру. Он смотрит далеко через долину. Небо красное. Он видит Пепельный Разлом. Пепельный Разлом огромен, как огонь в недрах земли. Фиолетовый гром пляшет над Пепельным Разломом. \"Пепельный Разлом близко,\" — говорит Валериус. Валериус спрашивает: \"Вы готовы?\" Герои отвечают: \"Да!\" Торин берет свой боевой молот. \"Завтра мы закончим эту войну,\" — говорит Торин. Игнис улыбается. Селена смотрит на небо. Герои спят возле костра.",
+                "chunkedEn": "[s: Valerius] [v: stands] [pt: at the mouth of the cave.]\n[s: He] [v: looks] [adv: far] [pt: across the valley.]\n[s: The sky] [v: is red.]\n[s: He] [v: sees] [o: the Ash Rift.]\n[s: The Ash Rift] [v: is big,] [pt: like a fire] [pt: in the earth.]\n[s: Purple thunder] [v: dances] [pt: above the Ash Rift.]\n[s: \"The Ash Rift] [v: is] [adv: near,\"] [s: Valerius] [v: says.]\n[s: Valerius] [v: asks,] [o: \"Are you ready?\"]\n[s: The heroes] [v: say,] [o: \"Yes!\"]\n[s: Thorin] [v: takes] [o: his war hammer.]\n[adv: \"Tomorrow,] [s: we] [v: finish] [o: this war,\"] [s: Thorin] [v: says.]\n[s: Ignis] [v: smiles.]\n[s: Selena] [v: looks] [pt: at the sky.]\n[s: The heroes] [v: sleep] [pt: near the fire.]"
             }
         ],
         "quiz": {
-            "question": "How did the heroes survive the freezing nights in the Desolation?",
+            "question": "How did the heroes survive the freezing night in the cave?",
             "options": [
-                "Ignis used his fire magic to keep them warm",
-                "They slept in a castle",
-                "They flew away"
+                "Ignis used his warm red fire to keep the heroes warm",
+                "They stayed in a warm stone castle with beds",
+                "They drank cold water from the black pond"
             ],
             "correctIndex": 0,
-            "rewardXp": 390
+            "rewardXp": 494
         },
         "backgroundImg": "images/backgrounds/bg_dragon_volcano.jpg",
         "locationEn": "The Dead Desolation",
