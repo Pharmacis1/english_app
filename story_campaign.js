@@ -2248,20 +2248,52 @@ const STORY_CHAPTERS = [
         ],
         "paragraphs": [
             {
-                "en": "As tension threatened to tear the squad apart, a dark phantom woman appeared on a nearby cliff: The Ash Queen's illusion.",
-                "ru": "Когда напряжение едва не разорвало отряд на части, темный фантом женщины возник на соседнем утесе: иллюзия Пепельной Королевы."
+                "speaker": "frostina",
+                "en": "The night in the Ashen Camp is dark and quiet. The wind is cold. It goes across the black stones. Nobody can sleep. Selena is in a dark corner of the cave. She has her silver daggers in her hands. She looks at the daggers. She is afraid. Valerius stands near the door of the cave. His head is down. His hand is on his sword. He looks at the ground.",
+                "ru": "Ночь в Пепельном Лагере темная и тихая. Ветер холодный. Он гуляет среди черных камней. Никто не может уснуть. Селена сидит в темном углу пещеры. У нее в руках серебряные кинжалы. Она смотрит на кинжалы. Она подавлена. Валериус стоит у входа в пещеру. Его голова опущена. Его рука на мече. Он смотрит в землю.",
+                "chunkedEn": "[s: The night in the Ashen Camp] [v: is] [o: dark and quiet.]\n[s: The wind] [v: is cold.]\n[s: It] [v: goes] [pt: across the black stones.]\n[s: Nobody] [v: can sleep.]\n[s: Selena] [v: is] [pt: in a dark corner of the cave.]\n[s: She] [v: has] [o: her silver daggers] [pt: in her hands.]\n[s: She] [v: looks] [pt: at the daggers.]\n[s: She] [v: is afraid.]\n[s: Valerius] [v: stands] [pt: near the door of the cave.]\n[s: His head] [v: is] [adv: down.]\n[s: His hand] [v: is] [pt: on his sword.]\n[s: He] [v: looks] [pt: at the ground.]"
             },
             {
-                "en": "\"Look how easily you turn on each other,\" the Queen laughed mockingly. \"I slipped the amulet into her bag with a simple shadow imp!\"",
-                "ru": "\"Посмотрите, как легко вы бросаетесь друг на друга,\" — насмешливо рассмеялась Королева. \"Я подбросила амулет в ее сумку обычным теневым бесом!\""
+                "speaker": "frostina",
+                "en": "Now a big voice comes from the hill above the cave. The black rocks have purple fire on them. A woman is on the mountain. Her eyes are red. They are glowing with bad magic. It is the Ash Queen! It is magic. She is not a real woman! \"Look at the strong heroes of light!\" the Ash Queen says. Her voice is cold. \"You are weak! Now you have swords in your hands and you fight each other! A small shadow took the magic ring. It made the ring go into the backpack of that girl!\"",
+                "ru": "Вдруг громкий голос раздается с холма над пещерой. Черные скалы объяты фиолетовым огнем. Женщина стоит на горе. Ее глаза красные. Они светятся зловещей магией. Это Пепельная Королева! Это морок. Она не настоящая женщина! \"Посмотрите на могучих героев света!\" — говорит Пепельная Королева. Ее голос холоден. \"Вы слабы! Теперь у вас мечи в руках, и вы воюете друг с другом! Маленькая тень украла реликвию. Она подбросила ее в рюкзак той девчонки!\"",
+                "chunkedEn": "[adv: Now] [s: a big voice] [v: comes] [pt: from the hill] [pt: above the cave.]\n[s: The black rocks] [v: have] [o: purple fire] [pt: on them.]\n[s: A woman] [v: is] [pt: on the mountain.]\n[s: Her eyes] [v: are red.]\n[s: They] [v: are glowing] [pt: with bad magic.]\n[s: It] [v: is] [o: the Ash Queen!]\n[s: It] [v: is] [o: magic.]\n[s: She] [v: is not] [o: a real woman!]\n[v: \"Look] [pt: at the strong heroes of light!\"] [s: the Ash Queen] [v: says.]\n[s: Her voice] [v: is cold.]\n[s: \"You] [v: are weak!]\n[adv: Now] [s: you] [v: have] [o: swords] [pt: in your hands] [c: and] [s: you] [v: fight] [o: each other!]\n[s: A small shadow] [v: took] [o: the magic ring.]\n[s: It] [v: made] [o: the ring] [v: go] [pt: into the backpack of that girl!\"]"
             },
             {
-                "en": "Ignis launched a colossal comet of fire, while Frostina froze the cliff with glacial spears, banishing the phantom.",
-                "ru": "Игнис запустил колоссальную огненную комету, а Фростина заморозила утес ледяными копьями, рассеивая фантом."
+                "speaker": "ignis",
+                "en": "The heroes run out of the cave. Valerius looks at the woman with big eyes. His face is red. He is afraid. Selena looks at the ground. \"It is easy to make you fight!\" the Queen says. \"You will break your family. My master Morgath will have this realm!\"",
+                "ru": "Герои выбегают из пещеры. Валериус смотрит на женщину расширенными глазами. Его лицо покраснело. Он потрясен. Селена смотрит в землю. \"Как легко заставить вас драться!\" — говорит Королева. \"Вы сами разрушите вашу семью. Мой повелитель Моргат завладеет этим миром!\"",
+                "chunkedEn": "[s: The heroes] [v: run out] [pt: of the cave.]\n[s: Valerius] [v: looks] [pt: at the woman] [pt: with big eyes.]\n[s: His face] [v: is red.]\n[s: He] [v: is afraid.]\n[s: Selena] [v: looks] [pt: at the ground.]\n[s: \"It] [v: is easy to make] [o: you] [v: fight!\"] [s: the Queen] [v: says.]\n[s: \"You] [v: will break] [o: your family.]\n[s: My master Morgath] [v: will have] [o: this realm!\"]"
             },
             {
-                "en": "Valerius sheathed his sword and bowed to Selena: \"I was wrong. Forgive me, sister of shadow.\" Selena nodded quietly.",
-                "ru": "Валериус убрал меч в ножны и поклонился Селене: \"Я был неправ. Прости меня, сестра теней.\" Селена тихо кивнула."
+                "speaker": "ignis",
+                "en": "Ignis goes to the front. His eyes have orange fire. He is angry. \"You cannot break our family, bad queen!\" says the young wizard. Ignis shows his hands to the sky. A big red ball of fire comes from his hands. It flies to the mountain!",
+                "ru": "Игнис выходит вперед. В его глазах горит оранжевый огонь. Он в гневе. \"Тебе не разрушить нашу семью, злая королева!\" — говорит юный маг. Игнис вздымает руки к небу. Огромный огненный шар вырывается из его рук. Он летит к горе!",
+                "chunkedEn": "[s: Ignis] [v: goes] [pt: to the front.]\n[s: His eyes] [v: have] [o: orange fire.]\n[s: He] [v: is angry.]\n[s: \"You] [v: cannot break] [o: our family, bad queen!\"] [v: says] [s: the young wizard.]\n[s: Ignis] [v: shows] [o: his hands] [pt: to the sky.]\n[s: A big red ball of fire] [v: comes] [pt: from his hands.]\n[s: It] [v: flies] [pt: to the mountain!]"
+            },
+            {
+                "speaker": "frostina",
+                "en": "At the same time, Frostina takes her crystal staff. \"Cold of the old stars, break the dark!\" she says. Big blue spears of ice go to the sky with the fire. Fire and ice go to the woman at the same time. The magic breaks! The mountain breaks into small stones. The bad voice of the Queen goes away in the night wind.",
+                "ru": "В тот же миг Фростина берет свой хрустальный посох. \"Мороз древних звезд, сокруши тьму!\" — говорит она. Огромные синие копья льда устремляются в небо вместе с огнем. Огонь и лед поражают женщину одновременно. Магия рассеивается! Гора раскалывается на мелкие камни. Зловещий голос Королевы уносится прочь в ночном ветре.",
+                "chunkedEn": "[pt: At the same time,] [s: Frostina] [v: takes] [o: her crystal staff.]\n[s: \"Cold of the old stars,] [v: break] [o: the dark!\"] [s: she] [v: says.]\n[s: Big blue spears of ice] [v: go] [pt: to the sky] [pt: with the fire.]\n[s: Fire and ice] [v: go] [pt: to the woman] [pt: at the same time.]\n[s: The magic] [v: breaks!]\n[s: The mountain] [v: breaks] [pt: into small stones.]\n[s: The bad voice of the Queen] [v: goes away] [pt: in the night wind.]"
+            },
+            {
+                "speaker": "valerius",
+                "en": "It is quiet again on the black hills. The ten heroes stand on the sand. They are a team. Nobody says a word. Thorin looks at Valerius. Frostina looks at Selena. Ignis looks at the ground. Valerius goes to Selena. He is on one knee on the cold ground. His head is down. \"Selena... please,\" Valerius says in a quiet voice. \"I was afraid. The old legend was in my heart. You fought for us. You gave blood for us. I was bad to you. You are my sister.\"",
+                "ru": "На черных холмах снова тихо. Десять героев стоят на песке. Они — команда. Никто не произносит ни слова. Торин смотрит на Валериуса. Фростина смотрит на Селену. Игнис смотрит в землю. Валериус подходит к Селене. Он опускается на одно колено на холодную землю. Его голова опущена. \"Селена... пожалуйста, прости,\" — тихо говорит Валериус. \"Я поддался страху. Древняя легенда ослепила мое сердце. Ты сражалась за нас. Ты проливала за нас кровь. Я поступил дурно с тобой. Ты моя сестра.\"",
+                "chunkedEn": "[s: It] [v: is quiet] [adv: again] [pt: on the black hills.]\n[s: The ten heroes] [v: stand] [pt: on the sand.]\n[s: They] [v: are] [o: a team.]\n[s: Nobody] [v: says] [o: a word.]\n[s: Thorin] [v: looks] [pt: at Valerius.]\n[s: Frostina] [v: looks] [pt: at Selena.]\n[s: Ignis] [v: looks] [pt: at the ground.]\n[s: Valerius] [v: goes] [pt: to Selena.]\n[s: He] [v: is] [pt: on one knee] [pt: on the cold ground.]\n[s: His head] [v: is] [adv: down.]\n[o: \"Selena... please,\"] [s: Valerius] [v: says] [pt: in a quiet voice.]\n[s: \"I] [v: was afraid.]\n[s: The old legend] [v: was] [pt: in my heart.]\n[s: You] [v: fought] [pt: for us.]\n[s: You] [v: gave] [o: blood] [pt: for us.]\n[s: I] [v: was bad] [pt: to you.]\n[s: You] [v: are] [o: my sister.\"]"
+            },
+            {
+                "speaker": "selene",
+                "en": "Selena goes to Valerius. She gives him her hand. She helps the knight get up. Her purple eyes are soft and warm. \"Get up, Valerius,\" Selena says in a soft voice. \"The shadow wanted us to fight. But love is stronger than dark magic. We are family.\"",
+                "ru": "Селена подходит к Валериусу. Она подает ему руку. Она помогает рыцарю подняться. Ее фиолетовые глаза мягкие и теплые. \"Встань, Валериус,\" — говорит Селена мягким голосом. \"Тьма хотела, чтобы мы враждовали. Но любовь сильнее темной магии. Мы — семья.\"",
+                "chunkedEn": "[s: Selena] [v: goes] [pt: to Valerius.]\n[s: She] [v: gives] [o: him] [o: her hand.]\n[s: She] [v: helps] [o: the knight] [v: get up.]\n[s: Her purple eyes] [v: are] [o: soft and warm.]\n[v: \"Get up,] [o: Valerius,\"] [s: Selena] [v: says] [pt: in a soft voice.]\n[s: \"The shadow] [v: wanted] [o: us] [v: to fight.]\n[c: But] [s: love] [v: is stronger] [pt: than dark magic.]\n[s: We] [v: are] [o: family.\"]"
+            },
+            {
+                "speaker": "thorin",
+                "en": "Valerius smiles. Selena smiles also. Ignis and Frostina come to them. Thorin touches Valerius and Selena on the shoulder. He has a big smile. \"Now we are ten warriors with one heart!\" he says. \"The Ash Rift is waiting for us!\"",
+                "ru": "Валериус улыбается. Селена тоже улыбается. Игнис и Фростина подходят к ним. Торин хлопает Валериуса и Селену по плечам. На его лице широкая улыбка. \"Теперь мы — десять воинов с единым сердцем!\" — говорит он. \"Пепельный Разлом ждет нас!\"",
+                "chunkedEn": "[s: Valerius] [v: smiles.]\n[s: Selena] [v: smiles] [adv: also.]\n[s: Ignis and Frostina] [v: come] [pt: to them.]\n[s: Thorin] [v: touches] [o: Valerius and Selena] [pt: on the shoulder.]\n[s: He] [v: has] [o: a big smile.]\n[adv: \"Now] [s: we] [v: are] [o: ten warriors] [pt: with one heart!\"] [s: he] [v: says.]\n[s: \"The Ash Rift] [v: is waiting] [pt: for us!\"]"
             }
         ],
         "quiz": {
@@ -2272,7 +2304,7 @@ const STORY_CHAPTERS = [
                 "Zephyr by mistake"
             ],
             "correctIndex": 0,
-            "rewardXp": 410
+            "rewardXp": 503
         },
         "backgroundImg": "images/backgrounds/bg_dragon_volcano.jpg",
         "locationEn": "The Shadow Cliffs",
