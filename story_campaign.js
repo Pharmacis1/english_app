@@ -2008,31 +2008,63 @@ const STORY_CHAPTERS = [
         ],
         "paragraphs": [
             {
-                "en": "Eldrin stood in the center of the Astral Circle. He held the ancient stone tablet of the Seven Winds.",
-                "ru": "Эльдрин стоял в центре Астрального Круга. Он держал древнюю каменную скрижаль Семи Ветров."
+                "speaker": "eldrin",
+                "en": "Night is at the Astral Spire. In the Astral Circle of Winds, blue and gold lights are on the stone floor. Ten heroes stand in a group in the hall. Archmage Eldrin is in the center. He has an old grey stone in his hands. Red words are on the stone. They are bright and glowing. The hall is quiet. The heroes hear the cold wind outside the tall crystal windows. Eldrin has his staff. He looks at each hero. The heroes look at Eldrin.",
+                "ru": "Ночь в Астральном Шпиле. В Астральном Круге Ветров синие и золотые огни горят на каменном полу. Десять героев стоят группой в зале. Архимаг Эльдрин находится в центре. В руках у него старый серый камень. Красные слова начертаны на камне. Они яркие и светящиеся. В зале тихо. Герои слышат холодный ветер за высокими хрустальными окнами. У Эльдрина в руке посох. Он смотрит на каждого героя. Герои смотрят на Эльдрина.",
+                "chunkedEn": "[s: Night] [v: is] [pt: at the Astral Spire.]\n[pt: In the Astral Circle of Winds,] [s: blue and gold lights] [v: are] [pt: on the stone floor.]\n[s: Ten heroes] [v: stand] [pt: in a group] [pt: in the hall.]\n[s: Archmage Eldrin] [v: is] [pt: in the center.]\n[s: He] [v: has] [o: an old grey stone] [pt: in his hands.]\n[s: Red words] [v: are] [pt: on the stone.]\n[s: They] [v: are] [o: bright and glowing.]\n[s: The hall] [v: is quiet.]\n[s: The heroes] [v: hear] [o: the cold wind] [pt: outside the tall crystal windows.]\n[s: Eldrin] [v: has] [o: his staff.]\n[s: He] [v: looks] [pt: at each hero.]\n[s: The heroes] [v: look] [pt: at Eldrin.]"
             },
             {
-                "en": "\"Hear the words written in blood,\" Eldrin announced. \"'Ten shadows shall gather at the Rift. One will betray the pack, one will hold the sky, and only the nameless flame will burn the dark.'\"",
-                "ru": "\"Услышьте слова, начертанные кровью,\" — возвестил Эльдрин. \"'Десять теней соберутся у Разлома. Один предаст стаю, один удержит небеса, и только безымянное пламя сожжет тьму.'\""
+                "speaker": "eldrin",
+                "en": "\"My brave friends,\" Eldrin says. \"Tomorrow we go to the Ash Valley. Now you need to hear the old truth. This stone is a thousand years old. It is from the First Star War. It speaks about this night and about our ten companions.\" Eldrin touches the stone with his glowing fingers. The red words are bright like fire. \"Hear the words,\" he says. \"They are from the stars.\"",
+                "ru": "\"Мои храбрые друзья,\" — говорит Эльдрин. \"Завтра мы идем в Пепельную Долину. Сейчас вам нужно услышать древнюю правду. Этому камню тысяча лет. Он времен Первой Звездной Войны. Он говорит об этой ночи и о наших десяти соратниках.\" Эльдрин касается камня своими светящимися пальцами. Красные слова горят ярко, как огонь. \"Услышьте эти слова,\" — говорит он. \"Они от звезд.\"",
+                "chunkedEn": "[o: \"My brave friends,\"] [s: Eldrin] [v: says.]\n[adv: \"Tomorrow] [s: we] [v: go] [pt: to the Ash Valley.]\n[adv: Now] [s: you] [v: need to hear] [o: the old truth.]\n[s: This stone] [v: is] [o: a thousand years old.]\n[s: It] [v: is] [pt: from the First Star War.]\n[s: It] [v: speaks] [pt: about this night] [c: and] [pt: about our ten companions.\"]\n[s: Eldrin] [v: touches] [o: the stone] [pt: with his glowing fingers.]\n[s: The red words] [v: are bright] [pt: like fire.]\n[v: \"Hear] [o: the words,\"] [s: he] [v: says.]\n[s: \"They] [v: are] [pt: from the stars.\"]"
             },
             {
-                "en": "A cold silence fell over the room. The heroes looked at each other. \"One will betray the pack?\" Valerius repeated in a low voice.",
-                "ru": "Холодная тишина воцарилась в зале. Герои переглянулись. \"Один предаст стаю?\" — глухим голосом повторил Валериус."
+                "speaker": "eldrin",
+                "en": "\"Ten shadows are going to come to the dark Rift. One is not going to be true to the group. One is going to stand under the falling sky. The flame with no name is going to bring light to the dark forever.\"",
+                "ru": "\"Десять теней придут к темному Разлому. Один не сохранит верность группе. Один встанет под падающим небом. Пламя без имени навсегда принесет свет во тьму.\"",
+                "chunkedEn": "[s: \"Ten shadows] [v: are going to come] [pt: to the dark Rift.]\n[s: One] [v: is not going to be] [o: true] [pt: to the group.]\n[s: One] [v: is going to stand] [pt: under the falling sky.]\n[s: The flame with no name] [v: is going to bring] [o: light] [pt: to the dark] [adv: forever.\"]"
             },
             {
-                "en": "\"Do not let fear divide you,\" Astraea said, holding her glowing cross high. \"A prophecy is a warning, not a destiny. We choose our own path.\"",
-                "ru": "\"Не позволяйте страху разобщить вас,\" — сказала Астрея, высоко подняв светящийся крест. \"Пророчество — это предупреждение, а не приговор. Мы сами выбираем свой путь.\""
+                "speaker": "valerius",
+                "en": "The hall is cold and quiet. The heroes look at each other. They are afraid. Their eyes are big. Valerius goes to the front. His hand is on his sword. \"One is going to be a bad friend?\" Valerius asks. \"We fought in the same battles. We ate bread by the fire. We helped each other with the wild animals. Who among us is going to break our duty?\"",
+                "ru": "В зале холодно и тихо. Герои смотрят друг на друга. Они напуганы. Их глаза расширены. Валериус выходит вперед. Его рука на мече. \"Один станет предателем?\" — спрашивает Валериус. \"Мы сражались в одних битвах. Мы делили хлеб у костра. Мы выручали друг друга в схватках с дикими зверями. Кто из нас нарушит наш долг?\"",
+                "chunkedEn": "[s: The hall] [v: is cold and quiet.]\n[s: The heroes] [v: look] [pt: at each other.]\n[s: They] [v: are afraid.]\n[s: Their eyes] [v: are big.]\n[s: Valerius] [v: goes] [pt: to the front.]\n[s: His hand] [v: is] [pt: on his sword.]\n[s: \"One] [v: is going to be] [o: a bad friend?\"] [s: Valerius] [v: asks.]\n[s: \"We] [v: fought] [pt: in the same battles.]\n[s: We] [v: ate] [o: bread] [pt: by the fire.]\n[s: We] [v: helped] [o: each other] [pt: with the wild animals.]\n[w: Who] [pt: among us] [v: is going to break] [o: our duty?\"]"
+            },
+            {
+                "speaker": "valerius",
+                "en": "Thorin has his hammer in his hand. Ignis looks at his hot hands. He does not know. Selena goes back to the wall. Her purple eyes look at the floor. Every hero is afraid now.",
+                "ru": "У Торина в руке молот. Игнис смотрит на свои пылающие руки. Он в замешательстве. Селена отступает к стене. Ее фиолетовые глаза смотрят в пол. Теперь каждый герой испытывает страх.",
+                "chunkedEn": "[s: Thorin] [v: has] [o: his hammer] [pt: in his hand.]\n[s: Ignis] [v: looks] [pt: at his hot hands.]\n[s: He] [v: does not know.]\n[s: Selena] [v: goes back] [pt: to the wall.]\n[s: Her purple eyes] [v: look] [pt: at the floor.]\n[s: Every hero] [v: is afraid] [adv: now.]"
+            },
+            {
+                "speaker": "astraea",
+                "en": "At this moment, Astraea goes to the center of the hall. Her white clothes are warm and bright. She has her silver star bowl in her hand. She shows the bowl to the heroes. Gold light comes from the bowl. The light is in every corner of the hall. The heroes are not cold now.",
+                "ru": "В этот миг Астрея выходит в центр зала. Ее белые одежды теплые и сияющие. В руке у нее серебряная чаша звезд. Она показывает чашу героям. Золотой свет исходит из чаши. Свет заполняет каждый уголок зала. Героям больше не холодно.",
+                "chunkedEn": "[pt: At this moment,] [s: Astraea] [v: goes] [pt: to the center of the hall.]\n[s: Her white clothes] [v: are warm and bright.]\n[s: She] [v: has] [o: her silver star bowl] [pt: in her hand.]\n[s: She] [v: shows] [o: the bowl] [pt: to the heroes.]\n[s: Gold light] [v: comes] [pt: from the bowl.]\n[s: The light] [v: is] [pt: in every corner of the hall.]\n[s: The heroes] [v: are not] [o: cold] [adv: now.]"
+            },
+            {
+                "speaker": "astraea",
+                "en": "\"Do not be afraid, my friends!\" Astraea says. \"The Shadow God is happy when we are afraid. These words show a possible future. They are not our life. We are not in the stone. We choose our path every day. We choose it with our actions and our love.\" Valerius looks at Astraea's light. He is quiet. Now he smiles a little. \"Astraea speaks the truth,\" he says. \"We are friends. We are true to each other.\"",
+                "ru": "\"Не бойтесь, друзья мои!\" — говорит Астрея. \"Бог Теней радуется, когда мы боимся. Эти слова показывают лишь возможное будущее. Они не определяют нашу жизнь. Мы не высечены в камне. Мы выбираем свой путь каждый день. Мы выбираем его своими поступками и нашей любовью.\" Валериус смотрит на свет Астреи. Он молчит. Теперь он слегка улыбается. \"Астрея говорит правду,\" — говорит он. \"Мы друзья. Мы верны друг другу.\"",
+                "chunkedEn": "[v: \"Do not be afraid,] [o: my friends!\"] [s: Astraea] [v: says.]\n[s: \"The Shadow God] [v: is happy] [c: when] [s: we] [v: are afraid.]\n[s: These words] [v: show] [o: a possible future.]\n[s: They] [v: are not] [o: our life.]\n[s: We] [v: are not] [pt: in the stone.]\n[s: We] [v: choose] [o: our path] [pt: every day.]\n[s: We] [v: choose] [o: it] [pt: with our actions and our love.\"]\n[s: Valerius] [v: looks] [pt: at Astraea's light.]\n[s: He] [v: is quiet.]\n[adv: Now] [s: he] [v: smiles] [adv: a little.]\n[s: \"Astraea] [v: speaks] [o: the truth,\"] [s: he] [v: says.]\n[s: \"We] [v: are] [o: friends.]\n[s: We] [v: are true] [pt: to each other.\"]"
+            },
+            {
+                "speaker": "eldrin",
+                "en": "Thorin has his iron hand in the air. \"We stand as one!\" he says. \"Tomorrow we all go to the Ash Rift!\" The heroes also say, \"Yes!\" Archmage Eldrin smiles. He closes the stone. \"Rest now, guards of light,\" he says. \"Tomorrow the last war begins.\" The heroes go to bed. Night is quiet at the Astral Spire.",
+                "ru": "Торин поднимает свой железный кулак в воздух. \"Мы едины!\" — говорит он. \"Завтра мы все идем к Пепельному Разлому!\" Герои тоже говорят: \"Да!\" Архимаг Эльдрин улыбается. Он закрывает скрижаль. \"Отдыхайте сейчас, стражи света,\" — говорит он. \"Завтра начнется последняя война.\" Герои идут спать. Ночь спокойна в Астральном Шпиле.",
+                "chunkedEn": "[s: Thorin] [v: has] [o: his iron hand] [pt: in the air.]\n[s: \"We] [v: stand] [pt: as one!\"] [s: he] [v: says.]\n[adv: \"Tomorrow] [s: we all] [v: go] [pt: to the Ash Rift!\"]\n[s: The heroes] [adv: also] [v: say,] [o: \"Yes!\"]\n[s: Archmage Eldrin] [v: smiles.]\n[s: He] [v: closes] [o: the stone.]\n[v: \"Rest] [adv: now,] [o: guards of light,\"] [s: he] [v: says.]\n[adv: \"Tomorrow] [s: the last war] [v: begins.\"]\n[s: The heroes] [v: go] [pt: to bed.]\n[s: Night] [v: is quiet] [pt: at the Astral Spire.]"
             }
         ],
         "quiz": {
-            "question": "What did Astraea say about the ancient prophecy?",
+            "question": "What did Astraea say about the prophecy words on the stone?",
             "options": [
-                "It is impossible to change",
-                "It is a warning, not a fixed destiny",
-                "It is fake"
+                "They show a possible future, and we choose our path with actions and love",
+                "They are an impossible curse that nobody can escape",
+                "They mean the heroes must fight each other right now"
             ],
-            "correctIndex": 1,
-            "rewardXp": 380
+            "correctIndex": 0,
+            "rewardXp": 491
         },
         "backgroundImg": "images/backgrounds/bg_magic_library.jpg",
         "locationEn": "The Astral Circle of Winds",
