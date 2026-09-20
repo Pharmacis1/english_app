@@ -1928,31 +1928,63 @@ const STORY_CHAPTERS = [
         ],
         "paragraphs": [
             {
-                "en": "The heroes needed provisions and weapons before entering the Desolation. Freya, Zephyr, and Oberon descended into the stormy foothills.",
-                "ru": "Героям требовались припасы и оружие перед походом в Пустоши. Фрейя, Зефир и Оберон спустились в штормовые предгорья."
+                "speaker": "zephyr",
+                "en": "Early in the morning, dark grey clouds are over the mountain peaks. A cold storm wind is in the rocks. The heroes are in the Astral Spire. They need food, magic armor, swords, and bows. Their big battle in Ash Valley is near. The heroes eat bread and drink tea in the hall. Archmage Eldrin comes to them. \"Friends, I know an old hall of the kings,\" he says. \"It is down in the hills. You can find armor, shields, and bows there.\"",
+                "ru": "Рано утром темно-серые тучи нависли над горными вершинами. Холодный штормовой ветер гуляет среди скал. Герои в Астральном Шпиле. Им нужны еда, волшебная броня, мечи и луки. Их великая битва в Пепельной Долине близка. Герои едят хлеб и пьют чай в зале. Архимаг Эльдрин подходит к ним. \"Друзья, я знаю старый зал королей,\" — говорит он. \"Он внизу на холмах. Там вы найдете броню, щиты и луки.\"",
+                "chunkedEn": "[pt: Early in the morning,] [s: dark grey clouds] [v: are] [pt: over the mountain peaks.]\n[s: A cold storm wind] [v: is] [pt: in the rocks.]\n[s: The heroes] [v: are] [pt: in the Astral Spire.]\n[s: They] [v: need] [o: food, magic armor, swords, and bows.]\n[s: Their big battle in Ash Valley] [v: is] [adv: near.]\n[s: The heroes] [v: eat] [o: bread] [c: and] [v: drink] [o: tea] [pt: in the hall.]\n[s: Archmage Eldrin] [v: comes] [pt: to them.]\n[o: \"Friends,] [s: I] [v: know] [o: an old hall of the kings,\"] [s: he] [v: says.]\n[s: \"It] [v: is] [adv: down] [pt: in the hills.]\n[s: You] [v: can find] [o: armor, shields, and bows] [adv: there.\"]"
             },
             {
-                "en": "An army of corrupted stone drakes was guarding an abandoned royal armory.",
-                "ru": "Армия оскверненных каменных дрейков охраняла заброшенный королевский арсенал."
+                "speaker": "zephyr",
+                "en": "Freya, Zephyr, and Oberon take their things. They say goodbye to Eldrin and climb down the mountain path. The wind is strong, but the three scouts are fast. A bird flies over their heads. Zephyr looks at it and smiles. \"The wind is angry today, friends!\" Zephyr says. He has his green bow in his hand. He can see far. \"I can smell old iron. The hall of the kings is near!\"",
+                "ru": "Фрейя, Зефир и Оберон берут свои вещи. Они прощаются с Эльдрином и спускаются по горной тропе. Ветер сильный, но трое разведчиков быстры. Птица летит над их головами. Зефир смотрит на нее и улыбается. \"Ветер сердит сегодня, друзья!\" — говорит Зефир. У него в руке зеленый лук. Он видит далеко. \"Я чую старое железо. Зал королей близко!\"",
+                "chunkedEn": "[s: Freya, Zephyr, and Oberon] [v: take] [o: their things.]\n[s: They] [v: say goodbye] [pt: to Eldrin] [c: and] [v: climb down] [o: the mountain path.]\n[s: The wind] [v: is strong,] [c: but] [s: the three scouts] [v: are fast.]\n[s: A bird] [v: flies] [pt: over their heads.]\n[s: Zephyr] [v: looks] [pt: at it] [c: and] [v: smiles.]\n[s: \"The wind] [v: is angry] [pt: today, friends!\"] [s: Zephyr] [v: says.]\n[s: He] [v: has] [o: his green bow] [pt: in his hand.]\n[s: He] [v: can see] [adv: far.]\n[s: \"I] [v: can smell] [o: old iron.]\n[s: The hall of the kings] [v: is] [adv: near!\"]"
             },
             {
-                "en": "Oberon summoned thorny vines to tangle the drakes' wings. Zephyr blinded their eyes with precision wind arrows.",
-                "ru": "Оберон призвал шипастые лозы, чтобы спутать крылья дрейков. Зефир ослепил их глаза меткими стрелами ветра."
+                "speaker": "freya",
+                "en": "Freya walks next to him. Her silver armor shines with blue sparks. She has her heavy thunder spear in her right hand. \"The old kings have magic shields and bows in that hall,\" Freya says. \"If the Ash Horde takes them, our battle is going to be difficult. We need to take them first!\"",
+                "ru": "Фрейя идет рядом с ним. Ее серебряная броня сияет синими искрами. В правой руке у нее тяжелое копье грома. \"У древних королей в том зале хранятся волшебные щиты и луки,\" — говорит Фрейя. \"Если Пепельная Орда заберет их, наша битва будет тяжелой. Нам нужно забрать их первыми!\"",
+                "chunkedEn": "[s: Freya] [v: walks] [pt: next to him.]\n[s: Her silver armor] [v: shines] [pt: with blue sparks.]\n[s: She] [v: has] [o: her heavy thunder spear] [pt: in her right hand.]\n[s: \"The old kings] [v: have] [o: magic shields and bows] [pt: in that hall,\"] [s: Freya] [v: says.]\n[c: \"If] [s: the Ash Horde] [v: takes] [o: them,] [s: our battle] [v: is going to be] [o: difficult.]\n[s: We] [v: need to take] [o: them] [adv: first!\"]"
             },
             {
-                "en": "Freya swept down with her thunder spear, opening the steel doors of the vault. The squad now had enchanted armor and rations for the journey.",
-                "ru": "Фрейя обрушилась со своим копьем грома, распахнув стальные двери хранилища. Теперь у отряда были зачарованная броня и пайки для похода."
+                "speaker": "oberon",
+                "en": "Oberon walks behind them. He is the old guard of the forest. He has his tall wood staff. He is slow, but he is strong. \"Wait, young warriors,\" Oberon says in a quiet voice. \"Look down at the valley. Someone is there. Dark stone animals guard the steel doors.\" They stop near a small river. Freya drinks water. Zephyr eats an apple. Oberon looks at the sky and at the clouds. After that, they go down to the valley.",
+                "ru": "Оберон идет позади них. Он старый страж леса. У него высокий деревянный посох. Он медлителен, но силен. \"Подождите, юные воины,\" — говорит Оберон тихим голосом. \"Посмотрите вниз на долину. Там кто-то есть. Темные каменные звери охраняют стальные двери.\" Они останавливаются возле небольшой речки. Фрейя пьет воду. Зефир ест яблоко. Оберон смотрит на небо и облака. После этого они спускаются в долину.",
+                "chunkedEn": "[s: Oberon] [v: walks] [pt: behind them.]\n[s: He] [v: is] [o: the old guard of the forest.]\n[s: He] [v: has] [o: his tall wood staff.]\n[s: He] [v: is slow,] [c: but] [s: he] [v: is strong.]\n[v: \"Wait,] [o: young warriors,\"] [s: Oberon] [v: says] [pt: in a quiet voice.]\n[v: \"Look down] [pt: at the valley.]\n[s: Someone] [v: is] [adv: there.]\n[s: Dark stone animals] [v: guard] [o: the steel doors.\"]\n[s: They] [v: stop] [pt: near a small river.]\n[s: Freya] [v: drinks] [o: water.]\n[s: Zephyr] [v: eats] [o: an apple.]\n[s: Oberon] [v: looks] [pt: at the sky] [c: and] [pt: at the clouds.]\n[pt: After that,] [s: they] [v: go down] [pt: to the valley.]"
+            },
+            {
+                "speaker": "freya",
+                "en": "Five big stone animals are near the steel doors of the hall. Their skin is grey rock. They have wings, and purple fire is in their mouths. \"Five stone animals,\" Zephyr says in a quiet voice from behind a rock. \"Their skin is hard. My arrows can't cut it.\" \"We fight as one team!\" Freya says with a smile. \"Oberon can stop them. Zephyr can take their sight. My thunder can break their stone!\"",
+                "ru": "Пять больших каменных зверей стоят возле стальных дверей зала. Их кожа — серый камень. У них крылья, а в пастях фиолетовый огонь. \"Пять каменных зверей,\" — тихо говорит Зефир из-за скалы. \"Их кожа твердая. Мои стрелы не пробьют ее.\" \"Мы сражаемся как одна команда!\" — говорит Фрейя с улыбкой. \"Оберон остановит их. Зефир ослепит их. Мой гром сокрушит их камень!\"",
+                "chunkedEn": "[s: Five big stone animals] [v: are] [pt: near the steel doors of the hall.]\n[s: Their skin] [v: is] [o: grey rock.]\n[s: They] [v: have] [o: wings,] [c: and] [s: purple fire] [v: is] [pt: in their mouths.]\n[o: \"Five stone animals,\"] [s: Zephyr] [v: says] [pt: in a quiet voice] [pt: from behind a rock.]\n[s: \"Their skin] [v: is hard.]\n[s: My arrows] [v: can't cut] [o: it.\"]\n[s: \"We] [v: fight] [pt: as one team!\"] [s: Freya] [v: says] [pt: with a smile.]\n[s: \"Oberon] [v: can stop] [o: them.]\n[s: Zephyr] [v: can take] [o: their sight.]\n[s: My thunder] [v: can break] [o: their stone!\"]"
+            },
+            {
+                "speaker": "oberon",
+                "en": "The battle begins! Oberon uses his wood staff on the ground. \"Roots of the earth, wake up!\" he says. Green roots come out of the ground. The roots go around the legs and wings of the animals. The animals can't move. They try to use their fire, but they can't.",
+                "ru": "Битва начинается! Оберон ударяет деревянным посохом о землю. \"Корни земли, пробудитесь!\" — говорит он. Зеленые корни вырываются из земли. Корни обвивают лапы и крылья зверей. Звери не могут двигаться. Они пытаются применить свой огонь, но не могут.",
+                "chunkedEn": "[s: The battle] [v: begins!]\n[s: Oberon] [v: uses] [o: his wood staff] [pt: on the ground.]\n[s: \"Roots of the earth,] [v: wake up!\"] [s: he] [v: says.]\n[s: Green roots] [v: come out] [pt: of the ground.]\n[s: The roots] [v: go around] [o: the legs and wings of the animals.]\n[s: The animals] [v: can't move.]\n[s: They] [v: try to use] [o: their fire,] [c: but] [s: they] [v: can't.]"
+            },
+            {
+                "speaker": "freya",
+                "en": "Zephyr jumps on a big rock. He has three arrows in his hand. The arrows fly fast to the animals. Sand is in their eyes. The animals can't see. \"Now, Freya! Break the doors!\" Zephyr calls. Freya jumps up in the air like a silver bird. Blue thunder is on her spear. She comes down in the center of the animals. A big thunder is in the valley! The stone animals break and are sand now. The steel doors of the hall are open!",
+                "ru": "Зефир запрыгивает на большой камень. В руке у него три стрелы. Стрелы стремительно летят в зверей. Песок попадает им в глаза. Звери ничего не видят. \"Сейчас, Фрейя! Вскрывай двери!\" — кричит Зефир. Фрейя взмывает в воздух словно серебряная птица. Синий гром на ее копье. Она обрушивается в самый центр зверей. Великий гром разносится по долине! Каменные звери рассыпаются и превращаются в песок. Стальные двери зала распахнуты!",
+                "chunkedEn": "[s: Zephyr] [v: jumps] [pt: on a big rock.]\n[s: He] [v: has] [o: three arrows] [pt: in his hand.]\n[s: The arrows] [v: fly] [adv: fast] [pt: to the animals.]\n[s: Sand] [v: is] [pt: in their eyes.]\n[s: The animals] [v: can't see.]\n[adv: \"Now,] [o: Freya!] [v: Break] [o: the doors!\"] [s: Zephyr] [v: calls.]\n[s: Freya] [v: jumps up] [pt: in the air] [pt: like a silver bird.]\n[s: Blue thunder] [v: is] [pt: on her spear.]\n[s: She] [v: comes down] [pt: in the center of the animals.]\n[s: A big thunder] [v: is] [pt: in the valley!]\n[s: The stone animals] [v: break] [c: and] [v: are] [o: sand] [adv: now.]\n[s: The steel doors of the hall] [v: are open!]"
+            },
+            {
+                "speaker": "freya",
+                "en": "Inside the hall, the heroes find boxes with magic arrows, armor, and food for the trip. Freya cleans the sand from her face. \"A great fight, team!\" she says. She smiles. Oberon smiles too. \"With wind, wood, and storm, our friends have everything they need.\"",
+                "ru": "Внутри зала герои находят сундуки с волшебными стрелами, броней и едой для похода. Фрейя стирает песок со своего лица. \"Отличный бой, команда!\" — говорит она. Она улыбается. Оберон тоже улыбается. \"Благодаря ветру, лесу и буре у наших друзей есть все необходимое.\"",
+                "chunkedEn": "[pt: Inside the hall,] [s: the heroes] [v: find] [o: boxes] [pt: with magic arrows, armor, and food for the trip.]\n[s: Freya] [v: cleans] [o: the sand] [pt: from her face.]\n[o: \"A great fight, team!\"] [s: she] [v: says.]\n[s: She] [v: smiles.]\n[s: Oberon] [v: smiles] [adv: too.]\n[pt: \"With wind, wood, and storm,] [s: our friends] [v: have] [o: everything] [s: they] [v: need.\"]"
             }
         ],
         "quiz": {
-            "question": "What did the trio retrieve from the old armory?",
+            "question": "What did the trio retrieve from the old hall of the kings?",
             "options": [
-                "Enchanted armor and supplies",
-                "Dragon eggs",
-                "A magic mirror"
+                "Boxes with magic arrows, armor, and food for the trip",
+                "Dragon eggs and dark crystals",
+                "A broken golden crown"
             ],
             "correctIndex": 0,
-            "rewardXp": 360
+            "rewardXp": 541
         },
         "backgroundImg": "images/backgrounds/bg_mountains.jpg",
         "locationEn": "The Stormy Armory Vault",
