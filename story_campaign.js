@@ -2170,31 +2170,63 @@ const STORY_CHAPTERS = [
         ],
         "paragraphs": [
             {
-                "en": "In the middle of the night, the protective ward around their camp suddenly failed. A swarm of Ash Shades attacked the sleeping heroes.",
-                "ru": "Посреди ночи защитный барьер вокруг лагеря внезапно рухнул. Рой Пепельных Теней атаковал спящих героев."
+                "speaker": "eldrin",
+                "en": "It is night. A black fog is over the Ashen Camp. It is a quiet night. The ten heroes sleep near the rock wall in the cave. Outside, Archmage Eldrin makes a blue magic light. The light protects the heroes from bad animals. Eldrin stands near the light and looks at the sky. Now the blue magic light breaks! A big group of Ash Shades comes into the Ashen Camp. The Ash Shades have red eyes and long black hands. They are fast and dangerous. The heroes wake up. Frostina takes her shield and stands near the cave wall.",
+                "ru": "Ночь. Черный туман стелется над Пепельным Лагерем. Это тихая ночь. Десять героев спят возле каменной стены в пещере. Снаружи архимаг Эльдрин создает синий магический свет. Свет защищает героев от опасных зверей. Эльдрин стоит возле света и смотрит на небо. Вдруг синий магический свет рушится! Большая группа Пепельных Теней врывается в Пепельный Лагерь. У Пепельных Теней красные глаза и длинные черные руки. Они быстры и опасны. Герои просыпаются. Фростина берет свой щит и встает у стены пещеры.",
+                "chunkedEn": "[s: It] [v: is] [pt: night.]\n[s: A black fog] [v: is] [pt: over the Ashen Camp.]\n[s: It] [v: is] [o: a quiet night.]\n[s: The ten heroes] [v: sleep] [pt: near the rock wall] [pt: in the cave.]\n[adv: Outside,] [s: Archmage Eldrin] [v: makes] [o: a blue magic light.]\n[s: The light] [v: protects] [o: the heroes] [pt: from bad animals.]\n[s: Eldrin] [v: stands] [pt: near the light] [c: and] [v: looks] [pt: at the sky.]\n[adv: Now] [s: the blue magic light] [v: breaks!]\n[s: A big group of Ash Shades] [v: comes] [pt: into the Ashen Camp.]\n[s: The Ash Shades] [v: have] [o: red eyes and long black hands.]\n[s: They] [v: are] [o: fast and dangerous.]\n[s: The heroes] [v: wake up.]\n[s: Frostina] [v: takes] [o: her shield] [c: and] [v: stands] [pt: near the cave wall.]"
             },
             {
-                "en": "After driving the shades back, Eldrin discovered that his primary Star Amulet had been taken from his pouch.",
-                "ru": "Отогнав теней назад, Эльдрин обнаружил, что его главный Звездный Амулет исчез из сумки."
+                "speaker": "valerius",
+                "en": "Valerius gets up with his silver sword. \"Fight!\" he says. \"Protect the Ashen Camp!\" Thorin runs to the Ash Shades with his big hammer. He breaks three Ash Shades. Ignis makes bright fire in the dark cave. Astraea shows a bright light, and the Ash Shades cannot see. Selena cuts the Ash Shades with her two daggers. Frostina fights with her shield. The team wins!",
+                "ru": "Валериус поднимается со своим серебряным мечом. \"К бою!\" — говорит он. \"Защищайте Пепельный Лагерь!\" Торин бежит на Пепельных Теней со своим большим молотом. Он сокрушает трех Пепельных Теней. Игнис зажигает яркий огонь в темной пещере. Астрея излучает яркий свет, и Пепельные Тени ничего не видят. Селена разит Пепельных Теней своими двумя кинжалами. Фростина сражается щитом. Команда побеждает!",
+                "chunkedEn": "[s: Valerius] [v: gets up] [pt: with his silver sword.]\n[v: \"Fight!\"] [s: he] [v: says.]\n[v: \"Protect] [o: the Ashen Camp!\"]\n[s: Thorin] [v: runs] [pt: to the Ash Shades] [pt: with his big hammer.]\n[s: He] [v: breaks] [o: three Ash Shades.]\n[s: Ignis] [v: makes] [o: bright fire] [pt: in the dark cave.]\n[s: Astraea] [v: shows] [o: a bright light,] [c: and] [s: the Ash Shades] [v: cannot see.]\n[s: Selena] [v: cuts] [o: the Ash Shades] [pt: with her two daggers.]\n[s: Frostina] [v: fights] [pt: with her shield.]\n[s: The team] [v: wins!]"
             },
             {
-                "en": "Valerius found the amulet in Selena's traveling backpack. \"The prophecy!\" Valerius shouted, drawing his silver sword. \"You are the traitor!\"",
-                "ru": "Валериус нашел амулет в дорожном рюкзаке Селены. \"Пророчество!\" — крикнул Валериус, обнажая серебряный меч. \"Ты предатель!\""
+                "speaker": "eldrin",
+                "en": "Now the ten heroes are hot and weak. They drink water and rest. Thorin cleans his hammer. Ignis wants bread and eats it. Astraea helps Eldrin. Selena washes her daggers. Frostina looks at the fog. Archmage Eldrin stands with his wood staff. His face is white. He looks at the pocket on his belt. It is open! His hands are cold. \"My friends,\" he says. \"Someone took my Star Amulet in the fight!\"",
+                "ru": "Теперь десять героев разгорячены и обессилены. Они пьют воду и отдыхают. Торин чистит свой молот. Игнис хочет хлеба и ест его. Астрея помогает Эльдрину. Селена омывает свои кинжалы. Фростина смотрит на туман. Архимаг Эльдрин стоит со своим деревянным посохом. Его лицо бледно. Он смотрит на сумку на своем поясе. Она открыта! Его руки холодны. \"Друзья мои,\" — говорит он. \"Кто-то забрал мой Звездный Амулет во время боя!\"",
+                "chunkedEn": "[adv: Now] [s: the ten heroes] [v: are] [o: hot and weak.]\n[s: They] [v: drink] [o: water] [c: and] [v: rest.]\n[s: Thorin] [v: cleans] [o: his hammer.]\n[s: Ignis] [v: wants] [o: bread] [c: and] [v: eats] [o: it.]\n[s: Astraea] [v: helps] [o: Eldrin.]\n[s: Selena] [v: washes] [o: her daggers.]\n[s: Frostina] [v: looks] [pt: at the fog.]\n[s: Archmage Eldrin] [v: stands] [pt: with his wood staff.]\n[s: His face] [v: is white.]\n[s: He] [v: looks] [pt: at the pocket] [pt: on his belt.]\n[s: It] [v: is open!]\n[s: His hands] [v: are cold.]\n[o: \"My friends,\"] [s: he] [v: says.]\n[s: \"Someone] [v: took] [o: my Star Amulet] [pt: in the fight!\"]"
             },
             {
-                "en": "Selena stepped back, her eyes wide with shock. \"Someone planted it in my bag while I was on watch! I did not take it!\"",
-                "ru": "Селена отступила, ее глаза расширились от шока. \"Кто-то подбросил его в мою сумку, пока я была в дозоре! Я не брала его!\""
+                "speaker": "valerius",
+                "en": "Without the Star Amulet, the heroes cannot open the Ash Rift. Everyone is afraid. Nobody speaks. Valerius looks around the cave. \"Who took it?\" he asks. \"A bad man is with us!\" He looks in the bags near the cave wall. He walks to Selena's bag under the black blanket. He opens it. A bright light comes from the bag! Valerius takes the glowing Star Amulet from the bag.",
+                "ru": "Без Звездного Амулета герои не смогут открыть Пепельный Разлом. Все напуганы. Никто не говорит. Валериус осматривает пещеру. \"Кто взял его?\" — спрашивает он. \"Среди нас предатель!\" Он проверяет сумки возле стены пещеры. Он подходит к сумке Селены под черным одеялом. Он открывает ее. Яркий свет исходит из сумки! Валериус достает из сумки сияющий Звездный Амулет.",
+                "chunkedEn": "[pt: Without the Star Amulet,] [s: the heroes] [v: cannot open] [o: the Ash Rift.]\n[s: Everyone] [v: is afraid.]\n[s: Nobody] [v: speaks.]\n[s: Valerius] [v: looks] [pt: around the cave.]\n[w: \"Who] [v: took] [o: it?\"] [s: he] [v: asks.]\n[s: \"A bad man] [v: is] [pt: with us!\"]\n[s: He] [v: looks] [pt: in the bags] [pt: near the cave wall.]\n[s: He] [v: walks] [pt: to Selena's bag] [pt: under the black blanket.]\n[s: He] [v: opens] [o: it.]\n[s: A bright light] [v: comes] [pt: from the bag!]\n[s: Valerius] [v: takes] [o: the glowing Star Amulet] [pt: from the bag.]"
+            },
+            {
+                "speaker": "valerius",
+                "en": "Valerius takes his sword and shows it to Selena. He is angry. \"The stone in the tower said the truth!\" he says. \"One of us is bad! You took the Star Amulet, Selena! You are not our friend!\"",
+                "ru": "Валериус обнажает меч и направляет его на Селену. Он в ярости. \"Камень в башне сказал правду!\" — говорит он. \"Один из нас предатель! Ты взяла Звездный Амулет, Селена! Ты нам не друг!\"",
+                "chunkedEn": "[s: Valerius] [v: takes] [o: his sword] [c: and] [v: shows] [o: it] [pt: to Selena.]\n[s: He] [v: is angry.]\n[s: \"The stone in the tower] [v: said] [o: the truth!\"] [s: he] [v: says.]\n[s: \"One of us] [v: is bad!]\n[s: You] [v: took] [o: the Star Amulet, Selena!]\n[s: You] [v: are not] [o: our friend!\"]"
+            },
+            {
+                "speaker": "selene",
+                "en": "Selena goes back to the wall. Her purple eyes are big. \"No, Valerius! It is not true!\" she says. \"I was on guard on the tall rocks all night. I did not touch Eldrin's pocket! Someone wants a fight between us!\" \"You were in the Shadow Guild for ten years,\" Valerius says. \"You can take things and nobody hears you.\"",
+                "ru": "Селена отступает к стене. Ее фиолетовые глаза широко раскрыты. \"Нет, Валериус! Это неправда!\" — говорит она. \"Я стояла на страже на высоких скалах всю ночь. Я не касалась сумки Эльдрина! Кто-то хочет стравить нас!\" \"Ты была в Гильдии Теней десять лет,\" — говорит Валериус. \"Ты можешь брать вещи так, что никто не услышит.\"",
+                "chunkedEn": "[s: Selena] [v: goes back] [pt: to the wall.]\n[s: Her purple eyes] [v: are big.]\n[o: \"No, Valerius!] [s: It] [v: is not] [o: true!\"] [s: she] [v: says.]\n[s: \"I] [v: was] [pt: on guard] [pt: on the tall rocks] [pt: all night.]\n[s: I] [v: did not touch] [o: Eldrin's pocket!]\n[s: Someone] [v: wants] [o: a fight] [pt: between us!\"]\n[s: \"You] [v: were] [pt: in the Shadow Guild] [pt: for ten years,\"] [s: Valerius] [v: says.]\n[s: \"You] [v: can take] [o: things] [c: and] [s: nobody] [v: hears] [o: you.\"]"
+            },
+            {
+                "speaker": "astraea",
+                "en": "Frostina and Astraea go between Valerius and Selena. \"Stop, Valerius!\" Astraea says. \"Do not fight Selena! The Shadow God wants a fight between us! We are a team. Tomorrow we find the truth.\"",
+                "ru": "Фростина и Астрея встают между Валериусом и Селеной. \"Остановись, Валериус!\" — говорит Астрея. \"Не нападай на Селену! Бог Теней хочет посеять вражду между нами! Мы — команда. Завтра мы узнаем правду.\"",
+                "chunkedEn": "[s: Frostina and Astraea] [v: go] [pt: between Valerius and Selena.]\n[v: \"Stop,] [o: Valerius!\"] [s: Astraea] [v: says.]\n[v: \"Do not fight] [o: Selena!]\n[s: The Shadow God] [v: wants] [o: a fight] [pt: between us!]\n[s: We] [v: are] [o: a team.]\n[adv: Tomorrow] [s: we] [v: find] [o: the truth.\"]"
+            },
+            {
+                "speaker": "selene",
+                "en": "Valerius looks at Astraea. He does not speak. Selena looks at Valerius. She is not happy. Selena stands near the wall. Thorin looks at the floor. Ignis looks at his hands. Eldrin looks at the fog. Nobody sleeps. Now the heroes are not a team. The last battle is near.",
+                "ru": "Валериус смотрит на Астрею. Он молчит. Селена смотрит на Валериуса. Она глубоко опечалена. Селена стоит у стены. Торин смотрит в пол. Игнис смотрит на свои руки. Эльдрин смотрит на туман. Никто не спит. Теперь герои разобщены. Последняя битва близка.",
+                "chunkedEn": "[s: Valerius] [v: looks] [pt: at Astraea.]\n[s: He] [v: does not speak.]\n[s: Selena] [v: looks] [pt: at Valerius.]\n[s: She] [v: is not happy.]\n[s: Selena] [v: stands] [pt: near the wall.]\n[s: Thorin] [v: looks] [pt: at the floor.]\n[s: Ignis] [v: looks] [pt: at his hands.]\n[s: Eldrin] [v: looks] [pt: at the fog.]\n[s: Nobody] [v: sleeps.]\n[adv: Now] [s: the heroes] [v: are not] [o: a team.]\n[s: The last battle] [v: is] [adv: near.]"
             }
         ],
         "quiz": {
-            "question": "Why did Valerius suspect Selena?",
+            "question": "Why did Valerius point his sword at Selena?",
             "options": [
-                "The stolen amulet was found in her backpack",
-                "She admitted it",
-                "She attacked Eldrin"
+                "Because the glowing Star Amulet was found in her bag",
+                "Because she ran away to the Ash Rift",
+                "Because she refused to fight the Ash Shades"
             ],
             "correctIndex": 0,
-            "rewardXp": 400
+            "rewardXp": 487
         },
         "backgroundImg": "images/backgrounds/bg_dragon_volcano.jpg",
         "locationEn": "The Ashen Camp Perimeter",
