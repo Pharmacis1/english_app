@@ -2568,31 +2568,63 @@ const STORY_CHAPTERS = [
         ],
         "paragraphs": [
             {
-                "en": "The Inquisitor unleashed his dark mutated guards. A fierce battle erupted on the threshold of the abyss.",
-                "ru": "Инквизитор спустил своих темных мутировавших стражей. Яростная битва вспыхнула на пороге бездны."
+                "speaker": "frostina",
+                "en": "Malakor is angry. He takes his dark staff in his hand. He calls a bad spell with a big voice. The black ground moves. Dark fog comes from the ground. Ten Guards run to the front! They have red armor. Their eyes are red like fire. They have long dark daggers. \"Fight!\" Malakor calls. \"Protect the key!\"",
+                "ru": "Малакор в ярости. Он берет свой темный посох в руку. Он громким голосом выкрикивает зловещее заклинание. Черная земля содрогается. Темный туман поднимается из земли. Десять Стражей бегут вперед! На них красные доспехи. Их глаза горят красным, как огонь. У них длинные темные кинжалы. \"В бой!\" — кричит Малакор. \"Защитите ключ!\"",
+                "chunkedEn": "[s: Malakor] [v: is angry.]\n[s: He] [v: takes] [o: his dark staff] [pt: in his hand.]\n[s: He] [v: calls] [o: a bad spell] [pt: with a big voice.]\n[s: The black ground] [v: moves.]\n[s: Dark fog] [v: comes] [pt: from the ground.]\n[s: Ten Guards] [v: run] [pt: to the front!]\n[s: They] [v: have] [o: red armor.]\n[s: Their eyes] [v: are red] [pt: like fire.]\n[s: They] [v: have] [o: long dark daggers.]\n[o: \"Fight!\"] [s: Malakor] [v: calls.]\n[v: \"Protect] [o: the key!\"]"
             },
             {
-                "en": "Valerius took a poison blade strike meant for Thorin, blocking the lethal blow with his body armor.",
-                "ru": "Валериус принял удар отравленного клинка, предназначавшийся Торину, заблокировав смертельный выпад своими доспехами."
+                "speaker": "frostina",
+                "en": "A big fight begins at the Abyss. Freya takes her thunder spear and runs to the front. Blue sparks fly from the spear. Ignis makes fire. He sends bright balls of fire to the Guards. The fire moves the Guards back. Frostina opens her shield of frost. She makes a big wall of blue ice. The wall protects her friends. Freya looks at Frostina and smiles. \"Good!\" Freya says.",
+                "ru": "Великая битва начинается у Бездны. Фрейя берет свое громовое копье и бежит вперед. Синие искры летят от копья. Игнис призывает огонь. Он посылает яркие огненные шары в Стражей. Огонь отбрасывает Стражей назад. Фростина поднимает свой морозный щит. Она возводит огромную стену из синего льда. Стена защищает ее друзей. Фрейя смотрит на Фростину и улыбается. \"Отлично!\" — говорит Фрейя.",
+                "chunkedEn": "[s: A big fight] [v: begins] [pt: at the Abyss.]\n[s: Freya] [v: takes] [o: her thunder spear] [c: and] [v: runs] [pt: to the front.]\n[s: Blue sparks] [v: fly] [pt: from the spear.]\n[s: Ignis] [v: makes] [o: fire.]\n[s: He] [v: sends] [o: bright balls of fire] [pt: to the Guards.]\n[s: The fire] [v: moves] [o: the Guards] [adv: back.]\n[s: Frostina] [v: opens] [o: her shield of frost.]\n[s: She] [v: makes] [o: a big wall of blue ice.]\n[s: The wall] [v: protects] [o: her friends.]\n[s: Freya] [v: looks] [pt: at Frostina] [c: and] [v: smiles.]\n[o: \"Good!\"] [s: Freya] [v: says.]"
             },
             {
-                "en": "Thorin roared in fury, shattering the Inquisitor's dark staff with one mighty overhead strike. Selena disarmed the villain in a blink.",
-                "ru": "Торин взревел в ярости, расколов темный посох Инквизитора одним мощным ударом сверху. Селена в мгновение ока обезоружила злодея."
+                "speaker": "thorin",
+                "en": "Thorin fights with great power. He has a heavy bronze hammer. His hammer breaks the shields of the Guards. Thorin looks at his friends. He is strong and brave. But two dark assassins come from behind the wall of ice! One assassin takes a dark dagger. The dagger is bad. It makes people sick. The assassin runs to Thorin's back!",
+                "ru": "Торин сражается с великой силой. У него тяжелый бронзовый молот. Его молот крушит щиты Стражей. Торин смотрит на своих друзей. Он силен и отважен. Но двое темных убийц выходят из-за ледяной стены! Один убийца берет темный кинжал. Кинжал отравлен. От него люди заболевают. Убийца бежит Торину за спину!",
+                "chunkedEn": "[s: Thorin] [v: fights] [pt: with great power.]\n[s: He] [v: has] [o: a heavy bronze hammer.]\n[s: His hammer] [v: breaks] [o: the shields of the Guards.]\n[s: Thorin] [v: looks] [pt: at his friends.]\n[s: He] [v: is strong and brave.]\n[c: But] [s: two dark assassins] [v: come] [pt: from behind the wall of ice!]\n[s: One assassin] [v: takes] [o: a dark dagger.]\n[s: The dagger] [v: is bad.]\n[s: It] [v: makes] [o: people sick.]\n[s: The assassin] [v: runs] [pt: to Thorin's back!]"
             },
             {
-                "en": "As Astraea healed Valerius, Thorin knelt beside him: \"No clan blood matters now. You are my brother for all eternity.\"",
-                "ru": "Пока Астрея исцеляла Валериуса, Торин опустился рядом с ним на колено: \"Кровь кланов больше не имеет значения. Ты мой брат на веки вечные.\""
+                "speaker": "valerius",
+                "en": "Valerius sees it. Thorin cannot see the assassin. Valerius runs across the stone floor. He does not think. He jumps between Thorin and the assassin! The dagger goes through his silver armor into his shoulder. Valerius is on his knees on the cold stone. Thorin looks back and sees his friend. Blood is on the silver armor. Thorin is so angry!",
+                "ru": "Валериус видит это. Торин не видит убийцу вовремя. Валериус бежит по каменному полу. Он не думает о себе. Он бросается между Торином и убийцей! Кинжал пробивает его серебряные доспехи и ранит в плечо. Валериус падает на колени на холодный камень. Торин оборачивается и видит своего друга. Кровь на серебряных доспехах. Торин в ярости!",
+                "chunkedEn": "[s: Valerius] [v: sees] [o: it.]\n[s: Thorin] [v: cannot see] [o: the assassin.]\n[s: Valerius] [v: runs] [pt: across the stone floor.]\n[s: He] [v: does not think.]\n[s: He] [v: jumps] [pt: between Thorin and the assassin!]\n[s: The dagger] [v: goes] [pt: through his silver armor] [pt: into his shoulder.]\n[s: Valerius] [v: is] [pt: on his knees] [pt: on the cold stone.]\n[s: Thorin] [v: looks back] [c: and] [v: sees] [o: his friend.]\n[s: Blood] [v: is] [pt: on the silver armor.]\n[s: Thorin] [v: is so angry!]"
+            },
+            {
+                "speaker": "thorin",
+                "en": "\"Valerius!\" Thorin calls with a voice like a mountain storm. He takes his hammer with all his power. The hammer moves the assassin into the stone wall. After that, Thorin breaks Malakor's dark staff into pieces!",
+                "ru": "\"Валериус!\" — кричит Торин голосом, подобным горной буре. Он сжимает свой молот изо всех сил. Молот впечатывает убийцу в каменную стену. После этого Торин разбивает темный посох Малакора на куски!",
+                "chunkedEn": "[o: \"Valerius!\"] [s: Thorin] [v: calls] [pt: with a voice like a mountain storm.]\n[s: He] [v: takes] [o: his hammer] [pt: with all his power.]\n[s: The hammer] [v: moves] [o: the assassin] [pt: into the stone wall.]\n[pt: After that,] [s: Thorin] [v: breaks] [o: Malakor's dark staff] [pt: into pieces!]"
+            },
+            {
+                "speaker": "selene",
+                "en": "Selena comes from the shadow. She is quick like a black storm. She cuts with her two daggers. The Guards lose their swords. Selena takes the key from Malakor's hand. The key flies in the air. Zephyr takes it. Zephyr looks at the key and smiles. Malakor loses the fight. He is weak. He is on the floor by the iron door.",
+                "ru": "Селена появляется из тени. Она стремительна, как черная буря. Она наносит удары двумя кинжалами. Стражи роняют свои мечи. Селена выбивает ключ из руки Малакора. Ключ взлетает в воздух. Зефир ловит его. Зефир смотрит на ключ и улыбается. Малакор проигрывает бой. Он слаб. Он лежит на полу возле железной двери.",
+                "chunkedEn": "[s: Selena] [v: comes] [pt: from the shadow.]\n[s: She] [v: is quick] [pt: like a black storm.]\n[s: She] [v: cuts] [pt: with her two daggers.]\n[s: The Guards] [v: lose] [o: their swords.]\n[s: Selena] [v: takes] [o: the key] [pt: from Malakor's hand.]\n[s: The key] [v: flies] [pt: in the air.]\n[s: Zephyr] [v: takes] [o: it.]\n[s: Zephyr] [v: looks] [pt: at the key] [c: and] [v: smiles.]\n[s: Malakor] [v: loses] [o: the fight.]\n[s: He] [v: is weak.]\n[s: He] [v: is] [pt: on the floor] [pt: by the iron door.]"
+            },
+            {
+                "speaker": "frostina",
+                "en": "Astraea and Frostina run to Valerius. Astraea's glowing hands are on his shoulder. The warm light heals him. It takes the bad pain away. Frostina gives him ice crystals. He is not hot now. Ignis and Freya come. They look at Valerius and stand by him. Valerius opens his eyes. He is weak, but he smiles at his friends.",
+                "ru": "Астрея и Фростина спешат к Валериусу. Светящиеся руки Астреи ложатся на его плечо. Теплый свет исцеляет его. Он снимает жгучую боль. Фростина прикладывает ледяные кристаллы. Жар отступает. Подходят Игнис и Фрейя. Они смотрят на Валериуса и стоят рядом с ним. Валериус открывает глаза. Он слаб, но улыбается друзьям.",
+                "chunkedEn": "[s: Astraea and Frostina] [v: run] [pt: to Valerius.]\n[s: Astraea's glowing hands] [v: are] [pt: on his shoulder.]\n[s: The warm light] [v: heals] [o: him.]\n[s: It] [v: takes] [o: the bad pain] [adv: away.]\n[s: Frostina] [v: gives] [o: him ice crystals.]\n[s: He] [v: is not hot] [adv: now.]\n[s: Ignis and Freya] [v: come.]\n[s: They] [v: look] [pt: at Valerius] [c: and] [v: stand] [pt: by him.]\n[s: Valerius] [v: opens] [o: his eyes.]\n[s: He] [v: is weak,] [c: but] [s: he] [v: smiles] [pt: at his friends.]"
+            },
+            {
+                "speaker": "thorin",
+                "en": "Thorin is on one knee by the silver knight. He takes Valerius's hand. His eyes are bright. \"For ten years, our families are not friends,\" Thorin says with a quiet voice. \"We said bad words about old things and family blood. But you gave your blood to protect my life. Family blood is not important now. You are my true brother forever.\" Valerius takes Thorin's hand. \"We are one people now, Thorin. I am with you until the end.\" The friends stand in a group. Zephyr shows the key to all his friends.",
+                "ru": "Торин опускается на одно колено рядом с серебряным рыцарем. Он сжимает руку Валериуса. Его глаза блестят. \"Десять лет наши семьи враждовали,\" — говорит Торин тихим голосом. \"Мы говорили дурные слова о старых обидах и крови кланов. Но ты пролил свою кровь, чтобы спасти мою жизнь. Кровь кланов больше не имеет значения. Ты мой истинный брат навсегда.\" Валериус пожимает руку Торина. \"Мы теперь один народ, Торин. Я с тобой до самого конца.\" Друзья встают плечом к плечу. Зефир показывает ключ всем своим друзьям.",
+                "chunkedEn": "[s: Thorin] [v: is] [pt: on one knee] [pt: by the silver knight.]\n[s: He] [v: takes] [o: Valerius's hand.]\n[s: His eyes] [v: are bright.]\n[pt: \"For ten years,] [s: our families] [v: are not] [o: friends,\"] [s: Thorin] [v: says] [pt: with a quiet voice.]\n[s: \"We] [v: said] [o: bad words] [pt: about old things and family blood.]\n[c: But] [s: you] [v: gave] [o: your blood] [pt: to protect my life.]\n[s: Family blood] [v: is not] [o: important] [adv: now.]\n[s: You] [v: are] [o: my true brother] [adv: forever.\"]\n[s: Valerius] [v: takes] [o: Thorin's hand.]\n[s: \"We] [v: are] [o: one people] [adv: now, Thorin.]\n[s: I] [v: am] [pt: with you] [pt: until the end.\"]\n[s: The friends] [v: stand] [pt: in a group.]\n[s: Zephyr] [v: shows] [o: the key] [pt: to all his friends.]"
             }
         ],
         "quiz": {
-            "question": "What did Valerius do during the fight with the Inquisitor?",
+            "question": "What did Valerius do during the fight with Malakor?",
             "options": [
-                "He blocked a lethal strike meant for Thorin",
-                "He ran away",
-                "He joined the enemy"
+                "He jumped between Thorin and an assassin with a dark dagger",
+                "He ran away from the fight",
+                "He opened the iron door alone"
             ],
             "correctIndex": 0,
-            "rewardXp": 460
+            "rewardXp": 497
         },
         "backgroundImg": "images/backgrounds/bg_dragon_volcano.jpg",
         "locationEn": "The Gates of the Abyss",
