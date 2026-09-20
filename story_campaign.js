@@ -2406,31 +2406,63 @@ const STORY_CHAPTERS = [
         ],
         "paragraphs": [
             {
-                "en": "A sudden blast of dark kinetic energy threw Zephyr over the edge of the obsidian cliff into the poisonous black mist.",
-                "ru": "Внезапный взрыв темной кинетической энергии сбросил Зефира с края обсидианового утеса в ядовитый черный туман."
+                "speaker": "zephyr",
+                "en": "The ten heroes cross the bridge of roots. They come to the dark Obsidian Chasm. The walls of the Obsidian Chasm are tall and black. The walls are like glass. Below the heroes, there is a bad fog. The fog is dangerous. The air is cold. The heroes walk on a narrow stone path. They walk with care. They look at the walls. They look at the fog.",
+                "ru": "Десять героев переходят мост из корней. Они подходят к темной Обсидиановой Бездне. Стены Обсидиановой Бездны высокие и черные. Стены словно из стекла. Под героями клубится зловещий туман. Туман опасен. Воздух холоден. Герои идут по узкой каменной тропе. Они идут с осторожностью. Они смотрят на стены. Они смотрят на туман.",
+                "chunkedEn": "[s: The ten heroes] [v: cross] [o: the bridge of roots.]\n[s: They] [v: come] [pt: to the dark Obsidian Chasm.]\n[s: The walls of the Obsidian Chasm] [v: are tall and black.]\n[s: The walls] [v: are] [pt: like glass.]\n[pt: Below the heroes,] [s: there] [v: is] [o: a bad fog.]\n[s: The fog] [v: is dangerous.]\n[s: The air] [v: is cold.]\n[s: The heroes] [v: walk] [pt: on a narrow stone path.]\n[s: They] [v: walk] [pt: with care.]\n[s: They] [v: look] [pt: at the walls.]\n[s: They] [v: look] [pt: at the fog.]"
             },
             {
-                "en": "Without hesitation, Astraea jumped into the abyss after him, opening her glowing angel wings of pure celestial light.",
-                "ru": "Без колебаний Астрея прыгнула в бездну вслед за ним, распахнув светящиеся ангельские крылья из чистого небесного света."
+                "speaker": "zephyr",
+                "en": "Zephyr walks in front. He has a green bow. He looks at the dark. He listens. \"Friends, walk with care,\" Zephyr says. \"The path is hard and cold. Below us is the fog. The air in the fog is bad. If you fall, you die.\" Astraea walks behind him. She has a glowing crystal staff. \"Do not be afraid, Zephyr,\" Astraea says. \"My star light is with us. It helps every one of us.\"",
+                "ru": "Зефир идет впереди. У него зеленый лук. Он вглядывается в темноту. Он прислушивается. \"Друзья, идите осторожно,\" — говорит Зефир. \"Тропа твердая и холодная. Под нами туман. Воздух в тумане ядовит. Если вы упадете, вы погибнете.\" Астрея идет за ним. У нее светящийся хрустальный посох. \"Не бойся, Зефир,\" — говорит Астрея. \"Свет моих звезд с нами. Он помогает каждому из нас.\"",
+                "chunkedEn": "[s: Zephyr] [v: walks] [pt: in front.]\n[s: He] [v: has] [o: a green bow.]\n[s: He] [v: looks] [pt: at the dark.]\n[s: He] [v: listens.]\n[o: \"Friends,] [v: walk] [pt: with care,\"] [s: Zephyr] [v: says.]\n[s: \"The path] [v: is hard and cold.]\n[pt: Below us] [v: is] [s: the fog.]\n[s: The air in the fog] [v: is bad.]\n[c: If] [s: you] [v: fall,] [s: you] [v: die.\"]\n[s: Astraea] [v: walks] [pt: behind him.]\n[s: She] [v: has] [o: a glowing crystal staff.]\n[v: \"Do not be] [o: afraid, Zephyr,\"] [s: Astraea] [v: says.]\n[s: \"My star light] [v: is] [pt: with us.]\n[s: It] [v: helps] [o: every one of us.\"]"
             },
             {
-                "en": "She caught Zephyr's hand and cast a golden protective sphere around them, neutralizing the acid fumes.",
-                "ru": "Она перехватила руку Зефира и сотворила вокруг них золотую сферу защиты, нейтрализуя кислотные испарения."
+                "speaker": "zephyr",
+                "en": "Now a big dark power comes from above. It breaks the wall. Black rocks fall like rain. The power is strong. It comes to Zephyr, and he falls back. His boots are on the stone. The stone is hard like glass. Zephyr falls from the path. He falls into the fog! \"Zephyr!\" Valerius says. He is afraid. His armor is heavy and he is slow. The green scout is not there. The fog is big and dark.",
+                "ru": "Внезапно великая темная сила обрушивается сверху. Она разбивает стену. Черные камни падают словно дождь. Сила могущественна. Она ударяет Зефира, и он падает назад. Его сапоги скользят по камню. Камень твердый, как стекло. Зефир срывается с тропы. Он падает в туман! \"Зефир!\" — кричит Валериус. Он напуган. Его доспехи тяжелы, и он медлителен. Зеленого разведчика больше нет на тропе. Туман огромный и темный.",
+                "chunkedEn": "[adv: Now] [s: a big dark power] [v: comes] [pt: from above.]\n[s: It] [v: breaks] [o: the wall.]\n[s: Black rocks] [v: fall] [pt: like rain.]\n[s: The power] [v: is strong.]\n[s: It] [v: comes] [pt: to Zephyr,] [c: and] [s: he] [v: falls back.]\n[s: His boots] [v: are] [pt: on the stone.]\n[s: The stone] [v: is hard] [pt: like glass.]\n[s: Zephyr] [v: falls] [pt: from the path.]\n[s: He] [v: falls] [pt: into the fog!]\n[o: \"Zephyr!\"] [s: Valerius] [v: says.]\n[s: He] [v: is afraid.]\n[s: His armor] [v: is heavy] [c: and] [s: he] [v: is slow.]\n[s: The green scout] [v: is not] [pt: there.]\n[s: The fog] [v: is big and dark.]"
             },
             {
-                "en": "Zephyr fired a gale rope arrow upward, and together they ascended back to the ledge. \"You are crazy, priestess,\" Zephyr laughed through tears.",
-                "ru": "Зефир выстрелил стрелой со штормовой веревкой вверх, и вместе они поднялись обратно на карниз. \"Ты сумасшедшая, жрица,\" — сквозь слезы рассмеялся Зефир."
+                "speaker": "astraea",
+                "en": "The heroes stand on the path. They do not move. But Astraea does not wait. She does not stop. She leaves her staff on the path. She runs to the end of the path. She jumps into the Obsidian Chasm after Zephyr!",
+                "ru": "Герои стоят на тропе. Они не двигаются. Но Астрея не ждет. Она не колеблется. Она оставляет свой посох на тропе. Она бежит к краю тропы. Она прыгает в Обсидиановую Бездну вслед за Зефиром!",
+                "chunkedEn": "[s: The heroes] [v: stand] [pt: on the path.]\n[s: They] [v: do not move.]\n[c: But] [s: Astraea] [v: does not wait.]\n[s: She] [v: does not stop.]\n[s: She] [v: leaves] [o: her staff] [pt: on the path.]\n[s: She] [v: runs] [pt: to the end of the path.]\n[s: She] [v: jumps] [pt: into the Obsidian Chasm] [pt: after Zephyr!]"
+            },
+            {
+                "speaker": "astraea",
+                "en": "Astraea falls in the dark. She closes her eyes. She speaks to the stars. Bright gold wings come from her back! She flies fast through the bad fog. She is like a star in the sky. She sees Zephyr in the dark air. He is far below. Astraea flies down fast. She takes his hand. She takes him to her chest.",
+                "ru": "Астрея падает в темноте. Она закрывает глаза. Она обращается к звездам. Яркие золотые крылья вырастают за ее спиной! Она стремительно летит сквозь ядовитый туман. Она словно звезда на небе. Она видит Зефира в темном воздухе. Он далеко внизу. Астрея быстро пикирует вниз. Она хватает его за руку. Она прижимает его к груди.",
+                "chunkedEn": "[s: Astraea] [v: falls] [pt: in the dark.]\n[s: She] [v: closes] [o: her eyes.]\n[s: She] [v: speaks] [pt: to the stars.]\n[s: Bright gold wings] [v: come] [pt: from her back!]\n[s: She] [v: flies] [adv: fast] [pt: through the bad fog.]\n[s: She] [v: is] [pt: like a star in the sky.]\n[s: She] [v: sees] [o: Zephyr] [pt: in the dark air.]\n[s: He] [v: is] [pt: far below.]\n[s: Astraea] [v: flies down] [adv: fast.]\n[s: She] [v: takes] [o: his hand.]\n[s: She] [v: takes] [o: him] [pt: to her chest.]"
+            },
+            {
+                "speaker": "zephyr",
+                "en": "With her other hand, Astraea makes star magic. A big ball of gold light comes around them. The ball stops the bad air. It stops their fall. Inside the ball, the air is clean, warm, and sweet. Zephyr smiles. He is happy. He looks at Astraea. \"You are brave!\" Zephyr says. \"You are amazing! No one jumps into the Obsidian Chasm like this!\"",
+                "ru": "Другой рукой Астрея творит магию звезд. Большой шар золотого света окружает их. Шар не пропускает ядовитый воздух. Он останавливает их падение. Внутри шара воздух чистый, теплый и сладкий. Зефир улыбается. Он счастлив. Он смотрит на Астрею. \"Ты храбрая!\" — говорит Зефир. \"Ты потрясающая! Никто не прыгает в Обсидиановую Бездну вот так!\"",
+                "chunkedEn": "[pt: With her other hand,] [s: Astraea] [v: makes] [o: star magic.]\n[s: A big ball of gold light] [v: comes] [pt: around them.]\n[s: The ball] [v: stops] [o: the bad air.]\n[s: It] [v: stops] [o: their fall.]\n[pt: Inside the ball,] [s: the air] [v: is clean, warm, and sweet.]\n[s: Zephyr] [v: smiles.]\n[s: He] [v: is happy.]\n[s: He] [v: looks] [pt: at Astraea.]\n[o: \"You] [v: are brave!\"] [s: Zephyr] [v: says.]\n[o: \"You] [v: are amazing!] [s: No one] [v: jumps] [pt: into the Obsidian Chasm] [pt: like this!\"]"
+            },
+            {
+                "speaker": "zephyr",
+                "en": "\"We never leave a friend, Zephyr,\" Astraea smiles. \"Now we go back to our friends!\" Zephyr takes his bow. He takes a storm arrow. He looks up at the rock above them. \"Come close to me, Astraea!\" he says. He uses the bow. The magic arrow goes up into the rock. It is strong. It makes a way up.",
+                "ru": "\"Мы никогда не бросаем друзей, Зефир,\" — улыбается Астрея. \"А теперь мы возвращаемся к нашим друзьям!\" Зефир берет свой лук. Он берет штормовую стрелу. Он смотрит вверх на скалу над ними. \"Держись ближе ко мне, Астрея!\" — говорит он. Он натягивает лук. Магическая стрела вонзается высоко в скалу. Она прочна. Она открывает путь наверх.",
+                "chunkedEn": "[s: \"We] [adv: never] [v: leave] [o: a friend, Zephyr,\"] [s: Astraea] [v: smiles.]\n[adv: \"Now] [s: we] [v: go back] [pt: to our friends!\"]\n[s: Zephyr] [v: takes] [o: his bow.]\n[s: He] [v: takes] [o: a storm arrow.]\n[s: He] [v: looks up] [pt: at the rock above them.]\n[v: \"Come] [pt: close to me, Astraea!\"] [s: he] [v: says.]\n[s: He] [v: uses] [o: the bow.]\n[s: The magic arrow] [v: goes up] [pt: into the rock.]\n[s: It] [v: is strong.]\n[s: It] [v: makes] [o: a way up.]"
+            },
+            {
+                "speaker": "astraea",
+                "en": "Astraea flies with her gold wings. Zephyr goes with her. They go up through the fog like an arrow of light. They come back to the path. The squad is there. The heroes are happy. Thorin smiles at Zephyr. Valerius is happy. Astraea takes her staff. Zephyr says, \"Thank you, Astraea.\" They drink water. They rest. Now the ten heroes stand as a team. They are ready to go to the Inner Gate.",
+                "ru": "Астрея взмахивает золотыми крыльями. Зефир поднимается вместе с ней. Они взмывают сквозь туман, подобно стреле света. Они возвращаются на тропу. Отряд ждет там. Герои счастливы. Торин улыбается Зефиру. Валериус рад. Астрея берет свой посох. Зефир говорит: \"Спасибо тебе, Астрея.\" Они пьют воду. Они отдыхают. Теперь десять героев стоят как единая команда. Они готовы идти к Внутренним Вратам.",
+                "chunkedEn": "[s: Astraea] [v: flies] [pt: with her gold wings.]\n[s: Zephyr] [v: goes] [pt: with her.]\n[s: They] [v: go up] [pt: through the fog] [pt: like an arrow of light.]\n[s: They] [v: come back] [pt: to the path.]\n[s: The squad] [v: is] [pt: there.]\n[s: The heroes] [v: are happy.]\n[s: Thorin] [v: smiles] [pt: at Zephyr.]\n[s: Valerius] [v: is happy.]\n[s: Astraea] [v: takes] [o: her staff.]\n[s: Zephyr] [v: says,] [o: \"Thank you, Astraea.\"]\n[s: They] [v: drink] [o: water.]\n[s: They] [v: rest.]\n[adv: Now] [s: the ten heroes] [v: stand] [pt: as a team.]\n[s: They] [v: are ready] [pt: to go to the Inner Gate.]"
             }
         ],
         "quiz": {
-            "question": "What did Astraea do to save Zephyr when he fell?",
+            "question": "What did Astraea do to save Zephyr when he fell into the abyss?",
             "options": [
-                "She jumped after him and created a protective light sphere",
-                "She called for help",
-                "She threw a rope"
+                "She jumped after him and created a protective gold light sphere",
+                "She threw a rope from the stone path",
+                "She asked Valerius to jump into the fog"
             ],
             "correctIndex": 0,
-            "rewardXp": 430
+            "rewardXp": 517
         },
         "backgroundImg": "images/backgrounds/bg_dragon_volcano.jpg",
         "locationEn": "The Obsidian Chasm",
