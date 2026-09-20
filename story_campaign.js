@@ -1530,31 +1530,63 @@ const STORY_CHAPTERS = [
         ],
         "paragraphs": [
             {
-                "en": "A merciless blizzard screamed around the razor-sharp rocks of the Astral Peak. Zephyr jumped across frozen chasms, scouting the route.",
-                "ru": "Беспощадная метель выла вокруг острых как бритва скал Астрального Пика. Зефир перепрыгивал замерзшие пропасти, разведывая маршрут."
+                "speaker": "zephyr",
+                "en": "The mountains were tall and cold. The wind was strong. White snow was on the path. Valerius, Thorin, Oberon and their friends climbed to the sky. They walked and walked. Before them was the great Astral Peak. It was near the grey clouds.",
+                "ru": "Горы были высокими и холодными. Ветер был сильным. Белый снег лежал на тропе. Валериус, Торин, Оберон и их друзья поднимались к небу. Они шли и шли. Перед ними высился великий Астральный Пик. Он касался серых облаков.",
+                "chunkedEn": "[s: The mountains] [v: were] [o: tall and cold.]\n[s: The wind] [v: was strong.]\n[s: White snow] [v: was] [pt: on the path.]\n[s: Valerius, Thorin, Oberon and their friends] [v: climbed] [pt: to the sky.]\n[s: They] [v: walked and walked.]\n[pt: Before them] [v: was] [s: the great Astral Peak.]\n[s: It] [v: was] [pt: near the grey clouds.]"
             },
             {
-                "en": "Selena walked quietly through the snowdrifts, leaving no footprints behind. Together, they guided the exhausted outcasts upward.",
-                "ru": "Селена бесшумно шла по сугробам, не оставляя следов. Вместе они вели измотанных изгоев наверх."
+                "speaker": "zephyr",
+                "en": "Valerius looked at the map. \"The road is long,\" he said. Thorin took a drink of water. Oberon ate bread. They rested, and now they walked again. Oberon looked at the peak. \"It is far,\" he said. Thorin said, \"I am cold.\" Oberon said, \"I am also cold.\"",
+                "ru": "Валериус посмотрел на карту. \"Дорога длинная,\" — сказал он. Торин выпил воды. Оберон съел хлеба. Они отдохнули, и теперь снова пошли. Оберон посмотрел на пик. \"Он далеко,\" — сказал он. Торин сказал: \"Мне холодно.\" Оберон сказал: \"Мне тоже холодно.\"",
+                "chunkedEn": "[s: Valerius] [v: looked] [pt: at the map.]\n[s: \"The road] [v: is long,\"] [s: he] [v: said.]\n[s: Thorin] [v: took] [o: a drink of water.]\n[s: Oberon] [v: ate] [o: bread.]\n[s: They] [v: rested,] [c: and] [adv: now] [s: they] [v: walked] [adv: again.]\n[s: Oberon] [v: looked] [pt: at the peak.]\n[s: \"It] [v: is far,\"] [s: he] [v: said.]\n[s: Thorin] [v: said,] [o: \"I] [v: am cold.\"]\n[s: Oberon] [v: said,] [o: \"I] [v: am] [adv: also] [o: cold.\"]"
             },
             {
-                "en": "At the summit stood a tower of blue glowing glass. The massive crystal doors swung open automatically.",
-                "ru": "На вершине высилась башня из синего светящегося стекла. Массивные хрустальные двери распахнулись сами собой."
+                "speaker": "zephyr",
+                "en": "Zephyr ran before the group. He was a young scout. He jumped across the ice. His green cloak was in the wind. The wind was not bad for him. It was his friend. He had a silver bow. He looked for a path. The path was narrow and icy. \"Friends, stand here!\" Zephyr called. \"The ice is weak. It is dangerous below! Follow me!\" Zephyr smiled. \"We follow you,\" Oberon said.",
+                "ru": "Зефир бежал впереди группы. Он был молодым разведчиком. Он перепрыгивал через лед. Его зеленый плащ развевался на ветру. Ветер не был для него помехой. Он был его другом. У него был серебряный лук. Он искал тропу. Тропа была узкой и ледяной. \"Друзья, стойте здесь!\" — крикнул Зефир. \"Лед слаб. Внизу опасно! Следуйте за мной!\" Зефир улыбнулся. \"Мы идем за тобой,\" — сказал Оберон.",
+                "chunkedEn": "[s: Zephyr] [v: ran] [pt: before the group.]\n[s: He] [v: was] [o: a young scout.]\n[s: He] [v: jumped] [pt: across the ice.]\n[s: His green cloak] [v: was] [pt: in the wind.]\n[s: The wind] [v: was not bad] [pt: for him.]\n[s: It] [v: was] [o: his friend.]\n[s: He] [v: had] [o: a silver bow.]\n[s: He] [v: looked] [pt: for a path.]\n[s: The path] [v: was narrow and icy.]\n[o: \"Friends,] [v: stand] [adv: here!\"] [s: Zephyr] [v: called.]\n[s: \"The ice] [v: is weak.]\n[s: It] [v: is dangerous] [adv: below!]\n[v: Follow] [o: me!\"]\n[s: Zephyr] [v: smiled.]\n[s: \"We] [v: follow] [o: you,\"] [s: Oberon] [v: said.]"
             },
             {
-                "en": "\"Welcome, Ten Shadows,\" Eldrin's voice echoed warmly from within. \"I have waited fifty winters for this moment.\"",
-                "ru": "\"Добро пожаловать, Десять Теней,\" — тепло раздался голос Эльдрина изнутри. \"Я ждал этого момента пятьдесят зим.\""
+                "speaker": "selene",
+                "en": "Selena was quiet. She walked on the snow like a shadow. The cold wind was not a problem for her. She helped Thorin and Oberon. She gave them her hand. The mountain was hard, but they climbed. Selena looked into the fog. \"The wind is strong,\" she said. \"Something is looking at us. It is above us.\"",
+                "ru": "Селена была тихой. Она ступала по снегу, словно тень. Холодный ветер не был для нее проблемой. Она помогала Торину и Оберону. Она подавала им руку. Гора была крутой, но они поднимались. Селена посмотрела в туман. \"Ветер сильный,\" — сказала она. \"Что-то смотрит на нас. Оно над нами.\"",
+                "chunkedEn": "[s: Selena] [v: was quiet.]\n[s: She] [v: walked] [pt: on the snow] [pt: like a shadow.]\n[s: The cold wind] [v: was not] [o: a problem] [pt: for her.]\n[s: She] [v: helped] [o: Thorin and Oberon.]\n[s: She] [v: gave] [o: them] [o: her hand.]\n[s: The mountain] [v: was hard,] [c: but] [s: they] [v: climbed.]\n[s: Selena] [v: looked] [pt: into the fog.]\n[s: \"The wind] [v: is strong,\"] [s: she] [v: said.]\n[s: \"Something] [v: is looking] [pt: at us.]\n[s: It] [v: is] [pt: above us.\"]"
+            },
+            {
+                "speaker": "zephyr",
+                "en": "At this moment, three Ice Specters came from the rocks! They were ice and dark. They had cold voices. They sent ice at the heroes. The heroes were afraid. \"Protect the friends!\" Zephyr said. He took his bow. He made three arrows fly. Two Ice Specters died.",
+                "ru": "В этот миг три Ледяных Призрака появились из скал! Они были из льда и тьмы. У них были холодные голоса. Они метали лед в героев. Герои испугались. \"Защищайте друзей!\" — крикнул Зефир. Он взял свой лук. Он выпустил три стрелы. Два Ледяных Призрака погибли.",
+                "chunkedEn": "[pt: At this moment,] [s: three Ice Specters] [v: came] [pt: from the rocks!]\n[s: They] [v: were] [o: ice and dark.]\n[s: They] [v: had] [o: cold voices.]\n[s: They] [v: sent] [o: ice] [pt: at the heroes.]\n[s: The heroes] [v: were afraid.]\n[v: \"Protect] [o: the friends!\"] [s: Zephyr] [v: said.]\n[s: He] [v: took] [o: his bow.]\n[s: He] [v: made] [o: three arrows fly.]\n[s: Two Ice Specters] [v: died.]"
+            },
+            {
+                "speaker": "selene",
+                "en": "At the same moment, Selena went into the shadow. Now she was behind the last Ice Specter. She had her daggers. She cut it. The last Ice Specter died. Now there were no Ice Specters. Valerius said, \"Thank you, Zephyr and Selena. We are a good team.\" Thorin and Oberon smiled. The heroes were happy.",
+                "ru": "В тот же миг Селена шагнула в тень. Теперь она была позади последнего Ледяного Призрака. У нее были кинжалы. Она поразила его. Последний Ледяной Призрак погиб. Теперь Ледяных Призраков не осталось. Валериус сказал: \"Спасибо, Зефир и Селена. Мы отличная команда.\" Торин и Оберон улыбнулись. Герои были счастливы.",
+                "chunkedEn": "[pt: At the same moment,] [s: Selena] [v: went] [pt: into the shadow.]\n[adv: Now] [s: she] [v: was] [pt: behind the last Ice Specter.]\n[s: She] [v: had] [o: her daggers.]\n[s: She] [v: cut] [o: it.]\n[s: The last Ice Specter] [v: died.]\n[adv: Now] [v: there were] [s: no Ice Specters.]\n[s: Valerius] [v: said,] [o: \"Thank you,] [o: Zephyr and Selena.]\n[s: We] [v: are] [o: a good team.\"]\n[s: Thorin and Oberon] [v: smiled.]\n[s: The heroes] [v: were happy.]"
+            },
+            {
+                "speaker": "eldrin",
+                "en": "The heroes climbed to the last peak. The wind stopped. The clouds went away. Warm gold sunlight shone on the peak. At the top of the mountain was a big tower. It was blue and shining. The walls were crystal. They looked like a big diamond. Now the heroes came near. The big doors opened. It was magic.",
+                "ru": "Герои поднялись на последнюю вершину. Ветер стих. Облака рассеялись. Теплый золотой солнечный свет озарил пик. На вершине горы стояла большая башня. Она была синей и сияющей. Стены были хрустальными. Они выглядели как огромный алмаз. Теперь герои подошли близко. Большие двери распахнулись. Это была магия.",
+                "chunkedEn": "[s: The heroes] [v: climbed] [pt: to the last peak.]\n[s: The wind] [v: stopped.]\n[s: The clouds] [v: went away.]\n[s: Warm gold sunlight] [v: shone] [pt: on the peak.]\n[pt: At the top of the mountain] [v: was] [s: a big tower.]\n[s: It] [v: was blue and shining.]\n[s: The walls] [v: were] [o: crystal.]\n[s: They] [v: looked] [pt: like a big diamond.]\n[adv: Now] [s: the heroes] [v: came] [adv: near.]\n[s: The big doors] [v: opened.]\n[s: It] [v: was] [o: magic.]"
+            },
+            {
+                "speaker": "eldrin",
+                "en": "An old wizard came out. He had long white hair and a long blue coat. He had a tall staff and a big star crystal. His eyes were bright and warm. He was Grand Archmage Eldrin. \"Welcome to the Astral Spire, brave heroes,\" Eldrin said. \"You lost your homes, but you found true friends. I waited for this day for a long time. Come inside. Our world needs you now.\" Valerius looked at his friends. \"Thank you, Eldrin. We are ready,\" he said. The heroes went inside.",
+                "ru": "Старый волшебник вышел наружу. У него были длинные белые волосы и длинная синяя мантия. У него был высокий посох и большой звездный кристалл. Его глаза были яркими и теплыми. Он был Великим Архимагом Эльдрином. \"Добро пожаловать в Астральный Шпиль, храбрые герои,\" — сказал Эльдрин. \"Вы потеряли свои дома, но обрели верных друзей. Я ждал этого дня очень долго. Входите. Наш мир нуждается в вас.\" Валериус посмотрел на друзей. \"Спасибо, Эльдрин. Мы готовы,\" — сказал он. Герои вошли внутрь.",
+                "chunkedEn": "[s: An old wizard] [v: came out.]\n[s: He] [v: had] [o: long white hair and a long blue coat.]\n[s: He] [v: had] [o: a tall staff and a big star crystal.]\n[s: His eyes] [v: were bright and warm.]\n[s: He] [v: was] [o: Grand Archmage Eldrin.]\n[o: \"Welcome] [pt: to the Astral Spire,] [o: brave heroes,\"] [s: Eldrin] [v: said.]\n[s: \"You] [v: lost] [o: your homes,] [c: but] [s: you] [v: found] [o: true friends.]\n[s: I] [v: waited] [pt: for this day] [pt: for a long time.]\n[v: Come] [adv: inside.]\n[s: Our world] [v: needs] [o: you] [adv: now.\"]\n[s: Valerius] [v: looked] [pt: at his friends.]\n[o: \"Thank you, Eldrin.]\n[s: We] [v: are ready,\"] [s: he] [v: said.]\n[s: The heroes] [v: went] [adv: inside.]"
             }
         ],
         "quiz": {
-            "question": "Who opened the doors of the Astral Tower for the heroes?",
+            "question": "Who welcomed the eight heroes at the top of the Astral Peak?",
             "options": [
-                "Grand Archmage Eldrin",
-                "A mountain troll",
-                "A goblin guard"
+                "Grand Archmage Eldrin at the Astral Spire",
+                "The king of the Silver Citadel",
+                "An Ice Specter from the mountain"
             ],
             "correctIndex": 0,
-            "rewardXp": 310
+            "rewardXp": 466
         },
         "backgroundImg": "images/backgrounds/bg_mountains.jpg",
         "locationEn": "The Razor Crest of Astral Peak",
