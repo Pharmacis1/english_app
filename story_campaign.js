@@ -1848,31 +1848,63 @@ const STORY_CHAPTERS = [
         ],
         "paragraphs": [
             {
-                "en": "Frostina sat on the tower terrace, sculpting delicate frost flowers in the night breeze. Selena appeared silently beside her.",
-                "ru": "Фростина сидела на террасе башни, создавая изящные морозные цветы в ночном бризе. Селена бесшумно возникла рядом."
+                "speaker": "frostina",
+                "en": "It is night. Frostina is in the garden on the top of the Astral Spire. There is snow on the stone floor. Frostina is in a stone chair. The wind is cold. It moves her light blue hair. She moves her hands slowly. Flowers of crystal ice grow from her fingers. The flowers glow. Their light is soft and blue. Frostina looks at the flowers and smiles.",
+                "ru": "Ночь. Фростина в саду на вершине Астрального Шпиля. На каменном полу лежит снег. Фростина сидит в каменном кресле. Ветер холодный. Он колышет ее светло-голубые волосы. Она медленно двигает руками. Цветы из хрустального льда вырастают из ее пальцев. Цветы светятся. Их свет мягкий и голубой. Фростина смотрит на цветы и улыбается.",
+                "chunkedEn": "[s: It] [v: is] [pt: night.]\n[s: Frostina] [v: is] [pt: in the garden] [pt: on the top of the Astral Spire.]\n[v: There is] [s: snow] [pt: on the stone floor.]\n[s: Frostina] [v: is] [pt: in a stone chair.]\n[s: The wind] [v: is cold.]\n[s: It] [v: moves] [o: her light blue hair.]\n[s: She] [v: moves] [o: her hands] [adv: slowly.]\n[s: Flowers of crystal ice] [v: grow] [pt: from her fingers.]\n[s: The flowers] [v: glow.]\n[s: Their light] [v: is] [o: soft and blue.]\n[s: Frostina] [v: looks] [pt: at the flowers] [c: and] [v: smiles.]"
             },
             {
-                "en": "\"Why are you always in the shadows, Selena?\" Frostina asked without turning around. \"Do you not trust our warmth?\"",
-                "ru": "\"Почему ты всегда в тени, Селена?\" — спросила Фростина, не оборачиваясь. \"Ты не доверяешь нашему теплу?\""
+                "speaker": "selene",
+                "en": "Selena comes from the dark. She walks like a shadow. She is quiet. Her cloak is black and her eyes are purple. She stands behind the stone chair. She looks at the garden. The garden is white and quiet. Frostina does not look at Selena. She smiles.",
+                "ru": "Селена выходит из темноты. Она идет словно тень. Она бесшумна. Ее плащ черный, а глаза фиолетовые. Она стоит позади каменного кресла. Она смотрит на сад. Сад белый и тихий. Фростина не смотрит на Селену. Она улыбается.",
+                "chunkedEn": "[s: Selena] [v: comes] [pt: from the dark.]\n[s: She] [v: walks] [pt: like a shadow.]\n[s: She] [v: is quiet.]\n[s: Her cloak] [v: is black] [c: and] [s: her eyes] [v: are purple.]\n[s: She] [v: stands] [pt: behind the stone chair.]\n[s: She] [v: looks] [pt: at the garden.]\n[s: The garden] [v: is white and quiet.]\n[s: Frostina] [v: does not look] [pt: at Selena.]\n[s: She] [v: smiles.]"
             },
             {
-                "en": "\"When my ancient clan was betrayed fifty years ago, warmth died for me,\" Selena said softly. \"In the dark, no one can stab you in the back.\"",
-                "ru": "\"Когда мой древний клан был предан пятьдесят лет назад, тепло умерло для меня,\" — тихо сказала Селена. \"В темноте никто не ударит тебя в спину.\""
+                "speaker": "frostina",
+                "en": "\"Why do you always walk in the dark, Selena?\" Frostina asks. \"The fire in the hall is warm. Our friends are happy there. Do you not like it?\"",
+                "ru": "\"Почему ты всегда ходишь в темноте, Селена?\" — спрашивает Фростина. \"Огонь в зале теплый. Наши друзья счастливы там. Тебе это не нравится?\"",
+                "chunkedEn": "[w: \"Why] [v: do] [s: you] [adv: always] [v: walk] [pt: in the dark, Selena?\"] [s: Frostina] [v: asks.]\n[s: \"The fire in the hall] [v: is warm.]\n[s: Our friends] [v: are happy] [adv: there.]\n[v: Do] [s: you] [v: not like] [o: it?\"]"
             },
             {
-                "en": "Frostina placed a glowing ice flower into Selena's palm. \"The dark is safe, but flowers only bloom in the light. We are your new family now.\"",
-                "ru": "Фростина вложила светящийся ледяной цветок в ладонь Селены. \"Тьма безопасна, но цветы распускаются только на свету. Теперь мы твоя новая семья.\""
+                "speaker": "selene",
+                "en": "Selena looks at her silver daggers. Her eyes are not happy. \"A long time ago, I lived in a peaceful town in the mountain,\" Selena says. \"My people lived there. We had a good life. One night, bad men came. They came with smiles. They said, 'We are your friends.' But they were not friends. They made fire in our town. They took our home. That night, my heart died. Now I live in the dark. In the shadow, no bad man comes behind me.\"",
+                "ru": "Селена смотрит на свои серебряные кинжалы. Ее глаза печальны. \"Давным-давно я жила в мирном городке в горах,\" — говорит Селена. \"Мой народ жил там. У нас была хорошая жизнь. Однажды ночью пришли дурные люди. Они пришли с улыбками. Они сказали: 'Мы ваши друзья.' Но они не были друзьями. Они устроили пожар в нашем городе. Они отняли наш дом. Той ночью мое сердце умерло. Теперь я живу во тьме. В тени ни один дурной человек не нападет на меня сзади.\"",
+                "chunkedEn": "[s: Selena] [v: looks] [pt: at her silver daggers.]\n[s: Her eyes] [v: are not] [o: happy.]\n[pt: \"A long time ago,] [s: I] [v: lived] [pt: in a peaceful town] [pt: in the mountain,\"] [s: Selena] [v: says.]\n[s: \"My people] [v: lived] [adv: there.]\n[s: We] [v: had] [o: a good life.]\n[pt: One night,] [s: bad men] [v: came.]\n[s: They] [v: came] [pt: with smiles.]\n[s: They] [v: said,] [s: 'We] [v: are] [o: your friends.']\n[c: But] [s: they] [v: were not] [o: friends.]\n[s: They] [v: made] [o: fire] [pt: in our town.]\n[s: They] [v: took] [o: our home.]\n[pt: That night,] [s: my heart] [v: died.]\n[adv: Now] [s: I] [v: live] [pt: in the dark.]\n[pt: In the shadow,] [s: no bad man] [v: comes] [pt: behind me.\"]"
+            },
+            {
+                "speaker": "frostina",
+                "en": "Frostina looks at Selena. She takes a crystal flower. She gives the flower to Selena. Selena has it in her hand. The flower is cold, but there is no pain. It has a soft blue light. \"Ice is cold and hard, Selena,\" Frostina says. \"Ice protects itself with walls. But look at this flower. When light touches the frost, the flower opens. This is true life. This is real and beautiful. The shadow can hide you, but it cannot give you a home. Now we are your family. You do not need to hide.\"",
+                "ru": "Фростина смотрит на Селену. Она берет хрустальный цветок. Она дарит цветок Селене. Селена держит его в руке. Цветок холодный, но боли нет. Он излучает мягкий голубой свет. \"Лед холодный и твердый, Селена,\" — говорит Фростина. \"Лед защищает себя стенами. Но посмотри на этот цветок. Когда свет касается мороза, цветок раскрывается. Это настоящая жизнь. Это подлинно и красиво. Тень может спрятать тебя, но она не может дать тебе дом. Теперь мы твоя семья. Тебе не нужно прятаться.\"",
+                "chunkedEn": "[s: Frostina] [v: looks] [pt: at Selena.]\n[s: She] [v: takes] [o: a crystal flower.]\n[s: She] [v: gives] [o: the flower] [pt: to Selena.]\n[s: Selena] [v: has] [o: it] [pt: in her hand.]\n[s: The flower] [v: is cold,] [c: but] [v: there is] [s: no pain.]\n[s: It] [v: has] [o: a soft blue light.]\n[s: \"Ice] [v: is cold and hard, Selena,\"] [s: Frostina] [v: says.]\n[s: \"Ice] [v: protects] [o: itself] [pt: with walls.]\n[c: But] [v: look] [pt: at this flower.]\n[c: When] [s: light] [v: touches] [o: the frost,] [s: the flower] [v: opens.]\n[s: This] [v: is] [o: true life.]\n[s: This] [v: is real and beautiful.]\n[s: The shadow] [v: can hide] [o: you,] [c: but] [s: it] [v: cannot give] [o: you] [o: a home.]\n[adv: Now] [s: we] [v: are] [o: your family.]\n[s: You] [v: do not need to hide.\"]"
+            },
+            {
+                "speaker": "selene",
+                "en": "Selena looks at the flower in her hand. For the first time in a long time, she smiles. Her face is soft. \"A new family,\" Selena says. \"I like it.\" Now Selena hears something. It is in the towers. Big black birds come down from the roof! Their eyes are red. They fly to Frostina! \"Frostina, look!\" Selena says.",
+                "ru": "Селена смотрит на цветок в своей руке. Впервые за долгое время она улыбается. Ее лицо становится мягким. \"Новая семья,\" — говорит Селена. \"Мне это нравится.\" Вдруг Селена слышит шум. Это в башнях. Большие черные птицы спускаются с крыши! Их глаза красные. Они летят к Фростине! \"Фростина, смотри!\" — кричит Селена.",
+                "chunkedEn": "[s: Selena] [v: looks] [pt: at the flower] [pt: in her hand.]\n[pt: For the first time] [pt: in a long time,] [s: she] [v: smiles.]\n[s: Her face] [v: is soft.]\n[o: \"A new family,\"] [s: Selena] [v: says.]\n[s: \"I] [v: like] [o: it.\"]\n[adv: Now] [s: Selena] [v: hears] [o: something.]\n[s: It] [v: is] [pt: in the towers.]\n[s: Big black birds] [v: come down] [pt: from the roof!]\n[s: Their eyes] [v: are red.]\n[s: They] [v: fly] [pt: to Frostina!]\n[o: \"Frostina,] [v: look!\"] [s: Selena] [v: says.]"
+            },
+            {
+                "speaker": "selene",
+                "en": "Selena is fast. She jumps over the stone chair. She has two silver daggers. She cuts two birds. Frostina has her crystal staff in her hand. A great ring of frost comes from the staff. The frost freezes the birds. The birds fall on the stone floor. They are ice now.",
+                "ru": "Селена стремительна. Она перепрыгивает через каменное кресло. У нее два серебряных кинжала. Она разит двух птиц. У Фростины хрустальный посох в руке. Великое кольцо мороза исходит из посоха. Мороз замораживает птиц. Птицы падают на каменный пол. Теперь они ледяные.",
+                "chunkedEn": "[s: Selena] [v: is fast.]\n[s: She] [v: jumps] [pt: over the stone chair.]\n[s: She] [v: has] [o: two silver daggers.]\n[s: She] [v: cuts] [o: two birds.]\n[s: Frostina] [v: has] [o: her crystal staff] [pt: in her hand.]\n[s: A great ring of frost] [v: comes] [pt: from the staff.]\n[s: The frost] [v: freezes] [o: the birds.]\n[s: The birds] [v: fall] [pt: on the stone floor.]\n[s: They] [v: are] [o: ice] [adv: now.]"
+            },
+            {
+                "speaker": "frostina",
+                "en": "The garden is quiet again. Selena has her daggers on her belt. She has the ice flower in her left hand. Frostina smiles. \"Frost and shadow protect the light. We are a team.\" Selena looks at Frostina. \"Thank you, Frostina,\" Selena says. \"I do not want to hide in the dark now. Tomorrow, we fight for our home.\" They look at the sky. The moon and the stars are in the sky. They go to the hall.",
+                "ru": "В саду снова тихо. Кинжалы Селены на ее поясе. Ледяной цветок у нее в левой руке. Фростина улыбается. \"Мороз и тень защищают свет. Мы — команда.\" Селена смотрит на Фростину. \"Спасибо, Фростина,\" — говорит Селена. \"Я больше не хочу прятаться в темноте. Завтра мы сразимся за наш дом.\" Они смотрят на небо. Луна и звезды на небе. Они идут в зал.",
+                "chunkedEn": "[s: The garden] [v: is quiet] [adv: again.]\n[s: Selena] [v: has] [o: her daggers] [pt: on her belt.]\n[s: She] [v: has] [o: the ice flower] [pt: in her left hand.]\n[s: Frostina] [v: smiles.]\n[s: \"Frost and shadow] [v: protect] [o: the light.]\n[s: We] [v: are] [o: a team.\"]\n[s: Selena] [v: looks] [pt: at Frostina.]\n[o: \"Thank you, Frostina,\"] [s: Selena] [v: says.]\n[s: \"I] [v: do not want to hide] [pt: in the dark] [adv: now.]\n[adv: Tomorrow,] [s: we] [v: fight] [pt: for our home.\"]\n[s: They] [v: look] [pt: at the sky.]\n[s: The moon and the stars] [v: are] [pt: in the sky.]\n[s: They] [v: go] [pt: to the hall.]"
             }
         ],
         "quiz": {
             "question": "What did Frostina give to Selena on the terrace?",
             "options": [
-                "A bag of silver",
-                "A glowing ice flower",
-                "A poison dagger"
+                "A glowing crystal ice flower",
+                "A bag of gold",
+                "A dark poisoned dagger"
             ],
-            "correctIndex": 1,
-            "rewardXp": 350
+            "correctIndex": 0,
+            "rewardXp": 508
         },
         "backgroundImg": "images/backgrounds/bg_white_forest.jpg",
         "locationEn": "The Frost Terrace",
