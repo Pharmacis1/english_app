@@ -2328,31 +2328,63 @@ const STORY_CHAPTERS = [
         ],
         "paragraphs": [
             {
-                "en": "To reach the inner gate of the Rift, the squad had to cross a narrow bridge made of giant fossilized dragon bones over a boiling lake of magma.",
-                "ru": "Чтобы добраться до внутренних врат Разлома, отряду нужно было пересечь узкий мост из гигантских окаменелых костей дракона над кипящим озером магмы."
+                "speaker": "thorin",
+                "en": "The ten heroes arrive at the Ash Rift. They stand and look. Below them is a big red lake. The lake is hot. It is a lake of fire. Sparks go up to the dark sky. The air is hot and it smells of stone. Freya says, \"I am hot. I want water.\" Astraea gives her water. Freya drinks it. Zephyr has bread. He gives bread to Thorin and Valerius. They eat.",
+                "ru": "Десять героев прибывают к Пепельному Разлому. Они стоят и смотрят. Внизу под ними большое красное озеро. Озеро раскаленное. Это озеро огня. Искры взлетают в темное небо. Воздух горяч и пахнет камнем. Фрейя говорит: \"Мне жарко. Я хочу воды.\" Астрея дает ей воды. Фрейя пьет ее. У Зефира есть хлеб. Он дает хлеб Торину и Валериусу. Они едят.",
+                "chunkedEn": "[s: The ten heroes] [v: arrive] [pt: at the Ash Rift.]\n[s: They] [v: stand and look.]\n[pt: Below them] [v: is] [s: a big red lake.]\n[s: The lake] [v: is hot.]\n[s: It] [v: is] [o: a lake of fire.]\n[s: Sparks] [v: go up] [pt: to the dark sky.]\n[s: The air] [v: is hot] [c: and] [s: it] [v: smells] [pt: of stone.]\n[s: Freya] [v: says,] [s: \"I] [v: am hot.]\n[s: I] [v: want] [o: water.\"]\n[s: Astraea] [v: gives] [o: her] [o: water.]\n[s: Freya] [v: drinks] [o: it.]\n[s: Zephyr] [v: has] [o: bread.]\n[s: He] [v: gives] [o: bread] [pt: to Thorin and Valerius.]\n[s: They] [v: eat.]"
             },
             {
-                "en": "A massive four-armed Magma Titan climbed onto the bridge, smashing the bone arch with a molten club.",
-                "ru": "Огромный четырехрукий Магматический Титан взобрался на мост, круша костяную арку раскаленной дубиной."
+                "speaker": "thorin",
+                "en": "Valerius takes a map. He looks at it. \"The Inner Gates are on the other side,\" he says. \"There is one road. It is a bridge.\" The heroes look at the bridge. It is old and narrow. It is made of white bones. Thorin looks at his heavy armor. \"This bridge is old, friends,\" he says. \"The bones are strong. But the fire below is dangerous. You can die in it. Go slow and walk with me.\"",
+                "ru": "Валериус достает карту. Он смотрит на нее. \"Внутренние Врата на другой стороне,\" — говорит он. \"Есть одна дорога. Это мост.\" Герои смотрят на мост. Он старый и узкий. Он сделан из белых костей. Торин смотрит на свою тяжелую броню. \"Этот мост старый, друзья,\" — говорит он. \"Кости прочные. Но огонь внизу опасен. В нем можно погибнуть. Идите медленно и ступайте за мной.\"",
+                "chunkedEn": "[s: Valerius] [v: takes] [o: a map.]\n[s: He] [v: looks] [pt: at it.]\n[s: \"The Inner Gates] [v: are] [pt: on the other side,\"] [s: he] [v: says.]\n[v: \"There is] [s: one road.]\n[s: It] [v: is] [o: a bridge.\"]\n[s: The heroes] [v: look] [pt: at the bridge.]\n[s: It] [v: is old and narrow.]\n[s: It] [v: is made] [pt: of white bones.]\n[s: Thorin] [v: looks] [pt: at his heavy armor.]\n[s: \"This bridge] [v: is old, friends,\"] [s: he] [v: says.]\n[s: \"The bones] [v: are strong.]\n[c: But] [s: the fire below] [v: is dangerous.]\n[s: You] [v: can die] [pt: in it.]\n[v: Go] [adv: slow] [c: and] [v: walk] [pt: with me.\"]"
             },
             {
-                "en": "Thorin and Freya charged forward together. Thorin locked the monster's legs with his warhammer, while Freya drove her lightning spear through its fiery eye.",
-                "ru": "Торин и Фрейя бросились вперед вместе. Торин заблокировал ноги монстра боевым молотом, пока Фрейя вонзила копье молнии в его огненный глаз."
+                "speaker": "freya",
+                "en": "The squad goes on the bridge. They go one by one. Valerius and Freya go first. Thorin goes behind Freya. Oberon and Astraea go last. The bridge is long. Zephyr looks at the sky. Astraea looks at the fire. Nobody says a word.",
+                "ru": "Отряд ступает на мост. Они идут друг за другом. Валериус и Фрейя идут первыми. Торин идет позади Фрейи. Оберон и Астрея замыкают строй. Мост длинный. Зефир смотрит на небо. Астрея смотрит на огонь. Никто не произносит ни слова.",
+                "chunkedEn": "[s: The squad] [v: goes] [pt: on the bridge.]\n[s: They] [v: go] [adv: one by one.]\n[s: Valerius and Freya] [v: go] [adv: first.]\n[s: Thorin] [v: goes] [pt: behind Freya.]\n[s: Oberon and Astraea] [v: go] [adv: last.]\n[s: The bridge] [v: is long.]\n[s: Zephyr] [v: looks] [pt: at the sky.]\n[s: Astraea] [v: looks] [pt: at the fire.]\n[s: Nobody] [v: says] [o: a word.]"
             },
             {
-                "en": "Oberon instantly grew vine bridges to replace the shattered bone plates, allowing all ten heroes to cross safely to the other side.",
-                "ru": "Оберон мгновенно вырастил лозовые мосты взамен разбитых костяных плит, позволив всем десяти героям благополучно перебраться на другую сторону."
+                "speaker": "freya",
+                "en": "Now fire comes up from the lake! A big Magma Titan comes up on the bridge. It is tall. It is bigger than a tower. Its body is made of hot stone. Its eye is red and glowing. It has four arms. It has two big clubs. The Titan takes a club. It breaks the center of the bridge! The old bones break into pieces! \"It wants us in the fire!\" Freya says. She takes her thunder spear. \"Thorin, come with me!\"",
+                "ru": "Вдруг огонь взмывает из озера! Огромный Магматический Титан поднимается на мост. Он высокий. Он больше башни. Его тело сделано из раскаленного камня. Его глаз красный и пылающий. У него четыре руки. У него две большие дубины. Титан берет дубину. Он разбивает середину моста! Старые кости разлетаются на куски! \"Он хочет сбросить нас в огонь!\" — кричит Фрейя. Она берет свое копье грома. \"Торин, за мной!\"",
+                "chunkedEn": "[adv: Now] [s: fire] [v: comes up] [pt: from the lake!]\n[s: A big Magma Titan] [v: comes up] [pt: on the bridge.]\n[s: It] [v: is tall.]\n[s: It] [v: is bigger] [pt: than a tower.]\n[s: Its body] [v: is made] [pt: of hot stone.]\n[s: Its eye] [v: is red and glowing.]\n[s: It] [v: has] [o: four arms.]\n[s: It] [v: has] [o: two big clubs.]\n[s: The Titan] [v: takes] [o: a club.]\n[s: It] [v: breaks] [o: the center of the bridge!]\n[s: The old bones] [v: break] [pt: into pieces!]\n[s: \"It] [v: wants] [o: us] [pt: in the fire!\"] [s: Freya] [v: says.]\n[s: She] [v: takes] [o: her thunder spear.]\n[o: \"Thorin,] [v: come] [pt: with me!\"]"
+            },
+            {
+                "speaker": "thorin",
+                "en": "Thorin and Freya run to the Titan. The bridge moves under them. The Titan has four big hands. It fights with them. Thorin takes his bronze hammer. He goes to the Titan's knee. With all his power, he breaks it! The stone leg breaks. The Titan goes down on one knee.",
+                "ru": "Торин и Фрейя бегут к Титану. Мост шатается под ними. У Титана четыре огромные руки. Он сражается ими. Торин берет свой бронзовый молот. Он устремляется к колену Титана. Со всей силой он наносит удар! Каменная нога ломается. Титан опускается на одно колено.",
+                "chunkedEn": "[s: Thorin and Freya] [v: run] [pt: to the Titan.]\n[s: The bridge] [v: moves] [pt: under them.]\n[s: The Titan] [v: has] [o: four big hands.]\n[s: It] [v: fights] [pt: with them.]\n[s: Thorin] [v: takes] [o: his bronze hammer.]\n[s: He] [v: goes] [pt: to the Titan's knee.]\n[pt: With all his power,] [s: he] [v: breaks] [o: it!]\n[s: The stone leg] [v: breaks.]\n[s: The Titan] [v: goes down] [pt: on one knee.]"
+            },
+            {
+                "speaker": "freya",
+                "en": "\"Now, Freya! Go for the eye!\" Thorin says. He stands at the leg with his hammer. Freya jumps up. Blue storm dances on her silver armor and on her spear. She calls with a strong voice. With courage, she cuts the glowing eye with her spear! There is big thunder and big fire! The Titan falls back into the lake. The lake takes it.",
+                "ru": "\"Сейчас, Фрейя! Бей в глаз!\" — кричит Торин. Он стоит у ноги гиганта с молотом. Фрейя взмывает вверх. Синяя буря пляшет на ее серебряной броне и на ее копье. Она кричит громким голосом. С мужеством она разит светящийся глаз своим копьем! Великий гром и великий огонь озаряют бездну! Титан падает назад в озеро. Озеро поглощает его.",
+                "chunkedEn": "[adv: \"Now,] [o: Freya!] [v: Go] [pt: for the eye!\"] [s: Thorin] [v: says.]\n[s: He] [v: stands] [pt: at the leg] [pt: with his hammer.]\n[s: Freya] [v: jumps up.]\n[s: Blue storm] [v: dances] [pt: on her silver armor] [c: and] [pt: on her spear.]\n[s: She] [v: calls] [pt: with a strong voice.]\n[pt: With courage,] [s: she] [v: cuts] [o: the glowing eye] [pt: with her spear!]\n[v: There is] [s: big thunder and big fire!]\n[s: The Titan] [v: falls back] [pt: into the lake.]\n[s: The lake] [v: takes] [o: it.]"
+            },
+            {
+                "speaker": "oberon",
+                "en": "But the center of the bridge is gone. The other side is far. Between the heroes and the other side is air. \"We can't jump,\" Zephyr says. \"Look at the fire below!\" Oberon goes to the end of the bridge. He has a wood staff. He touches the white bones with it. He says in a strong voice, \"Roots of the old grove, make a bridge over the fire!\"",
+                "ru": "Но центр моста уничтожен. Другая сторона далеко. Между героями и другой стороной лишь пустота. \"Мы не сможем перепрыгнуть,\" — говорит Зефир. \"Посмотрите на огонь внизу!\" Оберон подходит к краю моста. У него деревянный посох. Он касается им белых костей. Он произносит громким голосом: \"Корни древней рощи, сотворите мост над огнем!\"",
+                "chunkedEn": "[c: But] [s: the center of the bridge] [v: is gone.]\n[s: The other side] [v: is far.]\n[pt: Between the heroes and the other side] [v: is] [s: air.]\n[s: \"We] [v: can't jump,\"] [s: Zephyr] [v: says.]\n[v: \"Look] [pt: at the fire below!\"]\n[s: Oberon] [v: goes] [pt: to the end of the bridge.]\n[s: He] [v: has] [o: a wood staff.]\n[s: He] [v: touches] [o: the white bones] [pt: with it.]\n[s: He] [v: says] [pt: in a strong voice,] [s: \"Roots of the old grove,] [v: make] [o: a bridge] [pt: over the fire!\"]"
+            },
+            {
+                "speaker": "oberon",
+                "en": "Big green roots come out of the staff. They go around the white bones. They make a new bridge of wood and bone across the fire! \"Go fast, friends!\" Oberon says. The ten heroes run on the new bridge. They come to the black stone on the other side. Astraea looks back at the fire. Thorin smiles. \"Good!\" he says. Freya takes her spear. Behind them, the Inner Gates of the Ash Rift begin to open slowly.",
+                "ru": "Огромные зеленые корни вырываются из посоха. Они оплетают белые кости. Они создают новый мост из дерева и костей над огнем! \"Бегите быстрее, друзья!\" — говорит Оберон. Десять героев бегут по новому мосту. Они ступают на черный камень на другой стороне. Астрея оглядывается на огонь. Торин улыбается. \"Отлично!\" — говорит он. Фрейя поднимает копье. Позади них Внутренние Врата Пепельного Разлома начинают медленно открываться.",
+                "chunkedEn": "[s: Big green roots] [v: come out] [pt: of the staff.]\n[s: They] [v: go around] [o: the white bones.]\n[s: They] [v: make] [o: a new bridge of wood and bone] [pt: across the fire!]\n[v: \"Go] [adv: fast,] [o: friends!\"] [s: Oberon] [v: says.]\n[s: The ten heroes] [v: run] [pt: on the new bridge.]\n[s: They] [v: come] [pt: to the black stone] [pt: on the other side.]\n[s: Astraea] [v: looks back] [pt: at the fire.]\n[s: Thorin] [v: smiles.]\n[o: \"Good!\"] [s: he] [v: says.]\n[s: Freya] [v: takes] [o: her spear.]\n[pt: Behind them,] [s: the Inner Gates of the Ash Rift] [v: begin to open] [adv: slowly.]"
             }
         ],
         "quiz": {
-            "question": "How did Oberon save the bridge when the Titan smashed it?",
+            "question": "How did Oberon repair the bridge when the Magma Titan broke it?",
             "options": [
-                "He grew magical vine bridges over the gaps",
-                "He used a flying ship",
-                "He cast a freeze spell"
+                "He made a bridge of living green roots and bone across the fire",
+                "He called a giant flying bird",
+                "He froze the entire lake of fire into ice"
             ],
             "correctIndex": 0,
-            "rewardXp": 420
+            "rewardXp": 535
         },
         "backgroundImg": "images/backgrounds/bg_dragon_volcano.jpg",
         "locationEn": "The Dragon Bone Bridge",
