@@ -2650,35 +2650,67 @@ const STORY_CHAPTERS = [
         ],
         "paragraphs": [
             {
-                "en": "The sky turned pitch black as the Ash Sun reached total solar eclipse. A red ring of evil light blazed in the heavens.",
-                "ru": "Небо стало смоляно-черным, когда Пепельное Солнце достигло полного солнечного затмения. Красное кольцо зловещего света пылало в небесах."
+                "speaker": "valerius",
+                "en": "The sky above the Ash Valley becomes black. The moon goes in front of the sun. A ring of red fire glows in the dark sky. It is like an angry red eye. The ground under the heroes moves. A big, dangerous voice comes from the Rift. The mountains move. The final hour of the old realm is here.",
+                "ru": "Небо над Пепельной Долиной становится черным. Луна заслоняет солнце. Кольцо красного огня пылает в темном небе. Оно словно яростный красный глаз. Земля под ногами героев содрогается. Могучий, опасный голос доносится из Разлома. Горы дрожат. Последний час древнего королевства настал.",
+                "chunkedEn": "[s: The sky above the Ash Valley] [v: becomes] [o: black.]\n[s: The moon] [v: goes] [pt: in front of the sun.]\n[s: A ring of red fire] [v: glows] [pt: in the dark sky.]\n[s: It] [v: is] [pt: like an angry red eye.]\n[s: The ground under the heroes] [v: moves.]\n[s: A big, dangerous voice] [v: comes] [pt: from the Rift.]\n[s: The mountains] [v: move.]\n[s: The final hour of the old realm] [v: is] [pt: here.]"
             },
             {
-                "en": "The colossal iron gates of the Rift began to shatter. Thousands of demon wings roared from the bottomless crater.",
-                "ru": "Колоссальные железные врата Разлома начали трескаться. Тысячи демонических крыльев взревели из бездонного кратера."
+                "speaker": "valerius",
+                "en": "The big iron doors of the Rift begin to break. Fire and sparks come from the metal doors. Sparks come from every door. Thousands of shadow animals and flying animals with wings come from the dark. The air is full of their voices. The heroes look at the doors. They wait.",
+                "ru": "Огромные железные двери Разлома начинают ломаться. Огонь и искры вырываются из металлических дверей. Искры летят от каждой двери. Тысячи теневых тварей и крылатых летучих созданий выходят из тьмы. Воздух наполнен их криками. Герои смотрят на двери. Они ждут.",
+                "chunkedEn": "[s: The big iron doors of the Rift] [v: begin to break.]\n[s: Fire and sparks] [v: come] [pt: from the metal doors.]\n[s: Sparks] [v: come] [pt: from every door.]\n[s: Thousands of shadow animals and flying animals with wings] [v: come] [pt: from the dark.]\n[s: The air] [v: is full] [pt: of their voices.]\n[s: The heroes] [v: look] [pt: at the doors.]\n[s: They] [v: wait.]"
             },
             {
-                "en": "\"Line up!\" Valerius ordered. Valerius, Thorin, and Freya formed an unbreakable front wall with their shields and spears.",
-                "ru": "\"В строй!\" — скомандовал Валериус. Валериус, Торин и Фрейя сформировали несокрушимую переднюю стену своими щитами и копьями."
+                "speaker": "valerius",
+                "en": "Archmage Eldrin has his glowing staff above his head. \"The lock is breaking from inside!\" Eldrin says. \"The dark key stopped Malakor, but the Ash Titan is waking up under the ground! We need to stand at these doors until the stars are ready!\"",
+                "ru": "Архимаг Эльдрин держит сияющий посох над головой. \"Замок разрушается изнутри!\" — говорит Эльдрин. \"Темный ключ остановил Малакора, но Пепельный Титан просыпается под землей! Мы должны держать оборону у этих дверей, пока звезды не будут готовы!\"",
+                "chunkedEn": "[s: Archmage Eldrin] [v: has] [o: his glowing staff] [pt: above his head.]\n[s: \"The lock] [v: is breaking] [pt: from inside!\"] [s: Eldrin] [v: says.]\n[s: \"The dark key] [v: stopped] [o: Malakor,]\n[c: but] [s: the Ash Titan] [v: is waking up] [pt: under the ground!]\n[s: We] [v: need to stand] [pt: at these doors] [c: until] [s: the stars] [v: are ready!\"]"
             },
             {
-                "en": "\"Let them come,\" Selena whispered, sharpening her obsidian blades. \"Today, we write our own destiny.\"",
-                "ru": "\"Пусть идут,\" — прошептала Селена, точа обсидиановые клинки. \"Сегодня мы сами пишем свою судьбу.\""
+                "speaker": "valerius",
+                "en": "Valerius goes to the front of the squad. His silver armor shines in the dark. His shoulder is healed and strong. He takes his heavy silver shield and his bright sword. He looks at the heroes. \"Heroes, stand next to me!\" Valerius says in a strong voice. \"Stand shoulder to shoulder! Nothing can cross these doors!\" Valerius looks at Thorin and Freya.",
+                "ru": "Валериус выходит вперед отряда. Его серебряные доспехи сияют во тьме. Его плечо исцелено и полно сил. Он берет тяжелый серебряный щит и сияющий меч. Он смотрит на героев. \"Герои, встаньте рядом со мной!\" — твердым голосом командует Валериус. \"Стойте плечом к плечу! Никто не пройдет через эти двери!\" Валериус смотрит на Торина и Фрейю.",
+                "chunkedEn": "[s: Valerius] [v: goes] [pt: to the front of the squad.]\n[s: His silver armor] [v: shines] [pt: in the dark.]\n[s: His shoulder] [v: is healed and strong.]\n[s: He] [v: takes] [o: his heavy silver shield and his bright sword.]\n[s: He] [v: looks] [pt: at the heroes.]\n[o: \"Heroes,] [v: stand] [pt: next to me!\"] [s: Valerius] [v: says] [pt: in a strong voice.]\n[v: \"Stand] [pt: shoulder to shoulder!]\n[s: Nothing] [v: can cross] [o: these doors!\"]\n[s: Valerius] [v: looks] [pt: at Thorin and Freya.]"
+            },
+            {
+                "speaker": "thorin",
+                "en": "Thorin walks to Valerius and stands next to him. He has a big bronze hammer. He looks at Valerius and smiles. \"I am next to you, brother!\" Thorin says with a big smile. \"My shield is bronze, your shield is silver, and we are a strong mountain wall!\"",
+                "ru": "Торин подходит к Валериусу и встает рядом с ним. У него большой бронзовый молот. Он смотрит на Валериуса и улыбается. \"Я рядом с тобой, брат!\" — говорит Торин с широкой улыбкой. \"Мой щит бронзовый, твой щит серебряный, и вместе мы — несокрушимая горная стена!\"",
+                "chunkedEn": "[s: Thorin] [v: walks] [pt: to Valerius] [c: and] [v: stands] [pt: next to him.]\n[s: He] [v: has] [o: a big bronze hammer.]\n[s: He] [v: looks] [pt: at Valerius] [c: and] [v: smiles.]\n[s: \"I] [v: am] [pt: next to you, brother!\"] [s: Thorin] [v: says] [pt: with a big smile.]\n[s: \"My shield] [v: is] [o: bronze,] [s: your shield] [v: is] [o: silver,]\n[c: and] [s: we] [v: are] [o: a strong mountain wall!\"]"
+            },
+            {
+                "speaker": "freya",
+                "en": "Freya jumps next to Valerius. She is on his other side. Her spear is heavy. It has thunder and bright blue light. She plants her feet on the black rock. \"My spear can cut any animal that wants to cross these doors!\" Freya says. Her eyes are bright. She is a warrior. Freya looks at the sky and smiles.",
+                "ru": "Фрейя встает рядом с Валериусом. Она с другой стороны от него. Ее копье тяжело. В нем гремит гром и искрится яркий синий свет. Она твердо упирается ногами в черный камень. \"Мое копье сразит любую тварь, которая посмеет пройти через эти двери!\" — говорит Фрейя. Ее глаза горят. Она воин. Фрейя смотрит на небо и улыбается.",
+                "chunkedEn": "[s: Freya] [v: jumps] [pt: next to Valerius.]\n[s: She] [v: is] [pt: on his other side.]\n[s: Her spear] [v: is heavy.]\n[s: It] [v: has] [o: thunder and bright blue light.]\n[s: She] [v: plants] [o: her feet] [pt: on the black rock.]\n[s: \"My spear] [v: can cut] [o: any animal] [pt: that wants to cross these doors!\"] [s: Freya] [v: says.]\n[s: Her eyes] [v: are bright.]\n[s: She] [v: is] [o: a warrior.]\n[s: Freya] [v: looks] [pt: at the sky] [c: and] [v: smiles.]"
+            },
+            {
+                "speaker": "selene",
+                "en": "Selena and Zephyr stand on the rocks above the heroes. Selena has two black daggers. She cleans them and smiles. Her smile is quiet and dangerous. \"They can come,\" Selena says in a quiet voice. \"Today, we write our life with steel and shadow.\" The wind is cold. Selena looks at Zephyr. Zephyr looks at Selena and smiles. Zephyr has a green bow. He takes three arrows of wind. His eyes are like eagle eyes. He looks at the iron doors. The doors are breaking.",
+                "ru": "Селена и Зефир стоят на скалах над героями. У Селены два черных кинжала. Она чистит их и улыбается. Ее улыбка тихая и опасная. \"Пусть идут,\" — негромко говорит Селена. \"Сегодня мы пишем нашу жизнь сталью и тенью.\" Ветер холоден. Селена смотрит на Зефира. Зефир смотрит на Селену и улыбается. У Зефира зеленый лук. Он берет три стрелы ветра. Его глаза подобны глазам орла. Он смотрит на железные двери. Двери ломаются.",
+                "chunkedEn": "[s: Selena and Zephyr] [v: stand] [pt: on the rocks] [pt: above the heroes.]\n[s: Selena] [v: has] [o: two black daggers.]\n[s: She] [v: cleans] [o: them] [c: and] [v: smiles.]\n[s: Her smile] [v: is quiet and dangerous.]\n[s: \"They] [v: can come,\"] [s: Selena] [v: says] [pt: in a quiet voice.]\n[adv: \"Today,] [s: we] [v: write] [o: our life] [pt: with steel and shadow.\"]\n[s: The wind] [v: is cold.]\n[s: Selena] [v: looks] [pt: at Zephyr.]\n[s: Zephyr] [v: looks] [pt: at Selena] [c: and] [v: smiles.]\n[s: Zephyr] [v: has] [o: a green bow.]\n[s: He] [v: takes] [o: three arrows of wind.]\n[s: His eyes] [v: are] [pt: like eagle eyes.]\n[s: He] [v: looks] [pt: at the iron doors.]\n[s: The doors] [v: are breaking.]"
+            },
+            {
+                "speaker": "valerius",
+                "en": "Ignis, Frostina, Astraea and Oberon are behind the heroes. They all make magic. Ignis makes rings of red fire. Frostina makes rings of crystal frost. Astraea makes rings of golden light from the stars. Oberon makes rings of green roots. The rings go to the sky. Ignis and Frostina look at the doors. Astraea looks at the stars. Oberon looks at the ground. The heroes are not afraid. They stand and wait. Ten heroes stand at the dark doors. They are ready to protect the world.",
+                "ru": "Игнис, Фростина, Астрея и Оберон стоят позади героев. Все они творят магию. Игнис создает кольца красного огня. Фростина создает кольца морозных кристаллов. Астрея создает кольца золотого света звезд. Оберон создает кольца зеленых корней. Кольца устремляются в небо. Игнис и Фростина смотрят на двери. Астрея смотрит на звезды. Оберон смотрит на землю. Герои не боятся. Они стоят и ждут. Десять героев стоят у темных дверей. Они готовы защитить мир.",
+                "chunkedEn": "[s: Ignis, Frostina, Astraea and Oberon] [v: are] [pt: behind the heroes.]\n[s: They all] [v: make] [o: magic.]\n[s: Ignis] [v: makes] [o: rings of red fire.]\n[s: Frostina] [v: makes] [o: rings of crystal frost.]\n[s: Astraea] [v: makes] [o: rings of golden light] [pt: from the stars.]\n[s: Oberon] [v: makes] [o: rings of green roots.]\n[s: The rings] [v: go] [pt: to the sky.]\n[s: Ignis and Frostina] [v: look] [pt: at the doors.]\n[s: Astraea] [v: looks] [pt: at the stars.]\n[s: Oberon] [v: looks] [pt: at the ground.]\n[s: The heroes] [v: are not afraid.]\n[s: They] [v: stand and wait.]\n[s: Ten heroes] [v: stand] [pt: at the dark doors.]\n[s: They] [v: are ready] [pt: to protect the world.]"
             }
         ],
         "quiz": {
-            "question": "What formed in the sky during the opening of the Rift?",
+            "question": "What appeared in the sky above the Ash Valley during the eclipse?",
             "options": [
-                "A rainbow",
-                "A total solar eclipse with a burning red ring",
-                "A cloud of white snow"
+                "A ring of red fire glowing in the dark sky like an angry red eye",
+                "A bright rainbow of light",
+                "A white cloud of snow"
             ],
-            "correctIndex": 1,
-            "rewardXp": 480
+            "correctIndex": 0,
+            "rewardXp": 494
         },
         "backgroundImg": "images/backgrounds/bg_dragon_volcano.jpg",
         "locationEn": "The Shattered Rift Gate",
-        "locationRu": "Расколотые Врата Разлома"
+        "locationRu": "Разрушенные Врата Разлома"
     },
     {
         "id": "ch-36",
