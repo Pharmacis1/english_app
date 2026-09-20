@@ -1610,31 +1610,63 @@ const STORY_CHAPTERS = [
         ],
         "paragraphs": [
             {
-                "en": "Inside Eldrin's library, thousands of glowing books floated silently in the air, spinning like gentle stars.",
-                "ru": "Внутри библиотеки Эльдрина тысячи светящихся книг бесшумно парили в воздухе, вращаясь словно тихие звезды."
+                "speaker": "eldrin",
+                "en": "The heavy crystal doors closed behind the heroes. They were inside the Astral Spire. The air was warm. It smelled old, like old books. Eldrin walked into a big hall. The heroes came after him. Thousands of books were flying in the air. They were like bright stars in the night sky. The heroes looked at the books. Astraea smiled. Ignis said, \"This hall is amazing!\"",
+                "ru": "Тяжелые хрустальные двери закрылись за героями. Они были внутри Астрального Шпиля. Воздух был теплым. Он пах стариной, словно старые книги. Эльдрин вошел в большой зал. Герои последовали за ним. Тысячи книг парили в воздухе. Они были подобны ярким звездам на ночном небе. Герои смотрели на книги. Астрея улыбнулась. Игнис сказал: \"Этот зал великолепен!\"",
+                "chunkedEn": "[s: The heavy crystal doors] [v: closed] [pt: behind the heroes.]\n[s: They] [v: were] [pt: inside the Astral Spire.]\n[s: The air] [v: was warm.]\n[s: It] [v: smelled] [o: old, like old books.]\n[s: Eldrin] [v: walked] [pt: into a big hall.]\n[s: The heroes] [v: came] [pt: after him.]\n[s: Thousands of books] [v: were flying] [pt: in the air.]\n[s: They] [v: were] [pt: like bright stars in the night sky.]\n[s: The heroes] [v: looked] [pt: at the books.]\n[s: Astraea] [v: smiled.]\n[s: Ignis] [v: said,] [o: \"This hall is amazing!\"]"
             },
             {
-                "en": "Eldrin unrolled a giant map of the world made of starlight. \"Look at the center of the valley. The Rift was not created by nature.\"",
-                "ru": "Эльдрин развернул гигантскую карту мира, сотворенную из звездного света. \"Взгляните на центр долины. Разлом возник не от природы.\""
+                "speaker": "eldrin",
+                "en": "\"Welcome to the Sanctuary of Old Runes,\" Eldrin said. He had his staff in his hand. \"Here you can see the history of our three realms. People forgot it.\" Eldrin touched the stone floor with his staff. A big map came from the staff. It was gold and blue. It was made of stars and light. The map showed the Silver Citadel, the Mountain Forge, and the Emerald Forest. In the center of the valley, it showed the dark Ash Rift.",
+                "ru": "\"Добро пожаловать в Святилище Древних Рун,\" — сказал Эльдрин. В руке у него был посох. \"Здесь вы можете увидеть историю наших трех королевств. Люди забыли ее.\" Эльдрин коснулся каменного пола посохом. Большая карта появилась из посоха. Она была золотой и синей. Она была соткана из звезд и света. Карта показывала Серебряную Цитадель, Горный Горн и Изумрудный Лес. В центре долины она показывала темный Пепельный Разлом.",
+                "chunkedEn": "[o: \"Welcome] [pt: to the Sanctuary of Old Runes,\"] [s: Eldrin] [v: said.]\n[s: He] [v: had] [o: his staff] [pt: in his hand.]\n[o: \"Here] [s: you] [v: can see] [o: the history of our three realms.]\n[s: People] [v: forgot] [o: it.\"]\n[s: Eldrin] [v: touched] [o: the stone floor] [pt: with his staff.]\n[s: A big map] [v: came] [pt: from the staff.]\n[s: It] [v: was gold and blue.]\n[s: It] [v: was made] [pt: of stars and light.]\n[s: The map] [v: showed] [o: the Silver Citadel, the Mountain Forge, and the Emerald Forest.]\n[pt: In the center of the valley,] [s: it] [v: showed] [o: the dark Ash Rift.]"
             },
             {
-                "en": "Ignis touched a red rune. \"It is a cage! A prison built by the ancient kings thousand years ago.\"",
-                "ru": "Игнис коснулся красной руны. \"Это клетка! Тюрьма, построенная древними королями тысячу лет назад.\""
+                "speaker": "eldrin",
+                "en": "\"Look at the valley,\" Eldrin said in a quiet voice. \"People think the Ash Rift came from the earth. But that is not the truth.\" Astraea came near the map. Her silver bowl began to sing. She looked at the paths of light. The paths went from the three realms to the Ash Rift. \"This is a magic lock!\" Astraea said. \"The Ash Rift is an old lock!\"",
+                "ru": "\"Посмотрите на долину,\" — сказал Эльдрин тихим голосом. \"Люди думают, что Пепельный Разлом возник из земли. Но это неправда.\" Астрея подошла к карте. Ее серебряная чаша запела. Она посмотрела на пути света. Пути шли от трех королевств к Пепельному Разлому. \"Это магический замок!\" — сказала Астрея. \"Пепельный Разлом — это древний замок!\"",
+                "chunkedEn": "[v: \"Look] [pt: at the valley,\"] [s: Eldrin] [v: said] [pt: in a quiet voice.]\n[s: \"People] [v: think] [s: the Ash Rift] [v: came] [pt: from the earth.]\n[c: But] [s: that] [v: is not] [o: the truth.\"]\n[s: Astraea] [v: came] [pt: near the map.]\n[s: Her silver bowl] [v: began to sing.]\n[s: She] [v: looked] [pt: at the paths of light.]\n[s: The paths] [v: went] [pt: from the three realms] [pt: to the Ash Rift.]\n[s: \"This] [v: is] [o: a magic lock!\"] [s: Astraea] [v: said.]\n[s: \"The Ash Rift] [v: is] [o: an old lock!\"]"
             },
             {
-                "en": "\"Yes,\" Astraea gasped softly. \"And our ancestors locked the Titan inside, but forgot that cages rust and break over time.\"",
-                "ru": "\"Да,\" — тихо выдохнула Астрея. \"И наши предки заперли Титана внутри, но забыли, что клетки со временем ржавеют и ломаются.\""
+                "speaker": "eldrin",
+                "en": "\"Yes,\" Eldrin said. \"A thousand years ago, the first kings of the three realms were a team. They fought the Ash Titan. The Ash Titan was big and strong. They could not win. So they made a big lock under the ground in the center of the valley.\"",
+                "ru": "\"Да,\" — сказал Эльдрин. \"Тысячу лет назад первые короли трех королевств были командой. Они сражались с Пепельным Титаном. Пепельный Титан был огромным и сильным. Они не могли победить. Поэтому они создали великий замок под землей в центре долины.\"",
+                "chunkedEn": "[o: \"Yes,\"] [s: Eldrin] [v: said.]\n[pt: \"A thousand years ago,] [s: the first kings of the three realms] [v: were] [o: a team.]\n[s: They] [v: fought] [o: the Ash Titan.]\n[s: The Ash Titan] [v: was big and strong.]\n[s: They] [v: could not win.]\n[c: So] [s: they] [v: made] [o: a big lock] [pt: under the ground] [pt: in the center of the valley.\"]"
+            },
+            {
+                "speaker": "ignis",
+                "en": "Ignis walked around the map. He touched a red magic word. Fire came from his fingers. He read the old words. \"The magic words are breaking,\" Ignis said. He was angry. \"The lock is breaking from inside. Bad people in our cities hid the truth. But the Ash Titan is waking up!\"",
+                "ru": "Игнис обошел карту. Он коснулся красного магического слова. Огонь сорвался с его пальцев. Он прочитал древние слова. \"Магические слова разрушаются,\" — сказал Игнис. Он был зол. \"Замок ломается изнутри. Предатели в наших городах скрывали правду. Но Пепельный Титан просыпается!\"",
+                "chunkedEn": "[s: Ignis] [v: walked] [pt: around the map.]\n[s: He] [v: touched] [o: a red magic word.]\n[s: Fire] [v: came] [pt: from his fingers.]\n[s: He] [v: read] [o: the old words.]\n[s: \"The magic words] [v: are breaking,\"] [s: Ignis] [v: said.]\n[s: He] [v: was angry.]\n[s: \"The lock] [v: is breaking] [pt: from inside.]\n[s: Bad people in our cities] [v: hid] [o: the truth.]\n[c: But] [s: the Ash Titan] [v: is waking up!\"]"
+            },
+            {
+                "speaker": "astraea",
+                "en": "\"Yes,\" Eldrin said. \"Those bad people were afraid. They took help from dark people. They thought the Ash Titan can sleep for a long time. But a lock cannot be strong forever without new magic.\" Astraea touched the broken map. Soft light came from her hands. \"How do we stop the Ash Titan, Master Eldrin?\" she asked. \"Can we fix the lock?\"",
+                "ru": "\"Да,\" — сказал Эльдрин. \"Эти дурные люди боялись. Они обратились за помощью к темным силам. Они думали, что Пепельный Титан может спать очень долго. Но замок не может оставаться прочным вечно без новой магии.\" Астрея коснулась сломанной карты. Мягкий свет исходил от ее рук. \"Как нам остановить Пепельного Титана, Магистр Эльдрин?\" — спросила она. \"Можем ли мы починить замок?\"",
+                "chunkedEn": "[o: \"Yes,\"] [s: Eldrin] [v: said.]\n[s: \"Those bad people] [v: were afraid.]\n[s: They] [v: took] [o: help] [pt: from dark people.]\n[s: They] [v: thought] [s: the Ash Titan] [v: can sleep] [pt: for a long time.]\n[c: But] [s: a lock] [v: cannot be] [o: strong] [adv: forever] [pt: without new magic.\"]\n[s: Astraea] [v: touched] [o: the broken map.]\n[s: Soft light] [v: came] [pt: from her hands.]\n[o: \"How] [v: do] [s: we] [v: stop] [o: the Ash Titan, Master Eldrin?\"] [s: she] [v: asked.]\n[v: \"Can] [s: we] [v: fix] [o: the lock?\"]"
+            },
+            {
+                "speaker": "eldrin",
+                "en": "Eldrin smiled. \"Yes, we can. The old kings did one bad thing. They built walls between their people. They were not a team. To make a new lock, we need a real team. We need the Silver Light, the Mountain Forge, and the Emerald Grove. We need them as one.\"",
+                "ru": "Эльдрин улыбнулся. \"Да, мы можем. Древние короли совершили одну ошибку. Они возвели стены между своими народами. Они не были командой. Чтобы создать новый замок, нам нужна настоящая команда. Нам нужны Серебряный Свет, Горный Горн и Изумрудная Роща. Они нужны нам как единое целое.\"",
+                "chunkedEn": "[s: Eldrin] [v: smiled.]\n[o: \"Yes,] [s: we] [v: can.]\n[s: The old kings] [v: did] [o: one bad thing.]\n[s: They] [v: built] [o: walls] [pt: between their people.]\n[s: They] [v: were not] [o: a team.]\n[pt: To make a new lock,] [s: we] [v: need] [o: a real team.]\n[s: We] [v: need] [o: the Silver Light, the Mountain Forge, and the Emerald Grove.]\n[s: We] [v: need] [o: them] [pt: as one.\"]"
+            },
+            {
+                "speaker": "ignis",
+                "en": "Ignis took his ruby staff. \"We are a team now, Archmage. Tell us where we go.\" Eldrin looked at the heroes. He was happy. \"First, we need to find three magic stones in the realm,\" he said. \"Now rest. Tomorrow, our big journey starts.\" Eldrin gave bread and water to the heroes. They ate and drank. Astraea said, \"Thank you, Eldrin.\" The heroes went to bed. The night was quiet.",
+                "ru": "Игнис взял свой рубиновый посох. \"Теперь мы команда, Архимаг. Скажи нам, куда идти.\" Эльдрин посмотрел на героев. Он был счастлив. \"Сначала нам нужно найти три магических камня в королевстве,\" — сказал он. \"А теперь отдыхайте. Завтра начнется наше великое путешествие.\" Эльдрин дал хлеб и воду героям. Они поели и попили. Астрея сказала: \"Спасибо, Эльдрин.\" Герои пошли спать. Ночь была тихой.",
+                "chunkedEn": "[s: Ignis] [v: took] [o: his ruby staff.]\n[s: \"We] [v: are] [o: a team] [adv: now,] [o: Archmage.]\n[v: Tell] [o: us] [adv: where] [s: we] [v: go.\"]\n[s: Eldrin] [v: looked] [pt: at the heroes.]\n[s: He] [v: was happy.]\n[adv: \"First,] [s: we] [v: need to find] [o: three magic stones] [pt: in the realm,\"] [s: he] [v: said.]\n[adv: \"Now] [v: rest.]\n[adv: Tomorrow,] [s: our big journey] [v: starts.\"]\n[s: Eldrin] [v: gave] [o: bread and water] [pt: to the heroes.]\n[s: They] [v: ate and drank.]\n[s: Astraea] [v: said,] [o: \"Thank you, Eldrin.\"]\n[s: The heroes] [v: went] [pt: to bed.]\n[s: The night] [v: was quiet.]"
             }
         ],
         "quiz": {
-            "question": "What was the true origin of the Ash Rift?",
+            "question": "What did Eldrin reveal about the true origin of the Ash Rift?",
             "options": [
-                "An old coal mine",
-                "An ancient magical prison built for a Titan",
-                "A fallen star"
+                "It is an ancient underground lock built a thousand years ago to cage the Ash Titan",
+                "It is an old coal mine abandoned by dwarven workers",
+                "It is an ordinary river canyon made by rain"
             ],
-            "correctIndex": 1,
-            "rewardXp": 320
+            "correctIndex": 0,
+            "rewardXp": 497
         },
         "backgroundImg": "images/backgrounds/bg_magic_library.jpg",
         "locationEn": "Eldrin’s Floating Library",
