@@ -1692,31 +1692,63 @@ const STORY_CHAPTERS = [
         ],
         "paragraphs": [
             {
-                "en": "In the center of the tower hall, a warm fire crackled. All ten heroes sat together in a wide circle.",
-                "ru": "В центре башенного зала потрескивал теплый костер. Все десять героев сидели вместе широким кругом."
+                "speaker": "valerius",
+                "en": "A big fire is in the center of the Hearth Hall. The flames are bright and warm. Sparks fly in the air. Outside, the wind is cold. It is night. But inside the hall, it is warm. The heroes are around the fire on the carpets. They rest. Warriors from the Silver Citadel, the Mountain Forge, and the Emerald Forest are in one room. This is the first time in centuries.",
+                "ru": "Большой костер горит в центре Зала Очага. Пламя яркое и теплое. Искры летают в воздухе. Снаружи дует холодный ветер. Ночь. Но внутри зала тепло. Герои сидят вокруг костра на коврах. Они отдыхают. Воины из Серебряной Цитадели, Горного Горна и Изумрудного Леса собрались в одной комнате. Это происходит впервые за столетия.",
+                "chunkedEn": "[s: A big fire] [v: is] [pt: in the center of the Hearth Hall.]\n[s: The flames] [v: are bright and warm.]\n[s: Sparks] [v: fly] [pt: in the air.]\n[adv: Outside,] [s: the wind] [v: is cold.]\n[s: It] [v: is] [o: night.]\n[c: But] [pt: inside the hall,] [s: it] [v: is warm.]\n[s: The heroes] [v: are] [pt: around the fire] [pt: on the carpets.]\n[s: They] [v: rest.]\n[s: Warriors from the Silver Citadel, the Mountain Forge, and the Emerald Forest] [v: are] [pt: in one room.]\n[s: This] [v: is] [o: the first time] [pt: in centuries.]"
             },
             {
-                "en": "Thorin roasted meat on a dagger and silently handed a piece to Valerius. The paladin accepted it with a slight nod.",
-                "ru": "Торин поджарил мясо на кинжале и молча протянул кусок Валериусу. Паладин принял его с легким кивком."
+                "speaker": "thorin",
+                "en": "Thorin cooks meat on his iron dagger. The coals are hot. The meat smells good. Thorin cuts a big piece. He gives it to Valerius. \"Here, knight,\" says Thorin. He smiles. \"You are small. You need food. Eat this good mountain meat!\"",
+                "ru": "Торин жарит мясо на своем железном кинжале. Угли горячие. Мясо пахнет вкусно. Торин отрезает большой кусок. Он дает его Валериусу. \"Держи, рыцарь,\" — говорит Торин. Он улыбается. \"Ты худой. Тебе нужна еда. Ешь это хорошее горное мясо!\"",
+                "chunkedEn": "[s: Thorin] [v: cooks] [o: meat] [pt: on his iron dagger.]\n[s: The coals] [v: are hot.]\n[s: The meat] [v: smells] [o: good.]\n[s: Thorin] [v: cuts] [o: a big piece.]\n[s: He] [v: gives] [o: it] [pt: to Valerius.]\n[o: \"Here, knight,\"] [v: says] [s: Thorin.]\n[s: He] [v: smiles.]\n[s: \"You] [v: are small.]\n[s: You] [v: need] [o: food.]\n[v: Eat] [o: this good mountain meat!\"]"
             },
             {
-                "en": "\"Three days ago, I wanted to put an arrow through your chest, dwarf,\" Zephyr smiled across the fire.",
-                "ru": "\"Три дня назад я хотел вогнать стрелу тебе в грудь, дворф,\" — улыбнулся Зефир через костер."
+                "speaker": "valerius",
+                "en": "Valerius takes the meat. He smiles and says, \"Thank you, Thorin.\" He eats. \"It is tasty,\" he says. \"My knights told me: people from the Mountain Forge love gold and iron. Now I see the truth. Your heart is big, like your hammer.\" Valerius drinks water.",
+                "ru": "Валериус берет мясо. Он улыбается и говорит: \"Спасибо, Торин.\" Он ест. \"Это вкусно,\" — говорит он. \"Мои рыцари говорили мне: люди из Горного Горна любят только золото и железо. Теперь я вижу правду. Твое сердце большое, как твой молот.\" Валериус пьет воду.",
+                "chunkedEn": "[s: Valerius] [v: takes] [o: the meat.]\n[s: He] [v: smiles] [c: and] [v: says,] [o: \"Thank you, Thorin.\"]\n[s: He] [v: eats.]\n[s: \"It] [v: is tasty,\"] [s: he] [v: says.]\n[s: \"My knights] [v: told] [o: me:] [s: people from the Mountain Forge] [v: love] [o: gold and iron.]\n[adv: Now] [s: I] [v: see] [o: the truth.]\n[s: Your heart] [v: is big,] [pt: like your hammer.\"]\n[s: Valerius] [v: drinks] [o: water.]"
             },
             {
-                "en": "\"And I would have used your wooden bow for kindling,\" Thorin laughed heartily. The ice between the three clans was finally melting.",
-                "ru": "\"А я бы пустил твой деревянный лук на растопку,\" — от души рассмеялся Торин. Лед между тремя кланами наконец таял."
+                "speaker": "thorin",
+                "en": "Zephyr is near the wall. He stands there and cleans his green bow. He smiles. \"Three days ago, I saw you at the border river, Thorin,\" he says. \"I had my bow and my arrow. I wanted to fight you!\" Thorin smiles. His voice is big in the hall. \"If you fight me, Zephyr, I take your bow! Your wood is good for my fire!\"",
+                "ru": "Зефир стоит у стены. Он стоит там и чистит свой зеленый лук. Он улыбается. \"Три дня назад я видел тебя у пограничной реки, Торин,\" — говорит он. \"У меня были лук и стрела. Я хотел сразиться с тобой!\" Торин улыбается. Его голос звучит громко в зале. \"Если бы ты напал на меня, Зефир, я бы забрал твой лук! Твое дерево отлично подошло бы для моего костра!\"",
+                "chunkedEn": "[s: Zephyr] [v: is] [pt: near the wall.]\n[s: He] [v: stands] [adv: there] [c: and] [v: cleans] [o: his green bow.]\n[s: He] [v: smiles.]\n[pt: \"Three days ago,] [s: I] [v: saw] [o: you] [pt: at the border river, Thorin,\"] [s: he] [v: says.]\n[s: \"I] [v: had] [o: my bow and my arrow.]\n[s: I] [v: wanted to fight] [o: you!\"]\n[s: Thorin] [v: smiles.]\n[s: His voice] [v: is big] [pt: in the hall.]\n[c: \"If] [s: you] [v: fight] [o: me, Zephyr,] [s: I] [v: take] [o: your bow!]\n[s: Your wood] [v: is good] [pt: for my fire!\"]"
+            },
+            {
+                "speaker": "thorin",
+                "en": "Everyone is happy. The old war is now small. It is like the snow in Spring, and the Sun is warm. Zephyr eats a piece of bread. He gives a piece to Thorin. Thorin takes it and eats.",
+                "ru": "Все счастливы. Старая вражда теперь кажется незначительной. Она как снег весной, а солнце греет. Зефир ест кусок хлеба. Он дает кусок Торину. Торин берет его и ест.",
+                "chunkedEn": "[s: Everyone] [v: is happy.]\n[s: The old war] [v: is] [adv: now] [o: small.]\n[s: It] [v: is] [pt: like the snow in Spring,] [c: and] [s: the Sun] [v: is warm.]\n[s: Zephyr] [v: eats] [o: a piece of bread.]\n[s: He] [v: gives] [o: a piece] [pt: to Thorin.]\n[s: Thorin] [v: takes] [o: it] [c: and] [v: eats.]"
+            },
+            {
+                "speaker": "selene",
+                "en": "Selena is in the corner near the shadows. She is quiet. She looks at the fire. Her cloak is black. Astraea comes with a silver cup of hot tea. She is next to Selena. \"You are quiet this night, Selena,\" says Astraea. She gives her the cup. Selena takes the cup. Her eyes are purple. She drinks the tea. It is hot and sweet. \"All my life, the Shadow Guild told me: friends are weak. Friends are dangerous,\" she says quietly. \"But today you fought for me. I fought for you. I am happy. I have a real home now.\"",
+                "ru": "Селена сидит в углу возле теней. Она молчалива. Она смотрит на огонь. Ее плащ черный. Астрея подходит с серебряной чашкой горячего чая. Она садится рядом с Селеной. \"Ты тихая этой ночью, Селена,\" — говорит Астрея. Она протягивает ей чашку. Селена берет чашку. Ее глаза фиолетовые. Она пьет чай. Он горячий и сладкий. \"Всю жизнь Гильдия Теней внушала мне: друзья — это слабость. Друзья опасны,\" — тихо говорит она. \"Но сегодня вы сражались за меня. Я сражалась за вас. Я счастлива. Теперь у меня есть настоящий дом.\"",
+                "chunkedEn": "[s: Selena] [v: is] [pt: in the corner] [pt: near the shadows.]\n[s: She] [v: is quiet.]\n[s: She] [v: looks] [pt: at the fire.]\n[s: Her cloak] [v: is black.]\n[s: Astraea] [v: comes] [pt: with a silver cup of hot tea.]\n[s: She] [v: is] [pt: next to Selena.]\n[s: \"You] [v: are quiet] [pt: this night, Selena,\"] [v: says] [s: Astraea.]\n[s: She] [v: gives] [o: her the cup.]\n[s: Selena] [v: takes] [o: the cup.]\n[s: Her eyes] [v: are purple.]\n[s: She] [v: drinks] [o: the tea.]\n[s: It] [v: is hot and sweet.]\n[pt: \"All my life,] [s: the Shadow Guild] [v: told] [o: me:] [s: friends] [v: are weak.]\n[s: Friends] [v: are dangerous,\"] [s: she] [v: says] [adv: quietly.]\n[c: \"But] [pt: today] [s: you] [v: fought] [pt: for me.]\n[s: I] [v: fought] [pt: for you.]\n[s: I] [v: am happy.]\n[s: I] [v: have] [o: a real home] [adv: now.\"]"
+            },
+            {
+                "speaker": "oberon",
+                "en": "Oberon touches the ground with his heavy wooden hand. Green grass grows near the fire. \"In the forest, the trees are different above the ground,\" says Oberon. \"But under the ground, their roots touch. They give water to each other. They help each other in the storm. This night, we are the roots.\" Selena looks at Oberon. She smiles. Astraea also smiles.",
+                "ru": "Оберон касается земли своей тяжелой деревянной рукой. Зеленая трава вырастает возле костра. \"В лесу деревья выглядят по-разному над землей,\" — говорит Оберон. \"Но под землей их корни соприкасаются. Они делятся водой друг с другом. Они помогают друг другу в бурю. Этой ночью мы — те самые корни.\" Селена смотрит на Оберона. Она улыбается. Астрея тоже улыбается.",
+                "chunkedEn": "[s: Oberon] [v: touches] [o: the ground] [pt: with his heavy wooden hand.]\n[s: Green grass] [v: grows] [pt: near the fire.]\n[pt: \"In the forest,] [s: the trees] [v: are different] [pt: above the ground,\"] [v: says] [s: Oberon.]\n[c: \"But] [pt: under the ground,] [s: their roots] [v: touch.]\n[s: They] [v: give] [o: water] [pt: to each other.]\n[s: They] [v: help] [o: each other] [pt: in the storm.]\n[pt: This night,] [s: we] [v: are] [o: the roots.\"]\n[s: Selena] [v: looks] [pt: at Oberon.]\n[s: She] [v: smiles.]\n[s: Astraea] [adv: also] [v: smiles.]"
+            },
+            {
+                "speaker": "valerius",
+                "en": "Archmage Eldrin looks at the young heroes. He stands near the door and smiles. He is peaceful. \"Magic is not first,\" he says. \"To protect the world, we need to understand. This night, the three realms are new. They are around this fire.\" The heroes look at the fire. Everyone is quiet and happy. The night is long.",
+                "ru": "Архимаг Эльдрин смотрит на юных героев. Он стоит у двери и улыбается. Он спокоен. \"Магия — не главное,\" — говорит он. \"Чтобы защитить мир, нам нужно понимание. Этой ночью три королевства рождаются заново. Они объединились вокруг этого костра.\" Герои смотрят на огонь. Все спокойны и счастливы. Ночь долгая.",
+                "chunkedEn": "[s: Archmage Eldrin] [v: looks] [pt: at the young heroes.]\n[s: He] [v: stands] [pt: near the door] [c: and] [v: smiles.]\n[s: He] [v: is peaceful.]\n[s: \"Magic] [v: is not] [adv: first,\"] [s: he] [v: says.]\n[pt: \"To protect the world,] [s: we] [v: need to understand.]\n[pt: This night,] [s: the three realms] [v: are new.]\n[s: They] [v: are] [pt: around this fire.\"]\n[s: The heroes] [v: look] [pt: at the fire.]\n[s: Everyone] [v: is quiet and happy.]\n[s: The night] [v: is long.]"
             }
         ],
         "quiz": {
-            "question": "What happened around the campfire in the tower?",
+            "question": "What happened around the campfire in the Hearth Hall?",
             "options": [
-                "They started another fight",
-                "The heroes shared food and began to understand each other",
-                "They went to sleep"
+                "The heroes shared food, put away past hatred, and united like the roots of trees",
+                "They had a fight over who gets the most gold",
+                "They extinguished the fire and slept in the snow"
             ],
-            "correctIndex": 1,
-            "rewardXp": 330
+            "correctIndex": 0,
+            "rewardXp": 482
         },
         "backgroundImg": "images/backgrounds/bg_magic_library.jpg",
         "locationEn": "The Tower Hearth Hall",
