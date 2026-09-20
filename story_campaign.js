@@ -2730,31 +2730,63 @@ const STORY_CHAPTERS = [
         ],
         "paragraphs": [
             {
-                "en": "A massive army of Ash Ghouls climbed over the crater rim. The three masters of elemental magic stepped into the center.",
-                "ru": "Огромная армия Пепельных Гулей перевалила через край кратера. Три мастера стихийной магии вышли в центр."
+                "speaker": "ignis",
+                "en": "A big crowd of five thousand Ash Ghouls comes over the black hill. They climb the black rocks. Their eyes are red. They are angry and hungry. Valerius, Thorin and Freya stand in front. Valerius takes his sword. Thorin takes his big shield. Freya takes her spear. The Ash Ghouls come and come.",
+                "ru": "Огромная толпа из пяти тысяч Пепельных Гулей переваливает через черный холм. Они карабкаются по черным скалам. Их глаза горят красным. Они свирепы и голодны. Валериус, Торин и Фрейя стоят впереди. Валериус обнажает меч. Торин берет свой большой щит. Фрейя поднимает копье. Пепельные Гули наступают и наступают.",
+                "chunkedEn": "[s: A big crowd of five thousand Ash Ghouls] [v: comes] [pt: over the black hill.]\n[s: They] [v: climb] [o: the black rocks.]\n[s: Their eyes] [v: are red.]\n[s: They] [v: are angry and hungry.]\n[s: Valerius, Thorin and Freya] [v: stand] [pt: in front.]\n[s: Valerius] [v: takes] [o: his sword.]\n[s: Thorin] [v: takes] [o: his big shield.]\n[s: Freya] [v: takes] [o: her spear.]\n[s: The Ash Ghouls] [v: come and come.]"
             },
             {
-                "en": "Ignis summoned the eternal fire of the core. Frostina brought the absolute zero blizzard of the northern peaks. Oberon summoned the ancient roots of the world tree.",
-                "ru": "Игнис призвал вечный огонь ядра. Фростина обрушила буран абсолютного нуля северных пиков. Оберон вызвал древние корни древа мира."
+                "speaker": "frostina",
+                "en": "Freya looks at the crowd. \"There are five thousand of them!\" she says. \"It is a big crowd! We can't fight them with shields and spears!\" Freya calls thunder from the sky. The thunder comes down on two Ash Ghouls. They die. But the crowd is still big. Thorin looks at Valerius. Valerius looks at Freya. They are afraid, but they are brave. They stand and wait.",
+                "ru": "Фрейя смотрит на толпу. \"Их тут пять тысяч!\" — говорит она. \"Это слишком большая орда! Мы не сможем одолеть их одними щитами и копьями!\" Фрейя призывает гром с небес. Молния поражает двоих Пепельных Гулей. Они погибают. Но толпа по-прежнему огромна. Торин смотрит на Валериуса. Валериус смотрит на Фрейю. Им страшно, но они храбры. Они стоят и ждут.",
+                "chunkedEn": "[s: Freya] [v: looks] [pt: at the crowd.]\n[o: \"There] [v: are] [s: five thousand of them!\"] [s: she] [v: says.]\n[s: \"It] [v: is] [o: a big crowd!]\n[s: We] [v: can't fight] [o: them] [pt: with shields and spears!\"]\n[s: Freya] [v: calls] [o: thunder] [pt: from the sky.]\n[s: The thunder] [v: comes down] [pt: on two Ash Ghouls.]\n[s: They] [v: die.]\n[c: But] [s: the crowd] [v: is] [adv: still] [o: big.]\n[s: Thorin] [v: looks] [pt: at Valerius.]\n[s: Valerius] [v: looks] [pt: at Freya.]\n[s: They] [v: are afraid,] [c: but] [s: they] [v: are brave.]\n[s: They] [v: stand and wait.]"
             },
             {
-                "en": "They fused their three spells into a magnificent tri-elemental vortex: fire, ice, and life swirling in perfect harmony.",
-                "ru": "Они слили свои три заклинания в великолепный трехстихийный вихрь: огонь, лед и жизнь закружились в идеальной гармонии."
+                "speaker": "ignis",
+                "en": "Ignis, Frostina and Oberon walk to the center. They are the three masters of magic. They stand side by side. \"Stand back, brave warriors!\" Ignis calls. He has a big smile. \"Look at the power of the three realms!\" Valerius, Thorin and Freya walk back. Thorin has a bottle of water. He gives the water to Frostina. \"Thank you,\" Frostina says. She drinks the water and gives the bottle to Thorin.",
+                "ru": "Игнис, Фростина и Оберон выходят в центр. Они — три мастера магии. Они встают бок о бок. \"Отойдите назад, храбрые воины!\" — восклицает Игнис. На его лице широкая улыбка. \"Взгляните на мощь трех королевств!\" Валериус, Торин и Фрейя отступают назад. У Торина с собой фляга с водой. Он протягивает воду Фростине. \"Спасибо,\" — говорит Фростина. Она пьет воду и возвращает флягу Торину.",
+                "chunkedEn": "[s: Ignis, Frostina and Oberon] [v: walk] [pt: to the center.]\n[s: They] [v: are] [o: the three masters of magic.]\n[s: They] [v: stand] [pt: side by side.]\n[v: \"Stand] [adv: back,] [o: brave warriors!\"] [s: Ignis] [v: calls.]\n[s: He] [v: has] [o: a big smile.]\n[v: \"Look] [pt: at the power of the three realms!\"]\n[s: Valerius, Thorin and Freya] [v: walk] [adv: back.]\n[s: Thorin] [v: has] [o: a bottle of water.]\n[s: He] [v: gives] [o: the water] [pt: to Frostina.]\n[o: \"Thank you,\"] [s: Frostina] [v: says.]\n[s: She] [v: drinks] [o: the water] [c: and] [v: gives] [o: the bottle] [pt: to Thorin.]"
             },
             {
-                "en": "The storm swept the horde away like dead leaves, cleansing the poisoned ground into fertile emerald soil.",
-                "ru": "Шторм смел орду прочь, словно сухие листья, очистив отравленную землю в плодородную изумрудную почву."
+                "speaker": "ignis",
+                "en": "Ignis's hands are in the black soil. Red and orange fire comes from the earth. It goes around his arms. \"Fire, fight the shadow!\" Ignis says. His hair is red, and flames are in his hair. The fire is hot and bright.",
+                "ru": "Руки Игниса погружаются в черную землю. Красный и оранжевый огонь вырывается из земли. Пламя обвивает его руки. \"Огонь, сразись с тенью!\" — говорит Игнис. Его волосы ярко-красные, и в них танцуют языки пламени. Огонь пылает жарко и ослепительно.",
+                "chunkedEn": "[s: Ignis's hands] [v: are] [pt: in the black soil.]\n[s: Red and orange fire] [v: comes] [pt: from the earth.]\n[s: It] [v: goes] [pt: around his arms.]\n[o: \"Fire,] [v: fight] [o: the shadow!\"] [s: Ignis] [v: says.]\n[s: His hair] [v: is red,] [c: and] [s: flames] [v: are] [pt: in his hair.]\n[s: The fire] [v: is hot and bright.]"
+            },
+            {
+                "speaker": "frostina",
+                "en": "Frostina looks at the dark sky. Her hands go to the sky. A cold blizzard comes from the mountains. Blue ice and white snow go around her. The wind is cold and strong. \"Freeze the shadow! Make it quiet!\" Frostina says. Her voice is strong.",
+                "ru": "Фростина смотрит на темное небо. Ее руки устремляются ввысь. Ледяная метель спускается с гор. Синий лед и белый снег закручиваются вокруг нее. Ветер холоден и могуч. \"Заморозь тень! Заставь ее умолкнуть!\" — произносит Фростина. Ее голос звучит властно.",
+                "chunkedEn": "[s: Frostina] [v: looks] [pt: at the dark sky.]\n[s: Her hands] [v: go] [pt: to the sky.]\n[s: A cold blizzard] [v: comes] [pt: from the mountains.]\n[s: Blue ice and white snow] [v: go] [pt: around her.]\n[s: The wind] [v: is cold and strong.]\n[v: \"Freeze] [o: the shadow!] [v: Make] [o: it quiet!\"] [s: Frostina] [v: says.]\n[s: Her voice] [v: is strong.]"
+            },
+            {
+                "speaker": "oberon",
+                "en": "Oberon has his old wood staff. His staff is in the stone. Green light comes from the ground. Big roots come from the rock. The roots have green leaves and emerald flowers. Oberon speaks to the earth. \"Wake up, old life of the Emerald Forest!\" he calls.",
+                "ru": "У Оберона в руках его древний деревянный посох. Его посох упирается в камень. Зеленый свет струится из земли. Огромные корни пробиваются сквозь скалу. На корнях распускаются зеленые листья и изумрудные цветы. Оберон взывает к земле. \"Пробудись, древняя жизнь Изумрудного Леса!\" — призывает он.",
+                "chunkedEn": "[s: Oberon] [v: has] [o: his old wood staff.]\n[s: His staff] [v: is] [pt: in the stone.]\n[s: Green light] [v: comes] [pt: from the ground.]\n[s: Big roots] [v: come] [pt: from the rock.]\n[s: The roots] [v: have] [o: green leaves and emerald flowers.]\n[s: Oberon] [v: speaks] [pt: to the earth.]\n[v: \"Wake up,] [o: old life of the Emerald Forest!\"] [s: he] [v: calls.]"
+            },
+            {
+                "speaker": "ignis",
+                "en": "The three masters look at each other. They smile and say, \"Now!\" They join hands. They give all their power to one point. Fire, ice and nature do not fight. They are friends. They make one big storm! The storm is orange, blue and green. Fire, snow and roots go around the hill. The storm goes over the Ash Ghouls. The Ash Ghouls cannot run. They die in the bright light.",
+                "ru": "Три мастера смотрят друг на друга. Они улыбаются и говорят: \"Сейчас!\" Они соединяют руки. Они направляют всю свою силу в одну точку. Огонь, лед и природа не враждуют. Они союзники. Они порождают одну великую бурю! Буря пылает оранжевым, синим и зеленым. Огонь, снег и корни охватывают холм. Буря обрушивается на Пепельных Гулей. Пепельные Гули не могут убежать. Они гибнут в ярком сиянии.",
+                "chunkedEn": "[s: The three masters] [v: look] [pt: at each other.]\n[s: They] [v: smile] [c: and] [v: say,] [o: \"Now!\"]\n[s: They] [v: join] [o: hands.]\n[s: They] [v: give] [o: all their power] [pt: to one point.]\n[s: Fire, ice and nature] [v: do not fight.]\n[s: They] [v: are] [o: friends.]\n[s: They] [v: make] [o: one big storm!]\n[s: The storm] [v: is] [o: orange, blue and green.]\n[s: Fire, snow and roots] [v: go] [pt: around the hill.]\n[s: The storm] [v: goes] [pt: over the Ash Ghouls.]\n[s: The Ash Ghouls] [v: cannot run.]\n[s: They] [v: die] [pt: in the bright light.]"
+            },
+            {
+                "speaker": "oberon",
+                "en": "Where the storm goes, the ground is clean. The soil is not black. Green grass grows. Flowers come from the earth. Valerius, Thorin and Freya smile. They are happy. \"We win!\" Freya says. Thorin and Valerius call, \"Victory!\" Ignis, Frostina and Oberon look at the clean ground. They rest. Now the way is ready for the final battle.",
+                "ru": "Там, где проходит буря, земля очищается. Почва больше не черная. Зеленая трава растет. Цветы поднимаются из земли. Валериус, Торин и Фрейя улыбаются. Они счастливы. \"Мы победили!\" — говорит Фрейя. Торин и Валериус кричат: \"Победа!\" Игнис, Фростина и Оберон смотрят на чистую землю. Они отдыхают. Теперь путь готов к решающей битве.",
+                "chunkedEn": "[pt: Where the storm goes,] [s: the ground] [v: is clean.]\n[s: The soil] [v: is not] [o: black.]\n[s: Green grass] [v: grows.]\n[s: Flowers] [v: come] [pt: from the earth.]\n[s: Valerius, Thorin and Freya] [v: smile.]\n[s: They] [v: are happy.]\n[o: \"We] [v: win!\"] [s: Freya] [v: says.]\n[s: Thorin and Valerius] [v: call,] [o: \"Victory!\"]\n[s: Ignis, Frostina and Oberon] [v: look] [pt: at the clean ground.]\n[s: They] [v: rest.]\n[adv: Now] [s: the way] [v: is ready] [pt: for the final battle.]"
             }
         ],
         "quiz": {
-            "question": "How did Ignis, Frostina, and Oberon defeat the army of ghouls?",
+            "question": "How did Ignis, Frostina, and Oberon defeat the army of Ash Ghouls?",
             "options": [
-                "They fused Fire, Ice, and Nature magic into a single vortex",
-                "They used arrows",
-                "They negotiated peace"
+                "They joined hands and fused fire, ice, and nature into one big storm",
+                "They used bows and arrows from behind the wall",
+                "They ran back to the bridge"
             ],
             "correctIndex": 0,
-            "rewardXp": 500
+            "rewardXp": 454
         },
         "backgroundImg": "images/backgrounds/bg_dragon_volcano.jpg",
         "locationEn": "The Tri-Elemental Battlefield",
