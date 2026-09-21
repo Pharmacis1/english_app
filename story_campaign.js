@@ -2984,31 +2984,63 @@ const STORY_CHAPTERS = [
         ],
         "paragraphs": [
             {
-                "en": "All ten heroes unleashed their ultimate powers simultaneously against the Titan of the Eclipse.",
-                "ru": "Все десять героев одновременно высвободили свои абсолютные силы против Титана Затмения."
+                "speaker": "valerius",
+                "en": "The Ash Titan calls with a big, angry voice. He has a big hand of hot stone. He brings his hand down on the heroes. The ground breaks. Hot stones fly in the air. But the ten heroes are brave. They are never afraid. They have the bright white light of the Nameless Flame. They fight as a team. They look at the Ash Titan. They are ready.",
+                "ru": "Пепельный Титан ревет громким, яростным голосом. У него огромная рука из раскаленного камня. Он обрушивает руку на героев. Земля раскалывается. Горящие камни летят в воздухе. Но десять героев отважны. Они не ведают страха. С ними яркий белый свет Безымянного Пламени. Они сражаются как единая команда. Они смотрят на Пепельного Титана. Они готовы к бою.",
+                "chunkedEn": "[s: The Ash Titan] [v: calls] [pt: with a big, angry voice.]\n[s: He] [v: has] [o: a big hand of hot stone.]\n[s: He] [v: brings] [o: his hand] [adv: down] [pt: on the heroes.]\n[s: The ground] [v: breaks.]\n[s: Hot stones] [v: fly] [pt: in the air.]\n[c: But] [s: the ten heroes] [v: are brave.]\n[s: They] [v: are] [adv: never] [o: afraid.]\n[s: They] [v: have] [o: the bright white light of the Nameless Flame.]\n[s: They] [v: fight] [pt: as a team.]\n[s: They] [v: look] [pt: at the Ash Titan.]\n[s: They] [v: are ready.]"
             },
             {
-                "en": "Valerius and Thorin held the giant's feet. Frostina froze the joints, while Oberon's roots bound its arms.",
-                "ru": "Валериус и Торин удерживали ступни гиганта. Фростина заморозила суставы, пока корни Оберона сковали его руки."
+                "speaker": "thorin",
+                "en": "\"Stop his legs!\" Valerius calls. He has a big, bright silver shield. He looks at Thorin. \"Come, Thorin!\" Valerius and Thorin run to the feet of the Titan. Thorin has a thunder hammer. He comes to the left foot. He brings his hammer down hard on the foot. A hot stone falls from the sky. Valerius takes the stone on his shield. The Titan can't move his legs. Thorin looks at Valerius and smiles.",
+                "ru": "\"Держите его ноги!\" — командует Валериус. У него большой, сияющий серебряный щит. Он смотрит на Торина. \"Вперед, Торин!\" Валериус и Торин бегут к ногам Титана. У Торина громовой молот. Он подходит к левой ноге. Он с силой обрушивает молот на ступню. Раскаленный камень падает с неба. Валериус принимает удар камня на свой щит. Титан не может сдвинуть ноги. Торин смотрит на Валериуса и улыбается.",
+                "chunkedEn": "[v: \"Stop] [o: his legs!\"] [s: Valerius] [v: calls.]\n[s: He] [v: has] [o: a big, bright silver shield.]\n[s: He] [v: looks] [pt: at Thorin.]\n[v: \"Come,] [o: Thorin!\"]\n[s: Valerius and Thorin] [v: run] [pt: to the feet of the Titan.]\n[s: Thorin] [v: has] [o: a thunder hammer.]\n[s: He] [v: comes] [pt: to the left foot.]\n[s: He] [v: brings] [o: his hammer] [adv: down hard] [pt: on the foot.]\n[s: A hot stone] [v: falls] [pt: from the sky.]\n[s: Valerius] [v: takes] [o: the stone] [pt: on his shield.]\n[s: The Titan] [v: can't move] [o: his legs.]\n[s: Thorin] [v: looks] [pt: at Valerius] [c: and] [v: smiles.]"
             },
             {
-                "en": "Selena and Zephyr struck the critical energy channels. Ignis and Freya shattered the chest armor with storm and flame.",
-                "ru": "Селена и Зефир нанесли удары по критическим каналам энергии. Игнис и Фрейя разбили нагрудную броню бурей и пламенем."
+                "speaker": "frostina",
+                "en": "\"Frostina, freeze his legs!\" Oberon calls. Oberon stands on the ground with his old staff. Green roots come from the ground. The roots go around the arms of the Titan and also around his stomach. Frostina makes a big blizzard. The blizzard is cold. The hot rock around the knees of the Titan becomes crystal ice! Oberon looks at Frostina and smiles.",
+                "ru": "\"Фростина, заморозь его ноги!\" — призывает Оберон. Оберон стоит на земле со своим древним посохом. Зеленые корни пробиваются из земли. Корни оплетают руки Титана, а также его торс. Фростина обрушивает великую метель. Метель леденит. Раскаленный камень вокруг колен Титана превращается в кристальный лед! Оберон смотрит на Фростину и улыбается.",
+                "chunkedEn": "[o: \"Frostina,] [v: freeze] [o: his legs!\"] [s: Oberon] [v: calls.]\n[s: Oberon] [v: stands] [pt: on the ground] [pt: with his old staff.]\n[s: Green roots] [v: come] [pt: from the ground.]\n[s: The roots] [v: go] [pt: around the arms of the Titan] [c: and] [adv: also] [pt: around his stomach.]\n[s: Frostina] [v: makes] [o: a big blizzard.]\n[s: The blizzard] [v: is cold.]\n[s: The hot rock around the knees of the Titan] [v: becomes] [o: crystal ice!]\n[s: Oberon] [v: looks] [pt: at Frostina] [c: and] [v: smiles.]"
             },
             {
-                "en": "Astraea and Eldrin focused the pure light of the Seven Winds into the Titan's core. With an earth-shattering roar, the Titan dissolved into golden stardust.",
-                "ru": "Астрея и Эльдрин сфокусировали чистый свет Семи Ветров в ядро Титана. С оглушительным ревом Титан растворился в золотой звездной пыли."
+                "speaker": "selene",
+                "en": "The Titan is angry. He can't move his legs. He can't move his arms. \"Now! Cut his energy!\" Zephyr calls from the sky. Zephyr has a bow and three arrows. Selena runs behind the Titan. She jumps on his back. She is like a dark shadow. She has two magic daggers. She cuts the dark energy on his back. Zephyr fires his three storm arrows into the eyes of the Titan. Now the Titan can't see!",
+                "ru": "Титан в ярости. Он не может пошевелить ногами. Он не может взмахнуть руками. \"Сейчас! Перережьте его энергетические каналы!\" — кричит Зефир с неба. У Зефира лук и три стрелы. Селена заходит за спину Титана. Она взбирается на его спину. Она подобна темной тени. У нее два магических кинжала. Она рассекает темную энергию на его спине. Зефир выпускает три штормовые стрелы точно в глаза Титана. Теперь Титан ослеплен!",
+                "chunkedEn": "[s: The Titan] [v: is angry.]\n[s: He] [v: can't move] [o: his legs.]\n[s: He] [v: can't move] [o: his arms.]\n[adv: \"Now!] [v: Cut] [o: his energy!\"] [s: Zephyr] [v: calls] [pt: from the sky.]\n[s: Zephyr] [v: has] [o: a bow and three arrows.]\n[s: Selena] [v: runs] [pt: behind the Titan.]\n[s: She] [v: jumps] [pt: on his back.]\n[s: She] [v: is] [pt: like a dark shadow.]\n[s: She] [v: has] [o: two magic daggers.]\n[s: She] [v: cuts] [o: the dark energy] [pt: on his back.]\n[s: Zephyr] [v: fires] [o: his three storm arrows] [pt: into the eyes of the Titan.]\n[adv: Now] [s: the Titan] [v: can't see!]"
+            },
+            {
+                "speaker": "freya",
+                "en": "\"Freya, break his armor!\" Ignis calls. He smiles. Ignis makes a big red fire. The fire goes to the chest of the Titan. The armor has a bright, glowing break. Freya is in the clouds. She flies down like a silver star. She has a thunder spear. She takes her spear straight into the break in the armor!",
+                "ru": "\"Фрейя, разбей его броню!\" — кричит Игнис. Он улыбается. Игнис извергает великий красный огонь. Пламя обрушивается на грудь Титана. На броне появляется яркая, светящаяся трещина. Фрейя парит в облаках. Она пикирует вниз, словно серебряная звезда. У нее громовое копье. Она вонзает свое копье прямо в трещину в броне!",
+                "chunkedEn": "[o: \"Freya,] [v: break] [o: his armor!\"] [s: Ignis] [v: calls.]\n[s: He] [v: smiles.]\n[s: Ignis] [v: makes] [o: a big red fire.]\n[s: The fire] [v: goes] [pt: to the chest of the Titan.]\n[s: The armor] [v: has] [o: a bright, glowing break.]\n[s: Freya] [v: is] [pt: in the clouds.]\n[s: She] [v: flies down] [pt: like a silver star.]\n[s: She] [v: has] [o: a thunder spear.]\n[s: She] [v: takes] [o: her spear] [adv: straight] [pt: into the break in the armor!]"
+            },
+            {
+                "speaker": "ignis",
+                "en": "The black armor of the Titan breaks into a thousand pieces! Now you can see the dark heart of the Ash Titan. The Titan is weak. He has pain. Thorin is happy. \"Astraea, Master Eldrin, finish it!\" Thorin calls.",
+                "ru": "Черная броня Титана раскалывается на тысячу осколков! Теперь видно темное сердце Пепельного Титана. Титан ослаб. Он стонет от боли. Торин ликует. \"Астрея, Магистр Эльдрин, добейте его!\" — кричит Торин.",
+                "chunkedEn": "[s: The black armor of the Titan] [v: breaks] [pt: into a thousand pieces!]\n[adv: Now] [s: you] [v: can see] [o: the dark heart of the Ash Titan.]\n[s: The Titan] [v: is weak.]\n[s: He] [v: has] [o: pain.]\n[s: Thorin] [v: is happy.]\n[o: \"Astraea, Master Eldrin,] [v: finish] [o: it!\"] [s: Thorin] [v: calls.]"
+            },
+            {
+                "speaker": "astraea",
+                "en": "Astraea and Eldrin come to the front. Astraea has a crystal staff. Eldrin has a silver star bowl. They look at their friends. All ten heroes are one team, and their hearts are one. A big light of gold star light and white Nameless Flame comes from the hands of Astraea and Eldrin. The light goes straight into the heart of the Titan.",
+                "ru": "Астрея и Эльдрин выходят вперед. У Астреи хрустальный посох. У Эльдрина серебряная звездная чаша. Они смотрят на своих друзей. Все десять героев — одна команда, и их сердца бьются как одно. Великий свет золотого сияния звезд и белого Безымянного Пламени исходит из рук Астреи и Эльдрина. Луч света устремляется прямо в сердце Титана.",
+                "chunkedEn": "[s: Astraea and Eldrin] [v: come] [pt: to the front.]\n[s: Astraea] [v: has] [o: a crystal staff.]\n[s: Eldrin] [v: has] [o: a silver star bowl.]\n[s: They] [v: look] [pt: at their friends.]\n[s: All ten heroes] [v: are] [o: one team,] [c: and] [s: their hearts] [v: are] [o: one.]\n[s: A big light of gold star light and white Nameless Flame] [v: comes] [pt: from the hands of Astraea and Eldrin.]\n[s: The light] [v: goes] [adv: straight] [pt: into the heart of the Titan.]"
+            },
+            {
+                "speaker": "eldrin",
+                "en": "The light goes into the Ash Titan. The dark purple sun in the sky breaks. The Ash Titan calls one last time with a big voice. After that, he becomes a thousand bright gold sparks. The sparks come down like soft rain over the valley. They are like warm summer stars. The dark is gone forever. The ten heroes stand in the valley. They look at the sparks. They smile. \"We win!\" Valerius says. \"Yes! We are a team!\" Thorin says. Freya, Ignis, Zephyr and Selena come to their friends. All ten heroes are happy.",
+                "ru": "Свет проникает внутрь Пепельного Титана. Темно-фиолетовое солнце в небе раскалывается. Пепельный Титан в последний раз издает оглушительный рев. После этого он обращается в тысячи ярких золотых искр. Искры падают, словно теплый дождь, на всю долину. Они подобны теплым летним звездам. Тьма рассеялась навсегда. Десять героев стоят в долине. Они смотрят на искры. Они улыбаются. \"Мы победили!\" — говорит Валериус. \"Да! Мы — команда!\" — восклицает Торин. Фрейя, Игнис, Зефир и Селена подходят к друзьям. Все десять героев счастливы.",
+                "chunkedEn": "[s: The light] [v: goes] [pt: into the Ash Titan.]\n[s: The dark purple sun in the sky] [v: breaks.]\n[s: The Ash Titan] [v: calls] [pt: one last time] [pt: with a big voice.]\n[pt: After that,] [s: he] [v: becomes] [o: a thousand bright gold sparks.]\n[s: The sparks] [v: come down] [pt: like soft rain] [pt: over the valley.]\n[s: They] [v: are] [pt: like warm summer stars.]\n[s: The dark] [v: is gone] [adv: forever.]\n[s: The ten heroes] [v: stand] [pt: in the valley.]\n[s: They] [v: look] [pt: at the sparks.]\n[s: They] [v: smile.]\n[o: \"We] [v: win!\"] [s: Valerius] [v: says.]\n[o: \"Yes! We] [v: are] [o: a team!\"] [s: Thorin] [v: says.]\n[s: Freya, Ignis, Zephyr and Selena] [v: come] [pt: to their friends.]\n[s: All ten heroes] [v: are happy.]"
             }
         ],
         "quiz": {
-            "question": "How did the ten heroes defeat the giant Titan?",
+            "question": "How did the ten heroes defeat the giant Ash Titan?",
             "options": [
-                "By attacking together with all 10 powers combined",
-                "By hiding in the tower",
-                "By running away"
+                "By fighting together as one team with the bright white light of the Nameless Flame",
+                "By hiding behind the mountain wall",
+                "By running away to the Silver Citadel"
             ],
             "correctIndex": 0,
-            "rewardXp": 600
+            "rewardXp": 535
         },
         "backgroundImg": "images/backgrounds/bg_dragon_volcano.jpg",
         "locationEn": "The Edge of the Ashen Maw",
