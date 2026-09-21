@@ -2810,31 +2810,63 @@ const STORY_CHAPTERS = [
         ],
         "paragraphs": [
             {
-                "en": "From the center of the eclipse, the Ash Dragon King soared down, breathing streams of corrupted black lightning.",
-                "ru": "Из центра затмения спикировал Король Пепельных Драконов, изрыгая потоки оскверненной черной молнии."
+                "speaker": "freya",
+                "en": "The Sun is black. In the center of the Sun, there is a red fire. The dark sky opens, and big thunder comes from it. The Ash Dragon King comes down from the black clouds! His armor is black like stone. His wings are large like a mountain. Black thunder comes from his mouth. The King flies down to the heroes. He wants to fight the wizards below. Ignis, Frostina, and Oberon look at the sky. They are afraid. \"Look at the sky, companions!\" Freya calls. She has her heavy thunder spear. \"The King of the dark sky is here! He wants to fight our wizards!\"",
+                "ru": "Солнце черное. В центре Солнца горит красный огонь. Темное небо разверзается, и оттуда доносится страшный гром. Король Пепельных Драконов спускается из черных туч! Его броня черная, как камень. Его крылья огромны, словно гора. Черная молния вырывается из его пасти. Король летит вниз к героям. Он хочет напасть на магов внизу. Игнис, Фростина и Оберон смотрят в небо. Они испуганы. \"Смотрите в небо, соратники!\" — кричит Фрейя. У нее в руке тяжелое громовое копье. \"Король темного неба здесь! Он хочет напасть на наших магов!\"",
+                "chunkedEn": "[s: The Sun] [v: is] [o: black.]\n[pt: In the center of the Sun,] [s: there] [v: is] [o: a red fire.]\n[s: The dark sky] [v: opens,] [c: and] [s: big thunder] [v: comes] [pt: from it.]\n[s: The Ash Dragon King] [v: comes down] [pt: from the black clouds!]\n[s: His armor] [v: is black] [pt: like stone.]\n[s: His wings] [v: are large] [pt: like a mountain.]\n[s: Black thunder] [v: comes] [pt: from his mouth.]\n[s: The King] [v: flies down] [pt: to the heroes.]\n[s: He] [v: wants to fight] [o: the wizards] [pt: below.]\n[s: Ignis, Frostina, and Oberon] [v: look] [pt: at the sky.]\n[s: They] [v: are afraid.]\n[v: \"Look] [pt: at the sky, companions!\"] [s: Freya] [v: calls.]\n[s: She] [v: has] [o: her heavy thunder spear.]\n[s: \"The King of the dark sky] [v: is] [pt: here!]\n[s: He] [v: wants to fight] [o: our wizards!\"]"
             },
             {
-                "en": "Astraea cast a colossal dome of holy dawnlight to shield the spellcasters below from the dragon's breath.",
-                "ru": "Астрея сотворила колоссальный купол святого рассветного света, чтобы защитить заклинателей внизу от дыхания дракона."
+                "speaker": "astraea",
+                "en": "The Ash Dragon King opens his big mouth. A river of black thunder comes from it. It goes straight to Ignis, Frostina, and Oberon. Astraea never waits. She runs to the front. She has her glowing star staff above her head. \"Light of the stars, protect my friends!\" Astraea says. A big shield of gold light comes from her staff. The shield protects all the squad. The black thunder comes to the shield with big fire and sparks. But the light is strong! It never breaks!",
+                "ru": "Король Пепельных Драконов раскрывает огромную пасть. Река черной молнии извергается из нее. Она устремляется прямо к Игнису, Фростине и Оберону. Астрея не медлит ни секунды. Она выбегает вперед. Она поднимает сияющий звездный посох над головой. \"Свет звезд, защити моих друзей!\" — говорит Астрея. Великий щит золотого света исходит от ее посоха. Щит защищает весь отряд. Черная молния ударяет в щит с пламенем и искрами. Но свет несокрушим! Он не ломается!",
+                "chunkedEn": "[s: The Ash Dragon King] [v: opens] [o: his big mouth.]\n[s: A river of black thunder] [v: comes] [pt: from it.]\n[s: It] [v: goes] [adv: straight] [pt: to Ignis, Frostina, and Oberon.]\n[s: Astraea] [adv: never] [v: waits.]\n[s: She] [v: runs] [pt: to the front.]\n[s: She] [v: has] [o: her glowing star staff] [pt: above her head.]\n[o: \"Light of the stars,] [v: protect] [o: my friends!\"] [s: Astraea] [v: says.]\n[s: A big shield of gold light] [v: comes] [pt: from her staff.]\n[s: The shield] [v: protects] [o: all the squad.]\n[s: The black thunder] [v: comes] [pt: to the shield] [pt: with big fire and sparks.]\n[c: But] [s: the light] [v: is strong!]\n[s: It] [adv: never] [v: breaks!]"
             },
             {
-                "en": "Zephyr rode a whirlwind draft high above the dragon, shooting tempest arrows into its wing joints to force it lower.",
-                "ru": "Зефир оседлал вихревой поток высоко над драконом, выпуская штормовые стрелы в суставы его крыльев, чтобы прижать его к земле."
+                "speaker": "astraea",
+                "en": "Ignis, Frostina, and Oberon stand behind Astraea. They look at the gold light above them. \"Astraea, are you fine?\" Oberon asks. \"Yes, I am fine! The King can't break my light!\" Astraea says. \"Thank you, Astraea!\" Frostina says. \"Stand strong, Astraea!\" Zephyr calls in the wind. \"I am going to bring the flying King down to the ground!\"",
+                "ru": "Игнис, Фростина и Оберон стоят позади Астреи. Они смотрят на золотой свет над ними. \"Астрея, ты в порядке?\" — спрашивает Оберон. \"Да, я в порядке! Король не сможет пробить мой свет!\" — отвечает Астрея. \"Спасибо тебе, Астрея!\" — говорит Фростина. \"Держись крепко, Астрея!\" — кричит Зефир на ветру. \"Я спущу этого летающего Короля на землю!\"",
+                "chunkedEn": "[s: Ignis, Frostina, and Oberon] [v: stand] [pt: behind Astraea.]\n[s: They] [v: look] [pt: at the gold light] [pt: above them.]\n[o: \"Astraea,] [v: are] [s: you] [o: fine?\"] [s: Oberon] [v: asks.]\n[o: \"Yes,] [s: I] [v: am] [o: fine!]\n[s: The King] [v: can't break] [o: my light!\"] [s: Astraea] [v: says.]\n[o: \"Thank you, Astraea!\"] [s: Frostina] [v: says.]\n[v: \"Stand] [o: strong, Astraea!\"] [s: Zephyr] [v: calls] [pt: in the wind.]\n[s: \"I] [v: am going to bring] [o: the flying King] [adv: down] [pt: to the ground!\"]"
             },
             {
-                "en": "Freya ignited her divine wings, plunging straight down like a falling comet, piercing the dragon's dark heart with her winged spear.",
-                "ru": "Фрейя воспламенила свои божественные крылья, устремившись прямо вниз словно падающая комета, и пронзила темное сердце дракона своим крылатым копьем."
+                "speaker": "zephyr",
+                "en": "Zephyr looks at the King. He has an idea. He jumps up into the air. A strong wind comes under his feet. He rides the wind and goes above the King. Zephyr takes his bow and three storm arrows. His target is the wings of the King.",
+                "ru": "Зефир смотрит на Короля. У него появляется идея. Он взмывает в воздух. Могучий вихрь подхватывает его ноги. Он оседлает ветер и поднимается выше Короля. Зефир достает лук и три штормовые стрелы. Его цель — крылья Короля.",
+                "chunkedEn": "[s: Zephyr] [v: looks] [pt: at the King.]\n[s: He] [v: has] [o: an idea.]\n[s: He] [v: jumps up] [pt: into the air.]\n[s: A strong wind] [v: comes] [pt: under his feet.]\n[s: He] [v: rides] [o: the wind] [c: and] [v: goes] [pt: above the King.]\n[s: Zephyr] [v: takes] [o: his bow and three storm arrows.]\n[s: His target] [v: is] [o: the wings of the King.]"
+            },
+            {
+                "speaker": "zephyr",
+                "en": "One! Two! Three! The arrows cut the left wing. The Ash Dragon King calls in pain. He can't fly now. He falls down to the valley. He is angry. \"Great, Zephyr!\" Astraea says. \"Now, Freya! Come from above!\" Zephyr calls in the storm.",
+                "ru": "Раз! Два! Три! Стрелы рассекают левое крыло. Король Пепельных Драконов вскрикивает от боли. Он больше не может лететь. Он падает вниз в долину. Он в ярости. \"Отлично, Зефир!\" — говорит Астрея. \"Теперь ты, Фрейя! Ударь сверху!\" — кричит Зефир в буре.",
+                "chunkedEn": "[o: One! Two! Three!]\n[s: The arrows] [v: cut] [o: the left wing.]\n[s: The Ash Dragon King] [v: calls] [pt: in pain.]\n[s: He] [v: can't fly] [adv: now.]\n[s: He] [v: falls down] [pt: to the valley.]\n[s: He] [v: is angry.]\n[o: \"Great, Zephyr!\"] [s: Astraea] [v: says.]\n[adv: \"Now,] [o: Freya!] [v: Come] [pt: from above!\"] [s: Zephyr] [v: calls] [pt: in the storm.]"
+            },
+            {
+                "speaker": "freya",
+                "en": "Freya hears Zephyr. She smiles. She is a brave warrior. She calls the old blessing of the Silver Citadel. Blue thunder wings come from her shoulders! They are bright. \"Go, Freya!\" Oberon says. \"I am ready!\" Freya says.",
+                "ru": "Фрейя слышит Зефира. Она улыбается. Она отважный воин. Она призывает древнее благословение Серебряной Цитадели. Крылья из синей громовой молнии вырастают за ее плечами! Они ослепительно яркие. \"Вперед, Фрейя!\" — говорит Оберон. \"Я готова!\" — отвечает Фрейя.",
+                "chunkedEn": "[s: Freya] [v: hears] [o: Zephyr.]\n[s: She] [v: smiles.]\n[s: She] [v: is] [o: a brave warrior.]\n[s: She] [v: calls] [o: the old blessing of the Silver Citadel.]\n[s: Blue thunder wings] [v: come] [pt: from her shoulders!]\n[s: They] [v: are bright.]\n[v: \"Go,] [o: Freya!\"] [s: Oberon] [v: says.]\n[s: \"I] [v: am] [o: ready!\"] [s: Freya] [v: says.]"
+            },
+            {
+                "speaker": "freya",
+                "en": "Freya flies up into the dark clouds. She goes above the falling King. At the peak of her flight, she takes her heavy spear with both hands. She gives it all her thunder power. \"For the three realms!\" Freya calls. She goes down like a star of silver fire. She is fast. She goes through the dark sky. Freya cuts the dark crystal in the King's chest with her thunder spear! It is a strong cut! A large sea of blue thunder breaks the crystal. The King becomes grey sand in the air.",
+                "ru": "Фрейя взмывает в темные тучи. Она поднимается над падающим Королем. На вершине полета она сжимает тяжелое копье обеими руками. Она наполняет его всей своей силой грома. \"За три королевства!\" — восклицает Фрейя. Она устремляется вниз, словно звезда серебряного огня. Она стремительна. Она пронзает темное небо. Фрейя раскалывает темный кристалл в груди Короля своим громовым копьем! Это сокрушительный удар! Могучее море синей молнии разбивает кристалл вдребезги. Король обращается в серый песок прямо в воздухе.",
+                "chunkedEn": "[s: Freya] [v: flies up] [pt: into the dark clouds.]\n[s: She] [v: goes] [pt: above the falling King.]\n[pt: At the peak of her flight,] [s: she] [v: takes] [o: her heavy spear] [pt: with both hands.]\n[s: She] [v: gives] [o: it all her thunder power.]\n[pt: \"For the three realms!\"] [s: Freya] [v: calls.]\n[s: She] [v: goes down] [pt: like a star of silver fire.]\n[s: She] [v: is fast.]\n[s: She] [v: goes] [pt: through the dark sky.]\n[s: Freya] [v: cuts] [o: the dark crystal in the King's chest] [pt: with her thunder spear!]\n[s: It] [v: is] [o: a strong cut!]\n[s: A large sea of blue thunder] [v: breaks] [o: the crystal.]\n[s: The King] [v: becomes] [o: grey sand] [pt: in the air.]"
+            },
+            {
+                "speaker": "astraea",
+                "en": "Freya goes down slowly on her glowing wings. She arrives next to Astraea and Zephyr. Ignis, Frostina, and Oberon smile. The squad is happy. \"Victory!\" they say. Astraea looks at her friends. \"We are a great team!\" she says. \"Yes!\" Zephyr says. Freya smiles. The sky above the Rift begins to be bright.",
+                "ru": "Фрейя плавно опускается на сияющих крыльях. Она приземляется рядом с Астреей и Зефиром. Игнис, Фростина и Оберон улыбаются. Отряд ликует. \"Победа!\" — говорят они. Астрея смотрит на друзей. \"Мы отличная команда!\" — говорит она. \"Да!\" — подтверждает Зефир. Фрейя улыбается. Небо над Разломом начинает светлеть.",
+                "chunkedEn": "[s: Freya] [v: goes down] [adv: slowly] [pt: on her glowing wings.]\n[s: She] [v: arrives] [pt: next to Astraea and Zephyr.]\n[s: Ignis, Frostina, and Oberon] [v: smile.]\n[s: The squad] [v: is happy.]\n[o: \"Victory!\"] [s: they] [v: say.]\n[s: Astraea] [v: looks] [pt: at her friends.]\n[s: \"We] [v: are] [o: a great team!\"] [s: she] [v: says.]\n[o: \"Yes!\"] [s: Zephyr] [v: says.]\n[s: Freya] [v: smiles.]\n[s: The sky above the Rift] [v: begins to be] [o: bright.]"
             }
         ],
         "quiz": {
             "question": "How did Freya defeat the Ash Dragon King?",
             "options": [
-                "She pierced its dark heart with a comet plunge of her thunder spear",
-                "She threw a stone",
-                "She trapped it in a cave"
+                "She flew with lightning wings and pierced the dark chest crystal with her thunder spear",
+                "She threw a stone from the ground",
+                "She trapped it in an ice cave"
             ],
             "correctIndex": 0,
-            "rewardXp": 520
+            "rewardXp": 524
         },
         "backgroundImg": "images/backgrounds/bg_sky_terrace.jpg",
         "locationEn": "The Tempest Skies of Eclipse",
