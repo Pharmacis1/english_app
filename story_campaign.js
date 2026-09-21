@@ -58,6 +58,16 @@ const STORY_ACTS = [
         "icon": "fa-sun",
         "color": "#eab308"
     }
+,
+    {
+        "id": 7,
+        "title": "Case I: The Stolen Music Box",
+        "subtitle": "Дело I: Тайна украденной шкатулки",
+        "chaptersRange": "41–46",
+        "reqLvl": "Lvl 100",
+        "icon": "fa-magnifying-glass",
+        "color": "#06b6d4"
+    }
 ];
 
 const STORY_CHAPTERS = [
@@ -3139,6 +3149,85 @@ const STORY_CHAPTERS = [
         "backgroundImg": "images/backgrounds/bg_panorama.jpg",
         "locationEn": "The Summit of the Seven Winds",
         "locationRu": "Вершина Семи Ветров"
+    },
+    {
+        "id": "ch-41",
+        "actId": 7,
+        "number": 41,
+        "titleEn": "Rain in New Haven",
+        "titleRu": "Дождь в Нью-Хейвене",
+        "reqHeroLevels": {
+            "valerius": 100
+        },
+        "involvedHeroes": [
+            "leo",
+            "mia",
+            "arthur",
+            "toby"
+        ],
+        "paragraphs": [
+            {
+                "speaker": "leo",
+                "en": "It is a cold and rainy morning in the city of New Haven. Rain is on the street. Rain is also on the windows. Detective Leo is in a room on the second floor. He is at his desk. He has a warm brown jacket. He drinks hot black coffee from a cup. His friend Mia is near the window. She is also a detective. She has a computer. She looks at the newspaper. She drinks tea.",
+                "ru": "Холодное и дождливое утро в городе Нью-Хейвен. Дождь барабанит по улице. Дождь также стекает по окнам. Детектив Лео находится в кабинете на втором этаже. Он сидит за своим столом. На нем теплая коричневая куртка. Он пьет горячий черный кофе из чашки. Его напарница Миа стоит у окна. Она тоже детектив. У нее есть компьютер. Она просматривает утреннюю газету. Она пьет чай.",
+                "chunkedEn": "[s: It] [v: is] [o: a cold and rainy morning] [pt: in the city of New Haven.]\n[s: Rain] [v: is] [pt: on the street.]\n[s: Rain] [v: is] [adv: also] [pt: on the windows.]\n[s: Detective Leo] [v: is] [pt: in a room on the second floor.]\n[s: He] [v: is] [pt: at his desk.]\n[s: He] [v: has] [o: a warm brown jacket.]\n[s: He] [v: drinks] [o: hot black coffee] [pt: from a cup.]\n[s: His friend Mia] [v: is] [pt: near the window.]\n[s: She] [v: is] [adv: also] [o: a detective.]\n[s: She] [v: has] [o: a computer.]\n[s: She] [v: looks] [pt: at the newspaper.]\n[s: She] [v: drinks] [o: tea.]"
+            },
+            {
+                "speaker": "arthur",
+                "en": "Soon the door opens. An old man comes in. He has a grey coat. It is Grandfather Arthur. Arthur is the owner of the antique shop downstairs. He is Leo's friend. His hands are cold. He is afraid. Mia sees Arthur. She stands. \"Leo! Mia! Please help me!\" Arthur says. \"A thief came to my shop last night!\"",
+                "ru": "Вскоре дверь открывается. Входит пожилой мужчина. На нем серое пальто. Это дедушка Артур. Артур — владелец антикварной лавки внизу. Он друг Лео. Его руки замерзли. Он напуган. Миа видит Артура. Она встает. \"Лео! Миа! Пожалуйста, помогите мне!\" — говорит Артур. \"Прошлой ночью в мою лавку проник вор!\"",
+                "chunkedEn": "[adv: Soon] [s: the door] [v: opens.]\n[s: An old man] [v: comes in.]\n[s: He] [v: has] [o: a grey coat.]\n[s: It] [v: is] [o: Grandfather Arthur.]\n[s: Arthur] [v: is] [o: the owner of the antique shop] [pt: downstairs.]\n[s: He] [v: is] [o: Leo's friend.]\n[s: His hands] [v: are cold.]\n[s: He] [v: is afraid.]\n[s: Mia] [v: sees] [o: Arthur.]\n[s: She] [v: stands.]\n[o: \"Leo! Mia! Please] [v: help] [o: me!\"] [s: Arthur] [v: says.]\n[s: \"A thief] [v: came] [pt: to my shop] [pt: last night!\"]"
+            },
+            {
+                "speaker": "leo",
+                "en": "Leo stands. He looks at Arthur. Leo gives a chair to Arthur. Arthur is on the chair. \"Arthur, please, drink water,\" Leo says with a smile. \"I want to help you. Tell me about the crime.\" Mia takes a cup of water for Arthur. Arthur drinks the water. He also eats a cookie.",
+                "ru": "Лео встает. Он смотрит на Артура. Лео предлагает Артуру стул. Артур садится на стул. \"Артур, пожалуйста, выпей воды,\" — говорит Лео с улыбкой. \"Я хочу помочь тебе. Расскажи мне о преступлении.\" Миа приносит чашку воды для Артура. Артур пьет воду. Он также съедает печенье.",
+                "chunkedEn": "[s: Leo] [v: stands.]\n[s: He] [v: looks] [pt: at Arthur.]\n[s: Leo] [v: gives] [o: a chair] [pt: to Arthur.]\n[s: Arthur] [v: is] [pt: on the chair.]\n[o: \"Arthur, please,] [v: drink] [o: water,\"] [s: Leo] [v: says] [pt: with a smile.]\n[s: \"I] [v: want to help] [o: you.]\n[v: Tell] [o: me] [pt: about the crime.\"]\n[s: Mia] [v: takes] [o: a cup of water] [pt: for Arthur.]\n[s: Arthur] [v: drinks] [o: the water.]\n[s: He] [adv: also] [v: eats] [o: a cookie.]"
+            },
+            {
+                "speaker": "arthur",
+                "en": "Arthur says, \"Last night, the storm was big. At midnight, a thief came to my shop. The thief broke the window. The thief did not take my gold coins. The thief did not take my silver clocks. The thief took one thing. It was my music box! It is from my grandparents. It is old. A key is for the music box. A note is in the music box. I want my music box!\"",
+                "ru": "Артур говорит: \"Прошлой ночью буря была сильной. В полночь в мою лавку пробрался вор. Вор разбил окно. Вор не взял мои золотые монеты. Вор не взял мои серебряные часы. Вор похитил только одну вещь. Это была моя музыкальная шкатулка! Она досталась мне от бабушки с дедушкой. Она старинная. К шкатулке есть ключ. Внутри шкатулки спрятана записка. Я хочу вернуть свою шкатулку!\"",
+                "chunkedEn": "[s: Arthur] [v: says,] [pt: \"Last night,] [s: the storm] [v: was big.]\n[pt: At midnight,] [s: a thief] [v: came] [pt: to my shop.]\n[s: The thief] [v: broke] [o: the window.]\n[s: The thief] [v: did not take] [o: my gold coins.]\n[s: The thief] [v: did not take] [o: my silver clocks.]\n[s: The thief] [v: took] [o: one thing.]\n[s: It] [v: was] [o: my music box!]\n[s: It] [v: is] [pt: from my grandparents.]\n[s: It] [v: is] [o: old.]\n[s: A key] [v: is] [pt: for the music box.]\n[s: A note] [v: is] [pt: in the music box.]\n[s: I] [v: want] [o: my music box!\"]"
+            },
+            {
+                "speaker": "mia",
+                "en": "Mia opens her notebook. She looks at Arthur. \"Did you see a suspect?\" Mia asks. \"Did you see a witness?\" Arthur says, \"No. The street was dark and empty. But I saw a big footprint by the back door. It was dirty. I also saw a piece of paper on the floor. It was blue.\" Mia writes in her notebook: window, music box, footprint, paper.",
+                "ru": "Миа открывает свой блокнот. Она смотрит на Артура. \"Вы видели подозреваемого?\" — спрашивает Миа. \"Вы видели свидетеля?\" Артур отвечает: \"Нет. Улица была темной и пустой. Но я заметил большой след ноги у задней двери. Он был грязным. Я также нашел на полу обрывок бумаги. Он был синим.\" Миа записывает в блокнот: окно, музыкальная шкатулка, след ноги, бумага.",
+                "chunkedEn": "[s: Mia] [v: opens] [o: her notebook.]\n[s: She] [v: looks] [pt: at Arthur.]\n[v: \"Did] [s: you] [v: see] [o: a suspect?\"] [s: Mia] [v: asks.]\n[v: \"Did] [s: you] [v: see] [o: a witness?\"]\n[s: Arthur] [v: says,] [o: \"No.]\n[s: The street] [v: was] [o: dark and empty.]\n[c: But] [s: I] [v: saw] [o: a big footprint] [pt: by the back door.]\n[s: It] [v: was dirty.]\n[s: I] [adv: also] [v: saw] [o: a piece of paper] [pt: on the floor.]\n[s: It] [v: was] [o: blue.\"]\n[s: Mia] [v: writes] [pt: in her notebook:] [o: window, music box, footprint, paper.]"
+            },
+            {
+                "speaker": "toby",
+                "en": "Now Toby runs into the room. Toby is a kid. He is ten. He has a yellow raincoat. He lives next to the bakery. Toby is happy. He wants to help. Barnaby is with him. Barnaby is a happy brown dog. Barnaby runs around the room. \"Uncle Leo! Grandfather Arthur!\" Toby says. \"Barnaby and I were in the park this morning. Barnaby found a key! It was near a tree. It is a bright silver key!\"",
+                "ru": "В эту минуту в комнату вбегает Тоби. Тоби — мальчик. Ему десять лет. На нем желтый дождевик. Он живет по соседству с пекарней. Тоби радостный. Он хочет помочь. С ним Барнаби. Барнаби — веселый коричневый пес. Барнаби бегает по комнате. \"Дядя Лео! Дедушка Артур!\" — говорит Тоби. \"Мы с Барнаби были в парке этим утром. Барнаби нашел ключ! Он лежал возле дерева. Это блестящий серебряный ключ!\"",
+                "chunkedEn": "[adv: Now] [s: Toby] [v: runs] [pt: into the room.]\n[s: Toby] [v: is] [o: a kid.]\n[s: He] [v: is] [o: ten.]\n[s: He] [v: has] [o: a yellow raincoat.]\n[s: He] [v: lives] [pt: next to the bakery.]\n[s: Toby] [v: is happy.]\n[s: He] [v: wants to help.]\n[s: Barnaby] [v: is] [pt: with him.]\n[s: Barnaby] [v: is] [o: a happy brown dog.]\n[s: Barnaby] [v: runs] [pt: around the room.]\n[o: \"Uncle Leo! Grandfather Arthur!\"] [s: Toby] [v: says.]\n[s: \"Barnaby and I] [v: were] [pt: in the park this morning.]\n[s: Barnaby] [v: found] [o: a key!]\n[s: It] [v: was] [pt: near a tree.]\n[s: It] [v: is] [o: a bright silver key!\"]"
+            },
+            {
+                "speaker": "leo",
+                "en": "Toby gives the key to Leo. Leo looks at the small silver key in his hand. Now he looks at Mia. \"A broken window, a music box, a big footprint, a blue paper, and a key,\" Leo says. \"Toby is good!\" Toby smiles. Arthur smiles.",
+                "ru": "Тоби протягивает ключ Лео. Лео смотрит на маленький серебряный ключ в своей руке. Затем он переводит взгляд на Мию. \"Разбитое окно, музыкальная шкатулка, большой след ноги, синяя бумага и ключ,\" — говорит Лео. \"Тоби молодец!\" Тоби улыбается. Артур улыбается.",
+                "chunkedEn": "[s: Toby] [v: gives] [o: the key] [pt: to Leo.]\n[s: Leo] [v: looks] [pt: at the small silver key in his hand.]\n[adv: Now] [s: he] [v: looks] [pt: at Mia.]\n[s: \"A broken window, a music box, a big footprint, a blue paper, and a key,\"] [s: Leo] [v: says.]\n[s: \"Toby] [v: is] [o: good!\"]\n[s: Toby] [v: smiles.]\n[s: Arthur] [v: smiles.]"
+            },
+            {
+                "speaker": "mia",
+                "en": "Leo takes his flashlight. \"Mia, take your camera and your smartphone. Everyone, take your raincoat. We go downstairs. We investigate the crime!\" Mia takes her camera. Leo takes his raincoat. Arthur takes his coat. Arthur, Toby, and Barnaby go with them. They go downstairs to the antique shop.",
+                "ru": "Лео берет фонарик. \"Миа, возьми камеру и смартфон. Все надевайте дождевики. Мы спускаемся вниз. Мы расследуем это преступление!\" Миа берет камеру. Лео надевает свой плащ. Артур берет пальто. Артур, Тоби и Барнаби идут с ними. Они спускаются вниз в антикварную лавку.",
+                "chunkedEn": "[s: Leo] [v: takes] [o: his flashlight.]\n[o: \"Mia,] [v: take] [o: your camera and your smartphone.]\n[s: Everyone,] [v: take] [o: your raincoat.]\n[s: We] [v: go] [pt: downstairs.]\n[s: We] [v: investigate] [o: the crime!\"]\n[s: Mia] [v: takes] [o: her camera.]\n[s: Leo] [v: takes] [o: his raincoat.]\n[s: Arthur] [v: takes] [o: his coat.]\n[s: Arthur, Toby, and Barnaby] [v: go] [pt: with them.]\n[s: They] [v: go downstairs] [pt: to the antique shop.]"
+            }
+        ],
+        "quiz": {
+            "question": "What was stolen from Grandfather Arthur's antique shop?",
+            "options": [
+                "An ancient music box with a note and a key",
+                "Gold coins and silver clocks",
+                "A red bicycle"
+            ],
+            "correctIndex": 0,
+            "rewardXp": 496
+        },
+        "backgroundImg": "images/backgrounds/bg_magic_library.jpg",
+        "locationEn": "Detective Leo's Office",
+        "locationRu": "Кабинет Детектива Лео"
     }
 ];
 

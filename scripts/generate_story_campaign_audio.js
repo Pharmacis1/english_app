@@ -50,7 +50,13 @@ const HERO_VOICES = {
     freya:    { voice: 'en-US-Neural2-F', pitch: '+0.5st', rate: '0.94' },
     frostina: { voice: 'en-US-Neural2-C', pitch: '+2.0st', rate: '0.92' },
     oberon:   { voice: 'en-US-Neural2-A', pitch: '-2.5st', rate: '0.88' },
-    eldrin:   { voice: 'en-US-Neural2-J', pitch: '-3.5st', rate: '0.88' }
+    eldrin:   { voice: 'en-US-Neural2-J', pitch: '-3.5st', rate: '0.88' },
+    leo:      { voice: 'en-US-Neural2-D', pitch: '-1.0st', rate: '0.92' },
+    mia:      { voice: 'en-US-Neural2-F', pitch: '+1.5st', rate: '0.94' },
+    arthur:   { voice: 'en-US-Neural2-J', pitch: '-3.0st', rate: '0.88' },
+    toby:     { voice: 'en-US-Neural2-A', pitch: '+3.5st', rate: '0.96' },
+    martha:   { voice: 'en-US-Neural2-C', pitch: '+1.0st', rate: '0.90' },
+    harris:   { voice: 'en-US-Neural2-I', pitch: '-2.0st', rate: '0.92' }
 };
 
 function formatSSML(text, speaker) {
