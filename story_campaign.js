@@ -2890,31 +2890,63 @@ const STORY_CHAPTERS = [
         ],
         "paragraphs": [
             {
-                "en": "The ground broke apart completely. The ancient Ash Titan emerged from the deepest bedrock—a colossal giant of cursed magma and dark stone.",
-                "ru": "Земля раскололась окончательно. Древний Пепельный Титан поднялся из глубочайшей породы — колоссальный гигант из проклятой магмы и темного камня."
+                "speaker": "eldrin",
+                "en": "The ground of the Rift breaks. It opens. Red fire comes up from the ground. It is hot and red like a sea. Now a big shadow comes up into the sky. It is the old Ash Titan! His body is made of fire, stone and iron. His eyes are red. He is angry. He walks, and the mountain moves. The mountain moves under his big feet. The sky is dark.",
+                "ru": "Земля Разлома раскалывается. Она разверзается. Красный огонь поднимается из глубин. Он горячий и красный, словно море. И вот огромная тень вздымается в небо. Это древний Пепельный Титан! Его тело соткано из огня, камня и железа. Его глаза горят красным. Он в ярости. Он ступает, и гора содрогается. Гора ходит ходуном под его гигантскими ногами. Небо погрузилось во тьму.",
+                "chunkedEn": "[s: The ground of the Rift] [v: breaks.]\n[s: It] [v: opens.]\n[s: Red fire] [v: comes up] [pt: from the ground.]\n[s: It] [v: is] [o: hot and red] [pt: like a sea.]\n[adv: Now] [s: a big shadow] [v: comes up] [pt: into the sky.]\n[s: It] [v: is] [o: the old Ash Titan!]\n[s: His body] [v: is made] [pt: of fire, stone and iron.]\n[s: His eyes] [v: are red.]\n[s: He] [v: is angry.]\n[s: He] [v: walks,] [c: and] [s: the mountain] [v: moves.]\n[s: The mountain] [v: moves] [pt: under his big feet.]\n[s: The sky] [v: is dark.]"
             },
             {
-                "en": "\"Only the nameless flame will burn the dark!\" Eldrin recited the last line of the prophecy. \"What is the nameless flame, old master?!\" Valerius yelled.",
-                "ru": "\"Только безымянное пламя сожжет тьму!\" — процитировал Эльдрин последнюю строку пророчества. \"Что такое безымянное пламя, старый учитель?!\" — крикнул Валериус."
+                "speaker": "valerius",
+                "en": "The ten heroes stand in front of the Titan. The Titan is big and tall. The fire on his body is hot. The heroes look at him. They are not afraid. They never go back. Valerius and Thorin take their shields. They stand on the ground, and the ground moves. Selena, Freya and Frostina stand next to them. Zephyr, Astraea, Ignis and Oberon also stand there.",
+                "ru": "Десять героев стоят перед Титаном. Титан огромен и высок. Огонь на его теле пышет жаром. Герои смотрят на него. Они не боятся. Они ни за что не отступят. Валериус и Торин поднимают свои щиты. Они стоят на земле, и земля дрожит. Селена, Фрейя и Фростина стоят рядом с ними. Зефир, Астрея, Игнис и Оберон также стоят плечом к плечу.",
+                "chunkedEn": "[s: The ten heroes] [v: stand] [pt: in front of the Titan.]\n[s: The Titan] [v: is big and tall.]\n[s: The fire on his body] [v: is hot.]\n[s: The heroes] [v: look] [pt: at him.]\n[s: They] [v: are not afraid.]\n[s: They] [adv: never] [v: go back.]\n[s: Valerius and Thorin] [v: take] [o: their shields.]\n[s: They] [v: stand] [pt: on the ground,] [c: and] [s: the ground] [v: moves.]\n[s: Selena, Freya and Frostina] [v: stand] [pt: next to them.]\n[s: Zephyr, Astraea, Ignis and Oberon] [adv: also] [v: stand] [pt: there.]"
             },
             {
-                "en": "\"It is not fire in the hearth, and it is not a spell in a book!\" Eldrin smiled through the storm. \"It is the flame of unity! Ten hearts beating without clan names!\"",
-                "ru": "\"Это не огонь в очаге и не заклинание в книге!\" — улыбнулся Эльдрин сквозь бурю. \"Это пламя единства! Десять сердец, бьющихся без клановых имен!\""
+                "speaker": "eldrin",
+                "en": "\"The time is now!\" Archmage Eldrin calls. His blue cloak is in the hot wind. \"The last words on the old star stone come now! The flame with no name is going to bring light to the dark forever!\"",
+                "ru": "\"Время пришло!\" — восклицает Архимаг Эльдрин. Его синий плащ развевается на горячем ветру. \"Последние слова на древней звездной скрижали сбываются прямо сейчас! Пламя без имени принесет свет во тьму навеки!\"",
+                "chunkedEn": "[s: \"The time] [v: is] [adv: now!\"] [s: Archmage Eldrin] [v: calls.]\n[s: His blue cloak] [v: is] [pt: in the hot wind.]\n[s: \"The last words on the old star stone] [v: come] [adv: now!]\n[s: The flame with no name] [v: is going to bring] [o: light] [pt: to the dark] [adv: forever!\"]"
             },
             {
-                "en": "The weapons of all ten heroes flared with brilliant white radiance. The true Nameless Flame was born in their united spirits.",
-                "ru": "Оружие всех десяти героев вспыхнуло ослепительным белым сиянием. Истинное Безымянное Пламя родилось в их едином духе."
+                "speaker": "valerius",
+                "en": "The heroes listen. Valerius looks up at the Titan. He calls, \"Master Eldrin! What is the Nameless Flame? Is it a spell in your books? Is it the old magic of the Silver Citadel?\"",
+                "ru": "Герои слушают. Валериус смотрит вверх на Титана. Он кричит: \"Магистр Эльдрин! Что такое Безымянное Пламя? Это заклинание в твоих книгах? Это древняя магия Серебряной Цитадели?\"",
+                "chunkedEn": "[s: The heroes] [v: listen.]\n[s: Valerius] [v: looks up] [pt: at the Titan.]\n[s: He] [v: calls,] [o: \"Master Eldrin!]\n[o: What] [v: is] [s: the Nameless Flame?]\n[v: Is] [s: it] [o: a spell] [pt: in your books?]\n[v: Is] [s: it] [o: the old magic of the Silver Citadel?\"]"
+            },
+            {
+                "speaker": "thorin",
+                "en": "Thorin takes his big hammer. He calls, \"Or is it the fire from the forge of the mountain kings? Tell us, old wizard! How do we make this flame?\"",
+                "ru": "Торин сжимает свой большой молот. Он кричит: \"Или это огонь из горна горных королей? Скажи нам, старый маг! Как нам зажечь это пламя?\"",
+                "chunkedEn": "[s: Thorin] [v: takes] [o: his big hammer.]\n[s: He] [v: calls,] [c: \"Or] [v: is] [s: it] [o: the fire] [pt: from the forge of the mountain kings?]\n[v: Tell] [o: us, old wizard!]\n[o: How] [v: do] [s: we] [v: make] [o: this flame?\"]"
+            },
+            {
+                "speaker": "eldrin",
+                "en": "Eldrin smiles. He looks at Thorin and Valerius. He touches the crystal on his staff. The crystal is bright. \"It is not fire in a stone fireplace, Thorin,\" Eldrin says. \"And it is not a spell from old books, Valerius. The Nameless Flame has no name, because it is not for one group or one realm!\"",
+                "ru": "Эльдрин улыбается. Он смотрит на Торина и Валериуса. Он касается кристалла на своем посохе. Кристалл сияет. \"Это не огонь в каменном очаге, Торин,\" — говорит Эльдрин. \"И это не заклинание из древних книг, Валериус. Безымянное Пламя не имеет имени, потому что оно не принадлежит какому-то одному клану или королевству!\"",
+                "chunkedEn": "[s: Eldrin] [v: smiles.]\n[s: He] [v: looks] [pt: at Thorin and Valerius.]\n[s: He] [v: touches] [o: the crystal] [pt: on his staff.]\n[s: The crystal] [v: is bright.]\n[s: \"It] [v: is not] [o: fire] [pt: in a stone fireplace, Thorin,\"] [s: Eldrin] [v: says.]\n[c: \"And] [s: it] [v: is not] [o: a spell] [pt: from old books, Valerius.]\n[s: The Nameless Flame] [v: has] [o: no name,]\n[c: because] [s: it] [v: is not] [pt: for one group or one realm!\"]"
+            },
+            {
+                "speaker": "eldrin",
+                "en": "Eldrin points to the ten friends. They stand next to each other. \"Look at us, my friends!\" Eldrin calls. \"It is peace between the knight and the smith! It is the courage of the scout. It is the care of the one who heals. It is the spark of the fire wizard, and the roots of the forest! Ten hearts, and all are friends. This is the true Nameless Flame!\"",
+                "ru": "Эльдрин указывает на десять друзей. Они стоят плечом к плечу. \"Посмотрите на нас, друзья мои!\" — восклицает Эльдрин. \"Это мир между рыцарем и кузнецом! Это отвага разведчика. Это забота целительницы. Это искра огненного мага и корни леса! Десять сердец, и все они — друзья. Вот оно, истинное Безымянное Пламя!\"",
+                "chunkedEn": "[s: Eldrin] [v: points] [pt: to the ten friends.]\n[s: They] [v: stand] [pt: next to each other.]\n[v: \"Look] [pt: at us, my friends!\"] [s: Eldrin] [v: calls.]\n[s: \"It] [v: is] [o: peace] [pt: between the knight and the smith!]\n[s: It] [v: is] [o: the courage of the scout.]\n[s: It] [v: is] [o: the care of the one who heals.]\n[s: It] [v: is] [o: the spark of the fire wizard, and the roots of the forest!]\n[s: Ten hearts,] [c: and] [s: all] [v: are] [o: friends.]\n[s: This] [v: is] [o: the true Nameless Flame!\"]"
+            },
+            {
+                "speaker": "valerius",
+                "en": "Valerius looks at his friends. Selena smiles. Freya takes the hand of Frostina. Thorin looks at Valerius. Ignis and Oberon look at Eldrin. Zephyr and Astraea look at the sky. The Titan calls with a big voice. The ground moves. Now a white light comes from the chest of Valerius. The light is bright. It goes from heart to heart. It touches Thorin, Selena, Freya, Frostina, Zephyr, Astraea, Ignis, Oberon and Eldrin. All their swords, shields, bows and staffs are glowing white. The white light is bright, and the dark of the Ash Titan goes away. The heroes run to the Titan. It is the last battle for the world!",
+                "ru": "Валериус смотрит на своих друзей. Селена улыбается. Фрейя берет за руку Фростину. Торин смотрит на Валериуса. Игнис и Оберон смотрят на Эльдрина. Зефир и Астрея смотрят в небо. Титан ревет громовым голосом. Земля ходит ходуном. Внезапно белый свет исходит из груди Валериуса. Свет ослепительно ярок. Он перетекает от сердца к сердцу. Он касается Торина, Селены, Фрейи, Фростины, Зефира, Астреи, Игниса, Оберона и Эльдрина. Все их мечи, щиты, луки и посохи сияют белым. Белый свет сияет, и тьма Пепельного Титана отступает. Герои бросаются на Титана. Это последняя битва за судьбу мира!",
+                "chunkedEn": "[s: Valerius] [v: looks] [pt: at his friends.]\n[s: Selena] [v: smiles.]\n[s: Freya] [v: takes] [o: the hand of Frostina.]\n[s: Thorin] [v: looks] [pt: at Valerius.]\n[s: Ignis and Oberon] [v: look] [pt: at Eldrin.]\n[s: Zephyr and Astraea] [v: look] [pt: at the sky.]\n[s: The Titan] [v: calls] [pt: with a big voice.]\n[s: The ground] [v: moves.]\n[adv: Now] [s: a white light] [v: comes] [pt: from the chest of Valerius.]\n[s: The light] [v: is bright.]\n[s: It] [v: goes] [pt: from heart to heart.]\n[s: It] [v: touches] [o: Thorin, Selena, Freya, Frostina, Zephyr, Astraea, Ignis, Oberon and Eldrin.]\n[s: All their swords, shields, bows and staffs] [v: are glowing] [o: white.]\n[s: The white light] [v: is bright,] [c: and] [s: the dark of the Ash Titan] [v: goes away.]\n[s: The heroes] [v: run] [pt: to the Titan.]\n[s: It] [v: is] [o: the last battle for the world!]"
             }
         ],
         "quiz": {
             "question": "What is the true meaning of the Nameless Flame?",
             "options": [
-                "A special potion",
-                "The flame of unity and friendship of ten heroes across clans",
-                "A volcano eruption"
+                "The flame of unity, friendship, and peace among the ten heroes across all realms",
+                "A special magic fire spell from an old book",
+                "Fire from the stone fireplace of the mountain forge"
             ],
-            "correctIndex": 1,
-            "rewardXp": 550
+            "correctIndex": 0,
+            "rewardXp": 475
         },
         "backgroundImg": "images/backgrounds/bg_dragon_volcano.jpg",
         "locationEn": "The Bedrock Core of the World",
