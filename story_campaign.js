@@ -3078,28 +3078,60 @@ const STORY_CHAPTERS = [
         ],
         "paragraphs": [
             {
-                "en": "The black eclipse vanished. A warm, golden morning sun rose over the mountains, filling the valley with bright life and singing birds.",
-                "ru": "Черное затмение рассеялось. Теплое золотое утреннее солнце взошло над горами, наполняя долину яркой жизнью и пением птиц."
+                "speaker": "valerius",
+                "en": "The dark sun goes away. Now the sky is blue and the air is clean. A warm, gold sun comes up over the mountain peaks. The bright light is on all the realm. In the valley below, the black air goes away. The grass is green. The flowers are red, yellow, pink, and blue. The rivers are cold and fresh, and they shine in the new morning. The birds fly in the wind and sing happy songs.",
+                "ru": "Темное солнце уходит. Теперь небо синее, а воздух чист. Теплое золотое солнце поднимается над горными вершинами. Яркий свет озаряет все королевство. В долине внизу рассеивается черная гарь. Трава зеленеет. Цветы распускаются красными, желтыми, розовыми и синими. Реки прохладны и свежи, и они блестят в лучах нового утра. Птицы парят на ветру и поют радостные песни.",
+                "chunkedEn": "[s: The dark sun] [v: goes away.]\n[adv: Now] [s: the sky] [v: is] [o: blue] [c: and] [s: the air] [v: is] [o: clean.]\n[s: A warm, gold sun] [v: comes up] [pt: over the mountain peaks.]\n[s: The bright light] [v: is] [pt: on all the realm.]\n[pt: In the valley below,] [s: the black air] [v: goes away.]\n[s: The grass] [v: is] [o: green.]\n[s: The flowers] [v: are] [o: red, yellow, pink, and blue.]\n[s: The rivers] [v: are] [o: cold and fresh,] [c: and] [s: they] [v: shine] [pt: in the new morning.]\n[s: The birds] [v: fly] [pt: in the wind] [c: and] [v: sing] [o: happy songs.]"
             },
             {
-                "en": "The borders were no longer walls of hatred. People of all three clans came together at the Silver River, celebrating peace and rebuilding the world.",
-                "ru": "Границы больше не были стенами ненависти. Люди всех трех кланов собрались вместе у Серебряной реки, празднуя мир и отстраивая мир заново."
+                "speaker": "astraea",
+                "en": "At the Silver River, a big thing is here. Thousands of people come to the river. They come from the Silver Citadel, the Mountain Forge, and the Emerald Forest. There are no swords. There are no heavy shields. There are no bad words. Knights give bread to smiths. Scouts dance with students. Women sing songs and children run in the grass. Men eat food and drink water. The old borders of war are gone. Now they are all friends, and they are always friends.",
+                "ru": "У Серебряной реки происходит великое событие. Тысячи людей приходят к реке. Они идут из Серебряной Цитадели, Горного Горна и Изумрудного Леса. Здесь нет мечей. Здесь нет тяжелых щитов. Здесь нет злых слов. Рыцари делят хлеб с кузнецами. Разведчики танцуют с учениками. Женщины поют песни, а дети бегают по траве. Мужчины пробуют угощения и пьют воду. Древние границы войны стерты. Теперь все они друзья, и они останутся друзьями навсегда.",
+                "chunkedEn": "[pt: At the Silver River,] [s: a big thing] [v: is] [pt: here.]\n[s: Thousands of people] [v: come] [pt: to the river.]\n[s: They] [v: come] [pt: from the Silver Citadel, the Mountain Forge, and the Emerald Forest.]\n[s: There] [v: are] [o: no swords.]\n[s: There] [v: are] [o: no heavy shields.]\n[s: There] [v: are] [o: no bad words.]\n[s: Knights] [v: give] [o: bread] [pt: to smiths.]\n[s: Scouts] [v: dance] [pt: with students.]\n[s: Women] [v: sing] [o: songs] [c: and] [s: children] [v: run] [pt: in the grass.]\n[s: Men] [v: eat] [o: food] [c: and] [v: drink] [o: water.]\n[s: The old borders of war] [v: are gone.]\n[adv: Now] [s: they] [v: are] [o: all friends,] [c: and] [s: they] [v: are] [adv: always] [o: friends.]"
             },
             {
-                "en": "Ten heroes stood on the high cliff of the Astral Peak, looking into the golden horizon. They were no longer outcasts. They were the Guardians of the Seven Winds.",
-                "ru": "Десять героев стояли на высоком утесе Астрального Пика, глядя в золотой горизонт. Они больше не были изгоями. Они были Хранителями Семи Ветров."
+                "speaker": "valerius",
+                "en": "On the top of the Astral Spire, the ten companions stand next to each other on the old stone. Valerius has his shining silver cloak. He looks at the big valley and he smiles. He is so happy. \"Ten days ago, I was a stranger,\" Valerius says. \"I had no friends. Now I have nine true brothers and sisters.\"",
+                "ru": "На вершине Астрального Шпиля десять соратников стоят плечом к плечу на древнем камне. На Валериусе сияет серебряный плащ. Он смотрит на бескрайнюю долину и улыбается. Он невероятно счастлив. \"Десять дней назад я был одиноким изгнанником,\" — говорит Валериус. \"У меня не было друзей. Теперь у меня есть девять истинных братьев и сестер.\"",
+                "chunkedEn": "[pt: On the top of the Astral Spire,] [s: the ten companions] [v: stand] [pt: next to each other] [pt: on the old stone.]\n[s: Valerius] [v: has] [o: his shining silver cloak.]\n[s: He] [v: looks] [pt: at the big valley] [c: and] [s: he] [v: smiles.]\n[s: He] [v: is so happy.]\n[pt: \"Ten days ago,] [s: I] [v: was] [o: a stranger,\"] [s: Valerius] [v: says.]\n[s: \"I] [v: had] [o: no friends.]\n[adv: Now] [s: I] [v: have] [o: nine true brothers and sisters.\"]"
             },
             {
-                "en": "\"You have mastered the language of courage, heroes,\" Eldrin spoke with a proud smile. \"Your A1 journey is complete. Beyond these mountains, the great lands of A2 await!\"",
-                "ru": "\"Вы овладели языком мужества, герои,\" — с гордой улыбкой произнес Эльдрин. \"Ваш путь A1 завершен. За этими горами вас ждут великие земли A2!\""
+                "speaker": "thorin",
+                "en": "Thorin has his big hand on the shoulder of Valerius. He smiles. \"We stop the war of ten centuries, brother!\" Thorin says. \"Now our hammers and shields build houses and bridges, not walls.\"",
+                "ru": "Торин кладет свою широкую ладонь на плечо Валериуса. Он улыбается. \"Мы остановили войну десяти веков, брат!\" — говорит Торин. \"Теперь наши молоты и щиты будут строить дома и мосты, а не стены.\"",
+                "chunkedEn": "[s: Thorin] [v: has] [o: his big hand] [pt: on the shoulder of Valerius.]\n[s: He] [v: smiles.]\n[s: \"We] [v: stop] [o: the war of ten centuries, brother!\"] [s: Thorin] [v: says.]\n[adv: \"Now] [s: our hammers and shields] [v: build] [o: houses and bridges, not walls.\"]"
+            },
+            {
+                "speaker": "selene",
+                "en": "Selena and Zephyr stand at the side of the top. The wind plays with their cloaks. Selena has her daggers, and she smiles. \"Now we do not hide,\" Selena says. \"The shadow is cool and quiet in a bright world.\" Zephyr has his green bow. He points the bow to the far sky. \"A new wind comes over the world, friends,\" Zephyr says.",
+                "ru": "Селена и Зефир стоят на краю площадки. Ветер играет с их плащами. Селена убирает кинжалы и улыбается. \"Теперь нам незачем прятаться,\" — говорит Селена. \"Тень теперь лишь прохлада и покой в сияющем мире.\" У Зефира в руках зеленый лук. Он указывает луком в далекое небо. \"Новый ветер веет над миром, друзья,\" — говорит Зефир.",
+                "chunkedEn": "[s: Selena and Zephyr] [v: stand] [pt: at the side of the top.]\n[s: The wind] [v: plays] [pt: with their cloaks.]\n[s: Selena] [v: has] [o: her daggers,] [c: and] [s: she] [v: smiles.]\n[adv: \"Now] [s: we] [v: do not hide,\"] [s: Selena] [v: says.]\n[s: \"The shadow] [v: is] [o: cool and quiet] [pt: in a bright world.\"]\n[s: Zephyr] [v: has] [o: his green bow.]\n[s: He] [v: points] [o: the bow] [pt: to the far sky.]\n[s: \"A new wind] [v: comes] [pt: over the world, friends,\"] [s: Zephyr] [v: says.]"
+            },
+            {
+                "speaker": "ignis",
+                "en": "Ignis, Frostina, Freya, and Oberon stand around the flowers and the sparks. They dance and they sing. \"Fire, ice, thunder, and earth!\" Ignis says. \"We are stronger as a team than one hero!\" Astraea has her hands up to the warm sun. She says, \"Thank you,\" to the gold sky.",
+                "ru": "Игнис, Фростина, Фрейя и Оберон стоят среди цветов и кружащихся искр. Они танцуют и поют. \"Огонь, лед, гром и земля!\" — восклицает Игнис. \"Вместе, как команда, мы сильнее любого героя-одиночки!\" Астрея воздевает руки к теплому солнцу. Она шепчет: \"Спасибо,\" — золотому небу.",
+                "chunkedEn": "[s: Ignis, Frostina, Freya, and Oberon] [v: stand] [pt: around the flowers and the sparks.]\n[s: They] [v: dance] [c: and] [s: they] [v: sing.]\n[o: \"Fire, ice, thunder, and earth!\"] [s: Ignis] [v: says.]\n[s: \"We] [v: are] [o: stronger] [pt: as a team] [pt: than one hero!\"]\n[s: Astraea] [v: has] [o: her hands] [pt: up to the warm sun.]\n[s: She] [v: says,] [o: \"Thank you,\"] [pt: to the gold sky.]"
+            },
+            {
+                "speaker": "eldrin",
+                "en": "Grand Archmage Eldrin goes to the center of the top. He looks at each hero. He loves all the heroes. He is happy. \"You go through fire, ice, and dark,\" Eldrin says in a big voice. \"You learn the true words of courage and honor. Your A1 journey is complete! Now you are not strangers. You are the Guards of the Seven Winds!\"",
+                "ru": "Великий Архимаг Эльдрин выходит в центр террасы. Он смотрит на каждого героя. Он гордится всеми героями. Он счастлив. \"Вы прошли сквозь огонь, лед и тьму,\" — торжественно произносит Эльдрин. \"Вы выучили истинные слова мужества и чести. Ваше путешествие уровня A1 завершено! Теперь вы не изгнанники. Вы — Хранители Семи Ветров!\"",
+                "chunkedEn": "[s: Grand Archmage Eldrin] [v: goes] [pt: to the center of the top.]\n[s: He] [v: looks] [pt: at each hero.]\n[s: He] [v: loves] [o: all the heroes.]\n[s: He] [v: is happy.]\n[s: \"You] [v: go] [pt: through fire, ice, and dark,\"] [s: Eldrin] [v: says] [pt: in a big voice.]\n[s: \"You] [v: learn] [o: the true words of courage and honor.]\n[s: Your A1 journey] [v: is complete!]\n[adv: Now] [s: you] [v: are not] [o: strangers.]\n[s: You] [v: are] [o: the Guards of the Seven Winds!\"]"
+            },
+            {
+                "speaker": "eldrin",
+                "en": "Eldrin points his staff to the big peaks over the valley. \"Over the mountains, there are big new countries of A2! Are you ready for a new journey?\" The ten heroes have their glowing swords, bows, and staffs up to the morning sky. They say, \"Yes!\" with a big, happy voice. The voice goes across the sun and the mountains.",
+                "ru": "Эльдрин указывает посохом на величественные вершины за долиной. \"За этими горами простираются новые великие земли уровня A2! Готовы ли вы к новому путешествию?\" Десять героев поднимают сияющие мечи, луки и посохи навстречу утреннему небу. Они дружно кричат: \"Да!\" ликующим хором. Их голоса эхом разносятся над солнцем и горами.",
+                "chunkedEn": "[s: Eldrin] [v: points] [o: his staff] [pt: to the big peaks] [pt: over the valley.]\n[pt: \"Over the mountains,] [s: there] [v: are] [o: big new countries of A2!]\n[v: Are] [s: you] [o: ready] [pt: for a new journey?\"]\n[s: The ten heroes] [v: have] [o: their glowing swords, bows, and staffs] [pt: up to the morning sky.]\n[s: They] [v: say,] [o: \"Yes!\"] [pt: with a big, happy voice.]\n[s: The voice] [v: goes] [pt: across the sun and the mountains.]"
             }
         ],
         "quiz": {
-            "question": "What did the ten heroes become after saving the world?",
+            "question": "What title did the ten heroes earn after saving the world and completing their A1 journey?",
             "options": [
-                "The legendary Guardians of the Seven Winds",
-                "Simple farmers",
-                "Rivals again"
+                "The Guards of the Seven Winds",
+                "Simple castle farmers",
+                "Bitter rivals of the three realms"
             ],
             "correctIndex": 0,
             "rewardXp": 1000
