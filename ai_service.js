@@ -639,8 +639,24 @@ class VoiceService {
 
         this.speechSpeed = parseFloat(localStorage.getItem("hero_chat_voice_speed")) || 1.0;
         this.audioCache = new Map(); // In-memory cache for audio blobs: key -> Blob
+        this.audioManifest = null;
 
         this.initRecognition();
+        this.loadAudioManifest();
+    }
+
+    async loadAudioManifest() {
+        try {
+            const resp = await fetch('/api/audio-manifest');
+            if (resp.ok) {
+                const data = await resp.json();
+                this.audioManifest = {
+                    words: new Set(data.words || []),
+                    drills: new Set(data.drills || []),
+                    warmup: new Set(data.warmup || [])
+                };
+            }
+        } catch (e) {}
     }
 
     initRecognition() {
@@ -697,25 +713,24 @@ class VoiceService {
             const cleanKey = cleanText.toLowerCase().replace(/[^a-z0-9]/g, '_').replace(/_+/g, '_').replace(/^_|_$/g, '');
             if (!cleanKey) return;
 
-            const urls = [
-                `/audio/words/${cleanKey}.wav`,
-                `/audio/drills/${cleanKey}.wav`,
-                `/audio/warmup/${cleanKey}.wav`
-            ];
+            // Only preload the single exact URL where the audio actually exists (0 wasted 404s!)
+            let targetUrl = null;
+            if (this.audioManifest) {
+                if (this.audioManifest.words.has(cleanKey)) targetUrl = `/audio/words/${cleanKey}.wav`;
+                else if (this.audioManifest.drills.has(cleanKey)) targetUrl = `/audio/drills/${cleanKey}.wav`;
+                else if (this.audioManifest.warmup.has(cleanKey)) targetUrl = `/audio/warmup/${cleanKey}.wav`;
+            } else {
+                targetUrl = cleanText.includes(' ') ? `/audio/drills/${cleanKey}.wav` : `/audio/words/${cleanKey}.wav`;
+            }
 
-            urls.forEach(url => {
-                if (!this.preloadedAudioSet.has(url)) {
-                    this.preloadedAudioSet.add(url);
-                    try {
-                        const a = new Audio();
-                        a.preload = 'auto';
-                        a.src = url;
-                        if (typeof window.fetch === 'function') {
-                            fetch(url, { method: 'GET', cache: 'force-cache' }).catch(() => {});
-                        }
-                    } catch(e) {}
-                }
-            });
+            if (targetUrl && !this.preloadedAudioSet.has(targetUrl)) {
+                this.preloadedAudioSet.add(targetUrl);
+                try {
+                    const a = new Audio();
+                    a.preload = 'auto';
+                    a.src = targetUrl;
+                } catch(e) {}
+            }
         });
     }
 
@@ -735,13 +750,32 @@ class VoiceService {
         const rate = Math.max(0.1, Math.min(10, baseRate * effectiveSpeed));
         const gender = heroVoiceConfig?.gender || null;
 
-        // 0. Pre-recorded Offline Audio Check (Warmup phrases, Drills & Words: 0 tokens, instant 0.0s playback)
+        // 0. Pre-recorded Offline Audio Check (Fast in-memory manifest lookup -> instant 0.0s playback)
         const cleanKey = cleanText.toLowerCase().replace(/[^a-z0-9]/g, '_').replace(/_+/g, '_').replace(/^_|_$/g, '');
-        const candidateAudioUrls = [
-            `/audio/warmup/${cleanKey}.wav`,
-            `/audio/drills/${cleanKey}.wav`,
-            `/audio/words/${cleanKey}.wav`
-        ];
+        let candidateAudioUrls = [];
+
+        if (this.audioManifest) {
+            if (this.audioManifest.words.has(cleanKey)) {
+                candidateAudioUrls.push(`/audio/words/${cleanKey}.wav`);
+            } else if (this.audioManifest.drills.has(cleanKey)) {
+                candidateAudioUrls.push(`/audio/drills/${cleanKey}.wav`);
+            } else if (this.audioManifest.warmup.has(cleanKey)) {
+                candidateAudioUrls.push(`/audio/warmup/${cleanKey}.wav`);
+            }
+        } else {
+            // Words first for single words; drills/warmup first for multi-word phrases
+            if (cleanText.includes(' ')) {
+                candidateAudioUrls = [
+                    `/audio/drills/${cleanKey}.wav`,
+                    `/audio/warmup/${cleanKey}.wav`,
+                    `/audio/words/${cleanKey}.wav`
+                ];
+            } else {
+                candidateAudioUrls = [
+                    `/audio/words/${cleanKey}.wav`
+                ];
+            }
+        }
 
         for (const localAudioUrl of candidateAudioUrls) {
             try {

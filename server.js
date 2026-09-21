@@ -505,6 +505,31 @@ app.post('/api/ai/stt-groq', async (req, res) => {
     }
 });
 
+// 11.5 GET /api/audio-manifest — In-memory cached index of pre-recorded audio files
+let cachedAudioManifest = null;
+app.get('/api/audio-manifest', (req, res) => {
+    try {
+        if (!cachedAudioManifest) {
+            const getKeys = (dir) => {
+                const fullPath = path.join(__dirname, 'audio', dir);
+                if (!fs.existsSync(fullPath)) return [];
+                return fs.readdirSync(fullPath)
+                    .filter(f => f.endsWith('.wav'))
+                    .map(f => f.slice(0, -4).toLowerCase());
+            };
+            cachedAudioManifest = {
+                words: getKeys('words'),
+                drills: getKeys('drills'),
+                warmup: getKeys('warmup')
+            };
+        }
+        res.setHeader('Cache-Control', 'public, max-age=3600');
+        return res.json(cachedAudioManifest);
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
+});
+
 // Helper: Convert PCM 16-bit 24kHz mono buffer to standard WAV
 function pcmToWav(pcmBuffer, sampleRate = 24000, numChannels = 1, bitsPerSample = 16) {
     const byteRate = sampleRate * numChannels * (bitsPerSample / 8);
@@ -528,19 +553,35 @@ function pcmToWav(pcmBuffer, sampleRate = 24000, numChannels = 1, bitsPerSample 
     return Buffer.concat([wavHeader, pcmBuffer]);
 }
 
-// 12. POST /api/ai/gemini-tts — Native Google Gemini TTS with rich emotional intonations
+// 12. POST /api/ai/gemini-tts — Native Google Gemini TTS with rich emotional intonations & Disk Caching
 app.post('/api/ai/gemini-tts', async (req, res) => {
     try {
         const { text, voiceName: clientVoice, apiKey: clientApiKey } = req.body;
         if (!text) return res.status(400).json({ success: false, error: "Text payload missing" });
 
+        const voiceName = clientVoice || 'Fenrir'; // Kore, Puck, Charon, Fenrir, Aoede
+        const cleanKey = text.replace(/[*_#`]/g, '').trim().toLowerCase().replace(/[^a-z0-9]/g, '_').replace(/_+/g, '_').replace(/^_|_$/g, '');
+
+        // 1. Instant Disk Cache / Pre-recorded check (0.0s latency!)
+        const localCandidates = [
+            path.join(__dirname, 'audio', 'words', `${cleanKey}.wav`),
+            path.join(__dirname, 'audio', 'cache', `${voiceName}_${cleanKey}.wav`),
+            path.join(__dirname, 'audio', 'drills', `${cleanKey}.wav`),
+            path.join(__dirname, 'audio', 'warmup', `${cleanKey}.wav`)
+        ];
+        for (const candidatePath of localCandidates) {
+            if (fs.existsSync(candidatePath)) {
+                res.setHeader('Content-Type', 'audio/wav');
+                return res.sendFile(candidatePath);
+            }
+        }
+
         const apiKey = process.env.GEMINI_API_KEY || clientApiKey || '';
         if (!apiKey) return res.status(401).json({ success: false, error: "Gemini API Key missing. Please provide API Key in Settings." });
 
-        const voiceName = clientVoice || 'Fenrir'; // Kore, Puck, Charon, Fenrir, Aoede
         const models = [
-            'gemini-3.1-flash-tts-preview',
             'gemini-2.5-flash-preview-tts',
+            'gemini-3.1-flash-tts-preview',
             'gemini-2.5-pro-preview-tts',
             'gemini-2.0-flash',
             'gemini-2.0-flash-exp'
@@ -566,7 +607,7 @@ app.post('/api/ai/gemini-tts', async (req, res) => {
             };
 
             const controller = new AbortController();
-            const timer = setTimeout(() => controller.abort(), 12000);
+            const timer = setTimeout(() => controller.abort(), 10000);
             try {
                 const resp = await fetch(url, {
                     method: 'POST',
@@ -582,6 +623,15 @@ app.post('/api/ai/gemini-tts', async (req, res) => {
                     if (part?.inlineData?.data) {
                         const rawPcm = Buffer.from(part.inlineData.data, 'base64');
                         const wavBuffer = pcmToWav(rawPcm, 24000, 1, 16);
+
+                        // Asynchronously persist to cache on disk for instant 0ms future playback
+                        try {
+                            const cacheDir = path.join(__dirname, 'audio', 'cache');
+                            if (!fs.existsSync(cacheDir)) fs.mkdirSync(cacheDir, { recursive: true });
+                            const cacheFilePath = path.join(cacheDir, `${voiceName}_${cleanKey}.wav`);
+                            fs.writeFile(cacheFilePath, wavBuffer, () => {});
+                        } catch (cacheErr) {}
+
                         res.setHeader('Content-Type', 'audio/wav');
                         return res.send(wavBuffer);
                     }

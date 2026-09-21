@@ -9,4 +9,4 @@ __pycache__/
 scratch/
 *credentials*.json
 *.pem
-
+audio/cache/
