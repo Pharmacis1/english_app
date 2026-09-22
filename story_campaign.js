@@ -3779,6 +3779,86 @@ const STORY_CHAPTERS = [
         "locationEn": "Detective Leo's Office",
         "locationRu": "Кабинет Детектива Лео"
     }
+,
+    {
+        "id": "det-ch-8",
+        "campaignId": "detective",
+        "number": 8,
+        "actId": 102,
+        "titleEn": "The Secret Laboratory",
+        "titleRu": "Секретная лаборатория",
+        "rewardXp": 503,
+        "audioDir": "det_ch_8",
+        "involvedHeroes": [
+            "leo",
+            "emma",
+            "mia",
+            "toby"
+        ],
+        "paragraphs": [
+            {
+                "speaker": "leo",
+                "en": "Leo, Mia, Emma, Toby, and the dog Barnaby walk fast on Oak Street. The sun is bright. The air is cool. It is autumn. Soon they arrive at the New Haven Science Institute. It is a big, tall building. The building has many big windows. Many students and workers walk near the door. They have books in their hands.",
+                "ru": "Лео, Миа, Эмма, Тоби и пёс Барнаби быстро идут по Оук-стрит. Солнце яркое. Воздух прохладный. Стоит осень. Вскоре они приходят к Научному институту Нью-Хейвена. Это большое, высокое здание. В здании много больших окон. Много студентов и сотрудников идут возле двери. В руках у них книги.",
+                "chunkedEn": "[s: Leo, Mia, Emma, Toby, and the dog Barnaby] [v: walk] [adv: fast] [pt: on Oak Street.]\n[s: The sun] [v: is] [pt: bright.]\n[s: The air] [v: is] [pt: cool.]\n[s: It] [v: is] [o: autumn.]\n[adv: Soon] [s: they] [v: arrive] [pt: at the New Haven Science Institute.]\n[s: It] [v: is] [o: a big, tall building.]\n[s: The building] [v: has] [o: many big windows.]\n[s: Many students and workers] [v: walk] [pt: near the door.]\n[s: They] [v: have] [o: books] [pt: in their hands.]"
+            },
+            {
+                "speaker": "emma",
+                "en": "Emma shows her card at the desk. A man looks at the card and says, \"Thank you.\" After, Leo, Mia, Emma, Toby, and Barnaby walk to floor number four. They walk on a long, quiet way. Emma stops in front of a white door. The door has the number four-zero-nine on it. The door is a little open.",
+                "ru": "Эмма показывает свою карту на стойке регистрации. Мужчина смотрит на карту и говорит: «Спасибо». После этого Лео, Миа, Эмма, Тоби и Барнаби поднимаются на четвёртый этаж. Они идут по длинному тихому коридору. Эмма останавливается перед белой дверью. На двери номер четыре-ноль-девять. Дверь слегка приоткрыта.",
+                "chunkedEn": "[s: Emma] [v: shows] [o: her card] [pt: at the desk.]\n[s: A man] [v: looks] [pt: at the card] [c: and] [v: says,] [o: \"Thank you.\"]\n[adv: After,] [s: Leo, Mia, Emma, Toby, and Barnaby] [v: walk] [pt: to floor number four.]\n[s: They] [v: walk] [pt: on a long, quiet way.]\n[s: Emma] [v: stops] [pt: in front of a white door.]\n[s: The door] [v: has] [o: the number four-zero-nine] [pt: on it.]\n[s: The door] [v: is] [pt: a little open.]"
+            },
+            {
+                "speaker": "leo",
+                "en": "Leo has white gloves on his hands now. He opens the door slowly. \"Wait behind me,\" Leo says in a quiet voice. \"Let us look at the room.\" The room is big. There are many things in the room: bottles, and other objects on the long tables. Green water is on the floor. On the big wooden desk, there are papers and books everywhere. The center of the desk is empty. Professor Edward's silver laptop is not there.",
+                "ru": "Сейчас на руках у Лео белые перчатки. Он медленно открывает дверь. «Подождите позади меня», — говорит Лео тихим голосом. «Давайте осмотрим комнату». Комната большая. В комнате много предметов: бутыли и другие вещи на длинных столах. Зелёная жидкость на полу. На большом деревянном столе повсюду лежат бумаги и книги. Центр стола пуст. Серебристого ноутбука профессора Эдварда там нет.",
+                "chunkedEn": "[s: Leo] [v: has] [o: white gloves] [pt: on his hands now.]\n[s: He] [v: opens] [o: the door] [adv: slowly.]\n[v: \"Wait] [pt: behind me,\"] [s: Leo] [v: says] [pt: in a quiet voice.]\n[v: \"Let] [s: us] [v: look] [pt: at the room.\"]\n[s: The room] [v: is] [pt: big.]\n[w: There] [v: are] [o: many things] [pt: in the room: bottles, and other objects on the long tables.]\n[s: Green water] [v: is] [pt: on the floor.]\n[pt: On the big wooden desk,] [w: there] [v: are] [o: papers and books] [adv: everywhere.]\n[s: The center of the desk] [v: is] [pt: empty.]\n[s: Professor Edward's silver laptop] [v: is not] [pt: there.]"
+            },
+            {
+                "speaker": "mia",
+                "en": "Mia takes her smartphone. She takes photographs of the broken table, the open window, and the door lock. \"The lock is not broken,\" Mia says. \"The thief has a keycard, or the door is open before.\" Emma looks at the empty desk. She looks at it quietly. \"All my father's information is on that laptop,\" Emma says.",
+                "ru": "Миа берёт свой смартфон. Она делает фотографии сломанного стола, открытого окна и дверного замка. «Замок не сломан», — говорит Миа. «У вора есть ключ-карта, либо дверь была открыта заранее». Эмма смотрит на пустой стол. Она тихо смотрит на него. «Вся информация моего отца на этом ноутбуке», — говорит Эмма.",
+                "chunkedEn": "[s: Mia] [v: takes] [o: her smartphone.]\n[s: She] [v: takes] [o: photographs of the broken table, the open window, and the door lock.]\n[s: \"The lock] [v: is not] [pt: broken,\"] [s: Mia] [v: says.]\n[s: \"The thief] [v: has] [o: a keycard,] [c: or] [s: the door] [v: is] [pt: open before.\"]\n[s: Emma] [v: looks] [pt: at the empty desk.]\n[s: She] [v: looks] [pt: at it] [adv: quietly.]\n[s: \"All my father's information] [v: is] [pt: on that laptop,\"] [s: Emma] [v: says.]"
+            },
+            {
+                "speaker": "toby",
+                "en": "Barnaby the dog walks near the shelf. He stops and smells the floor. Now Barnaby jumps happily. Toby goes next to the dog. \"Uncle Leo, look! Barnaby finds something!\" Toby says. Under the shelf, there is one black glove. There is also a small red paper. The paper has a picture of Central Subway Station on it.",
+                "ru": "Пёс Барнаби идёт возле полки. Он останавливается и нюхает пол. Теперь Барнаби радостно подпрыгивает. Тоби подходит к собаке. «Дядя Лео, смотри! Барнаби что-то нашёл!» — говорит Тоби. Под полкой лежит одна чёрная перчатка. Там также лежит маленький красный листок бумаги. На листке изображение Центральной станции метро.",
+                "chunkedEn": "[s: Barnaby the dog] [v: walks] [pt: near the shelf.]\n[s: He] [v: stops and smells] [o: the floor.]\n[adv: Now] [s: Barnaby] [v: jumps] [adv: happily.]\n[s: Toby] [v: goes] [pt: next to the dog.]\n[o: \"Uncle Leo, look!] [s: Barnaby] [v: finds] [o: something!\"] [s: Toby] [v: says.]\n[pt: Under the shelf,] [w: there] [v: is] [o: one black glove.]\n[w: There] [v: is] [adv: also] [o: a small red paper.]\n[s: The paper] [v: has] [o: a picture of Central Subway Station] [pt: on it.]"
+            },
+            {
+                "speaker": "leo",
+                "en": "Leo walks to the shelf. He sees one book. This book is different from the other books. Leo takes the book. Inside, the book is empty! Inside the book, Leo finds a small blue thing. Leo says with a smile, \"Professor Edward has a good idea! He has his information here.\"",
+                "ru": "Лео подходит к полке. Он видит одну книгу. Эта книга отличается от других книг. Лео берёт книгу. Внутри книга пустая! Внутри книги Лео находит маленькую синюю вещицу. Лео говорит с улыбкой: «У профессора Эдварда отличная идея! У него есть копия информации здесь».",
+                "chunkedEn": "[s: Leo] [v: walks] [pt: to the shelf.]\n[s: He] [v: sees] [o: one book.]\n[s: This book] [v: is] [pt: different from the other books.]\n[s: Leo] [v: takes] [o: the book.]\n[pt: Inside,] [s: the book] [v: is] [pt: empty!]\n[pt: Inside the book,] [s: Leo] [v: finds] [o: a small blue thing.]\n[s: Leo] [v: says] [pt: with a smile,] [s: \"Professor Edward] [v: has] [o: a good idea!]\n[s: He] [v: has] [o: his information] [adv: here.\"]"
+            },
+            {
+                "speaker": "emma",
+                "en": "Emma looks at the red paper from the subway station. \"Dr. Scott helps my father,\" Emma remembers. \"Dr. Scott takes the subway every day. Last month, Dr. Scott wants to buy my father's information. My father says no!\" Mia looks in the computer. \"Dr. Scott is in this building late at night,\" Mia finds.",
+                "ru": "Эмма смотрит на красную бумажку со станции метро. «Доктор Скотт помогает моему отцу», — вспоминает Эмма. «Доктор Скотт каждый день ездит на метро. В прошлом месяце доктор Скотт хотел купить разработки моего отца. Мой отец отказал!» Миа смотрит в компьютер. «Доктор Скотт был в этом здании поздно ночью», — обнаруживает Миа.",
+                "chunkedEn": "[s: Emma] [v: looks] [pt: at the red paper from the subway station.]\n[s: \"Dr. Scott] [v: helps] [o: my father,\"] [s: Emma] [v: remembers.]\n[s: \"Dr. Scott] [v: takes] [o: the subway] [adv: every day.]\n[pt: Last month,] [s: Dr. Scott] [v: wants to buy] [o: my father's information.]\n[s: My father] [v: says] [o: no!\"]\n[s: Mia] [v: looks] [pt: in the computer.]\n[s: \"Dr. Scott] [v: is] [pt: in this building late at night,\"] [s: Mia] [v: finds.]"
+            },
+            {
+                "speaker": "leo",
+                "en": "\"Now we have information and a suspect,\" Leo says. He has the small blue thing in his pocket now. \"Dr. Scott and the laptop are near Central Subway Station. Let us go there now!\" Barnaby jumps and runs to the door. Everyone follows the dog fast. They walk down the way and go outside. The sun is still bright. The cool wind touches their faces. \"Come, Barnaby! Show us the way!\" Toby says happily. The dog runs first, and the others walk behind him quickly to Central Subway Station.",
+                "ru": "«Теперь у нас есть информация и подозреваемый», — говорит Лео. Маленькая синяя вещица теперь лежит у него в кармане. «Доктор Скотт и ноутбук находятся возле Центральной станции метро. Идём туда прямо сейчас!» Барнаби подпрыгивает и бежит к двери. Все быстро следуют за собакой. Они спускаются по коридору и выходят на улицу. Солнце всё ещё яркое. Прохладный ветер касается их лиц. «Идём, Барнаби! Показывай дорогу!» — радостно говорит Тоби. Пёс бежит первым, а остальные быстро идут за ним к Центральной станции метро.",
+                "chunkedEn": "[s: \"Now we] [v: have] [o: information and a suspect,\"] [s: Leo] [v: says.]\n[s: He] [v: has] [o: the small blue thing] [pt: in his pocket now.]\n[s: \"Dr. Scott and the laptop] [v: are] [pt: near Central Subway Station.]\n[v: Let] [s: us] [v: go] [pt: there now!\"]\n[s: Barnaby] [v: jumps and runs] [pt: to the door.]\n[s: Everyone] [v: follows] [o: the dog] [adv: fast.]\n[s: They] [v: walk down] [o: the way] [c: and] [v: go] [pt: outside.]\n[s: The sun] [v: is still] [pt: bright.]\n[s: The cool wind] [v: touches] [o: their faces.]\n[o: \"Come, Barnaby! Show us the way!\"] [s: Toby] [v: says] [adv: happily.]\n[s: The dog] [v: runs] [adv: first,] [c: and] [s: the others] [v: walk] [pt: behind him quickly to Central Subway Station.]"
+            }
+        ],
+        "quiz": {
+            "question": "What did Leo find inside the hollow book on the shelf?",
+            "options": [
+                "A small blue USB flash drive with the research backup",
+                "A pair of red glasses and a green keycard",
+                "A silver pocket watch from the antique shop"
+            ],
+            "correctIndex": 0,
+            "rewardXp": 503
+        },
+        "backgroundImg": "images/backgrounds/bg_magic_library.jpg",
+        "locationEn": "Science Institute Lab 409",
+        "locationRu": "Научный институт, Лаборатория 409"
+    }
 ];
 
 const HERO_ORIGINAL_PORTRAITS = {
