@@ -3538,6 +3538,86 @@ const STORY_CHAPTERS = [
         "locationEn": "New Haven Harbor Warehouse",
         "locationRu": "Склад в гавани Нью-Хейвена"
     }
+,
+    {
+        "id": "det-ch-5",
+        "campaignId": "detective",
+        "number": 5,
+        "actId": 101,
+        "titleEn": "The Rush to Central Station",
+        "titleRu": "Погоня на Центральный вокзал",
+        "rewardXp": 432,
+        "audioDir": "det_ch_5",
+        "involvedHeroes": [
+            "leo",
+            "harris",
+            "mia",
+            "toby"
+        ],
+        "paragraphs": [
+            {
+                "speaker": "leo",
+                "en": "The yellow taxi stops in front of Central Train Station. It is quarter to two. The sky is grey and the wind is cold. The station is a big and old stone building. It has a big clock on top. Hundreds of people walk near the doors. They have heavy suitcases and bags. People talk. Leo, Mia, Toby, and Barnaby quickly leave the taxi.",
+                "ru": "Жёлтое такси останавливается перед Центральным вокзалом. Сейчас без четверти два. Вокзал — это большое и старое каменное здание. Наверху у него большие часы. Сотни людей идут возле дверей. У них тяжёлые чемоданы и сумки. Люди разговаривают. Лео, Миа, Тоби и Барнаби быстро выходят из такси.",
+                "chunkedEn": "[s: The yellow taxi] [v: stops] [pt: in front of Central Train Station.]\n[s: It] [v: is] [pt: quarter to two.]\n[s: The sky] [v: is] [pt: grey] [c: and] [s: the wind] [v: is] [pt: cold.]\n[s: The station] [v: is] [o: a big and old stone building.]\n[s: It] [v: has] [o: a big clock] [pt: on top.]\n[s: Hundreds of people] [v: walk] [pt: near the doors.]\n[s: They] [v: have] [o: heavy suitcases and bags.]\n[s: People] [v: talk.]\n[s: Leo, Mia, Toby, and Barnaby] [adv: quickly] [v: leave] [o: the taxi.]"
+            },
+            {
+                "speaker": "harris",
+                "en": "At the main door of the station, Police Officer Harris waits for them. He has his blue police uniform. He has a phone in his hand. \"Good afternoon, detectives!\" Officer Harris says in a strong voice. \"Captain Gordon called the police station. I am here to help you find the thief! What is the plan?\"",
+                "ru": "У главных дверей вокзала их ждёт офицер полиции Харрис. На нём синяя полицейская форма. В руке у него телефон. «Добрый день, детективы!» — говорит офицер Харрис громким голосом. «Капитан Гордон позвонил в полицейский участок. Я здесь, чтобы помочь вам найти вора! Какой план?»",
+                "chunkedEn": "[pt: At the main door of the station,] [s: Police Officer Harris] [v: waits] [pt: for them.]\n[s: He] [v: has] [o: his blue police uniform.]\n[s: He] [v: has] [o: a phone] [pt: in his hand.]\n[o: \"Good afternoon, detectives!\"] [s: Officer Harris] [v: says] [pt: in a strong voice.]\n[s: \"Captain Gordon] [v: called] [o: the police station.]\n[s: I] [v: am] [pt: here to help you find the thief!]\n[o: What] [v: is] [s: the plan?\"]"
+            },
+            {
+                "speaker": "mia",
+                "en": "Mia looks at her watch, then at the station clock. \"The train to Oakridge City leaves at two o'clock from Platform Four,\" Mia says quickly. \"The train leaves soon!\" Leo agrees quickly. \"Everyone, let's go to Platform Four! Look now!\" Toby smiles.",
+                "ru": "Миа смотрит на свои часы, затем на вокзальные часы. «Поезд в Окридж-Сити отправляется в два часа с четвёртой платформы», — быстро говорит Миа. «Поезд скоро уходит!» Лео быстро соглашается. «Все, идём на четвёртую платформу! Смотрите внимательно прямо сейчас!» Тоби улыбается.",
+                "chunkedEn": "[s: Mia] [v: looks] [pt: at her watch,] [adv: then] [pt: at the station clock.]\n[s: \"The train to Oakridge City] [v: leaves] [pt: at two o'clock] [pt: from Platform Four,\"] [s: Mia] [v: says] [adv: quickly.]\n[s: \"The train] [v: leaves] [adv: soon!\"] [s: Leo] [v: agrees] [adv: quickly.]\n[s: \"Everyone,] [v: let's go] [pt: to Platform Four!]\n[v: Look] [adv: now!\"] [s: Toby] [v: smiles.]"
+            },
+            {
+                "speaker": "toby",
+                "en": "They run inside the big hall. Barnaby the dog runs in front. His nose is down on the clean floor. Near the door, Barnaby stops. He smells a newspaper on the ground. He is happy and runs to the stairs for Platform Four. Toby runs next to his dog. \"Good boy, Barnaby! He finds the way!\" Toby says with a big smile. Mia and Leo run after them.",
+                "ru": "Они вбегают в большой зал. Пёс Барнаби бежит впереди. Его нос опущен к чистому полу. Возле двери Барнаби останавливается. Он нюхает газету на полу. Он радуется и бежит к лестнице на четвёртую платформу. Тоби бежит рядом со своей собакой. «Хороший мальчик, Барнаби! Он находит дорогу!» — говорит Тоби с широкой улыбкой. Миа и Лео бегут за ними.",
+                "chunkedEn": "[s: They] [v: run] [pt: inside the big hall.]\n[s: Barnaby the dog] [v: runs] [pt: in front.]\n[s: His nose] [v: is] [adv: down] [pt: on the clean floor.]\n[pt: Near the door,] [s: Barnaby] [v: stops.]\n[s: He] [v: smells] [o: a newspaper] [pt: on the ground.]\n[s: He] [v: is] [pt: happy] [c: and] [v: runs] [pt: to the stairs for Platform Four.]\n[s: Toby] [v: runs] [pt: next to his dog.]\n[o: \"Good boy, Barnaby!] [s: He] [v: finds] [o: the way!\"] [s: Toby] [v: says] [pt: with a big smile.]\n[s: Mia and Leo] [v: run] [pt: after them.]"
+            },
+            {
+                "speaker": "leo",
+                "en": "The team climbs the stone stairs to Platform Four. A long silver train stands there. The air around it is cold. Passengers put their bags into the train. A ticket worker in a blue hat checks tickets near the first door. The big station clock shows five minutes to two. Leo looks at Mia. Mia looks at Toby. Everyone is ready.",
+                "ru": "Команда поднимается по каменным ступенькам на четвёртую платформу. Там стоит длинный серебристый поезд. Воздух вокруг холодный. Пассажиры заносят свои сумки в поезд. Контролёр в синей фуражке проверяет билеты возле первой двери. Большие вокзальные часы показывают без пяти два. Лео смотрит на Мию. Миа смотрит на Тоби. Все готовы.",
+                "chunkedEn": "[s: The team] [v: climbs] [o: the stone stairs] [pt: to Platform Four.]\n[s: A long silver train] [v: stands] [pt: there.]\n[s: The air around it] [v: is] [pt: cold.]\n[s: Passengers] [v: put] [o: their bags] [pt: into the train.]\n[s: A ticket worker in a blue hat] [v: checks] [o: tickets] [pt: near the first door.]\n[s: The big station clock] [v: shows] [o: five minutes to two.]\n[s: Leo] [v: looks] [pt: at Mia.]\n[s: Mia] [v: looks] [pt: at Toby.]\n[s: Everyone] [v: is] [pt: ready.]"
+            },
+            {
+                "speaker": "toby",
+                "en": "Leo walks fast along the platform. He looks at every passenger. Near the last door of the train, Toby shows with his finger into the crowd. \"Uncle Leo, look there!\" Toby says with a big voice. \"Near the blue door! A young man with a black backpack and blue jeans!\"",
+                "ru": "Лео быстро идёт по платформе. Он смотрит на каждого пассажира. Возле последней двери поезда Тоби указывает пальцем в толпу. «Дядя Лео, посмотри туда!» — громко говорит Тоби. «Возле синей двери! Молодой человек с чёрным рюкзаком и в синих джинсах!»",
+                "chunkedEn": "[s: Leo] [v: walks] [adv: fast] [pt: along the platform.]\n[s: He] [v: looks] [pt: at every passenger.]\n[pt: Near the last door of the train,] [s: Toby] [v: shows] [pt: with his finger into the crowd.]\n[o: \"Uncle Leo, look there!\"] [s: Toby] [v: says] [pt: with a big voice.]\n[pt: \"Near the blue door!] [s: A young man with a black backpack and blue jeans!\"]"
+            },
+            {
+                "speaker": "mia",
+                "en": "The man turns around for a second. He looks afraid. In his right hand, he holds a heavy bag. The bag has the brown wood corner of the antique music box! Mia takes a photo with her smartphone. \"That is our suspect! He has Arthur's music box!\" Mia says. Toby holds Barnaby close.",
+                "ru": "Мужчина оборачивается на секунду. Он выглядит испуганным. В правой руке он держит тяжёлую сумку. Из сумки виден коричневый деревянный угол старинной музыкальной шкатулки! Миа делает снимок на свой смартфон. «Это наш подозреваемый! У него музыкальная шкатулка Артура!» — говорит Миа. Тоби держит Барнаби рядом.",
+                "chunkedEn": "[s: The man] [v: turns around] [pt: for a second.]\n[s: He] [v: looks] [pt: afraid.]\n[pt: In his right hand,] [s: he] [v: holds] [o: a heavy bag.]\n[s: The bag] [v: has] [o: the brown wood corner of the antique music box!]\n[s: Mia] [v: takes] [o: a photo] [pt: with her smartphone.]\n[s: \"That] [v: is] [o: our suspect!]\n[s: He] [v: has] [o: Arthur's music box!\"] [s: Mia] [v: says.]\n[s: Toby] [v: holds] [o: Barnaby] [adv: close.]"
+            },
+            {
+                "speaker": "harris",
+                "en": "The train goes: Choo-choo! The train worker closes the doors. Officer Harris shows his police card. \"Stay where you are!\" Harris calls. Leo and Harris run to the suspect. Toby and Mia also run. Everyone starts to run fast!",
+                "ru": "Поезд гудит: Чух-чух! Проводник закрывает двери. Офицер Харрис показывает своё полицейское удостоверение. «Оставайтесь на месте!» — кричит Харрис. Лео и Харрис бегут к подозреваемому. Тоби и Миа тоже бегут. Все начинают быстро бежать!",
+                "chunkedEn": "[s: The train] [v: goes]: [o: Choo-choo!]\n[s: The train worker] [v: closes] [o: the doors.]\n[s: Officer Harris] [v: shows] [o: his police card.]\n[v: \"Stay] [pt: where you are!\"] [s: Harris] [v: calls.]\n[s: Leo and Harris] [v: run] [pt: to the suspect.]\n[s: Toby and Mia] [adv: also] [v: run.]\n[s: Everyone] [v: starts to run] [adv: fast!]"
+            }
+        ],
+        "quiz": {
+            "question": "What did Toby see near the blue door of the train?",
+            "options": [
+                "A young man with a black backpack holding the stolen music box",
+                "A policeman drinking hot tea near the stairs",
+                "A white ship with big flags in the harbor"
+            ],
+            "correctIndex": 0,
+            "rewardXp": 432
+        },
+        "backgroundImg": "images/backgrounds/bg_magic_library.jpg",
+        "locationEn": "Central Train Station",
+        "locationRu": "Центральный вокзал"
+    }
 ];
 
 const HERO_ORIGINAL_PORTRAITS = {
