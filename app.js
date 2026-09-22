@@ -6271,8 +6271,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // =========================================================================
-    // --- CEFR A1 STORY CAMPAIGN CONTROLLER: THE OATH OF SEVEN WINDS 📜 ---
+    // --- CEFR A1 STORY CAMPAIGN CONTROLLER: FANTASY & DETECTIVE 📜🔍 ---
     // =========================================================================
+    let activeStoryCampaignId = 'fantasy'; // 'fantasy' or 'detective'
     let activeStoryActId = 1;
     let activeStoryChapterId = null;
     let currentReadingChapterObj = null;
@@ -6281,6 +6282,18 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentPlayingParagraphIdx = -1;
     let areStoryTranslationsVisible = false;
     let completedStoryChapters = [];
+
+    function getChapterAudioDir(chObjOrNumber, isDetective = false) {
+        if (typeof chObjOrNumber === 'object' && chObjOrNumber !== null) {
+            if (chObjOrNumber.audioDir) return chObjOrNumber.audioDir;
+            if (chObjOrNumber.campaignId === 'detective') return `det_ch_${chObjOrNumber.number}`;
+            return `ch_${chObjOrNumber.number}`;
+        }
+        if (isDetective || activeStoryCampaignId === 'detective') {
+            return `det_ch_${chObjOrNumber}`;
+        }
+        return `ch_${chObjOrNumber}`;
+    }
 
     function updateStoryAudioUI() {
         const readFullStoryBtn = document.getElementById("read-full-story-audio-btn");
@@ -6371,10 +6384,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const storyChapterAudioCache = new Map();
 
-    function preloadStoryChapterAudio(chNumber, paragraphCount = 6) {
-        if (!chNumber || chNumber > 13) return;
+    function preloadStoryChapterAudio(chObjOrNumber, paragraphCount = 8) {
+        if (!chObjOrNumber) return;
+        const dir = getChapterAudioDir(chObjOrNumber);
         for (let i = 1; i <= paragraphCount; i++) {
-            const url = `/audio/story_campaign/ch_${chNumber}/p_${i}.wav`;
+            const url = `/audio/story_campaign/${dir}/p_${i}.wav`;
             if (!storyChapterAudioCache.has(url)) {
                 const audio = new Audio();
                 audio.preload = 'auto';
@@ -6387,50 +6401,47 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    function playStoryParagraphAudio(chNumber, pIndex, text, speakerId, onStart, onEnd) {
-        if (chNumber <= 13) {
-            const preRecordedUrl = `/audio/story_campaign/ch_${chNumber}/p_${pIndex + 1}.wav`;
-            let audio = storyChapterAudioCache.get(preRecordedUrl);
-            if (!audio) {
-                audio = new Audio(preRecordedUrl);
-                storyChapterAudioCache.set(preRecordedUrl, audio);
-            } else {
-                try { audio.currentTime = 0; } catch(e) {}
+    function playStoryParagraphAudio(chObjOrNumber, pIndex, text, speakerId, onStart, onEnd) {
+        const dir = getChapterAudioDir(chObjOrNumber);
+        const preRecordedUrl = `/audio/story_campaign/${dir}/p_${pIndex + 1}.wav`;
+        let audio = storyChapterAudioCache.get(preRecordedUrl);
+        if (!audio) {
+            audio = new Audio(preRecordedUrl);
+            storyChapterAudioCache.set(preRecordedUrl, audio);
+        } else {
+            try { audio.currentTime = 0; } catch(e) {}
+        }
+
+        let hasStarted = false;
+
+        audio.onplay = () => {
+            hasStarted = true;
+            if (window.voiceService) {
+                window.voiceService.currentAudio = audio;
             }
+            if (onStart) onStart();
+        };
 
-            let hasStarted = false;
+        audio.onended = () => {
+            if (window.voiceService && window.voiceService.currentAudio === audio) {
+                window.voiceService.currentAudio = null;
+            }
+            if (onEnd) onEnd();
+        };
 
-            audio.onplay = () => {
-                hasStarted = true;
-                if (window.voiceService) {
-                    window.voiceService.currentAudio = audio;
-                }
-                if (onStart) onStart();
-            };
+        audio.onerror = () => {
+            if (!hasStarted) {
+                playTextKokoroAudio(text, speakerId, onStart, onEnd);
+            }
+        };
 
-            audio.onended = () => {
-                if (window.voiceService && window.voiceService.currentAudio === audio) {
-                    window.voiceService.currentAudio = null;
-                }
-                if (onEnd) onEnd();
-            };
-
-            audio.onerror = () => {
+        const p = audio.play();
+        if (p !== undefined) {
+            p.catch(err => {
                 if (!hasStarted) {
                     playTextKokoroAudio(text, speakerId, onStart, onEnd);
                 }
-            };
-
-            const p = audio.play();
-            if (p !== undefined) {
-                p.catch(err => {
-                    if (!hasStarted) {
-                        playTextKokoroAudio(text, speakerId, onStart, onEnd);
-                    }
-                });
-            }
-        } else {
-            playTextKokoroAudio(text, speakerId, onStart, onEnd);
+            });
         }
     }
 
@@ -6448,8 +6459,7 @@ document.addEventListener("DOMContentLoaded", () => {
         currentPlayingParagraphIdx = idx;
         isFullStoryAudioPaused = false;
         const p = paragraphs[idx];
-        const speaker = (currentReadingChapterObj.involvedHeroes && currentReadingChapterObj.involvedHeroes[idx % currentReadingChapterObj.involvedHeroes.length]) || 'valerius';
-        const chNumber = currentReadingChapterObj.number || 1;
+        const speaker = p.speaker || (currentReadingChapterObj.involvedHeroes && currentReadingChapterObj.involvedHeroes[idx % currentReadingChapterObj.involvedHeroes.length]) || 'valerius';
 
         updateStoryAudioUI();
 
@@ -6460,7 +6470,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         playStoryParagraphAudio(
-            chNumber,
+            currentReadingChapterObj,
             idx,
             p.en,
             speaker,
@@ -6468,11 +6478,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 updateStoryAudioUI();
             },
             () => {
-                if (isFullStoryAudioPlaying && !isFullStoryAudioPaused && currentPlayingParagraphIdx === idx) {
+                if (isFullStoryAudioPlaying && !isFullStoryAudioPaused) {
                     setTimeout(() => {
-                        if (isFullStoryAudioPlaying && !isFullStoryAudioPaused) {
-                            playChapterParagraph(idx + 1);
-                        }
+                        playChapterParagraph(idx + 1);
                     }, 400);
                 }
             }
@@ -6497,14 +6505,21 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!ch) return false;
         const chId = typeof ch === 'object' ? String(ch.id || '') : String(ch);
         const chNum = typeof ch === 'object' ? Number(ch.number || 0) : parseInt(chId.replace(/\D/g, ''), 10);
+        const isDet = (typeof ch === 'object' && ch.campaignId === 'detective') || chId.startsWith('det-');
         
         const inStory = (completedStoryChapters || []).some(c => {
+            if (isDet) {
+                return String(c) === chId || String(c) === `det-ch-${chNum}`;
+            }
             return String(c) === chId || Number(c) === chNum || String(c) === String(chNum) || String(c) === `ch-${chNum}`;
         });
         if (inStory) return true;
 
         const vfCompleted = (window.visualFluency && window.visualFluency.completedChapterIds) ? window.visualFluency.completedChapterIds : [];
         return vfCompleted.some(c => {
+            if (isDet) {
+                return String(c) === chId || String(c) === `det-ch-${chNum}`;
+            }
             return String(c) === chId || Number(c) === chNum || String(c) === String(chNum) || String(c) === `ch-${chNum}`;
         });
     }
@@ -6669,6 +6684,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // Check if specific chapter requirements are satisfied
     function checkChapterUnlockEligibility(chapter) {
         if (!chapter) return { eligible: false, reasons: ["Chapter not found"] };
+        if (chapter.campaignId === 'detective') {
+            return { eligible: true, reasons: [] };
+        }
 
         const globalStatus = checkStoryUnlockEligibility();
         const reasons = [];
@@ -6718,14 +6736,59 @@ document.addEventListener("DOMContentLoaded", () => {
     function renderStoryHub() {
         const acts = (typeof STORY_ACTS !== 'undefined') ? STORY_ACTS : [];
         const chapters = (typeof STORY_CHAPTERS !== 'undefined') ? STORY_CHAPTERS : [];
-        const globalStatus = checkStoryUnlockEligibility();
+        const campaigns = (typeof STORY_CAMPAIGNS !== 'undefined') ? STORY_CAMPAIGNS : [
+            { id: "fantasy", title: "The Oath of Seven Winds", titleRu: "Клятва Семи Ветров", subtitle: "40 Глав • Сюжетная кампания с 20 по 100 уровень героев", badge: "Fantasy RPG • A1", icon: "fa-scroll", color: "var(--warning)", defaultActId: 1 },
+            { id: "detective", title: "The New Haven Mysteries", titleRu: "Тайны Нью-Хейвена", subtitle: "Детективные расследования в современном городе", badge: "Modern Detective • A1", icon: "fa-magnifying-glass", color: "#38bdf8", defaultActId: 101 }
+        ];
 
-        // Update Global Completion Pill
+        const currentCampaign = campaigns.find(c => c.id === activeStoryCampaignId) || campaigns[0];
+
+        // Render Campaign Switcher Tabs
+        const campNavBar = document.getElementById("story-campaigns-nav-bar");
+        if (campNavBar) {
+            campNavBar.innerHTML = campaigns.map(c => {
+                const isActive = c.id === activeStoryCampaignId;
+                const campChapters = chapters.filter(ch => (ch.campaignId || 'fantasy') === c.id);
+                const doneInCamp = campChapters.filter(ch => isStoryChapterCompleted(ch)).length;
+                return `
+                    <button class="story-campaign-tab-btn btn btn-sm ${isActive ? 'btn-primary' : 'btn-outline'}" data-camp-id="${c.id}" style="font-weight:700; border-radius:8px 8px 0 0; padding:8px 16px; display:flex; align-items:center; gap:8px;">
+                        <i class="fa-solid ${c.icon}" style="color:${c.color};"></i>
+                        <span>${c.titleRu || c.title}</span>
+                        <span class="badge" style="font-size:10px; padding:2px 6px; background:rgba(0,0,0,0.35);">
+                            ${doneInCamp}/${campChapters.length}
+                        </span>
+                    </button>
+                `;
+            }).join("");
+
+            campNavBar.querySelectorAll(".story-campaign-tab-btn").forEach(btn => {
+                btn.addEventListener("click", () => {
+                    activeStoryCampaignId = btn.getAttribute("data-camp-id");
+                    const targetCamp = campaigns.find(c => c.id === activeStoryCampaignId);
+                    if (targetCamp) {
+                        activeStoryActId = targetCamp.defaultActId;
+                    }
+                    renderStoryHub();
+                });
+            });
+        }
+
+        // Update Hub Header Titles
+        const hubTitle = document.getElementById("story-hub-title");
+        const hubSubtitle = document.getElementById("story-hub-subtitle");
+        if (hubTitle) {
+            hubTitle.innerHTML = `<i class="fa-solid ${currentCampaign.icon}" style="color:${currentCampaign.color}; font-size:20px; margin-right:4px;"></i> ${currentCampaign.title} <span class="badge" style="background:rgba(245,158,11,0.2); color:${currentCampaign.color}; font-size:11px; border:1px solid ${currentCampaign.color};">${currentCampaign.badge}</span>`;
+        }
+        if (hubSubtitle) {
+            hubSubtitle.textContent = currentCampaign.subtitle;
+        }
+
+        // Update Global Completion Pill for active campaign
         const pill = document.getElementById("story-global-completion-pill");
         if (pill) {
-            const completedCount = chapters.filter(c => isStoryChapterCompleted(c)).length;
-            const totalChapters = chapters.length || 40;
-            pill.innerHTML = `⭐ ${completedCount} / ${totalChapters} Пройдено`;
+            const campChapters = chapters.filter(c => (c.campaignId || 'fantasy') === activeStoryCampaignId);
+            const completedCount = campChapters.filter(c => isStoryChapterCompleted(c)).length;
+            pill.innerHTML = `⭐ ${completedCount} / ${campChapters.length} Пройдено`;
         }
 
         // Global Unlock Requirement Banner
@@ -6734,29 +6797,39 @@ document.addEventListener("DOMContentLoaded", () => {
         const badgesContainer = document.getElementById("story-unlock-progress-badges");
 
         if (banner) {
-            if (!globalStatus.eligible) {
-                banner.style.display = "block";
-                if (statusText) {
-                    statusText.innerHTML = `Сюжетная кампания открывается после разблокировки 10-го героя — <b>Архимага Эльдрина</b>!<br><span style="color:#f87171; font-weight:700;">Открыто героев: ${globalStatus.unlockedCount}/${globalStatus.totalCount} • Эльдрин: ${globalStatus.isEldrinUnlocked ? '✅ Открыт' : '🔒 Заблокирован'}</span>`;
-                }
-                if (badgesContainer && rpgEngine && rpgEngine.heroes) {
-                    badgesContainer.innerHTML = rpgEngine.heroes.map(h => {
-                        return `<span class="badge" style="font-size:10px; background:${h.unlocked ? 'rgba(16,185,129,0.2)' : 'rgba(239,68,68,0.2)'}; color:${h.unlocked ? '#6ee7b7' : '#fca5a5'}; border:1px solid ${h.unlocked ? 'rgba(16,185,129,0.4)' : 'rgba(239,68,68,0.4)'};">
-                            ${h.name}: ${h.unlocked ? '✅' : '🔒'}
-                        </span>`;
-                    }).join("");
+            if (activeStoryCampaignId === 'fantasy') {
+                const globalStatus = checkStoryUnlockEligibility();
+                if (!globalStatus.eligible) {
+                    banner.style.display = "block";
+                    if (statusText) {
+                        statusText.innerHTML = `Сюжетная кампания открывается после разблокировки 10-го героя — <b>Архимага Эльдрина</b>!<br><span style="color:#f87171; font-weight:700;">Открыто героев: ${globalStatus.unlockedCount}/${globalStatus.totalCount} • Эльдрин: ${globalStatus.isEldrinUnlocked ? '✅ Открыт' : '🔒 Заблокирован'}</span>`;
+                    }
+                    if (badgesContainer && rpgEngine && rpgEngine.heroes) {
+                        badgesContainer.innerHTML = rpgEngine.heroes.map(h => {
+                            return `<span class="badge" style="font-size:10px; background:${h.unlocked ? 'rgba(16,185,129,0.2)' : 'rgba(239,68,68,0.2)'}; color:${h.unlocked ? '#6ee7b7' : '#fca5a5'}; border:1px solid ${h.unlocked ? 'rgba(16,185,129,0.4)' : 'rgba(239,68,68,0.4)'};">
+                                ${h.name}: ${h.unlocked ? '✅' : '🔒'}
+                            </span>`;
+                        }).join("");
+                    }
+                } else {
+                    banner.style.display = "none";
                 }
             } else {
                 banner.style.display = "none";
             }
         }
 
-        // Render Act Tabs
+        // Render Act Tabs (filtered by active campaign)
+        const currentCampActs = acts.filter(a => (a.campaignId || 'fantasy') === activeStoryCampaignId);
+        if (!currentCampActs.some(a => a.id === activeStoryActId) && currentCampActs.length > 0) {
+            activeStoryActId = currentCampActs[0].id;
+        }
+
         const tabsContainer = document.getElementById("story-acts-nav-bar");
-        if (tabsContainer && acts.length > 0) {
-            tabsContainer.innerHTML = acts.map(act => {
+        if (tabsContainer && currentCampActs.length > 0) {
+            tabsContainer.innerHTML = currentCampActs.map(act => {
                 const isActive = act.id === activeStoryActId;
-                const actChapters = chapters.filter(c => c.actId === act.id);
+                const actChapters = chapters.filter(c => (c.campaignId || 'fantasy') === activeStoryCampaignId && c.actId === act.id);
                 const completedInAct = actChapters.filter(c => isStoryChapterCompleted(c)).length;
                 const isAllActDone = completedInAct === actChapters.length && actChapters.length > 0;
                 return `
@@ -6781,27 +6854,45 @@ document.addEventListener("DOMContentLoaded", () => {
         // Render Chapters for current Act
         const chaptersContainer = document.getElementById("story-chapters-grid-container");
         if (chaptersContainer && chapters.length > 0) {
-            const currentActChapters = chapters.filter(c => c.actId === activeStoryActId);
+            const currentActChapters = chapters.filter(c => (c.campaignId || 'fantasy') === activeStoryCampaignId && c.actId === activeStoryActId);
+
+            const detNamesMap = {
+                leo: { name: "Leo", icon: "fa-user-secret", color: "#38bdf8" },
+                mia: { name: "Mia", icon: "fa-laptop-code", color: "#f472b6" },
+                arthur: { name: "Arthur", icon: "fa-clock", color: "#fbbf24" },
+                toby: { name: "Toby", icon: "fa-child-reaching", color: "#4ade80" },
+                martha: { name: "Martha", icon: "fa-cookie-bite", color: "#fb923c" },
+                harris: { name: "Harris", icon: "fa-shield-halved", color: "#60a5fa" }
+            };
 
             chaptersContainer.innerHTML = currentActChapters.map(ch => {
                 const isCompleted = isStoryChapterCompleted(ch);
                 const check = checkChapterUnlockEligibility(ch);
                 const isLocked = !check.eligible;
 
-                // Hero Badges
+                // Hero / Character Badges
                 const heroBadges = (ch.involvedHeroes || []).map(heroId => {
                     const hero = getHeroById(heroId);
-                    const reqLvl = (ch.reqHeroLevels && ch.reqHeroLevels[heroId]) ? ch.reqHeroLevels[heroId] : 20;
-                    const curLvl = hero ? (hero.level || 1) : 0;
-                    const isOk = hero && hero.unlocked && curLvl >= reqLvl;
-
-                    return `
-                        <div class="story-hero-pill ${isOk ? 'req-ok' : 'req-fail'}" title="${hero ? hero.name : heroId}: Lv.${curLvl}/${reqLvl}">
-                            <i class="fa-solid ${hero ? hero.avatar : 'fa-user'}"></i>
-                            <span>${hero ? hero.name : heroId}</span>
-                            <span class="font-mono">Lv.${reqLvl}</span>
-                        </div>
-                    `;
+                    if (hero) {
+                        const reqLvl = (ch.reqHeroLevels && ch.reqHeroLevels[heroId]) ? ch.reqHeroLevels[heroId] : 20;
+                        const curLvl = hero.level || 1;
+                        const isOk = hero.unlocked && curLvl >= reqLvl;
+                        return `
+                            <div class="story-hero-pill ${isOk ? 'req-ok' : 'req-fail'}" title="${hero.name}: Lv.${curLvl}/${reqLvl}">
+                                <i class="fa-solid ${hero.avatar || 'fa-user'}"></i>
+                                <span>${hero.name}</span>
+                                <span class="font-mono">Lv.${reqLvl}</span>
+                            </div>
+                        `;
+                    } else {
+                        const char = detNamesMap[heroId] || { name: heroId, icon: "fa-user", color: "#94a3b8" };
+                        return `
+                            <div class="story-hero-pill req-ok" style="background:rgba(56,189,248,0.15); border-color:${char.color};" title="${char.name}">
+                                <i class="fa-solid ${char.icon}" style="color:${char.color};"></i>
+                                <span style="color:#e2e8f0;">${char.name}</span>
+                            </div>
+                        `;
+                    }
                 }).join("");
 
                 return `
@@ -6848,12 +6939,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 `;
             }).join("");
 
-            // Event delegation for instant and reliable clicks/taps on both mobile & desktop
             chaptersContainer.onclick = (e) => {
                 const card = e.target.closest(".story-chapter-card");
                 if (!card) return;
                 const chId = card.getAttribute("data-chapter-id");
-                const chapter = chapters.find(c => String(c.id) === String(chId) || String(c.number) === String(chId));
+                const chapter = chapters.find(c => String(c.id) === String(chId) || (String(c.number) === String(chId) && (c.campaignId || 'fantasy') === activeStoryCampaignId));
                 if (chapter) {
                     openStoryChapterReader(chapter);
                 }
@@ -6865,20 +6955,22 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!rawChapter) return;
         stopFullStoryAudio();
         
-        // Resolve expanded chapter if available
+        // Resolve expanded chapter if available (only for fantasy)
         let chapter = rawChapter;
-        const allExpanded = [
-            ...(typeof STORY_ACT1_EXPANDED !== 'undefined' && Array.isArray(STORY_ACT1_EXPANDED) ? STORY_ACT1_EXPANDED : []),
-            ...(typeof STORY_ACT2_EXPANDED !== 'undefined' && Array.isArray(STORY_ACT2_EXPANDED) ? STORY_ACT2_EXPANDED : [])
-        ];
-        const exp = allExpanded.find(e => String(e.id) === String(rawChapter.id) || Number(e.number) === Number(rawChapter.number));
-        if (exp) chapter = exp;
+        if (!rawChapter.campaignId || rawChapter.campaignId === 'fantasy') {
+            const allExpanded = [
+                ...(typeof STORY_ACT1_EXPANDED !== 'undefined' && Array.isArray(STORY_ACT1_EXPANDED) ? STORY_ACT1_EXPANDED : []),
+                ...(typeof STORY_ACT2_EXPANDED !== 'undefined' && Array.isArray(STORY_ACT2_EXPANDED) ? STORY_ACT2_EXPANDED : [])
+            ];
+            const exp = allExpanded.find(e => String(e.id) === String(rawChapter.id) || (Number(e.number) === Number(rawChapter.number) && (!e.campaignId || e.campaignId === 'fantasy')));
+            if (exp) chapter = { ...exp, campaignId: 'fantasy' };
+        }
 
         currentReadingChapterObj = chapter;
         activeStoryChapterId = chapter.id;
 
         // Preload chapter audio in background for gapless playback on mobile
-        preloadStoryChapterAudio(chapter.number, (chapter.paragraphs || []).length);
+        preloadStoryChapterAudio(chapter, (chapter.paragraphs || []).length);
 
         const hubView = document.getElementById("story-view-hub");
         const readerView = document.getElementById("story-view-reader");
@@ -6943,15 +7035,28 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         updateVisualFluencyUi();
 
-        // Render Hero Avatars
+        // Render Hero / Character Avatars in header strip
         const heroesStrip = document.getElementById("reader-involved-heroes-strip");
-        if (heroesStrip && chapter.involvedHeroes && rpgEngine && rpgEngine.heroes) {
+        if (heroesStrip && chapter.involvedHeroes) {
+            const detCharMeta = {
+                leo: { name: "Leo", avatar: "fa-user-secret", color: "#38bdf8", faceImage: "images/characters_orig/valerius_orig.jpg" },
+                mia: { name: "Mia", avatar: "fa-laptop-code", color: "#f472b6", faceImage: "images/characters_orig/lyra_orig.jpg" },
+                arthur: { name: "Arthur", avatar: "fa-clock", color: "#fbbf24", faceImage: "images/characters_orig/oberon_orig.jpg" },
+                toby: { name: "Toby", avatar: "fa-child-reaching", color: "#4ade80", faceImage: "images/characters_orig/zephyr_orig.png" },
+                martha: { name: "Martha", avatar: "fa-cookie-bite", color: "#fb923c", faceImage: "images/characters_orig/freya_orig.jpg" },
+                harris: { name: "Harris", avatar: "fa-shield-halved", color: "#60a5fa", faceImage: "images/characters_orig/thorin_orig.png" }
+            };
+
             heroesStrip.innerHTML = chapter.involvedHeroes.map(heroId => {
-                const hero = rpgEngine.heroes.find(h => h.id === heroId);
-                if (!hero) return '';
+                const hero = (rpgEngine && rpgEngine.heroes) ? rpgEngine.heroes.find(h => h.id === heroId) : null;
+                const det = detCharMeta[heroId] || {};
+                const color = hero ? (hero.color || 'var(--primary)') : (det.color || '#38bdf8');
+                const name = hero ? hero.name : (det.name || heroId);
+                const face = hero ? (hero.faceImage || hero.image) : det.faceImage;
+                const avatar = hero ? hero.avatar : (det.avatar || 'fa-user');
                 return `
-                    <div style="width:28px; height:28px; border-radius:50%; overflow:hidden; border:1.5px solid ${hero.color || 'var(--primary)'}; background:#0f172a; display:flex; align-items:center; justify-content:center;" title="${hero.name}">
-                        ${(hero.faceImage || hero.image) ? `<img src="${hero.faceImage || hero.image}" alt="${hero.name}" style="width:100%; height:100%; object-fit:cover;">` : `<i class="fa-solid ${hero.avatar}" style="font-size:12px; color:${hero.color};"></i>`}
+                    <div style="width:28px; height:28px; border-radius:50%; overflow:hidden; border:1.5px solid ${color}; background:#0f172a; display:flex; align-items:center; justify-content:center;" title="${name}">
+                        ${face ? `<img src="${face}" alt="${name}" style="width:100%; height:100%; object-fit:cover;">` : `<i class="fa-solid ${avatar}" style="font-size:12px; color:${color};"></i>`}
                     </div>
                 `;
             }).join("");
@@ -6965,18 +7070,28 @@ document.addEventListener("DOMContentLoaded", () => {
             const locRu = chapter.locationRu || 'Древняя Долина';
 
             const originalPortraitsMap = (typeof HERO_ORIGINAL_PORTRAITS !== 'undefined') ? HERO_ORIGINAL_PORTRAITS : {};
+            const detCharMeta = {
+                leo: { name: "Leo", avatar: "fa-user-secret", color: "#38bdf8", faceImage: "images/characters_orig/valerius_orig.jpg" },
+                mia: { name: "Mia", avatar: "fa-laptop-code", color: "#f472b6", faceImage: "images/characters_orig/lyra_orig.jpg" },
+                arthur: { name: "Arthur", avatar: "fa-clock", color: "#fbbf24", faceImage: "images/characters_orig/oberon_orig.jpg" },
+                toby: { name: "Toby", avatar: "fa-child-reaching", color: "#4ade80", faceImage: "images/characters_orig/zephyr_orig.png" },
+                martha: { name: "Martha", avatar: "fa-cookie-bite", color: "#fb923c", faceImage: "images/characters_orig/freya_orig.jpg" },
+                harris: { name: "Harris", avatar: "fa-shield-halved", color: "#60a5fa", faceImage: "images/characters_orig/thorin_orig.png" }
+            };
 
             const charactersStageHtml = (chapter.involvedHeroes || []).map(heroId => {
                 const hero = (rpgEngine && rpgEngine.heroes) ? rpgEngine.heroes.find(h => h.id === heroId) : null;
-                const heroName = hero ? hero.name : heroId;
-                const originalArt = originalPortraitsMap[heroId] || (hero ? (hero.faceImage || hero.image) : 'images/valerius_face.png');
-                const heroColor = hero ? (hero.color || '#f59e0b') : '#f59e0b';
+                const det = detCharMeta[heroId] || {};
+                const heroName = hero ? hero.name : (det.name || heroId);
+                const heroAvatar = hero ? hero.avatar : (det.avatar || 'fa-user');
+                const heroColor = hero ? (hero.color || '#f59e0b') : (det.color || '#38bdf8');
+                const originalArt = originalPortraitsMap[heroId] || det.faceImage || (hero ? (hero.faceImage || hero.image) : 'images/valerius_face.png');
 
                 return `
                     <div class="story-stage-char-card" title="${heroName}">
                         <img src="${originalArt}" alt="${heroName}" class="story-stage-char-portrait" style="border-color:${heroColor};" onerror="this.src='${hero ? (hero.faceImage || hero.image) : 'images/valerius_face.png'}';">
                         <span class="story-stage-char-name" style="border-color:${heroColor};">
-                            <i class="fa-solid ${hero ? hero.avatar : 'fa-user'}" style="color:${heroColor}; margin-right:4px;"></i>${heroName}
+                            <i class="fa-solid ${heroAvatar}" style="color:${heroColor}; margin-right:4px;"></i>${heroName}
                         </span>
                     </div>
                 `;
@@ -6999,9 +7114,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     <div class="story-scene-characters-stage" style="justify-content: flex-end; gap: 8px;">
                         ${(chapter.involvedHeroes || []).map(heroId => {
                             const hero = (rpgEngine && rpgEngine.heroes) ? rpgEngine.heroes.find(h => h.id === heroId) : null;
-                            const heroName = hero ? hero.name : heroId;
-                            const heroColor = hero ? (hero.color || '#f59e0b') : '#f59e0b';
-                            const origArt = originalPortraitsMap[heroId] || (hero ? (hero.faceImage || hero.image) : '');
+                            const det = detCharMeta[heroId] || {};
+                            const heroName = hero ? hero.name : (det.name || heroId);
+                            const heroColor = hero ? (hero.color || '#f59e0b') : (det.color || '#38bdf8');
+                            const origArt = originalPortraitsMap[heroId] || det.faceImage || (hero ? (hero.faceImage || hero.image) : '');
                             return `
                                 <div style="display:flex; align-items:center; gap:6px; background:rgba(15,23,42,0.85); backdrop-filter:blur(10px); border:1px solid ${heroColor}; padding:3px 8px; border-radius:14px; box-shadow:0 4px 15px rgba(0,0,0,0.6);">
                                     <img src="${origArt}" alt="${heroName}" style="width:24px; height:24px; border-radius:50%; object-fit:cover;">
@@ -7022,7 +7138,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             <span>📍 ${locEn} <span style="opacity:0.75; font-weight:500;">(${locRu})</span></span>
                         </div>
                         <span class="badge" style="background:rgba(0,0,0,0.6); color:#f8fafc; font-size:11px; border:1px solid rgba(255,255,255,0.2); backdrop-filter:blur(8px);">
-                            Акт ${chapter.actId || 1} • Глава ${chapter.number}
+                            ${chapter.campaignId === 'detective' ? 'Дело' : 'Акт'} ${chapter.actId === 101 ? 'I' : (chapter.actId || 1)} • Глава ${chapter.number}
                         </span>
                     </div>
                     <div class="story-scene-characters-stage">
@@ -7210,7 +7326,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Next Chapter button setup
         const chapters = (typeof STORY_CHAPTERS !== 'undefined') ? STORY_CHAPTERS : [];
-        const nextChapter = chapters.find(c => c.number === chapter.number + 1);
+        const nextChapter = chapters.find(c => (c.campaignId || 'fantasy') === (chapter.campaignId || 'fantasy') && c.number === chapter.number + 1);
         const nextBtn = document.getElementById("btn-story-next-chapter");
         if (nextBtn) {
             if (nextChapter && isStoryChapterCompleted(chapter)) {
@@ -7356,7 +7472,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 // Show Next Chapter button if available
                 const chapters = (typeof STORY_CHAPTERS !== 'undefined') ? STORY_CHAPTERS : [];
-                const nextChapter = chapters.find(c => c.number === chapter.number + 1);
+                const nextChapter = chapters.find(c => (c.campaignId || 'fantasy') === (chapter.campaignId || 'fantasy') && c.number === chapter.number + 1);
                 const nextBtn = document.getElementById("btn-story-next-chapter");
                 if (nextBtn && nextChapter) {
                     nextBtn.classList.remove("hidden");

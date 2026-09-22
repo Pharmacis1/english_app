@@ -1,7 +1,32 @@
 /**
- * STORY CAMPAIGN: THE OATH OF SEVEN WINDS (A1 Full Campaign - 40 Chapters)
- * CEFR A1 Story Campaign for EnglishPulse RPG with Visual Scene Illustrations
+ * STORY CAMPAIGNS & CHAPTERS (CEFR A1 Full Interactive Content)
+ * Campaign 1: The Oath of Seven Winds (40 Chapters, Fantasy RPG)
+ * Campaign 2: The New Haven Mysteries (Modern Detective Series)
  */
+
+const STORY_CAMPAIGNS = [
+    {
+        id: "fantasy",
+        title: "The Oath of Seven Winds",
+        titleRu: "Клятва Семи Ветров",
+        subtitle: "40 Глав • Сюжетная кампания с 20 по 100 уровень героев",
+        badge: "Fantasy RPG • A1",
+        icon: "fa-scroll",
+        color: "var(--warning)",
+        defaultActId: 1
+    },
+    {
+        id: "detective",
+        title: "The New Haven Mysteries",
+        titleRu: "Тайны Нью-Хейвена",
+        subtitle: "Детективные расследования в современном городе",
+        badge: "Modern Detective • A1",
+        icon: "fa-magnifying-glass",
+        color: "#38bdf8",
+        defaultActId: 101
+    }
+];
+
 
 const STORY_ACTS = [
     {
@@ -11,7 +36,8 @@ const STORY_ACTS = [
         "chaptersRange": "1–6",
         "reqLvl": "Lvl 20–30",
         "icon": "fa-fire-flame-curved",
-        "color": "#f59e0b"
+        "color": "#f59e0b",
+        "campaignId": "fantasy"
     },
     {
         "id": 2,
@@ -20,7 +46,8 @@ const STORY_ACTS = [
         "chaptersRange": "7–13",
         "reqLvl": "Lvl 30–45",
         "icon": "fa-map-location-dot",
-        "color": "#3b82f6"
+        "color": "#3b82f6",
+        "campaignId": "fantasy"
     },
     {
         "id": 3,
@@ -29,7 +56,8 @@ const STORY_ACTS = [
         "chaptersRange": "14–20",
         "reqLvl": "Lvl 45–60",
         "icon": "fa-skull",
-        "color": "#ef4444"
+        "color": "#ef4444",
+        "campaignId": "fantasy"
     },
     {
         "id": 4,
@@ -38,7 +66,8 @@ const STORY_ACTS = [
         "chaptersRange": "21–27",
         "reqLvl": "Lvl 60–75",
         "icon": "fa-campground",
-        "color": "#8b5cf6"
+        "color": "#8b5cf6",
+        "campaignId": "fantasy"
     },
     {
         "id": 5,
@@ -47,7 +76,8 @@ const STORY_ACTS = [
         "chaptersRange": "28–34",
         "reqLvl": "Lvl 75–90",
         "icon": "fa-mask",
-        "color": "#ec4899"
+        "color": "#ec4899",
+        "campaignId": "fantasy"
     },
     {
         "id": 6,
@@ -56,17 +86,18 @@ const STORY_ACTS = [
         "chaptersRange": "35–40",
         "reqLvl": "Lvl 90–100",
         "icon": "fa-sun",
-        "color": "#eab308"
-    }
-,
+        "color": "#eab308",
+        "campaignId": "fantasy"
+    },
     {
-        "id": 7,
+        "id": 101,
+        "campaignId": "detective",
         "title": "Case I: The Stolen Music Box",
-        "subtitle": "Дело I: Тайна украденной шкатулки",
-        "chaptersRange": "41–46",
-        "reqLvl": "Lvl 100",
+        "subtitle": "Дело I: Украденная музыкальная шкатулка",
+        "chaptersRange": "1–6",
+        "reqLvl": "A1 Level",
         "icon": "fa-magnifying-glass",
-        "color": "#06b6d4"
+        "color": "#38bdf8"
     }
 ];
 
@@ -128,7 +159,8 @@ const STORY_CHAPTERS = [
         "backgroundImg": "images/backgrounds/bg_forest.jpg",
         "locationEn": "The Silver River Border",
         "locationRu": "Граница Серебряной Реки",
-        "sceneIllustrationImg": "images/story/ch1_scene.jpg"
+        "sceneIllustrationImg": "images/story/ch1_scene.jpg",
+        "campaignId": "fantasy"
     },
     {
         "id": "ch-2",
@@ -175,7 +207,8 @@ const STORY_CHAPTERS = [
         "backgroundImg": "images/backgrounds/bg_white_forest.jpg",
         "locationEn": "Whispering Woods Sanctuary",
         "locationRu": "Святилище Шепчущего Леса",
-        "sceneIllustrationImg": "images/story/ch2_scene.jpg"
+        "sceneIllustrationImg": "images/story/ch2_scene.jpg",
+        "campaignId": "fantasy"
     },
     {
         "id": "ch-3",
@@ -262,7 +295,8 @@ const STORY_CHAPTERS = [
         "backgroundImg": "images/backgrounds/bg_dungeon.jpg",
         "locationEn": "Deep Iron Mines",
         "locationRu": "Глубинные Шахты Горна",
-        "sceneIllustrationImg": "images/story/ch3_scene.jpg"
+        "sceneIllustrationImg": "images/story/ch3_scene.jpg",
+        "campaignId": "fantasy"
     },
     {
         "id": "ch-4",
@@ -329,7 +363,8 @@ const STORY_CHAPTERS = [
         "backgroundImg": "images/backgrounds/bg_temple.jpg",
         "locationEn": "Silver Bastion Ramparts",
         "locationRu": "Стены Серебряного Бастиона",
-        "sceneIllustrationImg": "images/story/ch4_scene.jpg"
+        "sceneIllustrationImg": "images/story/ch4_scene.jpg",
+        "campaignId": "fantasy"
     },
     {
         "id": "ch-5",
@@ -390,7 +425,8 @@ const STORY_CHAPTERS = [
         "backgroundImg": "images/backgrounds/bg_enchanted_grove.jpg",
         "locationEn": "The Wounded Ancient Grove",
         "locationRu": "Раненая Священная Роща",
-        "sceneIllustrationImg": "images/story/ch5_scene.jpg"
+        "sceneIllustrationImg": "images/story/ch5_scene.jpg",
+        "campaignId": "fantasy"
     },
     {
         "id": "ch-6",
@@ -455,7 +491,8 @@ const STORY_CHAPTERS = [
         },
         "backgroundImg": "images/backgrounds/bg_crystal_caverns.jpg",
         "locationEn": "The Great Subterranean Forge",
-        "locationRu": "Великая Подземная Кузница"
+        "locationRu": "Великая Подземная Кузница",
+        "campaignId": "fantasy"
     },
     {
         "id": "ch-7",
@@ -541,7 +578,8 @@ const STORY_CHAPTERS = [
         },
         "backgroundImg": "images/backgrounds/bg_mountains.jpg",
         "locationEn": "The Canyon Supply Road",
-        "locationRu": "Дорога Снабжения в Каньоне"
+        "locationRu": "Дорога Снабжения в Каньоне",
+        "campaignId": "fantasy"
     },
     {
         "id": "ch-8",
@@ -607,7 +645,8 @@ const STORY_CHAPTERS = [
         },
         "backgroundImg": "images/backgrounds/bg_forest.jpg",
         "locationEn": "The Misty Hills & Pine Forest Valley",
-        "locationRu": "Туманные Холмы и Долина Соснового Леса"
+        "locationRu": "Туманные Холмы и Долина Соснового Леса",
+        "campaignId": "fantasy"
     },
     {
         "id": "ch-9",
@@ -679,7 +718,8 @@ const STORY_CHAPTERS = [
         },
         "backgroundImg": "images/backgrounds/bg_forest.jpg",
         "locationEn": "The Emerald Spring & Ancient Oak Grove",
-        "locationRu": "Изумрудный Источник и Древняя Дубовая Роща"
+        "locationRu": "Изумрудный Источник и Древняя Дубовая Роща",
+        "campaignId": "fantasy"
     },
     {
         "id": "ch-10",
@@ -751,7 +791,8 @@ const STORY_CHAPTERS = [
         },
         "backgroundImg": "images/backgrounds/bg_mountains.jpg",
         "locationEn": "The Northern Ice Gorge & Chasm Bridge",
-        "locationRu": "Северное Ледяное Ущелье и Мост над Бездной"
+        "locationRu": "Северное Ледяное Ущелье и Мост над Бездной",
+        "campaignId": "fantasy"
     },
     {
         "id": "ch-11",
@@ -825,7 +866,8 @@ const STORY_CHAPTERS = [
         },
         "backgroundImg": "images/backgrounds/bg_dungeon.jpg",
         "locationEn": "The Sunken Granite Quarry & Abandoned Outpost",
-        "locationRu": "Затопленный Гранитный Карьер и Заброшенный Аванпост"
+        "locationRu": "Затопленный Гранитный Карьер и Заброшенный Аванпост",
+        "campaignId": "fantasy"
     },
     {
         "id": "ch-12",
@@ -899,7 +941,8 @@ const STORY_CHAPTERS = [
         },
         "backgroundImg": "images/valerius_castle.png",
         "locationEn": "The Royal Citadel Council Room",
-        "locationRu": "Зал Совета Королевской Цитадели"
+        "locationRu": "Зал Совета Королевской Цитадели",
+        "campaignId": "fantasy"
     },
     {
         "id": "ch-13",
@@ -980,7 +1023,8 @@ const STORY_CHAPTERS = [
         },
         "backgroundImg": "images/valerius_castle.png",
         "locationEn": "The Border Citadel & The Great Gate",
-        "locationRu": "Пограничная Цитадель и Великие Врата"
+        "locationRu": "Пограничная Цитадель и Великие Врата",
+        "campaignId": "fantasy"
     },
     {
         "id": "ch-14",
@@ -1055,7 +1099,8 @@ const STORY_CHAPTERS = [
         },
         "backgroundImg": "images/backgrounds/bg_forest.jpg",
         "locationEn": "The River Watch Outpost",
-        "locationRu": "Речная Дозорная Застава"
+        "locationRu": "Речная Дозорная Застава",
+        "campaignId": "fantasy"
     },
     {
         "id": "ch-15",
@@ -1129,7 +1174,8 @@ const STORY_CHAPTERS = [
         },
         "backgroundImg": "images/backgrounds/bg_castle.jpg",
         "locationEn": "The Ruined Chapel of Light",
-        "locationRu": "Разрушенная Часовня Света"
+        "locationRu": "Разрушенная Часовня Света",
+        "campaignId": "fantasy"
     },
     {
         "id": "ch-16",
@@ -1204,7 +1250,8 @@ const STORY_CHAPTERS = [
         },
         "backgroundImg": "images/backgrounds/bg_sky_terrace.jpg",
         "locationEn": "High Cliff Mountain Villages",
-        "locationRu": "Горные Деревни на Скалах"
+        "locationRu": "Горные Деревни на Скалах",
+        "campaignId": "fantasy"
     },
     {
         "id": "ch-17",
@@ -1282,7 +1329,8 @@ const STORY_CHAPTERS = [
         },
         "backgroundImg": "images/backgrounds/bg_enchanted_grove.jpg",
         "locationEn": "The Heart of the Sacred Grove",
-        "locationRu": "Сердце Священной Рощи"
+        "locationRu": "Сердце Священной Рощи",
+        "campaignId": "fantasy"
     },
     {
         "id": "ch-18",
@@ -1362,7 +1410,8 @@ const STORY_CHAPTERS = [
         },
         "backgroundImg": "images/backgrounds/bg_crystal_caverns.jpg",
         "locationEn": "Subterranean Iron Fortress",
-        "locationRu": "Подземная Железная Крепость"
+        "locationRu": "Подземная Железная Крепость",
+        "campaignId": "fantasy"
     },
     {
         "id": "ch-19",
@@ -1440,7 +1489,8 @@ const STORY_CHAPTERS = [
         },
         "backgroundImg": "images/backgrounds/bg_castle.jpg",
         "locationEn": "The Fallen Silver Outpost",
-        "locationRu": "Павший Серебряный Аванпост"
+        "locationRu": "Павший Серебряный Аванпост",
+        "campaignId": "fantasy"
     },
     {
         "id": "ch-20",
@@ -1520,7 +1570,8 @@ const STORY_CHAPTERS = [
         },
         "backgroundImg": "images/backgrounds/bg_forest.jpg",
         "locationEn": "The Three Clan Border Stone",
-        "locationRu": "Межевой Камень Трех Кланов"
+        "locationRu": "Межевой Камень Трех Кланов",
+        "campaignId": "fantasy"
     },
     {
         "id": "ch-21",
@@ -1600,7 +1651,8 @@ const STORY_CHAPTERS = [
         },
         "backgroundImg": "images/backgrounds/bg_mountains.jpg",
         "locationEn": "The Razor Crest of Astral Peak",
-        "locationRu": "Ледяной Гребень Астрального Пика"
+        "locationRu": "Ледяной Гребень Астрального Пика",
+        "campaignId": "fantasy"
     },
     {
         "id": "ch-22",
@@ -1680,7 +1732,8 @@ const STORY_CHAPTERS = [
         },
         "backgroundImg": "images/backgrounds/bg_magic_library.jpg",
         "locationEn": "Eldrin’s Floating Library",
-        "locationRu": "Парящая Библиотека Эльдрина"
+        "locationRu": "Парящая Библиотека Эльдрина",
+        "campaignId": "fantasy"
     },
     {
         "id": "ch-23",
@@ -1762,7 +1815,8 @@ const STORY_CHAPTERS = [
         },
         "backgroundImg": "images/backgrounds/bg_magic_library.jpg",
         "locationEn": "The Tower Hearth Hall",
-        "locationRu": "Зал Костра в Башне"
+        "locationRu": "Зал Костра в Башне",
+        "campaignId": "fantasy"
     },
     {
         "id": "ch-24",
@@ -1840,7 +1894,8 @@ const STORY_CHAPTERS = [
         },
         "backgroundImg": "images/backgrounds/bg_sky_terrace.jpg",
         "locationEn": "Astral Peak High Balcony",
-        "locationRu": "Высокий Балкон Астрального Пика"
+        "locationRu": "Высокий Балкон Астрального Пика",
+        "campaignId": "fantasy"
     },
     {
         "id": "ch-25",
@@ -1918,7 +1973,8 @@ const STORY_CHAPTERS = [
         },
         "backgroundImg": "images/backgrounds/bg_white_forest.jpg",
         "locationEn": "The Frost Terrace",
-        "locationRu": "Морозная Терраса"
+        "locationRu": "Морозная Терраса",
+        "campaignId": "fantasy"
     },
     {
         "id": "ch-26",
@@ -1998,7 +2054,8 @@ const STORY_CHAPTERS = [
         },
         "backgroundImg": "images/backgrounds/bg_mountains.jpg",
         "locationEn": "The Stormy Armory Vault",
-        "locationRu": "Штормовой Арсенал"
+        "locationRu": "Штормовой Арсенал",
+        "campaignId": "fantasy"
     },
     {
         "id": "ch-27",
@@ -2078,7 +2135,8 @@ const STORY_CHAPTERS = [
         },
         "backgroundImg": "images/backgrounds/bg_magic_library.jpg",
         "locationEn": "The Astral Circle of Winds",
-        "locationRu": "Астральный Круг Семи Ветров"
+        "locationRu": "Астральный Круг Семи Ветров",
+        "campaignId": "fantasy"
     },
     {
         "id": "ch-28",
@@ -2160,7 +2218,8 @@ const STORY_CHAPTERS = [
         },
         "backgroundImg": "images/backgrounds/bg_dragon_volcano.jpg",
         "locationEn": "The Dead Desolation",
-        "locationRu": "Мертвые Пустоши"
+        "locationRu": "Мертвые Пустоши",
+        "campaignId": "fantasy"
     },
     {
         "id": "ch-29",
@@ -2240,7 +2299,8 @@ const STORY_CHAPTERS = [
         },
         "backgroundImg": "images/backgrounds/bg_dragon_volcano.jpg",
         "locationEn": "The Ashen Camp Perimeter",
-        "locationRu": "Периметр Пепельного Лагеря"
+        "locationRu": "Периметр Пепельного Лагеря",
+        "campaignId": "fantasy"
     },
     {
         "id": "ch-30",
@@ -2318,7 +2378,8 @@ const STORY_CHAPTERS = [
         },
         "backgroundImg": "images/backgrounds/bg_dragon_volcano.jpg",
         "locationEn": "The Shadow Cliffs",
-        "locationRu": "Теневые Утесы"
+        "locationRu": "Теневые Утесы",
+        "campaignId": "fantasy"
     },
     {
         "id": "ch-31",
@@ -2398,7 +2459,8 @@ const STORY_CHAPTERS = [
         },
         "backgroundImg": "images/backgrounds/bg_dragon_volcano.jpg",
         "locationEn": "The Dragon Bone Bridge",
-        "locationRu": "Мост из Костей Дракона"
+        "locationRu": "Мост из Костей Дракона",
+        "campaignId": "fantasy"
     },
     {
         "id": "ch-32",
@@ -2476,7 +2538,8 @@ const STORY_CHAPTERS = [
         },
         "backgroundImg": "images/backgrounds/bg_dragon_volcano.jpg",
         "locationEn": "The Obsidian Chasm",
-        "locationRu": "Обсидиановая Бездна"
+        "locationRu": "Обсидиановая Бездна",
+        "campaignId": "fantasy"
     },
     {
         "id": "ch-33",
@@ -2556,7 +2619,8 @@ const STORY_CHAPTERS = [
         },
         "backgroundImg": "images/backgrounds/bg_dragon_volcano.jpg",
         "locationEn": "The Threshold of the Rift",
-        "locationRu": "Порог Пепельного Разлома"
+        "locationRu": "Порог Пепельного Разлома",
+        "campaignId": "fantasy"
     },
     {
         "id": "ch-34",
@@ -2638,7 +2702,8 @@ const STORY_CHAPTERS = [
         },
         "backgroundImg": "images/backgrounds/bg_dragon_volcano.jpg",
         "locationEn": "The Gates of the Abyss",
-        "locationRu": "Врата Бездны"
+        "locationRu": "Врата Бездны",
+        "campaignId": "fantasy"
     },
     {
         "id": "ch-35",
@@ -2720,7 +2785,8 @@ const STORY_CHAPTERS = [
         },
         "backgroundImg": "images/backgrounds/bg_dragon_volcano.jpg",
         "locationEn": "The Shattered Rift Gate",
-        "locationRu": "Разрушенные Врата Разлома"
+        "locationRu": "Разрушенные Врата Разлома",
+        "campaignId": "fantasy"
     },
     {
         "id": "ch-36",
@@ -2800,7 +2866,8 @@ const STORY_CHAPTERS = [
         },
         "backgroundImg": "images/backgrounds/bg_dragon_volcano.jpg",
         "locationEn": "The Tri-Elemental Battlefield",
-        "locationRu": "Поле Трех Стихий"
+        "locationRu": "Поле Трех Стихий",
+        "campaignId": "fantasy"
     },
     {
         "id": "ch-37",
@@ -2880,7 +2947,8 @@ const STORY_CHAPTERS = [
         },
         "backgroundImg": "images/backgrounds/bg_sky_terrace.jpg",
         "locationEn": "The Tempest Skies of Eclipse",
-        "locationRu": "Штормовые Небеса Затмения"
+        "locationRu": "Штормовые Небеса Затмения",
+        "campaignId": "fantasy"
     },
     {
         "id": "ch-38",
@@ -2960,7 +3028,8 @@ const STORY_CHAPTERS = [
         },
         "backgroundImg": "images/backgrounds/bg_dragon_volcano.jpg",
         "locationEn": "The Bedrock Core of the World",
-        "locationRu": "Коренная Порода Мира"
+        "locationRu": "Коренная Порода Мира",
+        "campaignId": "fantasy"
     },
     {
         "id": "ch-39",
@@ -3054,7 +3123,8 @@ const STORY_CHAPTERS = [
         },
         "backgroundImg": "images/backgrounds/bg_dragon_volcano.jpg",
         "locationEn": "The Edge of the Ashen Maw",
-        "locationRu": "Край Пепельного Жерла"
+        "locationRu": "Край Пепельного Жерла",
+        "campaignId": "fantasy"
     },
     {
         "id": "ch-40",
@@ -3148,53 +3218,54 @@ const STORY_CHAPTERS = [
         },
         "backgroundImg": "images/backgrounds/bg_panorama.jpg",
         "locationEn": "The Summit of the Seven Winds",
-        "locationRu": "Вершина Семи Ветров"
+        "locationRu": "Вершина Семи Ветров",
+        "campaignId": "fantasy"
     },
     {
-        "id": "ch-41",
-        "actId": 7,
-        "number": 41,
+        "id": "det-ch-1",
+        "campaignId": "detective",
+        "number": 1,
+        "actId": 101,
         "titleEn": "Rain in New Haven",
         "titleRu": "Дождь в Нью-Хейвене",
-        "reqHeroLevels": {
-            "valerius": 100
-        },
+        "rewardXp": 496,
+        "audioDir": "det_ch_1",
         "involvedHeroes": [
             "leo",
-            "mia",
             "arthur",
+            "mia",
             "toby"
         ],
         "paragraphs": [
             {
                 "speaker": "leo",
                 "en": "It is a cold and rainy morning in the city of New Haven. Rain is on the street. Rain is also on the windows. Detective Leo is in a room on the second floor. He is at his desk. He has a warm brown jacket. He drinks hot black coffee from a cup. His friend Mia is near the window. She is also a detective. She has a computer. She looks at the newspaper. She drinks tea.",
-                "ru": "Холодное и дождливое утро в городе Нью-Хейвен. Дождь барабанит по улице. Дождь также стекает по окнам. Детектив Лео находится в кабинете на втором этаже. Он сидит за своим столом. На нем теплая коричневая куртка. Он пьет горячий черный кофе из чашки. Его напарница Миа стоит у окна. Она тоже детектив. У нее есть компьютер. Она просматривает утреннюю газету. Она пьет чай.",
+                "ru": "Холодное и дождливое утро в городе Нью-Хейвен. Дождь идет на улице. Дождь также барабанит по окнам. Детектив Лео находится в комнате на втором этаже. Он сидит за своим рабочим столом. На нем теплая коричневая куртка. Он пьет горячий черный кофе из чашки. Его подруга Миа стоит у окна. Она тоже детектив. У нее есть компьютер. Она просматривает газету. Она пьет чай.",
                 "chunkedEn": "[s: It] [v: is] [o: a cold and rainy morning] [pt: in the city of New Haven.]\n[s: Rain] [v: is] [pt: on the street.]\n[s: Rain] [v: is] [adv: also] [pt: on the windows.]\n[s: Detective Leo] [v: is] [pt: in a room on the second floor.]\n[s: He] [v: is] [pt: at his desk.]\n[s: He] [v: has] [o: a warm brown jacket.]\n[s: He] [v: drinks] [o: hot black coffee] [pt: from a cup.]\n[s: His friend Mia] [v: is] [pt: near the window.]\n[s: She] [v: is] [adv: also] [o: a detective.]\n[s: She] [v: has] [o: a computer.]\n[s: She] [v: looks] [pt: at the newspaper.]\n[s: She] [v: drinks] [o: tea.]"
             },
             {
                 "speaker": "arthur",
                 "en": "Soon the door opens. An old man comes in. He has a grey coat. It is Grandfather Arthur. Arthur is the owner of the antique shop downstairs. He is Leo's friend. His hands are cold. He is afraid. Mia sees Arthur. She stands. \"Leo! Mia! Please help me!\" Arthur says. \"A thief came to my shop last night!\"",
-                "ru": "Вскоре дверь открывается. Входит пожилой мужчина. На нем серое пальто. Это дедушка Артур. Артур — владелец антикварной лавки внизу. Он друг Лео. Его руки замерзли. Он напуган. Миа видит Артура. Она встает. \"Лео! Миа! Пожалуйста, помогите мне!\" — говорит Артур. \"Прошлой ночью в мою лавку проник вор!\"",
-                "chunkedEn": "[adv: Soon] [s: the door] [v: opens.]\n[s: An old man] [v: comes in.]\n[s: He] [v: has] [o: a grey coat.]\n[s: It] [v: is] [o: Grandfather Arthur.]\n[s: Arthur] [v: is] [o: the owner of the antique shop] [pt: downstairs.]\n[s: He] [v: is] [o: Leo's friend.]\n[s: His hands] [v: are cold.]\n[s: He] [v: is afraid.]\n[s: Mia] [v: sees] [o: Arthur.]\n[s: She] [v: stands.]\n[o: \"Leo! Mia! Please] [v: help] [o: me!\"] [s: Arthur] [v: says.]\n[s: \"A thief] [v: came] [pt: to my shop] [pt: last night!\"]"
+                "ru": "Вскоре дверь открывается. Входит пожилой мужчина. На нем серое пальто. Это дедушка Артур. Артур — владелец антикварной лавки внизу. Он друг Лео. Его руки холодные. Он напуган. Миа видит Артура. Она встает. \"Лео! Миа! Пожалуйста, помогите мне!\" — говорит Артур. \"В мою лавку прошлой ночью проник вор!\"",
+                "chunkedEn": "[adv: Soon] [s: the door] [v: opens.]\n[s: An old man] [v: comes in.]\n[s: He] [v: has] [o: a grey coat.]\n[s: It] [v: is] [o: Grandfather Arthur.]\n[s: Arthur] [v: is] [o: the owner of the antique shop] [pt: downstairs.]\n[s: He] [v: is] [o: Leo's friend.]\n[s: His hands] [v: are] [pt: cold.]\n[s: He] [v: is] [pt: afraid.]\n[s: Mia] [v: sees] [o: Arthur.]\n[s: She] [v: stands.]\n[o: \"Leo! Mia! Please] [v: help] [o: me!\"] [s: Arthur] [v: says.]\n[s: \"A thief] [v: came] [pt: to my shop last night!\"]"
             },
             {
                 "speaker": "leo",
                 "en": "Leo stands. He looks at Arthur. Leo gives a chair to Arthur. Arthur is on the chair. \"Arthur, please, drink water,\" Leo says with a smile. \"I want to help you. Tell me about the crime.\" Mia takes a cup of water for Arthur. Arthur drinks the water. He also eats a cookie.",
-                "ru": "Лео встает. Он смотрит на Артура. Лео предлагает Артуру стул. Артур садится на стул. \"Артур, пожалуйста, выпей воды,\" — говорит Лео с улыбкой. \"Я хочу помочь тебе. Расскажи мне о преступлении.\" Миа приносит чашку воды для Артура. Артур пьет воду. Он также съедает печенье.",
+                "ru": "Лео поднимается. Он смотрит на Артура. Лео пододвигает стул Артуру. Артур садится на стул. \"Артур, пожалуйста, выпей воды,\" — с улыбкой говорит Лео. \"Я хочу тебе помочь. Расскажи мне о преступлении.\" Миа приносит стакан воды для Артура. Артур выпивает воду. Он также съедает печенье.",
                 "chunkedEn": "[s: Leo] [v: stands.]\n[s: He] [v: looks] [pt: at Arthur.]\n[s: Leo] [v: gives] [o: a chair] [pt: to Arthur.]\n[s: Arthur] [v: is] [pt: on the chair.]\n[o: \"Arthur, please,] [v: drink] [o: water,\"] [s: Leo] [v: says] [pt: with a smile.]\n[s: \"I] [v: want to help] [o: you.]\n[v: Tell] [o: me] [pt: about the crime.\"]\n[s: Mia] [v: takes] [o: a cup of water] [pt: for Arthur.]\n[s: Arthur] [v: drinks] [o: the water.]\n[s: He] [adv: also] [v: eats] [o: a cookie.]"
             },
             {
                 "speaker": "arthur",
-                "en": "Arthur says, \"Last night, the storm was big. At midnight, a thief came to my shop. The thief broke the window. The thief did not take my gold coins. The thief did not take my silver clocks. The thief took one thing. It was my music box! It is from my grandparents. It is old. A key is for the music box. A note is in the music box. I want my music box!\"",
-                "ru": "Артур говорит: \"Прошлой ночью буря была сильной. В полночь в мою лавку пробрался вор. Вор разбил окно. Вор не взял мои золотые монеты. Вор не взял мои серебряные часы. Вор похитил только одну вещь. Это была моя музыкальная шкатулка! Она досталась мне от бабушки с дедушкой. Она старинная. К шкатулке есть ключ. Внутри шкатулки спрятана записка. Я хочу вернуть свою шкатулку!\"",
-                "chunkedEn": "[s: Arthur] [v: says,] [pt: \"Last night,] [s: the storm] [v: was big.]\n[pt: At midnight,] [s: a thief] [v: came] [pt: to my shop.]\n[s: The thief] [v: broke] [o: the window.]\n[s: The thief] [v: did not take] [o: my gold coins.]\n[s: The thief] [v: did not take] [o: my silver clocks.]\n[s: The thief] [v: took] [o: one thing.]\n[s: It] [v: was] [o: my music box!]\n[s: It] [v: is] [pt: from my grandparents.]\n[s: It] [v: is] [o: old.]\n[s: A key] [v: is] [pt: for the music box.]\n[s: A note] [v: is] [pt: in the music box.]\n[s: I] [v: want] [o: my music box!\"]"
+                "en": "Arthur says, \"Last night, the storm was big. At midnight, a thief came to my shop. The thief broke the window. He did not take money. He did not take the gold pocket watch. He took one special thing. He took the ancient music box! It is a brown wood box with a silver bird on top. My grandfather gave this music box to me. Inside the box, there was a secret note. There was also a key.\"",
+                "ru": "Артур говорит: \"Прошлой ночью была сильная буря. В полночь в мою лавку проник вор. Вор разбил окно. Он не взял деньги. Он не взял золотые карманные часы. Он забрал одну особенную вещь. Он похитил старинную музыкальную шкатулку! Это деревянная коричневая шкатулка с серебряной птицей наверху. Мой дедушка подарил мне эту музыкальную шкатулку. Внутри шкатулки была секретная записка. Там также лежал ключ.\"",
+                "chunkedEn": "[s: Arthur] [v: says,] [pt: \"Last night,] [s: the storm] [v: was] [pt: big.]\n[pt: At midnight,] [s: a thief] [v: came] [pt: to my shop.]\n[s: The thief] [v: broke] [o: the window.]\n[s: He] [v: did not take] [o: money.]\n[s: He] [v: did not take] [o: the gold pocket watch.]\n[s: He] [v: took] [o: one special thing.]\n[s: He] [v: took] [o: the ancient music box!]\n[s: It] [v: is] [o: a brown wood box] [pt: with a silver bird on top.]\n[s: My grandfather] [v: gave] [o: this music box] [pt: to me.]\n[pt: Inside the box,] [w: there] [v: was] [o: a secret note.]\n[w: There] [v: was] [adv: also] [o: a key.\"]"
             },
             {
                 "speaker": "mia",
-                "en": "Mia opens her notebook. She looks at Arthur. \"Did you see a suspect?\" Mia asks. \"Did you see a witness?\" Arthur says, \"No. The street was dark and empty. But I saw a big footprint by the back door. It was dirty. I also saw a piece of paper on the floor. It was blue.\" Mia writes in her notebook: window, music box, footprint, paper.",
-                "ru": "Миа открывает свой блокнот. Она смотрит на Артура. \"Вы видели подозреваемого?\" — спрашивает Миа. \"Вы видели свидетеля?\" Артур отвечает: \"Нет. Улица была темной и пустой. Но я заметил большой след ноги у задней двери. Он был грязным. Я также нашел на полу обрывок бумаги. Он был синим.\" Миа записывает в блокнот: окно, музыкальная шкатулка, след ноги, бумага.",
-                "chunkedEn": "[s: Mia] [v: opens] [o: her notebook.]\n[s: She] [v: looks] [pt: at Arthur.]\n[v: \"Did] [s: you] [v: see] [o: a suspect?\"] [s: Mia] [v: asks.]\n[v: \"Did] [s: you] [v: see] [o: a witness?\"]\n[s: Arthur] [v: says,] [o: \"No.]\n[s: The street] [v: was] [o: dark and empty.]\n[c: But] [s: I] [v: saw] [o: a big footprint] [pt: by the back door.]\n[s: It] [v: was dirty.]\n[s: I] [adv: also] [v: saw] [o: a piece of paper] [pt: on the floor.]\n[s: It] [v: was] [o: blue.\"]\n[s: Mia] [v: writes] [pt: in her notebook:] [o: window, music box, footprint, paper.]"
+                "en": "Mia opens her notebook. She looks at Arthur. She writes in her notebook with a pen. \"Do you know this thief?\" Mia asks. \"Do you have an enemy?\" Arthur says, \"No. I do not know. I am an old watchmaker. I have no enemies. But two days ago, a strange man came to the shop. He had a dark raincoat. He looked at the music box for twenty minutes. He did not say a word. Then he left.\"",
+                "ru": "Миа открывает свой блокнот. Она смотрит на Артура. Она пишет ручкой в блокноте. \"Вы знаете этого вора?\" — спрашивает Миа. \"У вас есть враги?\" Артур отвечает: \"Нет. Я не знаю. Я старый часовщик. У меня нет врагов. Но два дня назад в лавку приходил странный мужчина. На нем был темный плащ. Он рассматривал музыкальную шкатулку двадцать минут. Он не произнес ни слова. Затем он ушел.\"",
+                "chunkedEn": "[s: Mia] [v: opens] [o: her notebook.]\n[s: She] [v: looks] [pt: at Arthur.]\n[s: She] [v: writes] [pt: in her notebook with a pen.]\n[v: \"Do] [s: you] [v: know] [o: this thief?\"] [s: Mia] [v: asks.]\n[v: \"Do] [s: you] [v: have] [o: an enemy?\"]\n[s: Arthur] [v: says,] [o: \"No.]\n[s: I] [v: do not know.]\n[s: I] [v: am] [o: an old watchmaker.]\n[s: I] [v: have] [o: no enemies.]\n[c: But] [pt: two days ago,] [s: a strange man] [v: came] [pt: to the shop.]\n[s: He] [v: had] [o: a dark raincoat.]\n[s: He] [v: looked] [pt: at the music box for twenty minutes.]\n[s: He] [v: did not say] [o: a word.]\n[adv: Then] [s: he] [v: left.\"]"
             },
             {
                 "speaker": "toby",
@@ -3228,22 +3299,109 @@ const STORY_CHAPTERS = [
         "backgroundImg": "images/backgrounds/bg_magic_library.jpg",
         "locationEn": "Detective Leo's Office",
         "locationRu": "Кабинет Детектива Лео"
+    },
+    {
+        "id": "det-ch-2",
+        "campaignId": "detective",
+        "number": 2,
+        "actId": 101,
+        "titleEn": "The Broken Glass",
+        "titleRu": "Разбитое стекло",
+        "rewardXp": 538,
+        "audioDir": "det_ch_2",
+        "involvedHeroes": [
+            "leo",
+            "arthur",
+            "mia",
+            "toby",
+            "harris",
+            "martha"
+        ],
+        "paragraphs": [
+            {
+                "speaker": "leo",
+                "en": "Leo, Mia, Arthur, Toby, and the dog Barnaby go downstairs. They go to the first floor. They open the door of the antique shop. The shop is quiet, but it is very interesting. There are many old clocks on the walls. There are wood tables, books, paintings, and stone statues of lions. The air has a smell of old paper and rain.",
+                "ru": "Лео, Миа, Артур, Тоби и пёс Барнаби спускаются вниз. Они идут на первый этаж. Они открывают дверь антикварной лавки. В лавке тихо, но очень интересно. На стенах висит много старинных часов. Здесь есть деревянные столы, книги, картины и каменные статуи львов. В воздухе пахнет старой бумагой и дождём.",
+                "chunkedEn": "[s: Leo, Mia, Arthur, Toby, and the dog Barnaby] [v: go] [pt: downstairs.]\n[s: They] [v: go] [pt: to the first floor.]\n[s: They] [v: open] [o: the door of the antique shop.]\n[s: The shop] [v: is] [pt: quiet,] [c: but] [s: it] [v: is] [adv: very] [pt: interesting.]\n[w: There] [v: are] [o: many old clocks] [pt: on the walls.]\n[w: There] [v: are] [o: wood tables, books, paintings, and stone statues of lions.]\n[s: The air] [v: has] [o: a smell of old paper and rain.]"
+            },
+            {
+                "speaker": "arthur",
+                "en": "\"Look at the floor,\" Leo says in a quiet voice. Leo takes his flashlight. He uses the flashlight. In the back of the shop, there is a broken window. Many small pieces of glass are on the floor. Cold wind and rain come in through the hole. Arthur looks at the window. Arthur is not happy. \"The thief came in through this window,\" Arthur says. Arthur closes the window.",
+                "ru": "«Посмотрите на пол», — говорит Лео тихим голосом. Лео берёт свой фонарик. Он использует фонарик. В глубине лавки — разбитое окно. На полу лежит много мелких осколков стекла. Холодный ветер и дождь проникают внутрь через дыру. Артур смотрит на окно. Артур расстроен. «Вор проник внутрь через это окно», — говорит Артур. Артур закрывает окно.",
+                "chunkedEn": "[v: \"Look] [pt: at the floor,\"] [s: Leo] [v: says] [pt: in a quiet voice.]\n[s: Leo] [v: takes] [o: his flashlight.]\n[s: He] [v: uses] [o: the flashlight.]\n[pt: In the back of the shop,] [w: there] [v: is] [o: a broken window.]\n[s: Many small pieces of glass] [v: are] [pt: on the floor.]\n[s: Cold wind and rain] [v: come in] [pt: through the hole.]\n[s: Arthur] [v: looks] [pt: at the window.]\n[s: Arthur] [v: is not] [pt: happy.]\n[s: \"The thief] [v: came in] [pt: through this window,\"] [s: Arthur] [v: says.]\n[s: Arthur] [v: closes] [o: the window.]"
+            },
+            {
+                "speaker": "mia",
+                "en": "Mia takes her smartphone. She takes photographs of the window and the glass. \"Be careful, everyone. Do not touch the glass. There can be fingerprints on it,\" Mia explains. Mia puts her smartphone in her pocket. She looks down at the floor. Near the wood table, she sees something. \"Leo, look here! A footprint!\" Leo walks to the table. He uses his light. It is a big, wet boot footprint.",
+                "ru": "Миа достаёт свой смартфон. Она делает фотографии окна и стекла. «Осторожнее, все. Не трогайте стекло. На нём могут быть отпечатки пальцев», — объясняет Миа. Миа кладёт смартфон в карман. Она смотрит вниз на пол. Возле деревянного стола она кое-что видит. «Лео, посмотри сюда! След ноги!» Лео подходит к столу. Он светит фонарём. Это большой, мокрый след от сапога.",
+                "chunkedEn": "[s: Mia] [v: takes] [o: her smartphone.]\n[s: She] [v: takes] [o: photographs of the window and the glass.]\n[v: \"Be] [pt: careful,] [s: everyone.]\n[v: Do not touch] [o: the glass.]\n[w: There] [v: can be] [o: fingerprints] [pt: on it,\"] [s: Mia] [v: explains.]\n[s: Mia] [v: puts] [o: her smartphone] [pt: in her pocket.]\n[s: She] [v: looks down] [pt: at the floor.]\n[pt: Near the wood table,] [s: she] [v: sees] [o: something.]\n[o: \"Leo,] [v: look] [pt: here!] [s: A footprint!\"]\n[s: Leo] [v: walks] [pt: to the table.]\n[s: He] [v: uses] [o: his light.]\n[s: It] [v: is] [o: a big, wet boot footprint.]"
+            },
+            {
+                "speaker": "toby",
+                "en": "Barnaby the dog runs to the shelf. He stops and looks at the floor. Toby runs to his dog. \"Good boy, Barnaby! What is it?\" Toby asks. Toby sits near Barnaby. He is happy. Leo looks near the feet of the dog. Under the shelf, there is a small piece of blue paper. Leo puts on white gloves. He takes the paper. There is a different number on the blue note: 7-4-2. \"This note is important evidence,\" Leo says. \"We must have it.\" Leo puts the blue note in his pocket.",
+                "ru": "Пёс Барнаби бежит к полке. Он останавливается и смотрит на пол. Тоби бежит к своей собаке. «Хороший мальчик, Барнаби! Что там?» — спрашивает Тоби. Тоби садится рядом с Барнаби. Он счастлив. Лео смотрит возле лап собаки. Под полкой лежит маленький обрывок синей бумаги. Лео надевает белые перчатки. Он берёт бумагу. На синей записке другой номер: 7-4-2. «Эта записка — важная улика», — говорит Лео. «Она должна быть у нас». Лео кладёт синюю записку в карман.",
+                "chunkedEn": "[s: Barnaby the dog] [v: runs] [pt: to the shelf.]\n[s: He] [v: stops and looks] [pt: at the floor.]\n[s: Toby] [v: runs] [pt: to his dog.]\n[o: \"Good boy, Barnaby!] [o: What] [v: is] [s: it?\"] [s: Toby] [v: asks.]\n[s: Toby] [v: sits] [pt: near Barnaby.]\n[s: He] [v: is] [pt: happy.]\n[s: Leo] [v: looks] [pt: near the feet of the dog.]\n[pt: Under the shelf,] [w: there] [v: is] [o: a small piece of blue paper.]\n[s: Leo] [v: puts on] [o: white gloves.]\n[s: He] [v: takes] [o: the paper.]\n[w: There] [v: is] [o: a different number] [pt: on the blue note: 7-4-2.]\n[s: \"This note] [v: is] [o: important evidence,\"] [s: Leo] [v: says.]\n[s: \"We] [v: must have] [o: it.\"]\n[s: Leo] [v: puts] [o: the blue note] [pt: in his pocket.]"
+            },
+            {
+                "speaker": "harris",
+                "en": "Suddenly, the front door opens. A policeman in a blue uniform and a dark raincoat comes in. It is Policeman Harris. He is a tall, strong man with a notebook. \"Good morning, Arthur. Good morning, detectives,\" Policeman Harris says with a nice smile. \"I am here to investigate the crime. I must write the police report. Did you find evidence?\" Leo shows the photographs, the wet footprint, and the blue note to Policeman Harris. Harris writes every detail in his big notebook. Policeman Harris takes his camera. He takes a photo of the footprint too.",
+                "ru": "Внезапно входная дверь открывается. Входит полицейский в синей форме и тёмном дождевике. Это полицейский Харрис. Он высокий, сильный мужчина с блокнотом. «Доброе утро, Артур. Доброе утро, детективы», — говорит полицейский Харрис с приятной улыбкой. «Я здесь, чтобы расследовать преступление. Я должен составить полицейский отчёт. Вы нашли улики?» Лео показывает полицейскому Харрису фотографии, мокрый след и синюю записку. Харрис записывает каждую деталь в свой большой блокнот. Полицейский Харрис достаёт камеру. Он также фотографирует след ноги.",
+                "chunkedEn": "[adv: Suddenly,] [s: the front door] [v: opens.]\n[s: A policeman in a blue uniform and a dark raincoat] [v: comes in.]\n[s: It] [v: is] [o: Policeman Harris.]\n[s: He] [v: is] [o: a tall, strong man] [pt: with a notebook.]\n[o: \"Good morning, Arthur. Good morning, detectives,\"] [s: Policeman Harris] [v: says] [pt: with a nice smile.]\n[s: \"I] [v: am] [pt: here to investigate the crime.]\n[s: I] [v: must write] [o: the police report.]\n[v: Did] [s: you] [v: find] [o: evidence?\"]\n[s: Leo] [v: shows] [o: the photographs, the wet footprint, and the blue note] [pt: to Policeman Harris.]\n[s: Harris] [v: writes] [o: every detail] [pt: in his big notebook.]\n[s: Policeman Harris] [v: takes] [o: his camera.]\n[s: He] [v: takes] [o: a photo of the footprint] [adv: too.]"
+            },
+            {
+                "speaker": "martha",
+                "en": "Then, a sweet smell of warm bread and cookies comes into the room. Grandma Martha, the owner of the bakery across the street, walks into the antique shop. She has a warm scarf, glasses, and a bag of hot bread. \"Hello, my dear neighbours!\" Grandma Martha says. Arthur takes a chair for Grandma Martha. She sits near the table.",
+                "ru": "Затем сладкий аромат тёплого хлеба и печенья проникает в комнату. Бабушка Марта, владелица пекарни через дорогу, заходит в антикварную лавку. У неё тёплый шарф, очки и сумка с горячим хлебом. «Здравствуйте, мои дорогие соседи!» — говорит бабушка Марта. Артур берёт стул для бабушки Марты. Она садится возле стола.",
+                "chunkedEn": "[adv: Then,] [s: a sweet smell of warm bread and cookies] [v: comes] [pt: into the room.]\n[s: Grandma Martha, the owner of the bakery across the street,] [v: walks] [pt: into the antique shop.]\n[s: She] [v: has] [o: a warm scarf, glasses, and a bag of hot bread.]\n[o: \"Hello, my dear neighbours!\"] [s: Grandma Martha] [v: says.]\n[s: Arthur] [v: takes] [o: a chair] [pt: for Grandma Martha.]\n[s: She] [v: sits] [pt: near the table.]"
+            },
+            {
+                "speaker": "mia",
+                "en": "\"I heard something at midnight!\" Grandma Martha says. \"I looked out of my bakery window. A tall person in a dark raincoat ran into the park!\" Mia writes Martha's words in her notebook. \"That is very helpful information, Martha,\" Mia says. \"Now we have a witness and a direction!\"",
+                "ru": "«Я кое-что слышала в полночь!» — говорит бабушка Марта. «Я выглянула из окна своей пекарни. Высокий человек в тёмном дождевике побежал в парк!» Миа записывает слова Марты в свой блокнот. «Это очень полезная информация, Марта», — говорит Миа. «Теперь у нас есть свидетель и направление!»",
+                "chunkedEn": "[s: \"I] [v: heard] [o: something] [pt: at midnight!\"] [s: Grandma Martha] [v: says.]\n[s: \"I] [v: looked out] [pt: of my bakery window.]\n[s: A tall person in a dark raincoat] [v: ran] [pt: into the park!\"]\n[s: Mia] [v: writes] [o: Martha's words] [pt: in her notebook.]\n[s: \"That] [v: is] [o: very helpful information, Martha,\"] [s: Mia] [v: says.]\n[adv: \"Now] [s: we] [v: have] [o: a witness and a direction!\"]"
+            },
+            {
+                "speaker": "leo",
+                "en": "Grandma Martha gives bread to Toby and Mia. She gives a small piece of bread to Barnaby. Barnaby eats the bread. He is happy. Everyone says thank you to Martha. Leo looks at the map on his phone. Now Leo has a plan.",
+                "ru": "Бабушка Марта даёт хлеб Тоби и Мие. Она даёт небольшой кусочек хлеба Барнаби. Барнаби ест хлеб. Он счастлив. Все говорят спасибо Марте. Лео смотрит на карту в телефоне. Теперь у Лео есть план.",
+                "chunkedEn": "[s: Grandma Martha] [v: gives] [o: bread] [pt: to Toby and Mia.]\n[s: She] [v: gives] [o: a small piece of bread] [pt: to Barnaby.]\n[s: Barnaby] [v: eats] [o: the bread.]\n[s: He] [v: is] [pt: happy.]\n[s: Everyone] [v: says] [o: thank you] [pt: to Martha.]\n[s: Leo] [v: looks] [pt: at the map] [pt: on his phone.]\n[adv: Now] [s: Leo] [v: has] [o: a plan.]"
+            }
+        ],
+        "quiz": {
+            "question": "What did Grandma Martha see at midnight?",
+            "options": [
+                "A tall person in a dark raincoat running into the park",
+                "A thief stealing a bicycle near the shop",
+                "A policeman writing a report in the bakery"
+            ],
+            "correctIndex": 0,
+            "rewardXp": 538
+        },
+        "backgroundImg": "images/backgrounds/bg_magic_library.jpg",
+        "locationEn": "Arthur's Antique Shop",
+        "locationRu": "Антикварная лавка Артура"
     }
 ];
 
 const HERO_ORIGINAL_PORTRAITS = {
-    valerius: 'images/characters_orig/valerius_orig.jpg',
-    astraea: 'images/characters_orig/astraea_orig.jpg',
-    zephyr: 'images/characters_orig/zephyr_orig.png',
-    ignis: 'images/characters_orig/ignis_orig.jpg',
-    frostina: 'images/characters_orig/frostina_orig.jpg',
-    thorin: 'images/characters_orig/thorin_orig.png',
-    selene: 'images/characters_orig/selene_orig.png',
-    oberon: 'images/characters_orig/oberon_orig.jpg',
-    freya: 'images/characters_orig/freya_orig.jpg',
-    eldrin: 'images/characters_orig/eldrin_orig.jpg'
+    "valerius": "images/characters_orig/valerius_orig.jpg",
+    "astraea": "images/characters_orig/astraea_orig.jpg",
+    "zephyr": "images/characters_orig/zephyr_orig.png",
+    "ignis": "images/characters_orig/ignis_orig.jpg",
+    "frostina": "images/characters_orig/frostina_orig.jpg",
+    "thorin": "images/characters_orig/thorin_orig.png",
+    "selene": "images/characters_orig/selene_orig.png",
+    "oberon": "images/characters_orig/oberon_orig.jpg",
+    "freya": "images/characters_orig/freya_orig.jpg",
+    "eldrin": "images/characters_orig/eldrin_orig.jpg",
+    "leo": "images/valerius_face.png",
+    "mia": "images/characters_orig/lyra_orig.jpg",
+    "arthur": "images/characters_orig/oberon_orig.jpg",
+    "toby": "images/characters_orig/zephyr_orig.png",
+    "martha": "images/characters_orig/freya_orig.jpg",
+    "harris": "images/characters_orig/thorin_orig.png"
 };
 
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { STORY_ACTS, STORY_CHAPTERS, HERO_ORIGINAL_PORTRAITS };
+    module.exports = { STORY_CAMPAIGNS, STORY_ACTS, STORY_CHAPTERS, HERO_ORIGINAL_PORTRAITS };
 }

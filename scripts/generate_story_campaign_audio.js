@@ -109,24 +109,45 @@ async function run() {
     console.log('==================================================');
 
     let allChapters = STORY_CHAPTERS.map(ch => {
-        const exp1 = STORY_ACT1_EXPANDED.find(e => e.number === ch.number);
-        if (exp1) return exp1;
-        const exp2 = STORY_ACT2_EXPANDED.find(e => e.number === ch.number);
-        if (exp2) return exp2;
+        if (!ch.campaignId || ch.campaignId === 'fantasy') {
+            const exp1 = STORY_ACT1_EXPANDED.find(e => e.number === ch.number && (!e.campaignId || e.campaignId === 'fantasy'));
+            if (exp1) return { ...exp1, campaignId: 'fantasy' };
+            const exp2 = STORY_ACT2_EXPANDED.find(e => e.number === ch.number && (!e.campaignId || e.campaignId === 'fantasy'));
+            if (exp2) return { ...exp2, campaignId: 'fantasy' };
+        }
         return ch;
     });
 
-    if (targetChapter) {
-        allChapters = allChapters.filter(c => c.number === targetChapter);
-    } else if (targetAct) {
-        allChapters = allChapters.filter(c => c.actId === targetAct);
+    let targetCampaign = null;
+    const campIdx = args.indexOf('--campaign');
+    if (campIdx !== -1 && args[campIdx + 1]) {
+        targetCampaign = args[campIdx + 1];
+    }
+    let targetId = null;
+    const idIdx = args.indexOf('--id');
+    if (idIdx !== -1 && args[idIdx + 1]) {
+        targetId = args[idIdx + 1];
+    }
+
+    if (targetId) {
+        allChapters = allChapters.filter(c => String(c.id) === String(targetId));
+    } else {
+        if (targetCampaign) {
+            allChapters = allChapters.filter(c => (c.campaignId || 'fantasy') === targetCampaign);
+        }
+        if (targetChapter) {
+            allChapters = allChapters.filter(c => c.number === targetChapter);
+        } else if (targetAct) {
+            allChapters = allChapters.filter(c => c.actId === targetAct);
+        }
     }
 
     let totalFiles = 0;
     let totalChars = 0;
 
     for (const ch of allChapters) {
-        const chDir = path.join(__dirname, '..', 'audio', 'story_campaign', `ch_${ch.number}`);
+        const dirName = ch.audioDir || (ch.campaignId === 'detective' ? (`det_ch_${ch.number}`) : (`ch_${ch.number}`));
+        const chDir = path.join(__dirname, '..', 'audio', 'story_campaign', dirName);
         if (!fs.existsSync(chDir)) {
             fs.mkdirSync(chDir, { recursive: true });
         }
