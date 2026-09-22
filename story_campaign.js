@@ -3939,6 +3939,86 @@ const STORY_CHAPTERS = [
         "locationEn": "Central Subway Station",
         "locationRu": "Центральная станция метро"
     }
+,
+    {
+        "id": "det-ch-10",
+        "campaignId": "detective",
+        "number": 10,
+        "actId": 102,
+        "titleEn": "The Botanical Garden Greenhouse",
+        "titleRu": "Оранжерея ботанического сада",
+        "rewardXp": 484,
+        "audioDir": "det_ch_10",
+        "involvedHeroes": [
+            "leo",
+            "emma",
+            "toby",
+            "harris"
+        ],
+        "paragraphs": [
+            {
+                "speaker": "leo",
+                "en": "The train stops at the station. Leo, Mia, Emma, Toby, and the dog Barnaby get off the train. They walk to the New Haven Botanical Garden. The sun is bright today. The sky is blue. The garden is big and beautiful. There are tall green trees and bright autumn flowers. There are wide stone paths too. In the center of the garden, there is a big glass greenhouse. They see many people in the garden. Some people take photos of the flowers. Mia smiles at Emma.",
+                "ru": "Поезд останавливается на станции. Лео, Миа, Эмма, Тоби и пёс Барнаби выходят из поезда. Они идут в Ботанический сад Нью-Хейвена. Сегодня ярко светит солнце. Небо голубое. Сад большой и красивый. Здесь высокие зелёные деревья и яркие осенние цветы. Здесь также широкие каменные дорожки. В центре сада стоит большая стеклянная оранжерея. Они видят много людей в саду. Некоторые люди фотографируют цветы. Миа улыбается Эмме.",
+                "chunkedEn": "[s: The train] [v: stops] [pt: at the station.]\n[s: Leo, Mia, Emma, Toby, and the dog Barnaby] [v: get off] [o: the train.]\n[s: They] [v: walk] [pt: to the New Haven Botanical Garden.]\n[s: The sun] [v: is] [pt: bright today.]\n[s: The sky] [v: is] [pt: blue.]\n[s: The garden] [v: is] [pt: big and beautiful.]\n[w: There] [v: are] [o: tall green trees and bright autumn flowers.]\n[w: There] [v: are] [o: wide stone paths] [adv: too.]\n[pt: In the center of the garden,] [w: there] [v: is] [o: a big glass greenhouse.]\n[s: They] [v: see] [o: many people] [pt: in the garden.]\n[s: Some people] [v: take] [o: photos of the flowers.]\n[s: Mia] [v: smiles] [pt: at Emma.]"
+            },
+            {
+                "speaker": "leo",
+                "en": "The team walks next to the Green Leaf Cafe. A nice waiter is cleaning a table. Toby stops his bike near the cafe. Leo shows the photo of Dr. Scott to the waiter. \"Did you see this man today?\" Leo asks. The waiter says, \"Yes! He drank coffee here. It was fifteen minutes ago. Then he walked fast into the big Tropical Greenhouse. He had a silver bag!\" The waiter gives Leo a glass of water. Leo says, \"Thank you.\"",
+                "ru": "Команда проходит рядом с кафе «Зелёный лист». Приветливый официант вытирает стол. Тоби останавливает велосипед возле кафе. Лео показывает фотографию доктора Скотта официанту. «Вы видели этого человека сегодня?» — спрашивает Лео. Официант отвечает: «Да! Он пил здесь кофе. Это было пятнадцать минут назад. Затем он быстро пошёл в большую Тропическую оранжерею. У него была серебристая сумка!» Официант даёт Лео стакан воды. Лео говорит: «Спасибо».",
+                "chunkedEn": "[s: The team] [v: walks] [pt: next to the Green Leaf Cafe.]\n[s: A nice waiter] [v: is cleaning] [o: a table.]\n[s: Toby] [v: stops] [o: his bike] [pt: near the cafe.]\n[s: Leo] [v: shows] [o: the photo of Dr. Scott] [pt: to the waiter.]\n[v: \"Did] [s: you] [v: see] [o: this man] [adv: today?\"] [s: Leo] [v: asks.]\n[s: The waiter] [v: says,] [o: \"Yes!]\n[s: He] [v: drank] [o: coffee] [adv: here.]\n[s: It] [v: was] [pt: fifteen minutes ago.]\n[adv: Then] [s: he] [v: walked] [adv: fast] [pt: into the big Tropical Greenhouse.]\n[s: He] [v: had] [o: a silver bag!\"]\n[s: The waiter] [v: gives] [o: Leo] [o: a glass of water.]\n[s: Leo] [v: says,] [o: \"Thank you.\"]"
+            },
+            {
+                "speaker": "emma",
+                "en": "They walk fast across the stone bridge to the Tropical Greenhouse. Emma opens the big glass door. The air inside is warm. Inside, it looks like a wild forest. There are tall trees, green plants, and purple flowers everywhere. A small stream makes water sounds near the green bushes.",
+                "ru": "Они быстро идут по каменному мостику к Тропической оранжерее. Эмма открывает большую стеклянную дверь. Воздух внутри тёплый. Внутри всё похоже на дикий лес. Повсюду высокие деревья, зелёные растения и фиолетовые цветы. Маленький ручей журчит водой возле зелёных кустов.",
+                "chunkedEn": "[s: They] [v: walk] [adv: fast] [pt: across the stone bridge to the Tropical Greenhouse.]\n[s: Emma] [v: opens] [o: the big glass door.]\n[s: The air inside] [v: is] [pt: warm.]\n[pt: Inside,] [s: it] [v: looks] [pt: like a wild forest.]\n[w: There] [v: are] [o: tall trees, green plants, and purple flowers] [adv: everywhere.]\n[s: A small stream] [v: makes] [o: water sounds] [pt: near the green bushes.]"
+            },
+            {
+                "speaker": "toby",
+                "en": "Barnaby smells the warm air. He walks on a narrow wood path. Toby rides his bike slowly next to Leo. \"Be quiet,\" Leo says quietly. He touches his jacket. \"The suspect does not know we are here.\" Mia takes her smartphone. She wants to take photos. The photos are evidence.",
+                "ru": "Барнаби нюхает тёплый воздух. Он идёт по узкой деревянной дорожке. Тоби медленно едет на велосипеде рядом с Лео. «Тише», — тихо говорит Лео. Он поправляет куртку. «Подозреваемый не знает, что мы здесь». Миа достаёт свой смартфон. Она хочет сделать фотографии. Фотографии — это улики.",
+                "chunkedEn": "[s: Barnaby] [v: smells] [o: the warm air.]\n[s: He] [v: walks] [pt: on a narrow wood path.]\n[s: Toby] [v: rides] [o: his bike] [adv: slowly] [pt: next to Leo.]\n[v: \"Be] [pt: quiet,\"] [s: Leo] [v: says] [adv: quietly.]\n[s: He] [v: touches] [o: his jacket.]\n[s: \"The suspect] [v: does not know] [pt: we are here.\"]\n[s: Mia] [v: takes] [o: her smartphone.]\n[s: She] [v: wants to take] [o: photos.]\n[s: The photos] [v: are] [o: evidence.]"
+            },
+            {
+                "speaker": "emma",
+                "en": "Deep inside the greenhouse, near the blue water, they see a man. He wears a dark brown coat. He is under a big banana tree. On his knees, there is a silver laptop! The laptop is glowing. The man uses the laptop very fast. \"That is Dr. Scott!\" Emma says. She is afraid. \"He wants my father's documents!\"",
+                "ru": "В самой глубине оранжереи, возле голубой воды, они видят мужчину. На нём тёмно-коричневое пальто. Он сидит под большим банановым деревом. На его коленях — серебристый ноутбук! Ноутбук светится. Мужчина очень быстро печатает на ноутбуке. «Это доктор Скотт!» — говорит Эмма. Она боится. «Ему нужны документы моего отца!»",
+                "chunkedEn": "[pt: Deep inside the greenhouse, near the blue water,] [s: they] [v: see] [o: a man.]\n[s: He] [v: wears] [o: a dark brown coat.]\n[s: He] [v: is] [pt: under a big banana tree.]\n[pt: On his knees,] [w: there] [v: is] [o: a silver laptop!]\n[s: The laptop] [v: is] [pt: glowing.]\n[s: The man] [v: uses] [o: the laptop] [adv: very fast.]\n[s: \"That] [v: is] [o: Dr. Scott!\"] [s: Emma] [v: says.]\n[s: She] [v: is] [pt: afraid.]\n[s: \"He] [v: wants] [o: my father's documents!\"]"
+            },
+            {
+                "speaker": "harris",
+                "en": "Leo and Mia walk to Dr. Scott. Officer Harris comes too, through a side door. \"Dr. Scott! Stop!\" Leo says in a strong voice. Dr. Scott is afraid. His eyes are big. \"You found me! But you cannot take these documents!\" Dr. Scott says.",
+                "ru": "Лео и Миа идут к доктору Скотту. Офицер Харрис тоже заходит через боковую дверь. «Доктор Скотт! Стойте!» — говорит Лео громким голосом. Доктор Скотт испуган. Его глаза широко раскрыты. «Вы нашли меня! Но вы не можете забрать эти документы!» — говорит доктор Скотт.",
+                "chunkedEn": "[s: Leo and Mia] [v: walk] [pt: to Dr. Scott.]\n[s: Officer Harris] [v: comes] [adv: too,] [pt: through a side door.]\n[o: \"Dr. Scott! Stop!\"] [s: Leo] [v: says] [pt: in a strong voice.]\n[s: Dr. Scott] [v: is] [pt: afraid.]\n[s: His eyes] [v: are] [pt: big.]\n[o: \"You found me! But you cannot take these documents!\"] [s: Dr. Scott] [v: says.]"
+            },
+            {
+                "speaker": "harris",
+                "en": "Dr. Scott closes the laptop fast. He takes his heavy bag. He runs fast on the wood bridge. He goes to the back door of the greenhouse. \"Stop!\" Officer Harris says. Barnaby runs fast after Dr. Scott too!",
+                "ru": "Доктор Скотт быстро закрывает ноутбук. Он берёт свою тяжёлую сумку. Он быстро бежит по деревянному мостику. Он направляется к задней двери оранжереи. «Стоять!» — кричит офицер Харрис. Барнаби тоже быстро бежит за доктором Скоттом!",
+                "chunkedEn": "[s: Dr. Scott] [v: closes] [o: the laptop] [adv: fast.]\n[s: He] [v: takes] [o: his heavy bag.]\n[s: He] [v: runs] [adv: fast] [pt: on the wood bridge.]\n[s: He] [v: goes] [pt: to the back door of the greenhouse.]\n[o: \"Stop!\"] [s: Officer Harris] [v: says.]\n[s: Barnaby] [v: runs] [adv: fast] [pt: after Dr. Scott] [adv: too!]"
+            },
+            {
+                "speaker": "leo",
+                "en": "\"After him! He cannot go to the Old Tower!\" Leo says. He runs across the bridge with Toby and Mia. They run fast. Barnaby runs faster. Leo looks at Mia. Mia looks at Toby. They do not stop. Emma stays with Officer Harris near the water. Officer Harris says, \"We must find him now.\" Emma nods and looks at the path. The team runs across the garden, past the tall trees and the bright flowers, to the Old Tower.",
+                "ru": "«За ним! Он не должен добраться до Старой башни!» — говорит Лео. Он бежит по мостику вместе с Тоби и Мией. Они бегут быстро. Барнаби бежит ещё быстрее. Лео смотрит на Мию. Миа смотрит на Тоби. Они не останавливаются. Эмма остаётся с офицером Харрисом возле воды. Офицер Харрис говорит: «Мы должны найти его прямо сейчас». Эмма кивает и смотрит на дорожку. Команда бежит через сад, мимо высоких деревьев и ярких цветов, к Старой башне.",
+                "chunkedEn": "[o: \"After him! He cannot go to the Old Tower!\"] [s: Leo] [v: says.]\n[s: He] [v: runs] [pt: across the bridge with Toby and Mia.]\n[s: They] [v: run] [adv: fast.]\n[s: Barnaby] [v: runs] [adv: faster.]\n[s: Leo] [v: looks] [pt: at Mia.]\n[s: Mia] [v: looks] [pt: at Toby.]\n[s: They] [v: do not stop.]\n[s: Emma] [v: stays] [pt: with Officer Harris near the water.]\n[s: Officer Harris] [v: says,] [o: \"We must find him now.\"]\n[s: Emma] [v: nods] [c: and] [v: looks] [pt: at the path.]\n[s: The team] [v: runs] [pt: across the garden, past the tall trees and the bright flowers, to the Old Tower.]"
+            }
+        ],
+        "quiz": {
+            "question": "Where did Dr. Scott run after closing the stolen laptop?",
+            "options": [
+                "Across the wooden bridge towards the Old Tower",
+                "Into the subway station to take the train",
+                "To Grandma Martha's bakery to buy cookies"
+            ],
+            "correctIndex": 0,
+            "rewardXp": 484
+        },
+        "backgroundImg": "images/backgrounds/bg_magic_library.jpg",
+        "locationEn": "Botanical Garden Greenhouse",
+        "locationRu": "Оранжерея Ботанического сада"
+    }
 ];
 
 const HERO_ORIGINAL_PORTRAITS = {
