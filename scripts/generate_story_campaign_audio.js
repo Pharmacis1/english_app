@@ -57,7 +57,8 @@ const HERO_VOICES = {
     toby:     { voice: 'en-US-Neural2-A', pitch: '+3.5st', rate: '0.96' },
     martha:   { voice: 'en-US-Neural2-C', pitch: '+1.0st', rate: '0.90' },
     harris:   { voice: 'en-US-Neural2-I', pitch: '-2.0st', rate: '0.92' },
-    sam:      { voice: 'en-US-Neural2-J', pitch: '+0.5st', rate: '0.94' }
+    sam:      { voice: 'en-US-Neural2-J', pitch: '+0.5st', rate: '0.94' },
+    gordon:   { voice: 'en-US-Neural2-D', pitch: '-3.0st', rate: '0.88' }
 };
 
 function formatSSML(text, speaker) {

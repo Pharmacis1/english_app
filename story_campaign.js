@@ -3458,6 +3458,85 @@ const STORY_CHAPTERS = [
         "backgroundImg": "images/backgrounds/bg_forest.jpg",
         "locationEn": "Elm Street Park",
         "locationRu": "Парк на Элм-стрит"
+    },
+    {
+        "id": "det-ch-4",
+        "campaignId": "detective",
+        "number": 4,
+        "actId": 101,
+        "titleEn": "The Old Harbor Warehouse",
+        "titleRu": "Старый склад в гавани",
+        "rewardXp": 549,
+        "audioDir": "det_ch_4",
+        "involvedHeroes": [
+            "leo",
+            "mia",
+            "toby",
+            "gordon"
+        ],
+        "paragraphs": [
+            {
+                "speaker": "leo",
+                "en": "Leo, Mia, Toby, and the dog Barnaby go towards New Haven Harbor. The sky is grey. The wind is cold. It comes from the sea. Soon they see the water, big white ships, and tall towers. Big grey buildings stand near the water. Toby rides his red bicycle next to Leo. Barnaby smells the fresh sea air. Toby stops his bicycle near the building. He looks at the tall ships on the water. Mia carries a small notebook and a pen.",
+                "ru": "Лео, Миа, Тоби и пёс Барнаби направляются к гавани Нью-Хейвена. Небо серое. Ветер холодный. Он дует с моря. Вскоре они видят воду, большие белые корабли и высокие башни. Большие серые здания стоят у воды. Тоби едет на своём красном велосипеде рядом с Лео. Барнаби вдыхает свежий морской воздух. Тоби останавливает велосипед возле здания. Он смотрит на высокие корабли на воде. Миа несёт маленький блокнот и ручку.",
+                "chunkedEn": "[s: Leo, Mia, Toby, and the dog Barnaby] [v: go] [pt: towards New Haven Harbor.]\n[s: The sky] [v: is] [pt: grey.]\n[s: The wind] [v: is] [pt: cold.]\n[s: It] [v: comes] [pt: from the sea.]\n[adv: Soon] [s: they] [v: see] [o: the water, big white ships, and tall towers.]\n[s: Big grey buildings] [v: stand] [pt: near the water.]\n[s: Toby] [v: rides] [o: his red bicycle] [pt: next to Leo.]\n[s: Barnaby] [v: smells] [o: the fresh sea air.]\n[s: Toby] [v: stops] [o: his bicycle] [pt: near the building.]\n[s: He] [v: looks] [pt: at the tall ships on the water.]\n[s: Mia] [v: carries] [o: a small notebook and a pen.]"
+            },
+            {
+                "speaker": "mia",
+                "en": "\"Here is Building Number Ten,\" Mia says. They stand in front of a big grey building near the harbor. There is a heavy metal door with a small lock. Mia takes the blue keycard from her pocket. She touches the keycard to the door. The green light is on, and the door opens. Leo has the flashlight in his hand. The team walks into the building slowly.",
+                "ru": "«Вот здание номер десять», — говорит Миа. Они стоят перед большим серым зданием возле гавани. Здесь тяжёлая металлическая дверь с маленьким замком. Миа достаёт синюю ключ-карту из кармана. Она прикладывает ключ-карту к двери. Загорается зелёный свет, и дверь открывается. У Лео в руке фонарик. Команда медленно входит в здание.",
+                "chunkedEn": "[o: \"Here is Building Number Ten,\"] [s: Mia] [v: says.]\n[s: They] [v: stand] [pt: in front of a big grey building near the harbor.]\n[w: There] [v: is] [o: a heavy metal door] [pt: with a small lock.]\n[s: Mia] [v: takes] [o: the blue keycard] [pt: from her pocket.]\n[s: She] [v: touches] [o: the keycard] [pt: to the door.]\n[s: The green light] [v: is] [pt: on,] [c: and] [s: the door] [v: opens.]\n[s: Leo] [v: has] [o: the flashlight] [pt: in his hand.]\n[s: The team] [v: walks] [pt: into the building slowly.]"
+            },
+            {
+                "speaker": "toby",
+                "en": "\"Be quiet, everyone,\" Leo says quietly. Leo takes his bright flashlight. They walk into the building. The air inside is cold. It smells of wood, salt, and old metal. Tall boxes of wood stand in groups. The boxes are big and heavy. The boxes are old and new. Barnaby walks slowly next to Leo. He is quiet. Toby helps Leo. He looks at the boxes.",
+                "ru": "«Тише, все», — тихо говорит Лео. Лео берёт свой яркий фонарик. Они входят в здание. Воздух внутри холодный. Он пахнет деревом, солью и старым металлом. Высокие деревянные ящики стоят группами. Ящики большие и тяжёлые. Ящики старые и новые. Барнаби медленно идёт рядом с Лео. Он ведёт себя тихо. Тоби помогает Лео. Он осматривает ящики.",
+                "chunkedEn": "[o: \"Be quiet, everyone,\"] [s: Leo] [v: says] [adv: quietly.]\n[s: Leo] [v: takes] [o: his bright flashlight.]\n[s: They] [v: walk] [pt: into the building.]\n[s: The air inside] [v: is] [pt: cold.]\n[s: It] [v: smells] [pt: of wood, salt, and old metal.]\n[s: Tall boxes of wood] [v: stand] [pt: in groups.]\n[s: The boxes] [v: are] [pt: big and heavy.]\n[s: The boxes] [v: are] [pt: old and new.]\n[s: Barnaby] [v: walks slowly] [pt: next to Leo.]\n[s: He] [v: is] [pt: quiet.]\n[s: Toby] [v: helps] [o: Leo.]\n[s: He] [v: looks] [pt: at the boxes.]"
+            },
+            {
+                "speaker": "mia",
+                "en": "Mia looks at the ground with her phone light. \"Leo, look at these marks!\" Mia says quietly. On the floor, there are marks from a motorcycle. The marks go into the dark building. The team follows the marks past the tall boxes of wood. Mia writes the marks in her notebook. She takes a photograph of the marks with her phone.",
+                "ru": "Миа смотрит на землю, освещая её телефоном. «Лео, посмотри на эти следы!» — тихо говорит Миа. На полу видны следы от мотоцикла. Следы ведут в глубь тёмного здания. Команда идёт по следам мимо высоких деревянных ящиков. Миа записывает информацию о следах в блокнот. Она делает фотографию следов на свой телефон.",
+                "chunkedEn": "[s: Mia] [v: looks] [pt: at the ground with her phone light.]\n[o: \"Leo, look at these marks!\"] [s: Mia] [v: says] [adv: quietly.]\n[pt: On the floor,] [w: there] [v: are] [o: marks from a motorcycle.]\n[s: The marks] [v: go] [pt: into the dark building.]\n[s: The team] [v: follows] [o: the marks] [pt: past the tall boxes of wood.]\n[s: Mia] [v: writes] [o: the marks] [pt: in her notebook.]\n[s: She] [v: takes] [o: a photograph of the marks] [pt: with her phone.]"
+            },
+            {
+                "speaker": "leo",
+                "en": "In the corner of the room, behind three big boxes, Barnaby stops. Leo uses his flashlight in the dark corner. A black motorcycle is there! Next to the motorcycle, on a small table, there is a dark raincoat and a cup of cold coffee. \"The thief was here a short time ago,\" Leo says. Toby looks at the raincoat. Mia looks at the cup of coffee. The coffee is cold now.",
+                "ru": "В углу комнаты, за тремя большими ящиками, Барнаби останавливается. Лео светит фонариком в тёмный угол. Там стоит чёрный мотоцикл! Рядом с мотоциклом, на маленьком столике, лежит тёмный плащ и стоит чашка холодного кофе. «Вор был здесь совсем недавно», — говорит Лео. Тоби смотрит на плащ. Миа смотрит на чашку кофе. Кофе сейчас холодный.",
+                "chunkedEn": "[pt: In the corner of the room, behind three big boxes,] [s: Barnaby] [v: stops.]\n[s: Leo] [v: uses] [o: his flashlight] [pt: in the dark corner.]\n[s: A black motorcycle] [v: is] [pt: there!]\n[pt: Next to the motorcycle, on a small table,] [w: there] [v: is] [o: a dark raincoat and a cup of cold coffee.]\n[s: \"The thief] [v: was] [pt: here a short time ago,\"] [s: Leo] [v: says.]\n[s: Toby] [v: looks] [pt: at the raincoat.]\n[s: Mia] [v: looks] [pt: at the cup of coffee.]\n[s: The coffee] [v: is] [pt: cold now.]"
+            },
+            {
+                "speaker": "mia",
+                "en": "Mia has white gloves on her hands. She looks at the small table. Under the cup, there is a small note. It is a ticket for the two o'clock train to Oakridge City! \"The thief wants to leave New Haven on the train,\" Mia explains happily. \"He has the music box with him!\" Mia takes a photograph of the note and the ticket. Leo also looks at the ticket.",
+                "ru": "У Мии на руках белые перчатки. Она осматривает маленький столик. Под чашкой лежит небольшая записка. Это билет на двухчасовой поезд в Окридж-Сити! «Вор хочет уехать из Нью-Хейвена на поезде», — радостно объясняет Миа. «Музыкальная шкатулка с ним!» Миа фотографирует записку и билет. Лео тоже смотрит на билет.",
+                "chunkedEn": "[s: Mia] [v: has] [o: white gloves] [pt: on her hands.]\n[s: She] [v: looks] [pt: at the small table.]\n[pt: Under the cup,] [w: there] [v: is] [o: a small note.]\n[s: It] [v: is] [o: a ticket for the two o'clock train to Oakridge City!]\n[s: \"The thief] [v: wants to leave] [o: New Haven] [pt: on the train,\"] [s: Mia] [v: explains] [adv: happily.]\n[s: \"He] [v: has] [o: the music box] [pt: with him!\"]\n[s: Mia] [v: takes] [o: a photograph of the note and the ticket.]\n[s: Leo] [adv: also] [v: looks] [pt: at the ticket.]"
+            },
+            {
+                "speaker": "gordon",
+                "en": "Someone comes into the building. An old man with a grey cap and a warm coat walks in. It is Captain Gordon, a worker at the harbor. Captain Gordon is a tall man. He is nice. \"Who is here?\" Captain Gordon says in a big voice. Leo shows his detective card. Leo explains everything.",
+                "ru": "Кто-то входит в здание. Заходит пожилой мужчина в серой кепке и тёплом пальто. Это капитан Гордон, рабочий в гавани. Капитан Гордон — высокий мужчина. Он доброжелательный. «Кто здесь?» — громким голосом спрашивает капитан Гордон. Лео показывает своё удостоверение детектива. Лео всё объясняет.",
+                "chunkedEn": "[s: Someone] [v: comes] [pt: into the building.]\n[s: An old man with a grey cap and a warm coat] [v: walks in.]\n[s: It] [v: is] [o: Captain Gordon, a worker at the harbor.]\n[s: Captain Gordon] [v: is] [o: a tall man.]\n[s: He] [v: is] [pt: nice.]\n[o: \"Who is here?\"] [s: Captain Gordon] [v: says] [pt: in a big voice.]\n[s: Leo] [v: shows] [o: his detective card.]\n[s: Leo] [v: explains] [o: everything.]"
+            },
+            {
+                "speaker": "leo",
+                "en": "Captain Gordon looks at Leo. \"Ah, detectives! Ten minutes ago, a young man with a black backpack took a taxi from the harbor. He said: 'To Central Train Station, please!' You can find him at the station!\" Leo listens. Mia writes the information in her notebook. \"Thank you, Captain Gordon!\" Leo says. Leo looks at his watch. \"It is half past one. We have a little time. To Central Train Station!\" The team is ready. They walk fast to the taxi.",
+                "ru": "Капитан Гордон смотрит на Лео. «А, детективы! Десять минут назад молодой человек с чёрным рюкзаком взял такси от гавани. Он сказал: \"На Центральный вокзал, пожалуйста!\" Вы можете найти его на вокзале!» Лео слушает. Миа записывает информацию в свой блокнот. «Спасибо, капитан Гордон!» — говорит Лео. Лео смотрит на часы. «Сейчас половина второго. У нас немного времени. На Центральный вокзал!» Команда готова. Они быстро идут к такси.",
+                "chunkedEn": "[s: Captain Gordon] [v: looks] [pt: at Leo.]\n[o: \"Ah, detectives! Ten minutes ago, a young man with a black backpack] [v: took] [o: a taxi] [pt: from the harbor.]\n[s: He] [v: said]: [o: 'To Central Train Station, please!']\n[s: You] [v: can find] [o: him] [pt: at the station!\"]\n[s: Leo] [v: listens.]\n[s: Mia] [v: writes] [o: the information] [pt: in her notebook.]\n[o: \"Thank you, Captain Gordon!\"] [s: Leo] [v: says.]\n[s: Leo] [v: looks] [pt: at his watch.]\n[s: \"It] [v: is] [pt: half past one.]\n[s: We] [v: have] [o: a little time.]\n[pt: To Central Train Station!\"]\n[s: The team] [v: is] [pt: ready.]\n[s: They] [v: walk fast] [pt: to the taxi.]"
+            }
+        ],
+        "quiz": {
+            "question": "Where is the thief going with the stolen music box?",
+            "options": [
+                "To the Central Train Station to take the two o'clock train",
+                "To the bakery to buy bread from Grandma Martha",
+                "To the antique shop to return the key"
+            ],
+            "correctIndex": 0,
+            "rewardXp": 549
+        },
+        "backgroundImg": "images/backgrounds/bg_magic_library.jpg",
+        "locationEn": "New Haven Harbor Warehouse",
+        "locationRu": "Склад в гавани Нью-Хейвена"
     }
 ];
 
@@ -3478,7 +3557,8 @@ const HERO_ORIGINAL_PORTRAITS = {
     "toby": "images/characters_orig/zephyr_orig.png",
     "martha": "images/characters_orig/freya_orig.jpg",
     "harris": "images/characters_orig/thorin_orig.png",
-    "sam": "images/characters_orig/eldrin_orig.jpg"
+    "sam": "images/characters_orig/eldrin_orig.jpg",
+    "gordon": "images/characters_orig/valerius_orig.jpg"
 };
 
 if (typeof module !== 'undefined' && module.exports) {

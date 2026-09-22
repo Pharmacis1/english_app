@@ -6863,7 +6863,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 toby: { name: "Toby", icon: "fa-child-reaching", color: "#4ade80" },
                 martha: { name: "Martha", icon: "fa-cookie-bite", color: "#fb923c" },
                 harris: { name: "Harris", icon: "fa-shield-halved", color: "#60a5fa" },
-                sam: { name: "Sam", icon: "fa-mug-hot", color: "#a78bfa" }
+                sam: { name: "Sam", icon: "fa-mug-hot", color: "#a78bfa" },
+                gordon: { name: "Captain Gordon", icon: "fa-anchor", color: "#38bdf8" }
             };
 
             chaptersContainer.innerHTML = currentActChapters.map(ch => {
@@ -7046,7 +7047,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 toby: { name: "Toby", avatar: "fa-child-reaching", color: "#4ade80", faceImage: "images/characters_orig/zephyr_orig.png" },
                 martha: { name: "Martha", avatar: "fa-cookie-bite", color: "#fb923c", faceImage: "images/characters_orig/freya_orig.jpg" },
                 harris: { name: "Harris", avatar: "fa-shield-halved", color: "#60a5fa", faceImage: "images/characters_orig/thorin_orig.png" },
-                sam: { name: "Sam", avatar: "fa-mug-hot", color: "#a78bfa", faceImage: "images/characters_orig/eldrin_orig.jpg" }
+                sam: { name: "Sam", avatar: "fa-mug-hot", color: "#a78bfa", faceImage: "images/characters_orig/eldrin_orig.jpg" },
+                gordon: { name: "Captain Gordon", avatar: "fa-anchor", color: "#38bdf8", faceImage: "images/characters_orig/valerius_orig.jpg" }
             };
 
             heroesStrip.innerHTML = chapter.involvedHeroes.map(heroId => {
@@ -7079,7 +7081,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 toby: { name: "Toby", avatar: "fa-child-reaching", color: "#4ade80", faceImage: "images/characters_orig/zephyr_orig.png" },
                 martha: { name: "Martha", avatar: "fa-cookie-bite", color: "#fb923c", faceImage: "images/characters_orig/freya_orig.jpg" },
                 harris: { name: "Harris", avatar: "fa-shield-halved", color: "#60a5fa", faceImage: "images/characters_orig/thorin_orig.png" },
-                sam: { name: "Sam", avatar: "fa-mug-hot", color: "#a78bfa", faceImage: "images/characters_orig/eldrin_orig.jpg" }
+                sam: { name: "Sam", avatar: "fa-mug-hot", color: "#a78bfa", faceImage: "images/characters_orig/eldrin_orig.jpg" },
+                gordon: { name: "Captain Gordon", avatar: "fa-anchor", color: "#38bdf8", faceImage: "images/characters_orig/valerius_orig.jpg" }
             };
 
             const charactersStageHtml = (chapter.involvedHeroes || []).map(heroId => {
