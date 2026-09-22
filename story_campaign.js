@@ -4100,6 +4100,88 @@ const STORY_CHAPTERS = [
         "locationEn": "The Old Research Tower",
         "locationRu": "Старая исследовательская башня"
     }
+,
+    {
+        "id": "det-ch-12",
+        "campaignId": "detective",
+        "number": 12,
+        "actId": 102,
+        "titleEn": "The Encrypted Password Solved",
+        "titleRu": "Пароль расшифрован",
+        "rewardXp": 471,
+        "audioDir": "det_ch_12",
+        "involvedHeroes": [
+            "leo",
+            "arthur",
+            "edward",
+            "mia",
+            "toby",
+            "martha"
+        ],
+        "paragraphs": [
+            {
+                "speaker": "leo",
+                "en": "One hour later, the Team walks back to Detective Leo's cozy room on Elm Street. Outside, the Sky is blue and the Sun is warm. Barnaby runs first. He is happy to be home. The clock on the wall says three o'clock. Grandfather Arthur and Grandma Martha are already there. They welcome the Team with big smiles. The room has a sweet smell of hot Tea and warm Cake.",
+                "ru": "Час спустя Команда возвращается в уютный кабинет Детектива Лео на Элм-стрит. На улице Небо голубое и Солнце тёплое. Барнаби бежит первым. Он счастлив вернуться домой. Часы на стене показывают три часа. Дедушка Артур и Бабушка Марта уже там. Они встречают Команду широкими улыбками. В комнате приятно пахнет горячим Чаем и тёплым Пирогом.",
+                "chunkedEn": "[pt: One hour later,] [s: the Team] [v: walks back] [pt: to Detective Leo's cozy room on Elm Street.]\n[pt: Outside,] [s: the Sky] [v: is] [pt: blue] [c: and] [s: the Sun] [v: is] [pt: warm.]\n[s: Barnaby] [v: runs] [adv: first.]\n[s: He] [v: is] [pt: happy to be home.]\n[s: The clock on the wall] [v: says] [o: three o'clock.]\n[s: Grandfather Arthur and Grandma Martha] [v: are] [adv: already] [pt: there.]\n[s: They] [v: welcome] [o: the Team] [pt: with big smiles.]\n[s: The room] [v: has] [o: a sweet smell of hot Tea and warm Cake.]"
+            },
+            {
+                "speaker": "arthur",
+                "en": "Grandfather Arthur smiles at Doctor Edward. He takes Edward's Hand. \"Welcome back, Edward! We were so afraid for you,\" Arthur says. \"Please, come and rest,\" Grandma Martha says.",
+                "ru": "Дедушка Артур улыбается Доктору Эдварду. Он берёт Эдварда за Руку. «С возвращением, Эдвард! Мы так боялись за тебя», — говорит Артур. «Пожалуйста, проходи и отдохни», — говорит Бабушка Марта.",
+                "chunkedEn": "[s: Grandfather Arthur] [v: smiles] [pt: at Doctor Edward.]\n[s: He] [v: takes] [o: Edward's Hand.]\n[o: \"Welcome back, Edward! We were so afraid for you,\"] [s: Arthur] [v: says.]\n[o: \"Please, come and rest,\"] [s: Grandma Martha] [v: says.]"
+            },
+            {
+                "speaker": "edward",
+                "en": "Everyone stands around the big Wood table. Doctor Edward opens his bag. He takes out his shiny silver Laptop. Now the Laptop is on the table. He opens it, but there is a red Lock. \"Doctor Scott made a new Lock on the Laptop!\" Edward says. He is afraid. \"The Laptop wants the correct Word. The Word is about green Energy!\"",
+                "ru": "Все стоят вокруг большого Деревянного стола. Доктор Эдвард открывает сумку. Он достаёт свой блестящий серебристый Ноутбук. Теперь Ноутбук лежит на столе. Он открывает его, но там красный Замок. «Доктор Скотт поставил новый Замок на Ноутбук!» — говорит Эдвард. Он напуган. «Ноутбук требует правильное Слово. Это Слово о зелёной Энергии!»",
+                "chunkedEn": "[s: Everyone] [v: stands] [pt: around the big Wood table.]\n[s: Doctor Edward] [v: opens] [o: his bag.]\n[s: He] [v: takes out] [o: his shiny silver Laptop.]\n[adv: Now] [s: the Laptop] [v: is] [pt: on the table.]\n[s: He] [v: opens] [o: it,] [c: but] [w: there] [v: is] [o: a red Lock.]\n[s: \"Doctor Scott] [v: made] [o: a new Lock] [pt: on the Laptop!\"] [s: Edward] [v: says.]\n[s: He] [v: is] [pt: afraid.]\n[s: \"The Laptop] [v: wants] [o: the correct Word.]\n[s: The Word] [v: is] [pt: about green Energy!\"]"
+            },
+            {
+                "speaker": "mia",
+                "en": "Leo takes out a small blue Key. He found it inside a Book. He also takes Emma's green Card. The Card has the Number 409. Mia takes the Key and her Computer. She stands near Edward and looks at the Computer. \"Look at these Notes,\" Mia says. \"There is a Question: What gives clean Air and green Life to the city?\"",
+                "ru": "Лео достаёт маленький синий Ключ. Он нашёл его внутри Книги. Он также берёт зелёную Карту Эммы. На Карте Номер 409. Миа берёт Ключ и свой Компьютер. Она встаёт рядом с Эдвардом и смотрит в Компьютер. «Посмотрите на эти Записи», — говорит Миа. «Здесь Вопрос: Что даёт чистый Воздух и зелёную Жизнь городу?»",
+                "chunkedEn": "[s: Leo] [v: takes out] [o: a small blue Key.]\n[s: He] [v: found] [o: it] [pt: inside a Book.]\n[s: He] [adv: also] [v: takes] [o: Emma's green Card.]\n[s: The Card] [v: has] [o: the Number 409.]\n[s: Mia] [v: takes] [o: the Key and her Computer.]\n[s: She] [v: stands] [pt: near Edward] [c: and] [v: looks] [pt: at the Computer.]\n[v: \"Look] [pt: at these Notes,\"] [s: Mia] [v: says.]\n[w: \"There] [v: is] [o: a Question: What gives clean Air and green Life to the city?\"]"
+            },
+            {
+                "speaker": "toby",
+                "en": "Young Toby looks at the green Card. Then he looks at the Question. He thinks for a moment. \"Uncle Leo, I know the Answer!\" Toby says with a bright smile. \"The Answer is Leaf! Leaf is green. Leaf gives clean Air!\" Barnaby jumps happily. He agrees with Toby.",
+                "ru": "Юный Тоби смотрит на зелёную Карту. Затем он смотрит на Вопрос. Он думает мгновение. «Дядя Лео, я знаю Ответ!» — говорит Тоби с яркой улыбкой. «Ответ — Лист! Лист зелёный. Лист даёт чистый Воздух!» Барнаби радостно прыгает. Он согласен с Тоби.",
+                "chunkedEn": "[s: Young Toby] [v: looks] [pt: at the green Card.]\n[adv: Then] [s: he] [v: looks] [pt: at the Question.]\n[s: He] [v: thinks] [pt: for a moment.]\n[o: \"Uncle Leo, I know the Answer!\"] [s: Toby] [v: says] [pt: with a bright smile.]\n[s: \"The Answer] [v: is] [o: Leaf!]\n[s: Leaf] [v: is] [pt: green.]\n[s: Leaf] [v: gives] [o: clean Air!\"]\n[s: Barnaby] [v: jumps] [adv: happily.]\n[s: He] [v: agrees] [pt: with Toby.]"
+            },
+            {
+                "speaker": "edward",
+                "en": "Doctor Edward quickly writes the Word \"Leaf\" on the Laptop. The red Lock becomes bright Green! The Laptop opens! All Edward's Documents and Plans are there. They are complete and good. \"It opened! All my Documents are good!\" Edward says. He is very happy.",
+                "ru": "Доктор Эдвард быстро вводит Слово \"Leaf\" на Ноутбуке. Красный Замок становится ярко-Зелёным! Ноутбук открывается! Все Документы и Чертежи Эдварда на месте. Они целы и в порядке. «Он открылся! Все мои Документы в порядке!» — говорит Эдвард. Он очень счастлив.",
+                "chunkedEn": "[s: Doctor Edward] [adv: quickly] [v: writes] [o: the Word \"Leaf\"] [pt: on the Laptop.]\n[s: The red Lock] [v: becomes] [pt: bright Green!]\n[s: The Laptop] [v: opens!]\n[s: All Edward's Documents and Plans] [v: are] [pt: there.]\n[s: They] [v: are] [pt: complete and good.]\n[s: \"It] [v: opened!]\n[s: All my Documents] [v: are] [pt: good!\"] [s: Edward] [v: says.]\n[s: He] [v: is] [adv: very] [pt: happy.]"
+            },
+            {
+                "speaker": "martha",
+                "en": "Emma smiles at her Father. She is very happy too. \"Your green Energy Plan will help the whole city of New Haven! New Haven will have clean Air!\" Emma says. Doctor Edward turns to the Detectives. \"Thank you, Leo, Mia, Toby, and good Barnaby! You are Heroes! You helped me and my Documents!\" Grandma Martha gives hot Tea in beautiful Cups. She gives big pieces of warm Cake too. \"Thank you,\" everyone says. Toby gives a piece of Cake to Barnaby. Barnaby is happy. He eats the Cake quickly and wants more.",
+                "ru": "Эмма улыбается своему Отцу. Она тоже очень счастлива. «Твой Проект чистой Энергии поможет всему городу Нью-Хейвен! В Нью-Хейвене будет чистый Воздух!» — говорит Эмма. Доктор Эдвард поворачивается к Детективам. «Спасибо, Лео, Миа, Тоби и добрый Барнаби! Вы Герои! Вы спасли меня и мои Документы!» Бабушка Марта наливает горячий Чай в красивые Чашки. Она также раздаёт большие куски тёплого Пирога. «Спасибо», — говорят все. Тоби даёт кусочек Пирога Барнаби. Барнаби счастлив. Он быстро съедает Пирог и просит ещё.",
+                "chunkedEn": "[s: Emma] [v: smiles] [pt: at her Father.]\n[s: She] [v: is] [adv: very] [pt: happy] [adv: too.]\n[s: \"Your green Energy Plan] [v: will help] [o: the whole city of New Haven!]\n[s: New Haven] [v: will have] [o: clean Air!\"] [s: Emma] [v: says.]\n[s: Doctor Edward] [v: turns] [pt: to the Detectives.]\n[o: \"Thank you, Leo, Mia, Toby, and good Barnaby! You are Heroes! You helped me and my Documents!\"]\n[s: Grandma Martha] [v: gives] [o: hot Tea] [pt: in beautiful Cups.]\n[s: She] [v: gives] [o: big pieces of warm Cake] [adv: too.]\n[o: \"Thank you,\"] [s: everyone] [v: says.]\n[s: Toby] [v: gives] [o: a piece of Cake] [pt: to Barnaby.]\n[s: Barnaby] [v: is] [pt: happy.]\n[s: He] [v: eats] [o: the Cake] [adv: quickly] [c: and] [v: wants] [o: more.]"
+            },
+            {
+                "speaker": "leo",
+                "en": "Just then, the Phone calls. Leo answers the Phone. He hears Policeman Harris. \"Doctor Scott told the Truth at the police station,\" Policeman Harris says happily. \"The Crime is finished now!\" Leo takes his Cup of Tea. He stands and smiles. \"To our Team and our Friends! To a good, clean New Haven!\" Leo says. Everyone smiles and has Tea. This is the End of Case Number Two!",
+                "ru": "В этот момент звонит Телефон. Лео отвечает на Телефон. Он слышит Полицейского Харриса. «Доктор Скотт рассказал Правду в полицейском участке», — радостно говорит Полицейский Харрис. «Преступление теперь раскрыто!» Лео берёт свою Чашку Чая. Он встаёт и улыбается. «За нашу Команду и наших Друзей! За прекрасный, чистый Нью-Хейвен!» — говорит Лео. Все улыбаются и пьют Чай. Это Конец Дела Номер Два!",
+                "chunkedEn": "[adv: Just then,] [s: the Phone] [v: calls.]\n[s: Leo] [v: answers] [o: the Phone.]\n[s: He] [v: hears] [o: Policeman Harris.]\n[s: \"Doctor Scott] [v: told] [o: the Truth] [pt: at the police station,\"] [s: Policeman Harris] [v: says] [adv: happily.]\n[s: \"The Crime] [v: is] [pt: finished now!\"]\n[s: Leo] [v: takes] [o: his Cup of Tea.]\n[s: He] [v: stands and smiles.]\n[o: \"To our Team and our Friends! To a good, clean New Haven!\"] [s: Leo] [v: says.]\n[s: Everyone] [v: smiles and has] [o: Tea.]\n[s: This] [v: is] [o: the End of Case Number Two!]"
+            }
+        ],
+        "quiz": {
+            "question": "What word unlocked Professor Edward's encrypted laptop?",
+            "options": [
+                "Leaf",
+                "Gold",
+                "Tower"
+            ],
+            "correctIndex": 0,
+            "rewardXp": 471
+        },
+        "backgroundImg": "images/backgrounds/bg_magic_library.jpg",
+        "locationEn": "Detective Leo's Office",
+        "locationRu": "Кабинет Детектива Лео"
+    }
 ];
 
 const HERO_ORIGINAL_PORTRAITS = {
