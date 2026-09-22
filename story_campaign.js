@@ -3859,6 +3859,86 @@ const STORY_CHAPTERS = [
         "locationEn": "Science Institute Lab 409",
         "locationRu": "Научный институт, Лаборатория 409"
     }
+,
+    {
+        "id": "det-ch-9",
+        "campaignId": "detective",
+        "number": 9,
+        "actId": 102,
+        "titleEn": "The Clue in the Subway",
+        "titleRu": "Улика в метро",
+        "rewardXp": 487,
+        "audioDir": "det_ch_9",
+        "involvedHeroes": [
+            "leo",
+            "mia",
+            "toby",
+            "emma"
+        ],
+        "paragraphs": [
+            {
+                "speaker": "leo",
+                "en": "Leo, Mia, Emma, Toby, and the dog Barnaby walk to Central Subway Station. The station has a big door and long stairs. Many people walk fast. They have bags. A train is loud under the ground. The wind is cold. Leaves move on the ground.",
+                "ru": "Лео, Миа, Эмма, Тоби и пёс Барнаби идут к Центральной станции метро. У станции большая дверь и длинная лестница. Многие люди идут быстро. У них сумки. Поезд громко шумит под землёй. Ветер холодный. Листья шуршат на земле.",
+                "chunkedEn": "[s: Leo, Mia, Emma, Toby, and the dog Barnaby] [v: walk] [pt: to Central Subway Station.]\n[s: The station] [v: has] [o: a big door and long stairs.]\n[s: Many people] [v: walk] [adv: fast.]\n[s: They] [v: have] [o: bags.]\n[s: A train] [v: is] [pt: loud under the ground.]\n[s: The wind] [v: is] [pt: cold.]\n[s: Leaves] [v: move] [pt: on the ground.]"
+            },
+            {
+                "speaker": "leo",
+                "en": "They walk down the stairs. They are in a big, bright hall. People stand in a line near the ticket machine. Leo takes the black glove. He finds it under the shelf in the laboratory. \"Barnaby, smell this glove. Good dog,\" Leo says. Barnaby smells the glove with his nose. The dog is happy. He knows the smell!",
+                "ru": "Они спускаются по лестнице. Они находятся в большом, ярком зале. Люди стоят в очереди возле билетного автомата. Лео достаёт чёрную перчатку. Он нашёл её под полкой в лаборатории. «Барнаби, понюхай эту перчатку. Хороший пёс», — говорит Лео. Барнаби нюхает перчатку носом. Собака довольна. Он узнал запах!",
+                "chunkedEn": "[s: They] [v: walk down] [o: the stairs.]\n[s: They] [v: are] [pt: in a big, bright hall.]\n[s: People] [v: stand] [pt: in a line near the ticket machine.]\n[s: Leo] [v: takes] [o: the black glove.]\n[s: He] [v: finds] [o: it] [pt: under the shelf in the laboratory.]\n[o: \"Barnaby, smell this glove. Good dog,\"] [s: Leo] [v: says.]\n[s: Barnaby] [v: smells] [o: the glove] [pt: with his nose.]\n[s: The dog] [v: is] [pt: happy.]\n[s: He] [v: knows] [o: the smell!]"
+            },
+            {
+                "speaker": "mia",
+                "en": "Emma has a bottle of water. She drinks some water. Toby is a little tired. He rests on a chair near the wall. \"We must find Dr. Scott,\" Mia says. \"Yes,\" Leo says. \"Barnaby can help us.\" Barnaby runs to the gate. Toby rides his bike behind him. Emma shows her card. Leo shows his badge to the guard. The team walks through the gate. They follow Barnaby down to Platform Two, the Green Line.",
+                "ru": "У Эммы бутылка воды. Она пьёт немного воды. Тоби немного устал. Он отдыхает на стуле возле стены. «Мы должны найти доктора Скотта», — говорит Миа. «Да», — говорит Лео. «Барнаби может нам помочь». Барнаби бежит к турникету. Тоби едет на велосипеде за ним. Эмма показывает свою карту. Лео показывает свой значок охраннику. Команда проходит через турникет. Они следуют за Барнаби вниз на Вторую платформу, Зелёную линию.",
+                "chunkedEn": "[s: Emma] [v: has] [o: a bottle of water.]\n[s: She] [v: drinks] [o: some water.]\n[s: Toby] [v: is] [pt: a little tired.]\n[s: He] [v: rests] [pt: on a chair near the wall.]\n[s: \"We] [v: must find] [o: Dr. Scott,\"] [s: Mia] [v: says.]\n[o: \"Yes,\"] [s: Leo] [v: says.]\n[s: \"Barnaby] [v: can help] [o: us.\"]\n[s: Barnaby] [v: runs] [pt: to the gate.]\n[s: Toby] [v: rides] [o: his bike] [pt: behind him.]\n[s: Emma] [v: shows] [o: her card.]\n[s: Leo] [v: shows] [o: his badge] [pt: to the guard.]\n[s: The team] [v: walks] [pt: through the gate.]\n[s: They] [v: follow] [o: Barnaby] [pt: down to Platform Two, the Green Line.]"
+            },
+            {
+                "speaker": "toby",
+                "en": "Many people wait on the platform for the train. Barnaby runs and stops near a chair next to a machine. Toby looks under the chair. \"Uncle Leo, look!\" Toby says. \"Someone has a cup of coffee and a paper here!\"",
+                "ru": "Многие люди ждут поезд на платформе. Барнаби бежит и останавливается возле стула рядом с автоматом. Тоби заглядывает под стул. «Дядя Лео, смотри!» — говорит Тоби. «Здесь у кого-то чашка кофе и бумажка!»",
+                "chunkedEn": "[s: Many people] [v: wait] [pt: on the platform for the train.]\n[s: Barnaby] [v: runs and stops] [pt: near a chair next to a machine.]\n[s: Toby] [v: looks] [pt: under the chair.]\n[o: \"Uncle Leo, look!\"] [s: Toby] [v: says.]\n[s: \"Someone] [v: has] [o: a cup of coffee and a paper] [adv: here!\"]"
+            },
+            {
+                "speaker": "emma",
+                "en": "Leo takes the paper with his glove. It is a receipt from the Green Leaf Cafe. This cafe is next to the New Haven Botanical Garden. The time on the paper is one o'clock. Emma looks at the paper. \"Dr. Scott always drinks coffee there before he visits the garden!\" Emma says.",
+                "ru": "Лео берёт бумажку в перчатке. Это чек из кафе «Зелёный лист». Это кафе находится рядом с Ботаническим садом Нью-Хейвена. Время на чеке — один час дня. Эмма смотрит на бумажку. «Доктор Скотт всегда пьёт там кофе перед тем, как посетить сад!» — говорит Эмма.",
+                "chunkedEn": "[s: Leo] [v: takes] [o: the paper] [pt: with his glove.]\n[s: It] [v: is] [o: a receipt] [pt: from the Green Leaf Cafe.]\n[s: This cafe] [v: is] [pt: next to the New Haven Botanical Garden.]\n[s: The time on the paper] [v: is] [pt: one o'clock.]\n[s: Emma] [v: looks] [pt: at the paper.]\n[s: \"Dr. Scott] [adv: always] [v: drinks] [o: coffee] [adv: there] [b: before] [s: he] [v: visits] [o: the garden!\"] [s: Emma] [v: says.]"
+            },
+            {
+                "speaker": "mia",
+                "en": "Mia looks at her watch. \"It is one thirty now,\" she says. \"We must be quick.\" Mia walks to the station office. A guard in a blue uniform shows Mia a camera picture. \"Look at this picture from twenty minutes ago,\" Mia says. In the picture, a tall man in a brown coat walks onto a train. He carries a big silver bag. The laptop is in the bag. \"That is Dr. Scott!\" Emma says. \"He has my father's laptop!\"",
+                "ru": "Миа смотрит на свои часы. «Сейчас половина второго», — говорит она. «Мы должны поторопиться». Миа идёт в служебное помещение станции. Охранник в синей форме показывает Мие изображение с камеры. «Посмотрите на эту фотографию двадцатиминутной давности», — говорит Миа. На снимке высокий мужчина в коричневом пальто заходит в поезд. Он несёт большую серебристую сумку. Ноутбук в сумке. «Это доктор Скотт!» — говорит Эмма. «У него ноутбук моего отца!»",
+                "chunkedEn": "[s: Mia] [v: looks] [pt: at her watch.]\n[s: \"It] [v: is] [pt: one thirty now,\"] [s: she] [v: says.]\n[s: \"We] [v: must be] [pt: quick.\"]\n[s: Mia] [v: walks] [pt: to the station office.]\n[s: A guard in a blue uniform] [v: shows] [o: Mia] [o: a camera picture.]\n[v: \"Look] [pt: at this picture from twenty minutes ago,\"] [s: Mia] [v: says.]\n[pt: In the picture,] [s: a tall man in a brown coat] [v: walks] [pt: onto a train.]\n[s: He] [v: carries] [o: a big silver bag.]\n[s: The laptop] [v: is] [pt: in the bag.]\n[s: \"That] [v: is] [o: Dr. Scott!\"] [s: Emma] [v: says.]\n[s: \"He] [v: has] [o: my father's laptop!\"]"
+            },
+            {
+                "speaker": "toby",
+                "en": "A voice in the station says: The train to the Botanical Garden comes to Platform Two in two minutes. Leo smiles. He looks at his team. \"The suspect goes to the Botanical Garden,\" Leo says. \"We follow him.\" Toby stands up from the chair. Barnaby stands next to Leo. Everyone is ready. They look at the train tracks and wait.",
+                "ru": "Голос на станции объявляет: Поезд в Ботанический сад прибывает на Вторую платформу через две минуты. Лео улыбается. Он смотрит на свою команду. «Подозреваемый едет в Ботанический сад», — говорит Лео. «Мы следуем за ним». Тоби встаёт со стула. Барнаби стоит рядом с Лео. Все готовы. Они смотрят на рельсы и ждут.",
+                "chunkedEn": "[s: A voice in the station] [v: says]: [o: The train to the Botanical Garden comes to Platform Two in two minutes.]\n[s: Leo] [v: smiles.]\n[s: He] [v: looks] [pt: at his team.]\n[s: \"The suspect] [v: goes] [pt: to the Botanical Garden,\"] [s: Leo] [v: says.]\n[s: \"We] [v: follow] [o: him.\"]\n[s: Toby] [v: stands up] [pt: from the chair.]\n[s: Barnaby] [v: stands] [pt: next to Leo.]\n[s: Everyone] [v: is] [pt: ready.]\n[s: They] [v: look] [pt: at the train tracks] [c: and] [v: wait.]"
+            },
+            {
+                "speaker": "leo",
+                "en": "A silver train comes into the station. It stops. The doors open. \"Everyone, come onto the train!\" Leo says. The team walks into the clean, warm train. Barnaby sits near Emma's feet. The doors close. The train goes fast to the Botanical Garden. Leo looks at his team and says, \"Dr. Scott, we come!\" Mia smiles. Toby holds his bike. Emma holds the receipt. The team is happy and ready for the next part of the case.",
+                "ru": "Серебристый поезд прибывает на станцию. Он останавливается. Двери открываются. «Все в поезд!» — говорит Лео. Команда заходит в чистый, тёплый вагон. Барнаби садится возле ног Эммы. Двери закрываются. Поезд быстро мчится в Ботанический сад. Лео смотрит на свою команду и говорит: «Доктор Скотт, мы идём!» Миа улыбается. Тоби держит свой велосипед. Эмма держит чек. Команда довольна и готова к следующей части расследования.",
+                "chunkedEn": "[s: A silver train] [v: comes] [pt: into the station.]\n[s: It] [v: stops.]\n[s: The doors] [v: open.]\n[o: \"Everyone, come onto the train!\"] [s: Leo] [v: says.]\n[s: The team] [v: walks] [pt: into the clean, warm train.]\n[s: Barnaby] [v: sits] [pt: near Emma's feet.]\n[s: The doors] [v: close.]\n[s: The train] [v: goes] [adv: fast] [pt: to the Botanical Garden.]\n[s: Leo] [v: looks] [pt: at his team] [c: and] [v: says,] [o: \"Dr. Scott, we come!\"]\n[s: Mia] [v: smiles.]\n[s: Toby] [v: holds] [o: his bike.]\n[s: Emma] [v: holds] [o: the receipt.]\n[s: The team] [v: is] [pt: happy and ready for the next part of the case.]"
+            }
+        ],
+        "quiz": {
+            "question": "Where is Dr. Scott going with the stolen laptop?",
+            "options": [
+                "To the Botanical Garden",
+                "To the Old Harbor Warehouse",
+                "To Grandfather Arthur's antique shop"
+            ],
+            "correctIndex": 0,
+            "rewardXp": 487
+        },
+        "backgroundImg": "images/backgrounds/bg_magic_library.jpg",
+        "locationEn": "Central Subway Station",
+        "locationRu": "Центральная станция метро"
+    }
 ];
 
 const HERO_ORIGINAL_PORTRAITS = {
