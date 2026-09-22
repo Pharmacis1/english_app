@@ -4019,6 +4019,87 @@ const STORY_CHAPTERS = [
         "locationEn": "Botanical Garden Greenhouse",
         "locationRu": "Оранжерея Ботанического сада"
     }
+,
+    {
+        "id": "det-ch-11",
+        "campaignId": "detective",
+        "number": 11,
+        "actId": 102,
+        "titleEn": "The Old Research Tower",
+        "titleRu": "Старая исследовательская башня",
+        "rewardXp": 490,
+        "audioDir": "det_ch_11",
+        "involvedHeroes": [
+            "leo",
+            "harris",
+            "toby",
+            "edward",
+            "emma"
+        ],
+        "paragraphs": [
+            {
+                "speaker": "leo",
+                "en": "Leo, Mia, Toby, and the dog Barnaby run fast to the Old Research Tower. The tower is a tall stone building. It is at the far end of the park. The walls are old brick. Dr. Scott runs inside. He closes the door fast. The door is locked.",
+                "ru": "Лео, Миа, Тоби и пёс Барнаби быстро бегут к Старой исследовательской башне. Башня — это высокое каменное здание. Она находится в самом дальнем конце парка. Стены сложены из старого кирпича. Доктор Скотт забегает внутрь. Он быстро закрывает дверь. Дверь заперта.",
+                "chunkedEn": "[s: Leo, Mia, Toby, and the dog Barnaby] [v: run] [adv: fast] [pt: to the Old Research Tower.]\n[s: The tower] [v: is] [o: a tall stone building.]\n[s: It] [v: is] [pt: at the far end of the park.]\n[s: The walls] [v: are] [o: old brick.]\n[s: Dr. Scott] [v: runs] [pt: inside.]\n[s: He] [v: closes] [o: the door] [adv: fast.]\n[s: The door] [v: is] [pt: locked.]"
+            },
+            {
+                "speaker": "harris",
+                "en": "Leo and Officer Harris try to open the door. The door does not open. \"He locked the door! We cannot go in!\" Officer Harris says. Barnaby runs to the side of the tower. He stops near a small window. The window is near yellow flowers.",
+                "ru": "Лео и офицер Харрис пытаются открыть дверь. Дверь не поддаётся. «Он запер дверь! Мы не можем войти!» — говорит офицер Харрис. Барнаби бежит к боковой части башни. Он останавливается возле маленького окна. Окно находится рядом с жёлтыми цветами.",
+                "chunkedEn": "[s: Leo and Officer Harris] [v: try to open] [o: the door.]\n[s: The door] [v: does not open.]\n[s: \"He] [v: locked] [o: the door!]\n[s: We] [v: cannot go] [pt: in!\"] [s: Officer Harris] [v: says.]\n[s: Barnaby] [v: runs] [pt: to the side of the tower.]\n[s: He] [v: stops] [pt: near a small window.]\n[s: The window] [v: is] [pt: near yellow flowers.]"
+            },
+            {
+                "speaker": "toby",
+                "en": "The small window is open! \"Uncle Leo, look!\" Toby says. \"I am small. I can go through the window. I can open the door for you!\" Toby climbs through the window. He goes down into the basement. Then the door opens. Toby opens the big door. He has a happy smile. \"Nice, Toby!\" Leo says.",
+                "ru": "Маленькое окно открыто! «Дядя Лео, смотри!» — говорит Тоби. «Я маленький. Я могу пролезть в окно. Я могу открыть вам дверь!» Тоби пролезает в окно. Он спускается в подвал. Затем дверь открывается. Тоби открывает большую дверь. У него счастливая улыбка. «Отлично, Тоби!» — говорит Лео.",
+                "chunkedEn": "[s: The small window] [v: is] [pt: open!]\n[o: \"Uncle Leo, look!\"] [s: Toby] [v: says.]\n[s: \"I] [v: am] [pt: small.]\n[s: I] [v: can go] [pt: through the window.]\n[s: I] [v: can open] [o: the door] [pt: for you!\"]\n[s: Toby] [v: climbs] [pt: through the window.]\n[s: He] [v: goes down] [pt: into the basement.]\n[adv: Then] [s: the door] [v: opens.]\n[s: Toby] [v: opens] [o: the big door.]\n[s: He] [v: has] [o: a happy smile.]\n[o: \"Nice, Toby!\"] [s: Leo] [v: says.]"
+            },
+            {
+                "speaker": "leo",
+                "en": "The team goes into the tower. It is cool and dark inside. They walk up to the third floor. Barnaby goes first. They open the door of a room. Sunlight comes through the big windows.",
+                "ru": "Команда заходит в башню. Внутри прохладно и темно. Они поднимаются на третий этаж. Барнаби идёт первым. Они открывают дверь комнаты. Солнечный свет проникает сквозь большие окна.",
+                "chunkedEn": "[s: The team] [v: goes] [pt: into the tower.]\n[s: It] [v: is] [pt: cool and dark inside.]\n[s: They] [v: walk up] [pt: to the third floor.]\n[s: Barnaby] [v: goes] [adv: first.]\n[s: They] [v: open] [o: the door of a room.]\n[s: Sunlight] [v: comes] [pt: through the big windows.]"
+            },
+            {
+                "speaker": "edward",
+                "en": "In the center of the room, an old man is on a chair. He has grey hair. He has a brown jacket. He cannot move his hands. \"Father!\" Emma says. She is very happy. It is Professor Edward! He is fine. \"Emma! You found me!\" Professor Edward says. He is very happy too.",
+                "ru": "В центре комнаты пожилой мужчина сидит на стуле. У него седые волосы. На нём коричневая куртка. Он не может шевелить руками. «Отец!» — говорит Эмма. Она очень счастлива. Это профессор Эдвард! С ним всё в порядке. «Эмма! Ты нашла меня!» — говорит профессор Эдвард. Он тоже очень счастлив.",
+                "chunkedEn": "[pt: In the center of the room,] [s: an old man] [v: is] [pt: on a chair.]\n[s: He] [v: has] [o: grey hair.]\n[s: He] [v: has] [o: a brown jacket.]\n[s: He] [v: cannot move] [o: his hands.]\n[o: \"Father!\"] [s: Emma] [v: says.]\n[s: She] [v: is] [adv: very] [pt: happy.]\n[s: It] [v: is] [o: Professor Edward!]\n[s: He] [v: is] [pt: fine.]\n[o: \"Emma! You found me!\"] [s: Professor Edward] [v: says.]\n[s: He] [v: is] [adv: very] [pt: happy] [adv: too.]"
+            },
+            {
+                "speaker": "harris",
+                "en": "In the dark corner of the room, Dr. Scott stands near the stone wall. He has the silver laptop in his hands. \"Stop! Do not come here!\" Dr. Scott says. \"I made this green energy plan for two years! I want people to know my name. I want to be the best in science!\"",
+                "ru": "В тёмном углу комнаты доктор Скотт стоит возле каменной стены. В руках у него серебристый ноутбук. «Стойте! Не подходите сюда!» — говорит доктор Скотт. «Я создавал этот проект чистой энергии два года! Я хочу, чтобы люди знали моё имя. Я хочу быть лучшим в науке!»",
+                "chunkedEn": "[pt: In the dark corner of the room,] [s: Dr. Scott] [v: stands] [pt: near the stone wall.]\n[s: He] [v: has] [o: the silver laptop] [pt: in his hands.]\n[o: \"Stop! Do not come here!\"] [s: Dr. Scott] [v: says.]\n[s: \"I] [v: made] [o: this green energy plan] [pt: for two years!]\n[s: I] [v: want] [o: people] [v: to know] [o: my name.]\n[s: I] [v: want to be] [o: the best] [pt: in science!\"]"
+            },
+            {
+                "speaker": "emma",
+                "en": "Leo and Officer Harris walk to him. \"This is a crime, Dr. Scott,\" Leo says. \"You took your friend. You took his plan. This is very bad.\" Officer Harris takes the silver laptop from Dr. Scott. \"You go to the police station now, Scott,\" Harris says. Mia and Emma help Professor Edward. Now he can move his hands. Emma stands close to her father. She is very happy. Toby pets Barnaby. Barnaby is happy too. \"The problem is over now. My father is fine,\" Emma says with a smile.",
+                "ru": "Лео и офицер Харрис подходят к нему. «Это преступление, доктор Скотт», — говорит Лео. «Вы похитили своего коллегу. Вы украли его проект. Это очень плохо». Офицер Харрис забирает серебристый ноутбук у доктора Скотта. «Теперь вы отправляетесь в полицейский участок, Скотт», — говорит Харрис. Миа и Эмма помогают профессору Эдварду. Теперь он может шевелить руками. Эмма стоит рядом с отцом. Она очень счастлива. Тоби гладит Барнаби. Барнаби тоже счастлив. «Теперь всё позади. С моим отцом всё в порядке», — с улыбкой говорит Эмма.",
+                "chunkedEn": "[s: Leo and Officer Harris] [v: walk] [pt: to him.]\n[s: \"This] [v: is] [o: a crime, Dr. Scott,\"] [s: Leo] [v: says.]\n[s: \"You] [v: took] [o: your friend.]\n[s: You] [v: took] [o: his plan.]\n[s: This] [v: is] [adv: very] [pt: bad.\"]\n[s: Officer Harris] [v: takes] [o: the silver laptop] [pt: from Dr. Scott.]\n[s: \"You] [v: go] [pt: to the police station now, Scott,\"] [s: Harris] [v: says.]\n[s: Mia and Emma] [v: help] [o: Professor Edward.]\n[adv: Now] [s: he] [v: can move] [o: his hands.]\n[s: Emma] [v: stands close] [pt: to her father.]\n[s: She] [v: is] [adv: very] [pt: happy.]\n[s: Toby] [v: pets] [o: Barnaby.]\n[s: Barnaby] [v: is] [pt: happy] [adv: too.]\n[s: \"The problem] [v: is] [pt: over now.]\n[s: My father] [v: is] [pt: fine,\"] [s: Emma] [v: says] [pt: with a smile.]"
+            },
+            {
+                "speaker": "edward",
+                "en": "Leo looks at Officer Harris and says, \"This is a good day for the team.\" Officer Harris takes Dr. Scott out of the room. Toby holds Barnaby's paw. Mia opens the big window in the room, and fresh air comes in. Professor Edward stands up slowly. He walks with Emma to the door. \"Thank you, Leo. Thank you, Mia. Thank you, Toby. Thank you, Barnaby,\" Professor Edward says. Everyone walks down to the first floor together. They go outside into the park. The sun is bright and warm. Barnaby runs in the grass, happy and free. The team walks back to the police station with Dr. Scott and the silver laptop.",
+                "ru": "Лео смотрит на офицера Харриса и говорит: «Это хороший день для нашей команды». Офицер Харрис выводит доктора Скотта из комнаты. Тоби держит Барнаби за лапу. Миа открывает большое окно в комнате, и свежий воздух проникает внутрь. Профессор Эдвард медленно встаёт. Он идёт с Эммой к двери. «Спасибо, Лео. Спасибо, Миа. Спасибо, Тоби. Спасибо, Барнаби», — говорит профессор Эдвард. Все вместе спускаются на первый этаж. Они выходят в парк. Солнце яркое и тёплое. Барнаби бегает по траве, радостный и свободный. Команда возвращается в полицейский участок с доктором Скоттом и серебристым ноутбуком.",
+                "chunkedEn": "[s: Leo] [v: looks] [pt: at Officer Harris] [c: and] [v: says,] [s: \"This] [v: is] [o: a good day] [pt: for the team.\"]\n[s: Officer Harris] [v: takes] [o: Dr. Scott] [pt: out of the room.]\n[s: Toby] [v: holds] [o: Barnaby's paw.]\n[s: Mia] [v: opens] [o: the big window in the room,] [c: and] [s: fresh air] [v: comes in.]\n[s: Professor Edward] [v: stands up] [adv: slowly.]\n[s: He] [v: walks] [pt: with Emma to the door.]\n[o: \"Thank you, Leo. Thank you, Mia. Thank you, Toby. Thank you, Barnaby,\"] [s: Professor Edward] [v: says.]\n[s: Everyone] [v: walks down] [pt: to the first floor together.]\n[s: They] [v: go outside] [pt: into the park.]\n[s: The sun] [v: is] [pt: bright and warm.]\n[s: Barnaby] [v: runs] [pt: in the grass, happy and free.]\n[s: The team] [v: walks back] [pt: to the police station with Dr. Scott and the silver laptop.]"
+            }
+        ],
+        "quiz": {
+            "question": "Who helped open the locked front door of the Old Research Tower?",
+            "options": [
+                "Toby climbed through a small basement window",
+                "Barnaby broke the heavy wooden lock",
+                "Grandfather Arthur brought a silver key"
+            ],
+            "correctIndex": 0,
+            "rewardXp": 490
+        },
+        "backgroundImg": "images/backgrounds/bg_magic_library.jpg",
+        "locationEn": "The Old Research Tower",
+        "locationRu": "Старая исследовательская башня"
+    }
 ];
 
 const HERO_ORIGINAL_PORTRAITS = {
