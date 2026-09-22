@@ -3699,6 +3699,86 @@ const STORY_CHAPTERS = [
         "locationEn": "Arthur's Antique Shop",
         "locationRu": "Антикварная лавка Артура"
     }
+,
+    {
+        "id": "det-ch-7",
+        "campaignId": "detective",
+        "number": 7,
+        "actId": 102,
+        "titleEn": "The Missing Scientist",
+        "titleRu": "Пропавший учёный",
+        "rewardXp": 458,
+        "audioDir": "det_ch_7",
+        "involvedHeroes": [
+            "leo",
+            "emma",
+            "mia",
+            "toby"
+        ],
+        "paragraphs": [
+            {
+                "speaker": "leo",
+                "en": "It is a sunny Monday morning in the city of New Haven. Yellow leaves are on the quiet street. Detective Leo is at his wooden desk. It is on the second floor. He drinks a cup of fresh coffee. He looks at his new city map. Mia is near her computer. She writes an investigation report. She listens to calm music. The room is quiet and nice.",
+                "ru": "Солнечное утро понедельника в городе Нью-Хейвен. Жёлтые листья лежат на тихой улице. Детектив Лео сидит за своим деревянным столом. Он находится на втором этаже. Он пьёт чашку свежего кофе. Он смотрит на свою новую карту города. Миа сидит возле своего компьютера. Она пишет отчёт о расследовании. Она слушает спокойную музыку. В комнате тихо и приятно.",
+                "chunkedEn": "[s: It] [v: is] [o: a sunny Monday morning] [pt: in the city of New Haven.]\n[s: Yellow leaves] [v: are] [pt: on the quiet street.]\n[s: Detective Leo] [v: is] [pt: at his wooden desk.]\n[s: It] [v: is] [pt: on the second floor.]\n[s: He] [v: drinks] [o: a cup of fresh coffee.]\n[s: He] [v: looks] [pt: at his new city map.]\n[s: Mia] [v: is] [pt: near her computer.]\n[s: She] [v: writes] [o: an investigation report.]\n[s: She] [v: listens] [pt: to calm music.]\n[s: The room] [v: is] [pt: quiet and nice.]"
+            },
+            {
+                "speaker": "emma",
+                "en": "Now, someone is at the wooden door. The door opens. A young woman comes into the room. She has a green coat and red glasses. She looks afraid. She has a blue folder in her hands. \"Detective Leo! Detective Mia! Please help me!\" the young woman says. Her voice is not calm. \"My father has a big problem!\"",
+                "ru": "В эту минуту кто-то стучит в деревянную дверь. Дверь открывается. В комнату входит молодая женщина. На ней зелёное пальто и красные очки. Она выглядит испуганной. В руках у неё синяя папка. «Детектив Лео! Детектив Миа! Пожалуйста, помогите мне!» — говорит молодая женщина. Её голос неспокоен. «У моего отца большая беда!»",
+                "chunkedEn": "[adv: Now,] [s: someone] [v: is] [pt: at the wooden door.]\n[s: The door] [v: opens.]\n[s: A young woman] [v: comes] [pt: into the room.]\n[s: She] [v: has] [o: a green coat and red glasses.]\n[s: She] [v: looks] [pt: afraid.]\n[s: She] [v: has] [o: a blue folder] [pt: in her hands.]\n[o: \"Detective Leo! Detective Mia! Please help me!\"] [s: the young woman] [v: says.]\n[s: Her voice] [v: is not] [pt: calm.]\n[s: \"My father] [v: has] [o: a big problem!\"]"
+            },
+            {
+                "speaker": "leo",
+                "en": "Leo stands up fast. He gives her a chair. \"Please, sit here and drink some water,\" Leo says. \"Tell us who you are and what happened.\" Emma waits a moment. \"My name is Emma,\" she says. \"My father is Professor Edward. He works at the New Haven Science Institute. He works on a new green energy plan.\"",
+                "ru": "Лео быстро встаёт. Он пододвигает ей стул. «Пожалуйста, присаживайтесь сюда и выпейте воды», — говорит Лео. «Расскажите нам, кто вы и что произошло». Эмма ждёт мгновение. «Меня зовут Эмма», — говорит она. «Мой отец — профессор Эдвард. Он работает в Научном институте Нью-Хейвена. Он работает над новым проектом экологически чистой энергии».",
+                "chunkedEn": "[s: Leo] [v: stands up] [adv: fast.]\n[s: He] [v: gives] [o: her a chair.]\n[o: \"Please, sit here and drink some water,\"] [s: Leo] [v: says.]\n[v: \"Tell] [o: us] [w: who you are and what happened.\"]\n[s: Emma] [v: waits] [o: a moment.]\n[s: \"My name] [v: is] [o: Emma,\"] [s: she] [v: says.]\n[s: \"My father] [v: is] [o: Professor Edward.]\n[s: He] [v: works] [pt: at the New Haven Science Institute.]\n[s: He] [v: works] [pt: on a new green energy plan.\"]"
+            },
+            {
+                "speaker": "emma",
+                "en": "Emma opens her blue folder. She shows a family photograph. \"Yesterday evening, my father was at his room on Oak Street. He usually comes home for dinner at seven o'clock. But last night, he did not come home. His phone is not on. I called all his friends and the city hospital. Nobody saw him!\"",
+                "ru": "Эмма открывает свою синюю папку. Она показывает семейную фотографию. «Вчера вечером мой отец был в своём кабинете на Оук-стрит. Обычно он приходит домой к ужину в семь часов. Но прошлой ночью он не вернулся домой. Его телефон выключен. Я обзвонила всех его друзей и городскую больницу. Никто его не видел!»",
+                "chunkedEn": "[s: Emma] [v: opens] [o: her blue folder.]\n[s: She] [v: shows] [o: a family photograph.]\n[pt: \"Yesterday evening,] [s: my father] [v: was] [pt: at his room on Oak Street.]\n[s: He] [adv: usually] [v: comes home] [pt: for dinner at seven o'clock.]\n[c: But] [pt: last night,] [s: he] [v: did not come] [pt: home.]\n[s: His phone] [v: is not] [pt: on.]\n[s: I] [v: called] [o: all his friends and the city hospital.]\n[s: Nobody] [v: saw] [o: him!\"]"
+            },
+            {
+                "speaker": "mia",
+                "en": "Mia opens her notebook on the laptop. \"Did you go to his room this morning, Emma?\" Mia asks. Emma says yes fast. \"Yes! I went to the Science Institute at eight o'clock. The door was open. The room was not clean. Important papers were on the floor. My father's silver laptop was not on his desk! That laptop has important information.\"",
+                "ru": "Миа открывает свой блокнот на ноутбуке. «Вы ходили в его кабинет сегодня утром, Эмма?» — спрашивает Миа. Эмма быстро отвечает «да». «Да! Я пошла в Научный институт в восемь часов. Дверь была открыта. В комнате был беспорядок. Важные бумаги лежали на полу. Серебристого ноутбука моего отца не было на его столе! На этом ноутбуке важная информация».",
+                "chunkedEn": "[s: Mia] [v: opens] [o: her notebook] [pt: on the laptop.]\n[v: \"Did] [s: you] [v: go] [pt: to his room this morning, Emma?\"] [s: Mia] [v: asks.]\n[s: Emma] [v: says] [o: yes] [adv: fast.]\n[s: \"Yes! I] [v: went] [pt: to the Science Institute at eight o'clock.]\n[s: The door] [v: was] [pt: open.]\n[s: The room] [v: was not] [pt: clean.]\n[s: Important papers] [v: were] [pt: on the floor.]\n[s: My father's silver laptop] [v: was not] [pt: on his desk!]\n[s: That laptop] [v: has] [o: important information.\"]"
+            },
+            {
+                "speaker": "emma",
+                "en": "Leo listens. He writes a note. \"Did the thief leave evidence in the room?\" Leo asks. Emma opens her bag. She takes out a small bag. \"I found this on the floor, near the broken table,\" Emma says. Inside the bag, there is a green card with the number 4-0-9. There is also a paper with the words: Botanical Garden — Midnight.",
+                "ru": "Лео слушает. Он делает запись. «Вор оставил улики в комнате?» — спрашивает Лео. Эмма открывает свою сумку. Она достаёт маленький пакетик. «Я нашла это на полу, возле сломанного стола», — говорит Эмма. Внутри пакета лежит зелёная карта с номером 4-0-9. Там также есть бумага со словами: Ботанический сад — Полночь.",
+                "chunkedEn": "[s: Leo] [v: listens.]\n[s: He] [v: writes] [o: a note.]\n[v: \"Did] [s: the thief] [v: leave] [o: evidence] [pt: in the room?\"] [s: Leo] [v: asks.]\n[s: Emma] [v: opens] [o: her bag.]\n[s: She] [v: takes out] [o: a small bag.]\n[s: \"I] [v: found] [o: this] [pt: on the floor, near the broken table,\"] [s: Emma] [v: says.]\n[pt: Inside the bag,] [w: there] [v: is] [o: a green card with the number 4-0-9.]\n[w: There] [v: is] [adv: also] [o: a paper with the words: Botanical Garden — Midnight.]"
+            },
+            {
+                "speaker": "toby",
+                "en": "After that, the door opens again. Young Toby and his brown dog Barnaby come into the room. Toby has his red bicycle hat. \"Good morning, Uncle Leo!\" Toby says happily. Barnaby is happy too. He runs around the room. \"Toby, Barnaby, you are here at a good time,\" Leo says with a big smile. \"We have a new problem. Professor Edward is not home. We must find him!\"",
+                "ru": "После этого дверь снова открывается. Юный Тоби и его коричневый пёс Барнаби входят в комнату. На Тоби его красный велосипедный шлем. «Доброе утро, дядя Лео!» — радостно говорит Тоби. Барнаби тоже счастлив. Он бегает по комнате. «Тоби, Барнаби, вы пришли вовремя», — говорит Лео с широкой улыбкой. «У нас новая задача. Профессор Эдвард не вернулся домой. Мы должны найти его!»",
+                "chunkedEn": "[pt: After that,] [s: the door] [v: opens] [adv: again.]\n[s: Young Toby and his brown dog Barnaby] [v: come] [pt: into the room.]\n[s: Toby] [v: has] [o: his red bicycle hat.]\n[o: \"Good morning, Uncle Leo!\"] [s: Toby] [v: says] [adv: happily.]\n[s: Barnaby] [v: is] [pt: happy] [adv: too.]\n[s: He] [v: runs] [pt: around the room.]\n[s: \"Toby, Barnaby, you] [v: are] [pt: here at a good time,\"] [s: Leo] [v: says] [pt: with a big smile.]\n[s: \"We] [v: have] [o: a new problem.]\n[s: Professor Edward] [v: is not] [pt: home.]\n[s: We] [v: must find] [o: him!\"]"
+            },
+            {
+                "speaker": "leo",
+                "en": "Leo takes his jacket and his flashlight. Mia takes her smartphone and her camera. \"Let us go to the Science Institute on Oak Street,\" Leo says. \"Our investigation starts now!\"",
+                "ru": "Лео берёт свою куртку и фонарик. Миа берёт свой смартфон и камеру. «Пойдёмте в Научный институт на Оук-стрит», — говорит Лео. «Наше расследование начинается прямо сейчас!»",
+                "chunkedEn": "[s: Leo] [v: takes] [o: his jacket and his flashlight.]\n[s: Mia] [v: takes] [o: her smartphone and her camera.]\n[o: \"Let us go] [pt: to the Science Institute on Oak Street,\"] [s: Leo] [v: says.]\n[s: \"Our investigation] [v: starts] [adv: now!\"]"
+            }
+        ],
+        "quiz": {
+            "question": "What did Emma find on the floor of the laboratory?",
+            "options": [
+                "A green card with number 4-0-9 and a note about the Botanical Garden",
+                "A gold key from an antique music box",
+                "A red bicycle helmet and a blue umbrella"
+            ],
+            "correctIndex": 0,
+            "rewardXp": 458
+        },
+        "backgroundImg": "images/backgrounds/bg_magic_library.jpg",
+        "locationEn": "Detective Leo's Office",
+        "locationRu": "Кабинет Детектива Лео"
+    }
 ];
 
 const HERO_ORIGINAL_PORTRAITS = {
@@ -3719,7 +3799,9 @@ const HERO_ORIGINAL_PORTRAITS = {
     "martha": "images/characters_orig/freya_orig.jpg",
     "harris": "images/characters_orig/thorin_orig.png",
     "sam": "images/characters_orig/eldrin_orig.jpg",
-    "gordon": "images/characters_orig/valerius_orig.jpg"
+    "gordon": "images/characters_orig/valerius_orig.jpg",
+    "emma": "images/characters_orig/frostina_orig.jpg",
+    "edward": "images/characters_orig/oberon_orig.jpg"
 };
 
 if (typeof module !== 'undefined' && module.exports) {
