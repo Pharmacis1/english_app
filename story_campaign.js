@@ -3618,6 +3618,87 @@ const STORY_CHAPTERS = [
         "locationEn": "Central Train Station",
         "locationRu": "Центральный вокзал"
     }
+,
+    {
+        "id": "det-ch-6",
+        "campaignId": "detective",
+        "number": 6,
+        "actId": 101,
+        "titleEn": "The Music Box Mystery Solved",
+        "titleRu": "Тайна шкатулки раскрыта",
+        "rewardXp": 532,
+        "audioDir": "det_ch_6",
+        "involvedHeroes": [
+            "harris",
+            "leo",
+            "arthur",
+            "martha",
+            "toby"
+        ],
+        "paragraphs": [
+            {
+                "speaker": "harris",
+                "en": "Officer Harris stands in front of the young man. \"Police! Stop!\" Harris says. Leo and Mia stand next to him. The young man has a black backpack. He is afraid. \"I am sorry! Please do not take me to the police station!\" the young man says. His name is Victor. \"I took the box from the antique shop. I thought there were gold coins inside. But the box is locked. I could not open it!\"",
+                "ru": "Офицер Харрис встаёт перед молодым человеком. «Полиция! Стоять!» — говорит Харрис. Лео и Миа стоят рядом с ним. У молодого человека чёрный рюкзак. Он испуган. «Простите! Пожалуйста, не забирайте меня в полицейский участок!» — говорит молодой человек. Его зовут Виктор. «Я взял шкатулку из антикварной лавки. Я думал, что внутри золотые монеты. Но шкатулка заперта. Я не смог её открыть!»",
+                "chunkedEn": "[s: Officer Harris] [v: stands] [pt: in front of the young man.]\n[o: \"Police! Stop!\"] [s: Harris] [v: says.]\n[s: Leo and Mia] [v: stand] [pt: next to him.]\n[s: The young man] [v: has] [o: a black backpack.]\n[s: He] [v: is] [pt: afraid.]\n[o: \"I am sorry! Please do not take me to the police station!\"] [s: the young man] [v: says.]\n[s: His name] [v: is] [o: Victor.]\n[s: \"I] [v: took] [o: the box] [pt: from the antique shop.]\n[s: I] [v: thought] [pt: there were gold coins inside.]\n[c: But] [s: the box] [v: is locked.]\n[s: I] [v: could not open] [o: it!\"]"
+            },
+            {
+                "speaker": "leo",
+                "en": "Leo takes the bag. He opens it and looks inside. The music box is there! It is safe. The brown wood and the silver bird shine in the light. Officer Harris takes Victor's arm. \"You are coming with me to the police station, Victor,\" Harris says. Leo, Mia, Toby, and Barnaby say \"Thank you\" to Officer Harris. Then they go back to Elm Street.",
+                "ru": "Лео берёт сумку. Он открывает её и заглядывает внутрь. Музыкальная шкатулка там! Она в целости и сохранности. Коричневое дерево и серебряная птица сияют на свету. Офицер Харрис берёт Виктора за руку. «Ты идёшь со мной в полицейский участок, Виктор», — говорит Харрис. Лео, Миа, Тоби и Барнаби говорят «Спасибо» офицеру Харрису. Затем они возвращаются на Элм-стрит.",
+                "chunkedEn": "[s: Leo] [v: takes] [o: the bag.]\n[s: He] [v: opens] [o: it] [c: and] [v: looks] [pt: inside.]\n[s: The music box] [v: is] [pt: there!]\n[s: It] [v: is] [pt: safe.]\n[s: The brown wood and the silver bird] [v: shine] [pt: in the light.]\n[s: Officer Harris] [v: takes] [o: Victor's arm.]\n[s: \"You] [v: are coming] [pt: with me to the police station, Victor,\"] [s: Harris] [v: says.]\n[s: Leo, Mia, Toby, and Barnaby] [v: say] [o: \"Thank you\"] [pt: to Officer Harris.]\n[adv: Then] [s: they] [v: go back] [pt: to Elm Street.]"
+            },
+            {
+                "speaker": "arthur",
+                "en": "Ten minutes later, the team comes to Grandfather Arthur's antique shop. The bell on the door rings. Grandfather Arthur is near the window. He is sad. When he sees Leo with the music box, he is very happy. His eyes are full of tears. \"My music box! You found it!\" Arthur says. He hugs Leo and Mia. Toby smiles and pets Barnaby.",
+                "ru": "Десять минут спустя команда приходит в антикварную лавку дедушки Артура. Колокольчик на двери звенит. Дедушка Артур сидит у окна. Он грустит. Когда он видит Лео с музыкальной шкатулкой, он очень счастлив. Его глаза полны слёз. «Моя музыкальная шкатулка! Вы нашли её!» — говорит Артур. Он обнимает Лео и Мию. Тоби улыбается и гладит Барнаби.",
+                "chunkedEn": "[adv: Ten minutes later,] [s: the team] [v: comes] [pt: to Grandfather Arthur's antique shop.]\n[s: The bell on the door] [v: rings.]\n[s: Grandfather Arthur] [v: is] [pt: near the window.]\n[s: He] [v: is] [pt: sad.]\n[pt: When he sees Leo with the music box,] [s: he] [v: is] [adv: very] [pt: happy.]\n[s: His eyes] [v: are full] [pt: of tears.]\n[o: \"My music box! You found it!\"] [s: Arthur] [v: says.]\n[s: He] [v: hugs] [o: Leo and Mia.]\n[s: Toby] [v: smiles] [c: and] [v: pets] [o: Barnaby.]"
+            },
+            {
+                "speaker": "leo",
+                "en": "\"There is one more thing, Grandfather Arthur,\" Leo says with a smile. Leo has the small silver key. Toby and Barnaby found this key under the tree in the park. Arthur looks at the key. His eyes are big. \"The silver key! My grandfather made this key fifty years ago,\" Arthur says quietly. \"It opens the secret box under the music box!\"",
+                "ru": "«Есть ещё кое-что, дедушка Артур», — с улыбкой говорит Лео. У Лео маленький серебряный ключ. Тоби и Барнаби нашли этот ключ под деревом в парке. Артур смотрит на ключ. Его глаза широко раскрыты. «Серебряный ключ! Мой дедушка сделал этот ключ пятьдесят лет назад», — тихо говорит Артур. «Он открывает потайной тайник под музыкальной шкатулкой!»",
+                "chunkedEn": "[o: \"There is one more thing, Grandfather Arthur,\"] [s: Leo] [v: says] [pt: with a smile.]\n[s: Leo] [v: has] [o: the small silver key.]\n[s: Toby and Barnaby] [v: found] [o: this key] [pt: under the tree in the park.]\n[s: Arthur] [v: looks] [pt: at the key.]\n[s: His eyes] [v: are] [pt: big.]\n[o: \"The silver key! My grandfather made this key fifty years ago,\"] [s: Arthur] [v: says] [adv: quietly.]\n[s: \"It] [v: opens] [o: the secret box] [pt: under the music box!\"]"
+            },
+            {
+                "speaker": "arthur",
+                "en": "Arthur puts the silver key into the small lock. Click! The secret wood box opens. Inside, there is an old black-and-white photograph of Arthur's family. There is also a letter from his grandfather. Arthur reads the letter. His heart is happy. \"This letter is my family's best treasure,\" Arthur says softly.",
+                "ru": "Артур вставляет серебряный ключ в маленький замок. Щёлк! Потайная деревянная коробочка открывается. Внутри лежит старая чёрно-белая фотография семьи Артура. Там также есть письмо от его дедушки. Артур читает письмо. Его сердце радуется. «Это письмо — величайшее сокровище моей семьи», — тихо говорит Артур.",
+                "chunkedEn": "[s: Arthur] [v: puts] [o: the silver key] [pt: into the small lock.]\n[o: Click!]\n[s: The secret wood box] [v: opens.]\n[pt: Inside,] [w: there] [v: is] [o: an old black-and-white photograph of Arthur's family.]\n[w: There] [v: is] [adv: also] [o: a letter from his grandfather.]\n[s: Arthur] [v: reads] [o: the letter.]\n[s: His heart] [v: is] [pt: happy.]\n[s: \"This letter] [v: is] [o: my family's best treasure,\"] [s: Arthur] [v: says] [adv: softly.]"
+            },
+            {
+                "speaker": "martha",
+                "en": "Then the door opens again. Grandma Martha comes into the shop. She carries a big basket with a red cloth on top. The basket smells sweet, like hot bread and cherry pie. \"I saw you from my bakery window!\" Martha says happily. \"A great day for our town needs a warm party!\"",
+                "ru": "Затем дверь снова открывается. Бабушка Марта заходит в лавку. Она несёт большую корзину, накрытую красной тканью. Из корзины доносится сладкий аромат горячего хлеба и вишнёвого пирога. «Я увидела вас из окна своей пекарни!» — радостно говорит Марта. «Такой прекрасный день для нашего городка заслуживает тёплого праздника!»",
+                "chunkedEn": "[adv: Then] [s: the door] [v: opens] [adv: again.]\n[s: Grandma Martha] [v: comes] [pt: into the shop.]\n[s: She] [v: carries] [o: a big basket] [pt: with a red cloth on top.]\n[s: The basket] [v: smells] [pt: sweet, like hot bread and cherry pie.]\n[s: \"I] [v: saw] [o: you] [pt: from my bakery window!\"] [s: Martha] [v: says] [adv: happily.]\n[s: \"A great day for our town] [v: needs] [o: a warm party!\"]"
+            },
+            {
+                "speaker": "toby",
+                "en": "Everyone comes to the big table in the antique shop. Arthur winds the silver bird on the music box. A soft, sweet song begins to play. The old clocks and books listen too. They drink hot tea and eat sweet food. Toby gives a piece of sweet biscuit to Barnaby. Barnaby is happy. He wags his tail.",
+                "ru": "Все собираются вокруг большого стола в антикварной лавке. Артур заводит серебряную птицу на музыкальной шкатулке. Начинает играть нежная, приятная мелодия. Старинные часы и книги словно тоже слушают её. Они пьют горячий чай и едят сладости. Тоби даёт кусочек сладкого печенья Барнаби. Барнаби счастлив. Он виляет хвостом.",
+                "chunkedEn": "[s: Everyone] [v: comes] [pt: to the big table in the antique shop.]\n[s: Arthur] [v: winds] [o: the silver bird] [pt: on the music box.]\n[s: A soft, sweet song] [v: begins to play.]\n[s: The old clocks and books] [v: listen] [adv: too.]\n[s: They] [v: drink] [o: hot tea] [c: and] [v: eat] [o: sweet food.]\n[s: Toby] [v: gives] [o: a piece of sweet biscuit] [pt: to Barnaby.]\n[s: Barnaby] [v: is] [pt: happy.]\n[s: He] [v: wags] [o: his tail.]"
+            },
+            {
+                "speaker": "leo",
+                "en": "\"We are a great team,\" Mia says. She holds her cup of tea. \"Leo's smart mind, my photographs, Toby's good eyes, and Barnaby's good nose!\" Leo smiles. He looks at his happy friends. \"New Haven is safe today,\" Leo says. \"When our town needs help, the New Haven Detective Agency is always ready!\" Grandfather Arthur puts the photograph and the letter back into the secret box. He closes it carefully. \"Thank you, my friends,\" he says. \"You are very brave.\" Leo, Mia, Toby, and Barnaby say goodbye and walk home. The sun is warm. The street is quiet. It was a good day for the New Haven Detective Agency.",
+                "ru": "«Мы отличная команда», — говорит Миа. Она держит свою чашку чая. «Острый ум Лео, мои фотографии, зоркие глаза Тоби и отличный нюх Барнаби!» Лео улыбается. Он смотрит на своих счастливых друзей. «Нью-Хейвен сегодня в безопасности», — говорит Лео. «Когда нашему городу нужна помощь, детективное агентство Нью-Хейвена всегда готово!» Дедушка Артур убирает фотографию и письмо обратно в потайную коробочку. Он аккуратно закрывает её. «Спасибо вам, друзья мои», — говорит он. «Вы очень смелые». Лео, Миа, Тоби и Барнаби прощаются и идут домой. Солнце тёплое. Улица тихая. Это был прекрасный день для детективного агентства Нью-Хейвена.",
+                "chunkedEn": "[o: \"We are a great team,\"] [s: Mia] [v: says.]\n[s: She] [v: holds] [o: her cup of tea.]\n[o: \"Leo's smart mind, my photographs, Toby's good eyes, and Barnaby's good nose!\"]\n[s: Leo] [v: smiles.]\n[s: He] [v: looks] [pt: at his happy friends.]\n[s: \"New Haven] [v: is] [pt: safe today,\"] [s: Leo] [v: says.]\n[pt: \"When our town needs help,] [s: the New Haven Detective Agency] [v: is] [adv: always] [pt: ready!\"]\n[s: Grandfather Arthur] [v: puts] [o: the photograph and the letter back] [pt: into the secret box.]\n[s: He] [v: closes] [o: it] [adv: carefully.]\n[o: \"Thank you, my friends,\"] [s: he] [v: says.]\n[s: \"You] [v: are] [adv: very] [pt: brave.\"]\n[s: Leo, Mia, Toby, and Barnaby] [v: say] [o: goodbye] [c: and] [v: walk] [pt: home.]\n[s: The sun] [v: is] [pt: warm.]\n[s: The street] [v: is] [pt: quiet.]\n[s: It] [v: was] [o: a good day] [pt: for the New Haven Detective Agency.]"
+            }
+        ],
+        "quiz": {
+            "question": "What was hidden inside the secret box under the music box?",
+            "options": [
+                "An old family photograph and a letter from Arthur's grandfather",
+                "A bag of gold coins and silver watches",
+                "A keycard to the harbor warehouse"
+            ],
+            "correctIndex": 0,
+            "rewardXp": 532
+        },
+        "backgroundImg": "images/backgrounds/bg_magic_library.jpg",
+        "locationEn": "Arthur's Antique Shop",
+        "locationRu": "Антикварная лавка Артура"
+    }
 ];
 
 const HERO_ORIGINAL_PORTRAITS = {
