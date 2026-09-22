@@ -4182,6 +4182,87 @@ const STORY_CHAPTERS = [
         "locationEn": "Detective Leo's Office",
         "locationRu": "Кабинет Детектива Лео"
     }
+,
+    {
+        "id": "det-ch-13",
+        "campaignId": "detective",
+        "number": 13,
+        "actId": 103,
+        "titleEn": "The Stolen Masterpiece",
+        "titleRu": "Похищенный шедевр",
+        "rewardXp": 405,
+        "audioDir": "det_ch_13",
+        "involvedHeroes": [
+            "leo",
+            "vincent",
+            "mia",
+            "toby",
+            "harris"
+        ],
+        "paragraphs": [
+            {
+                "speaker": "leo",
+                "en": "It is a cloudy Tuesday morning in New Haven. Last night there was a big storm. It rained all night. Now cool wind moves in the streets. Detective Leo is at his desk. He reads his notes about old crimes. Mia stands near the window. She has a cup of warm tea. The office is quiet. Rain falls on the window.",
+                "ru": "Облачное утро вторника в Нью-Хейвене. Прошлой ночью была сильная буря. Дождь шёл всю ночь. Теперь прохладный ветер гуляет по улицам. Детектив Лео сидит за своим столом. Он читает свои записи о старых делах. Миа стоит у окна. У неё чашка тёплого чая. В кабинете тихо. Дождь барабанит по окну.",
+                "chunkedEn": "[s: It] [v: is] [o: a cloudy Tuesday morning] [pt: in New Haven.]\n[pt: Last night] [w: there] [v: was] [o: a big storm.]\n[s: It] [v: rained] [pt: all night.]\n[adv: Now] [s: cool wind] [v: moves] [pt: in the streets.]\n[s: Detective Leo] [v: is] [pt: at his desk.]\n[s: He] [v: reads] [o: his notes about old crimes.]\n[s: Mia] [v: stands] [pt: near the window.]\n[s: She] [v: has] [o: a cup of warm tea.]\n[s: The office] [v: is] [pt: quiet.]\n[s: Rain] [v: falls] [pt: on the window.]"
+            },
+            {
+                "speaker": "leo",
+                "en": "Then, the phone on the desk rings. Leo takes the phone. \"New Haven Detective Agency, Leo speaking,\" he says. A voice answers fast. \"Detective Leo! This is Vincent. I work at the New Haven Art Gallery on River Street. We have a big problem! Our best painting is not here! Someone took it last night, in the storm!\"",
+                "ru": "Затем звонит телефон на столе. Лео берёт трубку. «Детективное агентство Нью-Хейвена, говорит Лео», — говорит он. Голос быстро отвечает: «Детектив Лео! Это Винсент. Я работаю в Картинной галерее Нью-Хейвена на Ривер-стрит. У нас большая проблема! Нашей лучшей картины нет на месте! Кто-то украл её прошлой ночью, во время бури!»",
+                "chunkedEn": "[adv: Then,] [s: the phone on the desk] [v: rings.]\n[s: Leo] [v: takes] [o: the phone.]\n[o: \"New Haven Detective Agency, Leo speaking,\"] [s: he] [v: says.]\n[s: A voice] [v: answers] [adv: fast.]\n[s: \"Detective Leo! This] [v: is] [o: Vincent.]\n[s: I] [v: work] [pt: at the New Haven Art Gallery on River Street.]\n[s: We] [v: have] [o: a big problem!]\n[s: Our best painting] [v: is not] [pt: here!]\n[s: Someone] [v: took] [o: it] [pt: last night, in the storm!\"]"
+            },
+            {
+                "speaker": "vincent",
+                "en": "Leo stands and listens. \"Please, Vincent, do not be afraid. Tell us the tale,\" Leo says. Vincent talks fast. \"Last night, at midnight, there was thunder. The power in the Gallery stopped for ten minutes. This morning, at eight o'clock, our guard opened the Golden Hall. He looked at our best painting, The Blue Harbor at Sunset, and he saw something not right.\"",
+                "ru": "Лео встаёт и слушает. «Пожалуйста, Винсент, не бойтесь. Расскажите, что произошло», — говорит Лео. Винсент быстро говорит: «Прошлой ночью, в полночь, гремел гром. Электричество в Галерее отключилось на десять минут. Сегодня утром, в восемь часов, наш охранник открыл Золотой зал. Он посмотрел на нашу лучшую картину \"Синяя гавань на закате\" и увидел неладное».",
+                "chunkedEn": "[s: Leo] [v: stands and listens.]\n[o: \"Please, Vincent, do not be afraid. Tell us the tale,\"] [s: Leo] [v: says.]\n[s: Vincent] [v: talks] [adv: fast.]\n[pt: \"Last night, at midnight,] [w: there] [v: was] [o: thunder.]\n[s: The power in the Gallery] [v: stopped] [pt: for ten minutes.]\n[pt: This morning, at eight o'clock,] [s: our guard] [v: opened] [o: the Golden Hall.]\n[s: He] [v: looked] [pt: at our best painting, The Blue Harbor at Sunset,] [c: and] [s: he] [v: saw] [o: something not right.\"]"
+            },
+            {
+                "speaker": "mia",
+                "en": "Mia opens her laptop and looks at photos of the Gallery. \"Was the wall empty, Vincent?\" Mia asks. \"No! Something is bad,\" Vincent says. \"A painting is still there. It has gold around it. But it is not the true painting! It is new, and it is not good. The true painting has a big price! The thief took the real painting in the dark, and left this new one.\"",
+                "ru": "Миа открывает ноутбук и просматривает фотографии Галереи. «Стена была пустой, Винсент?» — спрашивает Миа. «Нет! Всё гораздо хуже», — говорит Винсент. «Картина всё ещё там. На ней золотая рама. Но это не подлинная картина! Она новая и некачественная. Настоящая картина стоит очень дорого! Вор забрал настоящую картину в темноте и оставил эту новую».",
+                "chunkedEn": "[s: Mia] [v: opens] [o: her laptop] [c: and] [v: looks] [pt: at photos of the Gallery.]\n[v: \"Was] [s: the wall] [pt: empty, Vincent?\"] [s: Mia] [v: asks.]\n[o: \"No! Something is bad,\"] [s: Vincent] [v: says.]\n[s: \"A painting] [v: is still] [pt: there.]\n[s: It] [v: has] [o: gold] [pt: around it.]\n[c: But] [s: it] [v: is not] [o: the true painting!]\n[s: It] [v: is] [pt: new,] [c: and] [s: it] [v: is not] [pt: good.]\n[s: The true painting] [v: has] [o: a big price!]\n[s: The thief] [v: took] [o: the real painting] [pt: in the dark,] [c: and] [v: left] [o: this new one.\"]"
+            },
+            {
+                "speaker": "toby",
+                "en": "Then, the door opens. Young Toby walks in. He has yellow boots. Barnaby the dog walks with him, happy and quick. \"Good morning, Uncle Leo! Good morning, Mia!\" Toby says with a big smile. Barnaby is happy. He jumps and runs.",
+                "ru": "Затем дверь открывается. Входит юный Тоби. На нём жёлтые сапожки. Пёс Барнаби идёт с ним, радостный и резвый. «Доброе утро, дядя Лео! Доброе утро, Миа!» — говорит Тоби с широкой улыбкой. Барнаби счастлив. Он прыгает и бегает.",
+                "chunkedEn": "[adv: Then,] [s: the door] [v: opens.]\n[s: Young Toby] [v: walks in.]\n[s: He] [v: has] [o: yellow boots.]\n[s: Barnaby the dog] [v: walks] [pt: with him, happy and quick.]\n[o: \"Good morning, Uncle Leo! Good morning, Mia!\"] [s: Toby] [v: says] [pt: with a big smile.]\n[s: Barnaby] [v: is] [pt: happy.]\n[s: He] [v: jumps and runs.]"
+            },
+            {
+                "speaker": "leo",
+                "en": "\"Toby, Barnaby, take your raincoats,\" Leo says. \"A great painting is not in the city Gallery now. We need your good eyes and Barnaby's good nose!\" Leo takes his warm brown coat. He takes his glasses too. Mia takes her flashlight and her camera in her bag. \"The thief left marks in the Golden Hall. I think there is paint, or a tool,\" Mia says.",
+                "ru": "«Тоби, Барнаби, надевайте дождевики», — говорит Лео. «Великой картины сейчас нет в городской Галерее. Нам нужны твои зоркие глаза и отличный нюх Барнаби!» Лео берёт своё тёплое коричневое пальто. Он также берёт очки. Миа кладёт фонарик и камеру в сумку. «Вор оставил следы в Золотом зале. Думаю, там есть краска или инструмент», — говорит Миа.",
+                "chunkedEn": "[o: \"Toby, Barnaby, take your raincoats,\"] [s: Leo] [v: says.]\n[s: \"A great painting] [v: is not] [pt: in the city Gallery now.]\n[s: We] [v: need] [o: your good eyes and Barnaby's good nose!\"]\n[s: Leo] [v: takes] [o: his warm brown coat.]\n[s: He] [v: takes] [o: his glasses] [adv: too.]\n[s: Mia] [v: takes] [o: her flashlight and her camera] [pt: in her bag.]\n[s: \"The thief] [v: left] [o: marks] [pt: in the Golden Hall.]\n[s: I] [v: think] [w: there] [v: is] [o: paint, or a tool,\"] [s: Mia] [v: says.]"
+            },
+            {
+                "speaker": "harris",
+                "en": "Policeman Harris calls from the Gallery door. \"Detectives, the police car waits on Elm Street. Captain Gordon wants me to drive you to River Street now.\"",
+                "ru": "Полицейский Харрис кричит от дверей Галереи: «Детективы, полицейская машина ждёт на Элм-стрит. Капитан Гордон велел мне отвезти вас на Ривер-стрит прямо сейчас».",
+                "chunkedEn": "[s: Policeman Harris] [v: calls] [pt: from the Gallery door.]\n[s: \"Detectives, the police car] [v: waits] [pt: on Elm Street.]\n[s: Captain Gordon] [v: wants] [o: me] [v: to drive] [o: you] [pt: to River Street now.\"]"
+            },
+            {
+                "speaker": "leo",
+                "en": "\"Let's go to the Art Gallery,\" Leo says. He walks downstairs with the team. \"A big money problem waits for us!\"",
+                "ru": "«Пойдёмте в Картинную галерею», — говорит Лео. Он спускается вниз вместе с командой. «Нас ждёт дело на миллион!»",
+                "chunkedEn": "[o: \"Let's go to the Art Gallery,\"] [s: Leo] [v: says.]\n[s: He] [v: walks downstairs] [pt: with the team.]\n[s: \"A big money problem] [v: waits] [pt: for us!\"]"
+            }
+        ],
+        "quiz": {
+            "question": "What happened to the painting in the Golden Hall during the storm?",
+            "options": [
+                "The thief stole the real painting and left a fake copy",
+                "The painting was damaged by water from the broken window",
+                "The guard moved the painting into the basement safe"
+            ],
+            "correctIndex": 0,
+            "rewardXp": 405
+        },
+        "backgroundImg": "images/backgrounds/bg_magic_library.jpg",
+        "locationEn": "Detective Leo's Office",
+        "locationRu": "Кабинет Детектива Лео"
+    }
 ];
 
 const HERO_ORIGINAL_PORTRAITS = {
@@ -4204,7 +4285,8 @@ const HERO_ORIGINAL_PORTRAITS = {
     "sam": "images/characters_orig/eldrin_orig.jpg",
     "gordon": "images/characters_orig/valerius_orig.jpg",
     "emma": "images/characters_orig/frostina_orig.jpg",
-    "edward": "images/characters_orig/oberon_orig.jpg"
+    "edward": "images/characters_orig/oberon_orig.jpg",
+    "vincent": "images/characters_orig/eldrin_orig.jpg"
 };
 
 if (typeof module !== 'undefined' && module.exports) {
