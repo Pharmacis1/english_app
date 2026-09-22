@@ -6,27 +6,26 @@
 
 const STORY_CAMPAIGNS = [
     {
-        id: "fantasy",
-        title: "The Oath of Seven Winds",
-        titleRu: "Клятва Семи Ветров",
-        subtitle: "40 Глав • Сюжетная кампания с 20 по 100 уровень героев",
-        badge: "Fantasy RPG • A1",
-        icon: "fa-scroll",
-        color: "var(--warning)",
-        defaultActId: 1
+        "id": "fantasy",
+        "title": "The Oath of Seven Winds",
+        "titleRu": "Клятва Семи Ветров",
+        "subtitle": "40 Глав • Сюжетная кампания с 20 по 100 уровень героев",
+        "badge": "Fantasy RPG • A1",
+        "icon": "fa-scroll",
+        "color": "var(--warning)",
+        "defaultActId": 1
     },
     {
-        id: "detective",
-        title: "The New Haven Mysteries",
-        titleRu: "Тайны Нью-Хейвена",
-        subtitle: "Детективные расследования в современном городе",
-        badge: "Modern Detective • A1",
-        icon: "fa-magnifying-glass",
-        color: "#38bdf8",
-        defaultActId: 101
+        "id": "detective",
+        "title": "The New Haven Mysteries",
+        "titleRu": "Тайны Нью-Хейвена",
+        "subtitle": "Детективные расследования в современном городе",
+        "badge": "Modern Detective • A1",
+        "icon": "fa-magnifying-glass",
+        "color": "#38bdf8",
+        "defaultActId": 101
     }
 ];
-
 
 const STORY_ACTS = [
     {
@@ -3380,6 +3379,85 @@ const STORY_CHAPTERS = [
         "backgroundImg": "images/backgrounds/bg_magic_library.jpg",
         "locationEn": "Arthur's Antique Shop",
         "locationRu": "Антикварная лавка Артура"
+    },
+    {
+        "id": "det-ch-3",
+        "campaignId": "detective",
+        "number": 3,
+        "actId": 101,
+        "titleEn": "The Footprints in the Park",
+        "titleRu": "Следы в парке",
+        "rewardXp": 494,
+        "audioDir": "det_ch_3",
+        "involvedHeroes": [
+            "leo",
+            "toby",
+            "mia",
+            "sam"
+        ],
+        "paragraphs": [
+            {
+                "speaker": "leo",
+                "en": "Leo, Mia, Toby, and the dog Barnaby leave the antique shop. They go out to Elm Street. The heavy rain finishes, but the street is still grey and has water on it. The sky is grey. Small clouds move fast. Cold wind moves the leaves on the tall trees. Across the street, there is a big green park with stone paths, wooden chairs, and old trees.",
+                "ru": "Лео, Миа, Тоби и пёс Барнаби выходят из антикварной лавки. Они выходят на Элм-стрит. Сильный дождь прекращается, но улица всё ещё серая и на ней вода. Небо серое. Маленькие облака быстро плывут. Холодный ветер колышет листья на высоких деревьях. Через дорогу находится большой зелёный парк с каменными дорожками, деревянными стульями и старыми деревьями.",
+                "chunkedEn": "[s: Leo, Mia, Toby, and the dog Barnaby] [v: leave] [o: the antique shop.]\n[s: They] [v: go out] [pt: to Elm Street.]\n[s: The heavy rain] [v: finishes,] [c: but] [s: the street] [v: is still] [pt: grey and has water on it.]\n[s: The sky] [v: is] [pt: grey.]\n[s: Small clouds] [v: move] [adv: fast.]\n[s: Cold wind] [v: moves] [o: the leaves on the tall trees.]\n[pt: Across the street,] [w: there] [v: is] [o: a big green park] [pt: with stone paths, wooden chairs, and old trees.]"
+            },
+            {
+                "speaker": "toby",
+                "en": "\"Barnaby, come here, good boy!\" Leo says. Leo shows the blue paper note and the silver key to the dog. Barnaby smells the silver key with his nose. Barnaby is happy. He runs fast! He has the smell. The good dog runs across the street and goes into the park. Toby rides his red bicycle behind Barnaby. Leo and Mia walk fast on the stone path.",
+                "ru": "«Барнаби, иди сюда, хороший мальчик!» — говорит Лео. Лео показывает собаке синюю бумажную записку и серебряный ключ. Барнаби нюхает серебряный ключ своим носом. Барнаби счастлив. Он быстро бежит! Он взял след. Славный пёс перебегает через улицу и направляется в парк. Тоби едет на своём красном велосипеде за Барнаби. Лео и Миа быстро идут по каменной дорожке.",
+                "chunkedEn": "[o: \"Barnaby, come here, good boy!\"] [s: Leo] [v: says.]\n[s: Leo] [v: shows] [o: the blue paper note and the silver key] [pt: to the dog.]\n[s: Barnaby] [v: smells] [o: the silver key] [pt: with his nose.]\n[s: Barnaby] [v: is] [pt: happy.]\n[s: He] [v: runs] [adv: fast!]\n[s: He] [v: has] [o: the smell.]\n[s: The good dog] [v: runs] [pt: across the street] [c: and] [v: goes] [pt: into the park.]\n[s: Toby] [v: rides] [o: his red bicycle] [pt: behind Barnaby.]\n[s: Leo and Mia] [v: walk fast] [pt: on the stone path.]"
+            },
+            {
+                "speaker": "toby",
+                "en": "The park is quiet in the morning. Yellow and orange leaves are on the green grass. Birds sing in the trees. Barnaby is a good dog. He helps Leo every day. Barnaby runs near the tall tree where Toby found the silver key. The dog waits. He smells the ground. \"Look, Leo!\" Toby calls from his bicycle. \"There are more footprints on the ground near the tree!\"",
+                "ru": "В парке тихо утром. Жёлтые и оранжевые листья лежат на зелёной траве. Птицы поют на деревьях. Барнаби — хорошая собака. Он помогает Лео каждый день. Барнаби бежит возле высокого дерева, где Тоби нашёл серебряный ключ. Пёс ждёт. Он нюхает землю. «Смотри, Лео!» — кричит Тоби со своего велосипеда. «На земле возле дерева есть ещё следы!»",
+                "chunkedEn": "[s: The park] [v: is] [pt: quiet in the morning.]\n[s: Yellow and orange leaves] [v: are] [pt: on the green grass.]\n[s: Birds] [v: sing] [pt: in the trees.]\n[s: Barnaby] [v: is] [o: a good dog.]\n[s: He] [v: helps] [o: Leo] [adv: every day.]\n[s: Barnaby] [v: runs] [pt: near the tall tree where Toby found the silver key.]\n[s: The dog] [v: waits.]\n[s: He] [v: smells] [o: the ground.]\n[o: \"Look, Leo!\"] [s: Toby] [v: calls] [pt: from his bicycle.]\n[w: \"There] [v: are] [o: more footprints] [pt: on the ground near the tree!\"]"
+            },
+            {
+                "speaker": "leo",
+                "en": "Leo and Mia come to the tree. Leo looks at the footprint. \"It is big. It is the same big footprint from Arthur's shop,\" Leo explains. Mia takes a photograph with her smartphone. Next to the footprints, Mia finds more evidence. \"A bicycle or a small motorcycle was here too,\" Mia says.",
+                "ru": "Лео и Миа подходят к дереву. Лео смотрит на след. «Он большой. Это тот самый большой след из лавки Артура», — объясняет Лео. Миа делает фотографию на свой смартфон. Рядом со следами ног Миа находит ещё одну улику. «Велосипед или маленький мотоцикл тоже был здесь», — говорит Миа.",
+                "chunkedEn": "[s: Leo and Mia] [v: come] [pt: to the tree.]\n[s: Leo] [v: looks] [pt: at the footprint.]\n[s: \"It] [v: is] [pt: big.]\n[s: It] [v: is] [o: the same big footprint] [pt: from Arthur's shop,\"] [s: Leo] [v: explains.]\n[s: Mia] [v: takes] [o: a photograph] [pt: with her smartphone.]\n[pt: Next to the footprints,] [s: Mia] [v: finds] [o: more evidence.]\n[s: \"A bicycle or a small motorcycle] [v: was] [pt: here] [adv: too,\"] [s: Mia] [v: says.]"
+            },
+            {
+                "speaker": "sam",
+                "en": "Barnaby runs on the path to the old stone statue in the center of the park. Near the statue, there is a small cafe. It has red tables and white chairs. The cafe smells nice. A young man in a white uniform is cleaning the tables. It is Sam, the waiter at the cafe. Sam sees the detectives and smiles. \"Good morning! Can I help you?\" Sam asks in a nice voice.",
+                "ru": "Барнаби бежит по дорожке к старой каменной статуе в центре парка. Возле статуи находится небольшое кафе. В нём красные столы и белые стулья. В кафе приятно пахнет. Молодой человек в белой форме убирает столы. Это Сэм, официант в кафе. Сэм видит детективов и улыбается. «Доброе утро! Могу я вам помочь?» — спрашивает Сэм приятным голосом.",
+                "chunkedEn": "[s: Barnaby] [v: runs] [pt: on the path to the old stone statue in the center of the park.]\n[pt: Near the statue,] [w: there] [v: is] [o: a small cafe.]\n[s: It] [v: has] [o: red tables and white chairs.]\n[s: The cafe] [v: smells] [pt: nice.]\n[s: A young man in a white uniform] [v: is cleaning] [o: the tables.]\n[s: It] [v: is] [o: Sam, the waiter at the cafe.]\n[s: Sam] [v: sees] [o: the detectives] [c: and] [v: smiles.]\n[o: \"Good morning! Can I help you?\"] [s: Sam] [v: asks] [pt: in a nice voice.]"
+            },
+            {
+                "speaker": "sam",
+                "en": "\"Good morning, Sam,\" Leo says. Leo shows his detective card. \"We are investigating a crime from last night. Did you see a tall person in a dark raincoat in the park?\" Sam thinks for a moment. He takes his white cup of coffee. \"Yes, I did! Early this morning, at six o'clock, a tall person in a dark raincoat was near the statue. He had a heavy black bag in his hands. He drank black tea here. After, he left a small card under that chair.\" Leo writes notes in his notebook.",
+                "ru": "«Доброе утро, Сэм», — говорит Лео. Лео показывает своё удостоверение детектива. «Мы расследуем вчерашнее ночное преступление. Вы видели в парке высокого человека в тёмном дождевике?» Сэм задумывается на секунду. Он берёт свою белую чашку с кофе. «Да, видел! Рано утром, в шесть часов, высокий человек в тёмном дождевике был возле статуи. В руках у него была тяжёлая чёрная сумка. Он пил здесь чёрный чай. После этого он оставил маленькую карточку под тем стулом». Лео делает записи в своём блокноте.",
+                "chunkedEn": "[o: \"Good morning, Sam,\"] [s: Leo] [v: says.]\n[s: Leo] [v: shows] [o: his detective card.]\n[s: \"We] [v: are investigating] [o: a crime] [pt: from last night.]\n[v: Did] [s: you] [v: see] [o: a tall person in a dark raincoat] [pt: in the park?\"]\n[s: Sam] [v: thinks] [pt: for a moment.]\n[s: He] [v: takes] [o: his white cup of coffee.]\n[s: \"Yes, I] [v: did!]\n[adv: Early this morning,] [pt: at six o'clock,] [s: a tall person in a dark raincoat] [v: was] [pt: near the statue.]\n[s: He] [v: had] [o: a heavy black bag] [pt: in his hands.]\n[s: He] [v: drank] [o: black tea] [pt: here.]\n[adv: After,] [s: he] [v: left] [o: a small card] [pt: under that chair.\"]\n[s: Leo] [v: writes] [o: notes] [pt: in his notebook.]"
+            },
+            {
+                "speaker": "mia",
+                "en": "Mia walks to the green wooden chair. Under the chair, in the grass, Mia finds a small card. It is a blue keycard with the word Harbor on it. Mia is happy. This is good evidence. \"Look, Leo! A keycard to the old Harbor building!\" Mia says with big eyes.",
+                "ru": "Миа подходит к зелёному деревянному стулу. Под стулом, в траве, Миа находит маленькую карточку. Это синяя ключ-карта с надписью «Harbor». Миа рада. Это отличная улика. «Смотри, Лео! Ключ-карта от старого здания в гавани!» — говорит Миа с широко раскрытыми глазами.",
+                "chunkedEn": "[s: Mia] [v: walks] [pt: to the green wooden chair.]\n[pt: Under the chair, in the grass,] [s: Mia] [v: finds] [o: a small card.]\n[s: It] [v: is] [o: a blue keycard with the word Harbor on it.]\n[s: Mia] [v: is] [pt: happy.]\n[s: This] [v: is] [o: good evidence.]\n[o: \"Look, Leo! A keycard] [pt: to the old Harbor building!\"] [s: Mia] [v: says] [pt: with big eyes.]"
+            },
+            {
+                "speaker": "leo",
+                "en": "Leo looks at Sam and smiles. \"Thank you, Sam. That is great information.\" Leo looks at Toby and Mia. \"Our thief went to the Harbor. Come, we go now!\"",
+                "ru": "Лео смотрит на Сэма и улыбается. «Спасибо, Сэм. Это отличная информация». Лео смотрит на Тоби и Мию. «Наш вор направился в Гавань. Идём, мы отправляемся прямо сейчас!»",
+                "chunkedEn": "[s: Leo] [v: looks] [pt: at Sam] [c: and] [v: smiles.]\n[o: \"Thank you, Sam.] [s: That] [v: is] [o: great information.\"]\n[s: Leo] [v: looks] [pt: at Toby and Mia.]\n[s: \"Our thief] [v: went] [pt: to the Harbor.]\n[v: Come,] [s: we] [v: go] [adv: now!\"]"
+            }
+        ],
+        "quiz": {
+            "question": "What did Mia find under the chair in the park?",
+            "options": [
+                "A blue keycard to the Harbor building",
+                "A gold pocket watch with a note",
+                "A yellow bicycle"
+            ],
+            "correctIndex": 0,
+            "rewardXp": 494
+        },
+        "backgroundImg": "images/backgrounds/bg_forest.jpg",
+        "locationEn": "Elm Street Park",
+        "locationRu": "Парк на Элм-стрит"
     }
 ];
 
@@ -3399,7 +3477,8 @@ const HERO_ORIGINAL_PORTRAITS = {
     "arthur": "images/characters_orig/oberon_orig.jpg",
     "toby": "images/characters_orig/zephyr_orig.png",
     "martha": "images/characters_orig/freya_orig.jpg",
-    "harris": "images/characters_orig/thorin_orig.png"
+    "harris": "images/characters_orig/thorin_orig.png",
+    "sam": "images/characters_orig/eldrin_orig.jpg"
 };
 
 if (typeof module !== 'undefined' && module.exports) {
