@@ -4452,6 +4452,85 @@ const STORY_CHAPTERS = [
             "locationEn": "River Street Frame Shop",
             "locationRu": "Багетная мастерская на Ривер-стрит",
             "rewardXp": 598
+    },
+    {
+            "id": "det-ch-16",
+            "campaignId": "detective",
+            "number": 16,
+            "actId": 103,
+            "titleEn": "The Old Harbor Stakeout",
+            "titleRu": "Засада в Старой Гавани",
+            "audioDir": "det_ch_16",
+            "involvedHeroes": [
+                    "leo",
+                    "mia",
+                    "toby",
+                    "harris"
+            ],
+            "paragraphs": [
+                    {
+                            "speaker": "leo",
+                            "en": "The team arrives at the Old Harbor District. It is evening. The sun goes away. The sky is dark blue and orange. There is fog on the river. The water is cold. Leo has a coat. He is cold, so he closes his coat. The team walks on the stone road. Leo looks at his watch. It is six o'clock. \"The river is quiet now,\" Leo says in a quiet voice. \"Pier 7 is there, at the end of the road. Be close to me. Watch the fog. Look for a man.\"",
+                            "ru": "Команда прибывает в район Старой Гавани. Вечер. Солнце садится. Небо тёмно-синее и оранжевое. На реке туман. Вода холодная. На Лео пальто. Ему холодно, поэтому он застёгивает пальто. Команда идёт по каменной дороге. Лео смотрит на часы. Сейчас шесть часов. «Река сейчас спокойна», — говорит Лео тихим голосом. «7-й пирс там, в конце дороги. Держитесь ближе ко мне. Смотрите в туман. Ищите человека».",
+                            "chunkedEn": "[s: The team] [v: arrives] [pt: at the Old Harbor District.]\n[s: It] [v: is] [o: evening.]\n[s: The sun] [v: goes] [adv: away.]\n[s: The sky] [v: is] [pt: dark blue and orange.]\n[w: There] [v: is] [s: fog] [pt: on the river.]\n[s: The water] [v: is] [pt: cold.]\n[s: Leo] [v: has] [o: a coat.]\n[s: He] [v: is] [pt: cold,] [c: so] [s: he] [v: closes] [o: his coat.]\n[s: The team] [v: walks] [pt: on the stone road.]\n[s: Leo] [v: looks] [pt: at his watch.]\n[s: It] [v: is] [o: six o'clock.]\n[o: \"The river is quiet now,\"] [s: Leo] [v: says] [pt: in a quiet voice.]\n[s: \"Pier 7] [v: is] [pt: there, at the end of the road.]\n[v: Be] [pt: close to me.]\n[v: Watch] [o: the fog.]\n[v: Look] [pt: for a man.\"]"
+                    },
+                    {
+                            "speaker": "mia",
+                            "en": "Mia looks at the map on her phone. \"The map is from the shop,\" Mia says in a quiet voice. \"Warehouse Four is next to Pier 7. The house was empty for five years. But look at the ground! There is water on the ground. There are marks of a heavy thing. Someone was here!\" Mia has a small flashlight. She looks at the ground with the flashlight. The marks are big. The marks go to Warehouse Four.",
+                            "ru": "Миа смотрит на карту в своём телефоне. «Карта из мастерской», — говорит Миа тихим голосом. «Склад №4 находится рядом с 7-м пирсом. Здание пустовало пять лет. Но посмотрите на землю! На земле вода. Здесь следы тяжёлого предмета. Кто-то был здесь!» У Мии есть маленький фонарик. Она осматривает землю фонариком. Следы большие. Следы ведут к Складу №4.",
+                            "chunkedEn": "[s: Mia] [v: looks] [pt: at the map on her phone.]\n[o: \"The map is from the shop,\"] [s: Mia] [v: says] [pt: in a quiet voice.]\n[s: \"Warehouse Four] [v: is] [pt: next to Pier 7.]\n[s: The house] [v: was] [pt: empty for five years.]\n[c: But] [v: look] [pt: at the ground!]\n[w: There] [v: is] [s: water] [pt: on the ground.]\n[w: There] [v: are] [s: marks of a heavy thing.]\n[s: Someone] [v: was] [pt: here!\"]\n[s: Mia] [v: has] [o: a small flashlight.]\n[s: She] [v: looks] [pt: at the ground with the flashlight.]\n[s: The marks] [v: are] [pt: big.]\n[s: The marks] [v: go] [pt: to Warehouse Four.]"
+                    },
+                    {
+                            "speaker": "toby",
+                            "en": "Barnaby the dog goes in front of Toby. His nose is close to the ground. Barnaby is quiet. He stops near Pier 7. He smells the cold air. Toby stops too. \"Good boy, Barnaby!\" Toby says in a quiet voice. \"What do you smell?\" Toby is next to his brave dog. He touches his dog. Barnaby looks at the water under Pier 7.",
+                            "ru": "Пёс Барнаби идёт впереди Тоби. Его нос опущен к самой земле. Барнаби ведёт себя тихо. Он останавливается возле 7-го пирса. Он нюхает холодный воздух. Тоби тоже останавливается. «Молодец, Барнаби!» — тихо говорит Тоби. «Что ты почуял?» Тоби находится рядом со своей храброй собакой. Он гладит своего пса. Барнаби смотрит на воду под 7-м пирсом.",
+                            "chunkedEn": "[s: Barnaby the dog] [v: goes] [pt: in front of Toby.]\n[s: His nose] [v: is] [pt: close to the ground.]\n[s: Barnaby] [v: is] [pt: quiet.]\n[s: He] [v: stops] [pt: near Pier 7.]\n[s: He] [v: smells] [o: the cold air.]\n[s: Toby] [v: stops] [adv: too.]\n[o: \"Good boy, Barnaby!\"] [s: Toby] [v: says] [pt: in a quiet voice.]\n[o: \"What] [v: do] [s: you] [v: smell?\"]\n[s: Toby] [v: is] [pt: next to his brave dog.]\n[s: He] [v: touches] [o: his dog.]\n[s: Barnaby] [v: looks] [pt: at the water under Pier 7.]"
+                    },
+                    {
+                            "speaker": "toby",
+                            "en": "Toby looks under Pier 7. There is a small black boat! \"Uncle Leo, Mia, look!\" Toby says. \"There is a black boat here! It is hidden under Pier 7! There is an empty bag in the boat!\" Leo looks at the boat and smiles. \"That is the boat!\" Leo says. \"The guard heard a boat at midnight behind the museum!\" Mia looks at the boat too. She takes a photo.",
+                            "ru": "Тоби заглядывает под 7-й пирс. Там небольшая чёрная лодка! «Дядя Лео, Миа, смотрите!» — говорит Тоби. «Здесь чёрная лодка! Она спрятана под 7-м пирсом! В лодке пустая сумка!» Лео смотрит на лодку и улыбается. «Это та самая лодка!» — говорит Лео. «Охранник слышал лодку в полночь за музеем!» Миа тоже смотрит на лодку. Она делает фотографию.",
+                            "chunkedEn": "[s: Toby] [v: looks] [pt: under Pier 7.]\n[w: There] [v: is] [s: a small black boat!]\n[o: \"Uncle Leo, Mia, look!\"] [s: Toby] [v: says.]\n[w: \"There] [v: is] [s: a black boat] [pt: here!]\n[s: It] [v: is hidden] [pt: under Pier 7!]\n[w: There] [v: is] [s: an empty bag] [pt: in the boat!\"]\n[s: Leo] [v: looks] [pt: at the boat] [c: and] [v: smiles.]\n[o: \"That is the boat!\"] [s: Leo] [v: says.]\n[s: \"The guard] [v: heard] [o: a boat] [pt: at midnight behind the museum!\"]\n[s: Mia] [v: looks] [pt: at the boat] [adv: too.]\n[s: She] [v: takes] [o: a photo.]"
+                    },
+                    {
+                            "speaker": "leo",
+                            "en": "Leo looks at Warehouse Four. It is a big old house. The walls are grey. The windows are big. Now a yellow light is in a window on the second floor! Someone is in the house! \"Look at the window on the second floor,\" Leo says in a quiet voice. \"The Shadow Artist is in the house. He works in the dark.\" Leo looks at the team. They are quiet.",
+                            "ru": "Лео смотрит на Склад №4. Это большое старое здание. Стены серые. Окна большие. Вдруг в окне на втором этаже загорается жёлтый свет! Кто-то находится в здании! «Посмотрите на окно на втором этаже», — тихо говорит Лео. «Теневой Художник в здании. Он работает в темноте». Лео смотрит на команду. Они ведут себя тихо.",
+                            "chunkedEn": "[s: Leo] [v: looks] [pt: at Warehouse Four.]\n[s: It] [v: is] [o: a big old house.]\n[s: The walls] [v: are] [pt: grey.]\n[s: The windows] [v: are] [pt: big.]\n[adv: Now] [s: a yellow light] [v: is] [pt: in a window on the second floor!]\n[s: Someone] [v: is] [pt: in the house!]\n[o: \"Look at the window on the second floor,\"] [s: Leo] [v: says] [pt: in a quiet voice.]\n[s: \"The Shadow Artist] [v: is] [pt: in the house.]\n[s: He] [v: works] [pt: in the dark.\"]\n[s: Leo] [v: looks] [pt: at the team.]\n[s: They] [v: are] [pt: quiet.]"
+                    },
+                    {
+                            "speaker": "mia",
+                            "en": "Mia uses her camera. She looks through the dirty window. She sees a man in a dark grey coat. \"It is Simon Artwood!\" Mia says. She is happy. \"He is next to a big table! A big painting is on the table. He has a big box. The painting goes in the box! He closes the box!\" Mia takes a photo of the man.",
+                            "ru": "Миа использует камеру. Она смотрит сквозь грязное окно. Она видит мужчину в тёмно-сером пальто. «Это Саймон Артвуд!» — говорит Миа. Она рада. «Он стоит возле большого стола! На столе большая картина. У него большой ящик. Картина отправляется в ящик! Он закрывает ящик!» Миа делает фотографию мужчины.",
+                            "chunkedEn": "[s: Mia] [v: uses] [o: her camera.]\n[s: She] [v: looks] [pt: through the dirty window.]\n[s: She] [v: sees] [o: a man] [pt: in a dark grey coat.]\n[o: \"It is Simon Artwood!\"] [s: Mia] [v: says.]\n[s: She] [v: is] [pt: happy.]\n[s: \"He] [v: is] [pt: next to a big table!]\n[s: A big painting] [v: is] [pt: on the table.]\n[s: He] [v: has] [o: a big box.]\n[s: The painting] [v: goes] [pt: in the box!]\n[s: He] [v: closes] [o: the box!\"]\n[s: Mia] [v: takes] [o: a photo of the man.]"
+                    },
+                    {
+                            "speaker": "harris",
+                            "en": "Policeman Harris comes to the team. He is behind them. He has his phone in his hand. \"Captain Gordon sends two police cars to River Road,\" Harris says in a quiet voice. \"They stand on the street. The police are on the river too. Simon Artwood can't go away by boat. He can't go away by car!\" Leo smiles. \"Good work, Harris,\" Leo says. \"Now we need the painting. It is a great painting. Let's find it now.\"",
+                            "ru": "Полицейский Харрис подходит к команде. Он находится позади них. В руке у него телефон. «Капитан Гордон отправляет две полицейские машины на Ривер-роуд», — тихо говорит Харрис. «Они стоят на улице. Полиция также находится на реке. Саймон Артвуд не сможет уйти на лодке. Он не сможет уйти на машине!» Лео улыбается. «Отличная работа, Харрис», — говорит Лео. «Теперь нам нужна картина. Это великая картина. Давайте найдём её прямо сейчас».",
+                            "chunkedEn": "[s: Policeman Harris] [v: comes] [pt: to the team.]\n[s: He] [v: is] [pt: behind them.]\n[s: He] [v: has] [o: his phone] [pt: in his hand.]\n[s: \"Captain Gordon] [v: sends] [o: two police cars] [pt: to River Road,\"] [s: Harris] [v: says] [pt: in a quiet voice.]\n[s: \"They] [v: stand] [pt: on the street.]\n[s: The police] [v: are] [pt: on the river] [adv: too.]\n[s: Simon Artwood] [v: can't go away] [pt: by boat.]\n[s: He] [v: can't go away] [pt: by car!\"]\n[s: Leo] [v: smiles.]\n[o: \"Good work, Harris,\"] [s: Leo] [v: says.]\n[adv: \"Now] [s: we] [v: need] [o: the painting.]\n[s: It] [v: is] [o: a great painting.]\n[v: Let's find] [o: it] [adv: now.\"]"
+                    },
+                    {
+                            "speaker": "leo",
+                            "en": "Leo looks at Mia, Toby, and Barnaby. \"We go in by the door on the side,\" Leo says in a quiet voice. \"Barnaby, be with Toby. Mia, have your camera. We need evidence. Let's find the thief!\" The team goes to Warehouse Four. They walk in the shadow. Nobody says a word. They are quiet.",
+                            "ru": "Лео смотрит на Миу, Тоби и Барнаби. «Мы зайдём через боковую дверь», — тихо говорит Лео. «Барнаби, будь с Тоби. Миа, держи камеру наготове. Нам нужны улики. Давайте найдём вора!» Команда направляется к Складу №4. Они идут в тени. Никто не произносит ни слова. Они ведут себя тихо.",
+                            "chunkedEn": "[s: Leo] [v: looks] [pt: at Mia, Toby, and Barnaby.]\n[s: \"We] [v: go in] [pt: by the door on the side,\"] [s: Leo] [v: says] [pt: in a quiet voice.]\n[s: \"Barnaby,] [v: be] [pt: with Toby.]\n[s: Mia,] [v: have] [o: your camera.]\n[s: We] [v: need] [o: evidence.]\n[v: Let's find] [o: the thief!\"]\n[s: The team] [v: goes] [pt: to Warehouse Four.]\n[s: They] [v: walk] [pt: in the shadow.]\n[s: Nobody] [v: says] [o: a word.]\n[s: They] [v: are] [pt: quiet.]"
+                    }
+            ],
+            "quiz": {
+                    "question": "What did the team discover at Pier 7 and Warehouse Four?",
+                    "options": [
+                            "A hidden black boat under the pier and Simon Artwood packing the painting inside the warehouse",
+                            "An open safe with a music box and a green train ticket",
+                            "A broken window with fresh blue paint at the museum"
+                    ],
+                    "correctIndex": 0,
+                    "rewardXp": 570
+            },
+            "backgroundImg": "images/backgrounds/bg_scifi_bridge.jpg",
+            "locationEn": "Old Harbor District — Pier 7",
+            "locationRu": "Район Старой Гавани — 7-й Пирс",
+            "rewardXp": 570
     }
 ];
 
