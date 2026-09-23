@@ -97,6 +97,36 @@ const STORY_ACTS = [
         "reqLvl": "A1 Level",
         "icon": "fa-magnifying-glass",
         "color": "#38bdf8"
+    },
+    {
+        "id": 102,
+        "campaignId": "detective",
+        "title": "Case II: The Encrypted Laptop",
+        "subtitle": "Дело II: Зашифрованный ноутбук",
+        "chaptersRange": "7–12",
+        "reqLvl": "A1 Level",
+        "icon": "fa-laptop-code",
+        "color": "#10b981"
+    },
+    {
+        "id": 103,
+        "campaignId": "detective",
+        "title": "Case III: The Midnight Painting",
+        "subtitle": "Дело III: Полуночная картина",
+        "chaptersRange": "13–18",
+        "reqLvl": "A1 Level",
+        "icon": "fa-palette",
+        "color": "#f59e0b"
+    },
+    {
+        "id": 104,
+        "campaignId": "detective",
+        "title": "Case IV: Shadows in the Rain",
+        "subtitle": "Дело IV: Тени под дождем (Финал)",
+        "chaptersRange": "19–24",
+        "reqLvl": "A1 Level",
+        "icon": "fa-shield-halved",
+        "color": "#ec4899"
     }
 ];
 
@@ -4262,6 +4292,87 @@ const STORY_CHAPTERS = [
         "backgroundImg": "images/backgrounds/bg_magic_library.jpg",
         "locationEn": "Detective Leo's Office",
         "locationRu": "Кабинет Детектива Лео"
+    },
+    {
+        "id": "det-ch-14",
+        "campaignId": "detective",
+        "number": 14,
+        "actId": 103,
+        "titleEn": "The Golden Hall Investigation",
+        "titleRu": "Расследование в Золотом зале",
+        "rewardXp": 447,
+        "audioDir": "det_ch_14",
+        "involvedHeroes": [
+            "leo",
+            "vincent",
+            "mia",
+            "toby",
+            "harris",
+            "robert"
+        ],
+        "paragraphs": [
+            {
+                "speaker": "leo",
+                "en": "The police car stops in front of the New Haven Art Gallery on River Street. It is autumn, and it is rainy. Rain falls on the trees near the river. The river is quiet. The building is big and white. It has a big glass roof. The team leaves the car and walks to the door.",
+                "ru": "Полицейская машина останавливается перед Картинной галереей Нью-Хейвена на Ривер-стрит. Стоит осень, идёт дождь. Дождь падает на деревья у реки. Река спокойна. Здание большое и белое. У него большая стеклянная крыша. Команда выходит из машины и идёт к двери.",
+                "chunkedEn": "[s: The police car] [v: stops] [pt: in front of the New Haven Art Gallery on River Street.]\n[s: It] [v: is] [o: autumn,] [c: and] [s: it] [v: is] [pt: rainy.]\n[s: Rain] [v: falls] [pt: on the trees near the river.]\n[s: The river] [v: is] [pt: quiet.]\n[s: The building] [v: is] [pt: big and white.]\n[s: It] [v: has] [o: a big glass roof.]\n[s: The team] [v: leaves] [o: the car] [c: and] [v: walks] [pt: to the door.]"
+            },
+            {
+                "speaker": "vincent",
+                "en": "Vincent and the guard, Robert, wait by the big glass door. Vincent works in the museum. Robert is the guard. They are afraid. Vincent has a key. He opens the door. \"Welcome, detectives!\" Vincent says. \"Please follow me to the Golden Hall. It is on the second floor.\" Vincent walks fast. The team follows him. They climb to the second floor.",
+                "ru": "Винсент и охранник Роберт ждут у большой стеклянной двери. Винсент работает в музее. Роберт — охранник. Они напуганы. У Винсента есть ключ. Он открывает дверь. «Добро пожаловать, детективы!» — говорит Винсент. «Пожалуйста, следуйте за мной в Золотой зал. Он на втором этаже». Винсент идёт быстро. Команда следует за ним. Они поднимаются на второй этаж.",
+                "chunkedEn": "[s: Vincent and the guard, Robert,] [v: wait] [pt: by the big glass door.]\n[s: Vincent] [v: works] [pt: in the museum.]\n[s: Robert] [v: is] [o: the guard.]\n[s: They] [v: are afraid.]\n[s: Vincent] [v: has] [o: a key.]\n[s: He] [v: opens] [o: the door.]\n[o: \"Welcome, detectives!\"] [s: Vincent] [v: says.]\n[o: \"Please follow me] [pt: to the Golden Hall.]\n[s: It] [v: is] [pt: on the second floor.\"]\n[s: Vincent] [v: walks] [adv: fast.]\n[s: The team] [v: follows] [o: him.]\n[s: They] [v: climb] [pt: to the second floor.]"
+            },
+            {
+                "speaker": "leo",
+                "en": "The Golden Hall is beautiful. The walls are red. Gold lights are on the roof. Ten old paintings are on the walls. In the center of the long wall is one big painting. It is a painting of the sea.",
+                "ru": "Золотой зал прекрасен. Стены красные. На потолке золотые светильники. На стенах висят десять старинных картин. В центре длинной стены висит одна большая картина. Это картина с изображением моря.",
+                "chunkedEn": "[s: The Golden Hall] [v: is] [pt: beautiful.]\n[s: The walls] [v: are] [pt: red.]\n[s: Gold lights] [v: are] [pt: on the roof.]\n[s: Ten old paintings] [v: are] [pt: on the walls.]\n[pt: In the center of the long wall] [v: is] [s: one big painting.]\n[s: It] [v: is] [o: a painting of the sea.]"
+            },
+            {
+                "speaker": "leo",
+                "en": "Leo has white gloves on his hands. He comes near the painting. He looks at it with his glasses. \"Look at the sea,\" Leo says. \"The paint is fresh! This is no real painting! Someone painted it two days ago!\" Leo writes a note in his notebook.",
+                "ru": "У Лео на руках белые перчатки. Он подходит к картине. Он рассматривает её в очках. «Посмотрите на море», — говорит Лео. «Краска свежая! Это не подлинная картина! Кто-то написал её два дня назад!» Лео делает запись в своём блокноте.",
+                "chunkedEn": "[s: Leo] [v: has] [o: white gloves] [pt: on his hands.]\n[s: He] [v: comes] [pt: near the painting.]\n[s: He] [v: looks] [pt: at it with his glasses.]\n[o: \"Look at the sea,\"] [s: Leo] [v: says.]\n[s: \"The paint] [v: is] [pt: fresh!]\n[s: This] [v: is] [o: no real painting!]\n[s: Someone] [v: painted] [o: it] [pt: two days ago!\"]\n[s: Leo] [v: writes] [o: a note] [pt: in his notebook.]"
+            },
+            {
+                "speaker": "mia",
+                "en": "Mia takes a flashlight from her bag. The light is purple. She shines the light on the painting. Now the corner of the painting is glowing bright blue! \"Look here!\" Mia says. She is happy. \"Someone wrote S.A. here with a glowing pen. It means the Shadow Artist!\" Mia takes a photo of the corner.",
+                "ru": "Миа достаёт фонарик из сумки. Свет ультрафиолетовый. Она светит фонариком на картину. Теперь угол картины светится ярко-синим цветом! «Посмотрите сюда!» — говорит Миа. Она рада. «Кто-то написал здесь \"S.A.\" светящейся ручкой. Это означает Теневой Художник!» Миа фотографирует угол картины.",
+                "chunkedEn": "[s: Mia] [v: takes] [o: a flashlight] [pt: from her bag.]\n[s: The light] [v: is] [pt: purple.]\n[s: She] [v: shines] [o: the light] [pt: on the painting.]\n[adv: Now] [s: the corner of the painting] [v: is glowing] [pt: bright blue!]\n[o: \"Look here!\"] [s: Mia] [v: says.]\n[s: She] [v: is] [pt: happy.]\n[s: \"Someone] [v: wrote] [o: S.A.] [pt: here with a glowing pen.]\n[s: It] [v: means] [o: the Shadow Artist!\"]\n[s: Mia] [v: takes] [o: a photo of the corner.]"
+            },
+            {
+                "speaker": "toby",
+                "en": "Barnaby the dog walks on the wood floor. He smells the floor under the painting. Barnaby stops. He finds something! Toby stands next to his good dog. \"Uncle Leo, look! Barnaby found something in the corner!\" Toby says. Then Toby gives water to Barnaby. Under the curtain there is a small silver knife. It has blue paint on it. There is also a small receipt from the River Street Frame Shop. Leo takes the knife with care. \"This knife is a tool for artists,\" Leo explains. \"The receipt is from a shop on River Street.\"",
+                "ru": "Пёс Барнаби идёт по деревянному полу. Он нюхает пол под картиной. Барнаби останавливается. Он что-то нашёл! Тоби встаёт рядом со своим верным псом. «Дядя Лео, смотри! Барнаби что-то нашёл в углу!» — говорит Тоби. Затем Тоби даёт воды Барнаби. Под шторой лежит небольшой серебристый мастихин (нож). На нём синяя краска. Там же лежит маленький чек из багетной мастерской на Ривер-стрит. Лео осторожно берёт нож. «Этот нож — инструмент художников», — объясняет Лео. «Чек из мастерской на Ривер-стрит».",
+                "chunkedEn": "[s: Barnaby the dog] [v: walks] [pt: on the wood floor.]\n[s: He] [v: smells] [o: the floor] [pt: under the painting.]\n[s: Barnaby] [v: stops.]\n[s: He] [v: finds] [o: something!]\n[s: Toby] [v: stands] [pt: next to his good dog.]\n[o: \"Uncle Leo, look! Barnaby found something in the corner!\"] [s: Toby] [v: says.]\n[adv: Then] [s: Toby] [v: gives] [o: water] [pt: to Barnaby.]\n[pt: Under the curtain] [w: there] [v: is] [s: a small silver knife.]\n[s: It] [v: has] [o: blue paint] [pt: on it.]\n[w: There] [v: is] [adv: also] [s: a small receipt] [pt: from the River Street Frame Shop.]\n[s: Leo] [v: takes] [o: the knife] [pt: with care.]\n[o: \"This knife] [v: is] [o: a tool for artists,\"] [s: Leo] [v: explains.]\n[s: \"The receipt] [v: is] [pt: from a shop on River Street.\"]"
+            },
+            {
+                "speaker": "harris",
+                "en": "Policeman Harris speaks to Robert. \"Did you see anyone in the night? Did you hear anything?\" Harris asks. Robert thinks. \"At midnight it was dark. I heard a boat on the river behind the museum!\" Robert says. Harris writes it in his notebook.",
+                "ru": "Полицейский Харрис разговаривает с Робертом. «Вы видели кого-нибудь ночью? Вы слышали что-нибудь?» — спрашивает Харрис. Роберт думает. «В полночь было темно. Я слышал лодку на реке за музеем!» — говорит Роберт. Харрис записывает это в свой блокнот.",
+                "chunkedEn": "[s: Policeman Harris] [v: speaks] [pt: to Robert.]\n[v: \"Did] [s: you] [v: see] [o: anyone] [pt: in the night?]\n[v: Did] [s: you] [v: hear] [o: anything?\"] [s: Harris] [v: asks.]\n[s: Robert] [v: thinks.]\n[pt: \"At midnight] [s: it] [v: was] [pt: dark.]\n[s: I] [v: heard] [o: a boat] [pt: on the river behind the museum!\"] [s: Robert] [v: says.]\n[s: Harris] [v: writes] [o: it] [pt: in his notebook.]"
+            },
+            {
+                "speaker": "leo",
+                "en": "Leo has a happy smile. \"The thief brought the new painting here. And he left in a boat on the river,\" Leo says. \"Now we go to the Frame Shop on River Street!\" The team leaves the Golden Hall. Mia and Toby take their bags. Barnaby runs to the door.",
+                "ru": "Лео радостно улыбается. «Вор принёс новую картину сюда. А уплыл на лодке по реке», — говорит Лео. «Теперь мы идём в багетную мастерскую на Ривер-стрит!» Команда покидает Золотой зал. Миа и Тоби берут свои сумки. Барнаби бежит к двери.",
+                "chunkedEn": "[s: Leo] [v: has] [o: a happy smile.]\n[s: \"The thief] [v: brought] [o: the new painting] [pt: here.]\n[c: And] [s: he] [v: left] [pt: in a boat on the river,\"] [s: Leo] [v: says.]\n[adv: \"Now] [s: we] [v: go] [pt: to the Frame Shop on River Street!\"]\n[s: The team] [v: leaves] [o: the Golden Hall.]\n[s: Mia and Toby] [v: take] [o: their bags.]\n[s: Barnaby] [v: runs] [pt: to the door.]"
+            }
+        ],
+        "quiz": {
+            "question": "What clues did the team find in the Golden Hall?",
+            "options": [
+                "The initials S.A., a silver artist's knife, and a frame shop receipt",
+                "A blue glove, a locked laptop, and a train ticket",
+                "A golden key, a coffee cup, and a music box"
+            ],
+            "correctIndex": 0,
+            "rewardXp": 447
+        },
+        "backgroundImg": "images/backgrounds/bg_cathedral_sunlight.jpg",
+        "locationEn": "New Haven Art Gallery",
+        "locationRu": "Картинная галерея Нью-Хейвена"
     }
 ];
 
@@ -4286,7 +4397,8 @@ const HERO_ORIGINAL_PORTRAITS = {
     "gordon": "images/characters_orig/valerius_orig.jpg",
     "emma": "images/characters_orig/frostina_orig.jpg",
     "edward": "images/characters_orig/oberon_orig.jpg",
-    "vincent": "images/characters_orig/eldrin_orig.jpg"
+    "vincent": "images/characters_orig/eldrin_orig.jpg",
+    "robert": "images/characters_orig/thorin_orig.png"
 };
 
 if (typeof module !== 'undefined' && module.exports) {
