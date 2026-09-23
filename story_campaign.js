@@ -4373,6 +4373,85 @@ const STORY_CHAPTERS = [
         "backgroundImg": "images/backgrounds/bg_cathedral_sunlight.jpg",
         "locationEn": "New Haven Art Gallery",
         "locationRu": "Картинная галерея Нью-Хейвена"
+    },
+    {
+            "id": "det-ch-15",
+            "campaignId": "detective",
+            "number": 15,
+            "actId": 103,
+            "titleEn": "The River Street Frame Shop",
+            "titleRu": "Багетная мастерская на Ривер-стрит",
+            "audioDir": "det_ch_15",
+            "involvedHeroes": [
+                    "leo",
+                    "toby",
+                    "higgins",
+                    "mia"
+            ],
+            "paragraphs": [
+                    {
+                            "speaker": "leo",
+                            "en": "The rain stops over River Street. It is a cool day, and the air is fresh. Yellow leaves lie on the stone road. Detective Leo, Mia, Toby, and the dog Barnaby walk along the river. Across the street, they see an old brick house. Above the door there are words: River Street Frame Shop. Leo has a receipt from the museum. He looks at the receipt. \"The number on the paper is 418,\" Leo says. \"Someone made an order here three days ago. It was a large gold thing for a picture. Let's ask the master of the shop.\" Mia says, \"Yes, let's go!\" Toby is happy.",
+                            "ru": "Дождь прекращается над Ривер-стрит. Стоит прохладный день, и воздух свеж. Жёлтые листья лежат на каменной мостовой. Детектив Лео, Миа, Тоби и пёс Барнаби идут вдоль реки. Через дорогу они видят старый кирпичный дом. Над дверью надпись: «Багетная мастерская на Ривер-стрит». У Лео есть чек из музея. Он смотрит на чек. «Номер на бумаге — 418», — говорит Лео. «Кто-то сделал заказ здесь три дня назад. Это была большая золотая рама для картины. Давайте спросим хозяина мастерской». Миа говорит: «Да, пойдёмте!» Тоби рад.",
+                            "chunkedEn": "[s: The rain] [v: stops] [pt: over River Street.]\n[s: It] [v: is] [o: a cool day,] [c: and] [s: the air] [v: is] [pt: fresh.]\n[s: Yellow leaves] [v: lie] [pt: on the stone road.]\n[s: Detective Leo, Mia, Toby, and the dog Barnaby] [v: walk] [pt: along the river.]\n[pt: Across the street,] [s: they] [v: see] [o: an old brick house.]\n[pt: Above the door] [w: there] [v: are] [s: words: River Street Frame Shop.]\n[s: Leo] [v: has] [o: a receipt] [pt: from the museum.]\n[s: He] [v: looks] [pt: at the receipt.]\n[o: \"The number on the paper is 418,\"] [s: Leo] [v: says.]\n[s: \"Someone] [v: made] [o: an order] [pt: here three days ago.]\n[s: It] [v: was] [o: a large gold thing] [pt: for a picture.]\n[v: Let's ask] [o: the master of the shop.\"]\n[s: Mia] [v: says,] [o: \"Yes, let's go!\"]\n[s: Toby] [v: is] [pt: happy.]"
+                    },
+                    {
+                            "speaker": "toby",
+                            "en": "Barnaby is happy and runs to the green door. Toby opens the door, and it rings. Ding-dong! Inside, the shop smells of wood, paint, and gold. On the walls, there are hundreds of gold and brown things for pictures: big, small, long, and short. Behind the table stands an old man with glasses and a brown coat. His name is Mr. Oliver Higgins. He has a piece of wood in his hand. Barnaby looks at the man and stands near the door.",
+                            "ru": "Барнаби радуется и бежит к зелёной двери. Тоби открывает дверь, и раздаётся звонок. Дзинь-дон! Внутри мастерской пахнет деревом, краской и позолотой. На стенах висят сотни золотых и коричневых рам для картин: больших, маленьких, длинных и коротких. За столом стоит пожилой человек в очках и коричневом пальто. Его зовут мистер Оливер Хиггинс. В руке он держит кусок дерева. Барнаби смотрит на мужчину и стоит возле двери.",
+                            "chunkedEn": "[s: Barnaby] [v: is happy and runs] [pt: to the green door.]\n[s: Toby] [v: opens] [o: the door,] [c: and] [s: it] [v: rings. Ding-dong!]\n[adv: Inside,] [s: the shop] [v: smells] [pt: of wood, paint, and gold.]\n[pt: On the walls,] [w: there] [v: are] [s: hundreds of gold and brown things] [pt: for pictures: big, small, long, and short.]\n[pt: Behind the table] [v: stands] [s: an old man with glasses and a brown coat.]\n[s: His name] [v: is] [o: Mr. Oliver Higgins.]\n[s: He] [v: has] [o: a piece of wood] [pt: in his hand.]\n[s: Barnaby] [v: looks] [pt: at the man] [c: and] [v: stands] [pt: near the door.]"
+                    },
+                    {
+                            "speaker": "higgins",
+                            "en": "\"Good morning, detectives and friends,\" Mr. Higgins says. He smiles. \"Welcome to my shop! Can I help you today?\" Leo shows his detective card and says, \"Good morning, Mr. Higgins. I am a detective. We are investigating a crime at the New Haven Art Gallery. We found this receipt at the museum.\" Mr. Higgins takes his glasses and looks at the receipt. \"Ah, 418!\" he says. \"Yes, I remember this order!\"",
+                            "ru": "«Доброе утро, детективы и друзья», — говорит мистер Хиггинс. Он улыбается. «Добро пожаловать в мою мастерскую! Могу я помочь вам сегодня?» Лео показывает своё удостоверение детектива и говорит: «Доброе утро, мистер Хиггинс. Я детектив. Мы расследуем преступление в Картинной галерее Нью-Хейвена. Мы нашли этот чек в музее». Мистер Хиггинс берёт очки и смотрит на чек. «А, 418!» — говорит он. «Да, я помню этот заказ!»",
+                            "chunkedEn": "[o: \"Good morning, detectives and friends,\"] [s: Mr. Higgins] [v: says.]\n[s: He] [v: smiles.]\n[o: \"Welcome to my shop! Can I help you today?\"]\n[s: Leo] [v: shows] [o: his detective card] [c: and] [v: says,] [o: \"Good morning, Mr. Higgins.]\n[s: I] [v: am] [o: a detective.]\n[s: We] [v: are investigating] [o: a crime] [pt: at the New Haven Art Gallery.]\n[s: We] [v: found] [o: this receipt] [pt: at the museum.\"]\n[s: Mr. Higgins] [v: takes] [o: his glasses] [c: and] [v: looks] [pt: at the receipt.]\n[o: \"Ah, 418!\"] [s: he] [v: says.]\n[o: \"Yes, I remember this order!\"]"
+                    },
+                    {
+                            "speaker": "higgins",
+                            "en": "\"A tall man came to my shop on Saturday,\" Mr. Higgins says. \"He had a dark grey coat and a black cap. He gave me a paper with numbers for a very large picture. He wanted a gold thing with leaves. It was the same as the gold thing on the picture The Blue Harbor at Sunset!\" Mia writes fast in her notebook. \"Did he give you a name, Mr. Higgins?\" Mia asks. \"Yes,\" Mr. Higgins answers. \"He said, 'My name is Simon Artwood.' S.A.!\"",
+                            "ru": "«Высокий мужчина пришёл в мою мастерскую в субботу», — говорит мистер Хиггинс. «На нём было тёмно-серое пальто и чёрная кепка. Он дал мне бумагу с размерами для очень большой картины. Он хотел золотую раму с резными листьями. Она была точь-в-точь как золотая рама на картине \"Синяя гавань на закате\"!» Миа быстро пишет в блокноте. «Он назвал своё имя, мистер Хиггинс?» — спрашивает Миа. «Да», — отвечает мистер Хиггинс. «Он сказал: \"Меня зовут Саймон Артвуд\". S.A.!»",
+                            "chunkedEn": "[o: \"A tall man came to my shop on Saturday,\"] [s: Mr. Higgins] [v: says.]\n[s: \"He] [v: had] [o: a dark grey coat and a black cap.]\n[s: He] [v: gave] [o: me] [o: a paper with numbers] [pt: for a very large picture.]\n[s: He] [v: wanted] [o: a gold thing] [pt: with leaves.]\n[s: It] [v: was] [pt: the same as the gold thing on the picture The Blue Harbor at Sunset!\"]\n[s: Mia] [v: writes] [adv: fast] [pt: in her notebook.]\n[v: \"Did] [s: he] [v: give] [o: you] [o: a name, Mr. Higgins?\"] [s: Mia] [v: asks.]\n[o: \"Yes,\"] [s: Mr. Higgins] [v: answers.]\n[s: \"He] [v: said,] [o: 'My name is Simon Artwood.' S.A.!\"]"
+                    },
+                    {
+                            "speaker": "mia",
+                            "en": "Mia's eyes are big. \"S.A. again!\" Mia says. \"I saw a glowing S.A. in the corner of the picture at the museum! Mr. Higgins, did he pay with cash?\" \"Yes, he paid with new cash,\" Mr. Higgins says. \"And he wanted it very fast. Yesterday afternoon, he came with a big car to take it away. But he lost something on the floor near the back door.\" Toby says, \"Let's look!\"",
+                            "ru": "У Мии округляются глаза. «Снова S.A.!» — говорит Миа. «Я видела светящиеся буквы S.A. в углу картины в музее! Мистер Хиггинс, он расплатился наличными?» «Да, он заплатил новенькими наличными», — говорит мистер Хиггинс. «И он хотел получить заказ очень быстро. Вчера днём он приехал на большой машине, чтобы забрать её. Но он выронил что-то на пол возле задней двери». Тоби говорит: «Давайте посмотрим!»",
+                            "chunkedEn": "[s: Mia's eyes] [v: are] [pt: big.]\n[o: \"S.A. again!\"] [s: Mia] [v: says.]\n[s: \"I] [v: saw] [o: a glowing S.A.] [pt: in the corner of the picture at the museum!]\n[o: Mr. Higgins,] [v: did] [s: he] [v: pay] [pt: with cash?\"]\n[o: \"Yes, he paid with new cash,\"] [s: Mr. Higgins] [v: says.]\n[c: \"And] [s: he] [v: wanted] [o: it] [adv: very fast.]\n[pt: Yesterday afternoon,] [s: he] [v: came] [pt: with a big car] [v: to take] [o: it] [adv: away.]\n[c: But] [s: he] [v: lost] [o: something] [pt: on the floor near the back door.\"]\n[s: Toby] [v: says,] [o: \"Let's look!\"]"
+                    },
+                    {
+                            "speaker": "toby",
+                            "en": "Barnaby runs to the workbench at the back of the shop. He smells the floor. Barnaby finds something! Toby looks under the workbench. \"Uncle Leo, Mia! Look here!\" Toby says. He takes a blue map of the New Haven River Canal. On the map, there is a red mark near Pier 7 in the Old Harbor District. Beside the mark are the words: Night Boat at Midnight.",
+                            "ru": "Барнаби бежит к верстаку в глубине мастерской. Он нюхает пол. Барнаби что-то нашёл! Тоби заглядывает под верстак. «Дядя Лео, Миа! Посмотрите сюда!» — говорит Тоби. Он поднимает синюю карту речного канала Нью-Хейвена. На карте стоит красная отметка возле 7-го пирса в районе Старой Гавани. Рядом с отметкой слова: «Ночная лодка в полночь».",
+                            "chunkedEn": "[s: Barnaby] [v: runs] [pt: to the workbench at the back of the shop.]\n[s: He] [v: smells] [o: the floor.]\n[s: Barnaby] [v: finds] [o: something!]\n[s: Toby] [v: looks] [pt: under the workbench.]\n[o: \"Uncle Leo, Mia! Look here!\"] [s: Toby] [v: says.]\n[s: He] [v: takes] [o: a blue map of the New Haven River Canal.]\n[pt: On the map,] [w: there] [v: is] [s: a red mark] [pt: near Pier 7 in the Old Harbor District.]\n[pt: Beside the mark] [v: are] [s: the words: Night Boat at Midnight.]"
+                    },
+                    {
+                            "speaker": "leo",
+                            "en": "Leo takes the map and looks at it. \"This is great, Toby! Good dog, Barnaby!\" Leo says. \"The thief, Simon Artwood, has a plan. The river is his road. He goes to Pier 7 and hides his boat and his things there!\" Mr. Higgins says, \"Pier 7 is very quiet at night. There are only old wood houses there.\" Mia writes the words in her notebook.",
+                            "ru": "Лео берёт карту и рассматривает её. «Это великолепно, Тоби! Молодец, Барнаби!» — говорит Лео. «У вора, Саймона Артвуда, есть план. Река — его путь. Он направляется к 7-му пирсу и прячет там свою лодку и вещи!» Мистер Хиггинс говорит: «На 7-м пирсе очень тихо по ночам. Там только старые деревянные постройки». Миа записывает эти слова в блокнот.",
+                            "chunkedEn": "[s: Leo] [v: takes] [o: the map] [c: and] [v: looks] [pt: at it.]\n[o: \"This is great, Toby! Good dog, Barnaby!\"] [s: Leo] [v: says.]\n[s: \"The thief, Simon Artwood,] [v: has] [o: a plan.]\n[s: The river] [v: is] [o: his road.]\n[s: He] [v: goes] [pt: to Pier 7] [c: and] [v: hides] [o: his boat and his things] [pt: there!\"]\n[s: Mr. Higgins] [v: says,] [o: \"Pier 7] [v: is] [pt: very quiet at night.]\n[w: There] [v: are] [s: only old wood houses] [pt: there.\"]\n[s: Mia] [v: writes] [o: the words] [pt: in her notebook.]"
+                    },
+                    {
+                            "speaker": "leo",
+                            "en": "\"Thank you for your help, Mr. Higgins,\" Leo says. \"Now we know where the Shadow Artist is. He has the true picture!\" The team goes out into the cool afternoon air. The sky over the river is orange. \"To Pier 7!\" Toby says happily. Barnaby runs toward the harbor.",
+                            "ru": "«Спасибо за вашу помощь, мистер Хиггинс», — говорит Лео. «Теперь мы знаем, где находится Теневой Художник. Подлинная картина у него!» Команда выходит на прохладный дневной воздух. Небо над рекой оранжевое. «К 7-му пирсу!» — радостно говорит Тоби. Барнаби бежит в сторону гавани.",
+                            "chunkedEn": "[o: \"Thank you for your help, Mr. Higgins,\"] [s: Leo] [v: says.]\n[adv: \"Now] [s: we] [v: know] [o: where the Shadow Artist is.]\n[s: He] [v: has] [o: the true picture!\"]\n[s: The team] [v: goes out] [pt: into the cool afternoon air.]\n[s: The sky over the river] [v: is] [pt: orange.]\n[o: \"To Pier 7!\"] [s: Toby] [v: says] [adv: happily.]\n[s: Barnaby] [v: runs] [pt: toward the harbor.]"
+                    }
+            ],
+            "quiz": {
+                    "question": "What did Mr. Higgins tell Detective Leo about the thief?",
+                    "options": [
+                            "His name is Simon Artwood, and he lost a map with Pier 7 marked on it",
+                            "He was a guard at the New Haven Art Gallery with a silver knife",
+                            "He left a locked laptop with green energy code at the station"
+                    ],
+                    "correctIndex": 0,
+                    "rewardXp": 598
+            },
+            "backgroundImg": "images/backgrounds/bg_forge_workshop.jpg",
+            "locationEn": "River Street Frame Shop",
+            "locationRu": "Багетная мастерская на Ривер-стрит",
+            "rewardXp": 598
     }
 ];
 
@@ -4398,7 +4477,8 @@ const HERO_ORIGINAL_PORTRAITS = {
     "emma": "images/characters_orig/frostina_orig.jpg",
     "edward": "images/characters_orig/oberon_orig.jpg",
     "vincent": "images/characters_orig/eldrin_orig.jpg",
-    "robert": "images/characters_orig/thorin_orig.png"
+    "robert": "images/characters_orig/thorin_orig.png",
+    "higgins": "images/characters_orig/oberon_orig.jpg"
 };
 
 if (typeof module !== 'undefined' && module.exports) {
