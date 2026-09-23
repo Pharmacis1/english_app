@@ -4611,6 +4611,88 @@ const STORY_CHAPTERS = [
             "locationEn": "Warehouse Four Loft",
             "locationRu": "Лофт Склада №4",
             "rewardXp": 558
+    },
+    {
+            "id": "det-ch-18",
+            "campaignId": "detective",
+            "number": 18,
+            "actId": 103,
+            "titleEn": "The Masterpiece Returned",
+            "titleRu": "Шедевр возвращён",
+            "audioDir": "det_ch_18",
+            "involvedHeroes": [
+                    "leo",
+                    "vincent",
+                    "harris",
+                    "arthur",
+                    "martha",
+                    "mia",
+                    "toby"
+            ],
+            "paragraphs": [
+                    {
+                            "speaker": "leo",
+                            "en": "It is a bright and sunny Wednesday morning in New Haven. The sun shines through the big glass windows of the Art Gallery. The river is quiet and blue. The Golden Hall is full of people. They stand in front of the wall in the center. Detective Leo, Mia, Toby and the dog Barnaby stand in front. Leo has his clean brown coat. Toby is with Barnaby. The dog is happy. He jumps and looks at the people. Mia has her phone. Toby says, \"Hello!\" to a little girl.",
+                            "ru": "Яркое и солнечное утро среды в Нью-Хейвене. Солнце светит сквозь большие стеклянные окна Картинной галереи. Река спокойна и синя. Золотой зал полон людей. Они стоят перед центральной стеной. Детектив Лео, Миа, Тоби и пёс Барнаби стоят впереди. На Лео его чистое коричневое пальто. Тоби рядом с Барнаби. Пёс счастлив. Он подпрыгивает и смотрит на людей. У Мии в руках телефон. Тоби говорит «Привет!» маленькой девочке.",
+                            "chunkedEn": "[s: It] [v: is] [o: a bright and sunny Wednesday morning] [pt: in New Haven.]\n[s: The sun] [v: shines] [pt: through the big glass windows of the Art Gallery.]\n[s: The river] [v: is] [pt: quiet and blue.]\n[s: The Golden Hall] [v: is full of] [o: people.]\n[s: They] [v: stand] [pt: in front of the wall in the center.]\n[s: Detective Leo, Mia, Toby and the dog Barnaby] [v: stand] [pt: in front.]\n[s: Leo] [v: has] [o: his clean brown coat.]\n[s: Toby] [v: is] [pt: with Barnaby.]\n[s: The dog] [v: is] [pt: happy.]\n[s: He] [v: jumps and looks] [pt: at the people.]\n[s: Mia] [v: has] [o: her phone.]\n[s: Toby] [v: says,] [o: \"Hello!\"] [pt: to a little girl.]"
+                    },
+                    {
+                            "speaker": "vincent",
+                            "en": "Vincent stands in front of the people with a happy smile. A man from the Art Gallery stands next to him. \"Ladies and gentlemen,\" Vincent says. \"Thank you, Detective Leo and his good team! Today we give back 'The Blue Harbor at Sunset'! The painting is home!\" The people are happy. They say, \"Yes!\" Toby smiles. He loves this day.",
+                            "ru": "Винсент стоит перед людьми со счастливой улыбкой. Рядом с ним стоит представитель Картинной галереи. «Дамы и господа», — говорит Винсент. «Спасибо детективу Лео и его замечательной команде! Сегодня мы возвращаем \"Синюю гавань на закате\"! Картина дома!» Люди счастливы. Они говорят: «Да!» Тоби улыбается. Он обожает этот день.",
+                            "chunkedEn": "[s: Vincent] [v: stands] [pt: in front of the people with a happy smile.]\n[s: A man from the Art Gallery] [v: stands] [pt: next to him.]\n[o: \"Ladies and gentlemen,\"] [s: Vincent] [v: says.]\n[o: \"Thank you, Detective Leo and his good team!]\n[adv: Today] [s: we] [v: give back] [o: 'The Blue Harbor at Sunset'!]\n[s: The painting] [v: is] [pt: home!\"]\n[s: The people] [v: are] [pt: happy.]\n[s: They] [v: say,] [o: \"Yes!\"]\n[s: Toby] [v: smiles.]\n[s: He] [v: loves] [o: this day.]"
+                    },
+                    {
+                            "speaker": "harris",
+                            "en": "Captain Gordon and Officer Harris take the large painting down the red carpet. They walk slowly. The gold shines under the warm lights. The sea in the painting is blue and beautiful. Robert the guard helps them. They take the heavy painting to the wall in the center of the Golden Hall. Now the real painting is home again! Leo looks at the painting. He smiles.",
+                            "ru": "Капитан Гордон и офицер Харрис несут большую картину по красной ковровой дорожке. Они идут медленно. Позолота сияет под тёплыми лампами. Море на картине синее и прекрасное. Охранник Роберт помогает им. Они подносят тяжёлую картину к центральной стене Золотого зала. Теперь настоящая картина снова дома! Лео смотрит на картину. Он улыбается.",
+                            "chunkedEn": "[s: Captain Gordon and Officer Harris] [v: take] [o: the large painting] [pt: down the red carpet.]\n[s: They] [v: walk] [adv: slowly.]\n[s: The gold] [v: shines] [pt: under the warm lights.]\n[s: The sea in the painting] [v: is] [pt: blue and beautiful.]\n[s: Robert the guard] [v: helps] [o: them.]\n[s: They] [v: take] [o: the heavy painting] [pt: to the wall in the center of the Golden Hall.]\n[adv: Now] [s: the real painting] [v: is home] [adv: again!]\n[s: Leo] [v: looks] [pt: at the painting.]\n[s: He] [v: smiles.]"
+                    },
+                    {
+                            "speaker": "vincent",
+                            "en": "Vincent gives Leo a beautiful gold certificate and a note. \"New Haven is safe because of your good eyes, your good mind and your good dog,\" Vincent says. He takes Leo's hand. \"The city says thank you from the heart!\" Mia takes photos of Leo, Toby and Barnaby with the gold certificate. Toby likes the photos.",
+                            "ru": "Винсент вручает Лео красивую золотую грамоту и письмо. «Нью-Хейвен в безопасности благодаря вашим зорким глазам, вашему острому уму и вашей замечательной собаке», — говорит Винсент. Он пожимает руку Лео. «Город благодарит вас от всего сердца!» Миа фотографирует Лео, Тоби и Барнаби с золотой грамотой. Тоби нравятся фотографии.",
+                            "chunkedEn": "[s: Vincent] [v: gives] [o: Leo a beautiful gold certificate and a note.]\n[s: \"New Haven] [v: is safe] [b: because of] [o: your good eyes, your good mind and your good dog,\"] [s: Vincent] [v: says.]\n[s: He] [v: takes] [o: Leo's hand.]\n[s: \"The city] [v: says] [o: thank you] [pt: from the heart!\"]\n[s: Mia] [v: takes] [o: photos of Leo, Toby and Barnaby] [pt: with the gold certificate.]\n[s: Toby] [v: likes] [o: the photos.]"
+                    },
+                    {
+                            "speaker": "leo",
+                            "en": "At two o'clock in the afternoon, the team comes back to Detective Leo's cozy office on Elm Street. Outside, autumn leaves fall from the trees. Leo opens the door. There is a nice smell of hot apple cake and tea in the air. Grandfather Arthur and Grandma Martha wait by the fireplace. They have big smiles. Barnaby runs to them.",
+                            "ru": "В два часа дня команда возвращается в уютный кабинет детектива Лео на Элм-стрит. Снаружи осенние листья падают с деревьев. Лео открывает дверь. В воздухе приятный аромат горячего яблочного пирога и чая. Дедушка Артур и бабушка Марта ждут у камина. На их лицах широкие улыбки. Барнаби бежит к ним.",
+                            "chunkedEn": "[pt: At two o'clock in the afternoon,] [s: the team] [v: comes back] [pt: to Detective Leo's cozy office on Elm Street.]\n[adv: Outside,] [s: autumn leaves] [v: fall] [pt: from the trees.]\n[s: Leo] [v: opens] [o: the door.]\n[w: There] [v: is] [s: a nice smell of hot apple cake and tea] [pt: in the air.]\n[s: Grandfather Arthur and Grandma Martha] [v: wait] [pt: by the fireplace.]\n[s: They] [v: have] [o: big smiles.]\n[s: Barnaby] [v: runs] [pt: to them.]"
+                    },
+                    {
+                            "speaker": "arthur",
+                            "en": "\"Welcome home, heroes of New Haven!\" Grandfather Arthur says with a happy smile. He touches Leo's shoulder. On the table there is a large plate with warm apple cake. Grandma Martha has a bowl with food for the dog. The bowl is on the floor. \"Come and eat, my dear detectives!\" she says. \"Barnaby, this food is for the best detective dog in the city!\" Barnaby eats happily. He loves Martha. He touches her hand.",
+                            "ru": "«Добро пожаловать домой, герои Нью-Хейвена!» — говорит дедушка Артур с радостной улыбкой. Он дотрагивается до плеча Лео. На столе стоит большая тарелка с тёплым яблочным пирогом. У бабушки Марты миска с угощением для собаки. Миска стоит на полу. «Приходите кушать, мои дорогие детективы!» — говорит она. «Барнаби, это угощение для лучшего пса-детектива в городе!» Барнаби с удовольствием ест. Он любит Марту. Он касается её руки.",
+                            "chunkedEn": "[o: \"Welcome home, heroes of New Haven!\"] [s: Grandfather Arthur] [v: says] [pt: with a happy smile.]\n[s: He] [v: touches] [o: Leo's shoulder.]\n[pt: On the table] [w: there] [v: is] [s: a large plate] [pt: with warm apple cake.]\n[s: Grandma Martha] [v: has] [o: a bowl with food] [pt: for the dog.]\n[s: The bowl] [v: is] [pt: on the floor.]\n[o: \"Come and eat, my dear detectives!\"] [s: she] [v: says.]\n[o: \"Barnaby, this food] [v: is] [pt: for the best detective dog in the city!\"]\n[s: Barnaby] [v: eats] [adv: happily.]\n[s: He] [v: loves] [o: Martha.]\n[s: He] [v: touches] [o: her hand.]"
+                    },
+                    {
+                            "speaker": "mia",
+                            "en": "Mia opens her laptop. On the screen, there is a document with a green mark: \"The Midnight Painting — Case Solved!\" \"Three big crimes, and we have three answers!\" Mia says. \"First the music box, then Dr. Edward's laptop, and now the painting in the Golden Hall!\" Toby eats a big piece of sweet cake. \"We are the best detective team in New Haven!\" Toby says. Mia smiles and drinks her tea.",
+                            "ru": "Миа открывает ноутбук. На экране документ с зелёной отметкой: «Полуночная картина — Дело раскрыто!» «Три больших преступления, и у нас есть три ответа!» — говорит Миа. «Сначала музыкальная шкатулка, затем ноутбук доктора Эдварда, а теперь картина в Золотом зале!» Тоби ест большой кусок сладкого пирога. «Мы лучшая детективная команда в Нью-Хейвене!» — говорит Тоби. Миа улыбается и пьёт чай.",
+                            "chunkedEn": "[s: Mia] [v: opens] [o: her laptop.]\n[pt: On the screen,] [w: there] [v: is] [s: a document] [pt: with a green mark: \"The Midnight Painting — Case Solved!\"]\n[o: \"Three big crimes, and we have three answers!\"] [s: Mia] [v: says.]\n[pt: \"First the music box, then Dr. Edward's laptop, and now the painting] [pt: in the Golden Hall!\"]\n[s: Toby] [v: eats] [o: a big piece of sweet cake.]\n[o: \"We] [v: are] [o: the best detective team] [pt: in New Haven!\"] [s: Toby] [v: says.]\n[s: Mia] [v: smiles and drinks] [o: her tea.]"
+                    },
+                    {
+                            "speaker": "leo",
+                            "en": "Leo drinks his hot tea and looks out of the window at the quiet street. \"Every crime has an answer when we work as a team,\" Leo says with a smile. \"We give truth to our city again. Enjoy the day, team. You do great work!\" Everyone takes a cup of tea. They smile. Case Three is closed!",
+                            "ru": "Лео пьёт горячий чай и смотрит из окна на тихую улицу. «У каждого преступления есть разгадка, когда мы работаем как команда», — с улыбкой говорит Лео. «Мы снова вернули справедливость нашему городу. Наслаждайтесь днём, команда. Вы отлично поработали!» Все берут по чашке чая. Они улыбаются. Дело номер три закрыто!",
+                            "chunkedEn": "[s: Leo] [v: drinks] [o: his hot tea] [c: and] [v: looks out] [pt: of the window at the quiet street.]\n[o: \"Every crime has an answer] [b: when] [s: we] [v: work] [pt: as a team,\"] [s: Leo] [v: says] [pt: with a smile.]\n[s: \"We] [v: give] [o: truth] [pt: to our city] [adv: again.]\n[v: Enjoy] [o: the day, team.]\n[s: You] [v: do] [o: great work!\"]\n[s: Everyone] [v: takes] [o: a cup of tea.]\n[s: They] [v: smile.]\n[s: Case Three] [v: is closed!]"
+                    }
+            ],
+            "quiz": {
+                    "question": "Where was the painting 'The Blue Harbor at Sunset' returned to?",
+                    "options": [
+                            "To the center wall in the Golden Hall of the Art Gallery",
+                            "To the Old Research Tower basement near the botanical garden",
+                            "To the station ticket office on Elm Street"
+                    ],
+                    "correctIndex": 0,
+                    "rewardXp": 536
+            },
+            "backgroundImg": "images/backgrounds/bg_magic_library.jpg",
+            "locationEn": "Detective Leo's Office",
+            "locationRu": "Кабинет Детектива Лео",
+            "rewardXp": 536
     }
 ];
 
