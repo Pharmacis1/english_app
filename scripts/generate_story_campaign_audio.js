@@ -63,7 +63,8 @@ const HERO_VOICES = {
     edward:   { voice: 'en-US-Neural2-J', pitch: '-2.0st', rate: '0.90' },
     vincent:  { voice: 'en-US-Neural2-J', pitch: '+1.0st', rate: '0.94' },
     robert:   { voice: 'en-US-Neural2-D', pitch: '-2.5st', rate: '0.90' },
-    higgins:  { voice: 'en-US-Neural2-J', pitch: '-1.5st', rate: '0.90' }
+    higgins:  { voice: 'en-US-Neural2-J', pitch: '-1.5st', rate: '0.90' },
+    simon:    { voice: 'en-US-Neural2-J', pitch: '-2.5st', rate: '0.92' }
 };
 
 function formatSSML(text, speaker) {

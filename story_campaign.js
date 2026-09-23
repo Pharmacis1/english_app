@@ -4531,6 +4531,86 @@ const STORY_CHAPTERS = [
             "locationEn": "Old Harbor District — Pier 7",
             "locationRu": "Район Старой Гавани — 7-й Пирс",
             "rewardXp": 570
+    },
+    {
+            "id": "det-ch-17",
+            "campaignId": "detective",
+            "number": 17,
+            "actId": 103,
+            "titleEn": "Inside Warehouse Four",
+            "titleRu": "Внутри Склада №4",
+            "audioDir": "det_ch_17",
+            "involvedHeroes": [
+                    "leo",
+                    "toby",
+                    "simon",
+                    "mia",
+                    "harris"
+            ],
+            "paragraphs": [
+                    {
+                            "speaker": "leo",
+                            "en": "Detective Leo opens the big metal door of Warehouse Four. The door is quiet. The team goes in. Leo looks at his watch. It is midnight. The room is big, tall and dark. There are old wood boxes near the brick walls. There are old tables and chairs, too. The air smells of the sea and of salt. Leo shows his hand. \"Be quiet,\" he says. Up on the second floor, a man walks. Leo hears him. The team stands and listens. Nobody says a word.",
+                            "ru": "Детектив Лео открывает большую металлическую дверь Склада №4. Дверь открывается бесшумно. Команда входит внутрь. Лео смотрит на часы. Полночь. Помещение большое, высокое и тёмное. Возле кирпичных стен стоят старые деревянные ящики. Там также есть старые столы и стулья. В воздухе пахнет морем и солью. Лео поднимает руку. «Тихо», — говорит он. Наверху, на втором этаже, ходит мужчина. Лео слышит его. Команда стоит и слушает. Никто не произносит ни слова.",
+                            "chunkedEn": "[s: Detective Leo] [v: opens] [o: the big metal door of Warehouse Four.]\n[s: The door] [v: is] [pt: quiet.]\n[s: The team] [v: goes in.]\n[s: Leo] [v: looks] [pt: at his watch.]\n[s: It] [v: is] [o: midnight.]\n[s: The room] [v: is] [pt: big, tall and dark.]\n[w: There] [v: are] [s: old wood boxes] [pt: near the brick walls.]\n[w: There] [v: are] [s: old tables and chairs,] [adv: too.]\n[s: The air] [v: smells] [pt: of the sea and of salt.]\n[s: Leo] [v: shows] [o: his hand.]\n[o: \"Be quiet,\"] [s: he] [v: says.]\n[pt: Up on the second floor,] [s: a man] [v: walks.]\n[s: Leo] [v: hears] [o: him.]\n[s: The team] [v: stands and listens.]\n[s: Nobody] [v: says] [o: a word.]"
+                    },
+                    {
+                            "speaker": "toby",
+                            "en": "Barnaby the dog walks with Toby. Barnaby is brave and quiet. Toby smiles at him. Toby looks at his map. \"The way to the second floor is here,\" Toby says. He shows the way. There is a yellow lamp up there. Mia takes her camera. Officer Harris takes his flashlight. Leo asks, \"Are you ready?\" The team says, \"Yes!\" The team goes up. Everyone is quiet.",
+                            "ru": "Пёс Барнаби идёт с Тоби. Барнаби храбрый и тихий. Тоби улыбается ему. Тоби смотрит на свою карту. «Путь на второй этаж здесь», — говорит Тоби. Он показывает дорогу. Наверху горит жёлтая лампа. Миа берёт свою камеру. Офицер Харрис берёт свой фонарик. Лео спрашивает: «Вы готовы?» Команда отвечает: «Да!» Команда поднимается наверх. Все ведут себя тихо.",
+                            "chunkedEn": "[s: Barnaby the dog] [v: walks] [pt: with Toby.]\n[s: Barnaby] [v: is] [pt: brave and quiet.]\n[s: Toby] [v: smiles] [pt: at him.]\n[s: Toby] [v: looks] [pt: at his map.]\n[o: \"The way to the second floor is here,\"] [s: Toby] [v: says.]\n[s: He] [v: shows] [o: the way.]\n[w: There] [v: is] [s: a yellow lamp] [pt: up there.]\n[s: Mia] [v: takes] [o: her camera.]\n[s: Officer Harris] [v: takes] [o: his flashlight.]\n[s: Leo] [v: asks,] [o: \"Are you ready?\"]\n[s: The team] [v: says,] [o: \"Yes!\"]\n[s: The team] [v: goes up.]\n[s: Everyone] [v: is] [pt: quiet.]"
+                    },
+                    {
+                            "speaker": "leo",
+                            "en": "On the second floor, Simon Artwood stands at a big wood workbench. He has a dark grey coat, black boots and gloves. He is busy and he never looks at the door. On the workbench there is a big box. In the box is the painting, \"The Blue Harbor\"! The painting is blue and gold. The lamp gives light and the gold is bright. Simon has a hammer in his hand. He wants to close the box.",
+                            "ru": "На втором этаже Саймон Артвуд стоит у большого деревянного верстака. На нём тёмно-серое пальто, чёрные сапоги и перчатки. Он занят делом и даже не смотрит на дверь. На верстаке стоит большой ящик. В ящике находится картина «Синяя гавань»! Картина сине-золотая. Лампа даёт свет, и позолота ярко сияет. В руке у Саймона молоток. Он хочет закрыть ящик.",
+                            "chunkedEn": "[pt: On the second floor,] [s: Simon Artwood] [v: stands] [pt: at a big wood workbench.]\n[s: He] [v: has] [o: a dark grey coat, black boots and gloves.]\n[s: He] [v: is] [pt: busy] [c: and] [s: he] [adv: never] [v: looks] [pt: at the door.]\n[pt: On the workbench] [w: there] [v: is] [s: a big box.]\n[pt: In the box] [v: is] [s: the painting, \"The Blue Harbor\"!]\n[s: The painting] [v: is] [pt: blue and gold.]\n[s: The lamp] [v: gives] [o: light] [c: and] [s: the gold] [v: is] [pt: bright.]\n[s: Simon] [v: has] [o: a hammer] [pt: in his hand.]\n[s: He] [v: wants to close] [o: the box.]"
+                    },
+                    {
+                            "speaker": "leo",
+                            "en": "Leo goes to the light and shows his card. \"Stop, Simon Artwood!\" Leo says. \"The New Haven Police are here. The police are in Warehouse Four. Give me the hammer! Go away from the painting!\" Simon looks at Leo. He is afraid. His eyes are big behind his black mask. The hammer is on the floor. Simon can't run. The team is at the door.",
+                            "ru": "Лео выходит на свет и показывает своё удостоверение. «Стой, Саймон Артвуд!» — говорит Лео. «Полиция Нью-Хейвена здесь. Полиция в Складе №4. Отдай молоток! Отойди от картины!» Саймон смотрит на Лео. Он напуган. Его глаза округлились за чёрной маской. Молоток лежит на полу. Саймон не может бежать. Команда стоит у двери.",
+                            "chunkedEn": "[s: Leo] [v: goes] [pt: to the light] [c: and] [v: shows] [o: his card.]\n[o: \"Stop, Simon Artwood!\"] [s: Leo] [v: says.]\n[s: \"The New Haven Police] [v: are] [pt: here.]\n[s: The police] [v: are] [pt: in Warehouse Four.]\n[v: Give] [o: me the hammer!]\n[v: Go away] [pt: from the painting!\"]\n[s: Simon] [v: looks] [pt: at Leo.]\n[s: He] [v: is afraid.]\n[s: His eyes] [v: are] [pt: big behind his black mask.]\n[s: The hammer] [v: is] [pt: on the floor.]\n[s: Simon] [v: can't run.]\n[s: The team] [v: is] [pt: at the door.]"
+                    },
+                    {
+                            "speaker": "simon",
+                            "en": "\"How did you find me so quickly?\" Simon asks. His voice is small. He takes off his mask. His face is white. \"I am a good artist,\" Simon says. \"I love painting. I paint every day. The Art Gallery never shows my paintings. Ten years! I want to show the people that my painting is as good as the painting of the master. I want to sell the true painting to a man in another country.\" Simon is angry.",
+                            "ru": "«Как вы нашли меня так быстро?» — спрашивает Саймон. Его голос тих. Он снимает маску. Его лицо бледно. «Я хороший художник», — говорит Саймон. «Я люблю живопись. Я пишу картины каждый день. Картинная галерея никогда не выставляла мои картины. Десять лет! Я хочу показать людям, что моя картина так же хороша, как картина мастера. Я хочу продать подлинную картину человеку в другой стране». Саймон зол.",
+                            "chunkedEn": "[v: \"How did] [s: you] [v: find] [o: me] [adv: so quickly?\"] [s: Simon] [v: asks.]\n[s: His voice] [v: is] [pt: small.]\n[s: He] [v: takes off] [o: his mask.]\n[s: His face] [v: is] [pt: white.]\n[s: \"I] [v: am] [o: a good artist,\"] [s: Simon] [v: says.]\n[s: \"I] [v: love] [o: painting.]\n[s: I] [v: paint] [adv: every day.]\n[s: The Art Gallery] [adv: never] [v: shows] [o: my paintings.]\n[o: Ten years!]\n[s: I] [v: want to show] [o: the people] [b: that] [s: my painting] [v: is as good as] [o: the painting of the master.]\n[s: I] [v: want to sell] [o: the true painting] [pt: to a man in another country.\"]\n[s: Simon] [v: is] [pt: angry.]"
+                    },
+                    {
+                            "speaker": "mia",
+                            "en": "Mia goes to the workbench and shows her purple light. \"Look, Simon,\" Mia says. \"You have your mark, S.A., on the painting in the museum. We also find your silver knife and your receipt from River Street Frame Shop. Your tools show us the way to you.\" Mia writes a note. Simon looks at his hands. \"Yes,\" he says quietly. \"That is my mark.\"",
+                            "ru": "Миа подходит к верстаку и включает ультрафиолетовый фонарик. «Посмотри, Саймон», — говорит Миа. «Твой знак S.A. остался на картине в музее. Мы также нашли твой серебряный мастихин и чек из багетной мастерской на Ривер-стрит. Твои инструменты указали нам дорогу к тебе». Миа делает запись. Саймон смотрит на свои руки. «Да», — тихо говорит он. «Это мой знак».",
+                            "chunkedEn": "[s: Mia] [v: goes] [pt: to the workbench] [c: and] [v: shows] [o: her purple light.]\n[o: \"Look, Simon,\"] [s: Mia] [v: says.]\n[s: \"You] [v: have] [o: your mark, S.A.,] [pt: on the painting in the museum.]\n[s: We] [adv: also] [v: find] [o: your silver knife and your receipt] [pt: from River Street Frame Shop.]\n[s: Your tools] [v: show] [o: us the way to you.\"]\n[s: Mia] [v: writes] [o: a note.]\n[s: Simon] [v: looks] [pt: at his hands.]\n[o: \"Yes,\"] [s: he] [v: says] [adv: quietly.]\n[o: \"That is my mark.\"]"
+                    },
+                    {
+                            "speaker": "harris",
+                            "en": "Officer Harris goes to Simon. \"Simon Artwood, you are a thief,\" Officer Harris says. \"Your painting is a lie.\" Harris takes Simon's hands. He uses his phone and calls Captain Gordon. \"Captain Gordon, the suspect is here. The painting is safe. Nothing is broken!\" Simon is quiet.",
+                            "ru": "Офицер Харрис подходит к Саймону. «Саймон Артвуд, вы вор», — говорит офицер Харрис. «Ваша картина — ложь». Харрис берёт Саймона за руки. Он звонит по телефону капитану Гордону. «Капитан Гордон, подозреваемый задержан. Картина в безопасности. Ничего не повреждено!» Саймон молчит.",
+                            "chunkedEn": "[s: Officer Harris] [v: goes] [pt: to Simon.]\n[o: \"Simon Artwood, you are a thief,\"] [s: Officer Harris] [v: says.]\n[s: \"Your painting] [v: is] [o: a lie.\"]\n[s: Harris] [v: takes] [o: Simon's hands.]\n[s: He] [v: uses] [o: his phone] [c: and] [v: calls] [o: Captain Gordon.]\n[o: \"Captain Gordon, the suspect is here. The painting is safe. Nothing is broken!\"]\n[s: Simon] [v: is] [pt: quiet.]"
+                    },
+                    {
+                            "speaker": "leo",
+                            "en": "Leo and Toby look at the painting in the box. The sea is blue and the sun is gold. The painting is beautiful. Leo takes the painting with care. \"Good work, team,\" Leo says with a smile. \"Barnaby finds the way, Toby has the map, Mia finds the evidence, and Harris takes the suspect. Tomorrow the true Blue Harbor goes to the Golden Hall!\" Barnaby is happy. Toby says, \"Thank you, Leo.\" Everyone smiles.",
+                            "ru": "Лео и Тоби смотрят на картину в ящике. Море синее, а солнце золотое. Картина прекрасна. Лео осторожно берёт картину. «Отличная работа, команда», — с улыбкой говорит Лео. «Барнаби нашёл дорогу, у Тоби была карта, Миа нашла улики, а Харрис задержал подозреваемого. Завтра настоящая \"Синяя гавань\" вернётся в Золотой зал!» Барнаби счастлив. Тоби говорит: «Спасибо, Лео». Все улыбаются.",
+                            "chunkedEn": "[s: Leo and Toby] [v: look] [pt: at the painting in the box.]\n[s: The sea] [v: is] [pt: blue] [c: and] [s: the sun] [v: is] [pt: gold.]\n[s: The painting] [v: is] [pt: beautiful.]\n[s: Leo] [v: takes] [o: the painting] [pt: with care.]\n[o: \"Good work, team,\"] [s: Leo] [v: says] [pt: with a smile.]\n[s: \"Barnaby] [v: finds] [o: the way,] [s: Toby] [v: has] [o: the map,] [s: Mia] [v: finds] [o: the evidence,] [c: and] [s: Harris] [v: takes] [o: the suspect.]\n[adv: Tomorrow] [s: the true Blue Harbor] [v: goes] [pt: to the Golden Hall!\"]\n[s: Barnaby] [v: is] [pt: happy.]\n[s: Toby] [v: says,] [o: \"Thank you, Leo.\"]\n[s: Everyone] [v: smiles.]"
+                    }
+            ],
+            "quiz": {
+                    "question": "Why did Simon Artwood steal the genuine painting?",
+                    "options": [
+                            "To prove his copy was as good as the master's and sell the original overseas",
+                            "To hide a secret green energy password inside the wooden box",
+                            "To give the painting as a gift to the city police department"
+                    ],
+                    "correctIndex": 0,
+                    "rewardXp": 558
+            },
+            "backgroundImg": "images/backgrounds/bg_forge_workshop.jpg",
+            "locationEn": "Warehouse Four Loft",
+            "locationRu": "Лофт Склада №4",
+            "rewardXp": 558
     }
 ];
 
@@ -4557,6 +4637,7 @@ const HERO_ORIGINAL_PORTRAITS = {
     "edward": "images/characters_orig/oberon_orig.jpg",
     "vincent": "images/characters_orig/eldrin_orig.jpg",
     "robert": "images/characters_orig/thorin_orig.png",
+    "simon": "images/characters_orig/eldrin_orig.jpg",
     "higgins": "images/characters_orig/oberon_orig.jpg"
 };
 
