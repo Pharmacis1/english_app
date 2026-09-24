@@ -1382,6 +1382,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 window.voiceService.stopSpeech();
             }
             btn.closest(".rpg-modal-overlay")?.classList.add("hidden");
+        });
     });
 
     // Chunk Translation Bottom Sheet Close Handlers

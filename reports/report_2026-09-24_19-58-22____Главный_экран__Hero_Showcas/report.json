@@ -1,0 +1,18 @@
+{
+  "id": "report_2026-09-24_19-58-22____Главный_экран__Hero_Showcas",
+  "timestamp": "2026-09-24T16:58:22.628Z",
+  "localTime": "24.09.2026, 20:58:22",
+  "category": "🐛 Баг / Ошибка",
+  "description": "Прогресс по скилам сбросился никакой раздел не открывается",
+  "mode": "🏰 Главный экран (Hero Showcase Hub)",
+  "hero": "Valerius Lvl 1",
+  "subContext": "Сценарий: Valerius: Paladin's Oath",
+  "viewport": {
+    "width": 392,
+    "height": 791
+  },
+  "url": "https://englishpulse.share.zrok.io/index.html",
+  "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Mobile Safari/537.36",
+  "logs": [],
+  "screenshotFile": "screenshot.jpg"
+}

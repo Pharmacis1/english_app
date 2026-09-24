@@ -23915,7 +23915,7 @@
   "listening_words": 6433,
   "speaking_words": 655,
   "drills_cards": 1200,
-  "visual_fluency_xp": 16493,
+  "visual_fluency_xp": 17484,
   "visual_fluency_completed": [
     2,
     3,
@@ -23949,12 +23949,14 @@
     "det-ch-1",
     "ch-31",
     "ch-32",
-    "ch-33"
+    "ch-33",
+    "ch-34",
+    "ch-35"
   ],
   "completed_story_chapters": [
     1
   ],
-  "lastSyncedAt": "2026-09-24T16:42:30.128Z",
+  "lastSyncedAt": "2026-09-24T17:00:50.021Z",
   "eldrin_audiobook_state": {
     "activeChapterId": "eldrin-ch-8",
     "currentSentenceIdx": 0,
@@ -23989,7 +23991,7 @@
     "grammar_done": 0,
     "drills_cards": 0,
     "speaking_words": 0,
-    "story_done": 3,
+    "story_done": 5,
     "audiobook_sentences": 0
   },
   "speech_drills_mastery": {
