@@ -1382,7 +1382,45 @@ document.addEventListener("DOMContentLoaded", () => {
                 window.voiceService.stopSpeech();
             }
             btn.closest(".rpg-modal-overlay")?.classList.add("hidden");
+    });
+
+    // Chunk Translation Bottom Sheet Close Handlers
+    function closeChunkBottomSheet() {
+        const sheetOverlay = document.getElementById("vf-chunk-bottom-sheet");
+        if (sheetOverlay) sheetOverlay.classList.add("hidden");
+    }
+    window.closeChunkBottomSheet = closeChunkBottomSheet;
+
+    const chunkSheetCloseBtn = document.getElementById("vf-sheet-close-btn");
+    const chunkSheetBackdrop = document.getElementById("vf-sheet-backdrop");
+    const chunkSheetHandle = document.querySelector(".vf-sheet-handle-bar");
+    if (chunkSheetCloseBtn) chunkSheetCloseBtn.addEventListener("click", closeChunkBottomSheet);
+    if (chunkSheetBackdrop) chunkSheetBackdrop.addEventListener("click", closeChunkBottomSheet);
+    if (chunkSheetHandle) chunkSheetHandle.addEventListener("click", closeChunkBottomSheet);
+
+    const chunkSheetCard = document.getElementById("vf-sheet-card");
+    if (chunkSheetCard) {
+        let touchStartY = 0;
+        let touchCurrentY = 0;
+        chunkSheetCard.addEventListener("touchstart", (e) => {
+            if (e.touches && e.touches[0]) touchStartY = e.touches[0].clientY;
+        }, { passive: true });
+        chunkSheetCard.addEventListener("touchmove", (e) => {
+            if (e.touches && e.touches[0]) touchCurrentY = e.touches[0].clientY;
+        }, { passive: true });
+        chunkSheetCard.addEventListener("touchend", () => {
+            if (touchCurrentY - touchStartY > 60) {
+                closeChunkBottomSheet();
+            }
+            touchStartY = 0;
+            touchCurrentY = 0;
         });
+    }
+
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+            closeChunkBottomSheet();
+        }
     });
 
     // Theme Toggle
@@ -2347,17 +2385,18 @@ document.addEventListener("DOMContentLoaded", () => {
         const headerLvlEl = document.getElementById("rpg-header-writing-lvl");
         const headerPillEl = document.getElementById("rpg-header-writing-pill");
         if (headerLvlEl) {
-            headerLvlEl.textContent = `Lv. ${stats.level}`;
+            headerLvlEl.textContent = `Lv. ${stats.level} / 11`;
         }
         if (headerPillEl) {
             headerPillEl.title = `Навык письма (Writing Level ${stats.level}/100):\n` +
+                `Цель A1: 11 уровень (2 000 слов). ${stats.level >= 11 ? '✅ Порог A1 достигнут!' : ''}\n` +
                 `Слов набрано: ${stats.totalWords.toLocaleString()} / 50 000\n` +
                 (stats.level < 100 ? `До уровня ${stats.level + 1}: ${stats.wordsInCurrentLevel}/${stats.wordsNeededForNextLevel} слов (${stats.progressPercent}%)` : `МАКСИМАЛЬНЫЙ УРОВЕНЬ 100 ДОСТИГНУТ! 🏆`);
         }
 
         const trackerWritingEl = document.getElementById("tracker-writing-tag");
         if (trackerWritingEl) {
-            trackerWritingEl.innerHTML = `✍️ Writing: <strong>Lv. ${stats.level}</strong> (${stats.totalWords.toLocaleString()} / 50 000)`;
+            trackerWritingEl.innerHTML = `✍️ Writing: <strong>Lv. ${stats.level} / 11</strong> (${stats.totalWords.toLocaleString()} / 50 000)`;
             trackerWritingEl.title = `Навык письма: наберите 50 000 слов с героями <100 lvl (1 слово = 1 XP). Прогресс уровня: ${stats.wordsInCurrentLevel}/${stats.wordsNeededForNextLevel} слов (${stats.progressPercent}%)`;
         }
         try { updateGlobalA1SkillsProgress(); } catch(e) {}
@@ -2426,17 +2465,18 @@ document.addEventListener("DOMContentLoaded", () => {
         const headerLvlEl = document.getElementById("rpg-header-listening-lvl");
         const headerPillEl = document.getElementById("rpg-header-listening-pill");
         if (headerLvlEl) {
-            headerLvlEl.textContent = `Lv. ${stats.level}`;
+            headerLvlEl.textContent = `Lv. ${stats.level} / 10`;
         }
         if (headerPillEl) {
             headerPillEl.title = `Навык восприятия (Listening Level ${stats.level}/100):\n` +
+                `Цель A1: 10 уровень (25 000 слов). ${stats.level >= 10 ? '✅ Порог A1 достигнут!' : ''}\n` +
                 `Слов прослушано: ${stats.totalWords.toLocaleString()} / 800 000\n` +
                 (stats.level < 100 ? `До уровня ${stats.level + 1}: ${stats.wordsInCurrentLevel}/${stats.wordsNeededForNextLevel} слов (${stats.progressPercent}%)` : `МАКСИМАЛЬНЫЙ УРОВЕНЬ 100 ДОСТИГНУТ! 🏆`);
         }
 
         const trackerListeningEl = document.getElementById("tracker-listening-tag");
         if (trackerListeningEl) {
-            trackerListeningEl.innerHTML = `🎧 Listening: <strong>Lv. ${stats.level}</strong> (${stats.totalWords.toLocaleString()} / 800 000)`;
+            trackerListeningEl.innerHTML = `🎧 Listening: <strong>Lv. ${stats.level} / 10</strong> (${stats.totalWords.toLocaleString()} / 800 000)`;
             trackerListeningEl.title = `Навык восприятия: прослушайте 800 000 слов в диалогах (1 слово = 1 XP). Прогресс уровня: ${stats.wordsInCurrentLevel}/${stats.wordsNeededForNextLevel} слов (${stats.progressPercent}%)`;
         }
         try { updateGlobalA1SkillsProgress(); } catch(e) {}
@@ -2523,10 +2563,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const headerLvlEl = document.getElementById("rpg-header-vocab-lvl");
         const headerPillEl = document.getElementById("rpg-header-vocab-pill");
         if (headerLvlEl) {
-            headerLvlEl.textContent = `Lv. ${stats.level}`;
+            headerLvlEl.textContent = `Lv. ${stats.level} / 35`;
         }
         if (headerPillEl) {
             headerPillEl.title = `Навык словарного запаса (Vocabulary Level ${stats.level}/100):\n` +
+                `Цель A1: 35 уровень (1 100 слов в SRS). ${stats.level >= 35 ? '✅ Порог A1 достигнут!' : ''}\n` +
                 `Слов в долгосрочной памяти (интервал ≥21 дн.): ${stats.totalWords.toLocaleString()} / 5 000\n` +
                 (stats.level < 100 ? `До уровня ${stats.level + 1}: ${stats.wordsInCurrentLevel}/${stats.wordsNeededForNextLevel} слов (${stats.progressPercent}%)` : `МАКСИМАЛЬНЫЙ УРОВЕНЬ 100 ДОСТИГНУТ! 🏆`);
         }
@@ -2544,10 +2585,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const headerLvlEl = document.getElementById("rpg-header-reading-lvl");
         const headerPillEl = document.getElementById("rpg-header-reading-pill");
         if (headerLvlEl) {
-            headerLvlEl.textContent = `Lv. ${progress.level}`;
+            headerLvlEl.textContent = `Lv. ${progress.level} / 11`;
         }
         if (headerPillEl) {
             headerPillEl.title = `Навык чтения (Reading / Visual Fluency Lv. ${progress.level}/100):\n` +
+                `Цель A1: 11 уровень (30 000 XP). ${progress.level >= 11 ? '✅ Порог A1 достигнут!' : ''}\n` +
                 `Ранг: ${progress.rank.icon} ${progress.rank.title}\n` +
                 `Слов прочитано: ${progress.xp.toLocaleString()} / 1 000 000\n` +
                 (progress.level < 100 ? `До уровня ${progress.level + 1}: ${progress.xpInLevel}/${progress.levelTotalReq} XP (${progress.percent}%)` : `МАКСИМАЛЬНЫЙ УРОВЕНЬ 100 ДОСТИГНУТ! 🏆`);
@@ -2563,15 +2605,16 @@ document.addEventListener("DOMContentLoaded", () => {
         const modalBadge = document.getElementById("drills-header-progress-badge");
 
         if (headerLvlEl) {
-            headerLvlEl.textContent = `Lv. ${stats.level}`;
+            headerLvlEl.textContent = `Lv. ${stats.level} / 23`;
         }
         if (headerPillEl) {
             headerPillEl.title = `Навык дриллов (Drills Level ${stats.level}/100):\n` +
+                `Цель A1: 23 уровень (1 200 карточек). ${stats.level >= 23 ? '✅ Порог A1 достигнут!' : ''}\n` +
                 `Пройдено трансформаций: ${stats.totalCards.toLocaleString()} / 10 000\n` +
                 (stats.level < 100 ? `До уровня ${stats.level + 1}: ${stats.inLevel}/${stats.needed} карточек (${stats.percent}%)` : `МАКСИМАЛЬНЫЙ УРОВЕНЬ 100 ДОСТИГНУТ! 🏆`);
         }
         if (modalBadge) {
-            modalBadge.textContent = `Card: ${stats.totalCards.toLocaleString()} / 10,000 • Lv. ${stats.level}`;
+            modalBadge.textContent = `Card: ${stats.totalCards.toLocaleString()} / 10,000 • Lv. ${stats.level} / 23`;
         }
         try { updateGlobalA1SkillsProgress(); } catch(e) {}
     }
@@ -2584,15 +2627,16 @@ document.addEventListener("DOMContentLoaded", () => {
         const modalBadge = document.getElementById("speaking-header-badge");
 
         if (headerLvlEl) {
-            headerLvlEl.textContent = `Lv. ${stats.level}`;
+            headerLvlEl.textContent = `Lv. ${stats.level} / 7`;
         }
         if (headerPillEl) {
             headerPillEl.title = `Навык говорения (Speaking Level ${stats.level}/100):\n` +
+                `Цель A1: 7 уровень (5 000 слов). ${stats.level >= 7 ? '✅ Порог A1 достигнут!' : ''}\n` +
                 `Наговорено слов: ${stats.totalWords.toLocaleString()} / 300 000\n` +
                 (stats.level < 100 ? `До уровня ${stats.level + 1}: ${stats.inLevel}/${stats.needed} слов (${stats.percent}%)` : `МАКСИМАЛЬНЫЙ УРОВЕНЬ 100 ДОСТИГНУТ! 🏆`);
         }
         if (modalBadge) {
-            modalBadge.textContent = `Words: ${stats.totalWords.toLocaleString()} / 300,000 • Lv. ${stats.level}`;
+            modalBadge.textContent = `Words: ${stats.totalWords.toLocaleString()} / 300,000 • Lv. ${stats.level} / 7`;
         }
         try { updateGlobalA1SkillsProgress(); } catch(e) {}
     }
@@ -6725,6 +6769,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function showStoryHubView() {
         stopFullStoryAudio();
+        if (typeof closeChunkBottomSheet === 'function') closeChunkBottomSheet();
+        const pacerFloat = document.getElementById("vf-pacer-floating-control");
+        if (pacerFloat) pacerFloat.classList.add("hidden");
         const hubView = document.getElementById("story-view-hub");
         const readerView = document.getElementById("story-view-reader");
         if (hubView) hubView.classList.remove("hidden");
@@ -7200,15 +7247,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 return `
                     <div class="story-paragraph-card" data-paragraph-idx="${idx}">
-                        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:12px;">
-                            <div class="story-paragraph-en story-paragraph-en-chunked">
-                                <span style="color:var(--warning); font-weight:800; margin-right:6px; user-select:none;">#${idx + 1}</span> ${chunkedEnHtml}
-                            </div>
-                            <button class="btn btn-sm btn-outline story-listen-p-btn" style="padding:4px 10px; font-size:11px; flex-shrink:0;" data-text="${p.en.replace(/"/g, '&quot;')}" data-speaker="${speakerHeroId}">
-                                <i class="fa-solid fa-volume-high"></i> Listen
+                        <div class="story-paragraph-header">
+                            <span class="story-paragraph-num">#${idx + 1}</span>
+                            <button class="btn btn-sm btn-outline story-listen-p-btn" style="padding:3px 10px; font-size:11.5px; border-radius:12px; display:inline-flex; align-items:center; gap:6px; flex-shrink:0;" data-text="${p.en.replace(/"/g, '&quot;')}" data-speaker="${speakerHeroId}">
+                                <i class="fa-solid fa-volume-high"></i> <span>Слушать</span>
                             </button>
                         </div>
-                        <div class="story-paragraph-ru ${areStoryTranslationsVisible ? '' : 'hidden'}">
+                        <div class="story-paragraph-en story-paragraph-en-chunked" style="width:100%; box-sizing:border-box;">
+                            ${chunkedEnHtml}
+                        </div>
+                        <div class="story-paragraph-ru ${areStoryTranslationsVisible ? '' : 'hidden'}" style="margin-top:6px;">
                             💡 ${p.ru}
                         </div>
                     </div>
@@ -7235,6 +7283,14 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                 });
             });
+
+            // Bind Chunk Clicks for Bottom Sheet translation drawer
+            paragraphsList.querySelectorAll(".vf-chunk, .vf-connector, .vf-clause-pill").forEach(chunkEl => {
+                chunkEl.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    openChunkBottomSheet(chunkEl, chapter);
+                });
+            });
         }
         renderParagraphsContent();
 
@@ -7251,37 +7307,85 @@ document.addEventListener("DOMContentLoaded", () => {
             };
         });
 
-        // Setup Visual Pacer Engine with Smart Pauses
+        // Setup Visual Pacer Engine with Smart Pauses & Floating Controls (Thumb-Accessible)
         let pacerTimeoutTimer = null;
         let currentPacerElemIdx = 0;
+        let isPacerPaused = false;
         const pacerToggleBtn = document.getElementById("vf-pacer-toggle-btn");
         const pacerIcon = document.getElementById("vf-pacer-icon");
         const pacerBtnText = document.getElementById("vf-pacer-btn-text");
         const wpmSelect = document.getElementById("vf-pacer-wpm-select");
 
-        function stopPacer() {
-            if (pacerTimeoutTimer) clearTimeout(pacerTimeoutTimer);
-            pacerTimeoutTimer = null;
-            if (pacerIcon) pacerIcon.textContent = "▶";
-            if (pacerBtnText) pacerBtnText.textContent = "Ритм-тренер";
-            document.querySelectorAll(".vf-chunk, .vf-connector, .vf-clause-pill").forEach(c => c.classList.remove("vf-active-pacer"));
+        const pacerFloatControl = document.getElementById("vf-pacer-floating-control");
+        const pacerFloatToggle = document.getElementById("vf-pacer-float-toggle");
+        const pacerFloatIcon = document.getElementById("vf-pacer-float-icon");
+        const pacerFloatText = document.getElementById("vf-pacer-float-text");
+        const pacerFloatWpm = document.getElementById("vf-pacer-float-wpm");
+        const pacerFloatStop = document.getElementById("vf-pacer-float-stop");
+
+        function updatePacerUi(state) {
+            const wpm = parseInt(wpmSelect ? wpmSelect.value : "150", 10);
+            if (pacerFloatWpm) pacerFloatWpm.textContent = `${wpm} WPM`;
+
+            if (state === 'running') {
+                if (pacerIcon) pacerIcon.textContent = "⏸";
+                if (pacerBtnText) pacerBtnText.textContent = "Пауза";
+                if (pacerFloatIcon) pacerFloatIcon.textContent = "⏸";
+                if (pacerFloatText) pacerFloatText.textContent = "Пауза";
+                if (pacerFloatControl) pacerFloatControl.classList.remove("hidden");
+            } else if (state === 'paused') {
+                if (pacerIcon) pacerIcon.textContent = "▶";
+                if (pacerBtnText) pacerBtnText.textContent = "Продолжить";
+                if (pacerFloatIcon) pacerFloatIcon.textContent = "▶";
+                if (pacerFloatText) pacerFloatText.textContent = "Продолжить";
+                if (pacerFloatControl) pacerFloatControl.classList.remove("hidden");
+            } else {
+                if (pacerIcon) pacerIcon.textContent = "▶";
+                if (pacerBtnText) pacerBtnText.textContent = "Ритм-тренер";
+                if (pacerFloatControl) pacerFloatControl.classList.add("hidden");
+                document.querySelectorAll(".vf-chunk, .vf-connector, .vf-clause-pill").forEach(c => c.classList.remove("vf-active-pacer"));
+            }
         }
 
-        function startPacer() {
-            stopPacer();
+        function stopPacer(resetIdx = true) {
+            if (pacerTimeoutTimer) clearTimeout(pacerTimeoutTimer);
+            pacerTimeoutTimer = null;
+            isPacerPaused = false;
+            if (resetIdx) currentPacerElemIdx = 0;
+            updatePacerUi('stopped');
+        }
+
+        function pausePacer() {
+            if (pacerTimeoutTimer) clearTimeout(pacerTimeoutTimer);
+            pacerTimeoutTimer = null;
+            isPacerPaused = true;
+            updatePacerUi('paused');
+        }
+
+        function resumePacer() {
+            startPacer(false);
+        }
+
+        function startPacer(resetIdx = true) {
+            if (pacerTimeoutTimer) clearTimeout(pacerTimeoutTimer);
+            pacerTimeoutTimer = null;
+
             const allElements = Array.from(document.querySelectorAll(".vf-chunk, .vf-connector, .vf-clause-pill"));
             if (!allElements.length) return;
 
-            currentPacerElemIdx = 0;
-            if (pacerIcon) pacerIcon.textContent = "⏸";
-            if (pacerBtnText) pacerBtnText.textContent = "Пауза";
+            if (resetIdx || currentPacerElemIdx >= allElements.length) {
+                currentPacerElemIdx = 0;
+            }
+
+            isPacerPaused = false;
+            updatePacerUi('running');
 
             const wpm = parseInt(wpmSelect ? wpmSelect.value : "150", 10);
 
             function pacerStep() {
                 allElements.forEach(c => c.classList.remove("vf-active-pacer"));
                 if (currentPacerElemIdx >= allElements.length) {
-                    stopPacer();
+                    stopPacer(true);
                     return;
                 }
                 const activeElem = allElements[currentPacerElemIdx];
@@ -7300,7 +7404,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     currentPacerElemIdx++;
                     pacerTimeoutTimer = setTimeout(pacerStep, delay);
                 } else {
-                    stopPacer();
+                    stopPacer(true);
                 }
             }
 
@@ -7310,11 +7414,246 @@ document.addEventListener("DOMContentLoaded", () => {
         if (pacerToggleBtn) {
             pacerToggleBtn.onclick = () => {
                 if (pacerTimeoutTimer) {
-                    stopPacer();
+                    pausePacer();
+                } else if (isPacerPaused) {
+                    resumePacer();
                 } else {
-                    startPacer();
+                    startPacer(true);
                 }
             };
+        }
+
+        if (pacerFloatToggle) {
+            pacerFloatToggle.onclick = () => {
+                if (pacerTimeoutTimer) {
+                    pausePacer();
+                } else if (isPacerPaused) {
+                    resumePacer();
+                } else {
+                    startPacer(false);
+                }
+            };
+        }
+
+        if (pacerFloatStop) {
+            pacerFloatStop.onclick = () => {
+                stopPacer(true);
+            };
+        }
+
+        // Tap active card / reader text while pacer is running to pause/resume
+        const paragraphsContainer = document.getElementById("story-reader-paragraphs-list");
+        if (paragraphsContainer) {
+            paragraphsContainer.addEventListener("click", (e) => {
+                if (e.target.closest(".story-listen-p-btn") || e.target.closest(".vf-chunk, .vf-connector, .vf-clause-pill")) {
+                    return; // Handled separately
+                }
+                if (pacerTimeoutTimer) {
+                    pausePacer();
+                }
+            });
+        }
+
+        // ======================================================================
+        // CHUNK TRANSLATION BOTTOM SHEET DRAWER CONTROLLER
+        // ======================================================================
+        const chunkTranslationCache = new Map();
+
+        function openChunkBottomSheet(elem, currentChapter) {
+            const rawText = elem.getAttribute("data-chunk-text") || elem.textContent || "";
+            const cleanText = rawText.trim().replace(/^["“'‘\s]+|["”'’.,!?;:\s]+$/g, "");
+            if (!cleanText) return;
+
+            const chunkType = elem.getAttribute("data-chunk-type") || "object";
+            const chunkRole = elem.getAttribute("data-chunk-role") || (elem.getAttribute("title") || "Смысловой блок");
+
+            // Pause pacer if running so user can inspect chunk comfortably
+            if (pacerTimeoutTimer) {
+                pausePacer();
+            }
+
+            const sheetOverlay = document.getElementById("vf-chunk-bottom-sheet");
+            if (!sheetOverlay) return;
+
+            const roleBadge = document.getElementById("vf-sheet-role-badge");
+            const roleText = document.getElementById("vf-sheet-role-text");
+            const roleIcon = document.getElementById("vf-sheet-role-icon");
+            const chunkEn = document.getElementById("vf-sheet-chunk-en");
+            const phoneticEl = document.getElementById("vf-sheet-phonetic");
+            const transText = document.getElementById("vf-sheet-trans-text");
+            const contextText = document.getElementById("vf-sheet-context-sentence");
+            const listenBtn = document.getElementById("vf-sheet-listen-btn");
+            const speakSentenceBtn = document.getElementById("vf-sheet-speak-sentence-btn");
+            const addVocabBtn = document.getElementById("vf-sheet-add-vocab-btn");
+
+            // Role styling
+            const roleIcons = {
+                'subject': '👤',
+                'verb': '⚡',
+                'object': '🎯',
+                'place-time': '📍',
+                'connector': '🔗',
+                'clause': '↳'
+            };
+            if (roleIcon) roleIcon.textContent = roleIcons[chunkType] || '🏷️';
+            if (roleText) roleText.textContent = chunkRole;
+            if (roleBadge) {
+                roleBadge.className = `vf-sheet-role-pill role-${chunkType}`;
+            }
+
+            if (chunkEn) chunkEn.textContent = cleanText;
+
+            // Phonetic lookup from hero Oxford vocabulary
+            let foundPhonetic = "";
+            if (typeof rpgEngine !== 'undefined' && rpgEngine.heroes) {
+                for (const h of rpgEngine.heroes) {
+                    if (h.words) {
+                        const match = h.words.find(w => (w[0] || '').toLowerCase() === cleanText.toLowerCase());
+                        if (match && match[1]) {
+                            foundPhonetic = match[1];
+                            break;
+                        }
+                    }
+                }
+            }
+            if (phoneticEl) {
+                if (foundPhonetic) {
+                    phoneticEl.textContent = foundPhonetic;
+                    phoneticEl.classList.remove("hidden");
+                } else {
+                    phoneticEl.textContent = "";
+                    phoneticEl.classList.add("hidden");
+                }
+            }
+
+            // Find parent paragraph & sentence context
+            const card = elem.closest(".story-paragraph-card");
+            const pIdx = card ? parseInt(card.getAttribute("data-paragraph-idx"), 10) : 0;
+            const paragraphData = (currentChapter && currentChapter.paragraphs && currentChapter.paragraphs[pIdx]) ? currentChapter.paragraphs[pIdx] : null;
+            const fullParagraphEn = paragraphData ? paragraphData.en : (card ? (card.querySelector(".story-paragraph-en")?.textContent || cleanText) : cleanText);
+
+            const sentences = fullParagraphEn.match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [fullParagraphEn];
+            let matchedSentence = sentences.find(s => s.toLowerCase().includes(cleanText.toLowerCase())) || sentences[0] || fullParagraphEn;
+            matchedSentence = matchedSentence.trim();
+
+            if (contextText) {
+                const escapedChunk = cleanText.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+                const regex = new RegExp(`(${escapedChunk})`, 'i');
+                const highlighted = matchedSentence.replace(regex, `<span class="vf-sheet-highlighted-chunk">$1</span>`);
+                contextText.innerHTML = highlighted || matchedSentence;
+            }
+
+            // Translation lookup
+            let immediateRu = "";
+            if (chunkTranslationCache.has(cleanText.toLowerCase())) {
+                immediateRu = chunkTranslationCache.get(cleanText.toLowerCase());
+            } else if (typeof translateA0TextToRussian === 'function') {
+                const local = translateA0TextToRussian(cleanText);
+                if (local && local.toLowerCase() !== cleanText.toLowerCase()) {
+                    immediateRu = local;
+                }
+            }
+            if (!immediateRu && typeof rpgEngine !== 'undefined' && rpgEngine.heroes) {
+                for (const h of rpgEngine.heroes) {
+                    if (h.words) {
+                        const match = h.words.find(w => (w[0] || '').toLowerCase() === cleanText.toLowerCase());
+                        if (match && match[2]) {
+                            immediateRu = match[2];
+                            break;
+                        }
+                    }
+                }
+            }
+
+            if (transText) {
+                if (immediateRu) {
+                    transText.textContent = immediateRu;
+                } else {
+                    transText.innerHTML = '<span style="opacity:0.6; font-size:14px;"><i class="fa-solid fa-spinner fa-spin"></i> Переводим...</span>';
+                }
+            }
+
+            // If not found in cache or local dict, query /api/translate
+            if (!immediateRu) {
+                fetch(`/api/translate?text=${encodeURIComponent(cleanText)}&from=en&to=ru`)
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.success && data.translation) {
+                            chunkTranslationCache.set(cleanText.toLowerCase(), data.translation);
+                            if (transText && chunkEn && chunkEn.textContent === cleanText) {
+                                transText.textContent = data.translation;
+                            }
+                        } else if (transText && !immediateRu) {
+                            transText.textContent = cleanText;
+                        }
+                    })
+                    .catch(() => {
+                        if (transText && !immediateRu) {
+                            transText.textContent = cleanText;
+                        }
+                    });
+            }
+
+            const speakerHeroId = (currentChapter && currentChapter.involvedHeroes && currentChapter.involvedHeroes[0]) || activeShowcaseHeroId || 'valerius';
+
+            // Audio for chunk
+            if (listenBtn) {
+                listenBtn.onclick = (e) => {
+                    e.stopPropagation();
+                    listenBtn.innerHTML = '<i class="fa-solid fa-volume-high fa-beat"></i> <span>Слушаем...</span>';
+                    playTextKokoroAudio(cleanText, speakerHeroId, null, () => {
+                        listenBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i> <span>Слушать</span>';
+                    });
+                };
+            }
+
+            // Audio for context sentence
+            if (speakSentenceBtn) {
+                speakSentenceBtn.onclick = (e) => {
+                    e.stopPropagation();
+                    speakSentenceBtn.innerHTML = '<i class="fa-solid fa-volume-high fa-beat"></i> <span>Слушаем...</span>';
+                    playTextKokoroAudio(matchedSentence, speakerHeroId, null, () => {
+                        speakSentenceBtn.innerHTML = '<i class="fa-solid fa-headphones"></i> <span>Всё предложение</span>';
+                    });
+                };
+            }
+
+            // Save chunk to SRS deck
+            if (addVocabBtn) {
+                addVocabBtn.onclick = (e) => {
+                    e.stopPropagation();
+                    const ruWord = transText ? transText.textContent : cleanText;
+                    if (typeof flashcardEngine !== 'undefined' && flashcardEngine.decks) {
+                        const cat = flashcardEngine.currentCategory || Object.keys(flashcardEngine.decks)[0] || "Custom";
+                        if (!flashcardEngine.decks[cat]) flashcardEngine.decks[cat] = [];
+                        const alreadyExists = flashcardEngine.decks[cat].some(c => (c.word || '').toLowerCase() === cleanText.toLowerCase());
+                        if (!alreadyExists) {
+                            flashcardEngine.decks[cat].unshift({
+                                word: cleanText,
+                                phonetic: foundPhonetic ? (foundPhonetic.startsWith('/') ? foundPhonetic : `/${foundPhonetic}/`) : '',
+                                translation: ruWord,
+                                definition: chunkRole,
+                                example: matchedSentence || cleanText,
+                                rating: 0,
+                                interval: 1,
+                                easeFactor: 2.5,
+                                repetitions: 0,
+                                nextReviewDate: 0,
+                                studied: false,
+                                learningInSession: false
+                            });
+                            flashcardEngine.saveDecks();
+                            showToast(`⭐ Чанк <b>"${cleanText}"</b> сохранён в карточки!`, "linear-gradient(135deg, #f59e0b, #d97706)", "#fbbf24");
+                        } else {
+                            showToast(`ℹ️ Чанк <b>"${cleanText}"</b> уже есть в карточках!`, "linear-gradient(135deg, #3b82f6, #1d4ed8)", "#60a5fa");
+                        }
+                    } else {
+                        showToast(`⭐ Чанк <b>"${cleanText}"</b> сохранён!`, "linear-gradient(135deg, #10b981, #059669)", "#34d399");
+                    }
+                };
+            }
+
+            sheetOverlay.classList.remove("hidden");
         }
 
         // Retell Sprint 4/3/2 button setup

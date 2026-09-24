@@ -685,16 +685,20 @@ class VisualFluencyEngine {
     }
 
     renderChunkHtml(chunk, fadingLevel, globalChunkIdx) {
+        const safeText = (chunk.text || '').replace(/"/g, '&quot;');
+        const safeRole = (chunk.role || '').replace(/"/g, '&quot;');
+        const chunkType = chunk.type || 'object';
+
         if (chunk.isConjunction) {
-            return '<span class="vf-connector">' + chunk.text + '</span>';
+            return '<span class="vf-connector" data-chunk-text="' + safeText + '" data-chunk-type="connector" data-chunk-role="Союз / Связка" title="Связка: ' + safeText + '">' + chunk.text + '</span>';
         }
 
         if (chunk.isClauseBreak) {
-            return '<div class="vf-clause-break"><span class="vf-clause-pill">' + chunk.text + '</span><span class="vf-clause-line"></span></div>';
+            return '<div class="vf-clause-break"><span class="vf-clause-pill" data-chunk-text="' + safeText + '" data-chunk-type="clause" data-chunk-role="Граница придаточного">' + chunk.text + '</span><span class="vf-clause-line"></span></div>';
         }
 
-        const lvlClass = 'vf-l' + fadingLevel + '-' + (chunk.type || 'object');
-        return '<span class="vf-chunk ' + lvlClass + '" data-chunk-idx="' + globalChunkIdx + '" title="' + (chunk.role || '') + '">' + chunk.text + '</span>';
+        const lvlClass = 'vf-l' + fadingLevel + '-' + chunkType;
+        return '<span class="vf-chunk ' + lvlClass + '" data-chunk-idx="' + globalChunkIdx + '" data-chunk-text="' + safeText + '" data-chunk-type="' + chunkType + '" data-chunk-role="' + safeRole + '" title="' + (chunk.role || '') + '">' + chunk.text + '</span>';
     }
 
     calculateSmartChunkDuration(text, isClauseBreak = false, isConnector = false, wpm = 150) {

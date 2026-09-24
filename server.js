@@ -255,6 +255,42 @@ app.post('/api/player/sync', async (req, res) => {
     }
 });
 
+// 6.1 GET /api/translate — Fast server-side proxy for chunk & text translation
+const translationCache = new Map();
+app.get('/api/translate', async (req, res) => {
+    try {
+        const text = (req.query.text || '').trim();
+        const sl = req.query.from || 'en';
+        const tl = req.query.to || 'ru';
+        if (!text) return res.json({ success: true, translation: '' });
+
+        const cacheKey = `${sl}:${tl}:${text.toLowerCase()}`;
+        if (translationCache.has(cacheKey)) {
+            return res.json({ success: true, translation: translationCache.get(cacheKey), cached: true });
+        }
+
+        const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=${encodeURIComponent(sl)}&tl=${encodeURIComponent(tl)}&dt=t&q=${encodeURIComponent(text)}`;
+        const r = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0' } });
+        if (!r.ok) throw new Error(`Translate status ${r.status}`);
+        const data = await r.json();
+        let translated = '';
+        if (Array.isArray(data) && Array.isArray(data[0])) {
+            translated = data[0].map(item => (item && item[0]) ? item[0] : '').join('');
+        }
+        if (translated) {
+            translationCache.set(cacheKey, translated);
+            if (translationCache.size > 2000) {
+                const firstKey = translationCache.keys().next().value;
+                translationCache.delete(firstKey);
+            }
+        }
+        res.json({ success: true, translation: translated || text });
+    } catch (err) {
+        console.error('Translation proxy error:', err.message);
+        res.status(500).json({ success: false, error: err.message });
+    }
+});
+
 // 7. GET /api/ai/models — Proxy fetch installed models from Ollama / LM Studio (bypasses CORS)
 app.get('/api/ai/models', async (req, res) => {
     const provider = req.query.provider || 'ollama';
