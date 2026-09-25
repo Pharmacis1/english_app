@@ -4851,6 +4851,85 @@ const STORY_CHAPTERS = [
             "locationEn": "The Old City Clock Tower",
             "locationRu": "Старая городская башня с часами",
             "rewardXp": 546
+    },
+    {
+            "id": "det-ch-21",
+            "campaignId": "detective",
+            "number": 21,
+            "actId": 104,
+            "titleEn": "The Underground Vault",
+            "titleRu": "Подземное хранилище",
+            "audioDir": "det_ch_21",
+            "involvedHeroes": [
+                    "leo",
+                    "toby",
+                    "mia",
+                    "harris"
+            ],
+            "paragraphs": [
+                    {
+                            "speaker": "leo",
+                            "en": "The path under the ground is dark and cold. It is quiet. Water is on the ground. Detective Leo has a flashlight. The light is bright. Leo looks at the dark path. \"Wait near the wall,\" Leo says to the team. \"The ground is not safe. Look with your eyes.\"",
+                            "ru": "Путь под землёй тёмный и холодный. Тихо. Под ногами вода. У детектива Лео есть фонарик. Свет яркий. Лео смотрит на тёмный путь. «Ждите возле стены», — говорит Лео команде. «Земля здесь ненадёжна. Смотрите в оба».",
+                            "chunkedEn": "[s: The path under the ground] [v: is] [pt: dark and cold.]\n[s: It] [v: is] [pt: quiet.]\n[s: Water] [v: is] [pt: on the ground.]\n[s: Detective Leo] [v: has] [o: a flashlight.]\n[s: The light] [v: is] [pt: bright.]\n[s: Leo] [v: looks] [pt: at the dark path.]\n[v: \"Wait] [pt: near the wall,\"] [s: Leo] [v: says] [pt: to the team.]\n[s: \"The ground] [v: is not] [pt: safe.]\n[v: Look] [pt: with your eyes.\"]"
+                    },
+                    {
+                            "speaker": "toby",
+                            "en": "Barnaby the dog walks next to Toby. Barnaby is happy. Barnaby stops near a box. \"Uncle Leo, Mia! Look here!\" Toby says. On the ground, there are new footprints. There is a small blue light too. A big box with tools was here two minutes ago!",
+                            "ru": "Пёс Барнаби идёт рядом с Тоби. Барнаби счастлив. Барнаби останавливается возле ящика. «Дядя Лео, Миа! Посмотрите сюда!» — говорит Тоби. На земле свежие следы. Там же виден маленький синий огонёк. Большой ящик с инструментами был здесь две минуты назад!",
+                            "chunkedEn": "[s: Barnaby the dog] [v: walks] [pt: next to Toby.]\n[s: Barnaby] [v: is] [pt: happy.]\n[s: Barnaby] [v: stops] [pt: near a box.]\n[o: \"Uncle Leo, Mia! Look here!\"] [s: Toby] [v: says.]\n[pt: On the ground,] [w: there] [v: are] [s: new footprints.]\n[w: There] [v: is] [s: a small blue light] [adv: too.]\n[s: A big box with tools] [v: was] [pt: here two minutes ago!]"
+                    },
+                    {
+                            "speaker": "mia",
+                            "en": "Mia looks at a map on her phone. \"We are under Central Square now,\" Mia says quietly. \"Soon, this path goes to the wall of New Haven Central Bank Vault!\" Ahead, there is something fast. Buzz! Buzz! The team walks and listens.",
+                            "ru": "Миа смотрит на карту в своём телефоне. «Мы сейчас под Центральной площадью», — тихо говорит Миа. «Скоро этот путь приведёт к стене хранилища Центрального банка Нью-Хейвена!» Впереди что-то быстро жужжит. Вжжж! Вжжж! Команда идёт и слушает.",
+                            "chunkedEn": "[s: Mia] [v: looks] [pt: at a map on her phone.]\n[s: \"We] [v: are] [pt: under Central Square now,\"] [s: Mia] [v: says] [adv: quietly.]\n[adv: \"Soon,] [s: this path] [v: goes] [pt: to the wall of New Haven Central Bank Vault!\"]\n[adv: Ahead,] [w: there] [v: is] [s: something fast. Buzz! Buzz!]\n[s: The team] [v: walks and listens.]"
+                    },
+                    {
+                            "speaker": "leo",
+                            "en": "The team walks around a big stone corner. Ahead, there is bright light on the dark wall! Two men are there. They wear dark clothes and big glasses. They have gloves too. The men use a big tool. It is hot and bright. It is on the steel door of the bank!",
+                            "ru": "Команда обходит большой каменный угол. Впереди яркий свет на тёмной стене! Там двое мужчин. На них тёмная одежда и большие защитные очки. У них также есть перчатки. Мужчины используют большой инструмент. Он горячий и яркий. Он направлен на стальную дверь банка!",
+                            "chunkedEn": "[s: The team] [v: walks] [pt: around a big stone corner.]\n[adv: Ahead,] [w: there] [v: is] [s: bright light] [pt: on the dark wall!]\n[s: Two men] [v: are] [pt: there.]\n[s: They] [v: wear] [o: dark clothes and big glasses.]\n[s: They] [v: have] [o: gloves] [adv: too.]\n[s: The men] [v: use] [o: a big tool.]\n[s: It] [v: is] [pt: hot and bright.]\n[s: It] [v: is] [pt: on the steel door of the bank!]"
+                    },
+                    {
+                            "speaker": "harris",
+                            "en": "Officer Harris takes out his flashlight. He points it at the two men. \"New Haven police! Stop! Hands up!\" Officer Harris says. The two men drop the tool. They are afraid. They stand near the wall. \"We are sorry! Mr. Sterling told us to do this!\" one man says.",
+                            "ru": "Офицер Харрис достаёт свой фонарик. Он направляет его на двух мужчин. «Полиция Нью-Хейвена! Стоять! Руки вверх!» — говорит офицер Харрис. Двое мужчин бросают инструмент. Они напуганы. Они встают у стены. «Простите нас! Мистер Стерлинг велел нам это сделать!» — говорит один мужчина.",
+                            "chunkedEn": "[s: Officer Harris] [v: takes out] [o: his flashlight.]\n[s: He] [v: points] [o: it] [pt: at the two men.]\n[o: \"New Haven police! Stop! Hands up!\"] [s: Officer Harris] [v: says.]\n[s: The two men] [v: drop] [o: the tool.]\n[s: They] [v: are afraid.]\n[s: They] [v: stand] [pt: near the wall.]\n[o: \"We are sorry! Mr. Sterling told us to do this!\"] [s: one man] [v: says.]"
+                    },
+                    {
+                            "speaker": "mia",
+                            "en": "Mia walks to the big tool and stops it. The bright light is gone now. The loud sound stops too. Mia looks at the steel door. \"The door is safe!\" Mia says. \"The gold and the money are safe too!\" Everyone is happy.",
+                            "ru": "Миа подходит к большому инструменту и выключает его. Яркий свет теперь погас. Громкий звук тоже прекратился. Миа осматривает стальную дверь. «Дверь цела!» — говорит Миа. «Золото и деньги тоже в безопасности!» Все счастливы.",
+                            "chunkedEn": "[s: Mia] [v: walks] [pt: to the big tool] [c: and] [v: stops] [o: it.]\n[s: The bright light] [v: is gone] [adv: now.]\n[s: The loud sound] [v: stops] [adv: too.]\n[s: Mia] [v: looks] [pt: at the steel door.]\n[o: \"The door is safe!\"] [s: Mia] [v: says.]\n[s: \"The gold and the money] [v: are safe] [adv: too!\"]\n[s: Everyone] [v: is] [pt: happy.]"
+                    },
+                    {
+                            "speaker": "toby",
+                            "en": "Officer Harris takes the two men to the police car. Barnaby smells a black bag on a box. Barnaby taps the bag with his foot. Toby opens the bag. \"Uncle Leo, look! There is a photograph and a key! It is a gold key!\" Toby says.",
+                            "ru": "Офицер Харрис уводит двух мужчин к полицейской машине. Барнаби нюхает чёрную сумку на ящике. Барнаби трогает сумку лапой. Тоби открывает сумку. «Дядя Лео, смотри! Здесь фотография и ключ! Это золотой ключ!» — говорит Тоби.",
+                            "chunkedEn": "[s: Officer Harris] [v: takes] [o: the two men] [pt: to the police car.]\n[s: Barnaby] [v: smells] [o: a black bag] [pt: on a box.]\n[s: Barnaby] [v: taps] [o: the bag] [pt: with his foot.]\n[s: Toby] [v: opens] [o: the bag.]\n[o: \"Uncle Leo, look!] [w: There] [v: is] [s: a photograph and a key!]\n[s: It] [v: is] [o: a gold key!\"] [s: Toby] [v: says.]"
+                    },
+                    {
+                            "speaker": "leo",
+                            "en": "Leo looks at the photograph with his flashlight. \"The bad man is Victor Sterling,\" Leo says. His face is serious. \"He is in the Grand Plaza Hotel. He comes down in twenty minutes!\" Leo looks at the team. \"Come! We go to the Grand Plaza Hotel now! One more bad man to find!\"",
+                            "ru": "Лео рассматривает фотографию с фонариком. «Главный злодей — Виктор Стерлинг», — говорит Лео. Его лицо серьёзно. «Он в отеле \"Гранд Плаза\". Он спустится через двадцать минут!» Лео смотрит на команду. «Идёмте! Мы отправляемся в отель \"Гранд Плаза\" прямо сейчас! Осталось найти ещё одного злодея!»",
+                            "chunkedEn": "[s: Leo] [v: looks] [pt: at the photograph with his flashlight.]\n[s: \"The bad man] [v: is] [o: Victor Sterling,\"] [s: Leo] [v: says.]\n[s: His face] [v: is] [pt: serious.]\n[s: \"He] [v: is] [pt: in the Grand Plaza Hotel.]\n[s: He] [v: comes down] [pt: in twenty minutes!\"]\n[s: Leo] [v: looks] [pt: at the team.]\n[v: \"Come!] [s: We] [v: go] [pt: to the Grand Plaza Hotel now!]\n[o: One more bad man] [v: to find!\"]"
+                    }
+            ],
+            "quiz": {
+                    "question": "Who is the mastermind behind the New Haven crimes discovered at the vault?",
+                    "options": [
+                            "Victor Sterling, who is currently at the Grand Plaza Hotel",
+                            "Dr. Scott, who ran into the botanical greenhouse",
+                            "Simon Artwood, who was painting in the loft"
+                    ],
+                    "correctIndex": 0,
+                    "rewardXp": 381
+            },
+            "backgroundImg": "images/backgrounds/bg_crystal_caverns.jpg",
+            "locationEn": "Underground Vault Tunnel",
+            "locationRu": "Туннель Подземного Хранилища",
+            "rewardXp": 381
     }
 ];
 
