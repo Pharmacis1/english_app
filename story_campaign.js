@@ -4693,6 +4693,85 @@ const STORY_CHAPTERS = [
             "locationEn": "Detective Leo's Office",
             "locationRu": "Кабинет Детектива Лео",
             "rewardXp": 536
+    },
+    {
+            "id": "det-ch-19",
+            "campaignId": "detective",
+            "number": 19,
+            "actId": 104,
+            "titleEn": "A Warning in the Rain",
+            "titleRu": "Предупреждение под дождём",
+            "audioDir": "det_ch_19",
+            "involvedHeroes": [
+                    "leo",
+                    "toby",
+                    "mia",
+                    "harris"
+            ],
+            "paragraphs": [
+                    {
+                            "speaker": "leo",
+                            "en": "Rain falls over New Haven. The sky is dark and grey. Rain falls on the window of Detective Leo's office on Elm Street. Outside, the street lamps are yellow in the rain. Detective Leo sits by the warm fireplace. He has a cup of black tea. Mia looks at case files on her laptop. Toby and the dog Barnaby play with a small red ball on the carpet. The office is quiet and warm.",
+                            "ru": "Дождь льёт над Нью-Хейвеном. Небо тёмное и серое. Дождь барабанит по окну кабинета детектива Лео на Элм-стрит. Снаружи уличные фонари светят жёлтым сквозь дождь. Детектив Лео сидит у тёплого камина. У него чашка чёрного чая. Миа просматривает материалы дел на ноутбуке. Тоби и пёс Барнаби играют с маленьким красным мячиком на ковре. В кабинете тихо и тепло.",
+                            "chunkedEn": "[s: Rain] [v: falls] [pt: over New Haven.]\n[s: The sky] [v: is] [pt: dark and grey.]\n[s: Rain] [v: falls] [pt: on the window of Detective Leo's office on Elm Street.]\n[adv: Outside,] [s: the street lamps] [v: are] [pt: yellow in the rain.]\n[s: Detective Leo] [v: sits] [pt: by the warm fireplace.]\n[s: He] [v: has] [o: a cup of black tea.]\n[s: Mia] [v: looks] [pt: at case files on her laptop.]\n[s: Toby and the dog Barnaby] [v: play] [pt: with a small red ball on the carpet.]\n[s: The office] [v: is] [pt: quiet and warm.]"
+                    },
+                    {
+                            "speaker": "leo",
+                            "en": "Suddenly, someone knocks at the door. Knock, knock, knock! Barnaby stops playing. He makes a small sound. Leo stands up. He opens the big wooden door. A young man stands at the door. He is wet. He wears a yellow raincoat. He holds a big envelope. The envelope is closed. \"This is for Detective Leo,\" the young man says. \"A man in a black coat gives me money. He says, bring this to Leo now!\"",
+                            "ru": "Внезапно кто-то стучит в дверь. Тук, тук, тук! Барнаби перестаёт играть. Он издаёт тихий звук. Лео встаёт. Он открывает большую деревянную дверь. У двери стоит молодой человек. Он промок. На нём жёлтый дождевик. Он держит большой конверт. Конверт запечатан. «Это для детектива Лео», — говорит молодой человек. «Мужчина в чёрном пальто дал мне денег. Он сказал: отнеси это Лео сейчас же!»",
+                            "chunkedEn": "[adv: Suddenly,] [s: someone] [v: knocks] [pt: at the door. Knock, knock, knock!]\n[s: Barnaby] [v: stops playing.]\n[s: He] [v: makes] [o: a small sound.]\n[s: Leo] [v: stands up.]\n[s: He] [v: opens] [o: the big wooden door.]\n[s: A young man] [v: stands] [pt: at the door.]\n[s: He] [v: is] [pt: wet.]\n[s: He] [v: wears] [o: a yellow raincoat.]\n[s: He] [v: holds] [o: a big envelope.]\n[s: The envelope] [v: is] [pt: closed.]\n[s: \"This] [v: is] [pt: for Detective Leo,\"] [s: the young man] [v: says.]\n[s: \"A man in a black coat] [v: gives] [o: me] [o: money.]\n[s: He] [v: says,] [v: bring] [o: this] [pt: to Leo now!\"]"
+                    },
+                    {
+                            "speaker": "toby",
+                            "en": "Leo thanks the young man. He takes the envelope inside. Toby and Mia come to the big table. Barnaby sits near Toby's chair. \"Uncle Leo, who is this from?\" Toby asks. His eyes are big. Leo opens the envelope. Inside is a letter. The letter has silver words on black paper. There is also a small key. The key looks like lightning.",
+                            "ru": "Лео благодарит молодого человека. Он заносит конверт внутрь. Тоби и Миа подходят к большому столу. Барнаби садится возле стула Тоби. «Дядя Лео, от кого это?» — спрашивает Тоби. Его глаза широко раскрыты. Лео вскрывает конверт. Внутри письмо. В письме серебряные слова на чёрной бумаге. Там также лежит маленький ключ. Ключ похож на молнию.",
+                            "chunkedEn": "[s: Leo] [v: thanks] [o: the young man.]\n[s: He] [v: takes] [o: the envelope] [adv: inside.]\n[s: Toby and Mia] [v: come] [pt: to the big table.]\n[s: Barnaby] [v: sits] [pt: near Toby's chair.]\n[o: \"Uncle Leo, who is this from?\"] [s: Toby] [v: asks.]\n[s: His eyes] [v: are] [pt: big.]\n[s: Leo] [v: opens] [o: the envelope.]\n[adv: Inside] [v: is] [s: a letter.]\n[s: The letter] [v: has] [o: silver words] [pt: on black paper.]\n[w: There] [v: is] [adv: also] [s: a small key.]\n[s: The key] [v: looks like] [o: lightning.]"
+                    },
+                    {
+                            "speaker": "mia",
+                            "en": "Mia takes the letter. She reads the words. \"Hello, Detective Leo and team. You find the music box, the green laptop, and the painting. But these are only three tests! Tonight, at midnight, our big plan starts at the Old City Clock Tower. The power of New Haven will be ours. From, The Master of Shadows.\" Mia is afraid. \"Leo! This connects all three cases!\"",
+                            "ru": "Миа берёт письмо. Она читает слова. «Здравствуйте, детектив Лео и команда. Вы нашли музыкальную шкатулку, зелёный ноутбук и картину. Но это были лишь три испытания! Сегодня в полночь наш грандиозный план начинается у Старой городской башни с часами. Энергия Нью-Хейвена станет нашей. От: Повелитель Теней». Миа напугана. «Лео! Это объединяет все три дела!»",
+                            "chunkedEn": "[s: Mia] [v: takes] [o: the letter.]\n[s: She] [v: reads] [o: the words.]\n[o: \"Hello, Detective Leo and team.]\n[s: You] [v: find] [o: the music box, the green laptop, and the painting.]\n[c: But] [s: these] [v: are] [o: only three tests!]\n[pt: Tonight, at midnight,] [s: our big plan] [v: starts] [pt: at the Old City Clock Tower.]\n[s: The power of New Haven] [v: will be] [o: ours.]\n[pt: From,] [o: The Master of Shadows.\"]\n[s: Mia] [v: is afraid.]\n[s: \"Leo! This] [v: connects] [o: all three cases!\"]"
+                    },
+                    {
+                            "speaker": "leo",
+                            "en": "Leo looks at the key. He thinks. \"Dr. Edward's code, the music box, and the painting are all parts of one plan,\" Leo says. \"The bad men want to stop the power in the city. Then they want to open the Central Vault and take the gold and the money!\"",
+                            "ru": "Лео смотрит на ключ. Он размышляет. «Код доктора Эдварда, музыкальная шкатулка и картина — всё это части одного плана», — говорит Лео. «Злодеи хотят отключить электричество в городе. Затем они хотят открыть Центральное хранилище и забрать золото и деньги!»",
+                            "chunkedEn": "[s: Leo] [v: looks] [pt: at the key.]\n[s: He] [v: thinks.]\n[s: \"Dr. Edward's code, the music box, and the painting] [v: are] [o: all parts of one plan,\"] [s: Leo] [v: says.]\n[s: \"The bad men] [v: want to stop] [o: the power] [pt: in the city.]\n[adv: Then] [s: they] [v: want to open] [o: the Central Vault] [c: and] [v: take] [o: the gold and the money!\"]"
+                    },
+                    {
+                            "speaker": "toby",
+                            "en": "Barnaby makes a soft sound. He puts his head near Toby's knee. Toby pets the good dog. \"We cannot let them stop the lights in our city, Uncle Leo!\" Toby says. \"Barnaby and I want to help. What do we do first?\" Leo smiles at his young nephew and the good dog.",
+                            "ru": "Барнаби тихо поскуливает. Он кладёт голову рядом с коленом Тоби. Тоби гладит верного пса. «Мы не можем позволить им погасить свет в нашем городе, дядя Лео!» — говорит Тоби. «Мы с Барнаби хотим помочь. Что мы делаем сначала?» Лео улыбается своему юному племяннику и замечательной собаке.",
+                            "chunkedEn": "[s: Barnaby] [v: makes] [o: a soft sound.]\n[s: He] [v: puts] [o: his head] [pt: near Toby's knee.]\n[s: Toby] [v: pets] [o: the good dog.]\n[s: \"We] [v: cannot let] [o: them] [v: stop] [o: the lights] [pt: in our city, Uncle Leo!\"] [s: Toby] [v: says.]\n[s: \"Barnaby and I] [v: want to help.]\n[o: What] [v: do] [s: we] [v: do] [adv: first?\"]\n[s: Leo] [v: smiles] [pt: at his young nephew and the good dog.]"
+                    },
+                    {
+                            "speaker": "harris",
+                            "en": "The office phone rings. Leo answers it. It is Officer Harris. \"Detective Leo! Captain Gordon hears different sounds from the Old Clock Tower on High Street,\" Harris says. \"The police cars are ready to go!\" \"Wait for us on High Street, Harris,\" Leo says. \"We have the key and the letter. We are coming now!\"",
+                            "ru": "В кабинете звонит телефон. Лео берёт трубку. Это офицер Харрис. «Детектив Лео! Капитан Гордон слышит странные звуки со стороны Старой башни с часами на Хай-стрит», — говорит Харрис. «Полицейские машины готовы к выезду!» «Ждите нас на Хай-стрит, Харрис», — говорит Лео. «У нас ключ и письмо. Мы уже выезжаем!»",
+                            "chunkedEn": "[s: The office phone] [v: rings.]\n[s: Leo] [v: answers] [o: it.]\n[s: It] [v: is] [o: Officer Harris.]\n[s: \"Detective Leo! Captain Gordon] [v: hears] [o: different sounds] [pt: from the Old Clock Tower on High Street,\"] [s: Harris] [v: says.]\n[s: \"The police cars] [v: are ready to go!\"]\n[o: \"Wait for us on High Street, Harris,\"] [s: Leo] [v: says.]\n[s: \"We] [v: have] [o: the key and the letter.]\n[s: We] [v: are coming] [adv: now!\"]"
+                    },
+                    {
+                            "speaker": "leo",
+                            "en": "Leo takes his brown raincoat and his flashlight. Mia puts her laptop in her bag. Toby puts on his yellow boots. \"The biggest mystery of New Haven starts tonight,\" Leo says. \"Let's protect our city!\" The team goes out into the rain. The sky is dark, and the rain is heavy.",
+                            "ru": "Лео берёт своё коричневое пальто и фонарик. Миа кладёт ноутбук в сумку. Тоби надевает жёлтые сапожки. «Самая большая тайна Нью-Хейвена начинается сегодня ночью», — говорит Лео. «Давайте защитим наш город!» Команда выходит под дождь. Небо тёмное, а дождь сильный.",
+                            "chunkedEn": "[s: Leo] [v: takes] [o: his brown raincoat and his flashlight.]\n[s: Mia] [v: puts] [o: her laptop] [pt: in her bag.]\n[s: Toby] [v: puts on] [o: his yellow boots.]\n[s: \"The biggest mystery of New Haven] [v: starts] [pt: tonight,\"] [s: Leo] [v: says.]\n[v: \"Let's protect] [o: our city!\"]\n[s: The team] [v: goes out] [pt: into the rain.]\n[s: The sky] [v: is] [pt: dark,] [c: and] [s: the rain] [v: is] [pt: heavy.]"
+                    }
+            ],
+            "quiz": {
+                    "question": "What was delivered to Detective Leo's office during the storm?",
+                    "options": [
+                            "A letter from The Master of Shadows and a small lightning-shaped key",
+                            "A broken music box and a train ticket to the botanical garden",
+                            "A painting in a gold frame with fresh blue paint"
+                    ],
+                    "correctIndex": 0,
+                    "rewardXp": 484
+            },
+            "backgroundImg": "images/backgrounds/bg_magic_library.jpg",
+            "locationEn": "Detective Leo's Office (Rainy Evening)",
+            "locationRu": "Кабинет Детектива Лео (Дождливый вечер)",
+            "rewardXp": 484
     }
 ];
 
