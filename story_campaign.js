@@ -5009,6 +5009,87 @@ const STORY_CHAPTERS = [
             "locationEn": "Grand Plaza Hotel Penthouse",
             "locationRu": "Пентхаус Отеля «Гранд Плаза»",
             "rewardXp": 392
+    },
+    {
+            "id": "det-ch-23",
+            "campaignId": "detective",
+            "number": 23,
+            "actId": 104,
+            "titleEn": "The Rooftop Showdown",
+            "titleRu": "Схватка на крыше",
+            "audioDir": "det_ch_23",
+            "involvedHeroes": [
+                    "leo",
+                    "sterling",
+                    "toby",
+                    "gordon",
+                    "mia",
+                    "harris"
+            ],
+            "paragraphs": [
+                    {
+                            "speaker": "leo",
+                            "en": "Detective Leo opens the big door. He walks up to the roof. The wind is strong today. The rain is cold. The rain touches his face. The sky is dark. There is light in the sky. It is windy on top of the Grand Plaza Hotel. Water is on the roof. In the center of the roof, a black plane is ready to go. Leo looks at the sky. Leo is ready.",
+                            "ru": "Детектив Лео открывает большую дверь. Он выходит на крышу. Ветер сегодня сильный. Дождь холодный. Дождь касается его лица. Небо тёмное. В небе сверкают молнии. На крыше отеля «Гранд Плаза» ветрено. На крыше вода. В центре крыши чёрный вертолёт готов к вылету. Лео смотрит на небо. Лео готов.",
+                            "chunkedEn": "[s: Detective Leo] [v: opens] [o: the big door.]\n[s: He] [v: walks up] [pt: to the roof.]\n[s: The wind] [v: is] [pt: strong today.]\n[s: The rain] [v: is] [pt: cold.]\n[s: The rain] [v: touches] [o: his face.]\n[s: The sky] [v: is] [pt: dark.]\n[w: There] [v: is] [s: light] [pt: in the sky.]\n[s: It] [v: is] [pt: windy on top of the Grand Plaza Hotel.]\n[s: Water] [v: is] [pt: on the roof.]\n[pt: In the center of the roof,] [s: a black plane] [v: is ready to go.]\n[s: Leo] [v: looks] [pt: at the sky.]\n[s: Leo] [v: is] [pt: ready.]"
+                    },
+                    {
+                            "speaker": "leo",
+                            "en": "Victor Sterling stands near the plane. He has a black coat. He has gloves. He has a silver bag. The bag is heavy. Leo walks into the wind. Leo shows his hand. \"Stop, Victor Sterling!\" Leo says. \"Your office is not safe now. Your money is not safe. Your group is finished!\" Leo is not afraid. Leo is strong. Leo is a good detective.",
+                            "ru": "Виктор Стерлинг стоит возле вертолёта. На нём чёрное пальто. У него перчатки. У него серебристая сумка. Сумка тяжёлая. Лео идёт навстречу ветру. Лео поднимает руку. «Стой, Виктор Стерлинг!» — говорит Лео. «Твой офис уже захвачен. Твои деньги заблокированы. Твоя банда повержена!» Лео не боится. Лео силён. Лео — отличный детектив.",
+                            "chunkedEn": "[s: Victor Sterling] [v: stands] [pt: near the plane.]\n[s: He] [v: has] [o: a black coat.]\n[s: He] [v: has] [o: gloves.]\n[s: He] [v: has] [o: a silver bag.]\n[s: The bag] [v: is] [pt: heavy.]\n[s: Leo] [v: walks] [pt: into the wind.]\n[s: Leo] [v: shows] [o: his hand.]\n[o: \"Stop, Victor Sterling!\"] [s: Leo] [v: says.]\n[s: \"Your office] [v: is not] [pt: safe now.]\n[s: Your money] [v: is not] [pt: safe.]\n[s: Your group] [v: is finished!\"]\n[s: Leo] [v: is not afraid.]\n[s: Leo] [v: is] [pt: strong.]\n[s: Leo] [v: is] [o: a good detective.]"
+                    },
+                    {
+                            "speaker": "sterling",
+                            "en": "Victor Sterling looks back at Leo. He has a big, bad smile. \"Detective Leo! You are too late!\" Sterling says in the rain. \"I have diamonds in this bag! I can buy a new life far away! Nobody can stop me now!\" Sterling starts to go into the plane. Leo looks at Sterling. Leo is not happy.",
+                            "ru": "Виктор Стерлинг оглядывается на Лео. У него широкая недобрая улыбка. «Детектив Лео! Вы опоздали!» — кричит Стерлинг сквозь дождь. «В этой сумке бриллианты! Я могу купить новую жизнь далеко отсюда! Никто не сможет меня остановить!» Стерлинг начинает подниматься в вертолёт. Лео смотрит на Стерлинга. Лео не доволен.",
+                            "chunkedEn": "[s: Victor Sterling] [v: looks back] [pt: at Leo.]\n[s: He] [v: has] [o: a big, bad smile.]\n[o: \"Detective Leo! You] [v: are] [pt: too late!\"] [s: Sterling] [v: says] [pt: in the rain.]\n[s: \"I] [v: have] [o: diamonds] [pt: in this bag!]\n[s: I] [v: can buy] [o: a new life] [adv: far away!]\n[s: Nobody] [v: can stop] [o: me] [adv: now!\"]\n[s: Sterling] [v: starts to go] [pt: into the plane.]\n[s: Leo] [v: looks] [pt: at Sterling.]\n[s: Leo] [v: is not] [pt: happy.]"
+                    },
+                    {
+                            "speaker": "toby",
+                            "en": "\"Barnaby, go to him!\" Toby says. Toby lets Barnaby go. Barnaby the dog runs fast across the roof. Barnaby jumps! Barnaby takes the silver bag with his mouth! \"Go away, dog!\" Sterling says. He is afraid. Sterling falls down on the roof. Toby is happy. Toby smiles.",
+                            "ru": "«Барнаби, хватай его!» — говорит Тоби. Тоби отпускает Барнаби. Пёс Барнаби быстро бежит по крыше. Барнаби прыгает! Барнаби хватает серебристую сумку зубами! «Пошёл вон, пёс!» — кричит Стерлинг. Он напуган. Стерлинг падает на крышу. Тоби счастлив. Тоби улыбается.",
+                            "chunkedEn": "[o: \"Barnaby, go] [pt: to him!\"] [s: Toby] [v: says.]\n[s: Toby] [v: lets] [o: Barnaby] [v: go.]\n[s: Barnaby the dog] [v: runs] [adv: fast] [pt: across the roof.]\n[s: Barnaby] [v: jumps!]\n[s: Barnaby] [v: takes] [o: the silver bag] [pt: with his mouth!]\n[o: \"Go away, dog!\"] [s: Sterling] [v: says.]\n[s: He] [v: is afraid.]\n[s: Sterling] [v: falls down] [pt: on the roof.]\n[s: Toby] [v: is] [pt: happy.]\n[s: Toby] [v: smiles.]"
+                    },
+                    {
+                            "speaker": "leo",
+                            "en": "The bag falls from Sterling's hand. It falls on the roof. The bag opens! Diamonds and gold paper go everywhere on the roof! Leo runs to Sterling. Leo takes Sterling down to the roof. \"You cannot go now, Mr. Sterling!\" Leo says. Leo takes Sterling's hands. The rain is still cold. The wind is still strong.",
+                            "ru": "Сумка выпадает из рук Стерлинга. Она падает на крышу. Сумка распахивается! Бриллианты и ценные бумаги рассыпаются по всей крыше! Лео подбегает к Стерлингу. Лео прижимает Стерлинга к крыше. «Вы никуда не полетите, мистер Стерлинг!» — говорит Лео. Лео заламывает руки Стерлинга. Дождь всё ещё холодный. Ветер всё ещё сильный.",
+                            "chunkedEn": "[s: The bag] [v: falls] [pt: from Sterling's hand.]\n[s: It] [v: falls] [pt: on the roof.]\n[s: The bag] [v: opens!]\n[s: Diamonds and gold paper] [v: go] [adv: everywhere] [pt: on the roof!]\n[s: Leo] [v: runs] [pt: to Sterling.]\n[s: Leo] [v: takes] [o: Sterling] [pt: down to the roof.]\n[o: \"You cannot go now, Mr. Sterling!\"] [s: Leo] [v: says.]\n[s: Leo] [v: takes] [o: Sterling's hands.]\n[s: The rain] [v: is still] [pt: cold.]\n[s: The wind] [v: is still] [pt: strong.]"
+                    },
+                    {
+                            "speaker": "gordon",
+                            "en": "Two big police planes come down from the dark sky. Bright light is on the roof. Gordon and the police come to the roof. \"Stop the plane now!\" Gordon says with a big voice. The driver of the plane shows his hands. The driver stops the plane. The police are ready. The police are strong.",
+                            "ru": "Два больших полицейских вертолёта спускаются с тёмного неба. Яркий свет заливает крышу. Гордон и полицейские выбегают на крышу. «Глуши двигатель!» — командным голосом кричит Гордон. Пилот вертолёта поднимает руки. Пилот выключает вертолёт. Полиция готова. Полиция сильна.",
+                            "chunkedEn": "[s: Two big police planes] [v: come down] [pt: from the dark sky.]\n[s: Bright light] [v: is] [pt: on the roof.]\n[s: Gordon and the police] [v: come] [pt: to the roof.]\n[o: \"Stop the plane now!\"] [s: Gordon] [v: says] [pt: with a big voice.]\n[s: The driver of the plane] [v: shows] [o: his hands.]\n[s: The driver] [v: stops] [o: the plane.]\n[s: The police] [v: are] [pt: ready.]\n[s: The police] [v: are] [pt: strong.]"
+                    },
+                    {
+                            "speaker": "mia",
+                            "en": "Harris takes Sterling's hands. Harris locks them. Mia and Toby take the diamonds and the papers. They take them to a police box. \"We have every diamond and every paper!\" Mia says happily. \"The Master of Shadows is not a problem now!\" Toby smiles. Mia smiles too.",
+                            "ru": "Харрис берёт руки Стерлинга. Харрис защёлкивает наручники. Миа и Тоби собирают бриллианты и бумаги. Они складывают их в полицейский контейнер. «У нас каждый бриллиант и каждый документ!» — радостно говорит Миа. «Повелитель Теней больше не опасен!» Тоби улыбается. Миа тоже улыбается.",
+                            "chunkedEn": "[s: Harris] [v: takes] [o: Sterling's hands.]\n[s: Harris] [v: locks] [o: them.]\n[s: Mia and Toby] [v: take] [o: the diamonds and the papers.]\n[s: They] [v: take] [o: them] [pt: to a police box.]\n[o: \"We have every diamond and every paper!\"] [s: Mia] [v: says] [adv: happily.]\n[s: \"The Master of Shadows] [v: is not] [o: a problem] [adv: now!\"]\n[s: Toby] [v: smiles.]\n[s: Mia] [v: smiles] [adv: too.]"
+                    },
+                    {
+                            "speaker": "leo",
+                            "en": "The dark clouds go away over New Haven. Soft morning light comes in the sky. Leo pets Barnaby, the good dog. Leo smiles at Toby, Mia, and Harris. \"You did it, team,\" Leo says. He is happy. \"New Haven is safe now. The long night is over. The morning is here!\" Barnaby is happy too. The team is happy. They walk home. The city is happy. Everyone is happy now.",
+                            "ru": "Тёмные тучи рассеиваются над Нью-Хейвеном. Мягкий утренний свет появляется в небе. Лео гладит верного пса Барнаби. Лео улыбается Тоби, Мие и Харрису. «Вы сделали это, команда», — говорит Лео. Он счастлив. «Нью-Хейвен теперь в безопасности. Долгая ночь закончилась. Настало утро!» Барнаби тоже счастлив. Команда счастлива. Они идут домой. Город счастлив. Теперь все счастливы.",
+                            "chunkedEn": "[s: The dark clouds] [v: go away] [pt: over New Haven.]\n[s: Soft morning light] [v: comes] [pt: in the sky.]\n[s: Leo] [v: pets] [o: Barnaby, the good dog.]\n[s: Leo] [v: smiles] [pt: at Toby, Mia, and Harris.]\n[o: \"You did it, team,\"] [s: Leo] [v: says.]\n[s: He] [v: is] [pt: happy.]\n[s: \"New Haven] [v: is safe] [adv: now.]\n[s: The long night] [v: is] [pt: over.]\n[s: The morning] [v: is] [pt: here!\"]\n[s: Barnaby] [v: is happy] [adv: too.]\n[s: The team] [v: is] [pt: happy.]\n[s: They] [v: walk] [adv: home.]\n[s: The city] [v: is] [pt: happy.]\n[s: Everyone] [v: is happy] [adv: now.]"
+                    }
+            ],
+            "quiz": {
+                    "question": "How was Victor Sterling stopped from escaping in the helicopter?",
+                    "options": [
+                            "Barnaby jumped and grabbed the briefcase, causing Sterling to fall before police helicopters surrounded the roof",
+                            "The helicopter ran out of green energy power during the storm",
+                            "He dropped the keys to the Grand Plaza Hotel into the river"
+                    ],
+                    "correctIndex": 0,
+                    "rewardXp": 468
+            },
+            "backgroundImg": "images/backgrounds/bg_cyberpunk_rooftop.jpg",
+            "locationEn": "Grand Plaza Hotel Rooftop Helipad",
+            "locationRu": "Вертолётная площадка на крыше Отеля «Гранд Плаза»",
+            "rewardXp": 468
     }
 ];
 
@@ -5035,6 +5116,7 @@ const HERO_ORIGINAL_PORTRAITS = {
     "edward": "images/characters_orig/oberon_orig.jpg",
     "vincent": "images/characters_orig/eldrin_orig.jpg",
     "robert": "images/characters_orig/thorin_orig.png",
+    "sterling": "images/characters_orig/valerius_orig.jpg",
     "simon": "images/characters_orig/eldrin_orig.jpg",
     "higgins": "images/characters_orig/oberon_orig.jpg"
 };
