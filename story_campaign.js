@@ -5090,6 +5090,88 @@ const STORY_CHAPTERS = [
             "locationEn": "Grand Plaza Hotel Rooftop Helipad",
             "locationRu": "Вертолётная площадка на крыше Отеля «Гранд Плаза»",
             "rewardXp": 468
+    },
+    {
+            "id": "det-ch-24",
+            "campaignId": "detective",
+            "number": 24,
+            "actId": 104,
+            "titleEn": "The Dawn over New Haven",
+            "titleRu": "Рассвет над Нью-Хейвеном (Финал)",
+            "audioDir": "det_ch_24",
+            "involvedHeroes": [
+                    "leo",
+                    "gordon",
+                    "edward",
+                    "arthur",
+                    "martha",
+                    "mia",
+                    "toby"
+            ],
+            "paragraphs": [
+                    {
+                            "speaker": "leo",
+                            "en": "The morning sun is in the sky over New Haven. The sky is blue and pink. The rain is gone now. The wind is soft and sweet. The water on Elm Street shines like small diamonds. A big crowd of happy people stands in front of the Grand City Hall. They have flowers in their hands. Detective Leo walks to the Grand City Hall. Mia, Toby, and Barnaby walk with him.",
+                            "ru": "Утреннее солнце восходит в небе над Нью-Хейвеном. Небо голубое и розовое. Дождь прошёл. Ветер мягкий и приятный. Вода на Элм-стрит сияет, как маленькие бриллианты. Большая толпа счастливых людей стоит перед Городской ратушей. В руках у них цветы. Детектив Лео идёт к Городской ратуше. Миа, Тоби и Барнаби идут с ним.",
+                            "chunkedEn": "[s: The morning sun] [v: is] [pt: in the sky over New Haven.]\n[s: The sky] [v: is] [pt: blue and pink.]\n[s: The rain] [v: is gone] [adv: now.]\n[s: The wind] [v: is] [pt: soft and sweet.]\n[s: The water on Elm Street] [v: shines] [pt: like small diamonds.]\n[s: A big crowd of happy people] [v: stands] [pt: in front of the Grand City Hall.]\n[s: They] [v: have] [o: flowers] [pt: in their hands.]\n[s: Detective Leo] [v: walks] [pt: to the Grand City Hall.]\n[s: Mia, Toby, and Barnaby] [v: walk] [pt: with him.]"
+                    },
+                    {
+                            "speaker": "gordon",
+                            "en": "Captain Gordon stands in front of the Grand City Hall. His uniform is clean and nice. A man from the city stands next to him. \"People of New Haven!\" Captain Gordon says with a big, strong voice. \"Today is a happy day! We have peace! Thank you, Detective Leo, Mia, Toby, and Barnaby! Our city is safe now, forever!\" The big crowd is happy. They smile and say, \"Yes! Yes!\"",
+                            "ru": "Капитан Гордон стоит перед Городской ратушей. Его форма чистая и красивая. Рядом с ним стоит представитель мэрии. «Жители Нью-Хейвена!» — говорит капитан Гордон громким, сильным голосом. «Сегодня счастливый день! У нас мир! Спасибо детективу Лео, Мие, Тоби и Барнаби! Наш город теперь в безопасности навсегда!» Большая толпа счастлива. Они улыбаются и кричат: «Да! Да!»",
+                            "chunkedEn": "[s: Captain Gordon] [v: stands] [pt: in front of the Grand City Hall.]\n[s: His uniform] [v: is] [pt: clean and nice.]\n[s: A man from the city] [v: stands] [pt: next to him.]\n[o: \"People of New Haven!\"] [s: Captain Gordon] [v: says] [pt: with a big, strong voice.]\n[pt: \"Today] [v: is] [o: a happy day!]\n[s: We] [v: have] [o: peace!]\n[o: Thank you, Detective Leo, Mia, Toby, and Barnaby!]\n[s: Our city] [v: is safe] [adv: now, forever!\"]\n[s: The big crowd] [v: is] [pt: happy.]\n[s: They] [v: smile and say,] [o: \"Yes! Yes!\"]"
+                    },
+                    {
+                            "speaker": "edward",
+                            "en": "Near Leo, good friends smile at him. Dr. Edward and Emma stand together and smile a lot. \"Our green energy formulas work in the city again, Leo!\" Dr. Edward says with a happy voice. Near them, Vincent from the Art Gallery and Mr. Higgins smile warmly at Leo, Mia, Toby, and Barnaby.",
+                            "ru": "Рядом с Лео ему улыбаются добрые друзья. Доктор Эдвард и Эмма стоят вместе и радостно улыбаются. «Наши формулы зелёной энергии снова питают город, Лео!» — говорит доктор Эдвард счастливым голосом. Рядом с ними Винсент из Картинной галереи и мистер Хиггинс тепло улыбаются Лео, Мие, Тоби и Барнаби.",
+                            "chunkedEn": "[pt: Near Leo,] [s: good friends] [v: smile] [pt: at him.]\n[s: Dr. Edward and Emma] [v: stand together and smile] [adv: a lot.]\n[s: \"Our green energy formulas] [v: work] [pt: in the city again, Leo!\"] [s: Dr. Edward] [v: says] [pt: with a happy voice.]\n[pt: Near them,] [s: Vincent from the Art Gallery and Mr. Higgins] [v: smile] [adv: warmly] [pt: at Leo, Mia, Toby, and Barnaby.]"
+                    },
+                    {
+                            "speaker": "gordon",
+                            "en": "Captain Gordon comes to Leo and Mia. He has three gold stars and one small box in his hands. \"Leo and Mia are brave. They think well. They are true friends of our city. New Haven gives Leo and Mia the City Star of Honor!\" Gordon gives the gold stars to Leo and Mia. Mia is happy. She smiles a big smile.",
+                            "ru": "Капитан Гордон подходит к Лео и Мие. У него в руках три золотые звезды и одна маленькая коробочка. «Лео и Миа храбры. Они мыслят глубоко. Они настоящие друзья нашего города. Нью-Хейвен награждает Лео и Миу Городской Звездой Почёта!» Гордон вручает золотые звёзды Лео и Мие. Миа счастлива. Она широко улыбается.",
+                            "chunkedEn": "[s: Captain Gordon] [v: comes] [pt: to Leo and Mia.]\n[s: He] [v: has] [o: three gold stars and one small box] [pt: in his hands.]\n[s: \"Leo and Mia] [v: are brave.]\n[s: They] [v: think] [adv: well.]\n[s: They] [v: are] [o: true friends of our city.]\n[s: New Haven] [v: gives] [o: Leo and Mia] [o: the City Star of Honor!\"]\n[s: Gordon] [v: gives] [o: the gold stars] [pt: to Leo and Mia.]\n[s: Mia] [v: is] [pt: happy.]\n[s: She] [v: smiles] [o: a big smile.]"
+                    },
+                    {
+                            "speaker": "gordon",
+                            "en": "Captain Gordon comes to Toby and Barnaby. He smiles like a grandfather. \"And for young Toby, we have the Young Detective Gold Star!\" Gordon says. He gives Toby a small gold star. Toby is happy, happy! \"Thank you, Captain Gordon! I will always help our city!\" Toby says with a big smile.",
+                            "ru": "Капитан Гордон подходит к Тоби и Барнаби. Он улыбается по-дедушкески тепло. «А для юного Тоби у нас есть Золотая Звезда Юного Детектива!» — говорит Гордон. Он вручает Тоби маленькую золотую звезду. Тоби невероятно счастлив! «Спасибо, капитан Гордон! Я всегда буду помогать нашему городу!» — говорит Тоби с широкой улыбкой.",
+                            "chunkedEn": "[s: Captain Gordon] [v: comes] [pt: to Toby and Barnaby.]\n[s: He] [v: smiles] [pt: like a grandfather.]\n[s: \"And for young Toby, we] [v: have] [o: the Young Detective Gold Star!\"] [s: Gordon] [v: says.]\n[s: He] [v: gives] [o: Toby] [o: a small gold star.]\n[s: Toby] [v: is happy,] [pt: happy!]\n[o: \"Thank you, Captain Gordon! I will always help our city!\"] [s: Toby] [v: says] [pt: with a big smile.]"
+                    },
+                    {
+                            "speaker": "gordon",
+                            "en": "Gordon opens the small box. Inside is a beautiful red thing for Barnaby. It says: \"Barnaby — The Hero of New Haven.\" Captain Gordon gives it to Barnaby. Barnaby is happy! He runs and jumps. The big crowd is happy too. People smile and say, \"Yes!\"",
+                            "ru": "Гордон открывает маленькую коробочку. Внутри красивый красный ошейник для Барнаби. На нём написано: «Барнаби — Герой Нью-Хейвена». Капитан Гордон надевает его на Барнаби. Барнаби счастлив! Он бегает и прыгает. Большая толпа тоже ликует. Люди улыбаются и кричат: «Да!»",
+                            "chunkedEn": "[s: Gordon] [v: opens] [o: the small box.]\n[adv: Inside] [v: is] [s: a beautiful red thing] [pt: for Barnaby.]\n[s: It] [v: says:] [o: \"Barnaby — The Hero of New Haven.\"]\n[s: Captain Gordon] [v: gives] [o: it] [pt: to Barnaby.]\n[s: Barnaby] [v: is] [pt: happy!]\n[s: He] [v: runs and jumps.]\n[s: The big crowd] [v: is happy] [adv: too.]\n[s: People] [v: smile and say,] [o: \"Yes!\"]"
+                    },
+                    {
+                            "speaker": "arthur",
+                            "en": "Grandfather Arthur and Grandmother Martha come to the team. \"We are happy, our good family,\" Grandmother Martha says to Toby with a big smile. Grandfather Arthur takes Leo's hand. \"You have a team with true hearts and courage, Leo. Today, New Haven has peace because of you.\"",
+                            "ru": "Дедушка Артур и бабушка Марта подходят к команде. «Мы так счастливы за вас, наша дорогая семья», — говорит бабушка Марта Тоби с сияющей улыбкой. Дедушка Артур пожимает руку Лео. «У тебя команда с истинными сердцами и мужеством, Лео. Сегодня в Нью-Хейвене царит мир благодаря вам».",
+                            "chunkedEn": "[s: Grandfather Arthur and Grandmother Martha] [v: come] [pt: to the team.]\n[o: \"We are happy, our good family,\"] [s: Grandmother Martha] [v: says] [pt: to Toby with a big smile.]\n[s: Grandfather Arthur] [v: takes] [o: Leo's hand.]\n[s: \"You] [v: have] [o: a team with true hearts and courage, Leo.]\n[adv: Today,] [s: New Haven] [v: has] [o: peace] [b: because of] [o: you.\"]"
+                    },
+                    {
+                            "speaker": "leo",
+                            "en": "Leo looks at the big crowd, his family, his brave team, and the happy people of New Haven. \"Every problem can have a good answer when we have friends, courage, and truth,\" Leo says. \"Thank you, New Haven. We will always help you.\" Barnaby stands next to Leo. The sun is bright. The New Haven tale has a happy end!",
+                            "ru": "Лео смотрит на большую толпу, свою семью, свою отважную команду и счастливых жителей Нью-Хейвена. «У каждой проблемы найдётся хорошее решение, когда с нами друзья, мужество и правда», — говорит Лео. «Спасибо, Нью-Хейвен. Мы всегда придём на помощь». Барнаби стоит рядом с Лео. Солнце светит ярко. История Нью-Хейвена счастливо завершилась!",
+                            "chunkedEn": "[s: Leo] [v: looks] [pt: at the big crowd, his family, his brave team, and the happy people of New Haven.]\n[o: \"Every problem can have a good answer] [b: when] [s: we] [v: have] [o: friends, courage, and truth,\"] [s: Leo] [v: says.]\n[o: \"Thank you, New Haven. We will always help you.\"]\n[s: Barnaby] [v: stands] [pt: next to Leo.]\n[s: The sun] [v: is] [pt: bright.]\n[s: The New Haven tale] [v: has] [o: a happy end!]"
+                    }
+            ],
+            "quiz": {
+                    "question": "What special reward did Barnaby the dog receive at the City Hall celebration?",
+                    "options": [
+                            "A beautiful red collar inscribed 'Barnaby — The Hero of New Haven'",
+                            "A golden key to the Grand Plaza Hotel penthouse",
+                            "A ticket to ride his bike on the subway platform"
+                    ],
+                    "correctIndex": 0,
+                    "rewardXp": 460
+            },
+            "backgroundImg": "images/backgrounds/bg_cathedral_sunlight.jpg",
+            "locationEn": "Grand City Hall Plaza",
+            "locationRu": "Площадь у Городской Ратуши",
+            "rewardXp": 460
     }
 ];
 
