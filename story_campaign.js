@@ -4930,6 +4930,85 @@ const STORY_CHAPTERS = [
             "locationEn": "Underground Vault Tunnel",
             "locationRu": "Туннель Подземного Хранилища",
             "rewardXp": 381
+    },
+    {
+            "id": "det-ch-22",
+            "campaignId": "detective",
+            "number": 22,
+            "actId": 104,
+            "titleEn": "The Master Plan Unveiled",
+            "titleRu": "Генеральный план раскрыт",
+            "audioDir": "det_ch_22",
+            "involvedHeroes": [
+                    "leo",
+                    "toby",
+                    "mia",
+                    "harris"
+            ],
+            "paragraphs": [
+                    {
+                            "speaker": "leo",
+                            "en": "The police car goes fast to the Grand Plaza Hotel. It is night. It is raining. The sky is dark. There is a storm. The Grand Plaza Hotel is a big building in New Haven. It has a gold and glass tower. Detective Leo, Mia, Toby, and the dog Barnaby run in through the glass doors. They are in a big room. \"The top floor is far,\" Leo says to the team. \"We must go up now.\"",
+                            "ru": "Полицейская машина быстро едет к отелю «Гранд Плаза». Ночь. Идёт дождь. Небо тёмное. Бушует буря. Отель «Гранд Плаза» — большое здание в Нью-Хейвене. У него башня из золота и стекла. Детектив Лео, Миа, Тоби и пёс Барнаби вбегают через стеклянные двери. Они в большом холле. «Верхний этаж высоко», — говорит Лео команде. «Мы должны подняться прямо сейчас».",
+                            "chunkedEn": "[s: The police car] [v: goes] [adv: fast] [pt: to the Grand Plaza Hotel.]\n[s: It] [v: is] [o: night.]\n[s: It] [v: is raining.]\n[s: The sky] [v: is] [pt: dark.]\n[w: There] [v: is] [s: a storm.]\n[s: The Grand Plaza Hotel] [v: is] [o: a big building] [pt: in New Haven.]\n[s: It] [v: has] [o: a gold and glass tower.]\n[s: Detective Leo, Mia, Toby, and the dog Barnaby] [v: run in] [pt: through the glass doors.]\n[s: They] [v: are] [pt: in a big room.]\n[s: \"The top floor] [v: is] [pt: far,\"] [s: Leo] [v: says] [pt: to the team.]\n[s: \"We] [v: must go up] [adv: now.\"]"
+                    },
+                    {
+                            "speaker": "toby",
+                            "en": "Toby takes a gold key from his pocket. He opens a door with the key. Click! Toby, Leo, Mia, and Barnaby go inside. They go up and up. Then the door opens. They see a big, beautiful room. This is the top floor of the hotel.",
+                            "ru": "Тоби достаёт золотой ключ из кармана. Он открывает дверь ключом. Щёлк! Тоби, Лео, Миа и Барнаби заходят внутрь. Они поднимаются всё выше и выше. Затем дверь открывается. Они видят большую красивую комнату. Это верхний этаж отеля.",
+                            "chunkedEn": "[s: Toby] [v: takes] [o: a gold key] [pt: from his pocket.]\n[s: He] [v: opens] [o: a door] [pt: with the key. Click!]\n[s: Toby, Leo, Mia, and Barnaby] [v: go] [adv: inside.]\n[s: They] [v: go up and up.]\n[adv: Then] [s: the door] [v: opens.]\n[s: They] [v: see] [o: a big, beautiful room.]\n[s: This] [v: is] [o: the top floor of the hotel.]"
+                    },
+                    {
+                            "speaker": "mia",
+                            "en": "The room is dark. But the computer screens are bright. Mia runs to a big computer. She has her laptop too. \"Amazing!\" Mia says. \"Victor Sterling can see all of New Haven from here! He can see the Music Box Museum, Dr. Edward's Energy Lab, the Art Gallery, and the Central Bank! He watches everything from this room.\"",
+                            "ru": "В комнате темно. Но экраны компьютеров яркие. Миа бежит к большому компьютеру. У неё с собой также ноутбук. «Поразительно!» — говорит Миа. «Виктор Стерлинг видит весь Нью-Хейвен отсюда! Он видит Музей музыкальных шкатулок, Лабораторию энергии доктора Эдварда, Картинную галерею и Центральный банк! Он следит за всем из этой комнаты».",
+                            "chunkedEn": "[s: The room] [v: is] [pt: dark.]\n[c: But] [s: the computer screens] [v: are] [pt: bright.]\n[s: Mia] [v: runs] [pt: to a big computer.]\n[s: She] [v: has] [o: her laptop] [adv: too.]\n[o: \"Amazing!\"] [s: Mia] [v: says.]\n[s: \"Victor Sterling] [v: can see] [o: all of New Haven] [pt: from here!]\n[s: He] [v: can see] [o: the Music Box Museum, Dr. Edward's Energy Lab, the Art Gallery, and the Central Bank!]\n[s: He] [v: watches] [o: everything] [pt: from this room.\"]"
+                    },
+                    {
+                            "speaker": "leo",
+                            "en": "Leo looks at a big desk near a big window. He finds a big black book. \"This is Victor Sterling's book,\" Leo explains. He reads the pages with his flashlight. \"It has names of bad people. It has information about stolen things and secret money. This book can put every thief in New Haven in the police station!\"",
+                            "ru": "Лео осматривает большой стол возле большого окна. Он находит большую чёрную книгу. «Это книга Виктора Стерлинга», — объясняет Лео. Он читает страницы с фонариком. «В ней имена сообщников. В ней информация об украденных вещах и тайных деньгах. Эта книга может отправить каждого вора в Нью-Хейвене в полицейский участок!»",
+                            "chunkedEn": "[s: Leo] [v: looks] [pt: at a big desk near a big window.]\n[s: He] [v: finds] [o: a big black book.]\n[s: \"This] [v: is] [o: Victor Sterling's book,\"] [s: Leo] [v: explains.]\n[s: He] [v: reads] [o: the pages] [pt: with his flashlight.]\n[s: \"It] [v: has] [o: names of bad people.]\n[s: It] [v: has] [o: information about stolen things and secret money.]\n[s: This book] [v: can put] [o: every thief in New Haven] [pt: in the police station!\"]"
+                    },
+                    {
+                            "speaker": "toby",
+                            "en": "Now, they hear a loud noise. It comes from the roof. Thump, thump, thump! Barnaby hears it too and looks up. \"Uncle Leo, listen!\" Toby says. \"A plane is on the roof! It is right above us!\"",
+                            "ru": "Вдруг они слышат громкий шум. Он доносится с крыши. Тук, тук, тук! Барнаби тоже слышит его и смотрит наверх. «Дядя Лео, послушай!» — говорит Тоби. «Вертолёт на крыше! Он прямо над нами!»",
+                            "chunkedEn": "[adv: Now,] [s: they] [v: hear] [o: a loud noise.]\n[s: It] [v: comes] [pt: from the roof. Thump, thump, thump!]\n[s: Barnaby] [v: hears] [o: it] [adv: too] [c: and] [v: looks] [adv: up.]\n[o: \"Uncle Leo, listen!\"] [s: Toby] [v: says.]\n[s: \"A plane] [v: is] [pt: on the roof!]\n[s: It] [v: is] [pt: right above us!\"]"
+                    },
+                    {
+                            "speaker": "harris",
+                            "en": "Officer Harris comes into the room fast. \"Captain Gordon stops all cars near the hotel,\" Officer Harris says. \"Victor Sterling goes up to the roof! He has a bag. It has stolen diamonds!\"",
+                            "ru": "Офицер Харрис быстро входит в комнату. «Капитан Гордон заблокировал все машины возле отеля», — говорит офицер Харрис. «Виктор Стерлинг поднимается на крышу! У него сумка. В ней украденные бриллианты!»",
+                            "chunkedEn": "[s: Officer Harris] [v: comes] [pt: into the room fast.]\n[s: \"Captain Gordon] [v: stops] [o: all cars] [pt: near the hotel,\"] [s: Officer Harris] [v: says.]\n[s: \"Victor Sterling] [v: goes up] [pt: to the roof!]\n[s: He] [v: has] [o: a bag.]\n[s: It] [v: has] [o: stolen diamonds!\"]"
+                    },
+                    {
+                            "speaker": "mia",
+                            "en": "Mia puts all the information on the USB drive. \"I stop his computers! I stop his secret money!\" Mia says. She is happy. She takes the USB. \"He cannot go anywhere now!\" Outside, the rain falls fast. The sky is bright for one second. Thunder!",
+                            "ru": "Миа копирует всю информацию на USB-накопитель. «Я заблокировала его компьютеры! Я остановила его тайные переводы денег!» — говорит Миа. Она рада. Она забирает USB-флешку. «Теперь он никуда не уйдёт!» Снаружи хлещет дождь. Небо на секунду озаряется ярким светом. Гром!",
+                            "chunkedEn": "[s: Mia] [v: puts] [o: all the information] [pt: on the USB drive.]\n[s: \"I] [v: stop] [o: his computers!]\n[s: I] [v: stop] [o: his secret money!\"] [s: Mia] [v: says.]\n[s: She] [v: is] [pt: happy.]\n[s: She] [v: takes] [o: the USB.]\n[s: \"He] [v: cannot go] [pt: anywhere now!\"]\n[adv: Outside,] [s: the rain] [v: falls] [adv: fast.]\n[s: The sky] [v: is] [pt: bright for one second. Thunder!]"
+                    },
+                    {
+                            "speaker": "leo",
+                            "en": "Leo closes his coat. He checks his flashlight. \"This is the final fight,\" Leo says. \"Up to the roof, team! We finish this tonight!\" Toby, Mia, Harris, Leo, and Barnaby run up to the roof, into the storm.",
+                            "ru": "Лео застёгивает пальто. Он проверяет фонарик. «Это финальная схватка», — говорит Лео. «На крышу, команда! Мы закончим это сегодня ночью!» Тоби, Миа, Харрис, Лео и Барнаби бегут на крышу, навстречу буре.",
+                            "chunkedEn": "[s: Leo] [v: closes] [o: his coat.]\n[s: He] [v: checks] [o: his flashlight.]\n[s: \"This] [v: is] [o: the final fight,\"] [s: Leo] [v: says.]\n[pt: \"Up to the roof,] [o: team!]\n[s: We] [v: finish] [o: this] [pt: tonight!\"]\n[s: Toby, Mia, Harris, Leo, and Barnaby] [v: run up] [pt: to the roof, into the storm.]"
+                    }
+            ],
+            "quiz": {
+                    "question": "What did Detective Leo find in Victor Sterling's penthouse?",
+                    "options": [
+                            "A master ledger with the names of all the syndicate members and secret accounts",
+                            "A broken music box and a green train ticket to the laboratory",
+                            "A fake painting of the blue harbor without a frame"
+                    ],
+                    "correctIndex": 0,
+                    "rewardXp": 392
+            },
+            "backgroundImg": "images/backgrounds/bg_cyberpunk_rooftop.jpg",
+            "locationEn": "Grand Plaza Hotel Penthouse",
+            "locationRu": "Пентхаус Отеля «Гранд Плаза»",
+            "rewardXp": 392
     }
 ];
 
