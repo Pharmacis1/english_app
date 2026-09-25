@@ -4772,6 +4772,85 @@ const STORY_CHAPTERS = [
             "locationEn": "Detective Leo's Office (Rainy Evening)",
             "locationRu": "Кабинет Детектива Лео (Дождливый вечер)",
             "rewardXp": 484
+    },
+    {
+            "id": "det-ch-20",
+            "campaignId": "detective",
+            "number": 20,
+            "actId": 104,
+            "titleEn": "The Clock Tower Rendezvous",
+            "titleRu": "Встреча у Часовой башни",
+            "audioDir": "det_ch_20",
+            "involvedHeroes": [
+                    "leo",
+                    "harris",
+                    "toby",
+                    "mia"
+            ],
+            "paragraphs": [
+                    {
+                            "speaker": "leo",
+                            "en": "The police car stops on High Street. It is night. It is rainy. The wind is strong. Above the city there is a big tower. It is the Old City Clock Tower. The tower is tall. It is made of stone. It has four clocks. The clock says ten minutes to midnight. Detective Leo, Mia, Toby, and the dog Barnaby come out of the car. The rain is on them. Officer Harris runs to them, near a stone door.",
+                            "ru": "Полицейская машина останавливается на Хай-стрит. Ночь. Идёт дождь. Ветер сильный. Над городом возвышается большая башня. Это Старая городская башня с часами. Башня высокая. Она построена из камня. У неё четыре циферблата. Часы показывают без десяти полночь. Детектив Лео, Миа, Тоби и пёс Барнаби выходят из машины. Дождь льёт на них. Офицер Харрис бежит к ним возле каменной двери.",
+                            "chunkedEn": "[s: The police car] [v: stops] [pt: on High Street.]\n[s: It] [v: is] [o: night.]\n[s: It] [v: is] [pt: rainy.]\n[s: The wind] [v: is] [pt: strong.]\n[pt: Above the city] [w: there] [v: is] [s: a big tower.]\n[s: It] [v: is] [o: the Old City Clock Tower.]\n[s: The tower] [v: is] [pt: tall.]\n[s: It] [v: is made of] [o: stone.]\n[s: It] [v: has] [o: four clocks.]\n[s: The clock] [v: says] [o: ten minutes to midnight.]\n[s: Detective Leo, Mia, Toby, and the dog Barnaby] [v: come out] [pt: of the car.]\n[s: The rain] [v: is] [pt: on them.]\n[s: Officer Harris] [v: runs] [pt: to them, near a stone door.]"
+                    },
+                    {
+                            "speaker": "harris",
+                            "en": "\"Good evening, Detective Leo!\" says Officer Harris. His voice is quiet. The rain is on his police hat. \"Something bad is at the top of the tower. Two police cars watch the square. But the heavy iron door is locked!\" Leo smiles. He takes out a small key. \"We have the key from the Master of Shadows.\"",
+                            "ru": "«Добрый вечер, детектив Лео!» — говорит офицер Харрис. Его голос тих. Дождь стучит по его полицейской фуражке. «Что-то неладное происходит на вершине башни. Две полицейские машины следят за площадью. Но тяжёлая железная дверь заперта!» Лео улыбается. Он достаёт маленький ключик. «У нас есть ключ от Повелителя Теней».",
+                            "chunkedEn": "[o: \"Good evening, Detective Leo!\"] [v: says] [s: Officer Harris.]\n[s: His voice] [v: is] [pt: quiet.]\n[s: The rain] [v: is] [pt: on his police hat.]\n[s: \"Something bad] [v: is] [pt: at the top of the tower.]\n[s: Two police cars] [v: watch] [o: the square.]\n[c: But] [s: the heavy iron door] [v: is locked!\"]\n[s: Leo] [v: smiles.]\n[s: He] [v: takes out] [o: a small key.]\n[s: \"We] [v: have] [o: the key] [pt: from the Master of Shadows.\"]"
+                    },
+                    {
+                            "speaker": "leo",
+                            "en": "Leo puts the key into the old iron lock. Click! The heavy door opens slowly. The team walks into the tower. Inside, it is cool and dark. Big iron parts of the clock move and make a sound. Mia has a flashlight. It is bright. \"Look at the stone floor,\" Mia says. \"Fresh footprints go up! Someone is in the tower.\"",
+                            "ru": "Лео вставляет ключ в старый железный замок. Щёлк! Тяжёлая дверь медленно открывается. Команда входит в башню. Внутри прохладно и темно. Большие железные шестерни часов движутся и издают звук. У Мии есть фонарик. Он яркий. «Посмотрите на каменный пол», — говорит Миа. «Свежие следы ведут наверх! Кто-то находится в башне».",
+                            "chunkedEn": "[s: Leo] [v: puts] [o: the key] [pt: into the old iron lock. Click!]\n[s: The heavy door] [v: opens] [adv: slowly.]\n[s: The team] [v: walks] [pt: into the tower.]\n[adv: Inside,] [s: it] [v: is] [pt: cool and dark.]\n[s: Big iron parts of the clock] [v: move and make] [o: a sound.]\n[s: Mia] [v: has] [o: a flashlight.]\n[s: It] [v: is] [pt: bright.]\n[o: \"Look at the stone floor,\"] [s: Mia] [v: says.]\n[s: \"Fresh footprints] [v: go] [adv: up!]\n[s: Someone] [v: is] [pt: in the tower.\"]"
+                    },
+                    {
+                            "speaker": "toby",
+                            "en": "Barnaby smells the footprints. He is happy. Toby holds Barnaby, and they climb up behind Uncle Leo. They climb up and up. They still hear the rain outside. They go up four floors. They arrive at the room with the big clock. Big iron parts of the clock move all the time. Golden light comes from a small box on the clock. The box has a screen and a USB cable. It shows a code.",
+                            "ru": "Барнаби нюхает следы. Он рад. Тоби держит Барнаби, и они поднимаются за дядей Лео. Они поднимаются всё выше и выше. Снаружи всё ещё слышен дождь. Они поднимаются на четыре этажа. Они приходят в комнату с большими часами. Большие железные детали часов двигаются всё время. Золотистый свет исходит от небольшой коробочки на часах. У коробочки есть экран и USB-кабель. На ней отображается код.",
+                            "chunkedEn": "[s: Barnaby] [v: smells] [o: the footprints.]\n[s: He] [v: is] [pt: happy.]\n[s: Toby] [v: holds] [o: Barnaby,] [c: and] [s: they] [v: climb up] [pt: behind Uncle Leo.]\n[s: They] [v: climb up and up.]\n[s: They] [adv: still] [v: hear] [o: the rain] [adv: outside.]\n[s: They] [v: go up] [o: four floors.]\n[s: They] [v: arrive] [pt: at the room with the big clock.]\n[s: Big iron parts of the clock] [v: move] [adv: all the time.]\n[s: Golden light] [v: comes] [pt: from a small box on the clock.]\n[s: The box] [v: has] [o: a screen and a USB cable.]\n[s: It] [v: shows] [o: a code.]"
+                    },
+                    {
+                            "speaker": "mia",
+                            "en": "Mia goes to the box with her laptop. \"Look at this box!\" Mia says. She is happy and surprised. \"The Master of Shadows connects Dr. Edward's code and the old music box to the clock! At midnight, this box will stop all the lights in the city!\" Mia opens her laptop. She has a USB cable. \"Give me two minutes! I will stop the code!\"",
+                            "ru": "Миа подходит к коробочке с ноутбуком. «Посмотрите на эту коробочку!» — говорит Миа. Она рада и удивлена. «Повелитель Теней подключил код доктора Эдварда и старую музыкальную шкатулку к часам! В полночь эта коробочка отключит весь свет в городе!» Миа открывает ноутбук. У неё есть USB-кабель. «Дайте мне две минуты! Я остановлю этот код!»",
+                            "chunkedEn": "[s: Mia] [v: goes] [pt: to the box with her laptop.]\n[o: \"Look at this box!\"] [s: Mia] [v: says.]\n[s: She] [v: is] [pt: happy and surprised.]\n[s: \"The Master of Shadows] [v: connects] [o: Dr. Edward's code and the old music box] [pt: to the clock!]\n[pt: At midnight,] [s: this box] [v: will stop] [o: all the lights] [pt: in the city!\"]\n[s: Mia] [v: opens] [o: her laptop.]\n[s: She] [v: has] [o: a USB cable.]\n[v: \"Give] [o: me two minutes!]\n[s: I] [v: will stop] [o: the code!\"]"
+                    },
+                    {
+                            "speaker": "toby",
+                            "en": "Mia works on her laptop. Barnaby stands near the corner of the room. He looks down and is quiet. Toby walks to Barnaby. Under an old grey cloth, Toby finds a small door in the floor. Behind the door, there is a way down to the basement. \"Uncle Leo, look here!\" Toby calls. \"There is a door in the floor! It goes down, under the ground!\"",
+                            "ru": "Миа работает на ноутбуке. Барнаби стоит в углу комнаты. Он смотрит вниз и молчит. Тоби подходит к Барнаби. Под старой серой тканью Тоби находит люк в полу. За дверцей находится проход вниз в подвал. «Дядя Лео, посмотри сюда!» — зовёт Тоби. «В полу есть люк! Он ведёт вниз, под землю!»",
+                            "chunkedEn": "[s: Mia] [v: works] [pt: on her laptop.]\n[s: Barnaby] [v: stands] [pt: near the corner of the room.]\n[s: He] [v: looks down] [c: and] [v: is] [pt: quiet.]\n[s: Toby] [v: walks] [pt: to Barnaby.]\n[pt: Under an old grey cloth,] [s: Toby] [v: finds] [o: a small door] [pt: in the floor.]\n[pt: Behind the door,] [w: there] [v: is] [s: a way down] [pt: to the basement.]\n[o: \"Uncle Leo, look here!\"] [s: Toby] [v: calls.]\n[w: \"There] [v: is] [s: a door] [pt: in the floor!]\n[s: It] [v: goes down,] [pt: under the ground!\"]"
+                    },
+                    {
+                            "speaker": "leo",
+                            "en": "Leo puts his flashlight into the door in the floor. He looks down. The way down goes straight into the old subway under New Haven. Leo thinks. \"The box on the clock is not the real problem,\" he says. \"The Master of Shadows and his team are under the ground! They move to the Central Bank Vault!\" Mia presses a key. She smiles. She is happy. \"The box does not work now! The city lights are safe!\"",
+                            "ru": "Лео светит фонариком в люк в полу. Он смотрит вниз. Проход ведёт прямо в старое метро под Нью-Хейвеном. Лео думает. «Коробочка на часах — это не главная проблема», — говорит он. «Повелитель Теней и его банда находятся под землёй! Они движутся к Центральному хранилищу банка!» Миа нажимает клавишу. Она улыбается. Она счастлива. «Коробочка больше не работает! Свет в городе в безопасности!»",
+                            "chunkedEn": "[s: Leo] [v: puts] [o: his flashlight] [pt: into the door in the floor.]\n[s: He] [v: looks] [adv: down.]\n[s: The way down] [v: goes] [adv: straight] [pt: into the old subway under New Haven.]\n[s: Leo] [v: thinks.]\n[s: \"The box on the clock] [v: is not] [o: the real problem,\"] [s: he] [v: says.]\n[s: \"The Master of Shadows and his team] [v: are] [pt: under the ground!]\n[s: They] [v: move] [pt: to the Central Bank Vault!\"]\n[s: Mia] [v: presses] [o: a key.]\n[s: She] [v: smiles.]\n[s: She] [v: is] [pt: happy.]\n[s: \"The box] [v: does not work] [adv: now!]\n[s: The city lights] [v: are] [pt: safe!\"]"
+                    },
+                    {
+                            "speaker": "leo",
+                            "en": "\"Great work, Mia!\" Leo says. \"Now we need to stop the Master of Shadows before he comes to the Central Bank Vault. Harris, call other police to the subway!\" Toby, Mia, Leo, and Barnaby climb down into the subway. They walk fast. Barnaby runs in front. The tunnel is dark, but they are brave. They follow the path under New Haven, toward the Central Bank Vault.",
+                            "ru": "«Отличная работа, Миа!» — говорит Лео. «Теперь нам нужно остановить Повелителя Теней до того, как он доберётся до хранилища Центрального банка. Харрис, вызови подкрепление к выходам из метро!» Тоби, Миа, Лео и Барнаби спускаются в метро. Они идут быстро. Барнаби бежит впереди. Туннель тёмный, но они смелы. Они идут по пути под Нью-Хейвеном к хранилищу Центрального банка.",
+                            "chunkedEn": "[o: \"Great work, Mia!\"] [s: Leo] [v: says.]\n[adv: \"Now] [s: we] [v: need to stop] [o: the Master of Shadows] [b: before] [s: he] [v: comes] [pt: to the Central Bank Vault.]\n[s: Harris,] [v: call] [o: other police] [pt: to the subway!\"]\n[s: Toby, Mia, Leo, and Barnaby] [v: climb down] [pt: into the subway.]\n[s: They] [v: walk] [adv: fast.]\n[s: Barnaby] [v: runs] [pt: in front.]\n[s: The tunnel] [v: is] [pt: dark,] [c: but] [s: they] [v: are brave.]\n[s: They] [v: follow] [o: the path] [pt: under New Haven, toward the Central Bank Vault.]"
+                    }
+            ],
+            "quiz": {
+                    "question": "What did Toby discover inside the Old Clock Tower?",
+                    "options": [
+                            "A secret door in the floor leading down to the abandoned subway tunnels",
+                            "A box with stolen gold medals from the art museum",
+                            "A broken bicycle with a blue train ticket"
+                    ],
+                    "correctIndex": 0,
+                    "rewardXp": 546
+            },
+            "backgroundImg": "images/backgrounds/bg_cathedral_sunlight.jpg",
+            "locationEn": "The Old City Clock Tower",
+            "locationRu": "Старая городская башня с часами",
+            "rewardXp": 546
     }
 ];
 
