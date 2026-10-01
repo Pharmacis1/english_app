@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css?v=11.100">
     <link rel="stylesheet" href="profile_page.css?v=1.0">
+    <link rel="stylesheet" href="new_words_study.css?v=1.0">
 </head>
 <body class="hero-rpg-body">
 
@@ -200,6 +201,11 @@
                         <i class="fa-solid fa-book-open"></i>
                         <span class="btn-main-label">Vocab</span>
                         <span class="btn-sub-label">Словарь & Карточки</span>
+                    </button>
+                    <button class="hero-btn action-btn-new-words" id="btn-hero-new-words">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span class="btn-main-label">New Words</span>
+                        <span class="btn-sub-label">Изучение новых слов</span>
                     </button>
                     <button class="hero-btn action-btn-grammar" id="btn-hero-rules">
                         <i class="fa-solid fa-scroll"></i>
@@ -1040,6 +1046,10 @@
                             <span>Колоды героев</span>
                             <span class="badge font-mono" id="vocab-heroes-count" style="background:rgba(6,182,212,0.2); color:#22d3ee;">10</span>
                         </button>
+                        <button class="vocab-mode-tab" id="tab-vocab-new-words-mode" style="background:rgba(16,185,129,0.12); border-color:rgba(16,185,129,0.3); color:#34d399;">
+                            <i class="fa-solid fa-graduation-cap" style="color:#10b981;"></i>
+                            <span>Новые слова (5)</span>
+                        </button>
                     </div>
 
                     <!-- HERO SELECTION PANEL (Shown when in Hero Decks mode) -->
@@ -1085,6 +1095,93 @@
                         </div>
 
                         <div id="batch-action-box" class="batch-action-box" style="display:none;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: NEW WORDS MULTI-STAGE STUDY (5 Words, 4 Stages) -->
+    <div class="rpg-modal-overlay hidden" id="modal-new-words-study">
+        <div class="rpg-modal-content new-words-modal-content">
+            <div class="rpg-modal-header new-words-modal-header">
+                <div class="modal-header-title" style="display:flex; align-items:center; gap:12px;">
+                    <div class="new-words-header-icon">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <div>
+                        <h3 style="margin:0; font-size:18px; font-weight:800; color:#f8fafc;">Изучение новых слов</h3>
+                        <div style="font-size:12px; color:#94a3b8;">Партии по 5 слов &bull; 4 этапа запоминания</div>
+                    </div>
+                </div>
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <button type="button" class="btn btn-sm btn-outline hidden" id="btn-new-words-back-hub" title="Назад к списку партий">
+                        <i class="fa-solid fa-arrow-left"></i> <span>Партии</span>
+                    </button>
+                    <button type="button" class="modal-close-btn" id="new-words-close-btn">&times;</button>
+                </div>
+            </div>
+
+            <div class="rpg-modal-body new-words-modal-body">
+                <!-- VIEW 1: HUB (Batch Selector) -->
+                <div id="new-words-hub-view">
+                    <div class="nw-hub-stats-bar">
+                        <div class="nw-stat-card">
+                            <div class="nw-stat-val text-cyan" id="new-words-total-words-stat">38</div>
+                            <div class="nw-stat-label">Всего слов в базе</div>
+                        </div>
+                        <div class="nw-stat-card">
+                            <div class="nw-stat-val text-emerald" id="new-words-total-mastered-stat">0</div>
+                            <div class="nw-stat-label">Освоено (в SRS)</div>
+                        </div>
+                        <div class="nw-stat-card">
+                            <div class="nw-stat-val text-amber" id="new-words-total-batches-stat">0/8</div>
+                            <div class="nw-stat-label">Партий пройдено</div>
+                        </div>
+                    </div>
+
+                    <div style="margin: 14px 0 8px; display:flex; justify-content:space-between; align-items:center;">
+                        <h4 style="margin:0; font-size:14px; font-weight:700; color:#e2e8f0;">
+                            <i class="fa-solid fa-layer-group" style="color:var(--primary);"></i> Выберите партию для изучения:
+                        </h4>
+                        <span style="font-size:11px; color:#94a3b8;">По 5 слов в партии</span>
+                    </div>
+
+                    <div class="nw-batches-grid" id="new-words-batches-list">
+                        <!-- Populated by NewWordsStudyEngine -->
+                    </div>
+                </div>
+
+                <!-- VIEW 2: STUDY CAROUSEL (4 Stages) -->
+                <div id="new-words-study-view" class="hidden">
+                    <!-- 4-STEP STEPPER -->
+                    <div class="new-words-stepper-row">
+                        <div class="new-words-step-pill active" id="nw-step-1">
+                            <i class="fa-solid fa-eye"></i>
+                            <span>1. Знакомство</span>
+                        </div>
+                        <div class="new-words-step-pill" id="nw-step-2">
+                            <i class="fa-solid fa-list-check"></i>
+                            <span>2. Выбор</span>
+                        </div>
+                        <div class="new-words-step-pill" id="nw-step-3">
+                            <i class="fa-solid fa-headphones"></i>
+                            <span>3. На слух</span>
+                        </div>
+                        <div class="new-words-step-pill" id="nw-step-4">
+                            <i class="fa-solid fa-keyboard"></i>
+                            <span>4. Письмо</span>
+                        </div>
+                    </div>
+
+                    <div class="new-words-stage-meta-row">
+                        <span id="new-words-stage-counter"><i class="fa-solid fa-layer-group"></i> Осталось в раунде: 5 из 5</span>
+                        <span style="font-size:11px; color:#64748b;"><i class="fa-solid fa-shield-halved"></i> Ошибка = повтор в конце</span>
+                    </div>
+
+                    <!-- CARD STAGE -->
+                    <div id="new-words-card-stage">
+                        <!-- Dynamic card content -->
                     </div>
                 </div>
             </div>
@@ -2370,6 +2467,7 @@
     <script src="speaking_engine.js?v=11.097"></script>
     <script src="speech_drills.js?v=11.097"></script>
     <script src="eldrin_story.js?v=11.108"></script>
+    <script src="new_words_study.js?v=1.0"></script>
     <script src="app.js?v=11.112"></script>
     <script src="report_issue.js?v=1.0"></script>
     <script src="profile.js?v=1.0"></script>

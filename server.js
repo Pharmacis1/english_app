@@ -234,6 +234,26 @@ app.post('/api/player/sync', async (req, res) => {
         const payloadVFChapters = Array.isArray(statePayload.visual_fluency_completed) ? statePayload.visual_fluency_completed : [];
         const mergedVFChapters = Array.from(new Set([...existingVFChapters, ...payloadVFChapters]));
 
+        // Merge New Words Multi-Stage Study state across devices
+        let mergedNWStudy = existing.new_words_study_state || null;
+        if (statePayload.new_words_study_state || existing.new_words_study_state) {
+            const exNW = existing.new_words_study_state || {};
+            const plNW = statePayload.new_words_study_state || {};
+            const mergedBatches = Array.from(new Set([
+                ...(Array.isArray(exNW.completedBatches) ? exNW.completedBatches : []),
+                ...(Array.isArray(plNW.completedBatches) ? plNW.completedBatches : [])
+            ]));
+            const mergedWords = Array.from(new Set([
+                ...(Array.isArray(exNW.masteredWordIds) ? exNW.masteredWordIds : []),
+                ...(Array.isArray(plNW.masteredWordIds) ? plNW.masteredWordIds : [])
+            ]));
+            mergedNWStudy = {
+                completedBatches: mergedBatches,
+                masteredWordIds: mergedWords,
+                lastBatchIdx: Math.max(exNW.lastBatchIdx || 0, plNW.lastBatchIdx || 0)
+            };
+        }
+
         const merged = {
             ...existing,
             ...statePayload,
@@ -243,6 +263,7 @@ app.post('/api/player/sync', async (req, res) => {
             last_streak_date: safeLastStreakDate,
             completed_story_chapters: mergedStoryChapters,
             visual_fluency_completed: mergedVFChapters,
+            new_words_study_state: mergedNWStudy,
             writing_words: Math.max(existing.writing_words || 0, statePayload.writing_words || 0),
             listening_words: Math.max(existing.listening_words || 0, statePayload.listening_words || 0),
             speaking_words: Math.max(existing.speaking_words || 0, statePayload.speaking_words || 0),

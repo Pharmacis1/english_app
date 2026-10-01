@@ -586,6 +586,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Wire Action Buttons
     const btnWords = document.getElementById("btn-hero-words");
+    const btnNewWords = document.getElementById("btn-hero-new-words");
     const btnRules = document.getElementById("btn-hero-rules");
     const btnChat = document.getElementById("btn-hero-chat");
     const btnCall = document.getElementById("btn-hero-call");
@@ -596,6 +597,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const btnWordStats = document.getElementById("btn-hero-word-stats");
     const btnStory = document.getElementById("btn-hero-story");
     const btnHeaderStory = document.getElementById("header-story-btn");
+
+    if (btnNewWords) {
+        btnNewWords.addEventListener("click", () => {
+            if (typeof window.openNewWordsStudyModal === 'function') {
+                window.openNewWordsStudyModal();
+            }
+        });
+    }
 
     if (btnWordStats) {
         btnWordStats.addEventListener("click", () => {
@@ -2746,7 +2755,8 @@ document.addEventListener("DOMContentLoaded", () => {
             visual_fluency_xp: parseInt(localStorage.getItem("visual_fluency_xp") || "0", 10),
             visual_fluency_completed: JSON.parse(localStorage.getItem("visual_fluency_completed_chapters") || "[]"),
             completed_story_chapters: JSON.parse(localStorage.getItem("english_rpg_completed_story_chapters") || "[]"),
-            eldrin_audiobook_state: JSON.parse(localStorage.getItem("eldrin_audiobook_state") || "null")
+            eldrin_audiobook_state: JSON.parse(localStorage.getItem("eldrin_audiobook_state") || "null"),
+            new_words_study_state: JSON.parse(localStorage.getItem("english_pulse_new_words_study_v1") || "null")
         };
     }
 
@@ -2994,6 +3004,31 @@ document.addEventListener("DOMContentLoaded", () => {
             if (s.eldrin_audiobook_state) {
                 localStorage.setItem("eldrin_audiobook_state", JSON.stringify(s.eldrin_audiobook_state));
                 if (typeof window.loadEldrinAudiobookState === 'function') window.loadEldrinAudiobookState(s.eldrin_audiobook_state);
+            }
+
+            // 7.5 NEW WORDS MULTI-STAGE STUDY STATE
+            if (s.new_words_study_state && typeof s.new_words_study_state === 'object') {
+                try {
+                    const localRawNW = localStorage.getItem("english_pulse_new_words_study_v1");
+                    const localNW = localRawNW ? JSON.parse(localRawNW) : {};
+                    const mergedBatches = Array.from(new Set([
+                        ...(Array.isArray(localNW.completedBatches) ? localNW.completedBatches : []),
+                        ...(Array.isArray(s.new_words_study_state.completedBatches) ? s.new_words_study_state.completedBatches : [])
+                    ]));
+                    const mergedWords = Array.from(new Set([
+                        ...(Array.isArray(localNW.masteredWordIds) ? localNW.masteredWordIds : []),
+                        ...(Array.isArray(s.new_words_study_state.masteredWordIds) ? s.new_words_study_state.masteredWordIds : [])
+                    ]));
+                    const mergedNW = {
+                        completedBatches: mergedBatches,
+                        masteredWordIds: mergedWords,
+                        lastBatchIdx: Math.max(localNW.lastBatchIdx || 0, s.new_words_study_state.lastBatchIdx || 0)
+                    };
+                    localStorage.setItem("english_pulse_new_words_study_v1", JSON.stringify(mergedNW));
+                    if (window.newWordsStudyEngine) {
+                        window.newWordsStudyEngine.state = mergedNW;
+                    }
+                } catch(e) {}
             }
 
             // 8. UPDATE UI & PUSH BACK IF NEEDED
@@ -5308,6 +5343,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 flashcardEngine.currentIndex = 0;
             }
             renderFlashcardsUI();
+        });
+    }
+
+    const tabVocabNewWords = document.getElementById("tab-vocab-new-words-mode");
+    if (tabVocabNewWords) {
+        tabVocabNewWords.addEventListener("click", () => {
+            const wordsModal = document.getElementById("modal-hero-words");
+            if (wordsModal) wordsModal.classList.add("hidden");
+            if (typeof window.openNewWordsStudyModal === 'function') {
+                window.openNewWordsStudyModal();
+            }
         });
     }
 
