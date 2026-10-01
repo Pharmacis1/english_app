@@ -507,16 +507,25 @@ class NewWordsStudyEngine {
         return copy;
     }
 
+    // Preload audio for current batch words to enable instant, zero-delay playback
+    preloadBatchAudios(batchIdx) {
+        if (!window.voiceService || typeof window.voiceService.preloadWordAudios !== 'function') return;
+        const batch = this.batches[batchIdx] || [];
+        const words = batch.map(w => w.word);
+        window.voiceService.preloadWordAudios(words);
+    }
+
     // Audio synthesizer helper
     speak(text, onStart = null, onEnd = null) {
+        if (!text) return;
+        const cleanToSpeak = text.includes('/') ? text.split('/')[0].trim() : text;
         if (window.voiceService && typeof window.voiceService.speak === 'function') {
-            window.voiceService.speak(text, onStart, onEnd, { kokoroVoice: "am_michael", geminiVoice: "Charon", rate: 0.9 });
+            window.voiceService.speak(cleanToSpeak, onStart, onEnd, { kokoroVoice: "am_michael", geminiVoice: "Charon", rate: 0.95 });
             return;
         }
         if ('speechSynthesis' in window) {
             window.speechSynthesis.cancel();
-            const clean = text.replace(/\s*\/\s*.+/, ''); // if "police / policeman" speak "police"
-            const u = new SpeechSynthesisUtterance(clean);
+            const u = new SpeechSynthesisUtterance(cleanToSpeak);
             u.lang = 'en-US';
             u.rate = 0.88;
             if (onStart) u.onstart = onStart;
@@ -560,6 +569,7 @@ class NewWordsStudyEngine {
     startBatch(batchIdx) {
         this.currentBatchIdx = batchIdx;
         this.currentStage = 1;
+        this.preloadBatchAudios(batchIdx);
         this.startStage(1);
     }
 
@@ -1261,6 +1271,10 @@ class NewWordsStudyEngine {
         if (!modal) return;
         this.initModalEvents();
         this.showHub();
+        if (window.voiceService && typeof window.voiceService.preloadWordAudios === 'function') {
+            const currentBatchWords = (this.batches[this.currentBatchIdx || 0] || []).map(w => w.word);
+            window.voiceService.preloadWordAudios(currentBatchWords);
+        }
         modal.classList.remove("hidden");
     }
 

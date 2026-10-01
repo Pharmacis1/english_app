@@ -836,7 +836,7 @@ app.post('/api/ai/stt-groq', async (req, res) => {
 let cachedAudioManifest = null;
 app.get('/api/audio-manifest', (req, res) => {
     try {
-        if (!cachedAudioManifest) {
+        if (!cachedAudioManifest || req.query.refresh === '1') {
             const getKeys = (dir) => {
                 const fullPath = path.join(__dirname, 'audio', dir);
                 if (!fs.existsSync(fullPath)) return [];
@@ -850,7 +850,7 @@ app.get('/api/audio-manifest', (req, res) => {
                 warmup: getKeys('warmup')
             };
         }
-        res.setHeader('Cache-Control', 'public, max-age=3600');
+        res.setHeader('Cache-Control', 'public, max-age=60');
         return res.json(cachedAudioManifest);
     } catch (e) {
         res.status(500).json({ error: e.message });

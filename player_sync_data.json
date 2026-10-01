@@ -16,10 +16,10 @@
       "xp": 645,
       "maxXp": 645,
       "affinityLevel": 33,
-      "hp": 21928,
-      "maxHp": 21928,
-      "atk": 2347,
-      "def": 1785,
+      "hp": 21085,
+      "maxHp": 21085,
+      "atk": 2257,
+      "def": 1716,
       "skillName": "Aegis Shield",
       "skillDesc": "Taunts all enemies & increases DEF.",
       "skillIcon": "fa-shield",
@@ -1455,7 +1455,7 @@
       "level": 100,
       "xp": 645,
       "maxXp": 645,
-      "affinityLevel": 0,
+      "affinityLevel": 1,
       "hp": 19075,
       "maxHp": 19075,
       "atk": 2846,
@@ -2174,7 +2174,7 @@
       "level": 100,
       "xp": 645,
       "maxXp": 645,
-      "affinityLevel": 0,
+      "affinityLevel": 1,
       "hp": 19311,
       "maxHp": 19311,
       "atk": 2467,
@@ -2893,7 +2893,7 @@
       "level": 100,
       "xp": 645,
       "maxXp": 645,
-      "affinityLevel": 0,
+      "affinityLevel": 1,
       "hp": 19735,
       "maxHp": 19735,
       "atk": 2641,
@@ -7218,7 +7218,8 @@
         "easeFactor": 2.5,
         "repetitions": 0,
         "nextReviewDate": 0,
-        "studied": false
+        "studied": false,
+        "learningInSession": false
       },
       {
         "word": "Police",
@@ -7231,7 +7232,8 @@
         "easeFactor": 2.5,
         "repetitions": 0,
         "nextReviewDate": 0,
-        "studied": false
+        "studied": false,
+        "learningInSession": false
       },
       {
         "word": "Officer",
@@ -7244,7 +7246,8 @@
         "easeFactor": 2.5,
         "repetitions": 0,
         "nextReviewDate": 0,
-        "studied": false
+        "studied": false,
+        "learningInSession": false
       },
       {
         "word": "Crime",
@@ -7257,7 +7260,8 @@
         "easeFactor": 2.5,
         "repetitions": 0,
         "nextReviewDate": 0,
-        "studied": false
+        "studied": false,
+        "learningInSession": false
       },
       {
         "word": "Case",
@@ -7270,7 +7274,8 @@
         "easeFactor": 2.5,
         "repetitions": 0,
         "nextReviewDate": 0,
-        "studied": false
+        "studied": false,
+        "learningInSession": false
       },
       {
         "word": "Thief",
@@ -7283,7 +7288,8 @@
         "easeFactor": 2.5,
         "repetitions": 0,
         "nextReviewDate": 0,
-        "studied": false
+        "studied": false,
+        "learningInSession": false
       },
       {
         "word": "Safe",
@@ -7296,7 +7302,8 @@
         "easeFactor": 2.5,
         "repetitions": 0,
         "nextReviewDate": 0,
-        "studied": false
+        "studied": false,
+        "learningInSession": false
       },
       {
         "word": "Search",
@@ -7309,7 +7316,8 @@
         "easeFactor": 2.5,
         "repetitions": 0,
         "nextReviewDate": 0,
-        "studied": false
+        "studied": false,
+        "learningInSession": false
       },
       {
         "word": "Missing",
@@ -7322,7 +7330,8 @@
         "easeFactor": 2.5,
         "repetitions": 0,
         "nextReviewDate": 0,
-        "studied": false
+        "studied": false,
+        "learningInSession": false
       },
       {
         "word": "Happen",
@@ -7335,7 +7344,8 @@
         "easeFactor": 2.5,
         "repetitions": 0,
         "nextReviewDate": 0,
-        "studied": false
+        "studied": false,
+        "learningInSession": false
       },
       {
         "word": "Job",
@@ -7348,7 +7358,8 @@
         "easeFactor": 2.5,
         "repetitions": 0,
         "nextReviewDate": 0,
-        "studied": false
+        "studied": false,
+        "learningInSession": false
       },
       {
         "word": "Office",
@@ -7361,7 +7372,8 @@
         "easeFactor": 2.5,
         "repetitions": 0,
         "nextReviewDate": 0,
-        "studied": false
+        "studied": false,
+        "learningInSession": false
       },
       {
         "word": "Telephone",
@@ -7374,7 +7386,8 @@
         "easeFactor": 2.5,
         "repetitions": 0,
         "nextReviewDate": 0,
-        "studied": false
+        "studied": false,
+        "learningInSession": false
       },
       {
         "word": "Laptop",
@@ -7387,7 +7400,8 @@
         "easeFactor": 2.5,
         "repetitions": 0,
         "nextReviewDate": 0,
-        "studied": false
+        "studied": false,
+        "learningInSession": false
       },
       {
         "word": "Raincoat",
@@ -7400,7 +7414,8 @@
         "easeFactor": 2.5,
         "repetitions": 0,
         "nextReviewDate": 0,
-        "studied": false
+        "studied": false,
+        "learningInSession": false
       },
       {
         "word": "Wet",
@@ -7413,7 +7428,8 @@
         "easeFactor": 2.5,
         "repetitions": 0,
         "nextReviewDate": 0,
-        "studied": false
+        "studied": false,
+        "learningInSession": false
       },
       {
         "word": "Wooden",
@@ -7426,7 +7442,8 @@
         "easeFactor": 2.5,
         "repetitions": 0,
         "nextReviewDate": 0,
-        "studied": false
+        "studied": false,
+        "learningInSession": false
       },
       {
         "word": "Quickly",
@@ -7439,7 +7456,8 @@
         "easeFactor": 2.5,
         "repetitions": 0,
         "nextReviewDate": 0,
-        "studied": false
+        "studied": false,
+        "learningInSession": false
       },
       {
         "word": "Famous",
@@ -7452,7 +7470,8 @@
         "easeFactor": 2.5,
         "repetitions": 0,
         "nextReviewDate": 0,
-        "studied": false
+        "studied": false,
+        "learningInSession": false
       },
       {
         "word": "Put",
@@ -7465,7 +7484,8 @@
         "easeFactor": 2.5,
         "repetitions": 0,
         "nextReviewDate": 0,
-        "studied": false
+        "studied": false,
+        "learningInSession": false
       },
       {
         "word": "Work",
@@ -7473,6 +7493,72 @@
         "translation": "Работа / Работать",
         "definition": "Activity involving mental or physical effort.",
         "example": "We are ready for work today.",
+        "rating": 0,
+        "interval": 1,
+        "easeFactor": 2.5,
+        "repetitions": 0,
+        "nextReviewDate": 0,
+        "studied": false,
+        "learningInSession": false
+      },
+      {
+        "word": "Clue",
+        "phonetic": "/kluː/",
+        "translation": "Зацепка / Улика",
+        "definition": "A piece of evidence or information.",
+        "example": "This muddy footprint is our first clue.",
+        "rating": 0,
+        "interval": 1,
+        "easeFactor": 2.5,
+        "repetitions": 0,
+        "nextReviewDate": 0,
+        "studied": false
+      },
+      {
+        "word": "Secret",
+        "phonetic": "/ˈsiː.krət/",
+        "translation": "Секрет / Секретный",
+        "definition": "Known by only a few people.",
+        "example": "The thief knew the secret code.",
+        "rating": 0,
+        "interval": 1,
+        "easeFactor": 2.5,
+        "repetitions": 0,
+        "nextReviewDate": 0,
+        "studied": false
+      },
+      {
+        "word": "Code",
+        "phonetic": "/kəʊd/",
+        "translation": "Код / Шифр",
+        "definition": "A system of secret numbers or symbols.",
+        "example": "Enter the code to open the safe.",
+        "rating": 0,
+        "interval": 1,
+        "easeFactor": 2.5,
+        "repetitions": 0,
+        "nextReviewDate": 0,
+        "studied": false
+      },
+      {
+        "word": "Stairs",
+        "phonetic": "/steəz/",
+        "translation": "Лестница / Ступени",
+        "definition": "A set of steps leading from one floor to another.",
+        "example": "They walked up the stairs to the second floor.",
+        "rating": 0,
+        "interval": 1,
+        "easeFactor": 2.5,
+        "repetitions": 0,
+        "nextReviewDate": 0,
+        "studied": false
+      },
+      {
+        "word": "Lock",
+        "phonetic": "/lɒk/",
+        "translation": "Замок / Запирать",
+        "definition": "A device used for securing a door.",
+        "example": "He turned the key in the lock.",
         "rating": 0,
         "interval": 1,
         "easeFactor": 2.5,
@@ -24045,7 +24131,84 @@
         "learningInSession": false
       }
     ],
-    "🧠 Due for SRS Review": []
+    "🧠 Due for SRS Review": [],
+    "🔍 Новые слова (Детектив)": [
+      {
+        "word": "detective",
+        "phonetic": "/dɪˈtek.tɪv/",
+        "translation": "детектив",
+        "definition": "Новые слова • Детективные расследования A1",
+        "example": "The detective carefully examined the room.",
+        "heroId": "detective",
+        "rating": 3,
+        "interval": 1,
+        "easeFactor": 2.5,
+        "repetitions": 1,
+        "nextReviewDate": 1790955552163,
+        "studied": true,
+        "learningInSession": false
+      },
+      {
+        "word": "crime",
+        "phonetic": "/kraɪm/",
+        "translation": "преступление",
+        "definition": "Новые слова • Детективные расследования A1",
+        "example": "The police solved a dangerous crime.",
+        "heroId": "detective",
+        "rating": 3,
+        "interval": 1,
+        "easeFactor": 2.5,
+        "repetitions": 1,
+        "nextReviewDate": 1790955552168,
+        "studied": true,
+        "learningInSession": false
+      },
+      {
+        "word": "investigate",
+        "phonetic": "/ɪnˈves.tɪ.ɡeɪt/",
+        "translation": "расследовать",
+        "definition": "Новые слова • Детективные расследования A1",
+        "example": "We need to investigate every clue.",
+        "heroId": "detective",
+        "rating": 3,
+        "interval": 1,
+        "easeFactor": 2.5,
+        "repetitions": 1,
+        "nextReviewDate": 1790955552168,
+        "studied": true,
+        "learningInSession": false
+      },
+      {
+        "word": "evidence",
+        "phonetic": "/ˈev.ɪ.dəns/",
+        "translation": "доказательство / улики",
+        "definition": "Новые слова • Детективные расследования A1",
+        "example": "The detective found fresh evidence.",
+        "heroId": "detective",
+        "rating": 3,
+        "interval": 1,
+        "easeFactor": 2.5,
+        "repetitions": 1,
+        "nextReviewDate": 1790955552168,
+        "studied": true,
+        "learningInSession": false
+      },
+      {
+        "word": "footprint",
+        "phonetic": "/ˈfʊt.prɪnt/",
+        "translation": "след ноги",
+        "definition": "Новые слова • Детективные расследования A1",
+        "example": "There was a muddy footprint near the window.",
+        "heroId": "detective",
+        "rating": 3,
+        "interval": 1,
+        "easeFactor": 2.5,
+        "repetitions": 1,
+        "nextReviewDate": 1790955552168,
+        "studied": true,
+        "learningInSession": false
+      }
+    ]
   },
   "streak": 65,
   "streak_days": 65,
@@ -24061,7 +24224,7 @@
   "completed_story_chapters": [
     1
   ],
-  "lastSyncedAt": "2026-10-01T15:21:28.507Z",
+  "lastSyncedAt": "2026-10-01T15:39:15.445Z",
   "eldrin_audiobook_state": {
     "activeChapterId": "eldrin-ch-9",
     "currentSentenceIdx": 31,
@@ -24109,5 +24272,17 @@
     "she_dislike_rain": 1,
     "have_a_big_family": 1
   },
-  "new_words_study_state": null
+  "new_words_study_state": {
+    "completedBatches": [
+      0
+    ],
+    "masteredWordIds": [
+      "detective",
+      "crime",
+      "investigate",
+      "evidence",
+      "footprint"
+    ],
+    "lastBatchIdx": 0
+  }
 }

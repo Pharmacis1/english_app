@@ -647,7 +647,7 @@ class VoiceService {
 
     async loadAudioManifest() {
         try {
-            const resp = await fetch('/api/audio-manifest');
+            const resp = await fetch('/api/audio-manifest?refresh=1');
             if (resp.ok) {
                 const data = await resp.json();
                 this.audioManifest = {
@@ -686,6 +686,7 @@ class VoiceService {
 
     clearAudioCache() {
         this.audioCache.clear();
+        if (this.audioElementsCache) this.audioElementsCache.clear();
     }
 
     saveVoiceSettings(ttsEngine, ttsEndpoint, sttEngine, sttEndpoint, groqApiKey = null) {
@@ -705,6 +706,7 @@ class VoiceService {
     preloadWordAudios(words = []) {
         if (!Array.isArray(words) || words.length === 0) return;
         if (!this.preloadedAudioSet) this.preloadedAudioSet = new Set();
+        if (!this.audioElementsCache) this.audioElementsCache = new Map();
 
         words.forEach(w => {
             if (!w || typeof w !== 'string') return;
@@ -720,7 +722,7 @@ class VoiceService {
                 else if (this.audioManifest.drills.has(cleanKey)) targetUrl = `/audio/drills/${cleanKey}.wav`;
                 else if (this.audioManifest.warmup.has(cleanKey)) targetUrl = `/audio/warmup/${cleanKey}.wav`;
             } else {
-                targetUrl = cleanText.includes(' ') ? `/audio/drills/${cleanKey}.wav` : `/audio/words/${cleanKey}.wav`;
+                targetUrl = `/audio/words/${cleanKey}.wav`;
             }
 
             if (targetUrl && !this.preloadedAudioSet.has(targetUrl)) {
@@ -729,6 +731,8 @@ class VoiceService {
                     const a = new Audio();
                     a.preload = 'auto';
                     a.src = targetUrl;
+                    a.load();
+                    this.audioElementsCache.set(cleanKey, a);
                 } catch(e) {}
             }
         });
@@ -782,7 +786,9 @@ class VoiceService {
                 if (mySpeechId !== this.activeSpeechSession) return;
                 let started = false;
                 const played = await new Promise((resolve) => {
-                    const audio = new Audio(localAudioUrl);
+                    const cachedAudio = this.audioElementsCache?.get(cleanKey);
+                    const audio = (cachedAudio && cachedAudio.src && cachedAudio.src.endsWith(localAudioUrl)) ? cachedAudio : new Audio(localAudioUrl);
+                    audio.currentTime = 0;
                     audio.defaultPlaybackRate = effectiveSpeed;
                     audio.playbackRate = effectiveSpeed;
                     audio.preservesPitch = true;
