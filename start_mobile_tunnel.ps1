@@ -1,4 +1,4 @@
-﻿# EnglishPulse Mobile Tunnel Launcher (zrok / cloudflared)
+# EnglishPulse Mobile Tunnel Launcher (zrok reserved share)
 Write-Host "==================================================" -ForegroundColor Cyan
 Write-Host "  ENGLISH PULSE RPG - MOBILE ACCESS LAUNCHER     " -ForegroundColor Yellow
 Write-Host "==================================================" -ForegroundColor Cyan
@@ -15,20 +15,12 @@ if (-not $serverRunning) {
 }
 
 Write-Host ""
-Write-Host "2. Looking for tunnel tools (zrok or cloudflared)..." -ForegroundColor White
+Write-Host "2. Starting zrok reserved HTTPS tunnel..." -ForegroundColor White
+Write-Host ""
+Write-Host "   PERMANENT MOBILE ADDRESS:" -ForegroundColor Yellow
+Write-Host "   https://englishpulserpg.share.zrok.io" -ForegroundColor Green
+Write-Host ""
+Write-Host "   Open this link on your phone!" -ForegroundColor Cyan
+Write-Host ""
 
-$hasZrok = Get-Command zrok -ErrorAction SilentlyContinue
-$hasCloudflared = Get-Command cloudflared -ErrorAction SilentlyContinue
-
-if ($hasZrok) {
-    Write-Host "-> Found 'zrok'! Starting public HTTPS tunnel..." -ForegroundColor Cyan
-    Write-Host "-> Scan the QR code or open the generated HTTPS link on your phone!" -ForegroundColor Yellow
-    zrok share public http://localhost:3000
-} elseif ($hasCloudflared) {
-    Write-Host "-> Found 'cloudflared'! Starting Cloudflare HTTPS tunnel..." -ForegroundColor Cyan
-    cloudflared tunnel --url http://localhost:3000
-} else {
-    Write-Host "-> No tunnel CLI tool found. Using npx localtunnel (zero install required)..." -ForegroundColor Yellow
-    Write-Host "-> Starting localtunnel on port 3000 with HTTPS..." -ForegroundColor Cyan
-    npx localtunnel --port 3000
-}
+zrok share reserved englishpulserpg --headless

@@ -1,0 +1,18 @@
+{
+  "id": "report_2026-09-24_20-01-49____Сюжетная_Кампания",
+  "timestamp": "2026-09-24T17:01:49.833Z",
+  "localTime": "24.09.2026, 21:01:50",
+  "category": "🐛 Баг / Ошибка",
+  "description": "Очень странный перевод",
+  "mode": "⚔️ Сюжетная Кампания",
+  "hero": "Valerius Lvl 100",
+  "subContext": "Сценарий: Tech Job Interview",
+  "viewport": {
+    "width": 392,
+    "height": 791
+  },
+  "url": "https://englishpulse.share.zrok.io/index.html",
+  "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Mobile Safari/537.36",
+  "logs": [],
+  "screenshotFile": "screenshot.jpg"
+}

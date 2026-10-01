@@ -1,0 +1,18 @@
+{
+  "id": "report_2026-09-28_20-46-17____Сюжетная_Кампания",
+  "timestamp": "2026-09-28T17:46:17.862Z",
+  "localTime": "28.09.2026, 21:46:17",
+  "category": "🐛 Баг / Ошибка",
+  "description": "Нет синхронизации пройденных глав",
+  "mode": "⚔️ Сюжетная Кампания",
+  "hero": "Valerius Lvl 100",
+  "subContext": "Сценарий: Tech Job Interview",
+  "viewport": {
+    "width": 392,
+    "height": 727
+  },
+  "url": "http://10.232.21.139:3000/",
+  "userAgent": "Mozilla/5.0 (Linux; Android 12; Redmi Note 10S Build/SP1A.210812.016) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.7049.79 Mobile Safari/537.36 XiaoMi/MiuiBrowser/14.62.1-gn",
+  "logs": [],
+  "screenshotFile": "screenshot.jpg"
+}

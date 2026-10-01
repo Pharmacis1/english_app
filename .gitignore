@@ -10,3 +10,5 @@ scratch/
 *credentials*.json
 *.pem
 audio/cache/
+cloudflared.exe
+

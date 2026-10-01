@@ -225,6 +225,15 @@ app.post('/api/player/sync', async (req, res) => {
             });
         }
 
+        // Merge Story Campaign and Visual Fluency completed chapters across devices (never lose progress)
+        const existingStoryChapters = Array.isArray(existing.completed_story_chapters) ? existing.completed_story_chapters : [];
+        const payloadStoryChapters = Array.isArray(statePayload.completed_story_chapters) ? statePayload.completed_story_chapters : [];
+        const mergedStoryChapters = Array.from(new Set([...existingStoryChapters, ...payloadStoryChapters]));
+
+        const existingVFChapters = Array.isArray(existing.visual_fluency_completed) ? existing.visual_fluency_completed : [];
+        const payloadVFChapters = Array.isArray(statePayload.visual_fluency_completed) ? statePayload.visual_fluency_completed : [];
+        const mergedVFChapters = Array.from(new Set([...existingVFChapters, ...payloadVFChapters]));
+
         const merged = {
             ...existing,
             ...statePayload,
@@ -232,6 +241,8 @@ app.post('/api/player/sync', async (req, res) => {
             streak: safeStreak,
             streak_days: safeStreak,
             last_streak_date: safeLastStreakDate,
+            completed_story_chapters: mergedStoryChapters,
+            visual_fluency_completed: mergedVFChapters,
             writing_words: Math.max(existing.writing_words || 0, statePayload.writing_words || 0),
             listening_words: Math.max(existing.listening_words || 0, statePayload.listening_words || 0),
             speaking_words: Math.max(existing.speaking_words || 0, statePayload.speaking_words || 0),
@@ -241,15 +252,274 @@ app.post('/api/player/sync', async (req, res) => {
         };
         fs.writeFileSync(syncFile, JSON.stringify(merged, null, 2), 'utf8');
 
-        // Also sync heroes to fallback db if provided
+        // Also sync heroes and completed chapters to fallback db if provided
         if (mergedHeroes && !db.isPostgresActive()) {
             const fallback = db.getFallbackDb();
             fallback.heroes = mergedHeroes;
             if (statePayload.cards) fallback.cards = statePayload.cards;
+            if (mergedStoryChapters.length > 0) fallback.completed_story_chapters = mergedStoryChapters;
+            if (mergedVFChapters.length > 0) fallback.visual_fluency_completed = mergedVFChapters;
             db.saveFallbackDb(fallback);
         }
 
         return res.json({ success: true, message: "Player state synced successfully!", lastSyncedAt: merged.lastSyncedAt });
+    } catch (err) {
+        res.status(500).json({ success: false, error: err.message });
+    }
+});
+
+// --- AUTHENTICATION & USER PROFILE ENDPOINTS ---
+const USER_PROFILE_PATH = path.join(__dirname, 'user_profile.json');
+
+function getUserProfileData() {
+    if (!fs.existsSync(USER_PROFILE_PATH)) {
+        const defaultProfile = {
+            user: {
+                username: "pharmacis",
+                password: "Lola1234",
+                displayName: "Pharmacis",
+                avatar: "images/valerius_face.png",
+                bio: "Leveling up English & Life Skills. Road to A1/B2 Mastery.",
+                status: "🚀 Прокачиваю навыки",
+                joinedDate: "2026-09-28",
+                photos: [],
+                posts: [
+                    {
+                        id: "post_welcome_1",
+                        author: "pharmacis",
+                        displayName: "Pharmacis",
+                        avatar: "images/valerius_face.png",
+                        content: "✨ Стартую путь прокачки персонажа! Первый главный навык — Английский язык (A1 -> B2). Впереди собеседования, спорт и нетворкинг! 🚀",
+                        imageUrl: "",
+                        createdAt: new Date().toISOString(),
+                        likes: 1
+                    }
+                ]
+            }
+        };
+        fs.writeFileSync(USER_PROFILE_PATH, JSON.stringify(defaultProfile, null, 2), 'utf8');
+    }
+    try {
+        return JSON.parse(fs.readFileSync(USER_PROFILE_PATH, 'utf8'));
+    } catch (e) {
+        console.error('Error reading user_profile.json:', e);
+        return { user: { username: "pharmacis", password: "Lola1234", displayName: "Pharmacis", photos: [], posts: [] } };
+    }
+}
+
+function saveUserProfileData(data) {
+    fs.writeFileSync(USER_PROFILE_PATH, JSON.stringify(data, null, 2), 'utf8');
+}
+
+// Generate simple secure session token
+function generateToken(username) {
+    return Buffer.from(`${username}:${Date.now()}:secret_eng_pulse_token`).toString('base64');
+}
+
+function verifyAuthToken(req) {
+    const authHeader = req.headers['authorization'] || '';
+    const token = authHeader.startsWith('Bearer ') ? authHeader.slice(7) : (req.query.token || req.body?.token);
+    if (!token) return null;
+    try {
+        const decoded = Buffer.from(token, 'base64').toString('utf8');
+        const [username] = decoded.split(':');
+        const dbData = getUserProfileData();
+        if (dbData.user && dbData.user.username.toLowerCase() === username.toLowerCase()) {
+            return dbData.user;
+        }
+    } catch (e) {}
+    return null;
+}
+
+// POST /api/auth/login — Authenticate user
+app.post('/api/auth/login', (req, res) => {
+    try {
+        const { username, password } = req.body;
+        if (!username || !password) {
+            return res.status(400).json({ success: false, error: "Укажите логин и пароль" });
+        }
+        const dbData = getUserProfileData();
+        const user = dbData.user;
+
+        if (user.username.toLowerCase() === username.trim().toLowerCase() && user.password === password) {
+            const token = generateToken(user.username);
+            const { password: _, ...safeUser } = user;
+            return res.json({
+                success: true,
+                message: "Авторизация успешна!",
+                token,
+                user: safeUser
+            });
+        } else {
+            return res.status(401).json({ success: false, error: "Неверный логин или пароль" });
+        }
+    } catch (err) {
+        res.status(500).json({ success: false, error: err.message });
+    }
+});
+
+// GET /api/user/profile — Get authenticated user's private profile
+app.get('/api/user/profile', (req, res) => {
+    try {
+        const user = verifyAuthToken(req);
+        if (!user) {
+            return res.status(401).json({ success: false, error: "Требуется авторизация для просмотра профиля" });
+        }
+        const { password: _, ...safeUser } = user;
+        res.json({ success: true, user: safeUser });
+    } catch (err) {
+        res.status(500).json({ success: false, error: err.message });
+    }
+});
+
+// POST /api/user/profile/update — Update user profile details
+app.post('/api/user/profile/update', (req, res) => {
+    try {
+        const user = verifyAuthToken(req);
+        if (!user) {
+            return res.status(401).json({ success: false, error: "Не авторизован" });
+        }
+        const { displayName, bio, status, avatar } = req.body;
+        const dbData = getUserProfileData();
+        if (displayName !== undefined) dbData.user.displayName = String(displayName).trim().slice(0, 50);
+        if (bio !== undefined) dbData.user.bio = String(bio).trim().slice(0, 300);
+        if (status !== undefined) dbData.user.status = String(status).trim().slice(0, 100);
+        if (avatar !== undefined) dbData.user.avatar = String(avatar).trim();
+
+        saveUserProfileData(dbData);
+        const { password: _, ...safeUser } = dbData.user;
+        res.json({ success: true, message: "Профиль обновлен!", user: safeUser });
+    } catch (err) {
+        res.status(500).json({ success: false, error: err.message });
+    }
+});
+
+// POST /api/user/photos/upload — Add a photo to personal gallery
+app.post('/api/user/photos/upload', (req, res) => {
+    try {
+        const user = verifyAuthToken(req);
+        if (!user) {
+            return res.status(401).json({ success: false, error: "Не авторизован" });
+        }
+        const { photoData, caption } = req.body;
+        if (!photoData) {
+            return res.status(400).json({ success: false, error: "Изображение не предоставлено" });
+        }
+        const dbData = getUserProfileData();
+        if (!Array.isArray(dbData.user.photos)) dbData.user.photos = [];
+
+        const newPhoto = {
+            id: 'photo_' + Date.now() + '_' + Math.random().toString(36).substring(2, 7),
+            url: photoData,
+            caption: (caption || '').trim().slice(0, 150),
+            uploadedAt: new Date().toISOString()
+        };
+
+        dbData.user.photos.unshift(newPhoto);
+        saveUserProfileData(dbData);
+
+        res.json({ success: true, message: "Фото добавлено!", photo: newPhoto, photos: dbData.user.photos });
+    } catch (err) {
+        res.status(500).json({ success: false, error: err.message });
+    }
+});
+
+// DELETE /api/user/photos/:id — Delete a photo from personal gallery
+app.delete('/api/user/photos/:id', (req, res) => {
+    try {
+        const user = verifyAuthToken(req);
+        if (!user) {
+            return res.status(401).json({ success: false, error: "Не авторизован" });
+        }
+        const photoId = req.params.id;
+        const dbData = getUserProfileData();
+        if (!Array.isArray(dbData.user.photos)) dbData.user.photos = [];
+
+        dbData.user.photos = dbData.user.photos.filter(p => p.id !== photoId);
+        saveUserProfileData(dbData);
+
+        res.json({ success: true, message: "Фото удалено!", photos: dbData.user.photos });
+    } catch (err) {
+        res.status(500).json({ success: false, error: err.message });
+    }
+});
+
+// POST /api/user/posts — Create a new post / diary entry
+app.post('/api/user/posts', (req, res) => {
+    try {
+        const user = verifyAuthToken(req);
+        if (!user) {
+            return res.status(401).json({ success: false, error: "Не авторизован" });
+        }
+        const { content, imageUrl } = req.body;
+        if (!content && !imageUrl) {
+            return res.status(400).json({ success: false, error: "Пост не может быть пустым" });
+        }
+        const dbData = getUserProfileData();
+        if (!Array.isArray(dbData.user.posts)) dbData.user.posts = [];
+
+        const newPost = {
+            id: 'post_' + Date.now() + '_' + Math.random().toString(36).substring(2, 7),
+            author: dbData.user.username,
+            displayName: dbData.user.displayName || dbData.user.username,
+            avatar: dbData.user.avatar || 'images/valerius_face.png',
+            content: (content || '').trim(),
+            imageUrl: (imageUrl || '').trim(),
+            createdAt: new Date().toISOString(),
+            likes: 0,
+            liked: false
+        };
+
+        dbData.user.posts.unshift(newPost);
+        saveUserProfileData(dbData);
+
+        res.json({ success: true, message: "Пост опубликован!", post: newPost, posts: dbData.user.posts });
+    } catch (err) {
+        res.status(500).json({ success: false, error: err.message });
+    }
+});
+
+// DELETE /api/user/posts/:id — Delete a post
+app.delete('/api/user/posts/:id', (req, res) => {
+    try {
+        const user = verifyAuthToken(req);
+        if (!user) {
+            return res.status(401).json({ success: false, error: "Не авторизован" });
+        }
+        const postId = req.params.id;
+        const dbData = getUserProfileData();
+        if (!Array.isArray(dbData.user.posts)) dbData.user.posts = [];
+
+        dbData.user.posts = dbData.user.posts.filter(p => p.id !== postId);
+        saveUserProfileData(dbData);
+
+        res.json({ success: true, message: "Пост удален!", posts: dbData.user.posts });
+    } catch (err) {
+        res.status(500).json({ success: false, error: err.message });
+    }
+});
+
+// POST /api/user/posts/:id/like — Toggle like on a post
+app.post('/api/user/posts/:id/like', (req, res) => {
+    try {
+        const user = verifyAuthToken(req);
+        if (!user) {
+            return res.status(401).json({ success: false, error: "Не авторизован" });
+        }
+        const postId = req.params.id;
+        const dbData = getUserProfileData();
+        if (!Array.isArray(dbData.user.posts)) dbData.user.posts = [];
+
+        const post = dbData.user.posts.find(p => p.id === postId);
+        if (!post) {
+            return res.status(404).json({ success: false, error: "Пост не найден" });
+        }
+
+        post.liked = !post.liked;
+        post.likes = Math.max(0, (post.likes || 0) + (post.liked ? 1 : -1));
+        saveUserProfileData(dbData);
+
+        res.json({ success: true, likes: post.likes, liked: post.liked });
     } catch (err) {
         res.status(500).json({ success: false, error: err.message });
     }
@@ -849,9 +1119,17 @@ app.use((err, req, res, next) => {
     next(err);
 });
 
+process.on('uncaughtException', (err) => {
+    console.error('[Process UncaughtException]', err);
+});
+process.on('unhandledRejection', (reason, promise) => {
+    console.error('[Process UnhandledRejection]', reason);
+});
+
 // Start Express Server
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
     console.log(`==================================================`);
-    console.log(`🚀 EnglishPulse AI Server running on http://localhost:${PORT}`);
+    console.log(`🚀 EnglishPulse AI Server running on http://0.0.0.0:${PORT} / http://localhost:${PORT}`);
     console.log(`==================================================`);
 });
+

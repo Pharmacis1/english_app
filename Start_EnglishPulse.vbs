@@ -13,8 +13,8 @@ WshShell.Run "cmd /c cd /d """ & AppDir & """ && python whisper_server.py", 0, F
 ' 3. Launch Local Kokoro TTS Server silently (Port 8880)
 WshShell.Run "cmd /c cd /d """ & AppDir & """ && python kokoro_server.py", 0, False
 
-' 4. Launch zrok HTTPS Mobile Tunnel silently (https://englishpulse.share.zrok.io)
-WshShell.Run "cmd /c zrok share reserved englishpulse --headless", 0, False
+' 4. Launch zrok HTTPS Mobile Tunnel silently (https://englishpulserpg.share.zrok.io)
+WshShell.Run "cmd /c zrok share reserved englishpulserpg --headless", 0, False
 
 ' 5. Wait 1.5 seconds for server startup
 WScript.Sleep 1500

@@ -1,0 +1,18 @@
+{
+  "id": "report_2026-09-28_20-42-40____Vocab___Flashcards",
+  "timestamp": "2026-09-28T17:42:40.586Z",
+  "localTime": "28.09.2026, 21:42:40",
+  "category": "🐛 Баг / Ошибка",
+  "description": "Квадраты в транскрипции",
+  "mode": "📚 Vocab & Flashcards",
+  "hero": "Valerius Lvl 100",
+  "subContext": "Сценарий: Tech Job Interview",
+  "viewport": {
+    "width": 392,
+    "height": 512
+  },
+  "url": "http://10.232.21.139:3000/",
+  "userAgent": "Mozilla/5.0 (Linux; Android 12; Redmi Note 10S Build/SP1A.210812.016) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.7049.79 Mobile Safari/537.36 XiaoMi/MiuiBrowser/14.62.1-gn",
+  "logs": [],
+  "screenshotFile": "screenshot.jpg"
+}

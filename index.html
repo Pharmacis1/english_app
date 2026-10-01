@@ -16,10 +16,11 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans:wght@400;500;600&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css?v=11.097">
+    <link rel="stylesheet" href="styles.css?v=11.100">
+    <link rel="stylesheet" href="profile_page.css?v=1.0">
 </head>
 <body class="hero-rpg-body">
 
@@ -50,6 +51,13 @@
                 <div class="rpg-header-stat-pill" id="rpg-header-vocab-pill" title="Навык словарного запаса (Vocabulary Level): цель A1 — 35 уровень. 1 слово в SRS ≥21 дн. = 1 XP. Прокачивается до 100 ур."><span class="text-cyan">📚</span> Vocab <span class="text-cyan font-mono" id="rpg-header-vocab-lvl">Lv. 1 / 35</span></div>
             </div>
             <div class="rpg-header-actions">
+                <button class="profile-header-btn" id="profile-header-btn" title="Мой Профиль & Навыки">
+                    <div class="profile-header-avatar-wrap">
+                        <img id="header-user-avatar-img" src="images/valerius_face.png" alt="Avatar" class="profile-header-avatar">
+                        <span class="profile-online-badge"></span>
+                    </div>
+                    <span class="profile-header-name" id="header-user-name">pharmacis</span>
+                </button>
                 <button class="icon-btn-game" id="report-issue-header-btn" title="Сообщить о проблеме (Скриншот + Описание)" style="color:#f87171; border-color:rgba(239,68,68,0.3);"><i class="fa-solid fa-bug"></i></button>
                 <button class="icon-btn-game" id="theme-toggle" title="Toggle Theme"><i class="fa-solid fa-moon"></i></button>
                 <button class="icon-btn-game" id="settings-toggle-btn" title="Settings"><i class="fa-solid fa-gear"></i></button>
@@ -240,6 +248,168 @@
         <!-- ===== BOTTOM HERO CAROUSEL BAR ===== -->
         <div class="hero-bottom-bar">
             <div class="hero-carousel-track" id="hero-carousel-track"></div>
+        </div>
+    </div>
+
+    <!-- ===== FULL-PAGE PROFILE VIEW ===== -->
+    <div class="profile-page hidden" id="profile-page">
+        <!-- Sticky top bar with back button -->
+        <div class="profile-topbar">
+            <button class="profile-back-btn" id="profile-back-btn">
+                <i class="fa-solid fa-arrow-left"></i>
+            </button>
+            <span class="profile-topbar-name" id="profile-topbar-name">pharmacis</span>
+            <div class="profile-topbar-actions">
+                <button class="profile-topbar-btn" id="profile-logout-btn" title="Выйти">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Scrollable content -->
+        <div class="profile-content" id="profile-content">
+
+            <!-- 1. HEADER / COVER + AVATAR -->
+            <div class="profile-header-section">
+                <div class="profile-cover" id="profile-cover"></div>
+                <div class="profile-identity">
+                    <div class="profile-avatar-wrap">
+                        <img src="images/valerius_face.png" id="profile-user-avatar" class="profile-avatar" alt="Avatar">
+                        <button class="profile-avatar-edit-btn" id="btn-change-avatar" title="Сменить аватар">
+                            <i class="fa-solid fa-camera"></i>
+                        </button>
+                        <input type="file" id="profile-avatar-file-input" accept="image/*" style="display:none;">
+                    </div>
+                    <div class="profile-identity-info">
+                        <h1 class="profile-display-name" id="profile-display-name">Pharmacis</h1>
+                        <span class="profile-handle" id="profile-handle">@pharmacis</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. BIO + STATUS + EDIT -->
+            <div class="profile-bio-section">
+                <div class="profile-status-row">
+                    <span class="profile-status-tag" id="profile-status-badge">🚀 Прокачиваю навыки</span>
+                    <span class="profile-privacy-tag"><i class="fa-solid fa-lock"></i> Приватный</span>
+                </div>
+                <p class="profile-bio" id="profile-bio-text">Leveling up English & Life Skills.</p>
+                <button class="profile-edit-btn" id="btn-open-edit-profile">
+                    <i class="fa-solid fa-pen"></i> Редактировать профиль
+                </button>
+            </div>
+
+            <!-- 3. STATS COUNTERS (like Instagram) -->
+            <div class="profile-stats-row">
+                <div class="profile-stat">
+                    <span class="profile-stat-value" id="profile-photos-count">0</span>
+                    <span class="profile-stat-label">фото</span>
+                </div>
+                <div class="profile-stat">
+                    <span class="profile-stat-value" id="profile-posts-count">0</span>
+                    <span class="profile-stat-label">записей</span>
+                </div>
+                <div class="profile-stat">
+                    <span class="profile-stat-value" id="profile-streak-count">0</span>
+                    <span class="profile-stat-label">дн. streak</span>
+                </div>
+            </div>
+
+            <!-- 4. ENGLISH SKILL CARD -->
+            <div class="profile-skill-section">
+                <div class="profile-section-title">
+                    <span>🎯 Навыки</span>
+                    <span class="profile-section-badge">1 активный</span>
+                </div>
+                
+                <div class="profile-skill-card" id="btn-jump-to-english-stage">
+                    <div class="profile-skill-icon">🇬🇧</div>
+                    <div class="profile-skill-info">
+                        <div class="profile-skill-name">English Mastery</div>
+                        <div class="profile-skill-detail" id="profile-english-subtext">A1: 75 / 97</div>
+                    </div>
+                    <div class="profile-skill-right">
+                        <span class="profile-skill-pct" id="profile-english-pct-text">77.3%</span>
+                        <div class="profile-skill-bar">
+                            <div class="profile-skill-bar-fill" id="profile-english-bar-fill" style="width:77.3%"></div>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right profile-skill-arrow"></i>
+                </div>
+
+                <!-- Locked skill teasers -->
+                <div class="profile-skill-card locked">
+                    <div class="profile-skill-icon">💼</div>
+                    <div class="profile-skill-info">
+                        <div class="profile-skill-name">Собеседования</div>
+                        <div class="profile-skill-detail">HR & Tech (RU/EN)</div>
+                    </div>
+                    <span class="profile-skill-lock"><i class="fa-solid fa-lock"></i></span>
+                </div>
+                <div class="profile-skill-card locked">
+                    <div class="profile-skill-icon">🍎</div>
+                    <div class="profile-skill-info">
+                        <div class="profile-skill-name">Здоровье & Спорт</div>
+                        <div class="profile-skill-detail">КБЖУ, тренировки</div>
+                    </div>
+                    <span class="profile-skill-lock"><i class="fa-solid fa-lock"></i></span>
+                </div>
+                <div class="profile-skill-card locked">
+                    <div class="profile-skill-icon">🤝</div>
+                    <div class="profile-skill-info">
+                        <div class="profile-skill-name">Нетворкинг</div>
+                        <div class="profile-skill-detail">Small Talk, контакты</div>
+                    </div>
+                    <span class="profile-skill-lock"><i class="fa-solid fa-lock"></i></span>
+                </div>
+            </div>
+
+            <!-- 5. TAB NAVIGATION (Photos / Posts) -->
+            <div class="profile-tabs">
+                <button class="profile-tab active" data-tab="posts" id="profile-tab-posts">
+                    <i class="fa-solid fa-pen-to-square"></i> Записи
+                </button>
+                <button class="profile-tab" data-tab="photos" id="profile-tab-photos">
+                    <i class="fa-solid fa-image"></i> Фото
+                </button>
+            </div>
+
+            <!-- TAB: POSTS -->
+            <div class="profile-tab-content active" id="profile-tab-content-posts">
+                <!-- Create Post -->
+                <form class="profile-new-post" id="profile-create-post-form">
+                    <textarea id="profile-post-input-text" class="profile-new-post-input" rows="2" placeholder="Поделитесь мыслью, прогрессом или целью..."></textarea>
+                    <div id="profile-post-preview-wrap" class="profile-new-post-preview hidden">
+                        <img src="" id="profile-post-preview-img" class="profile-new-post-preview-img" alt="Preview">
+                        <button type="button" id="btn-remove-post-image" class="profile-new-post-remove-img">&times;</button>
+                    </div>
+                    <div class="profile-new-post-actions">
+                        <input type="file" id="profile-post-file-input" accept="image/*" style="display:none;">
+                        <button type="button" class="profile-new-post-attach" id="btn-attach-post-image">
+                            <i class="fa-solid fa-image"></i>
+                        </button>
+                        <button type="submit" class="profile-new-post-submit">
+                            Опубликовать
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Posts Feed -->
+                <div class="profile-posts-feed" id="profile-posts-feed">
+                    <!-- Dynamically populated -->
+                </div>
+            </div>
+
+            <!-- TAB: PHOTOS -->
+            <div class="profile-tab-content" id="profile-tab-content-photos">
+                <button class="profile-add-photo-btn" id="btn-profile-add-photo">
+                    <i class="fa-solid fa-plus"></i> Добавить фото
+                </button>
+                <div class="profile-gallery-grid" id="profile-gallery-grid">
+                    <!-- Dynamically populated -->
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -2057,6 +2227,135 @@
         </div>
     </div>
 
+    <!-- ===================================================================== -->
+    <!-- ===== AUTHENTICATION & USER PROFILE MODALS ===== -->
+    <!-- ===================================================================== -->
+
+    <!-- MODAL: LOGIN / AUTHENTICATION -->
+    <div class="rpg-modal-overlay hidden" id="modal-auth-login" style="z-index:99999;">
+        <div class="rpg-modal-content" style="max-width: 440px; background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(99,102,241,0.3); box-shadow: 0 20px 60px rgba(0,0,0,0.8), 0 0 30px rgba(99,102,241,0.2);">
+            <div class="rpg-modal-header" style="border-bottom: 1px solid rgba(255,255,255,0.08);">
+                <div class="modal-header-title">
+                    <i class="fa-solid fa-user-shield" style="font-size:22px; color:var(--primary);"></i>
+                    <h3 style="margin:0; font-size:18px;">Вход в личный профиль</h3>
+                </div>
+                <button class="modal-close-btn" id="auth-login-close">&times;</button>
+            </div>
+            <div class="rpg-modal-body" style="padding: 24px;">
+                <p style="font-size:13px; color:var(--text-muted); margin-bottom:18px; line-height:1.5;">
+                    Войдите в свой персональный аккаунт, чтобы просматривать профиль, управлять постами, фото и прокачивать навыки.
+                </p>
+
+                <div id="auth-login-error" class="hidden" style="background:rgba(239,68,68,0.15); border:1px solid rgba(239,68,68,0.35); color:#fca5a5; padding:10px 14px; border-radius:10px; font-size:13px; margin-bottom:16px;">
+                    Неверный логин или пароль
+                </div>
+
+                <form id="auth-login-form" style="display:flex; flex-direction:column; gap:14px;">
+                    <div>
+                        <label style="display:block; font-size:12px; font-weight:600; color:#cbd5e1; margin-bottom:6px;">Логин</label>
+                        <div style="position:relative;">
+                            <i class="fa-solid fa-user" style="position:absolute; left:12px; top:12px; color:#64748b; font-size:14px;"></i>
+                            <input type="text" id="auth-login-username" class="profile-input-field" placeholder="pharmacis" value="pharmacis" required style="padding-left:36px; width:100%;">
+                        </div>
+                    </div>
+                    <div>
+                        <label style="display:block; font-size:12px; font-weight:600; color:#cbd5e1; margin-bottom:6px;">Пароль</label>
+                        <div style="position:relative;">
+                            <i class="fa-solid fa-lock" style="position:absolute; left:12px; top:12px; color:#64748b; font-size:14px;"></i>
+                            <input type="password" id="auth-login-password" class="profile-input-field" placeholder="••••••••" value="Lola1234" required style="padding-left:36px; width:100%;">
+                        </div>
+                    </div>
+                    <button type="submit" id="auth-login-submit-btn" class="btn btn-primary" style="margin-top:6px; padding:12px; justify-content:center; font-weight:700;">
+                        <i class="fa-solid fa-right-to-bracket"></i> Войти в профиль
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- MODAL: EDIT PROFILE DETAILS -->
+    <div class="rpg-modal-overlay hidden" id="modal-edit-profile" style="z-index:99995;">
+        <div class="rpg-modal-content" style="max-width: 480px; background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(255,255,255,0.15);">
+            <div class="rpg-modal-header">
+                <div class="modal-header-title">
+                    <i class="fa-solid fa-user-pen" style="color:var(--primary);"></i>
+                    <h3 style="margin:0;">Редактирование профиля</h3>
+                </div>
+                <button class="modal-close-btn" id="edit-profile-close">&times;</button>
+            </div>
+            <div class="rpg-modal-body" style="padding: 20px;">
+                <form id="edit-profile-form" style="display:flex; flex-direction:column; gap:14px;">
+                    <div>
+                        <label style="display:block; font-size:12px; font-weight:600; color:#cbd5e1; margin-bottom:4px;">Отображаемое имя</label>
+                        <input type="text" id="edit-display-name" class="profile-input-field" placeholder="Pharmacis" required>
+                    </div>
+                    <div>
+                        <label style="display:block; font-size:12px; font-weight:600; color:#cbd5e1; margin-bottom:4px;">Статус / Цель</label>
+                        <input type="text" id="edit-status" class="profile-input-field" placeholder="🚀 Прокачиваю навыки">
+                    </div>
+                    <div>
+                        <label style="display:block; font-size:12px; font-weight:600; color:#cbd5e1; margin-bottom:4px;">О себе (Bio)</label>
+                        <textarea id="edit-bio" rows="3" class="profile-input-field" placeholder="Пара слов о себе и ваших целях..."></textarea>
+                    </div>
+                    <div>
+                        <label style="display:block; font-size:12px; font-weight:600; color:#cbd5e1; margin-bottom:4px;">Ссылка на аватар (или загрузите фото в профиле)</label>
+                        <input type="text" id="edit-avatar-url" class="profile-input-field" placeholder="images/valerius_face.png">
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="margin-top:8px; justify-content:center;">
+                        <i class="fa-solid fa-check"></i> Сохранить изменения
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: ADD PHOTO TO GALLERY -->
+    <div class="rpg-modal-overlay hidden" id="modal-add-photo" style="z-index:99995;">
+        <div class="rpg-modal-content" style="max-width: 460px; background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(255,255,255,0.15);">
+            <div class="rpg-modal-header">
+                <div class="modal-header-title">
+                    <i class="fa-solid fa-camera" style="color:var(--heart);"></i>
+                    <h3 style="margin:0;">Добавить фото в профиль</h3>
+                </div>
+                <button class="modal-close-btn" id="add-photo-close">&times;</button>
+            </div>
+            <div class="rpg-modal-body" style="padding: 20px;">
+                <form id="add-photo-form" style="display:flex; flex-direction:column; gap:14px;">
+                    <div>
+                        <label style="display:block; font-size:12px; font-weight:600; color:#cbd5e1; margin-bottom:4px;">Выберите файл с устройства</label>
+                        <input type="file" id="add-photo-file" accept="image/*" class="profile-input-field" style="padding:8px;">
+                    </div>
+                    <div style="text-align:center; color:var(--text-muted); font-size:12px;">— или укажите ссылку на фото —</div>
+                    <div>
+                        <input type="text" id="add-photo-url" class="profile-input-field" placeholder="https://example.com/my-photo.jpg">
+                    </div>
+                    <div>
+                        <label style="display:block; font-size:12px; font-weight:600; color:#cbd5e1; margin-bottom:4px;">Подпись к фото (необязательно)</label>
+                        <input type="text" id="add-photo-caption" class="profile-input-field" placeholder="Мой прогресс, тренировка...">
+                    </div>
+                    
+                    <div id="add-photo-preview" class="hidden" style="text-align:center; margin-top:6px;">
+                        <img src="" id="add-photo-preview-img" style="max-height:160px; max-width:100%; border-radius:10px; border:1px solid rgba(255,255,255,0.15);">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="margin-top:6px; justify-content:center;">
+                        <i class="fa-solid fa-cloud-arrow-up"></i> Загрузить фото
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: IMAGE LIGHTBOX -->
+    <div class="rpg-modal-overlay hidden" id="profile-lightbox-modal" style="z-index:99999; background:rgba(0,0,0,0.85); backdrop-filter:blur(8px); display:flex; align-items:center; justify-content:center;">
+        <div style="position:relative; max-width:90vw; max-height:90vh; display:flex; flex-direction:column; align-items:center;">
+            <button id="profile-lightbox-close" style="position:absolute; top:-40px; right:0; background:none; border:none; color:#fff; font-size:32px; cursor:pointer;">&times;</button>
+            <img src="" id="profile-lightbox-img" style="max-width:90vw; max-height:80vh; border-radius:14px; box-shadow:0 0 50px rgba(0,0,0,0.9); object-fit:contain;">
+            <div id="profile-lightbox-caption" style="color:#fff; margin-top:12px; font-size:14px; text-align:center;"></div>
+        </div>
+    </div>
+
     <script src="scripts/html2canvas.min.js"></script>
     <script src="scenarios.js?v=11.097"></script>
     <script src="heroes.js?v=11.097"></script>
@@ -2071,7 +2370,8 @@
     <script src="speaking_engine.js?v=11.097"></script>
     <script src="speech_drills.js?v=11.097"></script>
     <script src="eldrin_story.js?v=11.108"></script>
-    <script src="app.js?v=11.111"></script>
+    <script src="app.js?v=11.112"></script>
     <script src="report_issue.js?v=1.0"></script>
+    <script src="profile.js?v=1.0"></script>
 </body>
 </html>

@@ -14,7 +14,7 @@ $notifyIcon.Visible = $true
 
 # Show startup balloon notification
 $notifyIcon.BalloonTipTitle = "EnglishPulse AI Active!"
-$notifyIcon.BalloonTipText = "PC: http://localhost:3000`nPhone: https://englishpulse.share.zrok.io"
+$notifyIcon.BalloonTipText = "PC: http://localhost:3000`nPhone: https://englishpulserpg.share.zrok.io"
 $notifyIcon.BalloonTipIcon = [System.Windows.Forms.ToolTipIcon]::Info
 $notifyIcon.ShowBalloonTip(3000)
 
@@ -30,9 +30,9 @@ $contextMenu.MenuItems.Add($itemOpen) | Out-Null
 
 # Menu Item 2: Copy Mobile Link
 $itemCopyMobile = New-Object System.Windows.Forms.MenuItem
-$itemCopyMobile.Text = "Copy Mobile Link (https://englishpulse.share.zrok.io)"
+$itemCopyMobile.Text = "Copy Mobile Link (https://englishpulserpg.share.zrok.io)"
 $itemCopyMobile.add_Click({
-    [System.Windows.Forms.Clipboard]::SetText("https://englishpulse.share.zrok.io")
+    [System.Windows.Forms.Clipboard]::SetText("https://englishpulserpg.share.zrok.io")
     $notifyIcon.ShowBalloonTip(2000, "EnglishPulse AI", "Mobile link copied to clipboard!", [System.Windows.Forms.ToolTipIcon]::Info)
 })
 $contextMenu.MenuItems.Add($itemCopyMobile) | Out-Null
@@ -41,7 +41,7 @@ $contextMenu.MenuItems.Add($itemCopyMobile) | Out-Null
 $itemQr = New-Object System.Windows.Forms.MenuItem
 $itemQr.Text = "Open Mobile QR-Code in Browser"
 $itemQr.add_Click({
-    Start-Process "https://api.qrserver.com/v1/create-qr-code/?size=300x300`&data=https://englishpulse.share.zrok.io"
+    Start-Process "https://api.qrserver.com/v1/create-qr-code/?size=300x300`&data=https://englishpulserpg.share.zrok.io"
 })
 $contextMenu.MenuItems.Add($itemQr) | Out-Null
 

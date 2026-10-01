@@ -2692,6 +2692,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 `📚 Vocab: Lv. ${vocabStats.level} / ${A1_TARGETS.vocab.targetLvl} ${vocabStats.level >= A1_TARGETS.vocab.targetLvl ? '✅' : `(порог: ${A1_TARGETS.vocab.desc})`}\n\n` +
                 `Общий прогресс: ${currentSkillLevelsSum} / ${totalTargetLevels} уровней (${progressPct}%)`;
         }
+
+        if (window.profileApp && typeof window.profileApp.refreshEnglishProgress === 'function') {
+            window.profileApp.refreshEnglishProgress();
+        }
     }
 
     function renderRPGHeader() {
@@ -2963,7 +2967,27 @@ document.addEventListener("DOMContentLoaded", () => {
                 const localChapters = JSON.parse(localStorage.getItem("english_rpg_completed_story_chapters") || "[]");
                 const mergedChapters = Array.from(new Set([...localChapters, ...s.completed_story_chapters]));
                 localStorage.setItem("english_rpg_completed_story_chapters", JSON.stringify(mergedChapters));
+                completedStoryChapters = mergedChapters;
+                if (localChapters.length < mergedChapters.length) {
+                    try {
+                        const storyModal = document.getElementById("modal-hero-story");
+                        if (storyModal && !storyModal.classList.contains("hidden")) {
+                            renderStoryHub();
+                        }
+                    } catch(e) {}
+                }
                 if (localChapters.length > s.completed_story_chapters.length) hasLocalUpdatesToPush = true;
+            }
+
+            // 6.1 VISUAL FLUENCY CHAPTERS MERGE
+            if (Array.isArray(s.visual_fluency_completed)) {
+                const localVfChapters = JSON.parse(localStorage.getItem("visual_fluency_completed_chapters") || "[]");
+                const mergedVf = Array.from(new Set([...localVfChapters, ...s.visual_fluency_completed]));
+                localStorage.setItem("visual_fluency_completed_chapters", JSON.stringify(mergedVf));
+                if (window.visualFluency) {
+                    window.visualFluency.completedChapterIds = mergedVf;
+                }
+                if (localVfChapters.length > s.visual_fluency_completed.length) hasLocalUpdatesToPush = true;
             }
 
             // 7. AUDIOBOOK PROGRESS
@@ -6575,6 +6599,9 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!isStoryChapterCompleted(id)) {
             completedStoryChapters.push(id);
             saveCompletedStoryChapters();
+            if (typeof syncPlayerStateToServer === 'function') {
+                syncPlayerStateToServer(true);
+            }
         }
     }
 
@@ -7548,13 +7575,8 @@ document.addEventListener("DOMContentLoaded", () => {
             let immediateRu = "";
             if (chunkTranslationCache.has(cleanText.toLowerCase())) {
                 immediateRu = chunkTranslationCache.get(cleanText.toLowerCase());
-            } else if (typeof translateA0TextToRussian === 'function') {
-                const local = translateA0TextToRussian(cleanText);
-                if (local && local.toLowerCase() !== cleanText.toLowerCase()) {
-                    immediateRu = local;
-                }
-            }
-            if (!immediateRu && typeof rpgEngine !== 'undefined' && rpgEngine.heroes) {
+            } else if (!cleanText.includes(" ") && typeof rpgEngine !== 'undefined' && rpgEngine.heroes) {
+                // Exact single-word match in hero vocabulary dictionary
                 for (const h of rpgEngine.heroes) {
                     if (h.words) {
                         const match = h.words.find(w => (w[0] || '').toLowerCase() === cleanText.toLowerCase());
@@ -7574,8 +7596,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
 
-            // If not found in cache or local dict, query /api/translate
-            if (!immediateRu) {
+            // Always query /api/translate if not in cache or for multi-word chunks
+            if (!immediateRu || cleanText.includes(" ")) {
                 fetch(`/api/translate?text=${encodeURIComponent(cleanText)}&from=en&to=ru`)
                     .then(res => res.json())
                     .then(data => {
