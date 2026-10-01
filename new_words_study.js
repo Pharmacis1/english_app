@@ -305,6 +305,102 @@ const NEW_WORDS_DATABASE = [
         translation: "статуэтка / статуя",
         exampleEn: "A marble statue guarded the grand entrance.",
         exampleRu: "Мраморная статуя охраняла парадный вход."
+    },
+    {
+        id: "safe",
+        word: "safe",
+        phonetic: "/seɪf/",
+        translation: "сейф",
+        exampleEn: "The jewel was inside the locked safe.",
+        exampleRu: "Драгоценность была внутри запертого сейфа."
+    },
+    {
+        id: "search",
+        word: "search",
+        phonetic: "/sɜːtʃ/",
+        translation: "поиск / искать",
+        exampleEn: "The search for the blue stone begins now.",
+        exampleRu: "Поиск синего камня начинается прямо сейчас."
+    },
+    {
+        id: "officer",
+        word: "officer",
+        phonetic: "/ˈɒf.ɪ.sər/",
+        translation: "офицер / полицейский",
+        exampleEn: "Officer Harris called the detective agency.",
+        exampleRu: "Офицер Харрис позвонил в детективное агентство."
+    },
+    {
+        id: "case",
+        word: "case",
+        phonetic: "/keɪs/",
+        translation: "дело / расследование",
+        exampleEn: "We have an important case to solve today.",
+        exampleRu: "Сегодня у нас важное дело, которое нужно раскрыть."
+    },
+    {
+        id: "missing",
+        word: "missing",
+        phonetic: "/ˈmɪs.ɪŋ/",
+        translation: "пропавший / отсутствующий",
+        exampleEn: "The famous blue stone is missing from the room.",
+        exampleRu: "Знаменитый синий камень пропал из комнаты."
+    },
+    {
+        id: "expensive",
+        word: "expensive",
+        phonetic: "/ɪkˈspen.sɪv/",
+        translation: "дорогой (по цене)",
+        exampleEn: "That rare sapphire is very expensive.",
+        exampleRu: "Тот редкий сапфир очень дорогой."
+    },
+    {
+        id: "famous",
+        word: "famous",
+        phonetic: "/ˈfeɪ.məs/",
+        translation: "знаменитый / известный",
+        exampleEn: "The Midnight Sapphire is a famous jewel.",
+        exampleRu: "Полуночный Сапфир — знаменитая драгоценность."
+    },
+    {
+        id: "job",
+        word: "job",
+        phonetic: "/dʒɒb/",
+        translation: "работа / задание",
+        exampleEn: "We have a new detective job this morning.",
+        exampleRu: "Этим утром у нас новая детективная работа."
+    },
+    {
+        id: "office",
+        word: "office",
+        phonetic: "/ˈɒf.ɪs/",
+        translation: "офис / кабинет",
+        exampleEn: "Leo and Mia work in the office on Elm Street.",
+        exampleRu: "Лео и Миа работают в офисе на Элм-стрит."
+    },
+    {
+        id: "telephone",
+        word: "telephone",
+        phonetic: "/ˈtel.ɪ.fəʊn/",
+        translation: "телефон",
+        exampleEn: "The black office telephone rings loudly.",
+        exampleRu: "Черный офисный телефон громко звонит."
+    },
+    {
+        id: "laptop",
+        word: "laptop",
+        phonetic: "/ˈlæp.tɒp/",
+        translation: "ноутбук",
+        exampleEn: "Mia opens her silver laptop on the desk.",
+        exampleRu: "Миа открывает свой серебристый ноутбук на столе."
+    },
+    {
+        id: "wooden",
+        word: "wooden",
+        phonetic: "/ˈwʊd.ən/",
+        translation: "деревянный",
+        exampleEn: "Leo sits at a big wooden desk.",
+        exampleRu: "Лео сидит за большим деревянным столом."
     }
 ];
 
