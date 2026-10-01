@@ -177,6 +177,20 @@
                                elem.id === 'modal-report-issue' ||
                                elem.id === 'report-issue-capture-toast' ||
                                elem.classList.contains('report-issue-ignore');
+                    },
+                    onclone: function(clonedDoc) {
+                        // html2canvas ignores 3D backface-visibility: hidden, causing front & back to overlap in screenshots.
+                        const wrappers = clonedDoc.querySelectorAll('.flashcard-3d-wrapper, .flashcard-card, [class*="3d-wrapper"]');
+                        wrappers.forEach(w => {
+                            const isFlipped = w.classList.contains('flipped');
+                            const front = w.querySelector('.card-front, .flashcard-front');
+                            const back = w.querySelector('.card-back, .flashcard-back');
+                            if (!isFlipped && back) {
+                                back.style.display = 'none';
+                            } else if (isFlipped && front) {
+                                front.style.display = 'none';
+                            }
+                        });
                     }
                 });
             }
