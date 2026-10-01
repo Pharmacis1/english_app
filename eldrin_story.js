@@ -337,6 +337,282 @@ const ELDRIN_AUDIOBOOK = {
                     "correctIdx": 1
                 }
             ]
+        },
+        {
+            "id": "det-ch-2",
+            "number": 2,
+            "act": 1,
+            "titleEn": "Episode 2: The Gates of Blackwood House & The Empty Safe",
+            "titleRu": "Эпизод 2: Ворота особняка Блэквуда и пустой сейф",
+            "grammarFocus": "Present Simple, Prepositions (near, behind, inside), Furniture & Rooms, Daily Habits",
+            "wordCount": 432,
+            "coverIcon": "fa-door-open",
+            "coverColor": "#6366f1",
+            "sentences": [
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The green car stops in front of the big iron gate of the Blackwood house.</prosody></speak>",
+                    "en": "The green car stops in front of the big iron gate of the Blackwood house.",
+                    "ru": "Зеленая машина останавливается перед большими железными воротами особняка Блэквуда."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Old green trees and wet leaves are in the large garden.</prosody></speak>",
+                    "en": "Old green trees and wet leaves are in the large garden.",
+                    "ru": "Старые зеленые деревья и мокрые листья лежат в большом саду."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Officer Harris waits near the big wooden front door.</prosody></speak>",
+                    "en": "Officer Harris waits near the big wooden front door.",
+                    "ru": "Офицер Харрис ждет возле большой деревянной входной двери."
+                },
+                {
+                    "speaker": "harris",
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Welcome, Leo and Mia! <break time=\"300ms\"/> Thank you for coming so fast.</prosody></speak>",
+                    "en": "— Welcome, Leo and Mia! Thank you for coming so fast.",
+                    "ru": "— Добро пожаловать, Лео и Миа! Спасибо, что приехали так быстро."
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Good morning again, Harris. <break time=\"300ms\"/> Toby and Barnaby are with us today.</prosody></speak>",
+                    "en": "— Good morning again, Harris. Toby and Barnaby are with us today.",
+                    "ru": "— Снова доброе утро, Харрис. Тоби и Барнаби сегодня с нами."
+                },
+                {
+                    "speaker": "harris",
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Good! <break time=\"300ms\"/> We need all the help we can get. <break time=\"300ms\"/> Come inside.</prosody></speak>",
+                    "en": "— Good! We need all the help we can get. Come inside.",
+                    "ru": "— Отлично! Нам пригодится любая помощь. Заходите внутрь."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">They walk into a large warm hall. <break time=\"300ms\"/> A big glass lamp hangs in the room.</prosody></speak>",
+                    "en": "They walk into a large warm hall. A big glass lamp hangs in the room.",
+                    "ru": "Они входят в большой теплый холл. Большая стеклянная лампа висит в комнате."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">An old man in a black suit sits on a red sofa. <break time=\"300ms\"/> He holds a cup of hot tea.</prosody></speak>",
+                    "en": "An old man in a black suit sits on a red sofa. He holds a cup of hot tea.",
+                    "ru": "Пожилой мужчина в черном костюме сидит на красном диване. Он держит чашку горячего чая."
+                },
+                {
+                    "speaker": "harris",
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Lord Blackwood, this is Detective Leo, his partner Mia, and young Toby.</prosody></speak>",
+                    "en": "— Lord Blackwood, this is Detective Leo, his partner Mia, and young Toby.",
+                    "ru": "— Лорд Блэквуд, это детектив Лео, его напарница Миа и юный Тоби."
+                },
+                {
+                    "speaker": "blackwood",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">— Good morning, detectives. <break time=\"300ms\"/> I am very happy to see you. <break time=\"300ms\"/> My house has a big problem.</prosody></speak>",
+                    "en": "— Good morning, detectives. I am very happy to see you. My house has a big problem.",
+                    "ru": "— Доброе утро, детективы. Я очень рад вас видеть. В моем доме большая беда."
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Hello, Lord Blackwood. <break time=\"300ms\"/> Please, tell us about your morning.</prosody></speak>",
+                    "en": "— Hello, Lord Blackwood. Please, tell us about your morning.",
+                    "ru": "— Здравствуйте, лорд Блэквуд. Пожалуйста, расскажите нам о вашем утре."
+                },
+                {
+                    "speaker": "blackwood",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">— I wake up at half past six. <break time=\"300ms\"/> I wash my face and drink hot green tea in the kitchen.</prosody></speak>",
+                    "en": "— I wake up at half past six. I wash my face and drink hot green tea in the kitchen.",
+                    "ru": "— Я просыпаюсь в половине седьмого. Умываюсь и пью горячий зеленый чай на кухне."
+                },
+                {
+                    "speaker": "blackwood",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">— At seven o'clock, I walk up the stairs to my study room on the second floor.</prosody></speak>",
+                    "en": "— At seven o'clock, I walk up the stairs to my study room on the second floor.",
+                    "ru": "— В семь часов утра я поднимаюсь по лестнице в свой кабинет на втором этаже."
+                },
+                {
+                    "speaker": "blackwood",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">— The wooden door of my room was not locked, and the window was wide open!</prosody></speak>",
+                    "en": "— The wooden door of my room was not locked, and the window was wide open!",
+                    "ru": "— Деревянная дверь в мою комнату была не заперта, а окно распахнуто настежь!"
+                },
+                {
+                    "speaker": "mia",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Did you always lock that door in the evening?</prosody></speak>",
+                    "en": "— Did you always lock that door in the evening?",
+                    "ru": "— Вы всегда запирали эту дверь по вечерам?"
+                },
+                {
+                    "speaker": "blackwood",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">— Yes, Miss Mia! <break time=\"300ms\"/> Every night at ten o'clock, I lock the room with my silver key.</prosody></speak>",
+                    "en": "— Yes, Miss Mia! Every night at ten o'clock, I lock the room with my silver key.",
+                    "ru": "— Да, мисс Миа! Каждый вечер в десять часов я запираю комнату своим серебряным ключом."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">They walk up the stone stairs to the second floor.</prosody></speak>",
+                    "en": "They walk up the stone stairs to the second floor.",
+                    "ru": "Они поднимаются по каменной лестнице на второй этаж."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Lord Blackwood's study is a large, quiet room with tall wooden shelves.</prosody></speak>",
+                    "en": "Lord Blackwood's study is a large, quiet room with tall wooden shelves.",
+                    "ru": "Кабинет лорда Блэквуда — это большая, тихая комната с высокими деревянными полками."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">A big gold painting hangs on the wall. <break time=\"300ms\"/> Behind the painting is an open metal safe.</prosody></speak>",
+                    "en": "A big gold painting hangs on the wall. Behind the painting is an open metal safe.",
+                    "ru": "Большая картина в золотой раме висит на стене. За картиной находится открытый металлический сейф."
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Look at the safe, Mia. <break time=\"300ms\"/> The heavy metal door is open. <break time=\"300ms\"/> The lock is fine.</prosody></speak>",
+                    "en": "— Look at the safe, Mia. The heavy metal door is open. The lock is fine.",
+                    "ru": "— Посмотри на сейф, Миа. Тяжелая металлическая дверца открыта. Замок в порядке."
+                },
+                {
+                    "speaker": "mia",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— That is very interesting, Leo! <break time=\"300ms\"/> The thief had a key or knew the secret code!</prosody></speak>",
+                    "en": "— That is very interesting, Leo! The thief had a key or knew the secret code!",
+                    "ru": "— Это очень интересно, Лео! У вора был ключ или он знал секретный код!"
+                },
+                {
+                    "speaker": "blackwood",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">— The Midnight Sapphire was inside that small blue box in the safe. <break time=\"300ms\"/> Now the box is empty!</prosody></speak>",
+                    "en": "— The Midnight Sapphire was inside that small blue box in the safe. Now the box is empty!",
+                    "ru": "— Полуночный Сапфир лежал внутри той маленькой синей коробочки в сейфе. Теперь коробочка пуста!"
+                },
+                {
+                    "speaker": "toby",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Look at the floor near the big desk! <break time=\"300ms\"/> Barnaby smells something!</prosody></speak>",
+                    "en": "— Look at the floor near the big desk! Barnaby smells something!",
+                    "ru": "— Посмотрите на пол возле большого стола! Барнаби что-то учуял!"
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Barnaby the dog smells the brown carpet. <break time=\"300ms\"/> He is happy. <break time=\"300ms\"/> Woof! <break time=\"300ms\"/> Woof!</prosody></speak>",
+                    "en": "Barnaby the dog smells the brown carpet. He is happy. Woof! Woof!",
+                    "ru": "Пес Барнаби нюхает коричневый ковер. Он доволен. Гав! Гав!"
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Good boy, Barnaby! <break time=\"300ms\"/> What did you find?</prosody></speak>",
+                    "en": "— Good boy, Barnaby! What did you find?",
+                    "ru": "— Молодец, Барнаби! Что ты нашел?"
+                },
+                {
+                    "speaker": "mia",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Look, Leo! <break time=\"300ms\"/> There is a wet, dirty footprint on the carpet near the safe!</prosody></speak>",
+                    "en": "— Look, Leo! There is a wet, dirty footprint on the carpet near the safe!",
+                    "ru": "— Смотри, Лео! На ковре возле сейфа мокрый, грязный след ноги!"
+                },
+                {
+                    "speaker": "toby",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— It is a big boot footprint! <break time=\"300ms\"/> The thief walked here with wet boots from the garden!</prosody></speak>",
+                    "en": "— It is a big boot footprint! The thief walked here with wet boots from the garden!",
+                    "ru": "— Это след большого сапога! Вор шел сюда в мокрых сапогах из сада!"
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Great work, Toby and Barnaby! <break time=\"300ms\"/> This footprint is our first clue.</prosody></speak>",
+                    "en": "— Great work, Toby and Barnaby! This footprint is our first clue.",
+                    "ru": "— Отличная работа, Тоби и Барнаби! Этот след — наша первая зацепка."
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— The thief was in this room early this morning when the rain started.</prosody></speak>",
+                    "en": "— The thief was in this room early this morning when the rain started.",
+                    "ru": "— Вор был в этой комнате рано утром, когда начался дождь."
+                },
+                {
+                    "speaker": "harris",
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.86\" pitch=\"-4st\">— Who was in this house last night, Lord Blackwood?</prosody></speak>",
+                    "en": "— Who was in this house last night, Lord Blackwood?",
+                    "ru": "— Кто был в этом доме прошлой ночью, лорд Блэквуд?"
+                },
+                {
+                    "speaker": "blackwood",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">— Three people work here: Arthur the garden worker, Claire the cook, and Dr. <break time=\"300ms\"/> Hayes visited for dinner.</prosody></speak>",
+                    "en": "— Three people work here: Arthur the garden worker, Claire the cook, and Dr. Hayes visited for dinner.",
+                    "ru": "— Здесь работают три человека: садовник Артур, кухарка Клэр, а доктор Хейз заходил на ужин."
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Good. <break time=\"300ms\"/> We must question all three of them!</prosody></speak>",
+                    "en": "— Good. We must question all three of them!",
+                    "ru": "— Хорошо. Мы должны допросить всех троих!"
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Mia takes a photograph of the footprint with her smartphone. <break time=\"300ms\"/> The search begins!</prosody></speak>",
+                    "en": "Mia takes a photograph of the footprint with her smartphone. The search begins!",
+                    "ru": "Миа фотографирует след своим смартфоном. Поиски начинаются!"
+                }
+            ],
+            "quiz": [
+                {
+                    "question": "At what time did Lord Blackwood walk up to his study room?",
+                    "options": [
+                        "At four o'clock in the afternoon",
+                        "At seven o'clock in the morning",
+                        "At midnight",
+                        "At ten o'clock at night"
+                    ],
+                    "correctIdx": 1
+                },
+                {
+                    "question": "What was behind the big gold painting on the wall?",
+                    "options": [
+                        "An open metal safe",
+                        "A secret wooden door",
+                        "A small window",
+                        "A clock"
+                    ],
+                    "correctIdx": 0
+                },
+                {
+                    "question": "What clue did Barnaby the dog find on the carpet near the safe?",
+                    "options": [
+                        "A silver key",
+                        "A wet, dirty boot footprint",
+                        "A gold coin",
+                        "A piece of bread"
+                    ],
+                    "correctIdx": 1
+                }
+            ]
         }
     ]
 };

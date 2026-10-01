@@ -401,6 +401,46 @@ const NEW_WORDS_DATABASE = [
         translation: "деревянный",
         exampleEn: "Leo sits at a big wooden desk.",
         exampleRu: "Лео сидит за большим деревянным столом."
+    },
+    {
+        id: "clue",
+        word: "clue",
+        phonetic: "/kluː/",
+        translation: "зацепка / улика",
+        exampleEn: "This muddy footprint is our first clue.",
+        exampleRu: "Этот грязный след — наша первая зацепка."
+    },
+    {
+        id: "secret",
+        word: "secret",
+        phonetic: "/ˈsiː.krət/",
+        translation: "секрет / секретный",
+        exampleEn: "The thief knew the secret code to the safe.",
+        exampleRu: "Вор знал секретный код от сейфа."
+    },
+    {
+        id: "code",
+        word: "code",
+        phonetic: "/kəʊd/",
+        translation: "код / шифр",
+        exampleEn: "Enter the four numbers of the code.",
+        exampleRu: "Введите четыре цифры кода."
+    },
+    {
+        id: "stairs",
+        word: "stairs",
+        phonetic: "/steəz/",
+        translation: "лестница / ступени",
+        exampleEn: "They walked up the stairs to the second floor.",
+        exampleRu: "Они поднялись по лестнице на второй этаж."
+    },
+    {
+        id: "lock",
+        word: "lock",
+        phonetic: "/lɒk/",
+        translation: "замок / запирать",
+        exampleEn: "Lord Blackwood turns the silver key in the lock.",
+        exampleRu: "Лорд Блэквуд поворачивает серебряный ключ в замке."
     }
 ];
 
