@@ -30,55 +30,45 @@ const CAST = {
         pitch: '-1st',
         rate: '0.92'
     },
-    eldrin: {
-        voice: 'en-US-Neural2-A', // Young, clear apprentice
-        pitch: '+2.5st',
-        rate: '0.96'
-    },
     leo: {
-        voice: 'en-US-Neural2-I', // Friendly, warm roommate
+        voice: 'en-US-Neural2-I', // Lead detective Leo (calm, analytical)
         pitch: '-1st',
         rate: '0.92'
     },
-    kira: {
-        voice: 'en-US-Neural2-F', // Energetic, spirited girl runner
+    mia: {
+        voice: 'en-US-Neural2-F', // Detective Mia (sharp, clever)
         pitch: '+2st',
         rate: '0.98'
     },
-    corvinus: {
-        voice: 'en-US-Neural2-J', // Deep, wise elder archivist
+    toby: {
+        voice: 'en-US-Neural2-A', // Young apprentice Toby (enthusiastic)
+        pitch: '+2.5st',
+        rate: '0.96'
+    },
+    harris: {
+        voice: 'en-US-Neural2-J', // Police officer Harris (firm, authoritative)
         pitch: '-4st',
         rate: '0.86'
     },
-    barnaby: {
-        voice: 'en-US-Neural2-D', // Cheerful old cart driver
-        pitch: '-2st',
-        rate: '0.90'
-    },
-    guard: {
-        voice: 'en-US-Neural2-D', // Firm gatekeeper
+    blackwood: {
+        voice: 'en-US-Neural2-D', // Lord Blackwood (elderly noble)
         pitch: '-3st',
-        rate: '0.90'
+        rate: '0.88'
     },
-    baker: {
-        voice: 'en-US-Neural2-I', // Warm friendly baker
-        pitch: '-0.5st',
-        rate: '0.94'
+    arthur: {
+        voice: 'en-US-Neural2-D', // Arthur the gardener (grumpy, deep)
+        pitch: '-3.5st',
+        rate: '0.88'
     },
-    selma: {
-        voice: 'en-US-Neural2-F', // Lively spice merchant
+    claire: {
+        voice: 'en-US-Neural2-F', // Claire the cook (warm, lively)
+        pitch: '+1.5st',
+        rate: '0.96'
+    },
+    victor: {
+        voice: 'en-US-Neural2-A', // Victor the motorcycle courier
         pitch: '+1st',
-        rate: '0.95'
-    },
-    smith: {
-        voice: 'en-US-Neural2-J', // Strong hearty blacksmith
-        pitch: '-4.5st',
-        rate: '0.88'
-    },
-    otho: {
-        voice: 'en-US-Neural2-J', // Gentle old bookseller
-        pitch: '-3st',
-        rate: '0.88'
+        rate: '0.98'
     }
 };
 

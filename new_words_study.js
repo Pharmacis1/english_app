@@ -481,6 +481,46 @@ const NEW_WORDS_DATABASE = [
         translation: "размер",
         exampleEn: "These black boots are the same size as the footprint.",
         exampleRu: "Эти черные сапоги того же размера, что и след ноги."
+    },
+    {
+        id: "deliver",
+        word: "deliver",
+        phonetic: "/dɪˈlɪv.ər/",
+        translation: "доставлять",
+        exampleEn: "The courier arrived to deliver fresh food to the kitchen.",
+        exampleRu: "Курьер приехал, чтобы доставить свежую еду на кухню."
+    },
+    {
+        id: "boil",
+        word: "boil",
+        phonetic: "/bɔɪl/",
+        translation: "кипятить / варить",
+        exampleEn: "She boiled hot water for morning tea in the pot.",
+        exampleRu: "Она вскипятила горячую воду для утреннего чая в кастрюле."
+    },
+    {
+        id: "pot",
+        word: "pot",
+        phonetic: "/pɒt/",
+        translation: "кастрюля / горшок",
+        exampleEn: "Hot vegetable soup boils in a large silver pot.",
+        exampleRu: "Горячий овощной суп кипит в большой серебристой кастрюле."
+    },
+    {
+        id: "stove",
+        word: "stove",
+        phonetic: "/stəʊv/",
+        translation: "кухонная плита",
+        exampleEn: "Claire stands near the large kitchen stove.",
+        exampleRu: "Клэр стоит возле большой кухонной плиты."
+    },
+    {
+        id: "helmet",
+        word: "helmet",
+        phonetic: "/ˈhel.mɪt/",
+        translation: "шлем",
+        exampleEn: "The motorcycle courier wore a dark protective helmet.",
+        exampleRu: "Курьер на мотоцикле был в тёмном защитном шлеме."
     }
 ];
 

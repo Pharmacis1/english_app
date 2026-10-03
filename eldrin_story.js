@@ -868,6 +868,276 @@ const ELDRIN_AUDIOBOOK = {
                     "correctIdx": 1
                 }
             ]
+        },
+        {
+            "id": "det-ch-4",
+            "number": 4,
+            "act": 1,
+            "titleEn": "Episode 4: The Kitchen Clues & The Chef's Alibi",
+            "titleRu": "Серия 4: Улики на кухне и алиби повара",
+            "synopsisEn": "The detectives interrogate Claire the cook in the estate's kitchen. Claire provides details about Dr. Hayes leaving last night and a fast motorcycle courier named Victor delivering goods at quarter to seven this morning.",
+            "synopsisRu": "Детективы допрашивают повара Клэр на кухне особняка. Клэр делится деталями об уходе доктора Хейза прошлым вечером и быстром курьере Викторе на мотоцикле, доставившем продукты без четверти семь утра.",
+            "wordCount": 424,
+            "targetLevel": "A0 - A1",
+            "audiobookCover": "assets/backgrounds/detective_office.jpg",
+            "sentences": [
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Detective Leo, Mia, Toby, and Barnaby walk into the big kitchen.</prosody></speak>",
+                    "en": "Detective Leo, Mia, Toby, and Barnaby walk into the big kitchen.",
+                    "ru": "Детектив Лео, Миа, Тоби и Барнаби входят в большую кухню."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The kitchen is warm and bright. <break time=\"300ms\"/> It smells like fresh bread, soup, and butter.</prosody></speak>",
+                    "en": "The kitchen is warm and bright. It smells like fresh bread, soup, and butter.",
+                    "ru": "На кухне тепло и светло. Пахнет свежим хлебом, супом и маслом."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">A woman in a white apron stands near a large stove. <break time=\"300ms\"/> Her name is Claire.</prosody></speak>",
+                    "en": "A woman in a white apron stands near a large stove. Her name is Claire.",
+                    "ru": "Женщина в белом фартуке стоит возле большой плиты. Её зовут Клэр."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">She cuts red tomatoes with a kitchen knife. <break time=\"300ms\"/> Hot soup boils in a silver pot.</prosody></speak>",
+                    "en": "She cuts red tomatoes with a kitchen knife. Hot soup boils in a silver pot.",
+                    "ru": "Она режет красные помидоры кухонным ножом. Горячий суп кипит в серебристой кастрюле."
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Good morning, Claire. <break time=\"300ms\"/> I am Detective Leo, and this is my team.</prosody></speak>",
+                    "en": "— Good morning, Claire. I am Detective Leo, and this is my team.",
+                    "ru": "— Доброе утро, Клэр. Я детектив Лео, а это моя команда."
+                },
+                {
+                    "speaker": "claire",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1.5st\">— Good morning, detectives! <break time=\"300ms\"/> I am cooking lunch for the house. <break time=\"300ms\"/> How can I help you?</prosody></speak>",
+                    "en": "— Good morning, detectives! I am cooking lunch for the house. How can I help you?",
+                    "ru": "— Доброе утро, детективы! Я готовлю обед для дома. Чем я могу вам помочь?"
+                },
+                {
+                    "speaker": "mia",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— We are investigating the theft of the Midnight Sapphire. <break time=\"300ms\"/> We need to ask some questions.</prosody></speak>",
+                    "en": "— We are investigating the theft of the Midnight Sapphire. We need to ask some questions.",
+                    "ru": "— Мы расследуем кражу Полуночного Сапфира. Нам нужно задать несколько вопросов."
+                },
+                {
+                    "speaker": "claire",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1.5st\">— The sapphire? <break time=\"300ms\"/> Oh, that is shocking! <break time=\"300ms\"/> Lord Blackwood loved that blue stone.</prosody></speak>",
+                    "en": "— The sapphire? Oh, that is shocking! Lord Blackwood loved that blue stone.",
+                    "ru": "— Сапфир? О, это шокирует! Лорд Блэквуд очень любил этот синий камень."
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Claire, tell us about yesterday evening and this morning.</prosody></speak>",
+                    "en": "— Claire, tell us about yesterday evening and this morning.",
+                    "ru": "— Клэр, расскажите нам о вчерашнем вечере и о сегодняшнем утре."
+                },
+                {
+                    "speaker": "claire",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1.5st\">— Yesterday at half past seven in the evening, I cooked dinner for Lord Blackwood and Dr. <break time=\"300ms\"/> Hayes.</prosody></speak>",
+                    "en": "— Yesterday at half past seven in the evening, I cooked dinner for Lord Blackwood and Dr. Hayes.",
+                    "ru": "— Вчера в половине восьмого вечера я готовила ужин для лорда Блэквуда и доктора Хейза."
+                },
+                {
+                    "speaker": "claire",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1.5st\">— I made fried fish, hot potatoes, and a green salad.</prosody></speak>",
+                    "en": "— I made fried fish, hot potatoes, and a green salad.",
+                    "ru": "— Я приготовила жареную рыбу, горячую картошку и зелёный салат."
+                },
+                {
+                    "speaker": "mia",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— When did Dr. <break time=\"300ms\"/> Hayes leave the house last night?</prosody></speak>",
+                    "en": "— When did Dr. Hayes leave the house last night?",
+                    "ru": "— Когда доктор Хейз ушел из дома прошлой ночью?"
+                },
+                {
+                    "speaker": "claire",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1.5st\">— He finished his tea and left at half past nine. <break time=\"300ms\"/> He had a heavy black bag in his hand.</prosody></speak>",
+                    "en": "— He finished his tea and left at half past nine. He had a heavy black bag in his hand.",
+                    "ru": "— Он допил чай и ушел в половине десятого. В руке у него была тяжелая черная сумка."
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— And what time did you arrive in the kitchen this morning?</prosody></speak>",
+                    "en": "— And what time did you arrive in the kitchen this morning?",
+                    "ru": "— А в какое время вы пришли на кухню сегодня утром?"
+                },
+                {
+                    "speaker": "claire",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1.5st\">— I came to the kitchen at half past six. <break time=\"300ms\"/> I baked fresh bread and boiled water for tea.</prosody></speak>",
+                    "en": "— I came to the kitchen at half past six. I baked fresh bread and boiled water for tea.",
+                    "ru": "— Я пришла на кухню в половине седьмого. Я испекла свежий хлеб и вскипятила воду для чая."
+                },
+                {
+                    "speaker": "toby",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Did you see anyone near the back door this morning, Claire?</prosody></speak>",
+                    "en": "— Did you see anyone near the back door this morning, Claire?",
+                    "ru": "— Вы видели кого-нибудь возле задней двери сегодня утром, Клэр?"
+                },
+                {
+                    "speaker": "claire",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1.5st\">— Yes, young boy! <break time=\"300ms\"/> At quarter to seven, a courier on a motorcycle arrived at the back door.</prosody></speak>",
+                    "en": "— Yes, young boy! At quarter to seven, a courier on a motorcycle arrived at the back door.",
+                    "ru": "— Да, молодой человек! Без четверти семь курьер на мотоцикле подъехал к задней двери."
+                },
+                {
+                    "speaker": "claire",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1.5st\">— He delivered a box of milk, butter, and fresh vegetables from the market.</prosody></speak>",
+                    "en": "— He delivered a box of milk, butter, and fresh vegetables from the market.",
+                    "ru": "— Он доставил коробку молока, масла и свежих овощей с рынка."
+                },
+                {
+                    "speaker": "mia",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Did you talk to the courier?</prosody></speak>",
+                    "en": "— Did you talk to the courier?",
+                    "ru": "— Вы разговаривали с курьером?"
+                },
+                {
+                    "speaker": "claire",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1.5st\">— Yes! <break time=\"300ms\"/> His name is Victor. <break time=\"300ms\"/> He wore a yellow jacket and dark helmet.</prosody></speak>",
+                    "en": "— Yes! His name is Victor. He wore a yellow jacket and dark helmet.",
+                    "ru": "— Да! Его зовут Виктор. На нем была желтая куртка и темный шлем."
+                },
+                {
+                    "speaker": "claire",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1.5st\">— He was in a hurry. <break time=\"300ms\"/> He put down the food box and left on his fast motorcycle.</prosody></speak>",
+                    "en": "— He was in a hurry. He put down the food box and left on his fast motorcycle.",
+                    "ru": "— Он спешил. Он поставил коробку с едой и уехал на своем быстром мотоцикле."
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Did Victor enter the main hall or go upstairs to the safe room?</prosody></speak>",
+                    "en": "— Did Victor enter the main hall or go upstairs to the safe room?",
+                    "ru": "— Виктор заходил в главный зал или поднимался наверх в комнату с сейфом?"
+                },
+                {
+                    "speaker": "claire",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1.5st\">— No, detectives! <break time=\"300ms\"/> He stayed outside at the back door for only two minutes.</prosody></speak>",
+                    "en": "— No, detectives! He stayed outside at the back door for only two minutes.",
+                    "ru": "— Нет, детективы! Он пробыл снаружи у задней двери всего две минуты."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Barnaby walks to the food box and sniffs it carefully with his black nose.</prosody></speak>",
+                    "en": "Barnaby walks to the food box and sniffs it carefully with his black nose.",
+                    "ru": "Барнаби подходит к коробке с едой и внимательно нюхает её своим черным носом."
+                },
+                {
+                    "speaker": "toby",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Good dog, Barnaby! <break time=\"300ms\"/> Look at the kitchen table, Leo! <break time=\"300ms\"/> There is a paper delivery receipt!</prosody></speak>",
+                    "en": "— Good dog, Barnaby! Look at the kitchen table, Leo! There is a paper delivery receipt!",
+                    "ru": "— Молодец, Барнаби! Посмотри на кухонный стол, Лео! Там бумажная квитанция о доставке!"
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Toby picks up a small white receipt from the clean wooden table.</prosody></speak>",
+                    "en": "Toby picks up a small white receipt from the clean wooden table.",
+                    "ru": "Тоби поднимает маленькую белую квитанцию с чистого деревянного стола."
+                },
+                {
+                    "speaker": "toby",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Look! <break time=\"300ms\"/> The receipt says: \"City Market Delivery — Courier Victor — 6:45 AM\".</prosody></speak>",
+                    "en": "— Look! The receipt says: \"City Market Delivery — Courier Victor — 6:45 AM\".",
+                    "ru": "— Смотрите! В квитанции написано: «Доставка с городского рынка — Курьер Виктор — 6:45 утра»."
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— That matches the motorcycle sound Arthur heard at quarter to seven!</prosody></speak>",
+                    "en": "— That matches the motorcycle sound Arthur heard at quarter to seven!",
+                    "ru": "— Это совпадает со звуком мотоцикла, который Артур слышал без четверти семь!"
+                },
+                {
+                    "speaker": "mia",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— And Arthur's garden shed is right next to the kitchen back door!</prosody></speak>",
+                    "en": "— And Arthur's garden shed is right next to the kitchen back door!",
+                    "ru": "— А садовый сарай Артура находится прямо рядом с задней дверью кухни!"
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo writes the courier's name and the market address in his small notebook.</prosody></speak>",
+                    "en": "Leo writes the courier's name and the market address in his small notebook.",
+                    "ru": "Лео записывает имя курьера и адрес рынка в свой маленький блокнот."
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Thank you, Claire. <break time=\"300ms\"/> Your answers are very helpful. <break time=\"300ms\"/> We need to find this courier Victor!</prosody></speak>",
+                    "en": "— Thank you, Claire. Your answers are very helpful. We need to find this courier Victor!",
+                    "ru": "— Спасибо, Клэр. Ваши ответы очень полезны. Нам нужно найти этого курьера Виктора!"
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The team leaves the warm kitchen. <break time=\"300ms\"/> The trail now leads directly to the City Market!</prosody></speak>",
+                    "en": "The team leaves the warm kitchen. The trail now leads directly to the City Market!",
+                    "ru": "Команда покидает теплую кухню. След теперь ведет прямо на Городской Рынок!"
+                }
+            ],
+            "quiz": [
+                {
+                    "question": "What was Claire the cook preparing when the detectives arrived?",
+                    "options": [
+                        "Lunch for the house, cutting red tomatoes and boiling soup",
+                        "Coffee and pancakes for Lord Blackwood",
+                        "Cleaning the safe in the study",
+                        "Planting flowers in the garden"
+                    ],
+                    "correctIdx": 0
+                },
+                {
+                    "question": "What time did Dr. Hayes leave the house last night with a heavy black bag?",
+                    "options": [
+                        "At half past six",
+                        "At quarter to seven",
+                        "At half past nine",
+                        "At midnight"
+                    ],
+                    "correctIdx": 2
+                },
+                {
+                    "question": "Who arrived at the kitchen back door at 6:45 AM on a motorcycle?",
+                    "options": [
+                        "Arthur the gardener",
+                        "A market courier named Victor in a yellow jacket and dark helmet",
+                        "Officer Harris",
+                        "Lord Blackwood"
+                    ],
+                    "correctIdx": 1
+                }
+            ]
         }
     ]
 };
