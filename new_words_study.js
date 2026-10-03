@@ -441,6 +441,46 @@ const NEW_WORDS_DATABASE = [
         translation: "замок / запирать",
         exampleEn: "Lord Blackwood turns the silver key in the lock.",
         exampleRu: "Лорд Блэквуд поворачивает серебряный ключ в замке."
+    },
+    {
+        id: "mud",
+        word: "mud",
+        phonetic: "/mʌd/",
+        translation: "грязь / слякоть",
+        exampleEn: "The thief left footprints in the wet mud.",
+        exampleRu: "Вор оставил следы в мокрой грязи."
+    },
+    {
+        id: "ticket",
+        word: "ticket",
+        phonetic: "/ˈtɪk.ɪt/",
+        translation: "билет",
+        exampleEn: "Barnaby found a blue bus ticket in the grass.",
+        exampleRu: "Барнаби нашёл в траве синий автобусный билет."
+    },
+    {
+        id: "loud",
+        word: "loud",
+        phonetic: "/laʊd/",
+        translation: "громкий",
+        exampleEn: "He heard a loud motorcycle near the gate.",
+        exampleRu: "Он услышал громкий мотоцикл возле ворот."
+    },
+    {
+        id: "plastic",
+        word: "plastic",
+        phonetic: "/ˈplæs.tɪk/",
+        translation: "пластиковый / пластмасса",
+        exampleEn: "Leo put the evidence in a clean plastic bag.",
+        exampleRu: "Лео положил улику в чистый пластиковый пакет."
+    },
+    {
+        id: "size",
+        word: "size",
+        phonetic: "/saɪz/",
+        translation: "размер",
+        exampleEn: "These black boots are the same size as the footprint.",
+        exampleRu: "Эти черные сапоги того же размера, что и след ноги."
     }
 ];
 

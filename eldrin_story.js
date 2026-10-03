@@ -613,6 +613,261 @@ const ELDRIN_AUDIOBOOK = {
                     "correctIdx": 1
                 }
             ]
+        },
+        {
+            "id": "det-ch-3",
+            "number": 3,
+            "act": 1,
+            "titleEn": "Episode 3: The Garden Path & The Suspicious Boots",
+            "titleRu": "Эпизод 3: Садовая дорожка и подозрительные сапоги",
+            "grammarFocus": "Present Simple, Time (quarter to seven), Colors & Clothing, Clues & Evidence",
+            "wordCount": 397,
+            "coverIcon": "fa-seedling",
+            "coverColor": "#10b981",
+            "sentences": [
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Detective Leo, Mia, Toby, and Barnaby walk down to the large garden.</prosody></speak>",
+                    "en": "Detective Leo, Mia, Toby, and Barnaby walk down to the large garden.",
+                    "ru": "Детектив Лео, Миа, Тоби и Барнаби спускаются в большой сад."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The morning rain is light now. <break time=\"300ms\"/> Cold water drops fall from the tall green trees.</prosody></speak>",
+                    "en": "The morning rain is light now. Cold water drops fall from the tall green trees.",
+                    "ru": "Утренний дождь теперь стихает. Капли холодной воды падают с высоких зеленых деревьев."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">They stop under the open window of the second-floor study room.</prosody></speak>",
+                    "en": "They stop under the open window of the second-floor study room.",
+                    "ru": "Они останавливаются под открытым окном кабинета на втором этаже."
+                },
+                {
+                    "speaker": "mia",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Look at the soft dark ground under the window, Leo!</prosody></speak>",
+                    "en": "— Look at the soft dark ground under the window, Leo!",
+                    "ru": "— Посмотри на мягкую темную землю под окном, Лео!"
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Yes! <break time=\"300ms\"/> The grass is broken. <break time=\"300ms\"/> Someone jumped down from the window to the ground!</prosody></speak>",
+                    "en": "— Yes! The grass is broken. Someone jumped down from the window to the ground!",
+                    "ru": "— Да! Трава примята. Кто-то спрыгнул из окна прямо на землю!"
+                },
+                {
+                    "speaker": "toby",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Look, Barnaby has the smell! <break time=\"300ms\"/> Good boy, find the way!</prosody></speak>",
+                    "en": "— Look, Barnaby has the smell! Good boy, find the way!",
+                    "ru": "— Смотрите, Барнаби взял след! Умница, ищи дорогу!"
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Barnaby the dog runs along the wet stone path. <break time=\"300ms\"/> He stops near a small wooden shed.</prosody></speak>",
+                    "en": "Barnaby the dog runs along the wet stone path. He stops near a small wooden shed.",
+                    "ru": "Пес Барнаби бежит по мокрой каменной дорожке. Он останавливается возле небольшого деревянного сарая."
+                },
+                {
+                    "speaker": "toby",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— The footprints in the mud go straight to this small wooden house!</prosody></speak>",
+                    "en": "— The footprints in the mud go straight to this small wooden house!",
+                    "ru": "— Следы на грязи ведут прямо к этому маленькому деревянному домику!"
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The wooden door of the shed is open. <break time=\"300ms\"/> Inside, an old man in blue clothes cleans a big tool.</prosody></speak>",
+                    "en": "The wooden door of the shed is open. Inside, an old man in blue clothes cleans a big tool.",
+                    "ru": "Деревянная дверь сарая открыта. Внутри пожилой мужчина в синей одежде чистит большой инструмент."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He wears green gloves and a grey hat. <break time=\"300ms\"/> His name is Arthur.</prosody></speak>",
+                    "en": "He wears green gloves and a grey hat. His name is Arthur.",
+                    "ru": "На нем зеленые перчатки и серая шляпа. Его зовут Артур."
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Good morning! <break time=\"300ms\"/> Are you Arthur, the garden worker?</prosody></speak>",
+                    "en": "— Good morning! Are you Arthur, the garden worker?",
+                    "ru": "— Доброе утро! Вы Артур, садовник?"
+                },
+                {
+                    "speaker": "arthur",
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3.5st\">— Yes, sir. <break time=\"300ms\"/> I am Arthur. <break time=\"300ms\"/> I take care of the flowers and trees in this big garden.</prosody></speak>",
+                    "en": "— Yes, sir. I am Arthur. I take care of the flowers and trees in this big garden.",
+                    "ru": "— Да, сэр. Я Артур. Я ухаживаю за цветами и деревьями в этом большом саду."
+                },
+                {
+                    "speaker": "mia",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Hello, Arthur. <break time=\"300ms\"/> We are detectives. <break time=\"300ms\"/> We have some questions about your morning.</prosody></speak>",
+                    "en": "— Hello, Arthur. We are detectives. We have some questions about your morning.",
+                    "ru": "— Здравствуйте, Артур. Мы детективы. У нас есть несколько вопросов о вашем утре."
+                },
+                {
+                    "speaker": "arthur",
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3.5st\">— Questions? <break time=\"300ms\"/> Did something happen in the big house?</prosody></speak>",
+                    "en": "— Questions? Did something happen in the big house?",
+                    "ru": "— Вопросы? Что-то случилось в большом доме?"
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— The Midnight Sapphire is missing from the safe. <break time=\"300ms\"/> What did you do this morning?</prosody></speak>",
+                    "en": "— The Midnight Sapphire is missing from the safe. What did you do this morning?",
+                    "ru": "— Полуночный Сапфир пропал из сейфа. Что вы делали этим утром?"
+                },
+                {
+                    "speaker": "arthur",
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3.5st\">— Oh no! <break time=\"300ms\"/> That is very bad news! <break time=\"300ms\"/> I woke up early at five o'clock.</prosody></speak>",
+                    "en": "— Oh no! That is very bad news! I woke up early at five o'clock.",
+                    "ru": "— О нет! Это очень плохие новости! Я проснулся рано, в пять часов утра."
+                },
+                {
+                    "speaker": "arthur",
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3.5st\">— I came to the garden at six o'clock. <break time=\"300ms\"/> I put water on the yellow and red flowers.</prosody></speak>",
+                    "en": "— I came to the garden at six o'clock. I put water on the yellow and red flowers.",
+                    "ru": "— Я пришел в сад в шесть часов. Я полил желтые и красные цветы."
+                },
+                {
+                    "speaker": "mia",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Did you see or hear anyone near the house this morning?</prosody></speak>",
+                    "en": "— Did you see or hear anyone near the house this morning?",
+                    "ru": "— Вы видели или слышали кого-нибудь возле дома этим утром?"
+                },
+                {
+                    "speaker": "arthur",
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3.5st\">— Yes, Miss! <break time=\"300ms\"/> At quarter to seven, I heard a loud sound near the front gate.</prosody></speak>",
+                    "en": "— Yes, Miss! At quarter to seven, I heard a loud sound near the front gate.",
+                    "ru": "— Да, мисс! Без четверти семь я услышал громкий звук возле главных ворот."
+                },
+                {
+                    "speaker": "arthur",
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3.5st\">— I heard a fast motorcycle. <break time=\"300ms\"/> But I did not see the driver.</prosody></speak>",
+                    "en": "— I heard a fast motorcycle. But I did not see the driver.",
+                    "ru": "— Я услышал быстрый мотоцикл. Но водителя я не видел."
+                },
+                {
+                    "speaker": "toby",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Look at the floor near the shed door, Leo!</prosody></speak>",
+                    "en": "— Look at the floor near the shed door, Leo!",
+                    "ru": "— Посмотри на пол возле двери сарая, Лео!"
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Toby points at a pair of big black boots. <break time=\"300ms\"/> The boots are wet and have dark mud on them.</prosody></speak>",
+                    "en": "Toby points at a pair of big black boots. The boots are wet and have dark mud on them.",
+                    "ru": "Тоби указывает на пару больших черных сапог. Сапоги мокрые и в темной грязи."
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Arthur, are these your boots?</prosody></speak>",
+                    "en": "— Arthur, are these your boots?",
+                    "ru": "— Артур, это ваши сапоги?"
+                },
+                {
+                    "speaker": "arthur",
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3.5st\">— No, Detective! <break time=\"300ms\"/> My boots are brown and clean under my chair. <break time=\"300ms\"/> Those black boots are not mine!</prosody></speak>",
+                    "en": "— No, Detective! My boots are brown and clean under my chair. Those black boots are not mine!",
+                    "ru": "— Нет, детектив! Мои сапоги коричневые и чистые под моим стулом. Те черные сапоги не мои!"
+                },
+                {
+                    "speaker": "mia",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— These black boots are the same size as the muddy footprint in the study room!</prosody></speak>",
+                    "en": "— These black boots are the same size as the muddy footprint in the study room!",
+                    "ru": "— Эти черные сапоги того же размера, что и след ноги в кабинете!"
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Barnaby the dog calls near the door. <break time=\"300ms\"/> Woof! <break time=\"300ms\"/> Woof! <break time=\"300ms\"/> He touches a small piece of blue paper in the grass.</prosody></speak>",
+                    "en": "Barnaby the dog calls near the door. Woof! Woof! He touches a small piece of blue paper in the grass.",
+                    "ru": "Пес Барнаби подает голос у двери. Гав! Гав! Он трогает лапой маленький кусочек синей бумаги в траве."
+                },
+                {
+                    "speaker": "toby",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Look! <break time=\"300ms\"/> Barnaby found something in the wet grass!</prosody></speak>",
+                    "en": "— Look! Barnaby found something in the wet grass!",
+                    "ru": "— Смотрите! Барнаби нашел что-то в мокрой траве!"
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Good boy, Barnaby! <break time=\"300ms\"/> It is a blue city bus ticket with today's date!</prosody></speak>",
+                    "en": "— Good boy, Barnaby! It is a blue city bus ticket with today's date!",
+                    "ru": "— Молодец, Барнаби! Это синий городской автобусный билет с сегодняшней датой!"
+                },
+                {
+                    "speaker": "mia",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— A bus ticket from the Central Station! <break time=\"300ms\"/> The thief dropped it right here!</prosody></speak>",
+                    "en": "— A bus ticket from the Central Station! The thief dropped it right here!",
+                    "ru": "— Автобусный билет от Центрального вокзала! Вор обронил его прямо здесь!"
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo puts the blue ticket into a clean plastic bag. <break time=\"300ms\"/> The clues help our search!</prosody></speak>",
+                    "en": "Leo puts the blue ticket into a clean plastic bag. The clues help our search!",
+                    "ru": "Лео кладет синий билет в чистый пластиковый пакет. Улики помогают нашим поискам!"
+                }
+            ],
+            "quiz": [
+                {
+                    "question": "Where did the footprints in the garden lead?",
+                    "options": [
+                        "To the river",
+                        "Straight to the small wooden garden shed",
+                        "To the Central Station",
+                        "Back to the green car"
+                    ],
+                    "correctIdx": 1
+                },
+                {
+                    "question": "What loud sound did Arthur the garden worker hear at quarter to seven?",
+                    "options": [
+                        "A fast motorcycle near the front gate",
+                        "A telephone ringing in the office",
+                        "A dog barking in the park",
+                        "A clock in the tower"
+                    ],
+                    "correctIdx": 0
+                },
+                {
+                    "question": "What important clue did Barnaby find in the wet grass near the shed?",
+                    "options": [
+                        "A silver key",
+                        "A blue city bus ticket with today's date",
+                        "A pair of green gloves",
+                        "A gold coin"
+                    ],
+                    "correctIdx": 1
+                }
+            ]
         }
     ]
 };
