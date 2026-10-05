@@ -708,8 +708,70 @@ class NewWordsStudyEngine {
 
         // Transfer newly mastered words directly into Flashcard SRS Deck!
         this.transferToSRS(batch);
+        this.syncAllMasteredToSRS();
 
         this.renderBatchCelebration();
+    }
+
+    // Sync all mastered words to Flashcard SRS engine
+    syncAllMasteredToSRS() {
+        if (typeof window === 'undefined' || typeof window.flashcardEngine === 'undefined') return;
+
+        const fe = window.flashcardEngine;
+        const deckName = "🔍 Новые слова (Детектив)";
+        if (!fe.decks[deckName]) {
+            fe.decks[deckName] = [];
+        }
+
+        const deck = fe.decks[deckName];
+        const masteredIds = new Set(this.state.masteredWordIds || []);
+
+        (this.state.completedBatches || []).forEach(bIdx => {
+            const b = this.batches[bIdx];
+            if (b) b.forEach(w => masteredIds.add(w.id));
+        });
+
+        let changed = false;
+        this.database.forEach(w => {
+            if (masteredIds.has(w.id)) {
+                const existing = deck.find(c => c.word && c.word.toLowerCase() === w.word.toLowerCase());
+                if (!existing) {
+                    deck.push({
+                        word: w.word,
+                        phonetic: w.phonetic,
+                        translation: w.translation,
+                        definition: "Новые слова • Детективные расследования A1",
+                        example: w.exampleEn,
+                        heroId: "detective",
+                        rating: 3,
+                        interval: 1,
+                        easeFactor: 2.5,
+                        repetitions: 1,
+                        nextReviewDate: Date.now() + 24 * 3600 * 1000,
+                        studied: true,
+                        learningInSession: false
+                    });
+                    changed = true;
+                } else {
+                    if (!existing.studied) {
+                        existing.studied = true;
+                        changed = true;
+                    }
+                    if (!existing.nextReviewDate || existing.nextReviewDate === 0) {
+                        existing.nextReviewDate = Date.now() + 24 * 3600 * 1000;
+                        changed = true;
+                    }
+                }
+            }
+        });
+
+        if (changed) {
+            fe.saveDecks();
+            fe.refreshDueCards();
+            if (typeof window.updateVocabUI === 'function') {
+                window.updateVocabUI();
+            }
+        }
     }
 
     // Transfer completed words to Flashcard SRS engine
@@ -746,6 +808,9 @@ class NewWordsStudyEngine {
                 addedCount++;
             } else {
                 existing.studied = true;
+                if (!existing.nextReviewDate || existing.nextReviewDate === 0) {
+                    existing.nextReviewDate = Date.now() + 24 * 3600 * 1000;
+                }
             }
         });
 
@@ -1350,6 +1415,7 @@ class NewWordsStudyEngine {
         const modal = document.getElementById("modal-new-words-study");
         if (!modal) return;
         this.initModalEvents();
+        this.syncAllMasteredToSRS();
         this.showHub();
         if (window.voiceService && typeof window.voiceService.preloadWordAudios === 'function') {
             const currentBatchWords = (this.batches[this.currentBatchIdx || 0] || []).map(w => w.word);
@@ -1367,6 +1433,16 @@ class NewWordsStudyEngine {
 
 // Global initialization
 window.newWordsStudyEngine = new NewWordsStudyEngine();
+
+if (typeof window !== 'undefined' && typeof window.addEventListener === 'function') {
+    window.addEventListener('DOMContentLoaded', () => {
+        try {
+            if (window.newWordsStudyEngine) {
+                window.newWordsStudyEngine.syncAllMasteredToSRS();
+            }
+        } catch(e) {}
+    });
+}
 
 window.openNewWordsStudyModal = function() {
     if (window.newWordsStudyEngine) {

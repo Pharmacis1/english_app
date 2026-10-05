@@ -213,6 +213,53 @@ class FlashcardEngine {
             } catch(e) {}
         }
 
+        // Auto-sync all mastered detective study words into deck
+        try {
+            const rawNws = localStorage.getItem("english_pulse_new_words_study_v1");
+            if (rawNws && typeof NEW_WORDS_DATABASE !== 'undefined' && Array.isArray(NEW_WORDS_DATABASE)) {
+                const parsedNws = JSON.parse(rawNws);
+                const masteredIds = new Set(parsedNws.masteredWordIds || []);
+                if (Array.isArray(parsedNws.completedBatches)) {
+                    parsedNws.completedBatches.forEach(bIdx => {
+                        const start = bIdx * 5;
+                        const end = start + 5;
+                        NEW_WORDS_DATABASE.slice(start, end).forEach(w => masteredIds.add(w.id));
+                    });
+                }
+                const deckName = "🔍 Новые слова (Детектив)";
+                if (!decks[deckName]) decks[deckName] = [];
+                const deck = decks[deckName];
+
+                NEW_WORDS_DATABASE.forEach(w => {
+                    if (masteredIds.has(w.id)) {
+                        const existing = deck.find(c => c.word && c.word.toLowerCase() === w.word.toLowerCase());
+                        if (!existing) {
+                            deck.push({
+                                word: w.word,
+                                phonetic: w.phonetic,
+                                translation: w.translation,
+                                definition: "Новые слова • Детективные расследования A1",
+                                example: w.exampleEn,
+                                heroId: "detective",
+                                rating: 3,
+                                interval: 1,
+                                easeFactor: 2.5,
+                                repetitions: 1,
+                                nextReviewDate: Date.now() + 24 * 3600 * 1000,
+                                studied: true,
+                                learningInSession: false
+                            });
+                        } else {
+                            existing.studied = true;
+                            if (!existing.nextReviewDate || existing.nextReviewDate === 0) {
+                                existing.nextReviewDate = Date.now() + 24 * 3600 * 1000;
+                            }
+                        }
+                    }
+                });
+            }
+        } catch(e) {}
+
         if (this.currentCategory === "🧠 Due for SRS Review" && this.decks && Array.isArray(this.decks["🧠 Due for SRS Review"]) && this.decks["🧠 Due for SRS Review"].length > 0) {
             decks["🧠 Due for SRS Review"] = this.decks["🧠 Due for SRS Review"];
         } else {
