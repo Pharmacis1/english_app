@@ -74,6 +74,11 @@ const CAST = {
         voice: 'en-US-Neural2-J', // Mr. Jenkins (ticket inspector, mature, clear)
         pitch: '-3st',
         rate: '0.88'
+    },
+    julian: {
+        voice: 'en-US-Neural2-I', // Julian (young frightened man, higher pitch than Leo)
+        pitch: '+2st',
+        rate: '1.0'
     }
 };
 
