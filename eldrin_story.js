@@ -1422,6 +1422,276 @@ const ELDRIN_AUDIOBOOK = {
                     "correctIdx": 2
                 }
             ]
+        },
+        {
+            "id": "det-ch-6",
+            "number": 6,
+            "act": 1,
+            "titleEn": "Episode 6: The Central Train Station & The Ticket Inspector",
+            "titleRu": "Серия 6: Центральный вокзал и контролёр билетов",
+            "synopsisEn": "The detectives rush to the Central Train Station. Ticket Inspector Mr. Jenkins confirms the suspect bought a ticket to London, but the train is late. Barnaby discovers a note on a cafe table pointing to Platform 2.",
+            "synopsisRu": "Детективы спешат на Центральный вокзал. Контролер мистер Дженкинс подтверждает, что подозреваемый купил билет до Лондона, но поезд опаздывает. Барнаби находит записку на столике кафе, указывающую на Платформу 2.",
+            "wordCount": 368,
+            "targetLevel": "A0 - A1",
+            "audiobookCover": "assets/backgrounds/detective_city.jpg",
+            "sentences": [
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Detective Leo, Mia, Toby, and Barnaby arrive at the Central Train Station.</prosody></speak>",
+                    "en": "Detective Leo, Mia, Toby, and Barnaby arrive at the Central Train Station.",
+                    "ru": "Детектив Лео, Миа, Тоби и Барнаби прибывают на Центральный железнодорожный вокзал."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The station is very big and old. <break time=\"300ms\"/> The clock on the wall shows half past seven.</prosody></speak>",
+                    "en": "The station is very big and old. The clock on the wall shows half past seven.",
+                    "ru": "Вокзал очень большой и старый. Часы на стене показывают половину восьмого."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Many people walk quickly with heavy bags and suitcases.</prosody></speak>",
+                    "en": "Many people walk quickly with heavy bags and suitcases.",
+                    "ru": "Многие люди быстро идут с тяжелыми сумками и чемоданами."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Trains arrive and leave. <break time=\"300ms\"/> We hear loud train sounds in the station.</prosody></speak>",
+                    "en": "Trains arrive and leave. We hear loud train sounds in the station.",
+                    "ru": "Поезда прибывают и отправляются. На вокзале слышны громкие звуки поездов."
+                },
+                {
+                    "speaker": "toby",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Look at the big clock, Leo! <break time=\"300ms\"/> The London train leaves at eight o'clock!</prosody></speak>",
+                    "en": "— Look at the big clock, Leo! The London train leaves at eight o'clock!",
+                    "ru": "— Посмотри на большие часы, Лео! Лондонский поезд отправляется в восемь часов!"
+                },
+                {
+                    "speaker": "mia",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— We have thirty minutes. <break time=\"300ms\"/> We need to find Platform 2 now!</prosody></speak>",
+                    "en": "— We have thirty minutes. We need to find Platform 2 now!",
+                    "ru": "— У нас есть тридцать минут. Нам нужно найти Платформу 2 прямо сейчас!"
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The team walks to the ticket gates. <break time=\"300ms\"/> A man in a dark blue uniform stands near Platform 2.</prosody></speak>",
+                    "en": "The team walks to the ticket gates. A man in a dark blue uniform stands near Platform 2.",
+                    "ru": "Команда идет к турникетам. Мужчина в темно-синей форме стоит возле Платформы 2."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He checks the tickets of the people. <break time=\"300ms\"/> His name is Mr. <break time=\"300ms\"/> Jenkins.</prosody></speak>",
+                    "en": "He checks the tickets of the people. His name is Mr. Jenkins.",
+                    "ru": "Он проверяет билеты людей. Его зовут мистер Дженкинс."
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Excuse me, sir! <break time=\"300ms\"/> We are detectives from the New Haven police.</prosody></speak>",
+                    "en": "— Excuse me, sir! We are detectives from the New Haven police.",
+                    "ru": "— Простите, сэр! Мы детективы из полиции Нью-Хейвена."
+                },
+                {
+                    "speaker": "jenkins",
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">— Good morning, detectives! <break time=\"300ms\"/> How can I help you?</prosody></speak>",
+                    "en": "— Good morning, detectives! How can I help you?",
+                    "ru": "— Доброе утро, детективы! Чем я могу вам помочь?"
+                },
+                {
+                    "speaker": "mia",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— We are looking for a tall man in a dark grey coat and a black hat. <break time=\"300ms\"/> He has a heavy suitcase.</prosody></speak>",
+                    "en": "— We are looking for a tall man in a dark grey coat and a black hat. He has a heavy suitcase.",
+                    "ru": "— Мы ищем высокого мужчину в темно-сером пальто и черной шляпе. У него тяжелый чемодан."
+                },
+                {
+                    "speaker": "jenkins",
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">— Ah, yes! <break time=\"300ms\"/> I remember him very well!</prosody></speak>",
+                    "en": "— Ah, yes! I remember him very well!",
+                    "ru": "— А, да! Я его очень хорошо помню!"
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Did he buy a ticket for the eight o'clock train to London?</prosody></speak>",
+                    "en": "— Did he buy a ticket for the eight o'clock train to London?",
+                    "ru": "— Он покупал билет на восьмичасовой поезд в Лондон?"
+                },
+                {
+                    "speaker": "jenkins",
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">— Yes, he did! <break time=\"300ms\"/> He came to the ticket window at quarter past seven.</prosody></speak>",
+                    "en": "— Yes, he did! He came to the ticket window at quarter past seven.",
+                    "ru": "— Да! Он подошел к кассе в четверть восьмого."
+                },
+                {
+                    "speaker": "jenkins",
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">— He wanted a ticket to London. <break time=\"300ms\"/> He gave me new paper money.</prosody></speak>",
+                    "en": "— He wanted a ticket to London. He gave me new paper money.",
+                    "ru": "— Он хотел билет в Лондон. Он дал мне новые бумажные деньги."
+                },
+                {
+                    "speaker": "toby",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Did you see anything strange, Mr. <break time=\"300ms\"/> Jenkins?</prosody></speak>",
+                    "en": "— Did you see anything strange, Mr. Jenkins?",
+                    "ru": "— Вы видели что-нибудь странное, мистер Дженкинс?"
+                },
+                {
+                    "speaker": "jenkins",
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">— Yes, young boy! <break time=\"300ms\"/> He was in a big hurry. <break time=\"300ms\"/> He looked at his watch many times.</prosody></speak>",
+                    "en": "— Yes, young boy! He was in a big hurry. He looked at his watch many times.",
+                    "ru": "— Да, молодой человек! Он очень спешил. Он много раз смотрел на свои часы."
+                },
+                {
+                    "speaker": "jenkins",
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">— He wore a black hat and dark glasses in the station.</prosody></speak>",
+                    "en": "— He wore a black hat and dark glasses in the station.",
+                    "ru": "— На нем была черная шляпа и темные очки на вокзале."
+                },
+                {
+                    "speaker": "mia",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Where does the London train leave?</prosody></speak>",
+                    "en": "— Where does the London train leave?",
+                    "ru": "— Откуда отправляется лондонский поезд?"
+                },
+                {
+                    "speaker": "jenkins",
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">— It leaves from Platform 2, right behind these gates.</prosody></speak>",
+                    "en": "— It leaves from Platform 2, right behind these gates.",
+                    "ru": "— Он отправляется с Платформы 2, прямо за этими турникетами."
+                },
+                {
+                    "speaker": "jenkins",
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">— But today the train is late. <break time=\"300ms\"/> It leaves at ten past eight.</prosody></speak>",
+                    "en": "— But today the train is late. It leaves at ten past eight.",
+                    "ru": "— Но сегодня поезд опаздывает. Он отправляется в десять минут девятого."
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— So the man is still in the station now!</prosody></speak>",
+                    "en": "— So the man is still in the station now!",
+                    "ru": "— Значит, этот человек все еще на вокзале!"
+                },
+                {
+                    "speaker": "jenkins",
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">— Yes! <break time=\"300ms\"/> He went to the station cafe near Platform 2. <break time=\"300ms\"/> He wanted hot coffee.</prosody></speak>",
+                    "en": "— Yes! He went to the station cafe near Platform 2. He wanted hot coffee.",
+                    "ru": "— Да! Он пошел в привокзальное кафе возле Платформы 2. Он хотел горячего кофе."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Then Barnaby runs to a table near the cafe door.</prosody></speak>",
+                    "en": "Then Barnaby runs to a table near the cafe door.",
+                    "ru": "Затем Барнаби бежит к столику возле двери кафе."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">On the table, there is an empty paper cup and a small newspaper.</prosody></speak>",
+                    "en": "On the table, there is an empty paper cup and a small newspaper.",
+                    "ru": "На столе стоит пустой бумажный стаканчик и лежит маленькая газета."
+                },
+                {
+                    "speaker": "toby",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Good boy, Barnaby! <break time=\"300ms\"/> Look, Mia! <break time=\"300ms\"/> There is a note in the newspaper!</prosody></speak>",
+                    "en": "— Good boy, Barnaby! Look, Mia! There is a note in the newspaper!",
+                    "ru": "— Молодец, Барнаби! Смотри, Миа! В газете есть записка!"
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Leo reads the note: \"Platform 2, eight o'clock. <break time=\"300ms\"/> Bring the blue stone to London.\"</prosody></speak>",
+                    "en": "— Leo reads the note: \"Platform 2, eight o'clock. Bring the blue stone to London.\"",
+                    "ru": "— Лео читает записку: «Платформа 2, восемь часов. Привези синий камень в Лондон»."
+                },
+                {
+                    "speaker": "mia",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— That is our thief! <break time=\"300ms\"/> He is near the train now!</prosody></speak>",
+                    "en": "— That is our thief! He is near the train now!",
+                    "ru": "— Это наш вор! Сейчас он возле поезда!"
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Thank you, Mr. <break time=\"300ms\"/> Jenkins! <break time=\"300ms\"/> Please tell the station guards, but be quiet.</prosody></speak>",
+                    "en": "— Thank you, Mr. Jenkins! Please tell the station guards, but be quiet.",
+                    "ru": "— Спасибо, мистер Дженкинс! Пожалуйста, скажите охране вокзала, но тихо."
+                },
+                {
+                    "speaker": "jenkins",
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">— Yes, Detective Leo! <break time=\"300ms\"/> Go and find him!</prosody></speak>",
+                    "en": "— Yes, Detective Leo! Go and find him!",
+                    "ru": "— Да, детектив Лео! Идите и найдите его!"
+                },
+                {
+                    "speaker": "toby",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Come on, Barnaby! <break time=\"300ms\"/> Let's find him now!</prosody></speak>",
+                    "en": "— Come on, Barnaby! Let's find him now!",
+                    "ru": "— Вперед, Барнаби! Давай найдем его прямо сейчас!"
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The detectives walk quietly to Platform 2. <break time=\"300ms\"/> The thief is very close!</prosody></speak>",
+                    "en": "The detectives walk quietly to Platform 2. The thief is very close!",
+                    "ru": "Детективы тихо идут к Платформе 2. Вор совсем близко!"
+                }
+            ],
+            "quiz": [
+                {
+                    "question": "What time does the clock on the wall show when the detectives arrive?",
+                    "options": [
+                        "Half past seven (7:30 AM)",
+                        "Quarter to seven",
+                        "Nine o'clock",
+                        "Midnight"
+                    ],
+                    "correctIdx": 0
+                },
+                {
+                    "question": "What did Mr. Jenkins say about the London train?",
+                    "options": [
+                        "It already left the station",
+                        "It is late and leaves at ten past eight (8:10 AM)",
+                        "It is cancelled today",
+                        "It leaves from Platform 5"
+                    ],
+                    "correctIdx": 1
+                },
+                {
+                    "question": "What did Barnaby find on the table near the station cafe?",
+                    "options": [
+                        "A silver key",
+                        "A black hat and coat",
+                        "An empty paper cup and a newspaper with a secret note",
+                        "A blue telephone"
+                    ],
+                    "correctIdx": 2
+                }
+            ]
         }
     ]
 };

@@ -69,6 +69,11 @@ const CAST = {
         voice: 'en-US-Neural2-A', // Victor the motorcycle courier
         pitch: '+1st',
         rate: '0.98'
+    },
+    jenkins: {
+        voice: 'en-US-Neural2-J', // Mr. Jenkins (ticket inspector, mature, clear)
+        pitch: '-3st',
+        rate: '0.88'
     }
 };
 
