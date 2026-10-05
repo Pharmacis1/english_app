@@ -1138,6 +1138,290 @@ const ELDRIN_AUDIOBOOK = {
                     "correctIdx": 1
                 }
             ]
+        },
+        {
+            "id": "det-ch-5",
+            "number": 5,
+            "act": 1,
+            "titleEn": "Episode 5: The City Market & The Yellow Jacket",
+            "titleRu": "Серия 5: Городской рынок и жёлтая куртка",
+            "synopsisEn": "The detectives track down Victor the motorcycle courier at the lively City Market. Victor gives valuable testimony: at ten to seven, he saw a suspicious tall man carrying a heavy suitcase toward the Central Train Station.",
+            "synopsisRu": "Детективы находят курьера Виктора на оживленном Городском рынке. Виктор делится ценными показаниями: без десяти семь он видел подозрительного высокого мужчину с тяжелым чемоданом, направлявшегося к Центральному вокзалу.",
+            "wordCount": 480,
+            "targetLevel": "A0 - A1",
+            "audiobookCover": "assets/backgrounds/detective_city.jpg",
+            "sentences": [
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Detective Leo, Mia, Toby, and Barnaby arrive at the busy City Market.</prosody></speak>",
+                    "en": "Detective Leo, Mia, Toby, and Barnaby arrive at the busy City Market.",
+                    "ru": "Детектив Лео, Миа, Тоби и Барнаби прибывают на оживленный Городской рынок."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The morning sun is bright in the blue sky. <break time=\"300ms\"/> The large market square is full of people, colors, and sounds.</prosody></speak>",
+                    "en": "The morning sun is bright in the blue sky. The large market square is full of people, colors, and sounds.",
+                    "ru": "Утреннее солнце ярко светит в синем небе. Большая рыночная площадь полна людей, красок и звуков."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Farmers and sellers sell fresh red apples, yellow bananas, green vegetables, and sweet bread.</prosody></speak>",
+                    "en": "Farmers and sellers sell fresh red apples, yellow bananas, green vegetables, and sweet bread.",
+                    "ru": "Фермеры и продавцы продают свежие красные яблоки, желтые бананы, зеленые овощи и сладкий хлеб."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Toby looks around the crowded market. <break time=\"300ms\"/> He points to a corner near the fruit stand.</prosody></speak>",
+                    "en": "Toby looks around the crowded market. He points to a corner near the fruit stand.",
+                    "ru": "Тоби оглядывает переполненный рынок. Он указывает на угол возле фруктового прилавка."
+                },
+                {
+                    "speaker": "toby",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Look, Leo! <break time=\"300ms\"/> There is a fast black motorcycle parked next to the orange boxes!</prosody></speak>",
+                    "en": "— Look, Leo! There is a fast black motorcycle parked next to the orange boxes!",
+                    "ru": "— Смотри, Лео! Рядом с ящиками апельсинов припаркован быстрый черный мотоцикл!"
+                },
+                {
+                    "speaker": "mia",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— And look at the young man standing near it! <break time=\"300ms\"/> He is wearing a bright yellow jacket and a dark helmet!</prosody></speak>",
+                    "en": "— And look at the young man standing near it! He is wearing a bright yellow jacket and a dark helmet!",
+                    "ru": "— И посмотри на молодого человека, стоящего рядом с ним! На нем яркая желтая куртка и темный шлем!"
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The detective team walks across the noisy market square to the motorcycle.</prosody></speak>",
+                    "en": "The detective team walks across the noisy market square to the motorcycle.",
+                    "ru": "Команда детективов идет через шумную рыночную площадь к мотоциклу."
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Good morning! <break time=\"300ms\"/> Are you Victor, the delivery courier?</prosody></speak>",
+                    "en": "— Good morning! Are you Victor, the delivery courier?",
+                    "ru": "— Доброе утро! Вы Виктор, курьер службы доставки?"
+                },
+                {
+                    "speaker": "victor",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">— Yes, sir! <break time=\"300ms\"/> I am Victor. <break time=\"300ms\"/> I deliver fresh food from the City Market to hotels, cafes, and houses.</prosody></speak>",
+                    "en": "— Yes, sir! I am Victor. I deliver fresh food from the City Market to hotels, cafes, and houses.",
+                    "ru": "— Да, сэр! Я Виктор. Я доставляю свежую еду с Городского рынка в отели, кафе и дома."
+                },
+                {
+                    "speaker": "mia",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— We are detectives from the New Haven police. <break time=\"300ms\"/> We are asking about your morning delivery to Blackwood House.</prosody></speak>",
+                    "en": "— We are detectives from the New Haven police. We are asking about your morning delivery to Blackwood House.",
+                    "ru": "— Мы детективы из полиции Нью-Хейвена. Мы расспрашиваем о вашей утренней доставке в Блэквуд-Хаус."
+                },
+                {
+                    "speaker": "victor",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">— Oh! <break time=\"300ms\"/> The big old house on the hill? <break time=\"300ms\"/> I was there this morning!</prosody></speak>",
+                    "en": "— Oh! The big old house on the hill? I was there this morning!",
+                    "ru": "— О! Большой старый дом на холме? Я был там сегодня утром!"
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Tell us about your delivery route, Victor. <break time=\"300ms\"/> What time did you leave the market?</prosody></speak>",
+                    "en": "— Tell us about your delivery route, Victor. What time did you leave the market?",
+                    "ru": "— Расскажите нам о вашем маршруте доставки, Виктор. Во сколько вы выехали с рынка?"
+                },
+                {
+                    "speaker": "victor",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">— I loaded my food boxes and left the market at half past six on my fast motorcycle.</prosody></speak>",
+                    "en": "— I loaded my food boxes and left the market at half past six on my fast motorcycle.",
+                    "ru": "— Я загрузил коробки с едой и выехал с рынка в половине седьмого на своем быстром мотоцикле."
+                },
+                {
+                    "speaker": "victor",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">— The morning roads were very quiet and empty.</prosody></speak>",
+                    "en": "— The morning roads were very quiet and empty.",
+                    "ru": "— Утренние дороги были очень тихими и пустыми."
+                },
+                {
+                    "speaker": "mia",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— And what time did you arrive at Blackwood House?</prosody></speak>",
+                    "en": "— And what time did you arrive at Blackwood House?",
+                    "ru": "— А во сколько вы прибыли в Блэквуд-Хаус?"
+                },
+                {
+                    "speaker": "victor",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">— I arrived at the kitchen back door at quarter to seven.</prosody></speak>",
+                    "en": "— I arrived at the kitchen back door at quarter to seven.",
+                    "ru": "— Я прибыл к задней двери кухни без четверти семь."
+                },
+                {
+                    "speaker": "victor",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">— I carried a heavy box of milk, butter, and vegetables. <break time=\"300ms\"/> Claire the cook signed my paper receipt.</prosody></speak>",
+                    "en": "— I carried a heavy box of milk, butter, and vegetables. Claire the cook signed my paper receipt.",
+                    "ru": "— Я нес тяжелую коробку с молоком, маслом и овощами. Повар Клэр подписала мою бумажную квитанцию."
+                },
+                {
+                    "speaker": "toby",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Did you see anyone strange near the garden or the estate gates?</prosody></speak>",
+                    "en": "— Did you see anyone strange near the garden or the estate gates?",
+                    "ru": "— Вы видели кого-нибудь странного возле сада или ворот поместья?"
+                },
+                {
+                    "speaker": "victor",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">— Yes, actually! <break time=\"300ms\"/> When I rode away on my motorcycle at ten to seven, I saw a tall man near the North Gate.</prosody></speak>",
+                    "en": "— Yes, actually! When I rode away on my motorcycle at ten to seven, I saw a tall man near the North Gate.",
+                    "ru": "— Да, вообще-то! Когда я уезжал на мотоцикле без десяти семь, я увидел высокого мужчину возле Северных ворот."
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— What was he wearing? <break time=\"300ms\"/> Can you describe him?</prosody></speak>",
+                    "en": "— What was he wearing? Can you describe him?",
+                    "ru": "— Во что он был одет? Вы можете его описать?"
+                },
+                {
+                    "speaker": "victor",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">— He wore a dark grey coat and a black hat. <break time=\"300ms\"/> He carried a heavy brown suitcase.</prosody></speak>",
+                    "en": "— He wore a dark grey coat and a black hat. He carried a heavy brown suitcase.",
+                    "ru": "— На нем было темно-серое пальто и черная шляпа. Он нес тяжелый коричневый чемодан."
+                },
+                {
+                    "speaker": "victor",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">— He was in a big hurry. <break time=\"300ms\"/> He walked very fast down Oak Street toward the Central Train Station!</prosody></speak>",
+                    "en": "— He was in a big hurry. He walked very fast down Oak Street toward the Central Train Station!",
+                    "ru": "— Он очень спешил. Он быстро шел по Оук-стрит в сторону Центрального железнодорожного вокзала!"
+                },
+                {
+                    "speaker": "mia",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— The Central Train Station? <break time=\"300ms\"/> That connects directly with the blue bus ticket Barnaby found!</prosody></speak>",
+                    "en": "— The Central Train Station? That connects directly with the blue bus ticket Barnaby found!",
+                    "ru": "— Центральный вокзал? Это напрямую сходится с синим автобусным билетом, который нашел Барнаби!"
+                },
+                {
+                    "speaker": "toby",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Did you see the man's face, Victor?</prosody></speak>",
+                    "en": "— Did you see the man's face, Victor?",
+                    "ru": "— Вы видели лицо этого человека, Виктор?"
+                },
+                {
+                    "speaker": "victor",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">— No, his dark hat was low over his eyes. <break time=\"300ms\"/> But he dropped a small white paper on the wet pavement!</prosody></speak>",
+                    "en": "— No, his dark hat was low over his eyes. But he dropped a small white paper on the wet pavement!",
+                    "ru": "— Нет, его темная шляпа была надвинута низко на глаза. Но он обронил маленькую белую бумажку на мокрый тротуар!"
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Victor opens his yellow jacket and takes a folded paper from his pocket.</prosody></speak>",
+                    "en": "Victor opens his yellow jacket and takes a folded paper from his pocket.",
+                    "ru": "Виктор расстегивает желтую куртку и достает сложенную бумагу из кармана."
+                },
+                {
+                    "speaker": "victor",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">— I stopped my motorcycle and picked it up from the street. <break time=\"300ms\"/> Here, detectives! <break time=\"300ms\"/> You can have it.</prosody></speak>",
+                    "en": "— I stopped my motorcycle and picked it up from the street. Here, detectives! You can have it.",
+                    "ru": "— Я остановил мотоцикл и поднял ее с улицы. Вот, детективы! Возьмите ее себе."
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Look at this paper! <break time=\"300ms\"/> It is an official train schedule for the eight o'clock express train to London!</prosody></speak>",
+                    "en": "— Look at this paper! It is an official train schedule for the eight o'clock express train to London!",
+                    "ru": "— Посмотрите на эту бумагу! Это официальное расписание на 8-часовой экспресс-поезд в Лондон!"
+                },
+                {
+                    "speaker": "mia",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Mia looks at her wristwatch. <break time=\"300ms\"/> It is already twenty past seven! <break time=\"300ms\"/> The train leaves in forty minutes!</prosody></speak>",
+                    "en": "— Mia looks at her wristwatch. It is already twenty past seven! The train leaves in forty minutes!",
+                    "ru": "— Миа смотрит на свои наручные часы. Уже двадцать минут восьмого! Поезд отходит через сорок минут!"
+                },
+                {
+                    "speaker": "mia",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— The suspect is trying to escape from the city with the Midnight Sapphire!</prosody></speak>",
+                    "en": "— The suspect is trying to escape from the city with the Midnight Sapphire!",
+                    "ru": "— Подозреваемый пытается сбежать из города с Полуночным Сапфиром!"
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Thank you very much, Victor! <break time=\"300ms\"/> Your answers are excellent and very helpful.</prosody></speak>",
+                    "en": "— Thank you very much, Victor! Your answers are excellent and very helpful.",
+                    "ru": "— Большое спасибо, Виктор! Ваши ответы великолепны и очень полезны."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo puts the train schedule into his plastic evidence bag.</prosody></speak>",
+                    "en": "Leo puts the train schedule into his plastic evidence bag.",
+                    "ru": "Лео кладет расписание поездов в свой пластиковый пакет для улик."
+                },
+                {
+                    "speaker": "toby",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Come on, Barnaby! <break time=\"300ms\"/> Run to the Central Train Station!</prosody></speak>",
+                    "en": "— Come on, Barnaby! Run to the Central Train Station!",
+                    "ru": "— Вперед, Барнаби! Бежим на Центральный вокзал!"
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The detectives rush through the busy streets. <break time=\"300ms\"/> The chase across New Haven is on!</prosody></speak>",
+                    "en": "The detectives rush through the busy streets. The chase across New Haven is on!",
+                    "ru": "Детективы мчатся по оживленным улицам. Погоня по Нью-Хейвену началась!"
+                }
+            ],
+            "quiz": [
+                {
+                    "question": "Who did the detectives find near the fruit stand at the City Market?",
+                    "options": [
+                        "Victor the motorcycle courier in a bright yellow jacket",
+                        "Arthur the gardener buying flowers",
+                        "Officer Harris eating lunch",
+                        "Dr. Hayes drinking morning tea"
+                    ],
+                    "correctIdx": 0
+                },
+                {
+                    "question": "What did Victor see near the North Gate when he left the house at 6:50 AM?",
+                    "options": [
+                        "A barking dog in the park",
+                        "A tall man in a dark coat and hat walking fast toward the Central Train Station with a heavy suitcase",
+                        "A broken car on the road",
+                        "A police officer on a bicycle"
+                    ],
+                    "correctIdx": 1
+                },
+                {
+                    "question": "What important clue did Victor pick up from the street and give to the detectives?",
+                    "options": [
+                        "A silver key from the safe",
+                        "A blue telephone card",
+                        "An official train schedule for the 8:00 AM express train to London",
+                        "A box of fresh apples"
+                    ],
+                    "correctIdx": 2
+                }
+            ]
         }
     ]
 };
