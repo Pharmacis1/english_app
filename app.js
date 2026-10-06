@@ -10582,6 +10582,24 @@ document.addEventListener("DOMContentLoaded", () => {
                     speakerBadge = `<span class="badge" style="background:rgba(249,115,22,0.25); color:#fb923c; font-size:11px; border:1px solid rgba(249,115,22,0.5);"><i class="fa-solid fa-utensils"></i> Шеф-повар</span>`;
                 } else if (sent.speaker === 'toby') {
                     speakerBadge = `<span class="badge" style="background:rgba(16,185,129,0.25); color:#34d399; font-size:11px; border:1px solid rgba(16,185,129,0.5);"><i class="fa-solid fa-graduation-cap"></i> Тоби (ученик)</span>`;
+                } else if (sent.speaker === 'harris') {
+                    speakerBadge = `<span class="badge" style="background:rgba(59,130,246,0.25); color:#60a5fa; font-size:11px; border:1px solid rgba(59,130,246,0.5);"><i class="fa-solid fa-user-shield"></i> Офицер Харрис</span>`;
+                } else if (sent.speaker === 'mia') {
+                    speakerBadge = `<span class="badge" style="background:rgba(236,72,153,0.25); color:#f472b6; font-size:11px; border:1px solid rgba(236,72,153,0.5);"><i class="fa-solid fa-camera"></i> Миа (журналист)</span>`;
+                } else if (sent.speaker === 'blackwood') {
+                    speakerBadge = `<span class="badge" style="background:rgba(234,179,8,0.25); color:#facc15; font-size:11px; border:1px solid rgba(234,179,8,0.5);"><i class="fa-solid fa-crown"></i> Лорд Блэквуд</span>`;
+                } else if (sent.speaker === 'arthur') {
+                    speakerBadge = `<span class="badge" style="background:rgba(245,158,11,0.25); color:#fbbf24; font-size:11px; border:1px solid rgba(245,158,11,0.5);"><i class="fa-solid fa-clock"></i> Часовщик Артур</span>`;
+                } else if (sent.speaker === 'claire') {
+                    speakerBadge = `<span class="badge" style="background:rgba(217,119,6,0.25); color:#f59e0b; font-size:11px; border:1px solid rgba(217,119,6,0.5);"><i class="fa-solid fa-bread-slice"></i> Пекарь Клэр</span>`;
+                } else if (sent.speaker === 'victor') {
+                    speakerBadge = `<span class="badge" style="background:rgba(239,68,68,0.25); color:#f87171; font-size:11px; border:1px solid rgba(239,68,68,0.5);"><i class="fa-solid fa-mask"></i> Виктор</span>`;
+                } else if (sent.speaker === 'jenkins') {
+                    speakerBadge = `<span class="badge" style="background:rgba(20,184,166,0.25); color:#2dd4bf; font-size:11px; border:1px solid rgba(20,184,166,0.5);"><i class="fa-solid fa-building-columns"></i> Мистер Дженкинс</span>`;
+                } else if (sent.speaker === 'julian') {
+                    speakerBadge = `<span class="badge" style="background:rgba(168,85,247,0.25); color:#c084fc; font-size:11px; border:1px solid rgba(168,85,247,0.5);"><i class="fa-solid fa-palette"></i> Джулиан</span>`;
+                } else if (sent.speaker === 'elena') {
+                    speakerBadge = `<span class="badge" style="background:rgba(6,182,212,0.25); color:#22d3ee; font-size:11px; border:1px solid rgba(6,182,212,0.5);"><i class="fa-solid fa-landmark"></i> Елена</span>`;
                 }
 
                 const isRevealed = !isBlindMode || revealedSentences.has(idx);
@@ -10687,7 +10705,8 @@ document.addEventListener("DOMContentLoaded", () => {
         let activeAudioElement = null;
 
         function getVoiceForSentence(sent) {
-            if (sent.speaker === 'eldrin') return sent.voice || 'Puck';
+            if (sent && sent.voice) return sent.voice;
+            if (sent.speaker === 'eldrin') return 'Puck';
             if (sent.speaker === 'kira') return 'Aoede';
             if (sent.speaker === 'corvinus') return 'Charon';
             if (sent.speaker === 'malakor' || sent.speaker === 'vane') return 'Fenrir';

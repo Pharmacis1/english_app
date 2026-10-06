@@ -1,0 +1,29 @@
+{
+  "id": "report_2026-10-05_23-54-52____SRS_Forecast",
+  "timestamp": "2026-10-05T20:54:52.903Z",
+  "localTime": "06.10.2026, 00:54:53",
+  "category": "🐛 Баг / Ошибка",
+  "description": "При открытии графика повторения, окно оказывается не на переднем плане, а сзади текущего открытого окна",
+  "mode": "📈 SRS Forecast",
+  "hero": "Valerius Lvl 100",
+  "subContext": "Сценарий: Tech Job Interview",
+  "viewport": {
+    "width": 392,
+    "height": 512
+  },
+  "url": "https://englishpulserpg.share.zrok.io/",
+  "userAgent": "Mozilla/5.0 (Linux; Android 12; Redmi Note 10S Build/SP1A.210812.016) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.7049.79 Mobile Safari/537.36 XiaoMi/MiuiBrowser/14.62.1-gn",
+  "logs": [
+    {
+      "type": "warn",
+      "time": "00:50:13",
+      "msg": "[Gemini TTS Endpoint 502] All Gemini TTS models failed"
+    },
+    {
+      "type": "warn",
+      "time": "00:52:38",
+      "msg": "[Gemini TTS Endpoint 502] All Gemini TTS models failed"
+    }
+  ],
+  "screenshotFile": "screenshot.jpg"
+}

@@ -907,11 +907,11 @@ app.post('/api/ai/gemini-tts', async (req, res) => {
         if (!apiKey) return res.status(401).json({ success: false, error: "Gemini API Key missing. Please provide API Key in Settings." });
 
         const models = [
+            'gemini-3.8-flash-tts',
+            'gemini-3.8-flash-lite-tts',
             'gemini-2.5-flash-preview-tts',
             'gemini-3.1-flash-tts-preview',
-            'gemini-2.5-pro-preview-tts',
-            'gemini-2.0-flash',
-            'gemini-2.0-flash-exp'
+            'gemini-2.5-pro-preview-tts'
         ];
 
         for (const model of models) {
