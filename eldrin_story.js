@@ -2551,6 +2551,290 @@ const ELDRIN_AUDIOBOOK = {
                     "correctIdx": 2
                 }
             ]
+        },
+        {
+            "id": "det-ch-10",
+            "number": 10,
+            "act": 1,
+            "titleEn": "Episode 10: The Chase to the Harbor Gates",
+            "titleRu": "Серия 10: Погоня к воротам гавани",
+            "synopsisEn": "Barnaby leads the detectives through River Street in hot pursuit of the thief. At Gate Number Two of the harbor, Barnaby finds a dropped glove and a boat ticket for \"The Blue Star\".",
+            "synopsisRu": "Барнаби ведёт детективов по Ривер-стрит по горячим следам вора. У Ворот №2 гавани Барнаби находит оброненную перчатку и билет на лодку «Голубая звезда».",
+            "wordCount": 348,
+            "targetLevel": "A0 - A1",
+            "audiobookCover": "assets/backgrounds/detective_city.jpg",
+            "sentences": [
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The detectives and Barnaby run through the hotel doors into the street.</prosody></speak>",
+                    "en": "The detectives and Barnaby run through the hotel doors into the street.",
+                    "ru": "Детективы и Барнаби выбегают через двери отеля на улицу."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The morning wind is cold near the river.</prosody></speak>",
+                    "en": "The morning wind is cold near the river.",
+                    "ru": "Утренний ветер холодный возле реки."
+                },
+                {
+                    "speaker": "toby",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Which way did he go, Leo? <break time=\"300ms\"/> The street has two ways!</prosody></speak>",
+                    "en": "— Which way did he go, Leo? The street has two ways!",
+                    "ru": "— В какую сторону он побежал, Лео? У улицы два направления!"
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Barnaby puts his nose to the ground and smells the wet stones.</prosody></speak>",
+                    "en": "Barnaby puts his nose to the ground and smells the wet stones.",
+                    "ru": "Барнаби опускает нос к земле и нюхает мокрые камни."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He barks and runs to the left, toward River Street.</prosody></speak>",
+                    "en": "He barks and runs to the left, toward River Street.",
+                    "ru": "Он лает и бежит налево, в сторону Ривер-стрит."
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Follow Barnaby! <break time=\"300ms\"/> He remembers the smell!</prosody></speak>",
+                    "en": "— Follow Barnaby! He remembers the smell!",
+                    "ru": "— За Барнаби! Он помнит запах!"
+                },
+                {
+                    "speaker": "mia",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Look in front of us! <break time=\"300ms\"/> There is a tall man in a dark grey coat!</prosody></speak>",
+                    "en": "— Look in front of us! There is a tall man in a dark grey coat!",
+                    "ru": "— Посмотрите вперёд! Там высокий мужчина в тёмно-сером пальто!"
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The man has a brown bag and walks very fast through the people.</prosody></speak>",
+                    "en": "The man has a brown bag and walks very fast through the people.",
+                    "ru": "У мужчины коричневая сумка, и он очень быстро идёт сквозь людей."
+                },
+                {
+                    "speaker": "toby",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Stop! <break time=\"300ms\"/> Police!</prosody></speak>",
+                    "en": "— Stop! Police!",
+                    "ru": "— Стой! Полиция!"
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The man looks back, sees the detectives, and starts to run.</prosody></speak>",
+                    "en": "The man looks back, sees the detectives, and starts to run.",
+                    "ru": "Мужчина оглядывается, видит детективов и начинает бежать."
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— He is running down River Street to the harbor gates!</prosody></speak>",
+                    "en": "— He is running down River Street to the harbor gates!",
+                    "ru": "— Он бежит вниз по Ривер-стрит к воротам гавани!"
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">People on the street move when Barnaby runs past.</prosody></speak>",
+                    "en": "People on the street move when Barnaby runs past.",
+                    "ru": "Люди на улице расступаются, когда Барнаби пробегает мимо."
+                },
+                {
+                    "speaker": "mia",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Barnaby is very fast! <break time=\"300ms\"/> Good boy, stop him!</prosody></speak>",
+                    "en": "— Barnaby is very fast! Good boy, stop him!",
+                    "ru": "— Барнаби очень быстрый! Молодчина, останови его!"
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The man walks fast into a small street near old brick houses.</prosody></speak>",
+                    "en": "The man walks fast into a small street near old brick houses.",
+                    "ru": "Мужчина быстро сворачивает на маленькую улочку возле старых кирпичных домов."
+                },
+                {
+                    "speaker": "toby",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Where is he? <break time=\"300ms\"/> Did he go left or right?</prosody></speak>",
+                    "en": "— Where is he? Did he go left or right?",
+                    "ru": "— Где он? Он пошёл налево или направо?"
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Down this way! <break time=\"300ms\"/> This street goes straight to the harbor!</prosody></speak>",
+                    "en": "— Down this way! This street goes straight to the harbor!",
+                    "ru": "— Сюда! Эта улица идёт прямо к гавани!"
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The detectives run around the corner and see the tall iron gates of the harbor.</prosody></speak>",
+                    "en": "The detectives run around the corner and see the tall iron gates of the harbor.",
+                    "ru": "Детективы забегают за угол и видят высокие железные ворота гавани."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Big ships and small boats stand on the dark water.</prosody></speak>",
+                    "en": "Big ships and small boats stand on the dark water.",
+                    "ru": "Большие корабли и маленькие лодки стоят на тёмной воде."
+                },
+                {
+                    "speaker": "mia",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— The harbor is very big! <break time=\"300ms\"/> Where is the boat?</prosody></speak>",
+                    "en": "— The harbor is very big! Where is the boat?",
+                    "ru": "— Гавань очень большая! Где же лодка?"
+                },
+                {
+                    "speaker": "toby",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Look at the clock on the harbor wall! <break time=\"300ms\"/> It is five to eight!</prosody></speak>",
+                    "en": "— Look at the clock on the harbor wall! It is five to eight!",
+                    "ru": "— Посмотрите на часы на стене гавани! Сейчас без пяти восемь!"
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— The note said: \"The boat leaves at nine o'clock. <break time=\"300ms\"/> Find the man with the red coat.\"</prosody></speak>",
+                    "en": "— The note said: \"The boat leaves at nine o'clock. Find the man with the red coat.\"",
+                    "ru": "— В записке было сказано: «Лодка отходит в девять часов. Найди человека в красном пальто»."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Barnaby stops near Gate Number Two. <break time=\"300ms\"/> He barks at the ground.</prosody></speak>",
+                    "en": "Barnaby stops near Gate Number Two. He barks at the ground.",
+                    "ru": "Барнаби останавливается возле Ворот №2. Он лает на землю."
+                },
+                {
+                    "speaker": "mia",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— What did he find on the wet stones, Toby?</prosody></speak>",
+                    "en": "— What did he find on the wet stones, Toby?",
+                    "ru": "— Что он нашёл на мокрых камнях, Тоби?"
+                },
+                {
+                    "speaker": "toby",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Look, Leo! <break time=\"300ms\"/> A dark glove and a piece of paper!</prosody></speak>",
+                    "en": "— Look, Leo! A dark glove and a piece of paper!",
+                    "ru": "— Смотри, Лео! Тёмная перчатка и кусочек бумаги!"
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo takes the dark glove and looks at it.</prosody></speak>",
+                    "en": "Leo takes the dark glove and looks at it.",
+                    "ru": "Лео берёт тёмную перчатку и осматривает её."
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— This glove is from the thief! <break time=\"300ms\"/> He went through this gate!</prosody></speak>",
+                    "en": "— This glove is from the thief! He went through this gate!",
+                    "ru": "— Эта перчатка вора! Он прошёл через эти ворота!"
+                },
+                {
+                    "speaker": "mia",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— And what is on the piece of paper, Leo?</prosody></speak>",
+                    "en": "— And what is on the piece of paper, Leo?",
+                    "ru": "— А что на кусочке бумаги, Лео?"
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— It is a ticket for the harbor: \"Boat Number Four — The Blue Star\".</prosody></speak>",
+                    "en": "— It is a ticket for the harbor: \"Boat Number Four — The Blue Star\".",
+                    "ru": "— Это билет для гавани: «Лодка номер четыре — „Голубая звезда“»."
+                },
+                {
+                    "speaker": "toby",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— \"The Blue Star\"! <break time=\"300ms\"/> That is the name of the boat!</prosody></speak>",
+                    "en": "— \"The Blue Star\"! That is the name of the boat!",
+                    "ru": "— «Голубая звезда»! Это название лодки!"
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">A boat makes a loud sound on the water.</prosody></speak>",
+                    "en": "A boat makes a loud sound on the water.",
+                    "ru": "Лодка издаёт громкий звук на воде."
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— We have one hour before nine o'clock.</prosody></speak>",
+                    "en": "— We have one hour before nine o'clock.",
+                    "ru": "— У нас есть один час до девяти часов."
+                },
+                {
+                    "speaker": "mia",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— We must find Boat Number Four before it leaves!</prosody></speak>",
+                    "en": "— We must find Boat Number Four before it leaves!",
+                    "ru": "— Мы должны найти Лодку №4 до того, как она отплывёт!"
+                },
+                {
+                    "speaker": "toby",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Come on, Barnaby! <break time=\"300ms\"/> Show us the way to the boat!</prosody></speak>",
+                    "en": "— Come on, Barnaby! Show us the way to the boat!",
+                    "ru": "— Вперёд, Барнаби! Покажи нам дорогу к лодке!"
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The detectives run through the harbor gates to the water.</prosody></speak>",
+                    "en": "The detectives run through the harbor gates to the water.",
+                    "ru": "Детективы бегут через ворота гавани к воде."
+                }
+            ],
+            "quiz": [
+                {
+                    "question": "How do the detectives follow the thief down River Street?",
+                    "options": [
+                        "Barnaby smells the ground and leads the way",
+                        "They take a taxi",
+                        "A policeman tells them",
+                        "They follow a bicycle"
+                    ],
+                    "correctIdx": 0
+                },
+                {
+                    "question": "What does Barnaby find on the wet stones near Gate Number Two?",
+                    "options": [
+                        "A red apple",
+                        "A dark glove and a piece of paper",
+                        "A gold key",
+                        "A black hat"
+                    ],
+                    "correctIdx": 1
+                },
+                {
+                    "question": "What is the name of Boat Number Four?",
+                    "options": [
+                        "The Silver Star",
+                        "The London Express",
+                        "The Blue Star",
+                        "The River King"
+                    ],
+                    "correctIdx": 2
+                }
+            ]
         }
     ]
 };
