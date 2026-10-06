@@ -2835,6 +2835,290 @@ const ELDRIN_AUDIOBOOK = {
                     "correctIdx": 2
                 }
             ]
+        },
+        {
+            "id": "det-ch-11",
+            "number": 11,
+            "act": 1,
+            "titleEn": "Episode 11: The Captain in the Red Coat",
+            "titleRu": "Серия 11: Капитан в красном пальто",
+            "synopsisEn": "At Boat Number Four, the detectives meet Captain Morgan in his red coat. He reveals that a man with a brown bag bought a ticket five minutes ago and went to get hot tea at the harbor cafe near the big clock.",
+            "synopsisRu": "У Лодки №4 детективы встречают капитана Моргана в красном пальто. Он рассказывает, что мужчина с коричневой сумкой купил билет пять минут назад и пошёл пить горячий чай в кафе гавани возле больших часов.",
+            "wordCount": 324,
+            "targetLevel": "A0 - A1",
+            "audiobookCover": "assets/backgrounds/detective_city.jpg",
+            "sentences": [
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The detectives and Barnaby walk quickly through Harbor Gate Two.</prosody></speak>",
+                    "en": "The detectives and Barnaby walk quickly through Harbor Gate Two.",
+                    "ru": "Детективы и Барнаби быстро идут через Ворота №2 гавани."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The air is cold and smells like wet stones and salt water.</prosody></speak>",
+                    "en": "The air is cold and smells like wet stones and salt water.",
+                    "ru": "Воздух холодный и пахнет мокрыми камнями и солёной водой."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Long wooden bridges go out into the water.</prosody></speak>",
+                    "en": "Long wooden bridges go out into the water.",
+                    "ru": "Длинные деревянные мостки уходят в воду."
+                },
+                {
+                    "speaker": "toby",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Where is Boat Number Four, Leo?</prosody></speak>",
+                    "en": "— Where is Boat Number Four, Leo?",
+                    "ru": "— Где же Лодка номер четыре, Лео?"
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Look at the boats. <break time=\"300ms\"/> They have numbers on them.</prosody></speak>",
+                    "en": "— Look at the boats. They have numbers on them.",
+                    "ru": "— Посмотри на лодки. На них есть номера."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo points across the harbor.</prosody></speak>",
+                    "en": "Leo points across the harbor.",
+                    "ru": "Лео указывает через гавань."
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— There is Boat One, Boat Two, and Boat Three. <break time=\"300ms\"/> Boat Four is at the end!</prosody></speak>",
+                    "en": "— There is Boat One, Boat Two, and Boat Three. Boat Four is at the end!",
+                    "ru": "— Вон Лодка Один, Лодка Два и Лодка Три. Лодка Четыре в самом конце!"
+                },
+                {
+                    "speaker": "mia",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Look, Leo! <break time=\"300ms\"/> There is a white boat with blue paint!</prosody></speak>",
+                    "en": "— Look, Leo! There is a white boat with blue paint!",
+                    "ru": "— Смотри, Лео! Там белая лодка с синей краской!"
+                },
+                {
+                    "speaker": "toby",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— The name on the boat is \"The Blue Star\"!</prosody></speak>",
+                    "en": "— The name on the boat is \"The Blue Star\"!",
+                    "ru": "— Название на лодке — «Голубая звезда»!"
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The white boat is near the wooden bridge.</prosody></speak>",
+                    "en": "The white boat is near the wooden bridge.",
+                    "ru": "Белая лодка стоит возле деревянного мостика."
+                },
+                {
+                    "speaker": "mia",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Look at the boat! <break time=\"300ms\"/> There is a man in a bright red coat!</prosody></speak>",
+                    "en": "— Look at the boat! There is a man in a bright red coat!",
+                    "ru": "— Посмотри на лодку! Там мужчина в ярко-красном пальто!"
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Remember the note from Room 14: \"Find the man with the red coat\"!</prosody></speak>",
+                    "en": "— Remember the note from Room 14: \"Find the man with the red coat\"!",
+                    "ru": "— Вспомни записку из Номера 14: «Найди человека в красном пальто»!"
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The man in the red coat puts heavy boxes onto the boat.</prosody></speak>",
+                    "en": "The man in the red coat puts heavy boxes onto the boat.",
+                    "ru": "Мужчина в красном пальто ставит тяжёлые коробки на лодку."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He has grey hair and a black hat.</prosody></speak>",
+                    "en": "He has grey hair and a black hat.",
+                    "ru": "У него седые волосы и чёрная шляпа."
+                },
+                {
+                    "speaker": "toby",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Is that the thief, Leo?</prosody></speak>",
+                    "en": "— Is that the thief, Leo?",
+                    "ru": "— Это вор, Лео?"
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— No, that man works on the boat. <break time=\"300ms\"/> Let us talk to him.</prosody></speak>",
+                    "en": "— No, that man works on the boat. Let us talk to him.",
+                    "ru": "— Нет, этот человек работает на лодке. Давай поговорим с ним."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The detectives walk onto the wooden bridge next to the boat.</prosody></speak>",
+                    "en": "The detectives walk onto the wooden bridge next to the boat.",
+                    "ru": "Детективы заходят на деревянный мостик рядом с лодкой."
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Good morning, sir! <break time=\"300ms\"/> Are you the captain of The Blue Star?</prosody></speak>",
+                    "en": "— Good morning, sir! Are you the captain of The Blue Star?",
+                    "ru": "— Доброе утро, сэр! Вы капитан «Голубой звезды»?"
+                },
+                {
+                    "speaker": "captain",
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3.5st\">— Good morning! <break time=\"300ms\"/> Yes, I am Captain Morgan. <break time=\"300ms\"/> How can I help you?</prosody></speak>",
+                    "en": "— Good morning! Yes, I am Captain Morgan. How can I help you?",
+                    "ru": "— Доброе утро! Да, я капитан Морган. Чем могу помочь?"
+                },
+                {
+                    "speaker": "mia",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— We are detectives from the New Haven police.</prosody></speak>",
+                    "en": "— We are detectives from the New Haven police.",
+                    "ru": "— Мы детективы из полиции Нью-Хейвена."
+                },
+                {
+                    "speaker": "captain",
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3.5st\">— Police? <break time=\"300ms\"/> Is there a problem?</prosody></speak>",
+                    "en": "— Police? Is there a problem?",
+                    "ru": "— Полиция? Что-то случилось?"
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— We are looking for a tall man in a dark grey coat with a brown bag.</prosody></speak>",
+                    "en": "— We are looking for a tall man in a dark grey coat with a brown bag.",
+                    "ru": "— Мы ищем высокого мужчину в тёмно-сером пальто с коричневой сумкой."
+                },
+                {
+                    "speaker": "captain",
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3.5st\">— Ah, yes! <break time=\"300ms\"/> A man came to my boat five minutes ago.</prosody></speak>",
+                    "en": "— Ah, yes! A man came to my boat five minutes ago.",
+                    "ru": "— Ах, да! Один мужчина приходил к моей лодке пять минут назад."
+                },
+                {
+                    "speaker": "toby",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Did he have a brown bag?</prosody></speak>",
+                    "en": "— Did he have a brown bag?",
+                    "ru": "— У него была коричневая сумка?"
+                },
+                {
+                    "speaker": "captain",
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3.5st\">— Yes, he did. <break time=\"300ms\"/> He showed me a paper ticket and gave me money.</prosody></speak>",
+                    "en": "— Yes, he did. He showed me a paper ticket and gave me money.",
+                    "ru": "— Да, была. Он показал мне бумажный билет и дал денег."
+                },
+                {
+                    "speaker": "mia",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— What did he say, Captain Morgan?</prosody></speak>",
+                    "en": "— What did he say, Captain Morgan?",
+                    "ru": "— Что он сказал, капитан Морган?"
+                },
+                {
+                    "speaker": "captain",
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3.5st\">— He said: \"I want to go across the sea today.\"</prosody></speak>",
+                    "en": "— He said: \"I want to go across the sea today.\"",
+                    "ru": "— Он сказал: «Я хочу переплыть море сегодня»."
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Is he on the boat right now?</prosody></speak>",
+                    "en": "— Is he on the boat right now?",
+                    "ru": "— Он сейчас на лодке?"
+                },
+                {
+                    "speaker": "captain",
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3.5st\">— No. <break time=\"300ms\"/> He asked for warm food and hot tea.</prosody></speak>",
+                    "en": "— No. He asked for warm food and hot tea.",
+                    "ru": "— Нет. Он попросил горячей еды и горячего чая."
+                },
+                {
+                    "speaker": "captain",
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3.5st\">— I told him about the harbor cafe near the big clock.</prosody></speak>",
+                    "en": "— I told him about the harbor cafe near the big clock.",
+                    "ru": "— Я рассказал ему о кафе в гавани возле больших часов."
+                },
+                {
+                    "speaker": "toby",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— He is at the cafe right now!</prosody></speak>",
+                    "en": "— He is at the cafe right now!",
+                    "ru": "— Он прямо сейчас в кафе!"
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Thank you, Captain Morgan! <break time=\"300ms\"/> Do not leave the harbor!</prosody></speak>",
+                    "en": "— Thank you, Captain Morgan! Do not leave the harbor!",
+                    "ru": "— Спасибо, капитан Морган! Не покидайте гавань!"
+                },
+                {
+                    "speaker": "captain",
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3.5st\">— Yes, detective! <break time=\"300ms\"/> I will wait here!</prosody></speak>",
+                    "en": "— Yes, detective! I will wait here!",
+                    "ru": "— Да, детектив! Я подожду здесь!"
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The detectives and Barnaby run back to find the harbor cafe!</prosody></speak>",
+                    "en": "The detectives and Barnaby run back to find the harbor cafe!",
+                    "ru": "Детективы и Барнаби бегут обратно искать кафе в гавани!"
+                }
+            ],
+            "quiz": [
+                {
+                    "question": "Who is the man in the red coat on Boat Number Four?",
+                    "options": [
+                        "Captain Morgan",
+                        "Dr. Hayes",
+                        "Lord Blackwood",
+                        "Victor"
+                    ],
+                    "correctIdx": 0
+                },
+                {
+                    "question": "What did the man in the dark grey coat give to the captain?",
+                    "options": [
+                        "A sapphire",
+                        "A paper ticket and money",
+                        "A key to Room 14",
+                        "A letter for the police"
+                    ],
+                    "correctIdx": 1
+                },
+                {
+                    "question": "Where is the suspect right now according to the captain?",
+                    "options": [
+                        "On the boat to London",
+                        "At the harbor cafe near the big clock",
+                        "In the hotel",
+                        "At the train station"
+                    ],
+                    "correctIdx": 1
+                }
+            ]
         }
     ]
 };

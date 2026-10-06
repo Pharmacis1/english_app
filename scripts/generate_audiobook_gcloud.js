@@ -84,6 +84,11 @@ const CAST = {
         voice: 'en-US-Neural2-F', // Elena (hotel receptionist, polite, pleasant)
         pitch: '+1st',
         rate: '0.94'
+    },
+    captain: {
+        voice: 'en-US-Neural2-J', // Captain Morgan (sea captain, deep, gruff, friendly)
+        pitch: '-3.5st',
+        rate: '0.88'
     }
 };
 

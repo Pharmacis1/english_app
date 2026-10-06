@@ -529,6 +529,14 @@ const NEW_WORDS_DATABASE = [
         translation: "лаять",
         exampleEn: "Barnaby runs to the window and barks loudly.",
         exampleRu: "Барнаби подбегает к окну и громко лает."
+    },
+    {
+        id: "captain",
+        word: "captain",
+        phonetic: "/ˈkæp.tɪn/",
+        translation: "капитан",
+        exampleEn: "The captain of the boat is a kind man.",
+        exampleRu: "Капитан лодки — добрый человек."
     }
 ];
 
