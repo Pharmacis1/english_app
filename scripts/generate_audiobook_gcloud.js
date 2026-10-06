@@ -79,6 +79,11 @@ const CAST = {
         voice: 'en-US-Neural2-I', // Julian (young frightened man, higher pitch than Leo)
         pitch: '+2st',
         rate: '1.0'
+    },
+    elena: {
+        voice: 'en-US-Neural2-F', // Elena (hotel receptionist, polite, pleasant)
+        pitch: '+1st',
+        rate: '0.94'
     }
 };
 

@@ -1983,6 +1983,290 @@ const ELDRIN_AUDIOBOOK = {
                     "correctIdx": 2
                 }
             ]
+        },
+        {
+            "id": "det-ch-8",
+            "number": 8,
+            "act": 1,
+            "titleEn": "Episode 8: The Silver Star Hotel & Room 14",
+            "titleRu": "Серия 8: Отель «Серебряная звезда» и Номер 14",
+            "synopsisEn": "The detectives follow the clue to the Silver Star Hotel. Receptionist Elena reveals that a mysterious guest, \"Mr. Robert Stone,\" checked into Room 14 ten minutes ago. Upstairs, the detectives find the room door wide open.",
+            "synopsisRu": "Детективы идут по следу к отелю «Серебряная звезда». Администратор Елена сообщает, что загадочный постоялец «мистер Роберт Стоун» заселился в Номер 14 десять минут назад. Поднявшись наверх, детективы обнаруживают, что дверь номера открыта.",
+            "wordCount": 386,
+            "targetLevel": "A0 - A1",
+            "audiobookCover": "assets/backgrounds/detective_city.jpg",
+            "sentences": [
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Detective Leo, Mia, Toby, and Barnaby walk quickly down Green Street.</prosody></speak>",
+                    "en": "Detective Leo, Mia, Toby, and Barnaby walk quickly down Green Street.",
+                    "ru": "Детектив Лео, Миа, Тоби и Барнаби быстро идут по Грин-стрит."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">In front of them stands the Silver Star Hotel.</prosody></speak>",
+                    "en": "In front of them stands the Silver Star Hotel.",
+                    "ru": "Перед ними возвышается отель «Серебряная звезда»."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">It is a tall white building with large windows.</prosody></speak>",
+                    "en": "It is a tall white building with large windows.",
+                    "ru": "Это высокое белое здание с большими окнами."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Many people in nice warm coats walk in and out of the hotel.</prosody></speak>",
+                    "en": "Many people in nice warm coats walk in and out of the hotel.",
+                    "ru": "Многие люди в красивых тёплых пальто входят и выходят из отеля."
+                },
+                {
+                    "speaker": "toby",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Look, Leo! <break time=\"300ms\"/> There is the hotel name above the door: \"Silver Star Hotel\"!</prosody></speak>",
+                    "en": "— Look, Leo! There is the hotel name above the door: \"Silver Star Hotel\"!",
+                    "ru": "— Смотри, Лео! Вот название отеля над дверью: «Отель „Серебряная звезда“»!"
+                },
+                {
+                    "speaker": "mia",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Remember the note from the metal box at the station: \"Silver Star Hotel — Room 14\"!</prosody></speak>",
+                    "en": "— Remember the note from the metal box at the station: \"Silver Star Hotel — Room 14\"!",
+                    "ru": "— Вспомни записку из металлической коробки на вокзале: «Отель „Серебряная звезда“ — Номер 14»!"
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Let us go inside quietly. <break time=\"300ms\"/> We need to talk to the woman at the desk.</prosody></speak>",
+                    "en": "— Let us go inside quietly. We need to talk to the woman at the desk.",
+                    "ru": "— Давайте войдём внутрь тихо. Нам нужно поговорить с женщиной за стойкой."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The detectives open the door and walk into the hotel.</prosody></speak>",
+                    "en": "The detectives open the door and walk into the hotel.",
+                    "ru": "Детективы открывают дверь и входят в отель."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The hall is very clean and bright, with quiet music in the air.</prosody></speak>",
+                    "en": "The hall is very clean and bright, with quiet music in the air.",
+                    "ru": "Холл очень чистый и светлый, в воздухе звучит тихая музыка."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Behind a long brown desk stands a woman in a dark blue jacket.</prosody></speak>",
+                    "en": "Behind a long brown desk stands a woman in a dark blue jacket.",
+                    "ru": "За длинной коричневой стойкой стоит женщина в тёмно-синем жакете."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">She smiles and looks at the detectives.</prosody></speak>",
+                    "en": "She smiles and looks at the detectives.",
+                    "ru": "Она улыбается и смотрит на детективов."
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Good morning. <break time=\"300ms\"/> We are detectives from the New Haven police.</prosody></speak>",
+                    "en": "— Good morning. We are detectives from the New Haven police.",
+                    "ru": "— Доброе утро. Мы детективы из полиции Нью-Хейвена."
+                },
+                {
+                    "speaker": "elena",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">— Good morning, detectives! <break time=\"300ms\"/> How can I help you today?</prosody></speak>",
+                    "en": "— Good morning, detectives! How can I help you today?",
+                    "ru": "— Доброе утро, детективы! Чем я могу помочь вам сегодня?"
+                },
+                {
+                    "speaker": "mia",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— We have a question about Room 14. <break time=\"300ms\"/> Who is in Room 14 today?</prosody></speak>",
+                    "en": "— We have a question about Room 14. Who is in Room 14 today?",
+                    "ru": "— У нас вопрос о Номере 14. Кто сегодня находится в Номере 14?"
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The woman looks at her computer.</prosody></speak>",
+                    "en": "The woman looks at her computer.",
+                    "ru": "Женщина смотрит на свой компьютер."
+                },
+                {
+                    "speaker": "elena",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">— Room 14 is on the second floor. <break time=\"300ms\"/> A guest arrived this morning at half past seven.</prosody></speak>",
+                    "en": "— Room 14 is on the second floor. A guest arrived this morning at half past seven.",
+                    "ru": "— Номер 14 находится на втором этаже. Гость приехал сегодня утром в половине восьмого."
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— What is the name of the guest?</prosody></speak>",
+                    "en": "— What is the name of the guest?",
+                    "ru": "— Как зовут гостя?"
+                },
+                {
+                    "speaker": "elena",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">— The name on the paper is \"Mr. <break time=\"300ms\"/> Robert Stone\".</prosody></speak>",
+                    "en": "— The name on the paper is \"Mr. Robert Stone\".",
+                    "ru": "— Имя на бумаге — «Мистер Роберт Стоун»."
+                },
+                {
+                    "speaker": "toby",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Robert Stone? <break time=\"300ms\"/> But Dr. <break time=\"300ms\"/> Hayes is the man from the museum!</prosody></speak>",
+                    "en": "— Robert Stone? But Dr. Hayes is the man from the museum!",
+                    "ru": "— Роберт Стоун? Но доктор Хейз — человек из музея!"
+                },
+                {
+                    "speaker": "mia",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— What does the man look like, please?</prosody></speak>",
+                    "en": "— What does the man look like, please?",
+                    "ru": "— Как выглядит этот мужчина, пожалуйста?"
+                },
+                {
+                    "speaker": "elena",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">— He is a tall man with short grey hair. <break time=\"300ms\"/> He has a dark grey coat and a brown bag.</prosody></speak>",
+                    "en": "— He is a tall man with short grey hair. He has a dark grey coat and a brown bag.",
+                    "ru": "— Он высокий мужчина с короткими седыми волосами. На нём тёмно-серое пальто и коричневая сумка."
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Did he go up to Room 14?</prosody></speak>",
+                    "en": "— Did he go up to Room 14?",
+                    "ru": "— Он поднялся в Номер 14?"
+                },
+                {
+                    "speaker": "elena",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">— Yes, he took the key ten minutes ago and went up the stairs.</prosody></speak>",
+                    "en": "— Yes, he took the key ten minutes ago and went up the stairs.",
+                    "ru": "— Да, он взял ключ десять минут назад и поднялся по лестнице."
+                },
+                {
+                    "speaker": "toby",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— So the suspect is in Room 14 right now!</prosody></speak>",
+                    "en": "— So the suspect is in Room 14 right now!",
+                    "ru": "— Значит, подозреваемый сейчас прямо в Номере 14!"
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Barnaby walks to the stairs and looks up. <break time=\"300ms\"/> He smells something in the air.</prosody></speak>",
+                    "en": "Barnaby walks to the stairs and looks up. He smells something in the air.",
+                    "ru": "Барнаби подходит к лестнице и смотрит наверх. Он чует что-то в воздухе."
+                },
+                {
+                    "speaker": "mia",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Good dog, Barnaby! <break time=\"300ms\"/> He remembers the smell from Blackwood House!</prosody></speak>",
+                    "en": "— Good dog, Barnaby! He remembers the smell from Blackwood House!",
+                    "ru": "— Хороший пёс, Барнаби! Он помнит запах из Блэквуд-Хауса!"
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Please give us the second key to Room 14. <break time=\"300ms\"/> We must check the room.</prosody></speak>",
+                    "en": "— Please give us the second key to Room 14. We must check the room.",
+                    "ru": "— Пожалуйста, дайте нам второй ключ от Номера 14. Мы должны проверить номер."
+                },
+                {
+                    "speaker": "elena",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">— Here is the key, detective. <break time=\"300ms\"/> Room 14 is at the end of the hall.</prosody></speak>",
+                    "en": "— Here is the key, detective. Room 14 is at the end of the hall.",
+                    "ru": "— Вот ключ, детектив. Номер 14 находится в конце коридора."
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Thank you. <break time=\"300ms\"/> Toby, Mia, walk with me. <break time=\"300ms\"/> Be very quiet.</prosody></speak>",
+                    "en": "— Thank you. Toby, Mia, walk with me. Be very quiet.",
+                    "ru": "— Спасибо. Тоби, Миа, идите со мной. Будьте очень тихими."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The detectives and Barnaby walk up the stairs to the second floor.</prosody></speak>",
+                    "en": "The detectives and Barnaby walk up the stairs to the second floor.",
+                    "ru": "Детективы и Барнаби поднимаются по лестнице на второй этаж."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The hall is long and quiet with a red carpet on the floor.</prosody></speak>",
+                    "en": "The hall is long and quiet with a red carpet on the floor.",
+                    "ru": "Коридор длинный и тихий, на полу красный ковёр."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">At the end of the hall, the door of Room 14 is open!</prosody></speak>",
+                    "en": "At the end of the hall, the door of Room 14 is open!",
+                    "ru": "В конце коридора дверь Номера 14 открыта!"
+                },
+                {
+                    "speaker": "mia",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Look, Leo! <break time=\"300ms\"/> The door is open! <break time=\"300ms\"/> Why is it open?</prosody></speak>",
+                    "en": "— Look, Leo! The door is open! Why is it open?",
+                    "ru": "— Смотри, Лео! Дверь открыта! Почему она открыта?"
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The detectives stop and listen at the open door of Room 14.</prosody></speak>",
+                    "en": "The detectives stop and listen at the open door of Room 14.",
+                    "ru": "Детективы останавливаются и слушают у открытой двери Номера 14."
+                }
+            ],
+            "quiz": [
+                {
+                    "question": "What is the name of the guest in Room 14 according to the hotel reception?",
+                    "options": [
+                        "Mr. Robert Stone",
+                        "Dr. Hayes",
+                        "Victor",
+                        "Julian"
+                    ],
+                    "correctIdx": 0
+                },
+                {
+                    "question": "How does the receptionist describe the guest in Room 14?",
+                    "options": [
+                        "A young boy with a red cap",
+                        "A tall man with short grey hair and a dark grey coat",
+                        "A woman in a blue dress",
+                        "An old man with a golden watch"
+                    ],
+                    "correctIdx": 1
+                },
+                {
+                    "question": "What do the detectives see when they reach the second floor?",
+                    "options": [
+                        "The door of Room 14 is open",
+                        "The door is locked with three keys",
+                        "A thief is jumping out of the window",
+                        "Room 14 is completely empty and dark"
+                    ],
+                    "correctIdx": 0
+                }
+            ]
         }
     ]
 };
