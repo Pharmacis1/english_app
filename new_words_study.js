@@ -521,6 +521,14 @@ const NEW_WORDS_DATABASE = [
         translation: "шлем",
         exampleEn: "The motorcycle courier wore a dark protective helmet.",
         exampleRu: "Курьер на мотоцикле был в тёмном защитном шлеме."
+    },
+    {
+        id: "bark",
+        word: "bark",
+        phonetic: "/bɑːk/",
+        translation: "лаять",
+        exampleEn: "Barnaby runs to the window and barks loudly.",
+        exampleRu: "Барнаби подбегает к окну и громко лает."
     }
 ];
 

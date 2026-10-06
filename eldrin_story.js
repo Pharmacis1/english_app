@@ -2267,6 +2267,290 @@ const ELDRIN_AUDIOBOOK = {
                     "correctIdx": 0
                 }
             ]
+        },
+        {
+            "id": "det-ch-9",
+            "number": 9,
+            "act": 1,
+            "titleEn": "Episode 9: Room 14 & The Open Window",
+            "titleRu": "Серия 9: Номер 14 и открытое окно",
+            "synopsisEn": "Room 14 is empty and the window is open. The thief left an empty blue box and a note about the harbor and a nine o'clock boat. Barnaby sees the thief running down the street.",
+            "synopsisRu": "Номер 14 пуст, окно открыто. Вор оставил пустую синюю коробочку и записку о гавани и лодке в девять часов. Барнаби видит, как вор бежит по улице.",
+            "wordCount": 337,
+            "targetLevel": "A0 - A1",
+            "audiobookCover": "assets/backgrounds/detective_city.jpg",
+            "sentences": [
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Detective Leo opens the door of Room 14.</prosody></speak>",
+                    "en": "Detective Leo opens the door of Room 14.",
+                    "ru": "Детектив Лео открывает дверь Номера 14."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The door opens with a quiet sound.</prosody></speak>",
+                    "en": "The door opens with a quiet sound.",
+                    "ru": "Дверь открывается с тихим звуком."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Inside, the room is cold and empty.</prosody></speak>",
+                    "en": "Inside, the room is cold and empty.",
+                    "ru": "Внутри комната холодная и пустая."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">A big window is open, and the white curtain moves in the wind.</prosody></speak>",
+                    "en": "A big window is open, and the white curtain moves in the wind.",
+                    "ru": "Большое окно открыто, и белая занавеска колышется на ветру."
+                },
+                {
+                    "speaker": "toby",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Look, Leo! <break time=\"300ms\"/> The window is open! <break time=\"300ms\"/> Did the man jump out of the window?</prosody></speak>",
+                    "en": "— Look, Leo! The window is open! Did the man jump out of the window?",
+                    "ru": "— Смотри, Лео! Окно открыто! Мужчина выпрыгнул из окна?"
+                },
+                {
+                    "speaker": "mia",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— We are on the second floor. <break time=\"300ms\"/> Look outside! <break time=\"300ms\"/> There are metal stairs under the window!</prosody></speak>",
+                    "en": "— We are on the second floor. Look outside! There are metal stairs under the window!",
+                    "ru": "— Мы на втором этаже. Посмотри на улицу! Под окном металлическая лестница!"
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— He went down the metal stairs into the back street! <break time=\"300ms\"/> He left two minutes ago!</prosody></speak>",
+                    "en": "— He went down the metal stairs into the back street! He left two minutes ago!",
+                    "ru": "— Он спустился по металлической лестнице на заднюю улицу! Он ушёл две минуты назад!"
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Barnaby walks into the room. <break time=\"300ms\"/> He looks at the floor near the small table.</prosody></speak>",
+                    "en": "Barnaby walks into the room. He looks at the floor near the small table.",
+                    "ru": "Барнаби заходит в комнату. Он осматривает пол возле маленького столика."
+                },
+                {
+                    "speaker": "toby",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Barnaby found something! <break time=\"300ms\"/> What is on the table?</prosody></speak>",
+                    "en": "— Barnaby found something! What is on the table?",
+                    "ru": "— Барнаби что-то нашёл! Что там на столе?"
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">On the table, there is a glass of water and a newspaper.</prosody></speak>",
+                    "en": "On the table, there is a glass of water and a newspaper.",
+                    "ru": "На столе стоит стакан воды и лежит газета."
+                },
+                {
+                    "speaker": "mia",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Look next to the glass! <break time=\"300ms\"/> There is a small blue box!</prosody></speak>",
+                    "en": "— Look next to the glass! There is a small blue box!",
+                    "ru": "— Посмотри рядом со стаканом! Там маленькая синяя коробочка!"
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— The blue box from Lord Blackwood's study!</prosody></speak>",
+                    "en": "— The blue box from Lord Blackwood's study!",
+                    "ru": "— Синяя коробочка из кабинета лорда Блэквуда!"
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo puts on plastic gloves and opens the blue box.</prosody></speak>",
+                    "en": "Leo puts on plastic gloves and opens the blue box.",
+                    "ru": "Лео надевает пластиковые перчатки и открывает синюю коробочку."
+                },
+                {
+                    "speaker": "toby",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Is the Midnight Sapphire inside?</prosody></speak>",
+                    "en": "— Is the Midnight Sapphire inside?",
+                    "ru": "— Полуночный Сапфир внутри?"
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— No, the box is empty. <break time=\"300ms\"/> The thief took the big blue stone with him.</prosody></speak>",
+                    "en": "— No, the box is empty. The thief took the big blue stone with him.",
+                    "ru": "— Нет, коробочка пуста. Вор забрал большой синий камень с собой."
+                },
+                {
+                    "speaker": "mia",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— But look under the newspaper on the table!</prosody></speak>",
+                    "en": "— But look under the newspaper on the table!",
+                    "ru": "— Но посмотри под газету на столе!"
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Mia takes the newspaper from the table.</prosody></speak>",
+                    "en": "Mia takes the newspaper from the table.",
+                    "ru": "Миа убирает газету со стола."
+                },
+                {
+                    "speaker": "mia",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— There is a small hotel card and a black pen!</prosody></speak>",
+                    "en": "— There is a small hotel card and a black pen!",
+                    "ru": "— Там маленькая карточка отеля и чёрная ручка!"
+                },
+                {
+                    "speaker": "toby",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Did the man write something on the card?</prosody></speak>",
+                    "en": "— Did the man write something on the card?",
+                    "ru": "— Этот человек написал что-то на карточке?"
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Yes, look at the back of the card! <break time=\"300ms\"/> There are words on it!</prosody></speak>",
+                    "en": "— Yes, look at the back of the card! There are words on it!",
+                    "ru": "— Да, посмотри на обратную сторону карточки! На ней слова!"
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo reads the note out loud.</prosody></speak>",
+                    "en": "Leo reads the note out loud.",
+                    "ru": "Лео читает записку вслух."
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— \"At the harbor. <break time=\"300ms\"/> The boat leaves at nine o'clock. <break time=\"300ms\"/> Find the man with the red coat.\"</prosody></speak>",
+                    "en": "— \"At the harbor. The boat leaves at nine o'clock. Find the man with the red coat.\"",
+                    "ru": "— «В гавани. Лодка отходит в девять часов. Найди человека в красном пальто»."
+                },
+                {
+                    "speaker": "mia",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— The New Haven harbor! <break time=\"300ms\"/> He is taking the sapphire to a boat!</prosody></speak>",
+                    "en": "— The New Haven harbor! He is taking the sapphire to a boat!",
+                    "ru": "— Гавань Нью-Хейвена! Он везёт сапфир на лодку!"
+                },
+                {
+                    "speaker": "toby",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— What time is it now, Mia?</prosody></speak>",
+                    "en": "— What time is it now, Mia?",
+                    "ru": "— Который сейчас час, Миа?"
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Mia looks at her watch.</prosody></speak>",
+                    "en": "Mia looks at her watch.",
+                    "ru": "Миа смотрит на свои часы."
+                },
+                {
+                    "speaker": "mia",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— It is twenty to eight! <break time=\"300ms\"/> The boat leaves at nine o'clock!</prosody></speak>",
+                    "en": "— It is twenty to eight! The boat leaves at nine o'clock!",
+                    "ru": "— Без двадцати восемь! Лодка отходит в девять часов!"
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Barnaby runs to the open window and barks loudly.</prosody></speak>",
+                    "en": "Barnaby runs to the open window and barks loudly.",
+                    "ru": "Барнаби подбегает к открытому окну и громко лает."
+                },
+                {
+                    "speaker": "toby",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Barnaby sees something down in the street!</prosody></speak>",
+                    "en": "— Barnaby sees something down in the street!",
+                    "ru": "— Барнаби что-то видит внизу на улице!"
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Quick, look out the window!</prosody></speak>",
+                    "en": "— Quick, look out the window!",
+                    "ru": "— Быстро, посмотрите в окно!"
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The detectives look down from the second floor.</prosody></speak>",
+                    "en": "The detectives look down from the second floor.",
+                    "ru": "Детективы смотрят вниз со второго этажа."
+                },
+                {
+                    "speaker": "mia",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— A man in a dark grey coat is running around the corner to the water!</prosody></speak>",
+                    "en": "— A man in a dark grey coat is running around the corner to the water!",
+                    "ru": "— Мужчина в тёмно-сером пальто бежит за угол к воде!"
+                },
+                {
+                    "speaker": "leo",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— That is our thief! <break time=\"300ms\"/> He is running to the harbor!</prosody></speak>",
+                    "en": "— That is our thief! He is running to the harbor!",
+                    "ru": "— Это наш вор! Он бежит в гавань!"
+                },
+                {
+                    "speaker": "toby",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Come on, Barnaby! <break time=\"300ms\"/> Down the stairs! <break time=\"300ms\"/> We must find that boat!</prosody></speak>",
+                    "en": "— Come on, Barnaby! Down the stairs! We must find that boat!",
+                    "ru": "— Вперёд, Барнаби! Вниз по лестнице! Мы должны найти ту лодку!"
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The detectives leave Room 14 and run down the stairs.</prosody></speak>",
+                    "en": "The detectives leave Room 14 and run down the stairs.",
+                    "ru": "Детективы выходят из Номера 14 и бегут вниз по лестнице."
+                }
+            ],
+            "quiz": [
+                {
+                    "question": "What do the detectives find in Room 14?",
+                    "options": [
+                        "An open window and an empty blue box",
+                        "The Midnight Sapphire",
+                        "Dr. Hayes",
+                        "A sleeping dog"
+                    ],
+                    "correctIdx": 0
+                },
+                {
+                    "question": "What does the note say?",
+                    "options": [
+                        "Meet at the museum at six",
+                        "At the harbor, the boat leaves at nine o'clock",
+                        "Go to the train station",
+                        "Call the police"
+                    ],
+                    "correctIdx": 1
+                },
+                {
+                    "question": "What does Barnaby do at the window?",
+                    "options": [
+                        "He sleeps",
+                        "He eats the newspaper",
+                        "He barks loudly",
+                        "He jumps out"
+                    ],
+                    "correctIdx": 2
+                }
+            ]
         }
     ]
 };
