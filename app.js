@@ -10475,14 +10475,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
         function updateBadges() {
             const curChapter = bookData.chapters.find(c => c.id === activeChapterId) || bookData.chapters[0];
+            const chLabel = curChapter.number > 100 ? `Спецдело ${curChapter.number - 100}` : `Гл. ${curChapter.number}`;
             if (bookmarkBadge) {
-                bookmarkBadge.innerHTML = `🔖 Гл. ${curChapter.number} • ${currentSentenceIdx + 1}/${curChapter.sentences.length}`;
+                bookmarkBadge.innerHTML = `🔖 ${chLabel} • ${currentSentenceIdx + 1}/${curChapter.sentences.length}`;
             }
             if (progressBadge) {
                 progressBadge.innerHTML = `⭐ ${completedChapters.length}/${bookData.chapters.length}`;
             }
             if (chapterStats) {
-                chapterStats.innerHTML = `<span style="font-weight:700; color:#f1f5f9;">📖 Гл. ${curChapter.number}: ${curChapter.titleRu}</span> <span style="color:#94a3b8; font-size:11px;">(${curChapter.sentences.length} предл. • ~${curChapter.wordCount} сл.)</span>`;
+                chapterStats.innerHTML = `<span style="font-weight:700; color:#f1f5f9;">📖 ${chLabel}: ${curChapter.titleRu}</span> <span style="color:#94a3b8; font-size:11px;">(${curChapter.sentences.length} предл. • ~${curChapter.wordCount} сл.)</span>`;
             }
             if (nextChapterBtn) {
                 const isCompleted = completedChapters.includes(activeChapterId);
@@ -10500,10 +10501,11 @@ document.addEventListener("DOMContentLoaded", () => {
             tabsContainer.innerHTML = bookData.chapters.map(ch => {
                 const isActive = ch.id === activeChapterId;
                 const isDone = completedChapters.includes(ch.id);
+                const label = ch.number > 100 ? `Спец. ${ch.number - 100}` : `Гл. ${ch.number}`;
                 return `
                     <button class="btn btn-sm ${isActive ? 'btn-primary' : 'btn-outline'} audiobook-tab-btn" data-chapter-id="${ch.id}">
                         <i class="fa-solid ${ch.coverIcon}" style="color: ${ch.coverColor};"></i>
-                        <span>Гл. ${ch.number}</span>
+                        <span>${label}</span>
                         ${isDone ? '<i class="fa-solid fa-circle-check" style="color: #10b981; font-size: 11px;"></i>' : ''}
                     </button>
                 `;
@@ -10599,7 +10601,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 } else if (sent.speaker === 'julian') {
                     speakerBadge = `<span class="badge" style="background:rgba(168,85,247,0.25); color:#c084fc; font-size:11px; border:1px solid rgba(168,85,247,0.5);"><i class="fa-solid fa-palette"></i> Джулиан</span>`;
                 } else if (sent.speaker === 'elena') {
-                    speakerBadge = `<span class="badge" style="background:rgba(6,182,212,0.25); color:#22d3ee; font-size:11px; border:1px solid rgba(6,182,212,0.5);"><i class="fa-solid fa-landmark"></i> Елена</span>`;
+                    speakerBadge = `<span class="badge" style="background:rgba(6,182,212,0.25); color:#22d3ee; font-size:11px; border:1px solid rgba(6,182,212,0.5);"><i class="fa-solid fa-leaf"></i> Елена</span>`;
+                } else if (sent.speaker === 'vance') {
+                    speakerBadge = `<span class="badge" style="background:rgba(56,189,248,0.25); color:#38bdf8; font-size:11px; border:1px solid rgba(56,189,248,0.5);"><i class="fa-solid fa-user-secret"></i> Инспектор Вэнс</span>`;
+                } else if (sent.speaker === 'sterling') {
+                    speakerBadge = `<span class="badge" style="background:rgba(234,179,8,0.25); color:#facc15; font-size:11px; border:1px solid rgba(234,179,8,0.5);"><i class="fa-solid fa-clock"></i> Мистер Стерлинг</span>`;
+                } else if (sent.speaker === 'marco') {
+                    speakerBadge = `<span class="badge" style="background:rgba(249,115,22,0.25); color:#fb923c; font-size:11px; border:1px solid rgba(249,115,22,0.5);"><i class="fa-solid fa-utensils"></i> Повар Марко</span>`;
+                } else if (sent.speaker === 'oliver') {
+                    speakerBadge = `<span class="badge" style="background:rgba(168,85,247,0.25); color:#c084fc; font-size:11px; border:1px solid rgba(168,85,247,0.5);"><i class="fa-solid fa-briefcase"></i> Оливер</span>`;
                 }
 
                 const isRevealed = !isBlindMode || revealedSentences.has(idx);

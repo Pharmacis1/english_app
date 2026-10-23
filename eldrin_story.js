@@ -3119,6 +3119,1639 @@ const ELDRIN_AUDIOBOOK = {
                     "correctIdx": 1
                 }
             ]
+        },
+        {
+            "id": "spec-ch-1",
+            "number": 101,
+            "act": 5,
+            "titleEn": "Special Case 1: The Missing Watch",
+            "titleRu": "Спецдело 1: Пропавшие часы",
+            "synopsisEn": "Inspector Vance arrives at Oakwood House. Mr. Arthur Sterling reports that his grandfather's gold pocket watch disappeared from his study between 2:00 and 3:30.",
+            "synopsisRu": "Инспектор Вэнс прибывает в Оквуд-Хаус. Мистер Артур Стерлинг сообщает, что золотые карманные часы его дедушки пропали из кабинета между 14:00 и 15:30.",
+            "targetLevel": "CEFR A1",
+            "coverIcon": "fa-stopwatch",
+            "coverColor": "#fbbf24",
+            "sentences": [
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">It is Tuesday afternoon.</prosody></speak>",
+                    "en": "It is Tuesday afternoon.",
+                    "ru": "Вторник, день."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The time is four o'clock.</prosody></speak>",
+                    "en": "The time is four o'clock.",
+                    "ru": "Время — четыре часа."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Inspector Vance arrives at Oakwood House.</prosody></speak>",
+                    "en": "Inspector Vance arrives at Oakwood House.",
+                    "ru": "Инспектор Вэнс прибывает в Оквуд-Хаус."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Oakwood House is a very big house.</prosody></speak>",
+                    "en": "Oakwood House is a very big house.",
+                    "ru": "Оквуд-Хаус — очень большой дом."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">It has twenty rooms and a big green garden.</prosody></speak>",
+                    "en": "It has twenty rooms and a big green garden.",
+                    "ru": "В нём двадцать комнат и большой зелёный сад."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Inspector Vance walks to the door.</prosody></speak>",
+                    "en": "Inspector Vance walks to the door.",
+                    "ru": "Инспектор Вэнс идёт к двери."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He is tall and he wears a grey suit.</prosody></speak>",
+                    "en": "He is tall and he wears a grey suit.",
+                    "ru": "Он высокий и одет в серый костюм."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He knocks on the door.</prosody></speak>",
+                    "en": "He knocks on the door.",
+                    "ru": "Он стучит в дверь."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">An old man opens the door.</prosody></speak>",
+                    "en": "An old man opens the door.",
+                    "ru": "Пожилой мужчина открывает дверь."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">His name is Mr. <break time=\"300ms\"/> Arthur Sterling.</prosody></speak>",
+                    "en": "His name is Mr. Arthur Sterling.",
+                    "ru": "Его зовут мистер Артур Стерлинг."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Mr. <break time=\"300ms\"/> Sterling looks very sad and nervous.</prosody></speak>",
+                    "en": "Mr. Sterling looks very sad and nervous.",
+                    "ru": "Мистер Стерлинг выглядит очень грустным и нервным."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">His face is cold and white.</prosody></speak>",
+                    "en": "His face is cold and white.",
+                    "ru": "Его лицо холодное и бледное."
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Good afternoon, Mr. <break time=\"300ms\"/> Sterling. <break time=\"300ms\"/> I am Inspector Vance.</prosody></speak>",
+                    "en": "— Good afternoon, Mr. Sterling. I am Inspector Vance.",
+                    "ru": "— Добрый день, мистер Стерлинг. Я инспектор Вэнс."
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— You called the police. <break time=\"300ms\"/> What is the problem?</prosody></speak>",
+                    "en": "— You called the police. What is the problem?",
+                    "ru": "— Вы вызвали полицию. В чём проблема?"
+                },
+                {
+                    "speaker": "sterling",
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">— Good afternoon, Inspector. <break time=\"300ms\"/> Please come in.</prosody></speak>",
+                    "en": "— Good afternoon, Inspector. Please come in.",
+                    "ru": "— Добрый день, инспектор. Пожалуйста, входите."
+                },
+                {
+                    "speaker": "sterling",
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">— I have a big problem. <break time=\"300ms\"/> My favorite watch is not here!</prosody></speak>",
+                    "en": "— I have a big problem. My favorite watch is not here!",
+                    "ru": "— У меня большая беда. Моих любимых часов здесь нет!"
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Tell me about the watch, please.</prosody></speak>",
+                    "en": "— Tell me about the watch, please.",
+                    "ru": "— Расскажите мне о часах, пожалуйста."
+                },
+                {
+                    "speaker": "sterling",
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">— It is a gold pocket watch.</prosody></speak>",
+                    "en": "— It is a gold pocket watch.",
+                    "ru": "— Это золотые карманные часы."
+                },
+                {
+                    "speaker": "sterling",
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">— It is old and very beautiful. <break time=\"300ms\"/> It was a present from my grandfather.</prosody></speak>",
+                    "en": "— It is old and very beautiful. It was a present from my grandfather.",
+                    "ru": "— Они старые и очень красивые. Это был подарок от моего дедушки."
+                },
+                {
+                    "speaker": "sterling",
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">— At two o'clock, the watch was on the small table in my study.</prosody></speak>",
+                    "en": "— At two o'clock, the watch was on the small table in my study.",
+                    "ru": "— В два часа часы лежали на маленьком столике в моём кабинете."
+                },
+                {
+                    "speaker": "sterling",
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">— At half past three, I went to my study.</prosody></speak>",
+                    "en": "— At half past three, I went to my study.",
+                    "ru": "— В половине четвёртого я пошёл в свой кабинет."
+                },
+                {
+                    "speaker": "sterling",
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">— I wanted to write a letter. <break time=\"300ms\"/> The table was empty. <break time=\"300ms\"/> The watch was gone!</prosody></speak>",
+                    "en": "— I wanted to write a letter. The table was empty. The watch was gone!",
+                    "ru": "— Я хотел написать письмо. Стол был пуст. Часы пропали!"
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Who was in the house today?</prosody></speak>",
+                    "en": "— Who was in the house today?",
+                    "ru": "— Кто был в доме сегодня?"
+                },
+                {
+                    "speaker": "sterling",
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">— Only three people. <break time=\"300ms\"/> Marco, my cook. <break time=\"300ms\"/> Elena, my gardener. <break time=\"300ms\"/> And Oliver, my office worker.</prosody></speak>",
+                    "en": "— Only three people. Marco, my cook. Elena, my gardener. And Oliver, my office worker.",
+                    "ru": "— Только три человека. Марко, мой повар. Елена, моя садовница. И Оливер, мой офисный работник."
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Where are they now?</prosody></speak>",
+                    "en": "— Where are they now?",
+                    "ru": "— Где они сейчас?"
+                },
+                {
+                    "speaker": "sterling",
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">— They are in the living room.</prosody></speak>",
+                    "en": "— They are in the living room.",
+                    "ru": "— Они в гостиной."
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Good. <break time=\"300ms\"/> Please wait here, Mr. <break time=\"300ms\"/> Sterling.</prosody></speak>",
+                    "en": "— Good. Please wait here, Mr. Sterling.",
+                    "ru": "— Хорошо. Пожалуйста, подождите здесь, мистер Стерлинг."
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— I want to talk to them. <break time=\"300ms\"/> Every person tells a story about their day.</prosody></speak>",
+                    "en": "— I want to talk to them. Every person tells a story about their day.",
+                    "ru": "— Я хочу поговорить с ними. Каждый расскажет о своём дне."
+                }
+            ],
+            "quiz": [
+                {
+                    "question": "What is missing from Mr. Sterling's study?",
+                    "options": [
+                        "A gold pocket watch",
+                        "A silver ring",
+                        "A red leather bag",
+                        "A secret book"
+                    ],
+                    "correctIdx": 0
+                },
+                {
+                    "question": "Who was in the house today?",
+                    "options": [
+                        "Only the cook, the gardener, and the office worker",
+                        "A courier and a train guard",
+                        "Ten museum workers",
+                        "Nobody"
+                    ],
+                    "correctIdx": 0
+                },
+                {
+                    "question": "What time was the watch on the table?",
+                    "options": [
+                        "At two o'clock",
+                        "At eight o'clock in the morning",
+                        "At half past six",
+                        "At four o'clock"
+                    ],
+                    "correctIdx": 0
+                }
+            ],
+            "wordCount": 220
+        },
+        {
+            "id": "spec-ch-2",
+            "number": 102,
+            "act": 5,
+            "titleEn": "Special Case 2: Marco the Cook",
+            "titleRu": "Спецдело 2: Повар Марко",
+            "synopsisEn": "Inspector Vance questions Marco the cook. Marco states he cooked lunch at 2:00, cleaned at 2:30, and baked a chocolate cake at 3:00, noticing heavy rain and closing the windows.",
+            "synopsisRu": "Инспектор Вэнс опрашивает повара Марко. Марко говорит, что готовил обед в 14:00, убирался в 14:30 и пёк шоколадный торт в 15:00, заметив сильный дождь и закрыв окна.",
+            "targetLevel": "CEFR A1",
+            "coverIcon": "fa-utensils",
+            "coverColor": "#fb923c",
+            "sentences": [
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Inspector Vance goes into the kitchen.</prosody></speak>",
+                    "en": "Inspector Vance goes into the kitchen.",
+                    "ru": "Инспектор Вэнс заходит на кухню."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The kitchen is big and warm.</prosody></speak>",
+                    "en": "The kitchen is big and warm.",
+                    "ru": "Кухня большая и тёплая."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">A man in a white jacket is cutting red apples.</prosody></speak>",
+                    "en": "A man in a white jacket is cutting red apples.",
+                    "ru": "Мужчина в белом кителе режет красные яблоки."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">His name is Marco. <break time=\"300ms\"/> He is forty years old.</prosody></speak>",
+                    "en": "His name is Marco. He is forty years old.",
+                    "ru": "Его зовут Марко. Ему сорок лет."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He cleans his hands with a towel.</prosody></speak>",
+                    "en": "He cleans his hands with a towel.",
+                    "ru": "Он вытирает руки полотенцем."
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Hello, Marco. <break time=\"300ms\"/> I am Inspector Vance.</prosody></speak>",
+                    "en": "— Hello, Marco. I am Inspector Vance.",
+                    "ru": "— Здравствуйте, Марко. Я инспектор Вэнс."
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— I have some questions for you.</prosody></speak>",
+                    "en": "— I have some questions for you.",
+                    "ru": "— У меня к вам несколько вопросов."
+                },
+                {
+                    "speaker": "marco",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">— Hello, Inspector. <break time=\"300ms\"/> Yes, of course.</prosody></speak>",
+                    "en": "— Hello, Inspector. Yes, of course.",
+                    "ru": "— Здравствуйте, инспектор. Да, конечно."
+                },
+                {
+                    "speaker": "marco",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">— I want to help. <break time=\"300ms\"/> I like Mr. <break time=\"300ms\"/> Sterling. <break time=\"300ms\"/> I did not take the watch!</prosody></speak>",
+                    "en": "— I want to help. I like Mr. Sterling. I did not take the watch!",
+                    "ru": "— Я хочу помочь. Мне нравится мистер Стерлинг. Я не брал часы!"
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Tell me about your day, Marco. <break time=\"300ms\"/> What time do you wake up?</prosody></speak>",
+                    "en": "— Tell me about your day, Marco. What time do you wake up?",
+                    "ru": "— Расскажите о своём дне, Марко. Во сколько вы просыпаетесь?"
+                },
+                {
+                    "speaker": "marco",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">— I always wake up early, at six o'clock in the morning.</prosody></speak>",
+                    "en": "— I always wake up early, at six o'clock in the morning.",
+                    "ru": "— Я всегда просыпаюсь рано, в шесть часов утра."
+                },
+                {
+                    "speaker": "marco",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">— I drink a big cup of black coffee. <break time=\"300ms\"/> I do not take sugar.</prosody></speak>",
+                    "en": "— I drink a big cup of black coffee. I do not take sugar.",
+                    "ru": "— Я пью большую чашку чёрного кофе. Сахар я не кладу."
+                },
+                {
+                    "speaker": "marco",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">— Then, at half past six, I go to the food market by bicycle.</prosody></speak>",
+                    "en": "— Then, at half past six, I go to the food market by bicycle.",
+                    "ru": "— Затем, в половине седьмого, я еду на продуктовый рынок на велосипеде."
+                },
+                {
+                    "speaker": "marco",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">— I buy good food for the house: red apples, oranges, tomatoes, milk, eggs, and bread.</prosody></speak>",
+                    "en": "— I buy good food for the house: red apples, oranges, tomatoes, milk, eggs, and bread.",
+                    "ru": "— Я покупаю хорошую еду для дома: красные яблоки, апельсины, помидоры, молоко, яйца и хлеб."
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— What time do you come to Oakwood House?</prosody></speak>",
+                    "en": "— What time do you come to Oakwood House?",
+                    "ru": "— Во сколько вы приходите в Оквуд-Хаус?"
+                },
+                {
+                    "speaker": "marco",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">— I come here at half past seven.</prosody></speak>",
+                    "en": "— I come here at half past seven.",
+                    "ru": "— Я прихожу сюда в половине восьмого."
+                },
+                {
+                    "speaker": "marco",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">— At eight o'clock, I make breakfast for Mr. <break time=\"300ms\"/> Sterling.</prosody></speak>",
+                    "en": "— At eight o'clock, I make breakfast for Mr. Sterling.",
+                    "ru": "— В восемь часов я готовлю завтрак для мистера Стерлинга."
+                },
+                {
+                    "speaker": "marco",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">— Today he had two eggs, bread with yellow butter, and hot black tea.</prosody></speak>",
+                    "en": "— Today he had two eggs, bread with yellow butter, and hot black tea.",
+                    "ru": "— Сегодня он съел два яйца, хлеб с жёлтым маслом и выпил горячий чёрный чай."
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— What did you do in the afternoon? <break time=\"300ms\"/> Where were you at two o'clock?</prosody></speak>",
+                    "en": "— What did you do in the afternoon? Where were you at two o'clock?",
+                    "ru": "— Что вы делали днём? Где вы были в два часа?"
+                },
+                {
+                    "speaker": "marco",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">— At two o'clock, I was here in the kitchen. <break time=\"300ms\"/> I made lunch.</prosody></speak>",
+                    "en": "— At two o'clock, I was here in the kitchen. I made lunch.",
+                    "ru": "— В два часа я был здесь, на кухне. Я готовил обед."
+                },
+                {
+                    "speaker": "marco",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">— Mr. <break time=\"300ms\"/> Sterling ate chicken, potatoes, and green salad.</prosody></speak>",
+                    "en": "— Mr. Sterling ate chicken, potatoes, and green salad.",
+                    "ru": "— Мистер Стерлинг ел курицу, картофель и зелёный салат."
+                },
+                {
+                    "speaker": "marco",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">— At half past two, I cleaned the kitchen.</prosody></speak>",
+                    "en": "— At half past two, I cleaned the kitchen.",
+                    "ru": "— В половине третьего я убирал кухню."
+                },
+                {
+                    "speaker": "marco",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">— I washed twenty plates and ten glasses.</prosody></speak>",
+                    "en": "— I washed twenty plates and ten glasses.",
+                    "ru": "— Я помыл двадцать тарелок и десять стаканов."
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Where were you at three o'clock?</prosody></speak>",
+                    "en": "— Where were you at three o'clock?",
+                    "ru": "— Где вы были в три часа?"
+                },
+                {
+                    "speaker": "marco",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">— At three o'clock, I made a chocolate cake for dinner.</prosody></speak>",
+                    "en": "— At three o'clock, I made a chocolate cake for dinner.",
+                    "ru": "— В три часа я делал шоколадный торт к ужину."
+                },
+                {
+                    "speaker": "marco",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">— I was here at the table. <break time=\"300ms\"/> I did not leave the kitchen all afternoon.</prosody></speak>",
+                    "en": "— I was here at the table. I did not leave the kitchen all afternoon.",
+                    "ru": "— Я был здесь за столом. Я не выходил из кухни весь день."
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Did you look outside?</prosody></speak>",
+                    "en": "— Did you look outside?",
+                    "ru": "— Вы смотрели на улицу?"
+                },
+                {
+                    "speaker": "marco",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">— Yes, I did. <break time=\"300ms\"/> At quarter to three, the sky was dark grey.</prosody></speak>",
+                    "en": "— Yes, I did. At quarter to three, the sky was dark grey.",
+                    "ru": "— Да, смотрел. Без четверти три небо было тёмно-серым."
+                },
+                {
+                    "speaker": "marco",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">— Then, a lot of rain fell. <break time=\"300ms\"/> It was very cold and windy.</prosody></speak>",
+                    "en": "— Then, a lot of rain fell. It was very cold and windy.",
+                    "ru": "— Затем пошёл сильный дождь. Было очень холодно и ветрено."
+                },
+                {
+                    "speaker": "marco",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">— The garden was full of water.</prosody></speak>",
+                    "en": "— The garden was full of water.",
+                    "ru": "— Сад был полон воды."
+                },
+                {
+                    "speaker": "marco",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">— I closed all the kitchen windows because of the rain.</prosody></speak>",
+                    "en": "— I closed all the kitchen windows because of the rain.",
+                    "ru": "— Я закрыл все окна кухни из-за дождя."
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Thank you, Marco. <break time=\"300ms\"/> That is very clear.</prosody></speak>",
+                    "en": "— Thank you, Marco. That is very clear.",
+                    "ru": "— Спасибо, Марко. Всё очень понятно."
+                }
+            ],
+            "quiz": [
+                {
+                    "question": "What was Marco making in the kitchen at three o'clock?",
+                    "options": [
+                        "A chocolate cake for dinner",
+                        "A fruit salad",
+                        "Hot green tea",
+                        "Vegetable soup"
+                    ],
+                    "correctIdx": 0
+                },
+                {
+                    "question": "What was the weather like outside at quarter to three according to Marco?",
+                    "options": [
+                        "Very cold, windy, and lots of rain",
+                        "Hot, sunny, and dry",
+                        "Warm with blue sky",
+                        "Snowy"
+                    ],
+                    "correctIdx": 0
+                },
+                {
+                    "question": "Why did Marco close the kitchen windows?",
+                    "options": [
+                        "Because of the heavy rain and cold wind",
+                        "Because of bad music",
+                        "Because of birds",
+                        "To make it dark"
+                    ],
+                    "correctIdx": 0
+                }
+            ],
+            "wordCount": 299
+        },
+        {
+            "id": "spec-ch-3",
+            "number": 103,
+            "act": 5,
+            "titleEn": "Special Case 3: Elena the Gardener",
+            "titleRu": "Спецдело 3: Садовница Елена",
+            "synopsisEn": "Elena the gardener recounts her day. When cold rain started at 2:45, she ran to the back door to stay dry and saw Toby the dog running past with a yellow object in his mouth at 3:00.",
+            "synopsisRu": "Садовница Елена рассказывает о своём дне. Когда без четверти три начался холодный дождь, она побежала к задней двери, чтобы укрыться от дождя, и в 15:00 увидела пса Тоби с жёлтым предметом в пасти.",
+            "targetLevel": "CEFR A1",
+            "coverIcon": "fa-leaf",
+            "coverColor": "#22c55e",
+            "sentences": [
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Inspector Vance walks to the sun room.</prosody></speak>",
+                    "en": "Inspector Vance walks to the sun room.",
+                    "ru": "Инспектор Вэнс идёт в солнечную комнату."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">A young woman sits on a chair.</prosody></speak>",
+                    "en": "A young woman sits on a chair.",
+                    "ru": "Молодая женщина сидит на стуле."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Her name is Elena. <break time=\"300ms\"/> She is twenty-eight years old.</prosody></speak>",
+                    "en": "Her name is Elena. She is twenty-eight years old.",
+                    "ru": "Её зовут Елена. Ей двадцать восемь лет."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">She wears blue trousers, green boots, and a warm yellow jacket.</prosody></speak>",
+                    "en": "She wears blue trousers, green boots, and a warm yellow jacket.",
+                    "ru": "На ней синие брюки, зелёные сапоги и тёплая жёлтая куртка."
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Good afternoon, Elena. <break time=\"300ms\"/> Can we talk about your day?</prosody></speak>",
+                    "en": "— Good afternoon, Elena. Can we talk about your day?",
+                    "ru": "— Добрый день, Елена. Мы можем поговорить о вашем дне?"
+                },
+                {
+                    "speaker": "elena",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">— Good afternoon, Inspector. <break time=\"300ms\"/> Yes.</prosody></speak>",
+                    "en": "— Good afternoon, Inspector. Yes.",
+                    "ru": "— Добрый день, инспектор. Да."
+                },
+                {
+                    "speaker": "elena",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">— Mr. <break time=\"300ms\"/> Sterling told me about his watch. <break time=\"300ms\"/> It is very sad!</prosody></speak>",
+                    "en": "— Mr. Sterling told me about his watch. It is very sad!",
+                    "ru": "— Мистер Стерлинг рассказал мне о своих часах. Это так грустно!"
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— What do you do here, Elena?</prosody></speak>",
+                    "en": "— What do you do here, Elena?",
+                    "ru": "— Чем вы здесь занимаетесь, Елена?"
+                },
+                {
+                    "speaker": "elena",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">— I am the gardener. <break time=\"300ms\"/> I look after the plants and trees.</prosody></speak>",
+                    "en": "— I am the gardener. I look after the plants and trees.",
+                    "ru": "— Я садовница. Я ухаживаю за растениями и деревьями."
+                },
+                {
+                    "speaker": "elena",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">— Today I woke up at seven o'clock.</prosody></speak>",
+                    "en": "— Today I woke up at seven o'clock.",
+                    "ru": "— Сегодня я проснулась в семь часов."
+                },
+                {
+                    "speaker": "elena",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">— I ate breakfast and drank orange juice.</prosody></speak>",
+                    "en": "— I ate breakfast and drank orange juice.",
+                    "ru": "— Я позавтракала и выпила апельсиновый сок."
+                },
+                {
+                    "speaker": "elena",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">— At eight o'clock, I walked to the house.</prosody></speak>",
+                    "en": "— At eight o'clock, I walked to the house.",
+                    "ru": "— В восемь часов я пошла к дому."
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— What did you do in the morning?</prosody></speak>",
+                    "en": "— What did you do in the morning?",
+                    "ru": "— Что вы делали утром?"
+                },
+                {
+                    "speaker": "elena",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">— In the morning, it was cloudy and cool.</prosody></speak>",
+                    "en": "— In the morning, it was cloudy and cool.",
+                    "ru": "— Утром было облачно и прохладно."
+                },
+                {
+                    "speaker": "elena",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">— I worked in the garden. <break time=\"300ms\"/> I planted twenty red flowers.</prosody></speak>",
+                    "en": "— I worked in the garden. I planted twenty red flowers.",
+                    "ru": "— Я работала в саду. Я посадила двадцать красных цветов."
+                },
+                {
+                    "speaker": "elena",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">— At twelve o'clock, I ate lunch.</prosody></speak>",
+                    "en": "— At twelve o'clock, I ate lunch.",
+                    "ru": "— В двенадцать часов я пообедала."
+                },
+                {
+                    "speaker": "elena",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">— I had a cheese sandwich and a green apple.</prosody></speak>",
+                    "en": "— I had a cheese sandwich and a green apple.",
+                    "ru": "— Я съела бутерброд с сыром и зелёное яблоко."
+                },
+                {
+                    "speaker": "elena",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">— At one o'clock, I cut the green grass.</prosody></speak>",
+                    "en": "— At one o'clock, I cut the green grass.",
+                    "ru": "— В час я косила зелёную траву."
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Where were you at three o'clock?</prosody></speak>",
+                    "en": "— Where were you at three o'clock?",
+                    "ru": "— Где вы были в три часа?"
+                },
+                {
+                    "speaker": "elena",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">— At quarter to three, the wind was very cold.</prosody></speak>",
+                    "en": "— At quarter to three, the wind was very cold.",
+                    "ru": "— Без четверти три ветер стал очень холодным."
+                },
+                {
+                    "speaker": "elena",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">— Then big rain started. <break time=\"300ms\"/> I cannot work in the rain.</prosody></speak>",
+                    "en": "— Then big rain started. I cannot work in the rain.",
+                    "ru": "— Затем начался сильный дождь. Я не могу работать под дождём."
+                },
+                {
+                    "speaker": "elena",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">— My yellow jacket was wet.</prosody></speak>",
+                    "en": "— My yellow jacket was wet.",
+                    "ru": "— Моя жёлтая куртка промокла."
+                },
+                {
+                    "speaker": "elena",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">— So, at ten to three, I ran to the back door.</prosody></speak>",
+                    "en": "— So, at ten to three, I ran to the back door.",
+                    "ru": "— Поэтому без десяти три я побежала к задней двери."
+                },
+                {
+                    "speaker": "elena",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">— I stood under the roof to stay dry.</prosody></speak>",
+                    "en": "— I stood under the roof to stay dry.",
+                    "ru": "— Я стояла под крышей, чтобы не промокнуть."
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Did you see any people?</prosody></speak>",
+                    "en": "— Did you see any people?",
+                    "ru": "— Вы видели кого-нибудь из людей?"
+                },
+                {
+                    "speaker": "elena",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">— No. <break time=\"300ms\"/> But I saw Toby!</prosody></speak>",
+                    "en": "— No. But I saw Toby!",
+                    "ru": "— Нет. Но я видела Тоби!"
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Who is Toby?</prosody></speak>",
+                    "en": "— Who is Toby?",
+                    "ru": "— Кто такой Тоби?"
+                },
+                {
+                    "speaker": "elena",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">— Toby is Mr. <break time=\"300ms\"/> Sterling's dog. <break time=\"300ms\"/> He is a big, golden dog.</prosody></speak>",
+                    "en": "— Toby is Mr. Sterling's dog. He is a big, golden dog.",
+                    "ru": "— Тоби — собака мистера Стерлинга. Он большой золотистый пёс."
+                },
+                {
+                    "speaker": "elena",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">— He is very friendly. <break time=\"300ms\"/> Toby loves water.</prosody></speak>",
+                    "en": "— He is very friendly. Toby loves water.",
+                    "ru": "— Он очень дружелюбный. Тоби обожает воду."
+                },
+                {
+                    "speaker": "elena",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">— When it rains, Toby always runs outside into the wet grass.</prosody></speak>",
+                    "en": "— When it rains, Toby always runs outside into the wet grass.",
+                    "ru": "— Когда идёт дождь, Тоби всегда выбегает на мокрую траву."
+                },
+                {
+                    "speaker": "elena",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">— At three o'clock, Toby ran past the door. <break time=\"300ms\"/> He was very wet.</prosody></speak>",
+                    "en": "— At three o'clock, Toby ran past the door. He was very wet.",
+                    "ru": "— В три часа Тоби пробежал мимо двери. Он был весь мокрый."
+                },
+                {
+                    "speaker": "elena",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">— He had a yellow thing in his mouth. <break time=\"300ms\"/> I thought it was his toy ball.</prosody></speak>",
+                    "en": "— He had a yellow thing in his mouth. I thought it was his toy ball.",
+                    "ru": "— У него во рту было что-то жёлтое. Я подумала, что это его игрушечный мяч."
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Interesting. <break time=\"300ms\"/> The dog was in the rain at three o'clock.</prosody></speak>",
+                    "en": "— Interesting. The dog was in the rain at three o'clock.",
+                    "ru": "— Интересно. Собака была под дождём в три часа."
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Thank you, Elena.</prosody></speak>",
+                    "en": "— Thank you, Elena.",
+                    "ru": "— Спасибо, Елена."
+                }
+            ],
+            "quiz": [
+                {
+                    "question": "Why did Elena run to the back door at ten to three?",
+                    "options": [
+                        "Because of the heavy cold rain",
+                        "To cook dinner",
+                        "To find her keys",
+                        "To talk on the phone"
+                    ],
+                    "correctIdx": 0
+                },
+                {
+                    "question": "What did Toby the dog have in his mouth at three o'clock?",
+                    "options": [
+                        "A yellow shiny thing",
+                        "A red apple",
+                        "A sandwich",
+                        "A silver spoon"
+                    ],
+                    "correctIdx": 0
+                },
+                {
+                    "question": "What does Toby always do when it rains?",
+                    "options": [
+                        "He runs outside into the wet grass",
+                        "He sleeps under the sofa",
+                        "He barks at the mailman",
+                        "He stays in the car"
+                    ],
+                    "correctIdx": 0
+                }
+            ],
+            "wordCount": 276
+        },
+        {
+            "id": "spec-ch-4",
+            "number": 104,
+            "act": 5,
+            "titleEn": "Special Case 4: Oliver the Office Worker",
+            "titleRu": "Спецдело 4: Офисный работник Оливер",
+            "synopsisEn": "Oliver claims he was busy writing emails all morning, but went to the garden at 2:30 and sat on a bench under hot bright sun wearing sunglasses until 3:15.",
+            "synopsisRu": "Оливер утверждает, что всё утро писал письма, а в 14:30 пошёл в сад и сидел на скамейке под палящим солнцем в тёмных очках до 15:15.",
+            "targetLevel": "CEFR A1",
+            "coverIcon": "fa-briefcase",
+            "coverColor": "#a855f7",
+            "sentences": [
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Inspector Vance walks to the library.</prosody></speak>",
+                    "en": "Inspector Vance walks to the library.",
+                    "ru": "Инспектор Вэнс идёт в библиотеку."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">A young man sits on a brown sofa.</prosody></speak>",
+                    "en": "A young man sits on a brown sofa.",
+                    "ru": "Молодой человек сидит на коричневом диване."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He wears a blue shirt and black shoes.</prosody></speak>",
+                    "en": "He wears a blue shirt and black shoes.",
+                    "ru": "На нём синяя рубашка и чёрные туфли."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">His name is Oliver. <break time=\"300ms\"/> He is twenty-five years old.</prosody></speak>",
+                    "en": "His name is Oliver. He is twenty-five years old.",
+                    "ru": "Его зовут Оливер. Ему двадцать пять лет."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He has a mobile phone in his hand.</prosody></speak>",
+                    "en": "He has a mobile phone in his hand.",
+                    "ru": "В руке он держит мобильный телефон."
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Good afternoon, Oliver. <break time=\"300ms\"/> Please put the phone on the table.</prosody></speak>",
+                    "en": "— Good afternoon, Oliver. Please put the phone on the table.",
+                    "ru": "— Добрый день, Оливер. Пожалуйста, положите телефон на стол."
+                },
+                {
+                    "speaker": "oliver",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+2st\">— Good afternoon, Inspector. <break time=\"300ms\"/> I am sorry.</prosody></speak>",
+                    "en": "— Good afternoon, Inspector. I am sorry.",
+                    "ru": "— Добрый день, инспектор. Прошу прощения."
+                },
+                {
+                    "speaker": "oliver",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+2st\">— I am very busy today. <break time=\"300ms\"/> I have many emails to write.</prosody></speak>",
+                    "en": "— I am very busy today. I have many emails to write.",
+                    "ru": "— Я сегодня очень занят. Мне нужно написать много писем."
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Tell me about your job, Oliver.</prosody></speak>",
+                    "en": "— Tell me about your job, Oliver.",
+                    "ru": "— Расскажите о вашей работе, Оливер."
+                },
+                {
+                    "speaker": "oliver",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+2st\">— I work in the office for Mr. <break time=\"300ms\"/> Sterling.</prosody></speak>",
+                    "en": "— I work in the office for Mr. Sterling.",
+                    "ru": "— Я работаю в офисе у мистера Стерлинга."
+                },
+                {
+                    "speaker": "oliver",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+2st\">— I write letters on the computer. <break time=\"300ms\"/> I answer the telephone.</prosody></speak>",
+                    "en": "— I write letters on the computer. I answer the telephone.",
+                    "ru": "— Я пишу письма на компьютере. Отвечаю на телефонные звонки."
+                },
+                {
+                    "speaker": "oliver",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+2st\">— I work five days a week, from Monday to Friday.</prosody></speak>",
+                    "en": "— I work five days a week, from Monday to Friday.",
+                    "ru": "— Я работаю пять дней в неделю, с понедельника по пятницу."
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— What did you do this morning?</prosody></speak>",
+                    "en": "— What did you do this morning?",
+                    "ru": "— Что вы делали сегодня утром?"
+                },
+                {
+                    "speaker": "oliver",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+2st\">— I woke up at half past seven. <break time=\"300ms\"/> I drank green tea.</prosody></speak>",
+                    "en": "— I woke up at half past seven. I drank green tea.",
+                    "ru": "— Я проснулся в половине восьмого. Выпил зелёный чай."
+                },
+                {
+                    "speaker": "oliver",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+2st\">— I did not eat breakfast.</prosody></speak>",
+                    "en": "— I did not eat breakfast.",
+                    "ru": "— Я не завтракал."
+                },
+                {
+                    "speaker": "oliver",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+2st\">— I took the bus at eight o'clock and came here at half past eight.</prosody></speak>",
+                    "en": "— I took the bus at eight o'clock and came here at half past eight.",
+                    "ru": "— Я сел на автобус в восемь часов и приехал сюда в половине девятого."
+                },
+                {
+                    "speaker": "oliver",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+2st\">— All morning, I sat at my desk. <break time=\"300ms\"/> I sent forty emails.</prosody></speak>",
+                    "en": "— All morning, I sat at my desk. I sent forty emails.",
+                    "ru": "— Всё утро я сидел за столом. Я отправил сорок писем."
+                },
+                {
+                    "speaker": "oliver",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+2st\">— At one o'clock, I ate a fish sandwich at my desk.</prosody></speak>",
+                    "en": "— At one o'clock, I ate a fish sandwich at my desk.",
+                    "ru": "— В час я съел рыбный сэндвич прямо за столом."
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Where were you at three o'clock?</prosody></speak>",
+                    "en": "— Where were you at three o'clock?",
+                    "ru": "— Где вы были в три часа?"
+                },
+                {
+                    "speaker": "oliver",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+2st\">— At two o'clock, I finished my work.</prosody></speak>",
+                    "en": "— At two o'clock, I finished my work.",
+                    "ru": "— В два часа я закончил работу."
+                },
+                {
+                    "speaker": "oliver",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+2st\">— My eyes were tired. <break time=\"300ms\"/> My head was bad.</prosody></speak>",
+                    "en": "— My eyes were tired. My head was bad.",
+                    "ru": "— Мои глаза устали. Голова разболелась."
+                },
+                {
+                    "speaker": "oliver",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+2st\">— So, at half past two, I went into the garden for a walk.</prosody></speak>",
+                    "en": "— So, at half past two, I went into the garden for a walk.",
+                    "ru": "— Поэтому в половине третьего я пошёл в сад на прогулку."
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— What was the weather like in the garden?</prosody></speak>",
+                    "en": "— What was the weather like in the garden?",
+                    "ru": "— Какая погода была в саду?"
+                },
+                {
+                    "speaker": "oliver",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+2st\">— It was great! <break time=\"300ms\"/> The sun was very hot and bright.</prosody></speak>",
+                    "en": "— It was great! The sun was very hot and bright.",
+                    "ru": "— Она была прекрасной! Солнце было очень жарким и ярким."
+                },
+                {
+                    "speaker": "oliver",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+2st\">— It was a warm, sunny afternoon.</prosody></speak>",
+                    "en": "— It was a warm, sunny afternoon.",
+                    "ru": "— Это был тёплый, солнечный день."
+                },
+                {
+                    "speaker": "oliver",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+2st\">— The sun was in my eyes, so I put on dark sunglasses.</prosody></speak>",
+                    "en": "— The sun was in my eyes, so I put on dark sunglasses.",
+                    "ru": "— Солнце светило в глаза, поэтому я надел тёмные очки."
+                },
+                {
+                    "speaker": "oliver",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+2st\">— I sat on a wooden bench under a big tree from quarter to three to quarter past three.</prosody></speak>",
+                    "en": "— I sat on a wooden bench under a big tree from quarter to three to quarter past three.",
+                    "ru": "— Я сидел на деревянной скамейке под большим деревом с без четверти три до четверти четвёртого."
+                },
+                {
+                    "speaker": "oliver",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+2st\">— I listened to music on my phone.</prosody></speak>",
+                    "en": "— I listened to music on my phone.",
+                    "ru": "— Я слушал музыку на телефоне."
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— You sat in the hot sun? <break time=\"300ms\"/> With sunglasses?</prosody></speak>",
+                    "en": "— You sat in the hot sun? With sunglasses?",
+                    "ru": "— Вы сидели под жарким солнцем? В солнцезащитных очках?"
+                },
+                {
+                    "speaker": "oliver",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+2st\">— Yes! <break time=\"300ms\"/> I love the sun.</prosody></speak>",
+                    "en": "— Yes! I love the sun.",
+                    "ru": "— Да! Я обожаю солнце."
+                },
+                {
+                    "speaker": "oliver",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+2st\">— Then, at half past three, I walked into the house.</prosody></speak>",
+                    "en": "— Then, at half past three, I walked into the house.",
+                    "ru": "— Затем, в половине четвёртого, я зашёл в дом."
+                },
+                {
+                    "speaker": "oliver",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+2st\">— Mr. <break time=\"300ms\"/> Sterling said his watch was gone. <break time=\"300ms\"/> I was surprised!</prosody></speak>",
+                    "en": "— Mr. Sterling said his watch was gone. I was surprised!",
+                    "ru": "— Мистер Стерлинг сказал, что часы пропали. Я был так удивлён!"
+                },
+                {
+                    "speaker": "oliver",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+2st\">— I was in the sun all the time.</prosody></speak>",
+                    "en": "— I was in the sun all the time.",
+                    "ru": "— Я всё это время был на солнышке."
+                }
+            ],
+            "quiz": [
+                {
+                    "question": "What did Oliver say about the weather between 2:45 and 3:15?",
+                    "options": [
+                        "He said the sun was hot and bright",
+                        "He said it was raining and cold",
+                        "He said there was heavy fog",
+                        "He said it was snowing"
+                    ],
+                    "correctIdx": 0
+                },
+                {
+                    "question": "What was Oliver doing all morning at his desk?",
+                    "options": [
+                        "Sending forty emails and answering calls",
+                        "Cooking soup",
+                        "Fixing the watch",
+                        "Sleeping on the floor"
+                    ],
+                    "correctIdx": 0
+                },
+                {
+                    "question": "What did Oliver say he wore in the garden?",
+                    "options": [
+                        "Dark sunglasses",
+                        "A yellow raincoat",
+                        "A warm winter hat",
+                        "Rubber boots"
+                    ],
+                    "correctIdx": 0
+                }
+            ],
+            "wordCount": 294
+        },
+        {
+            "id": "spec-ch-5",
+            "number": 105,
+            "act": 5,
+            "titleEn": "Special Case 5: The Detective's Question",
+            "titleRu": "Спецдело 5: Вопрос детектива",
+            "synopsisEn": "Vance confronts Oliver with the contradiction: both Marco and Elena experienced freezing rain at 2:45, making a sunny afternoon impossible. Oliver confesses he lied to hide that he was sleeping on the sofa.",
+            "synopsisRu": "Вэнс уличает Оливера в противоречии: и Марко, и Елена были под проливным дождём без четверти три, поэтому солнце было невозможным. Оливер признаётся, что солгал, чтобы скрыть сон на диване.",
+            "targetLevel": "CEFR A1",
+            "coverIcon": "fa-triangle-exclamation",
+            "coverColor": "#ef4444",
+            "sentences": [
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Inspector Vance smiles.</prosody></speak>",
+                    "en": "Inspector Vance smiles.",
+                    "ru": "Инспектор Вэнс улыбается."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He looks at his small notebook. <break time=\"300ms\"/> Then he looks at Oliver.</prosody></speak>",
+                    "en": "He looks at his small notebook. Then he looks at Oliver.",
+                    "ru": "Он смотрит в свой блокнот. Затем он смотрит на Оливера."
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Oliver, that is a nice story. <break time=\"300ms\"/> But it is not true.</prosody></speak>",
+                    "en": "— Oliver, that is a nice story. But it is not true.",
+                    "ru": "— Оливер, это красивая история. Но она неправдива."
+                },
+                {
+                    "speaker": "oliver",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+2st\">— Not true? <break time=\"300ms\"/> Why? <break time=\"300ms\"/> I told you the truth!</prosody></speak>",
+                    "en": "— Not true? Why? I told you the truth!",
+                    "ru": "— Неправда? Почему? Я сказал вам чистую правду!"
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Think about the three stories, Oliver.</prosody></speak>",
+                    "en": "— Think about the three stories, Oliver.",
+                    "ru": "— Подумайте о трёх рассказах, Оливер."
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Marco was in the kitchen at quarter to three.</prosody></speak>",
+                    "en": "— Marco was in the kitchen at quarter to three.",
+                    "ru": "— Марко был на кухне без четверти три."
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— He looked out the window. <break time=\"300ms\"/> He saw dark clouds, cold wind, and big rain.</prosody></speak>",
+                    "en": "— He looked out the window. He saw dark clouds, cold wind, and big rain.",
+                    "ru": "— Он выглянул в окно. Он увидел тёмные тучи, холодный ветер и сильный дождь."
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— He closed the windows because of the rain.</prosody></speak>",
+                    "en": "— He closed the windows because of the rain.",
+                    "ru": "— Он закрыл окна из-за дождя."
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Elena was outside.</prosody></speak>",
+                    "en": "— Elena was outside.",
+                    "ru": "— Елена была на улице."
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— At quarter to three, she ran to the door because of the cold rain.</prosody></speak>",
+                    "en": "— At quarter to three, she ran to the door because of the cold rain.",
+                    "ru": "— Без четверти три она побежала к двери из-за холодного дождя."
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— She saw the dog playing in the wet grass.</prosody></speak>",
+                    "en": "— She saw the dog playing in the wet grass.",
+                    "ru": "— Она видела собаку, играющую в мокрой траве."
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Now, Oliver. <break time=\"300ms\"/> You say you were in the garden.</prosody></speak>",
+                    "en": "— Now, Oliver. You say you were in the garden.",
+                    "ru": "— А теперь вы, Оливер. Вы говорите, что были в саду."
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— You say the sun was hot and bright.</prosody></speak>",
+                    "en": "— You say the sun was hot and bright.",
+                    "ru": "— Вы говорите, что солнце было жарким и ярким."
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— You say you wore sunglasses in the warm sun!</prosody></speak>",
+                    "en": "— You say you wore sunglasses in the warm sun!",
+                    "ru": "— Вы говорите, что носили солнцезащитные очки под тёплым солнцем!"
+                },
+                {
+                    "speaker": "oliver",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+2st\">— Well... <break time=\"300ms\"/> um...</prosody></speak>",
+                    "en": "— Well... um...",
+                    "ru": "— Ну... эм..."
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— That is not possible, Oliver!</prosody></speak>",
+                    "en": "— That is not possible, Oliver!",
+                    "ru": "— Это невозможно, Оливер!"
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— A lot of cold rain fell on the house and garden from quarter to three to quarter past three!</prosody></speak>",
+                    "en": "— A lot of cold rain fell on the house and garden from quarter to three to quarter past three!",
+                    "ru": "— С без четверти три до четверти четвёртого над домом и садом шёл сильный холодный дождь!"
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— There was no sun. <break time=\"300ms\"/> It was cold and dark.</prosody></speak>",
+                    "en": "— There was no sun. It was cold and dark.",
+                    "ru": "— Солнца не было. Было холодно и темно."
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Why did you tell me a lie?</prosody></speak>",
+                    "en": "— Why did you tell me a lie?",
+                    "ru": "— Почему вы мне солгали?"
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Oliver's face turns red. <break time=\"300ms\"/> He looks down at his shoes.</prosody></speak>",
+                    "en": "Oliver's face turns red. He looks down at his shoes.",
+                    "ru": "Лицо Оливера краснеет. Он смотрит вниз на свои туфли."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He is very nervous.</prosody></speak>",
+                    "en": "He is very nervous.",
+                    "ru": "Он очень нервничает."
+                },
+                {
+                    "speaker": "oliver",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+2st\">— Okay, I am sorry! <break time=\"300ms\"/> I told a lie!</prosody></speak>",
+                    "en": "— Okay, I am sorry! I told a lie!",
+                    "ru": "— Ладно, простите меня! Я солгал!"
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Did you take Mr. <break time=\"300ms\"/> Sterling's watch?</prosody></speak>",
+                    "en": "— Did you take Mr. Sterling's watch?",
+                    "ru": "— Вы взяли часы мистера Стерлинга?"
+                },
+                {
+                    "speaker": "oliver",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+2st\">— No! <break time=\"300ms\"/> No! <break time=\"300ms\"/> I did not take the watch!</prosody></speak>",
+                    "en": "— No! No! I did not take the watch!",
+                    "ru": "— Нет! Нет! Я не брал часы!"
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Then where were you at three o'clock?</prosody></speak>",
+                    "en": "— Then where were you at three o'clock?",
+                    "ru": "— Тогда где вы были в три часа?"
+                },
+                {
+                    "speaker": "oliver",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+2st\">— I was asleep! <break time=\"300ms\"/> At half past two, I was so tired.</prosody></speak>",
+                    "en": "— I was asleep! At half past two, I was so tired.",
+                    "ru": "— Я спал! В половине третьего я так устал."
+                },
+                {
+                    "speaker": "oliver",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+2st\">— I came into this library. <break time=\"300ms\"/> I lay down on this sofa.</prosody></speak>",
+                    "en": "— I came into this library. I lay down on this sofa.",
+                    "ru": "— Я пришёл в эту библиотеку. Я прилёг на этот диван."
+                },
+                {
+                    "speaker": "oliver",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+2st\">— I slept from half past two until twenty past three.</prosody></speak>",
+                    "en": "— I slept from half past two until twenty past three.",
+                    "ru": "— Я спал с половины третьего до двадцати минут четвёртого."
+                },
+                {
+                    "speaker": "oliver",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+2st\">— I did not want Mr. <break time=\"300ms\"/> Sterling to know. <break time=\"300ms\"/> It is bad to sleep at work!</prosody></speak>",
+                    "en": "— I did not want Mr. Sterling to know. It is bad to sleep at work!",
+                    "ru": "— Я не хотел, чтобы мистер Стерлинг узнал. Спать на работе — это плохо!"
+                },
+                {
+                    "speaker": "oliver",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+2st\">— I was afraid. <break time=\"300ms\"/> So I made up the story about the sunny garden.</prosody></speak>",
+                    "en": "— I was afraid. So I made up the story about the sunny garden.",
+                    "ru": "— Я испугался. Поэтому я придумал историю про солнечный сад."
+                },
+                {
+                    "speaker": "oliver",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+2st\">— But I did not touch the watch!</prosody></speak>",
+                    "en": "— But I did not touch the watch!",
+                    "ru": "— Но я не прикасался к часам!"
+                }
+            ],
+            "quiz": [
+                {
+                    "question": "How did Inspector Vance know Oliver was lying?",
+                    "options": [
+                        "Because Marco and Elena saw heavy rain, not hot sun",
+                        "Because Oliver dropped the watch",
+                        "Because the dog barked at him",
+                        "Because Toby bit his shoe"
+                    ],
+                    "correctIdx": 0
+                },
+                {
+                    "question": "Why did Oliver lie to the detective?",
+                    "options": [
+                        "He was sleeping at work and was afraid",
+                        "He stole the money",
+                        "He broke a window",
+                        "He lost the keys"
+                    ],
+                    "correctIdx": 0
+                },
+                {
+                    "question": "Where was Oliver really at three o'clock?",
+                    "options": [
+                        "Asleep on the sofa in the library",
+                        "In the study with the watch",
+                        "In the garden eating apples",
+                        "On the bus to London"
+                    ],
+                    "correctIdx": 0
+                }
+            ],
+            "wordCount": 274
+        },
+        {
+            "id": "spec-ch-6",
+            "number": 106,
+            "act": 5,
+            "titleEn": "Special Case 6: The Real Thief",
+            "titleRu": "Спецдело 6: Настоящий вор",
+            "synopsisEn": "Vance notices muddy paw prints and leads everyone under the stairs. There they find Toby the dog sleeping with the shiny gold watch in his bed. The mystery is solved!",
+            "synopsisRu": "Вэнс замечает грязные следы лап и ведёт всех под лестницу. Там они находят пса Тоби, спящего с блестящими золотыми часами в своей лежанке. Загадка раскрыта!",
+            "targetLevel": "CEFR A1",
+            "coverIcon": "fa-paw",
+            "coverColor": "#eab308",
+            "sentences": [
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Inspector Vance looks around the library.</prosody></speak>",
+                    "en": "Inspector Vance looks around the library.",
+                    "ru": "Инспектор Вэнс осматривает библиотеку."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Then he looks at the floor near the sofa.</prosody></speak>",
+                    "en": "Then he looks at the floor near the sofa.",
+                    "ru": "Затем он смотрит на пол возле дивана."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He sees brown mud on the floor.</prosody></speak>",
+                    "en": "He sees brown mud on the floor.",
+                    "ru": "Он видит коричневую грязь на полу."
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Look at the floor, Oliver. <break time=\"300ms\"/> What do you see?</prosody></speak>",
+                    "en": "— Look at the floor, Oliver. What do you see?",
+                    "ru": "— Посмотри на пол, Оливер. Что ты видишь?"
+                },
+                {
+                    "speaker": "oliver",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+2st\">— Mud?</prosody></speak>",
+                    "en": "— Mud?",
+                    "ru": "— Грязь?"
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Yes. <break time=\"300ms\"/> Wet mud. <break time=\"300ms\"/> But these are not human feet. <break time=\"300ms\"/> These are dog feet!</prosody></speak>",
+                    "en": "— Yes. Wet mud. But these are not human feet. These are dog feet!",
+                    "ru": "— Да. Мокрая грязь. Но это не человеческие ноги. Это собачьи лапы!"
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Inspector Vance follows the brown marks.</prosody></speak>",
+                    "en": "Inspector Vance follows the brown marks.",
+                    "ru": "Инспектор Вэнс идёт по коричневым следам."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">They go out of the library, down the hall, and into the study.</prosody></speak>",
+                    "en": "They go out of the library, down the hall, and into the study.",
+                    "ru": "Они ведут из библиотеки по коридору прямо в кабинет."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">In the study, near the small table, there is more wet mud.</prosody></speak>",
+                    "en": "In the study, near the small table, there is more wet mud.",
+                    "ru": "В кабинете, возле маленького столика, ещё больше мокрой грязи."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Next to the table, there is a wet dog bone.</prosody></speak>",
+                    "en": "Next to the table, there is a wet dog bone.",
+                    "ru": "Рядом со столиком лежит мокрая собачья косточка."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Mr. <break time=\"300ms\"/> Sterling, Marco, and Elena come into the room.</prosody></speak>",
+                    "en": "Mr. Sterling, Marco, and Elena come into the room.",
+                    "ru": "Мистер Стерлинг, Марко и Елена заходят в комнату."
+                },
+                {
+                    "speaker": "sterling",
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">— Inspector! <break time=\"300ms\"/> Who took my grandfather's watch?</prosody></speak>",
+                    "en": "— Inspector! Who took my grandfather's watch?",
+                    "ru": "— Инспектор! Кто же взял часы моего дедушки?"
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— The watch is not with Marco. <break time=\"300ms\"/> Marco was making a cake in the kitchen.</prosody></speak>",
+                    "en": "— The watch is not with Marco. Marco was making a cake in the kitchen.",
+                    "ru": "— Часы не у Марко. Марко готовил торт на кухне."
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— The watch is not with Oliver. <break time=\"300ms\"/> Oliver was asleep on the sofa in the library.</prosody></speak>",
+                    "en": "— The watch is not with Oliver. Oliver was asleep on the sofa in the library.",
+                    "ru": "— Часы не у Оливера. Оливер спал на диване в библиотеке."
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— And the watch is not with Elena. <break time=\"300ms\"/> Elena was at the door in the rain.</prosody></speak>",
+                    "en": "— And the watch is not with Elena. Elena was at the door in the rain.",
+                    "ru": "— И часы не у Елены. Елена была у двери под дождём."
+                },
+                {
+                    "speaker": "elena",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">— Then who has the watch, Inspector?</prosody></speak>",
+                    "en": "— Then who has the watch, Inspector?",
+                    "ru": "— Тогда у кого же часы, инспектор?"
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Come with me. <break time=\"300ms\"/> Look under the stairs.</prosody></speak>",
+                    "en": "— Come with me. Look under the stairs.",
+                    "ru": "— Пойдёмте со мной. Посмотрите под лестницу."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Everyone follows Inspector Vance to the corner under the stairs.</prosody></speak>",
+                    "en": "Everyone follows Inspector Vance to the corner under the stairs.",
+                    "ru": "Все идут за инспектором Вэнсом в угол под лестницей."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">There is Toby's bed.</prosody></speak>",
+                    "en": "There is Toby's bed.",
+                    "ru": "Там лежит подстилка Тоби."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Toby, the big golden dog, is sleeping on his red blanket.</prosody></speak>",
+                    "en": "Toby, the big golden dog, is sleeping on his red blanket.",
+                    "ru": "Тоби, большой золотистый пёс, спит на своём красном одеяле."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">His coat is still a little wet.</prosody></speak>",
+                    "en": "His coat is still a little wet.",
+                    "ru": "Его шерсть всё ещё немного влажная."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Between his two front feet is a shiny yellow thing.</prosody></speak>",
+                    "en": "Between his two front feet is a shiny yellow thing.",
+                    "ru": "Между двумя передними лапами лежит блестящая жёлтая вещь."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">It is the gold watch! <break time=\"300ms\"/> The watch is clean and safe.</prosody></speak>",
+                    "en": "It is the gold watch! The watch is clean and safe.",
+                    "ru": "Это золотые часы! Часы чистые и в полной сохранности."
+                },
+                {
+                    "speaker": "sterling",
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">— My watch! <break time=\"300ms\"/> Toby! <break time=\"300ms\"/> You silly, clever dog!</prosody></speak>",
+                    "en": "— My watch! Toby! You silly, clever dog!",
+                    "ru": "— Мои часы! Тоби! Ах ты глупый, умный пёс!"
+                },
+                {
+                    "speaker": "elena",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">— Oh! <break time=\"300ms\"/> At three o'clock, I saw Toby with something yellow in his mouth!</prosody></speak>",
+                    "en": "— Oh! At three o'clock, I saw Toby with something yellow in his mouth!",
+                    "ru": "— О! В три часа я видела Тоби с чем-то жёлтым в пасти!"
+                },
+                {
+                    "speaker": "elena",
+                    "voice": "Aoede",
+                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">— I thought it was his ball. <break time=\"300ms\"/> But it was the gold watch!</prosody></speak>",
+                    "en": "— I thought it was his ball. But it was the gold watch!",
+                    "ru": "— Я думала, это его мячик. А это были золотые часы!"
+                },
+                {
+                    "speaker": "marco",
+                    "voice": "Puck",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">— Toby loves shiny things! <break time=\"300ms\"/> Last week, he took a silver spoon to his bed!</prosody></speak>",
+                    "en": "— Toby loves shiny things! Last week, he took a silver spoon to his bed!",
+                    "ru": "— Тоби обожает блестящие вещи! На прошлой неделе он утащил серебряную ложку в свою постель!"
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Toby opens his eyes. <break time=\"300ms\"/> He wags his tail. <break time=\"300ms\"/> He is very happy.</prosody></speak>",
+                    "en": "Toby opens his eyes. He wags his tail. He is very happy.",
+                    "ru": "Тоби открывает глаза. Он виляет хвостом. Он очень счастлив."
+                },
+                {
+                    "speaker": "sterling",
+                    "voice": "Fenrir",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">— Thank you, Inspector Vance. <break time=\"300ms\"/> You are a great detective.</prosody></speak>",
+                    "en": "— Thank you, Inspector Vance. You are a great detective.",
+                    "ru": "— Спасибо вам, инспектор Вэнс. Вы великолепный детектив."
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— It was easy, Mr. <break time=\"300ms\"/> Sterling.</prosody></speak>",
+                    "en": "— It was easy, Mr. Sterling.",
+                    "ru": "— Это было несложно, мистер Стерлинг."
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— When people talk about their day, listen to the weather, the time, and the truth.</prosody></speak>",
+                    "en": "— When people talk about their day, listen to the weather, the time, and the truth.",
+                    "ru": "— Когда люди рассказывают о своём дне, прислушивайтесь к погоде, времени и правде."
+                },
+                {
+                    "speaker": "vance",
+                    "voice": "Kore",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— And always check the dog!</prosody></speak>",
+                    "en": "— And always check the dog!",
+                    "ru": "— И всегда проверяйте собаку!"
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Everyone laughs. <break time=\"300ms\"/> Marco goes to the kitchen for the cake.</prosody></speak>",
+                    "en": "Everyone laughs. Marco goes to the kitchen for the cake.",
+                    "ru": "Все смеются. Марко идёт на кухню за тортом."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Oliver promises not to sleep at work. <break time=\"300ms\"/> And Toby gets good food for dinner.</prosody></speak>",
+                    "en": "Oliver promises not to sleep at work. And Toby gets good food for dinner.",
+                    "ru": "Оливер обещает не спать на работе. А Тоби получает вкусный ужин."
+                },
+                {
+                    "speaker": "narrator",
+                    "voice": "Charon",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The story ends happily.</prosody></speak>",
+                    "en": "The story ends happily.",
+                    "ru": "История заканчивается счастливо."
+                }
+            ],
+            "quiz": [
+                {
+                    "question": "Who was the real 'thief' of the golden watch?",
+                    "options": [
+                        "Toby the friendly dog",
+                        "Marco the cook",
+                        "Oliver the office worker",
+                        "A stranger from the garden"
+                    ],
+                    "correctIdx": 0
+                },
+                {
+                    "question": "Where did Inspector Vance find the watch?",
+                    "options": [
+                        "Under the stairs between Toby's feet",
+                        "In the kitchen oven",
+                        "In the garden tree",
+                        "In Oliver's pocket"
+                    ],
+                    "correctIdx": 0
+                },
+                {
+                    "question": "Why did Toby take the watch?",
+                    "options": [
+                        "He loves shiny things like spoons and watches",
+                        "He wanted to sell it",
+                        "He was hungry",
+                        "He was angry"
+                    ],
+                    "correctIdx": 0
+                }
+            ],
+            "wordCount": 331
         }
     ]
 };

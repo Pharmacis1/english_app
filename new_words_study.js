@@ -537,6 +537,70 @@ const NEW_WORDS_DATABASE = [
         translation: "капитан",
         exampleEn: "The captain of the boat is a kind man.",
         exampleRu: "Капитан лодки — добрый человек."
+    },
+    {
+        id: "asleep",
+        word: "asleep",
+        phonetic: "/əˈsliːp/",
+        translation: "спящий / уснувший",
+        exampleEn: "Oliver was asleep on the sofa in the library.",
+        exampleRu: "Оливер спал на диване в библиотеке."
+    },
+    {
+        id: "nervous",
+        word: "nervous",
+        phonetic: "/ˈnɜː.vəs/",
+        translation: "нервный / взволнованный",
+        exampleEn: "Mr. Sterling looks very sad and nervous.",
+        exampleRu: "Мистер Стерлинг выглядит очень грустным и нервным."
+    },
+    {
+        id: "sorry",
+        word: "sorry",
+        phonetic: "/ˈsɒr.i/",
+        translation: "сожалеющий / «простите»",
+        exampleEn: "I am sorry, I told a lie about the garden!",
+        exampleRu: "Мне жаль, я солгал про сад!"
+    },
+    {
+        id: "sad",
+        word: "sad",
+        phonetic: "/sæd/",
+        translation: "грустный / печальный",
+        exampleEn: "The old man was very sad about his missing watch.",
+        exampleRu: "Старик очень грустил из-за пропавших часов."
+    },
+    {
+        id: "surprised",
+        word: "surprised",
+        phonetic: "/səˈpraɪzd/",
+        translation: "удивлённый",
+        exampleEn: "He was surprised when the watch was gone.",
+        exampleRu: "Он удивился, когда часы пропали."
+    },
+    {
+        id: "email",
+        word: "email",
+        phonetic: "/ˈiː.meɪl/",
+        translation: "электронное письмо",
+        exampleEn: "I have many emails to write on my computer.",
+        exampleRu: "Мне нужно написать много писем на компьютере."
+    },
+    {
+        id: "tail",
+        word: "tail",
+        phonetic: "/teɪl/",
+        translation: "хвост",
+        exampleEn: "Toby opens his eyes and wags his tail.",
+        exampleRu: "Тоби открывает глаза и виляет хвостом."
+    },
+    {
+        id: "toy",
+        word: "toy",
+        phonetic: "/tɔɪ/",
+        translation: "игрушка",
+        exampleEn: "The dog ran outside with his favourite toy ball.",
+        exampleRu: "Собака выбежала на улицу со своим любимым игрушечным мячиком."
     }
 ];
 

@@ -89,6 +89,26 @@ const CAST = {
         voice: 'en-US-Neural2-J', // Captain Morgan (sea captain, deep, gruff, friendly)
         pitch: '-3.5st',
         rate: '0.88'
+    },
+    vance: {
+        voice: 'en-US-Neural2-I', // Inspector Vance (confident, calm detective)
+        pitch: '-1st',
+        rate: '0.92'
+    },
+    sterling: {
+        voice: 'en-US-Neural2-D', // Mr. Arthur Sterling (elderly, polite gentleman)
+        pitch: '-3st',
+        rate: '0.88'
+    },
+    marco: {
+        voice: 'en-US-Neural2-A', // Marco the Italian cook (energetic, friendly)
+        pitch: '+1st',
+        rate: '0.96'
+    },
+    oliver: {
+        voice: 'en-US-Neural2-I', // Oliver the office worker (young, slightly fast & nervous)
+        pitch: '+2st',
+        rate: '1.0'
     }
 };
 
