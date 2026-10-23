@@ -10702,7 +10702,7 @@ document.addEventListener("DOMContentLoaded", () => {
         function preloadChapterAudio(chapter) {
             if (!chapter || !Array.isArray(chapter.sentences)) return;
             chapter.sentences.forEach((sent, idx) => {
-                const url = `/audio/audiobook/ch_${chapter.number}/sent_${idx + 1}.wav?v=2`;
+                const url = `/audio/audiobook/ch_${chapter.number}/sent_${idx + 1}.wav?v=3`;
                 if (!audioCache.has(url)) {
                     const audio = new Audio();
                     audio.preload = 'auto';
@@ -10764,7 +10764,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             };
 
-            const localAudioUrl = `/audio/audiobook/ch_${curChapter.number}/sent_${idx + 1}.wav?v=2`;
+            const localAudioUrl = `/audio/audiobook/ch_${curChapter.number}/sent_${idx + 1}.wav?v=3`;
 
             // Instant audio playback from pre-rendered file or cache with fast fallback
             let audio = audioCache.get(localAudioUrl);

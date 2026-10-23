@@ -551,7 +551,7 @@ const NEW_WORDS_DATABASE = [
         word: "nervous",
         phonetic: "/ˈnɜː.vəs/",
         translation: "нервный / взволнованный",
-        exampleEn: "Mr. Sterling looks very sad and nervous.",
+        exampleEn: "Mister Sterling looks very sad and nervous.",
         exampleRu: "Мистер Стерлинг выглядит очень грустным и нервным."
     },
     {

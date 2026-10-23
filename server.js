@@ -15,7 +15,7 @@ process.on('unhandledRejection', (reason, promise) => {
 });
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3010;
 
 app.use(cors());
 app.use(express.json({ limit: '50mb' }));
@@ -857,14 +857,49 @@ app.get('/api/audio-manifest', (req, res) => {
     }
 });
 
-// Helper: Convert PCM 16-bit 24kHz mono buffer to standard WAV
+// Helper: Convert PCM 16-bit 24kHz mono buffer to standard WAV, or clean existing RIFF WAVE
 function pcmToWav(pcmBuffer, sampleRate = 24000, numChannels = 1, bitsPerSample = 16) {
+    if (!pcmBuffer || pcmBuffer.length === 0) return pcmBuffer;
+
+    // Handle double-RIFF headers if nested
+    let workingBuffer = pcmBuffer;
+    if (workingBuffer.length > 48 && workingBuffer.slice(0, 4).toString() === 'RIFF' && workingBuffer.slice(44, 48).toString() === 'RIFF') {
+        workingBuffer = workingBuffer.slice(44);
+    }
+
+    // If already a valid RIFF WAVE (e.g. returned directly by Gemini TTS), extract only fmt and data chunks to strip any trailing metadata/C2PA
+    if (workingBuffer.length > 12 && workingBuffer.slice(0, 4).toString() === 'RIFF' && workingBuffer.slice(8, 12).toString() === 'WAVE') {
+        let offset = 12;
+        let fmtChunk = null;
+        let dataChunk = null;
+        while (offset < workingBuffer.length - 8) {
+            const id = workingBuffer.slice(offset, offset + 4).toString();
+            const size = workingBuffer.readUInt32LE(offset + 4);
+            if (id === 'fmt ') fmtChunk = workingBuffer.slice(offset, offset + 8 + size);
+            if (id === 'data') dataChunk = workingBuffer.slice(offset, offset + 8 + size);
+            offset += 8 + size;
+            if (size % 2 !== 0) offset++;
+        }
+        if (fmtChunk && dataChunk) {
+            const cleanWav = Buffer.concat([
+                Buffer.from('RIFF'),
+                Buffer.alloc(4),
+                Buffer.from('WAVE'),
+                fmtChunk,
+                dataChunk
+            ]);
+            cleanWav.writeUInt32LE(cleanWav.length - 8, 4);
+            return cleanWav;
+        }
+        return workingBuffer;
+    }
+
     const byteRate = sampleRate * numChannels * (bitsPerSample / 8);
     const blockAlign = numChannels * (bitsPerSample / 8);
     const wavHeader = Buffer.alloc(44);
 
     wavHeader.write('RIFF', 0);
-    wavHeader.writeUInt32LE(36 + pcmBuffer.length, 4);
+    wavHeader.writeUInt32LE(36 + workingBuffer.length, 4);
     wavHeader.write('WAVE', 8);
     wavHeader.write('fmt ', 12);
     wavHeader.writeUInt32LE(16, 16);
@@ -875,9 +910,9 @@ function pcmToWav(pcmBuffer, sampleRate = 24000, numChannels = 1, bitsPerSample 
     wavHeader.writeUInt16LE(blockAlign, 32);
     wavHeader.writeUInt16LE(bitsPerSample, 34);
     wavHeader.write('data', 36);
-    wavHeader.writeUInt32LE(pcmBuffer.length, 40);
+    wavHeader.writeUInt32LE(workingBuffer.length, 40);
 
-    return Buffer.concat([wavHeader, pcmBuffer]);
+    return Buffer.concat([wavHeader, workingBuffer]);
 }
 
 // 12. POST /api/ai/gemini-tts — Native Google Gemini TTS with rich emotional intonations & Disk Caching

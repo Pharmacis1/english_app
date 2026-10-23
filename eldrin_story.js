@@ -562,8 +562,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "blackwood",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">— Three people work here: Arthur the garden worker, Claire the cook, and Dr. <break time=\"300ms\"/> Hayes visited for dinner.</prosody></speak>",
-                    "en": "— Three people work here: Arthur the garden worker, Claire the cook, and Dr. Hayes visited for dinner.",
+                    "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">— Three people work here: Arthur the garden worker, Claire the cook, and Doctor Hayes visited for dinner.</prosody></speak>",
+                    "en": "— Three people work here: Arthur the garden worker, Claire the cook, and Doctor Hayes visited for dinner.",
                     "ru": "— Здесь работают три человека: садовник Артур, кухарка Клэр, а доктор Хейз заходил на ужин."
                 },
                 {
@@ -875,7 +875,7 @@ const ELDRIN_AUDIOBOOK = {
             "act": 1,
             "titleEn": "Episode 4: The Kitchen Clues & The Chef's Alibi",
             "titleRu": "Серия 4: Улики на кухне и алиби повара",
-            "synopsisEn": "The detectives interrogate Claire the cook in the estate's kitchen. Claire provides details about Dr. Hayes leaving last night and a fast motorcycle courier named Victor delivering goods at quarter to seven this morning.",
+            "synopsisEn": "The detectives interrogate Claire the cook in the estate's kitchen. Claire provides details about Doctor Hayes leaving last night and a fast motorcycle courier named Victor delivering goods at quarter to seven this morning.",
             "synopsisRu": "Детективы допрашивают повара Клэр на кухне особняка. Клэр делится деталями об уходе доктора Хейза прошлым вечером и быстром курьере Викторе на мотоцикле, доставившем продукты без четверти семь утра.",
             "wordCount": 424,
             "targetLevel": "A0 - A1",
@@ -947,8 +947,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "claire",
                     "voice": "Aoede",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1.5st\">— Yesterday at half past seven in the evening, I cooked dinner for Lord Blackwood and Dr. <break time=\"300ms\"/> Hayes.</prosody></speak>",
-                    "en": "— Yesterday at half past seven in the evening, I cooked dinner for Lord Blackwood and Dr. Hayes.",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1.5st\">— Yesterday at half past seven in the evening, I cooked dinner for Lord Blackwood and Doctor Hayes.</prosody></speak>",
+                    "en": "— Yesterday at half past seven in the evening, I cooked dinner for Lord Blackwood and Doctor Hayes.",
                     "ru": "— Вчера в половине восьмого вечера я готовила ужин для лорда Блэквуда и доктора Хейза."
                 },
                 {
@@ -961,8 +961,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "mia",
                     "voice": "Aoede",
-                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— When did Dr. <break time=\"300ms\"/> Hayes leave the house last night?</prosody></speak>",
-                    "en": "— When did Dr. Hayes leave the house last night?",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— When did Doctor Hayes leave the house last night?</prosody></speak>",
+                    "en": "— When did Doctor Hayes leave the house last night?",
                     "ru": "— Когда доктор Хейз ушел из дома прошлой ночью?"
                 },
                 {
@@ -1118,7 +1118,7 @@ const ELDRIN_AUDIOBOOK = {
                     "correctIdx": 0
                 },
                 {
-                    "question": "What time did Dr. Hayes leave the house last night with a heavy black bag?",
+                    "question": "What time did Doctor Hayes leave the house last night with a heavy black bag?",
                     "options": [
                         "At half past six",
                         "At quarter to seven",
@@ -1397,7 +1397,7 @@ const ELDRIN_AUDIOBOOK = {
                         "Victor the motorcycle courier in a bright yellow jacket",
                         "Arthur the gardener buying flowers",
                         "Officer Harris eating lunch",
-                        "Dr. Hayes drinking morning tea"
+                        "Doctor Hayes drinking morning tea"
                     ],
                     "correctIdx": 0
                 },
@@ -1429,7 +1429,7 @@ const ELDRIN_AUDIOBOOK = {
             "act": 1,
             "titleEn": "Episode 6: The Central Train Station & The Ticket Inspector",
             "titleRu": "Серия 6: Центральный вокзал и контролёр билетов",
-            "synopsisEn": "The detectives rush to the Central Train Station. Ticket Inspector Mr. Jenkins confirms the suspect bought a ticket to London, but the train is late. Barnaby discovers a note on a cafe table pointing to Platform 2.",
+            "synopsisEn": "The detectives rush to the Central Train Station. Ticket Inspector Mister Jenkins confirms the suspect bought a ticket to London, but the train is late. Barnaby discovers a note on a cafe table pointing to Platform 2.",
             "synopsisRu": "Детективы спешат на Центральный вокзал. Контролер мистер Дженкинс подтверждает, что подозреваемый купил билет до Лондона, но поезд опаздывает. Барнаби находит записку на столике кафе, указывающую на Платформу 2.",
             "wordCount": 368,
             "targetLevel": "A0 - A1",
@@ -1487,8 +1487,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He checks the tickets of the people. <break time=\"300ms\"/> His name is Mr. <break time=\"300ms\"/> Jenkins.</prosody></speak>",
-                    "en": "He checks the tickets of the people. His name is Mr. Jenkins.",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He checks the tickets of the people. <break time=\"300ms\"/> His name is Mister Jenkins.</prosody></speak>",
+                    "en": "He checks the tickets of the people. His name is Mister Jenkins.",
                     "ru": "Он проверяет билеты людей. Его зовут мистер Дженкинс."
                 },
                 {
@@ -1543,8 +1543,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "toby",
                     "voice": "Puck",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Was the man OK, Mr. Jenkins?</prosody></speak>",
-                    "en": "— Was the man OK, Mr. Jenkins?",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Was the man OK, Mister Jenkins?</prosody></speak>",
+                    "en": "— Was the man OK, Mister Jenkins?",
                     "ru": "— Тот человек был в порядке, мистер Дженкинс?"
                 },
                 {
@@ -1641,8 +1641,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "leo",
                     "voice": "Kore",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Thank you, Mr. <break time=\"300ms\"/> Jenkins! <break time=\"300ms\"/> Please tell the station guards, but be quiet.</prosody></speak>",
-                    "en": "— Thank you, Mr. Jenkins! Please tell the station guards, but be quiet.",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Thank you, Mister Jenkins! <break time=\"300ms\"/> Please tell the station guards, but be quiet.</prosody></speak>",
+                    "en": "— Thank you, Mister Jenkins! Please tell the station guards, but be quiet.",
                     "ru": "— Спасибо, мистер Дженкинс! Пожалуйста, скажите охране вокзала, но тихо."
                 },
                 {
@@ -1679,7 +1679,7 @@ const ELDRIN_AUDIOBOOK = {
                     "correctIdx": 0
                 },
                 {
-                    "question": "What did Mr. Jenkins say about the London train?",
+                    "question": "What did Mister Jenkins say about the London train?",
                     "options": [
                         "It already left the station",
                         "It is late and leaves at ten past eight (8:10 AM)",
@@ -1848,8 +1848,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "mia",
                     "voice": "Aoede",
-                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Who are you, sir? <break time=\"300ms\"/> You are not Dr. <break time=\"300ms\"/> Hayes!</prosody></speak>",
-                    "en": "— Who are you, sir? You are not Dr. Hayes!",
+                    "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+2st\">— Who are you, sir? <break time=\"300ms\"/> You are not Doctor Hayes!</prosody></speak>",
+                    "en": "— Who are you, sir? You are not Doctor Hayes!",
                     "ru": "— Кто вы, сэр? Вы не доктор Хейз!"
                 },
                 {
@@ -1990,7 +1990,7 @@ const ELDRIN_AUDIOBOOK = {
             "act": 1,
             "titleEn": "Episode 8: The Silver Star Hotel & Room 14",
             "titleRu": "Серия 8: Отель «Серебряная звезда» и Номер 14",
-            "synopsisEn": "The detectives follow the clue to the Silver Star Hotel. Receptionist Elena reveals that a mysterious guest, \"Mr. Robert Stone,\" checked into Room 14 ten minutes ago. Upstairs, the detectives find the room door wide open.",
+            "synopsisEn": "The detectives follow the clue to the Silver Star Hotel. Receptionist Elena reveals that a mysterious guest, \"Mister Robert Stone,\" checked into Room 14 ten minutes ago. Upstairs, the detectives find the room door wide open.",
             "synopsisRu": "Детективы идут по следу к отелю «Серебряная звезда». Администратор Елена сообщает, что загадочный постоялец «мистер Роберт Стоун» заселился в Номер 14 десять минут назад. Поднявшись наверх, детективы обнаруживают, что дверь номера открыта.",
             "wordCount": 386,
             "targetLevel": "A0 - A1",
@@ -2118,15 +2118,15 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "elena",
                     "voice": "Aoede",
-                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">— The name on the paper is \"Mr. <break time=\"300ms\"/> Robert Stone\".</prosody></speak>",
-                    "en": "— The name on the paper is \"Mr. Robert Stone\".",
+                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">— The name on the paper is \"Mister Robert Stone\".</prosody></speak>",
+                    "en": "— The name on the paper is \"Mister Robert Stone\".",
                     "ru": "— Имя на бумаге — «Мистер Роберт Стоун»."
                 },
                 {
                     "speaker": "toby",
                     "voice": "Puck",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Robert Stone? <break time=\"300ms\"/> But Dr. <break time=\"300ms\"/> Hayes is the man from the museum!</prosody></speak>",
-                    "en": "— Robert Stone? But Dr. Hayes is the man from the museum!",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">— Robert Stone? <break time=\"300ms\"/> But Doctor Hayes is the man from the museum!</prosody></speak>",
+                    "en": "— Robert Stone? But Doctor Hayes is the man from the museum!",
                     "ru": "— Роберт Стоун? Но доктор Хейз — человек из музея!"
                 },
                 {
@@ -2239,8 +2239,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "question": "What is the name of the guest in Room 14 according to the hotel reception?",
                     "options": [
-                        "Mr. Robert Stone",
-                        "Dr. Hayes",
+                        "Mister Robert Stone",
+                        "Doctor Hayes",
                         "Victor",
                         "Julian"
                     ],
@@ -2525,7 +2525,7 @@ const ELDRIN_AUDIOBOOK = {
                     "options": [
                         "An open window and an empty blue box",
                         "The Midnight Sapphire",
-                        "Dr. Hayes",
+                        "Doctor Hayes",
                         "A sleeping dog"
                     ],
                     "correctIdx": 0
@@ -3092,7 +3092,7 @@ const ELDRIN_AUDIOBOOK = {
                     "question": "Who is the man in the red coat on Boat Number Four?",
                     "options": [
                         "Captain Morgan",
-                        "Dr. Hayes",
+                        "Doctor Hayes",
                         "Lord Blackwood",
                         "Victor"
                     ],
@@ -3126,7 +3126,7 @@ const ELDRIN_AUDIOBOOK = {
             "act": 5,
             "titleEn": "Special Case 1: The Missing Watch",
             "titleRu": "Спецдело 1: Пропавшие часы",
-            "synopsisEn": "Inspector Vance arrives at Oakwood House. Mr. Arthur Sterling reports that his grandfather's gold pocket watch disappeared from his study between 2:00 and 3:30.",
+            "synopsisEn": "Inspector Vance arrives at Oakwood House. Mister Arthur Sterling reports that his grandfather's gold pocket watch disappeared from his study between 2:00 and 3:30.",
             "synopsisRu": "Инспектор Вэнс прибывает в Оквуд-Хаус. Мистер Артур Стерлинг сообщает, что золотые карманные часы его дедушки пропали из кабинета между 14:00 и 15:30.",
             "targetLevel": "CEFR A1",
             "coverIcon": "fa-stopwatch",
@@ -3198,15 +3198,15 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">His name is Mr. <break time=\"300ms\"/> Arthur Sterling.</prosody></speak>",
-                    "en": "His name is Mr. Arthur Sterling.",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">His name is Mister Arthur Sterling.</prosody></speak>",
+                    "en": "His name is Mister Arthur Sterling.",
                     "ru": "Его зовут мистер Артур Стерлинг."
                 },
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Mr. <break time=\"300ms\"/> Sterling looks very sad and nervous.</prosody></speak>",
-                    "en": "Mr. Sterling looks very sad and nervous.",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Mister Sterling looks very sad and nervous.</prosody></speak>",
+                    "en": "Mister Sterling looks very sad and nervous.",
                     "ru": "Мистер Стерлинг выглядит очень грустным и нервным."
                 },
                 {
@@ -3219,8 +3219,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "vance",
                     "voice": "Kore",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Good afternoon, Mr. <break time=\"300ms\"/> Sterling. <break time=\"300ms\"/> I am Inspector Vance.</prosody></speak>",
-                    "en": "— Good afternoon, Mr. Sterling. I am Inspector Vance.",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Good afternoon, Mister Sterling. <break time=\"300ms\"/> I am Inspector Vance.</prosody></speak>",
+                    "en": "— Good afternoon, Mister Sterling. I am Inspector Vance.",
                     "ru": "— Добрый день, мистер Стерлинг. Я инспектор Вэнс."
                 },
                 {
@@ -3317,8 +3317,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "vance",
                     "voice": "Kore",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Good. <break time=\"300ms\"/> Please wait here, Mr. <break time=\"300ms\"/> Sterling.</prosody></speak>",
-                    "en": "— Good. Please wait here, Mr. Sterling.",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Good. <break time=\"300ms\"/> Please wait here, Mister Sterling.</prosody></speak>",
+                    "en": "— Good. Please wait here, Mister Sterling.",
                     "ru": "— Хорошо. Пожалуйста, подождите здесь, мистер Стерлинг."
                 },
                 {
@@ -3331,7 +3331,7 @@ const ELDRIN_AUDIOBOOK = {
             ],
             "quiz": [
                 {
-                    "question": "What is missing from Mr. Sterling's study?",
+                    "question": "What is missing from Mister Sterling's study?",
                     "options": [
                         "A gold pocket watch",
                         "A silver ring",
@@ -3434,8 +3434,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "marco",
                     "voice": "Puck",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">— I want to help. <break time=\"300ms\"/> I like Mr. <break time=\"300ms\"/> Sterling. <break time=\"300ms\"/> I did not take the watch!</prosody></speak>",
-                    "en": "— I want to help. I like Mr. Sterling. I did not take the watch!",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">— I want to help. <break time=\"300ms\"/> I like Mister Sterling. <break time=\"300ms\"/> I did not take the watch!</prosody></speak>",
+                    "en": "— I want to help. I like Mister Sterling. I did not take the watch!",
                     "ru": "— Я хочу помочь. Мне нравится мистер Стерлинг. Я не брал часы!"
                 },
                 {
@@ -3490,8 +3490,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "marco",
                     "voice": "Puck",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">— At eight o'clock, I make breakfast for Mr. <break time=\"300ms\"/> Sterling.</prosody></speak>",
-                    "en": "— At eight o'clock, I make breakfast for Mr. Sterling.",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">— At eight o'clock, I make breakfast for Mister Sterling.</prosody></speak>",
+                    "en": "— At eight o'clock, I make breakfast for Mister Sterling.",
                     "ru": "— В восемь часов я готовлю завтрак для мистера Стерлинга."
                 },
                 {
@@ -3518,8 +3518,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "marco",
                     "voice": "Puck",
-                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">— Mr. <break time=\"300ms\"/> Sterling ate chicken, potatoes, and green salad.</prosody></speak>",
-                    "en": "— Mr. Sterling ate chicken, potatoes, and green salad.",
+                    "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">— Mister Sterling ate chicken, potatoes, and green salad.</prosody></speak>",
+                    "en": "— Mister Sterling ate chicken, potatoes, and green salad.",
                     "ru": "— Мистер Стерлинг ел курицу, картофель и зелёный салат."
                 },
                 {
@@ -3691,8 +3691,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "elena",
                     "voice": "Aoede",
-                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">— Mr. <break time=\"300ms\"/> Sterling told me about his watch. <break time=\"300ms\"/> It is very sad!</prosody></speak>",
-                    "en": "— Mr. Sterling told me about his watch. It is very sad!",
+                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">— Mister Sterling told me about his watch. <break time=\"300ms\"/> It is very sad!</prosody></speak>",
+                    "en": "— Mister Sterling told me about his watch. It is very sad!",
                     "ru": "— Мистер Стерлинг рассказал мне о своих часах. Это так грустно!"
                 },
                 {
@@ -3838,8 +3838,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "elena",
                     "voice": "Aoede",
-                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">— Toby is Mr. <break time=\"300ms\"/> Sterling's dog. <break time=\"300ms\"/> He is a big, golden dog.</prosody></speak>",
-                    "en": "— Toby is Mr. Sterling's dog. He is a big, golden dog.",
+                    "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">— Toby is Mister Sterling's dog. <break time=\"300ms\"/> He is a big, golden dog.</prosody></speak>",
+                    "en": "— Toby is Mister Sterling's dog. He is a big, golden dog.",
                     "ru": "— Тоби — собака мистера Стерлинга. Он большой золотистый пёс."
                 },
                 {
@@ -3997,8 +3997,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "oliver",
                     "voice": "Puck",
-                    "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+2st\">— I work in the office for Mr. <break time=\"300ms\"/> Sterling.</prosody></speak>",
-                    "en": "— I work in the office for Mr. Sterling.",
+                    "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+2st\">— I work in the office for Mister Sterling.</prosody></speak>",
+                    "en": "— I work in the office for Mister Sterling.",
                     "ru": "— Я работаю в офисе у мистера Стерлинга."
                 },
                 {
@@ -4151,8 +4151,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "oliver",
                     "voice": "Puck",
-                    "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+2st\">— Mr. <break time=\"300ms\"/> Sterling said his watch was gone. <break time=\"300ms\"/> I was surprised!</prosody></speak>",
-                    "en": "— Mr. Sterling said his watch was gone. I was surprised!",
+                    "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+2st\">— Mister Sterling said his watch was gone. <break time=\"300ms\"/> I was surprised!</prosody></speak>",
+                    "en": "— Mister Sterling said his watch was gone. I was surprised!",
                     "ru": "— Мистер Стерлинг сказал, что часы пропали. Я был так удивлён!"
                 },
                 {
@@ -4366,8 +4366,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "vance",
                     "voice": "Kore",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Did you take Mr. <break time=\"300ms\"/> Sterling's watch?</prosody></speak>",
-                    "en": "— Did you take Mr. Sterling's watch?",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— Did you take Mister Sterling's watch?</prosody></speak>",
+                    "en": "— Did you take Mister Sterling's watch?",
                     "ru": "— Вы взяли часы мистера Стерлинга?"
                 },
                 {
@@ -4408,8 +4408,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "oliver",
                     "voice": "Puck",
-                    "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+2st\">— I did not want Mr. <break time=\"300ms\"/> Sterling to know. <break time=\"300ms\"/> It is bad to sleep at work!</prosody></speak>",
-                    "en": "— I did not want Mr. Sterling to know. It is bad to sleep at work!",
+                    "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+2st\">— I did not want Mister Sterling to know. <break time=\"300ms\"/> It is bad to sleep at work!</prosody></speak>",
+                    "en": "— I did not want Mister Sterling to know. It is bad to sleep at work!",
                     "ru": "— Я не хотел, чтобы мистер Стерлинг узнал. Спать на работе — это плохо!"
                 },
                 {
@@ -4546,8 +4546,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "narrator",
                     "voice": "Charon",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Mr. <break time=\"300ms\"/> Sterling, Marco, and Elena come into the room.</prosody></speak>",
-                    "en": "Mr. Sterling, Marco, and Elena come into the room.",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Mister Sterling, Marco, and Elena come into the room.</prosody></speak>",
+                    "en": "Mister Sterling, Marco, and Elena come into the room.",
                     "ru": "Мистер Стерлинг, Марко и Елена заходят в комнату."
                 },
                 {
@@ -4679,8 +4679,8 @@ const ELDRIN_AUDIOBOOK = {
                 {
                     "speaker": "vance",
                     "voice": "Kore",
-                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— It was easy, Mr. <break time=\"300ms\"/> Sterling.</prosody></speak>",
-                    "en": "— It was easy, Mr. Sterling.",
+                    "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">— It was easy, Mister Sterling.</prosody></speak>",
+                    "en": "— It was easy, Mister Sterling.",
                     "ru": "— Это было несложно, мистер Стерлинг."
                 },
                 {

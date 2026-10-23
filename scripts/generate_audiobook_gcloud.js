@@ -115,6 +115,10 @@ const CAST = {
 function formatSSML(text, speaker) {
     const config = CAST[speaker] || CAST.narrator;
     let safe = text.trim();
+    safe = safe.replace(/\bMr\.\s*/g, 'Mister ');
+    safe = safe.replace(/\bMrs\.\s*/g, 'Missus ');
+    safe = safe.replace(/\bDr\.\s*/g, 'Doctor ');
+    safe = safe.replace(/\bMs\.\s*/g, 'Ms ');
     safe = safe.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
     safe = safe.replace(/([.?!])\s+/g, '$1 <break time="300ms"/> ');
     return `<speak><prosody rate="${config.rate}" pitch="${config.pitch}">${safe}</prosody></speak>`;
@@ -123,7 +127,15 @@ function formatSSML(text, speaker) {
 async function synthesizeChunk(block) {
     const speaker = block.speaker || 'narrator';
     const config = CAST[speaker] || CAST.narrator;
-    const ssml = block.ssml || formatSSML(block.en, speaker);
+    let ssml = block.ssml || formatSSML(block.en, speaker);
+
+    // Sanitize any abbreviations and unnatural breaks after titles
+    ssml = ssml.replace(/\bMr\.\s*(<break[^>]*>\s*)?/gi, 'Mister ');
+    ssml = ssml.replace(/\bDr\.\s*(<break[^>]*>\s*)?/gi, 'Doctor ');
+    ssml = ssml.replace(/\bMrs\.\s*(<break[^>]*>\s*)?/gi, 'Missus ');
+    ssml = ssml.replace(/\bMs\.\s*(<break[^>]*>\s*)?/gi, 'Ms ');
+    ssml = ssml.replace(/\bMister\s*(<break[^>]*>\s*)+/gi, 'Mister ');
+    ssml = ssml.replace(/\bDoctor\s*(<break[^>]*>\s*)+/gi, 'Doctor ');
 
     const request = {
         input: { ssml: ssml },

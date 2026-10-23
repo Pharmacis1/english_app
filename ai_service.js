@@ -743,7 +743,8 @@ class VoiceService {
         const mySpeechId = this.activeSpeechSession;
 
         if (!text || typeof text !== 'string') return;
-        const cleanText = text.replace(/[*_#`]/g, '').trim();
+        let cleanText = text.replace(/[*_#`]/g, '').trim();
+        cleanText = cleanText.replace(/\bMr\.\s*/g, 'Mister ').replace(/\bMrs\.\s*/g, 'Missus ').replace(/\bDr\.\s*/g, 'Doctor ').replace(/\bMs\.\s*/g, 'Ms ');
         if (!cleanText) return;
 
         const effectiveSpeed = (customSpeed !== null && customSpeed !== undefined) ? parseFloat(customSpeed) : (this.speechSpeed || 1.0);
