@@ -10475,7 +10475,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
         function updateBadges() {
             const curChapter = bookData.chapters.find(c => c.id === activeChapterId) || bookData.chapters[0];
-            const chLabel = curChapter.number > 100 ? `Спецдело ${curChapter.number - 100}` : `Гл. ${curChapter.number}`;
+            let chLabel;
+            if (curChapter.number > 200) {
+                chLabel = `Спецдело 2, ч. ${curChapter.number - 200}`;
+            } else if (curChapter.number > 100) {
+                chLabel = `Спецдело 1, ч. ${curChapter.number - 100}`;
+            } else {
+                chLabel = `Гл. ${curChapter.number}`;
+            }
             if (bookmarkBadge) {
                 bookmarkBadge.innerHTML = `🔖 ${chLabel} • ${currentSentenceIdx + 1}/${curChapter.sentences.length}`;
             }
@@ -10501,7 +10508,14 @@ document.addEventListener("DOMContentLoaded", () => {
             tabsContainer.innerHTML = bookData.chapters.map(ch => {
                 const isActive = ch.id === activeChapterId;
                 const isDone = completedChapters.includes(ch.id);
-                const label = ch.number > 100 ? `Спец. ${ch.number - 100}` : `Гл. ${ch.number}`;
+                let label;
+                if (ch.number > 200) {
+                    label = `Спец. 2.${ch.number - 200}`;
+                } else if (ch.number > 100) {
+                    label = `Спец. 1.${ch.number - 100}`;
+                } else {
+                    label = `Гл. ${ch.number}`;
+                }
                 return `
                     <button class="btn btn-sm ${isActive ? 'btn-primary' : 'btn-outline'} audiobook-tab-btn" data-chapter-id="${ch.id}">
                         <i class="fa-solid ${ch.coverIcon}" style="color: ${ch.coverColor};"></i>
@@ -10610,6 +10624,18 @@ document.addEventListener("DOMContentLoaded", () => {
                     speakerBadge = `<span class="badge" style="background:rgba(249,115,22,0.25); color:#fb923c; font-size:11px; border:1px solid rgba(249,115,22,0.5);"><i class="fa-solid fa-utensils"></i> Повар Марко</span>`;
                 } else if (sent.speaker === 'oliver') {
                     speakerBadge = `<span class="badge" style="background:rgba(168,85,247,0.25); color:#c084fc; font-size:11px; border:1px solid rgba(168,85,247,0.5);"><i class="fa-solid fa-briefcase"></i> Оливер</span>`;
+                } else if (sent.speaker === 'leovance') {
+                    speakerBadge = `<span class="badge" style="background:rgba(56,189,248,0.25); color:#38bdf8; font-size:11px; border:1px solid rgba(56,189,248,0.5);"><i class="fa-solid fa-magnifying-glass"></i> Лео Вэнс</span>`;
+                } else if (sent.speaker === 'davis') {
+                    speakerBadge = `<span class="badge" style="background:rgba(139,92,246,0.25); color:#a78bfa; font-size:11px; border:1px solid rgba(139,92,246,0.5);"><i class="fa-solid fa-chalkboard-user"></i> Мистер Дэвис</span>`;
+                } else if (sent.speaker === 'ben') {
+                    speakerBadge = `<span class="badge" style="background:rgba(34,197,94,0.25); color:#4ade80; font-size:11px; border:1px solid rgba(34,197,94,0.5);"><i class="fa-solid fa-futbol"></i> Бен</span>`;
+                } else if (sent.speaker === 'miastudent') {
+                    speakerBadge = `<span class="badge" style="background:rgba(236,72,153,0.25); color:#f472b6; font-size:11px; border:1px solid rgba(236,72,153,0.5);"><i class="fa-solid fa-palette"></i> Миа (ученица)</span>`;
+                } else if (sent.speaker === 'lucas') {
+                    speakerBadge = `<span class="badge" style="background:rgba(239,68,68,0.25); color:#f87171; font-size:11px; border:1px solid rgba(239,68,68,0.5);"><i class="fa-solid fa-person-running"></i> Лукас</span>`;
+                } else if (sent.speaker === 'hall') {
+                    speakerBadge = `<span class="badge" style="background:rgba(234,179,8,0.25); color:#facc15; font-size:11px; border:1px solid rgba(234,179,8,0.5);"><i class="fa-solid fa-school"></i> Миссис Холл (директор)</span>`;
                 }
 
                 const isRevealed = !isBlindMode || revealedSentences.has(idx);

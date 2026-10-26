@@ -109,6 +109,36 @@ const CAST = {
         voice: 'en-US-Neural2-I', // Oliver the office worker (young, slightly fast & nervous)
         pitch: '+2st',
         rate: '1.0'
+    },
+    leovance: {
+        voice: 'en-US-Neural2-A', // Leo Vance (11-year-old clever boy)
+        pitch: '+2st',
+        rate: '0.94'
+    },
+    davis: {
+        voice: 'en-US-Neural2-D', // Mr. Davis (kind class teacher)
+        pitch: '-2st',
+        rate: '0.90'
+    },
+    ben: {
+        voice: 'en-US-Neural2-I', // Ben (best friend, cheerful boy)
+        pitch: '+2.5st',
+        rate: '0.96'
+    },
+    miastudent: {
+        voice: 'en-US-Neural2-F', // Mia (clever girl with glasses)
+        pitch: '+2.5st',
+        rate: '0.94'
+    },
+    lucas: {
+        voice: 'en-US-Neural2-A', // Lucas (fast, sporty boy)
+        pitch: '+1st',
+        rate: '0.98'
+    },
+    hall: {
+        voice: 'en-US-Neural2-F', // Mrs. Hall (head teacher, mature female)
+        pitch: '-1.5st',
+        rate: '0.90'
     }
 };
 

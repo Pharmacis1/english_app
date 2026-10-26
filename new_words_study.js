@@ -601,6 +601,86 @@ const NEW_WORDS_DATABASE = [
         translation: "игрушка",
         exampleEn: "The dog ran outside with his favourite toy ball.",
         exampleRu: "Собака выбежала на улицу со своим любимым игрушечным мячиком."
+    },
+    {
+        id: "cupboard",
+        word: "cupboard",
+        phonetic: "/ˈkʌb.əd/",
+        translation: "шкаф / буфет",
+        exampleEn: "Look at the glass cupboard near the window.",
+        exampleRu: "Посмотри на стеклянный шкаф возле окна."
+    },
+    {
+        id: "notebook",
+        word: "notebook",
+        phonetic: "/ˈnəʊt.bʊk/",
+        translation: "блокнот / тетрадь",
+        exampleEn: "Leo has a small blue notebook in his hand.",
+        exampleRu: "У Лео в руке маленький синий блокнот."
+    },
+    {
+        id: "mistake",
+        word: "mistake",
+        phonetic: "/mɪˈsteɪk/",
+        translation: "ошибка",
+        exampleEn: "There are two big mistakes in your story.",
+        exampleRu: "В твоей истории есть две большие ошибки."
+    },
+    {
+        id: "clever",
+        word: "clever",
+        phonetic: "/ˈklev.ər/",
+        translation: "умный / сообразительный",
+        exampleEn: "Mia is a very clever girl with round glasses.",
+        exampleRu: "Миа — очень умная девочка в круглых очках."
+    },
+    {
+        id: "dirty",
+        word: "dirty",
+        phonetic: "/ˈdɜː.ti/",
+        translation: "грязный",
+        exampleEn: "Your white sports shoes are not dirty.",
+        exampleRu: "Твои белые спортивные туфли не грязные."
+    },
+    {
+        id: "desk",
+        word: "desk",
+        phonetic: "/desk/",
+        translation: "парта / рабочий стол",
+        exampleEn: "A boy sits at his desk in the classroom.",
+        exampleRu: "Мальчик сидит за своей партой в классе."
+    },
+    {
+        id: "classroom",
+        word: "classroom",
+        phonetic: "/ˈklɑːs.ruːm/",
+        translation: "класс / кабинет",
+        exampleEn: "The teacher walks into the classroom.",
+        exampleRu: "Учитель заходит в класс."
+    },
+    {
+        id: "cup",
+        word: "cup",
+        phonetic: "/kʌp/",
+        translation: "кубок / чашка",
+        exampleEn: "The Silver Cup is ready for the school game.",
+        exampleRu: "Серебряный кубок готов к школьной игре."
+    },
+    {
+        id: "sign",
+        word: "sign",
+        phonetic: "/saɪn/",
+        translation: "табличка / знак / вывеска",
+        exampleEn: "The gate had a big red sign: Field Closed Today.",
+        exampleRu: "На воротах была большая красная табличка: «Поле сегодня закрыто»."
+    },
+    {
+        id: "biscuit",
+        word: "biscuit",
+        phonetic: "/ˈbɪs.kɪt/",
+        translation: "печенье",
+        exampleEn: "Ben smiles and eats a sweet biscuit.",
+        exampleRu: "Бен улыбается и ест сладкое печенье."
     }
 ];
 

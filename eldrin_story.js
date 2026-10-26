@@ -4752,7 +4752,1560 @@ const ELDRIN_AUDIOBOOK = {
                 }
             ],
             "wordCount": 331
-        }
+        },
+        {
+        "id": "spec2-ch-1",
+        "number": 201,
+        "act": 6,
+        "titleEn": "Special Case 2 (Part 1): The Silver Cup is Not Here",
+        "titleRu": "Спецдело 2 (Часть 1): Серебряный кубок пропал",
+        "synopsisEn": "Classes end at Oakwood School. Teacher Mr. Davis enters Classroom 3B with alarming news: the prestigious Silver Cup has vanished from the glass cupboard between 1:00 and 3:30.",
+        "synopsisRu": "Уроки в школе Оквуд закончились. Учитель мистер Дэвис сообщает тревожную новость: из стеклянного шкафа в кабинете 3B между 13:00 и 15:30 исчез Серебряный кубок.",
+        "targetLevel": "CEFR A1",
+        "coverIcon": "fa-trophy",
+        "coverColor": "#38bdf8",
+        "sentences": [
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">It is Friday afternoon.</prosody></speak>",
+                        "en": "It is Friday afternoon.",
+                        "ru": "Пятница, день."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The time is half past three.</prosody></speak>",
+                        "en": "The time is half past three.",
+                        "ru": "Время — половина четвёртого."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Classes are finished at Oakwood School.</prosody></speak>",
+                        "en": "Classes are finished at Oakwood School.",
+                        "ru": "Уроки в школе Оквуд закончились."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The students are ready to go home.</prosody></speak>",
+                        "en": "The students are ready to go home.",
+                        "ru": "Ученики готовы идти домой."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">They put books in their bags.</prosody></speak>",
+                        "en": "They put books in their bags.",
+                        "ru": "Они складывают книги в сумки."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">In Classroom 3B, a boy sits at his desk.</prosody></speak>",
+                        "en": "In Classroom 3B, a boy sits at his desk.",
+                        "ru": "В кабинете 3B за своей партой сидит мальчик."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">His name is Leo Vance.</prosody></speak>",
+                        "en": "His name is Leo Vance.",
+                        "ru": "Его зовут Лео Вэнс."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He is eleven years old.</prosody></speak>",
+                        "en": "He is eleven years old.",
+                        "ru": "Ему одиннадцать лет."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo's father is Inspector Vance, the famous police detective.</prosody></speak>",
+                        "en": "Leo's father is Inspector Vance, the famous police detective.",
+                        "ru": "Отец Лео — инспектор Вэнс, знаменитый полицейский детектив."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo wants to be a great detective, too.</prosody></speak>",
+                        "en": "Leo wants to be a great detective, too.",
+                        "ru": "Лео тоже хочет стать великим детективом."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He has a small blue notebook and a black pen in his hand.</prosody></speak>",
+                        "en": "He has a small blue notebook and a black pen in his hand.",
+                        "ru": "В руке у него маленький синий блокнот и чёрная ручка."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Then, the teacher walks into the classroom.</prosody></speak>",
+                        "en": "Then, the teacher walks into the classroom.",
+                        "ru": "Затем в класс заходит учитель."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">His name is Mr. Davis.</prosody></speak>",
+                        "en": "His name is Mr. Davis.",
+                        "ru": "Его зовут мистер Дэвис."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Mr. Davis looks very sad and afraid.</prosody></speak>",
+                        "en": "Mr. Davis looks very sad and afraid.",
+                        "ru": "Мистер Дэвис выглядит очень грустным и испуганным."
+                },
+                {
+                        "speaker": "davis",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">Children, please stop! Do not leave the room!</prosody></speak>",
+                        "en": "— Children, please stop! Do not leave the room!",
+                        "ru": "— Дети, пожалуйста, остановитесь! Не выходите из класса!"
+                },
+                {
+                        "speaker": "davis",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">We have a big problem.</prosody></speak>",
+                        "en": "— We have a big problem.",
+                        "ru": "— У нас большая проблема."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">What is the problem, Mr. Davis?</prosody></speak>",
+                        "en": "— What is the problem, Mr. Davis?",
+                        "ru": "— В чём проблема, мистер Дэвис?"
+                },
+                {
+                        "speaker": "davis",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">Look at the glass cupboard near the window.</prosody></speak>",
+                        "en": "— Look at the glass cupboard near the window.",
+                        "ru": "— Посмотрите на стеклянный шкаф возле окна."
+                },
+                {
+                        "speaker": "davis",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">The Silver Cup is not there!</prosody></speak>",
+                        "en": "— The Silver Cup is not there!",
+                        "ru": "— Серебряного кубка там нет!"
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">All the children look at the cupboard.</prosody></speak>",
+                        "en": "All the children look at the cupboard.",
+                        "ru": "Все дети смотрят на шкаф."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The glass door is open. Nothing is inside the cupboard.</prosody></speak>",
+                        "en": "The glass door is open. Nothing is inside the cupboard.",
+                        "ru": "Стеклянная дверца открыта. Внутри шкафа ничего нет."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The Silver Cup is very important.</prosody></speak>",
+                        "en": "The Silver Cup is very important.",
+                        "ru": "Серебряный кубок очень важен."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">It is for the best team in the big school game on Monday.</prosody></speak>",
+                        "en": "It is for the best team in the big school game on Monday.",
+                        "ru": "Он предназначен для лучшей команды в большой школьной игре в понедельник."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">When did you see the cup, Mr. Davis?</prosody></speak>",
+                        "en": "— When did you see the cup, Mr. Davis?",
+                        "ru": "— Когда вы видели кубок, мистер Дэвис?"
+                },
+                {
+                        "speaker": "davis",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">At one o'clock, after lunch.</prosody></speak>",
+                        "en": "— At one o'clock, after lunch.",
+                        "ru": "— В час дня, после обеда."
+                },
+                {
+                        "speaker": "davis",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">I put the cup inside the cupboard. Then I went to the teachers' room.</prosody></speak>",
+                        "en": "— I put the cup inside the cupboard. Then I went to the teachers' room.",
+                        "ru": "— Я поставил кубок в шкаф. Затем пошёл в учительскую."
+                },
+                {
+                        "speaker": "davis",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">Now it is half past three. The cup is not here!</prosody></speak>",
+                        "en": "— Now it is half past three. The cup is not here!",
+                        "ru": "— Сейчас половина четвёртого. Кубка здесь нет!"
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Who was on this floor between two o'clock and three o'clock?</prosody></speak>",
+                        "en": "— Who was on this floor between two o'clock and three o'clock?",
+                        "ru": "— Кто был на этом этаже между двумя и тремя часами?"
+                },
+                {
+                        "speaker": "davis",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">Most children were outside.</prosody></speak>",
+                        "en": "— Most children were outside.",
+                        "ru": "— Большинство детей были на улице."
+                },
+                {
+                        "speaker": "davis",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">Only three students were on this floor: Ben, Mia, and Lucas.</prosody></speak>",
+                        "en": "— Only three students were on this floor: Ben, Mia, and Lucas.",
+                        "ru": "— На этом этаже были только трое учеников: Бен, Миа и Лукас."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">I can help you, Mr. Davis. I am a detective today.</prosody></speak>",
+                        "en": "— I can help you, Mr. Davis. I am a detective today.",
+                        "ru": "— Я могу помочь вам, мистер Дэвис. Сегодня я детектив."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">I can ask questions.</prosody></speak>",
+                        "en": "— I can ask questions.",
+                        "ru": "— Я могу задать вопросы."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo opens his blue notebook. He wants to find the cup.</prosody></speak>",
+                        "en": "Leo opens his blue notebook. He wants to find the cup.",
+                        "ru": "Лео открывает свой синий блокнот. Он хочет найти кубок."
+                }
+        ],
+        "quizQuestions": [
+                {
+                        "question": "What is missing from the glass cupboard?",
+                        "questionRu": "Что пропало из стеклянного шкафа?",
+                        "options": [
+                                "A gold watch",
+                                "The Silver Cup",
+                                "A blue notebook",
+                                "A football"
+                        ],
+                        "correctIdx": 1
+                },
+                {
+                        "question": "Who is Leo's father?",
+                        "questionRu": "Кто отец Лео?",
+                        "options": [
+                                "Mr. Davis, the teacher",
+                                "Mr. Brown, the painter",
+                                "Inspector Vance, the famous police detective",
+                                "The head teacher"
+                        ],
+                        "correctIdx": 2
+                },
+                {
+                        "question": "Which three students were on the floor?",
+                        "questionRu": "Какие трое учеников были на этаже?",
+                        "options": [
+                                "Leo, Marco, and Elena",
+                                "Ben, Mia, and Lucas",
+                                "Arthur, Oliver, and Toby",
+                                "Eldrin, Kira, and Leo"
+                        ],
+                        "correctIdx": 1
+                }
+        ],
+        "wordCount": 260
+},
+        {
+        "id": "spec2-ch-2",
+        "number": 202,
+        "act": 6,
+        "titleEn": "Special Case 2 (Part 2): The First Student — Ben",
+        "titleRu": "Спецдело 2 (Часть 2): Первый ученик — Бен",
+        "synopsisEn": "Leo interviews his best friend Ben. Ben describes his lunch, English lesson, and work in the computer room with Miss Green.",
+        "synopsisRu": "Лео опрашивает своего лучшего друга Бена. Бен рассказывает про обед, урок английского и работу в компьютерном классе с мисс Грин.",
+        "targetLevel": "CEFR A1",
+        "coverIcon": "fa-pizza-slice",
+        "coverColor": "#f59e0b",
+        "sentences": [
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo talks to Ben first.</prosody></speak>",
+                        "en": "Leo talks to Ben first.",
+                        "ru": "Сначала Лео говорит с Беном."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Ben is Leo's best friend. He is eleven years old.</prosody></speak>",
+                        "en": "Ben is Leo's best friend. He is eleven years old.",
+                        "ru": "Бен — лучший друг Лео. Ему одиннадцать лет."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He has red hair and wears a green school sweater.</prosody></speak>",
+                        "en": "He has red hair and wears a green school sweater.",
+                        "ru": "У него рыжие волосы, и он носит зелёный школьный свитер."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Hello, Ben. Let us talk about your afternoon.</prosody></speak>",
+                        "en": "— Hello, Ben. Let us talk about your afternoon.",
+                        "ru": "— Привет, Бен. Давай поговорим о том, как прошёл твой день."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Where were you at two o'clock?</prosody></speak>",
+                        "en": "— Where were you at two o'clock?",
+                        "ru": "— Где ты был в два часа?"
+                },
+                {
+                        "speaker": "ben",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">Hi, Leo! You know me.</prosody></speak>",
+                        "en": "— Hi, Leo! You know me.",
+                        "ru": "— Привет, Лео! Ты же меня знаешь."
+                },
+                {
+                        "speaker": "ben",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">I love food and I love sports. I did not take the cup!</prosody></speak>",
+                        "en": "— I love food and I love sports. I did not take the cup!",
+                        "ru": "— Я люблю еду и спорт. Я не брал кубок!"
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Tell me about your day, Ben. What did you do after lunch?</prosody></speak>",
+                        "en": "— Tell me about your day, Ben. What did you do after lunch?",
+                        "ru": "— Расскажи мне про свой день, Бен. Что ты делал после обеда?"
+                },
+                {
+                        "speaker": "ben",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">At one o'clock, I was in the lunch room. I had lunch with my friends.</prosody></speak>",
+                        "en": "— At one o'clock, I was in the lunch room. I had lunch with my friends.",
+                        "ru": "— В час я был в столовой. Обедал с друзьями."
+                },
+                {
+                        "speaker": "ben",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">I ate two pieces of cheese pizza.</prosody></speak>",
+                        "en": "— I ate two pieces of cheese pizza.",
+                        "ru": "— Я съел два куска сырной пиццы."
+                },
+                {
+                        "speaker": "ben",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">I ate a yellow banana and drank cold water.</prosody></speak>",
+                        "en": "— I ate a yellow banana and drank cold water.",
+                        "ru": "— Я съел жёлтый банан и выпил холодной воды."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">What lessons did you have after lunch?</prosody></speak>",
+                        "en": "— What lessons did you have after lunch?",
+                        "ru": "— Какие уроки были у тебя после обеда?"
+                },
+                {
+                        "speaker": "ben",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">At half past one, I had an English lesson in Room 2A.</prosody></speak>",
+                        "en": "— At half past one, I had an English lesson in Room 2A.",
+                        "ru": "— В половине второго у меня был урок английского в кабинете 2A."
+                },
+                {
+                        "speaker": "ben",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">We read a story about a farm. At two o'clock, the lesson finished.</prosody></speak>",
+                        "en": "— We read a story about a farm. At two o'clock, the lesson finished.",
+                        "ru": "— Мы читали рассказ о ферме. В два часа урок закончился."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">And where were you between two o'clock and half past two?</prosody></speak>",
+                        "en": "— And where were you between two o'clock and half past two?",
+                        "ru": "— А где ты был между двумя часами и половиной третьего?"
+                },
+                {
+                        "speaker": "ben",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">I was in the computer room on this floor.</prosody></speak>",
+                        "en": "— I was in the computer room on this floor.",
+                        "ru": "— Я был в компьютерном классе на этом этаже."
+                },
+                {
+                        "speaker": "ben",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">I had work on the computer. I wrote about zoo animals.</prosody></speak>",
+                        "en": "— I had work on the computer. I wrote about zoo animals.",
+                        "ru": "— У меня было задание на компьютере. Я писал о животных из зоопарка."
+                },
+                {
+                        "speaker": "ben",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">The computer room has ten big computers.</prosody></speak>",
+                        "en": "— The computer room has ten big computers.",
+                        "ru": "— В компьютерном классе десять больших компьютеров."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Did you leave the computer room?</prosody></speak>",
+                        "en": "— Did you leave the computer room?",
+                        "ru": "— Ты выходил из компьютерного класса?"
+                },
+                {
+                        "speaker": "ben",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">No, I did not. Miss Green, the computer teacher, was with me.</prosody></speak>",
+                        "en": "— No, I did not. Miss Green, the computer teacher, was with me.",
+                        "ru": "— Нет, не выходил. Мисс Грин, учительница информатики, была со мной."
+                },
+                {
+                        "speaker": "ben",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">I worked until half past two. Then I was hungry again!</prosody></speak>",
+                        "en": "— I worked until half past two. Then I was hungry again!",
+                        "ru": "— Я занимался до половины третьего. А потом снова проголодался!"
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Did you go into Classroom 3B?</prosody></speak>",
+                        "en": "— Did you go into Classroom 3B?",
+                        "ru": "— Ты заходил в кабинет 3B?"
+                },
+                {
+                        "speaker": "ben",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">No. At quarter to three, I went to my desk.</prosody></speak>",
+                        "en": "— No. At quarter to three, I went to my desk.",
+                        "ru": "— Нет. Без четверти три я подошёл к своей парте."
+                },
+                {
+                        "speaker": "ben",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">I took an apple from my red bag and ate it.</prosody></speak>",
+                        "en": "— I took an apple from my red bag and ate it.",
+                        "ru": "— Достал яблоко из красной сумки и съел его."
+                },
+                {
+                        "speaker": "ben",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">Then I went outside to play.</prosody></speak>",
+                        "en": "— Then I went outside to play.",
+                        "ru": "— Затем я пошёл играть на улицу."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Did you see the glass cupboard?</prosody></speak>",
+                        "en": "— Did you see the glass cupboard?",
+                        "ru": "— Ты видел стеклянный шкаф?"
+                },
+                {
+                        "speaker": "ben",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">No, I did not. The door of Classroom 3B was closed.</prosody></speak>",
+                        "en": "— No, I did not. The door of Classroom 3B was closed.",
+                        "ru": "— Нет, не видел. Дверь кабинета 3B была закрыта."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo writes in his notebook: Ben: lunch at one. Computer room with teacher from two to half past two.</prosody></speak>",
+                        "en": "Leo writes in his notebook: Ben: lunch at one. Computer room with teacher from two to half past two.",
+                        "ru": "Лео пишет в блокноте: Бен: обед в час. Компьютерный класс с учителем с двух до половины третьего."
+                }
+        ],
+        "quizQuestions": [
+                {
+                        "question": "What did Ben eat for lunch?",
+                        "questionRu": "Что Бен ел на обед?",
+                        "options": [
+                                "A salad and an apple",
+                                "Two pieces of cheese pizza and a yellow banana",
+                                "A chicken sandwich",
+                                "Chocolate cake"
+                        ],
+                        "correctIdx": 1
+                },
+                {
+                        "question": "Where was Ben from 2:00 to 2:30?",
+                        "questionRu": "Где был Бен с 14:00 до 14:30?",
+                        "options": [
+                                "In Classroom 3B",
+                                "On the sports field",
+                                "In the computer room with Miss Green",
+                                "In the garden"
+                        ],
+                        "correctIdx": 2
+                },
+                {
+                        "question": "What did Ben do at quarter to three?",
+                        "questionRu": "Что сделал Бен без четверти три?",
+                        "options": [
+                                "Ate an apple from his red bag",
+                                "Took the cup from the cupboard",
+                                "Played football with Lucas",
+                                "Drew a picture of trees"
+                        ],
+                        "correctIdx": 0
+                }
+        ],
+        "wordCount": 273
+},
+        {
+        "id": "spec2-ch-3",
+        "number": 203,
+        "act": 6,
+        "titleEn": "Special Case 2 (Part 3): The Second Student — Mia",
+        "titleRu": "Спецдело 2 (Часть 3): Вторая ученица — Миа",
+        "synopsisEn": "Leo questions Mia. Mia was painting in the art room and confirms she saw the Silver Cup in the cupboard at 2:15, and saw Lucas acting suspiciously outside.",
+        "synopsisRu": "Лео опрашивает Мию. Миа рисовала в кабинете изо и подтверждает, что видела Серебряный кубок в шкафу в 14:15, а также видела подозрительного Лукаса возле двери.",
+        "targetLevel": "CEFR A1",
+        "coverIcon": "fa-palette",
+        "coverColor": "#a855f7",
+        "sentences": [
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Next, Leo talks to Mia.</prosody></speak>",
+                        "en": "Next, Leo talks to Mia.",
+                        "ru": "Дальше Лео говорит с Мией."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Mia is a very clever girl. She wears round glasses and a blue jacket.</prosody></speak>",
+                        "en": "Mia is a very clever girl. She wears round glasses and a blue jacket.",
+                        "ru": "Миа — очень умная девочка. Она носит круглые очки и синюю куртку."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">She has a big bag with many books.</prosody></speak>",
+                        "en": "She has a big bag with many books.",
+                        "ru": "У неё большая сумка со множеством книг."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Hello, Mia. Can I ask you some questions?</prosody></speak>",
+                        "en": "— Hello, Mia. Can I ask you some questions?",
+                        "ru": "— Привет, Миа. Можно задать тебе несколько вопросов?"
+                },
+                {
+                        "speaker": "miastudent",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2.5st\">Hello, Leo. Yes, of course. I want to help.</prosody></speak>",
+                        "en": "— Hello, Leo. Yes, of course. I want to help.",
+                        "ru": "— Привет, Лео. Да, конечно. Я хочу помочь."
+                },
+                {
+                        "speaker": "miastudent",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2.5st\">The Silver Cup is very pretty. We need it for Monday.</prosody></speak>",
+                        "en": "— The Silver Cup is very pretty. We need it for Monday.",
+                        "ru": "— Серебряный кубок очень красивый. Он нужен нам на понедельник."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Tell me about your afternoon, Mia. What did you do at two o'clock?</prosody></speak>",
+                        "en": "— Tell me about your afternoon, Mia. What did you do at two o'clock?",
+                        "ru": "— Расскажи о своём дне, Миа. Что ты делала в два часа?"
+                },
+                {
+                        "speaker": "miastudent",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2.5st\">Today was a quiet day for me.</prosody></speak>",
+                        "en": "— Today was a quiet day for me.",
+                        "ru": "— Сегодня у меня был спокойный день."
+                },
+                {
+                        "speaker": "miastudent",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2.5st\">In the morning, I had maths and history. Maths was difficult, but history was fun.</prosody></speak>",
+                        "en": "— In the morning, I had maths and history. Maths was difficult, but history was fun.",
+                        "ru": "— Утром у меня были математика и история. Математика была сложной, а история — интересной."
+                },
+                {
+                        "speaker": "miastudent",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2.5st\">At one o'clock, I ate a salad in the garden.</prosody></speak>",
+                        "en": "— At one o'clock, I ate a salad in the garden.",
+                        "ru": "— В час дня я ела салат в саду."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Where did you go after lunch?</prosody></speak>",
+                        "en": "— Where did you go after lunch?",
+                        "ru": "— Куда ты пошла после обеда?"
+                },
+                {
+                        "speaker": "miastudent",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2.5st\">At half past one, I went to the art room on this floor. I love art.</prosody></speak>",
+                        "en": "— At half past one, I went to the art room on this floor. I love art.",
+                        "ru": "— В половине второго я пошла в кабинет рисования на этом этаже. Я люблю рисовать."
+                },
+                {
+                        "speaker": "miastudent",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2.5st\">I draw pictures every week.</prosody></speak>",
+                        "en": "— I draw pictures every week.",
+                        "ru": "— Я рисую картины каждую неделю."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">What did you draw today?</prosody></speak>",
+                        "en": "— What did you draw today?",
+                        "ru": "— Что ты рисовала сегодня?"
+                },
+                {
+                        "speaker": "miastudent",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2.5st\">I painted a big picture of green trees and red flowers.</prosody></speak>",
+                        "en": "— I painted a big picture of green trees and red flowers.",
+                        "ru": "— Я нарисовала большую картину с зелёными деревьями и красными цветами."
+                },
+                {
+                        "speaker": "miastudent",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2.5st\">I had red paint and blue paint on my table.</prosody></speak>",
+                        "en": "— I had red paint and blue paint on my table.",
+                        "ru": "— На моём столе были красная и синяя краски."
+                },
+                {
+                        "speaker": "miastudent",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2.5st\">I worked from half past one until quarter to three.</prosody></speak>",
+                        "en": "— I worked from half past one until quarter to three.",
+                        "ru": "— Я работала с половины второго до без четверти три."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Were other students with you in the art room?</prosody></speak>",
+                        "en": "— Were other students with you in the art room?",
+                        "ru": "— Были ли с тобой в кабинете другие ученики?"
+                },
+                {
+                        "speaker": "miastudent",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2.5st\">No, only me.</prosody></speak>",
+                        "en": "— No, only me.",
+                        "ru": "— Нет, только я."
+                },
+                {
+                        "speaker": "miastudent",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2.5st\">But at quarter past two, I walked past Classroom 3B.</prosody></speak>",
+                        "en": "— But at quarter past two, I walked past Classroom 3B.",
+                        "ru": "— Но в четверть третьего я проходила мимо кабинета 3B."
+                },
+                {
+                        "speaker": "miastudent",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2.5st\">I needed more water for my blue paint.</prosody></speak>",
+                        "en": "— I needed more water for my blue paint.",
+                        "ru": "— Мне понадобилось больше воды для синей краски."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Did you see the Silver Cup in the cupboard?</prosody></speak>",
+                        "en": "— Did you see the Silver Cup in the cupboard?",
+                        "ru": "— Ты видела Серебряный кубок в шкафу?"
+                },
+                {
+                        "speaker": "miastudent",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2.5st\">Yes, I did! The cupboard has a glass door.</prosody></speak>",
+                        "en": "— Yes, I did! The cupboard has a glass door.",
+                        "ru": "— Да, видела! У шкафа стеклянная дверца."
+                },
+                {
+                        "speaker": "miastudent",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2.5st\">I saw the cup at quarter past two. The sun was on it.</prosody></speak>",
+                        "en": "— I saw the cup at quarter past two. The sun was on it.",
+                        "ru": "— Я видела кубок в четверть третьего. На него светило солнце."
+                },
+                {
+                        "speaker": "miastudent",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2.5st\">It was very bright and beautiful.</prosody></speak>",
+                        "en": "— It was very bright and beautiful.",
+                        "ru": "— Он был очень ярким и красивым."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Did you see any people in the hall?</prosody></speak>",
+                        "en": "— Did you see any people in the hall?",
+                        "ru": "— Ты видела кого-нибудь в коридоре?"
+                },
+                {
+                        "speaker": "miastudent",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2.5st\">Yes. I saw Lucas near the door of Classroom 3B.</prosody></speak>",
+                        "en": "— Yes. I saw Lucas near the door of Classroom 3B.",
+                        "ru": "— Да. Я видела Лукаса возле двери кабинета 3B."
+                },
+                {
+                        "speaker": "miastudent",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2.5st\">He had his sports bag. He looked afraid.</prosody></speak>",
+                        "en": "— He had his sports bag. He looked afraid.",
+                        "ru": "— У него была спортивная сумка. Он выглядел испуганным."
+                },
+                {
+                        "speaker": "miastudent",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2.5st\">When he saw me, he ran down the stairs.</prosody></speak>",
+                        "en": "— When he saw me, he ran down the stairs.",
+                        "ru": "— Когда он увидел меня, он побежал вниз по лестнице."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">That is very interesting, Mia. Thank you.</prosody></speak>",
+                        "en": "— That is very interesting, Mia. Thank you.",
+                        "ru": "— Это очень интересно, Миа. Спасибо."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo writes in his notebook: Mia: art room. Saw the cup at quarter past two. Saw Lucas near the door.</prosody></speak>",
+                        "en": "Leo writes in his notebook: Mia: art room. Saw the cup at quarter past two. Saw Lucas near the door.",
+                        "ru": "Лео пишет в блокноте: Миа: кабинет изо. Видела кубок в 14:15. Видела Лукаса возле двери."
+                }
+        ],
+        "quizQuestions": [
+                {
+                        "question": "At what time did Mia see the cup in the cupboard?",
+                        "questionRu": "В какое время Миа видела кубок в шкафу?",
+                        "options": [
+                                "At one o'clock",
+                                "At quarter past two (2:15)",
+                                "At three o'clock",
+                                "At half past three"
+                        ],
+                        "correctIdx": 1
+                },
+                {
+                        "question": "Why was Mia walking in the hall at 2:15?",
+                        "questionRu": "Почему Миа шла по коридору в 14:15?",
+                        "options": [
+                                "She wanted to take the cup",
+                                "She needed more water for her paint",
+                                "She was looking for Ben",
+                                "She wanted to go home"
+                        ],
+                        "correctIdx": 1
+                },
+                {
+                        "question": "Who did Mia see outside Classroom 3B?",
+                        "questionRu": "Кого Миа увидела возле кабинета 3B?",
+                        "options": [
+                                "Mr. Davis",
+                                "Miss Green",
+                                "Lucas with his sports bag",
+                                "Inspector Vance"
+                        ],
+                        "correctIdx": 2
+                }
+        ],
+        "wordCount": 294
+},
+        {
+        "id": "spec2-ch-4",
+        "number": 204,
+        "act": 6,
+        "titleEn": "Special Case 2 (Part 4): The Third Student — Lucas",
+        "titleRu": "Спецдело 2 (Часть 4): Третий ученик — Лукас",
+        "synopsisEn": "Leo catches up with Lucas near his bicycle. Lucas claims he was outside playing football on the grass from 2:00 to 3:00, but Leo spots two big flaws in his story.",
+        "synopsisRu": "Лео застает Лукаса возле его велосипеда. Лукас утверждает, что играл в футбол на траве с 14:00 до 15:00, но Лео замечает две грубые ошибки в его рассказе.",
+        "targetLevel": "CEFR A1",
+        "coverIcon": "fa-person-running",
+        "coverColor": "#ef4444",
+        "sentences": [
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo walks to the school door.</prosody></speak>",
+                        "en": "Leo walks to the school door.",
+                        "ru": "Лео идёт к школьной двери."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Lucas is standing near his bicycle.</prosody></speak>",
+                        "en": "Lucas is standing near his bicycle.",
+                        "ru": "Лукас стоит возле своего велосипеда."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Lucas is tall and fast. He is the best runner in the school.</prosody></speak>",
+                        "en": "Lucas is tall and fast. He is the best runner in the school.",
+                        "ru": "Лукас высокий и быстрый. Он лучший бегун в школе."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He wears a yellow t-shirt and white sports shoes.</prosody></speak>",
+                        "en": "He wears a yellow t-shirt and white sports shoes.",
+                        "ru": "На нём жёлтая футболка и белые спортивные туфли."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He is not Leo's friend, and he looks angry.</prosody></speak>",
+                        "en": "He is not Leo's friend, and he looks angry.",
+                        "ru": "Он не друг Лео и выглядит сердитым."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Wait, Lucas! I have some questions for you.</prosody></speak>",
+                        "en": "— Wait, Lucas! I have some questions for you.",
+                        "ru": "— Подожди, Лукас! У меня есть пара вопросов к тебе."
+                },
+                {
+                        "speaker": "lucas",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">What do you want, Leo? I want to go home.</prosody></speak>",
+                        "en": "— What do you want, Leo? I want to go home.",
+                        "ru": "— Чего тебе надо, Лео? Я хочу домой."
+                },
+                {
+                        "speaker": "lucas",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">I am not a baby, and you are not a real policeman!</prosody></speak>",
+                        "en": "— I am not a baby, and you are not a real policeman!",
+                        "ru": "— Я не маленький, а ты не настоящий полицейский!"
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">The Silver Cup is not in Classroom 3B. Mr. Davis needs our help.</prosody></speak>",
+                        "en": "— The Silver Cup is not in Classroom 3B. Mr. Davis needs our help.",
+                        "ru": "— Серебряного кубка нет в кабинете 3B. Мистеру Дэвису нужна наша помощь."
+                },
+                {
+                        "speaker": "lucas",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">Well, I know nothing about the cup!</prosody></speak>",
+                        "en": "— Well, I know nothing about the cup!",
+                        "ru": "— Ну, я ничего не знаю про кубок!"
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Where were you between two o'clock and three o'clock, Lucas?</prosody></speak>",
+                        "en": "— Where were you between two o'clock and three o'clock, Lucas?",
+                        "ru": "— Где ты был между двумя и тремя часами, Лукас?"
+                },
+                {
+                        "speaker": "lucas",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">I was busy. I love sports.</prosody></speak>",
+                        "en": "— I was busy. I love sports.",
+                        "ru": "— Я был занят. Я люблю спорт."
+                },
+                {
+                        "speaker": "lucas",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">At two o'clock, I went outside to the sports field.</prosody></speak>",
+                        "en": "— At two o'clock, I went outside to the sports field.",
+                        "ru": "— В два часа я пошёл на улицу на спортивную площадку."
+                },
+                {
+                        "speaker": "lucas",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">I ran on the grass. Then I played football with boys from Class 4.</prosody></speak>",
+                        "en": "— I ran on the grass. Then I played football with boys from Class 4.",
+                        "ru": "— Я бегал по траве. Потом играл в футбол с мальчиками из четвёртого класса."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Did you play football for a long time?</prosody></speak>",
+                        "en": "— Did you play football for a long time?",
+                        "ru": "— Ты долго играл в футбол?"
+                },
+                {
+                        "speaker": "lucas",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">Yes! I played from two o'clock until three o'clock.</prosody></speak>",
+                        "en": "— Yes! I played from two o'clock until three o'clock.",
+                        "ru": "— Да! Я играл с двух до трёх часов."
+                },
+                {
+                        "speaker": "lucas",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">It was very hot and sunny. We ran a lot.</prosody></speak>",
+                        "en": "— It was very hot and sunny. We ran a lot.",
+                        "ru": "— Было очень жарко и солнечно. Мы много бегали."
+                },
+                {
+                        "speaker": "lucas",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">I kicked three goals!</prosody></speak>",
+                        "en": "— I kicked three goals!",
+                        "ru": "— Я забил три гола!"
+                },
+                {
+                        "speaker": "lucas",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">Then, at three o'clock, I came inside to drink water.</prosody></speak>",
+                        "en": "— Then, at three o'clock, I came inside to drink water.",
+                        "ru": "— Потом в три часа я зашёл внутрь попить воды."
+                },
+                {
+                        "speaker": "lucas",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">I did not go near Classroom 3B all afternoon.</prosody></speak>",
+                        "en": "— I did not go near Classroom 3B all afternoon.",
+                        "ru": "— Я и близко не подходил к кабинету 3B весь день."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">You played football on the grass from two to three?</prosody></speak>",
+                        "en": "— You played football on the grass from two to three?",
+                        "ru": "— Ты играл в футбол на траве с двух до трёх?"
+                },
+                {
+                        "speaker": "lucas",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">Yes, I did! I was on the green grass all the time!</prosody></speak>",
+                        "en": "— Yes, I did! I was on the green grass all the time!",
+                        "ru": "— Да! Я всё время был на зелёной траве!"
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo looks down at Lucas's feet. Then Leo looks at Lucas's hands.</prosody></speak>",
+                        "en": "Leo looks down at Lucas's feet. Then Leo looks at Lucas's hands.",
+                        "ru": "Лео смотрит вниз на ноги Лукаса. Затем Лео смотрит на руки Лукаса."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He smiles like his father, Inspector Vance.</prosody></speak>",
+                        "en": "He smiles like his father, Inspector Vance.",
+                        "ru": "Он улыбается точно так же, как его отец, инспектор Вэнс."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">That is a great story, Lucas.</prosody></speak>",
+                        "en": "— That is a great story, Lucas.",
+                        "ru": "— Отличная история, Лукас."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">But there are two big mistakes in your story.</prosody></speak>",
+                        "en": "— But there are two big mistakes in your story.",
+                        "ru": "— Но в твоей истории есть две большие ошибки."
+                },
+                {
+                        "speaker": "lucas",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">Mistakes? What mistakes?</prosody></speak>",
+                        "en": "— Mistakes? What mistakes?",
+                        "ru": "— Ошибки? Какие ещё ошибки?"
+                }
+        ],
+        "quizQuestions": [
+                {
+                        "question": "What did Lucas say he did between 2:00 and 3:00?",
+                        "questionRu": "Что Лукас сказал о том, чем занимался с 14:00 до 15:00?",
+                        "options": [
+                                "Read a book in the library",
+                                "Played football on the sports field",
+                                "Ate pizza with Ben",
+                                "Helped Mr. Davis in the teachers' room"
+                        ],
+                        "correctIdx": 1
+                },
+                {
+                        "question": "What color t-shirt does Lucas wear?",
+                        "questionRu": "Какого цвета футболка на Лукасе?",
+                        "options": [
+                                "A blue t-shirt",
+                                "A green t-shirt",
+                                "A yellow t-shirt",
+                                "A red t-shirt"
+                        ],
+                        "correctIdx": 2
+                },
+                {
+                        "question": "How did Leo react to Lucas's story?",
+                        "questionRu": "Как Лео отреагировал на рассказ Лукаса?",
+                        "options": [
+                                "He said there are two big mistakes",
+                                "He believed every word",
+                                "He called the police",
+                                "He ran away"
+                        ],
+                        "correctIdx": 0
+                }
+        ],
+        "wordCount": 251
+},
+        {
+        "id": "spec2-ch-5",
+        "number": 205,
+        "act": 6,
+        "titleEn": "Special Case 2 (Part 5): The Young Detective Finds the Answer",
+        "titleRu": "Спецдело 2 (Часть 5): Юный детектив находит ответ",
+        "synopsisEn": "Leo exposes Lucas's lie: his shoes are spotless white and the sports field was closed for repainting! Lucas confesses he was secretly playing games on his mobile phone.",
+        "synopsisRu": "Лео разоблачает ложь Лукаса: его туфли идеально белые, а поле было закрыто на покраску! Лукас признаётся, что втайне играл на телефоне.",
+        "targetLevel": "CEFR A1",
+        "coverIcon": "fa-magnifying-glass",
+        "coverColor": "#10b981",
+        "sentences": [
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo opens his blue notebook. He speaks in a quiet, clear voice.</prosody></speak>",
+                        "en": "Leo opens his blue notebook. He speaks in a quiet, clear voice.",
+                        "ru": "Лео открывает синий блокнот. Он говорит спокойным, ясным голосом."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">First mistake, Lucas: look at your shoes.</prosody></speak>",
+                        "en": "— First mistake, Lucas: look at your shoes.",
+                        "ru": "— Первая ошибка, Лукас: посмотри на свои туфли."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Your sports shoes are white and very clean.</prosody></speak>",
+                        "en": "— Your sports shoes are white and very clean.",
+                        "ru": "— Твои спортивные туфли белые и очень чистые."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">When you play football on the school field, the grass is wet.</prosody></speak>",
+                        "en": "— When you play football on the school field, the grass is wet.",
+                        "ru": "— Когда играешь в футбол на школьном поле, трава мокрая."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Your shoes get dirty with green grass and brown mud.</prosody></speak>",
+                        "en": "— Your shoes get dirty with green grass and brown mud.",
+                        "ru": "— Обувь пачкается зелёной травой и коричневой грязью."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">But your shoes are dry and clean!</prosody></speak>",
+                        "en": "— But your shoes are dry and clean!",
+                        "ru": "— Но твои туфли сухие и чистые!"
+                },
+                {
+                        "speaker": "lucas",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">Well... maybe I did not run a lot...</prosody></speak>",
+                        "en": "— Well... maybe I did not run a lot...",
+                        "ru": "— Ну... может, я не так уж много бегал..."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Second mistake, Lucas: the school sports field was closed today!</prosody></speak>",
+                        "en": "— Second mistake, Lucas: the school sports field was closed today!",
+                        "ru": "— Вторая ошибка, Лукас: школьное спортивное поле сегодня было закрыто!"
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">At half past one, Mr. Brown painted white lines on the field.</prosody></speak>",
+                        "en": "— At half past one, Mr. Brown painted white lines on the field.",
+                        "ru": "— В половине второго мистер Браун красил белые линии на поле."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">The gate had a big red sign: Field Closed Today.</prosody></speak>",
+                        "en": "— The gate had a big red sign: Field Closed Today.",
+                        "ru": "— На воротах висела большая красная табличка: «Поле сегодня закрыто»."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Nobody played football at two o'clock!</prosody></speak>",
+                        "en": "— Nobody played football at two o'clock!",
+                        "ru": "— Никто не играл в футбол в два часа!"
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Lucas's face turns red. He looks down at his clean shoes.</prosody></speak>",
+                        "en": "Lucas's face turns red. He looks down at his clean shoes.",
+                        "ru": "Лицо Лукаса краснеет. Он смотрит вниз на свои чистые туфли."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Also, Mia saw you in the hall at quarter past two.</prosody></speak>",
+                        "en": "— Also, Mia saw you in the hall at quarter past two.",
+                        "ru": "— Кроме того, Миа видела тебя в коридоре в четверть третьего."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">You were right outside Classroom 3B!</prosody></speak>",
+                        "en": "— You were right outside Classroom 3B!",
+                        "ru": "— Ты стоял прямо у кабинета 3B!"
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Why did you say that about football, Lucas? Did you take the Silver Cup?</prosody></speak>",
+                        "en": "— Why did you say that about football, Lucas? Did you take the Silver Cup?",
+                        "ru": "— Зачем ты солгал про футбол, Лукас? Ты взял Серебряный кубок?"
+                },
+                {
+                        "speaker": "lucas",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">No! No! I did not take the cup! Please do not tell Mr. Davis!</prosody></speak>",
+                        "en": "— No! No! I did not take the cup! Please do not tell Mr. Davis!",
+                        "ru": "— Нет! Нет! Я не брал кубок! Пожалуйста, не говори мистеру Дэвису!"
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Then why were you in the hall?</prosody></speak>",
+                        "en": "— Then why were you in the hall?",
+                        "ru": "— Тогда почему ты был в коридоре?"
+                },
+                {
+                        "speaker": "lucas",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">I had my mobile phone!</prosody></speak>",
+                        "en": "— I had my mobile phone!",
+                        "ru": "— У меня был мобильный телефон!"
+                },
+                {
+                        "speaker": "lucas",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">You know: students cannot use phones during the day.</prosody></speak>",
+                        "en": "— You know: students cannot use phones during the day.",
+                        "ru": "— Ты же знаешь: ученикам нельзя пользоваться телефонами в течение дня."
+                },
+                {
+                        "speaker": "lucas",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">But I have a new phone game.</prosody></speak>",
+                        "en": "— But I have a new phone game.",
+                        "ru": "— Но у меня новая игра на телефоне."
+                },
+                {
+                        "speaker": "lucas",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">At two o'clock, I wanted a quiet place to play. No people were in the hall.</prosody></speak>",
+                        "en": "— At two o'clock, I wanted a quiet place to play. No people were in the hall.",
+                        "ru": "— В два часа я хотел найти тихое место поиграть. В коридоре никого не было."
+                },
+                {
+                        "speaker": "lucas",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">I stood near Classroom 3B and played my game.</prosody></speak>",
+                        "en": "— I stood near Classroom 3B and played my game.",
+                        "ru": "— Я стоял возле кабинета 3B и играл в свою игру."
+                },
+                {
+                        "speaker": "lucas",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">Then I saw Mia, so I ran away! I was afraid.</prosody></speak>",
+                        "en": "— Then I saw Mia, so I ran away! I was afraid.",
+                        "ru": "— Потом я увидел Мию и убежал! Я испугался."
+                },
+                {
+                        "speaker": "lucas",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">I did not want her to tell the teacher about my phone!</prosody></speak>",
+                        "en": "— I did not want her to tell the teacher about my phone!",
+                        "ru": "— Я не хотел, чтобы она рассказала учителю про мой телефон!"
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Did you go inside Classroom 3B?</prosody></speak>",
+                        "en": "— Did you go inside Classroom 3B?",
+                        "ru": "— Ты заходил внутрь кабинета 3B?"
+                },
+                {
+                        "speaker": "lucas",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">No! I only stood outside the door!</prosody></speak>",
+                        "en": "— No! I only stood outside the door!",
+                        "ru": "— Нет! Я только стоял за дверью!"
+                },
+                {
+                        "speaker": "lucas",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">The cup was inside the cupboard. I did not take it! That is true, Leo!</prosody></speak>",
+                        "en": "— The cup was inside the cupboard. I did not take it! That is true, Leo!",
+                        "ru": "— Кубок был в шкафу. Я его не брал! Это правда, Лео!"
+                }
+        ],
+        "quizQuestions": [
+                {
+                        "question": "Why was Lucas's football story impossible?",
+                        "questionRu": "Почему история Лукаса о футболе была невозможной?",
+                        "options": [
+                                "It was raining heavily",
+                                "The sports field was closed and his shoes were clean",
+                                "Ben was playing with him",
+                                "He was eating pizza"
+                        ],
+                        "correctIdx": 1
+                },
+                {
+                        "question": "Why was Lucas really standing in the hall?",
+                        "questionRu": "Почему Лукас на самом деле стоял в коридоре?",
+                        "options": [
+                                "He was looking for his bag",
+                                "He was secretly playing a new phone game",
+                                "He was waiting for Mr. Davis",
+                                "He was drawing pictures"
+                        ],
+                        "correctIdx": 1
+                },
+                {
+                        "question": "Did Lucas enter Classroom 3B?",
+                        "questionRu": "Заходил ли Лукас в кабинет 3B?",
+                        "options": [
+                                "Yes, he took the cup",
+                                "Yes, he put his bag there",
+                                "No, he only stood outside the door",
+                                "No, he was in the computer room"
+                        ],
+                        "correctIdx": 2
+                }
+        ],
+        "wordCount": 265
+},
+        {
+        "id": "spec2-ch-6",
+        "number": 206,
+        "act": 6,
+        "titleEn": "Special Case 2 (Part 6): Where is the Cup?",
+        "titleRu": "Спецдело 2 (Часть 6): Где же кубок?",
+        "synopsisEn": "Leo discovers a yellow note under the table blown off by the wind. Head teacher Mrs. Hall walks in with the polished cup, solving the mystery happily.",
+        "synopsisRu": "Лео находит под столом сдутую ветром жёлтую записку. Директриса миссис Холл входит с начищенным кубком — тайна счастливо раскрыта.",
+        "targetLevel": "CEFR A1",
+        "coverIcon": "fa-award",
+        "coverColor": "#fbbf24",
+        "sentences": [
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo looks at Classroom 3B again. He walks to the glass cupboard.</prosody></speak>",
+                        "en": "Leo looks at Classroom 3B again. He walks to the glass cupboard.",
+                        "ru": "Лео снова осматривает кабинет 3B. Он подходит к стеклянному шкафу."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He looks at the floor near the cupboard.</prosody></speak>",
+                        "en": "He looks at the floor near the cupboard.",
+                        "ru": "Он смотрит на пол возле шкафа."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He sees a small piece of yellow paper.</prosody></speak>",
+                        "en": "He sees a small piece of yellow paper.",
+                        "ru": "Он видит маленький кусочек жёлтой бумаги."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo picks up the paper. It is a note from a black pen:</prosody></speak>",
+                        "en": "Leo picks up the paper. It is a note from a black pen:",
+                        "ru": "Лео поднимает бумажку. Это записка, написанная чёрной ручкой:"
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">I took the cup at half past two. I want to clean it and write the names. I will bring it back at four o'clock. — Mrs. Hall.</prosody></speak>",
+                        "en": "«I took the cup at half past two. I want to clean it and write the names. I will bring it back at four o'clock. — Mrs. Hall.»",
+                        "ru": "«Я взяла кубок в половине третьего. Хочу почистить его и написать имена. Верну в четыре часа. — Миссис Холл»."
+                },
+                {
+                        "speaker": "davis",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">Mrs. Hall? The head teacher?</prosody></speak>",
+                        "en": "— Mrs. Hall? The head teacher?",
+                        "ru": "— Миссис Холл? Директор школы?"
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Then, the door of Classroom 3B opens.</prosody></speak>",
+                        "en": "Then, the door of Classroom 3B opens.",
+                        "ru": "В этот момент дверь кабинета 3B открывается."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">A tall woman in a black dress walks in. It is Mrs. Hall, the head teacher.</prosody></speak>",
+                        "en": "A tall woman in a black dress walks in. It is Mrs. Hall, the head teacher.",
+                        "ru": "Входит высокая женщина в чёрном платье. Это миссис Холл, директор школы."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">In her hands is a big brown box.</prosody></speak>",
+                        "en": "In her hands is a big brown box.",
+                        "ru": "В руках у неё большая коричневая коробка."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Inside the box is the Silver Cup!</prosody></speak>",
+                        "en": "Inside the box is the Silver Cup!",
+                        "ru": "Внутри коробки — Серебряный кубок!"
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The cup is very clean. It is bright and beautiful.</prosody></speak>",
+                        "en": "The cup is very clean. It is bright and beautiful.",
+                        "ru": "Кубок очень чистый. Он яркий и красивый."
+                },
+                {
+                        "speaker": "hall",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-1.5st\">Good afternoon, everyone. Why are you all here?</prosody></speak>",
+                        "en": "— Good afternoon, everyone. Why are you all here?",
+                        "ru": "— Добрый день всем. Почему вы все здесь?"
+                },
+                {
+                        "speaker": "davis",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">Mrs. Hall! You have the cup!</prosody></speak>",
+                        "en": "— Mrs. Hall! You have the cup!",
+                        "ru": "— Миссис Холл! Кубок у вас!"
+                },
+                {
+                        "speaker": "hall",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-1.5st\">Of course I have the cup.</prosody></speak>",
+                        "en": "— Of course I have the cup.",
+                        "ru": "— Конечно, кубок у меня."
+                },
+                {
+                        "speaker": "hall",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-1.5st\">Every year, before the big game, I clean the silver.</prosody></speak>",
+                        "en": "— Every year, before the big game, I clean the silver.",
+                        "ru": "— Каждый год перед большой игрой я чищу серебро."
+                },
+                {
+                        "speaker": "hall",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-1.5st\">I put a small yellow note on the cupboard door at half past two.</prosody></speak>",
+                        "en": "— I put a small yellow note on the cupboard door at half past two.",
+                        "ru": "— В половине третьего я прикрепила маленькую жёлтую записку на дверцу шкафа."
+                },
+                {
+                        "speaker": "hall",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-1.5st\">Did you not see my note?</prosody></speak>",
+                        "en": "— Did you not see my note?",
+                        "ru": "— Разве вы не видели мою записку?"
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">The note fell on the floor, Mrs. Hall! Look, it was under the table.</prosody></speak>",
+                        "en": "— The note fell on the floor, Mrs. Hall! Look, it was under the table.",
+                        "ru": "— Записка упала на пол, миссис Холл! Смотрите, она лежала под столом."
+                },
+                {
+                        "speaker": "hall",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-1.5st\">Oh, dear! The window was open.</prosody></speak>",
+                        "en": "— Oh, dear! The window was open.",
+                        "ru": "— О боже! Окно было открыто."
+                },
+                {
+                        "speaker": "hall",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-1.5st\">The wind moved the paper down to the floor! I am so sorry, Mr. Davis.</prosody></speak>",
+                        "en": "— The wind moved the paper down to the floor! I am so sorry, Mr. Davis.",
+                        "ru": "— Ветер сдул бумажку вниз на пол! Мне очень жаль, мистер Дэвис."
+                },
+                {
+                        "speaker": "davis",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">We thought someone took the cup!</prosody></speak>",
+                        "en": "— We thought someone took the cup!",
+                        "ru": "— А мы подумали, что кто-то украл кубок!"
+                },
+                {
+                        "speaker": "hall",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-1.5st\">Nobody took the cup. It is ready for the game on Monday.</prosody></speak>",
+                        "en": "— Nobody took the cup. It is ready for the game on Monday.",
+                        "ru": "— Никто не брал кубок. Он готов к игре в понедельник."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Mr. Davis laughs. Ben smiles and eats a biscuit.</prosody></speak>",
+                        "en": "Mr. Davis laughs. Ben smiles and eats a biscuit.",
+                        "ru": "Мистер Дэвис смеётся. Бен улыбается и ест печенье."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Lucas looks at Leo and speaks quietly.</prosody></speak>",
+                        "en": "Lucas looks at Leo and speaks quietly.",
+                        "ru": "Лукас смотрит на Лео и тихо говорит."
+                },
+                {
+                        "speaker": "lucas",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">Thank you, Leo. You did not tell Mrs. Hall about my phone.</prosody></speak>",
+                        "en": "— Thank you, Leo. You did not tell Mrs. Hall about my phone.",
+                        "ru": "— Спасибо, Лео. Ты не рассказал миссис Холл о моём телефоне."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">You must not play phone games at school, Lucas.</prosody></speak>",
+                        "en": "— You must not play phone games at school, Lucas.",
+                        "ru": "— Тебе нельзя играть в игры на телефоне в школе, Лукас."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">But you did not take the cup. A good detective wants the right answer, not angry words.</prosody></speak>",
+                        "en": "— But you did not take the cup. A good detective wants the right answer, not angry words.",
+                        "ru": "— Но ты не брал кубок. Хороший детектив ищет верный ответ, а не злые слова."
+                },
+                {
+                        "speaker": "davis",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">Leo, you asked great questions today. You are a real detective, just like your father!</prosody></speak>",
+                        "en": "— Leo, you asked great questions today. You are a real detective, just like your father!",
+                        "ru": "— Лео, ты задавал отличные вопросы сегодня. Ты настоящий детектив, прямо как твой отец!"
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Thank you, Mr. Davis. It was easy.</prosody></speak>",
+                        "en": "— Thank you, Mr. Davis. It was easy.",
+                        "ru": "— Спасибо, мистер Дэвис. Это было просто."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Listen to the time, check the shoes, and look on the floor!</prosody></speak>",
+                        "en": "— Listen to the time, check the shoes, and look on the floor!",
+                        "ru": "— Следи за временем, проверяй обувь и смотри на пол!"
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo closes his blue notebook and puts it in his bag.</prosody></speak>",
+                        "en": "Leo closes his blue notebook and puts it in his bag.",
+                        "ru": "Лео закрывает синий блокнот и кладёт его в сумку."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He takes his school bag and walks home with Ben.</prosody></speak>",
+                        "en": "He takes his school bag and walks home with Ben.",
+                        "ru": "Он берёт школьную сумку и идёт домой с Беном."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The story of the Silver Cup is finished.</prosody></speak>",
+                        "en": "The story of the Silver Cup is finished.",
+                        "ru": "История Серебряного кубка завершена."
+                }
+        ],
+        "quizQuestions": [
+                {
+                        "question": "Who took the Silver Cup?",
+                        "questionRu": "Кто взял Серебряный кубок?",
+                        "options": [
+                                "Lucas, to hide it in his sports bag",
+                                "Ben, because he was hungry",
+                                "Mrs. Hall, to clean it and write the names",
+                                "Mr. Davis, by mistake"
+                        ],
+                        "correctIdx": 2
+                },
+                {
+                        "question": "Why did nobody see Mrs. Hall's note on the cupboard?",
+                        "questionRu": "Почему никто не увидел записку миссис Холл на шкафу?",
+                        "options": [
+                                "She forgot to write it",
+                                "The wind from the open window moved the note under the table",
+                                "Lucas took the note",
+                                "It was written in invisible ink"
+                        ],
+                        "correctIdx": 1
+                },
+                {
+                        "question": "What does Ben eat at the end of the story?",
+                        "questionRu": "Что ест Бен в конце истории?",
+                        "options": [
+                                "A biscuit",
+                                "A pizza",
+                                "An apple",
+                                "A sandwich"
+                        ],
+                        "correctIdx": 0
+                }
+        ],
+        "wordCount": 342
+}
     ]
 };
 
