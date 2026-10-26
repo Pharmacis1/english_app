@@ -4997,7 +4997,7 @@ const ELDRIN_AUDIOBOOK = {
                         "ru": "Лео открывает свой синий блокнот. Он хочет найти кубок."
                 }
         ],
-        "quizQuestions": [
+        "quiz": [
                 {
                         "question": "What is missing from the glass cupboard?",
                         "questionRu": "Что пропало из стеклянного шкафа?",
@@ -5243,7 +5243,7 @@ const ELDRIN_AUDIOBOOK = {
                         "ru": "Лео пишет в блокноте: Бен: обед в час. Компьютерный класс с учителем с двух до половины третьего."
                 }
         ],
-        "quizQuestions": [
+        "quiz": [
                 {
                         "question": "What did Ben eat for lunch?",
                         "questionRu": "Что Бен ел на обед?",
@@ -5510,7 +5510,7 @@ const ELDRIN_AUDIOBOOK = {
                         "ru": "Лео пишет в блокноте: Миа: кабинет изо. Видела кубок в 14:15. Видела Лукаса возле двери."
                 }
         ],
-        "quizQuestions": [
+        "quiz": [
                 {
                         "question": "At what time did Mia see the cup in the cupboard?",
                         "questionRu": "В какое время Миа видела кубок в шкафу?",
@@ -5749,7 +5749,7 @@ const ELDRIN_AUDIOBOOK = {
                         "ru": "— Ошибки? Какие ещё ошибки?"
                 }
         ],
-        "quizQuestions": [
+        "quiz": [
                 {
                         "question": "What did Lucas say he did between 2:00 and 3:00?",
                         "questionRu": "Что Лукас сказал о том, чем занимался с 14:00 до 15:00?",
@@ -5988,7 +5988,7 @@ const ELDRIN_AUDIOBOOK = {
                         "ru": "— Кубок был в шкафу. Я его не брал! Это правда, Лео!"
                 }
         ],
-        "quizQuestions": [
+        "quiz": [
                 {
                         "question": "Why was Lucas's football story impossible?",
                         "questionRu": "Почему история Лукаса о футболе была невозможной?",
@@ -6269,7 +6269,7 @@ const ELDRIN_AUDIOBOOK = {
                         "ru": "История Серебряного кубка завершена."
                 }
         ],
-        "quizQuestions": [
+        "quiz": [
                 {
                         "question": "Who took the Silver Cup?",
                         "questionRu": "Кто взял Серебряный кубок?",

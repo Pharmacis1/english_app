@@ -10859,23 +10859,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
         function openQuizModal() {
             const curChapter = bookData.chapters.find(c => c.id === activeChapterId) || bookData.chapters[0];
-            if (!curChapter.quiz || !modalQuiz || !quizBody) return;
+            const quizList = curChapter.quiz || curChapter.quizQuestions;
+            if (!quizList || !modalQuiz || !quizBody) return;
+
+            let chTitle;
+            if (curChapter.number > 200) {
+                chTitle = `Спецдело 2, ч. ${curChapter.number - 200}: ${curChapter.titleRu}`;
+            } else if (curChapter.number > 100) {
+                chTitle = `Спецдело 1, ч. ${curChapter.number - 100}: ${curChapter.titleRu}`;
+            } else {
+                chTitle = `Глава ${curChapter.number}: ${curChapter.titleRu}`;
+            }
 
             quizBody.innerHTML = `
                 <div style="margin-bottom:16px;">
                     <div style="font-size:14px; font-weight:700; color:#e2e8f0; margin-bottom:4px;">
-                        📖 Проверка понимания: <b>Глава ${curChapter.number}</b>
+                        📖 Проверка понимания: <b>${chTitle}</b>
                     </div>
                     <div style="font-size:12px; color:#94a3b8;">
                         Ответьте правильно на 3 вопроса, чтобы получить <b>+${curChapter.wordCount} слов</b> в навык аудирования (Listening Skill)!
                     </div>
                 </div>
                 <div id="audiobook-quiz-questions-list" style="display:flex; flex-direction:column; gap:16px;">
-                    ${curChapter.quiz.map((q, qIdx) => `
+                    ${quizList.map((q, qIdx) => `
                         <div class="audiobook-quiz-item" data-q-idx="${qIdx}" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); border-radius:10px; padding:12px 14px;">
-                            <div style="font-weight:700; font-size:13px; color:#f8fafc; margin-bottom:8px;">
+                            <div style="font-weight:700; font-size:13px; color:#f8fafc; margin-bottom:4px;">
                                 ${qIdx + 1}. ${q.question}
                             </div>
+                            ${q.questionRu ? `<div style="font-size:11px; color:#94a3b8; margin-bottom:8px;">${q.questionRu}</div>` : ''}
                             <div style="display:flex; flex-direction:column; gap:6px;">
                                 ${q.options.map((opt, oIdx) => `
                                     <label style="display:flex; align-items:center; gap:8px; font-size:12px; color:#cbd5e1; cursor:pointer; padding:6px 10px; background:rgba(0,0,0,0.2); border-radius:6px; border:1px solid rgba(255,255,255,0.06);">
@@ -10901,7 +10912,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (submitBtn) {
                 submitBtn.addEventListener("click", () => {
                     let allCorrect = true;
-                    curChapter.quiz.forEach((q, qIdx) => {
+                    quizList.forEach((q, qIdx) => {
                         const selected = quizBody.querySelector(`input[name="audiobook-q-${qIdx}"]:checked`);
                         const val = selected ? parseInt(selected.value, 10) : -1;
                         const itemEl = quizBody.querySelector(`.audiobook-quiz-item[data-q-idx="${qIdx}"]`);
