@@ -681,6 +681,86 @@ const NEW_WORDS_DATABASE = [
         translation: "печенье",
         exampleEn: "Ben smiles and eats a sweet biscuit.",
         exampleRu: "Бен улыбается и ест сладкое печенье."
+    },
+    {
+        id: "birthday",
+        word: "birthday",
+        phonetic: "/ˈbɜːθ.deɪ/",
+        translation: "день рождения",
+        exampleEn: "Marco made a big Pink Birthday Cake for a party.",
+        exampleRu: "Марко испёк большой розовый торт на день рождения для праздника."
+    },
+    {
+        id: "cake",
+        word: "cake",
+        phonetic: "/keɪk/",
+        translation: "торт / пирожное",
+        exampleEn: "A piece of chocolate cake is three pounds.",
+        exampleRu: "Кусочек шоколадного торта стоит три фунта."
+    },
+    {
+        id: "menu",
+        word: "menu",
+        phonetic: "/ˈmen.juː/",
+        translation: "меню",
+        exampleEn: "She put the menus on the ten tables.",
+        exampleRu: "Она разложила меню на десять столов."
+    },
+    {
+        id: "pound",
+        word: "pound",
+        phonetic: "/paʊnd/",
+        translation: "фунт (деньги)",
+        exampleEn: "A cup of black coffee is two pounds.",
+        exampleRu: "Чашка чёрного кофе стоит два фунта."
+    },
+    {
+        id: "pay",
+        word: "pay",
+        phonetic: "/peɪ/",
+        translation: "платить / оплачивать",
+        exampleEn: "People can pay with cash or pay by card.",
+        exampleRu: "Люди могут платить наличными или картой."
+    },
+    {
+        id: "bank",
+        word: "bank",
+        phonetic: "/bæŋk/",
+        translation: "банк",
+        exampleEn: "The town bank is closed on Saturday.",
+        exampleRu: "Городской банк закрыт в субботу."
+    },
+    {
+        id: "supermarket",
+        word: "supermarket",
+        phonetic: "/ˈsuː.pəˌmɑː.kɪt/",
+        translation: "супермаркет",
+        exampleEn: "The school is opposite the big supermarket.",
+        exampleRu: "Школа находится напротив большого супермаркета."
+    },
+    {
+        id: "opposite",
+        word: "opposite",
+        phonetic: "/ˈɒp.ə.zɪt/",
+        translation: "напротив",
+        exampleEn: "I walked across the street to the bank opposite the cafe.",
+        exampleRu: "Я перешёл улицу к банку напротив кафе."
+    },
+    {
+        id: "turn",
+        word: "turn",
+        phonetic: "/tɜːn/",
+        translation: "поворачивать / повернуть",
+        exampleEn: "You turn left at the bus stop and go past the park.",
+        exampleRu: "Поверните налево у автобусной остановки и пройдите мимо парка."
+    },
+    {
+        id: "soft",
+        word: "soft",
+        phonetic: "/sɒft/",
+        translation: "мягкий / пышный",
+        exampleEn: "Marco makes the best soft bread in the town.",
+        exampleRu: "Марко печёт самый лучший мягкий хлеб в городе."
     }
 ];
 
@@ -878,9 +958,14 @@ class NewWordsStudyEngine {
         if (typeof window === 'undefined' || typeof window.flashcardEngine === 'undefined') return;
 
         const fe = window.flashcardEngine;
-        const deckName = "🔍 Новые слова (Детектив)";
+        const deckName = "Detective & City (A1)";
         if (!fe.decks[deckName]) {
             fe.decks[deckName] = [];
+        }
+
+        // Clean up legacy separate deck if present
+        if (fe.decks["🔍 Новые слова (Детектив)"]) {
+            delete fe.decks["🔍 Новые слова (Детектив)"];
         }
 
         const deck = fe.decks[deckName];
@@ -939,9 +1024,14 @@ class NewWordsStudyEngine {
         if (typeof window.flashcardEngine === 'undefined') return;
 
         const fe = window.flashcardEngine;
-        const deckName = "🔍 Новые слова (Детектив)";
+        const deckName = "Detective & City (A1)";
         if (!fe.decks[deckName]) {
             fe.decks[deckName] = [];
+        }
+
+        // Clean up legacy separate deck if present
+        if (fe.decks["🔍 Новые слова (Детектив)"]) {
+            delete fe.decks["🔍 Новые слова (Детектив)"];
         }
 
         const deck = fe.decks[deckName];

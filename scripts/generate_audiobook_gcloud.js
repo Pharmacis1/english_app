@@ -139,6 +139,21 @@ const CAST = {
         voice: 'en-US-Neural2-F', // Mrs. Hall (head teacher, mature female)
         pitch: '-1.5st',
         rate: '0.90'
+    },
+    anna: {
+        voice: 'en-US-Neural2-F', // Anna (young cafe worker)
+        pitch: '+1st',
+        rate: '0.96'
+    },
+    sam: {
+        voice: 'en-US-Neural2-I', // Sam (delivery bicycle boy)
+        pitch: '+1.5st',
+        rate: '1.0'
+    },
+    mrgreen: {
+        voice: 'en-US-Neural2-D', // Mr. Green (old gentleman in grey hat)
+        pitch: '-2.5st',
+        rate: '0.88'
     }
 };
 

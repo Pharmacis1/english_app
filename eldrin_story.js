@@ -6306,6 +6306,1490 @@ const ELDRIN_AUDIOBOOK = {
         ],
         "wordCount": 342
 }
+    ,
+        {
+        "id": "spec3-ch-1",
+        "number": 301,
+        "act": 7,
+        "titleEn": "Special Case 3 (Part 1): A Big Problem at Marco's Cafe",
+        "titleRu": "Спецдело 3 (Часть 1): Большая проблема в кафе Марко",
+        "synopsisEn": "On Saturday morning, Leo and Mia visit Marco's Cafe. Baker Marco is in panic: his special Pink Birthday Cake has disappeared from the cold room, replaced by twenty brown breads!",
+        "synopsisRu": "В субботу утром Лео и Миа приходят в кафе Марко. Пекарь Марко в панике: его праздничный розовый торт исчез из холодильной комнаты, а вместо него лежат двадцать буханок хлеба!",
+        "targetLevel": "CEFR A1",
+        "coverIcon": "fa-cake-candles",
+        "coverColor": "#ec4899",
+        "sentences": [
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">It is Saturday morning.</prosody></speak>",
+                        "en": "It is Saturday morning.",
+                        "ru": "Субботнее утро."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The time is twelve o'clock.</prosody></speak>",
+                        "en": "The time is twelve o'clock.",
+                        "ru": "Время — двенадцать часов."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The sun is bright and warm in Oakwood Town.</prosody></speak>",
+                        "en": "The sun is bright and warm in Oakwood Town.",
+                        "ru": "В городе Оквуд солнце яркое и тёплое."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo Vance and his friend Mia walk down High Street.</prosody></speak>",
+                        "en": "Leo Vance and his friend Mia walk down High Street.",
+                        "ru": "Лео Вэнс и его подруга Миа идут по Главной улице."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Today, there is no school.</prosody></speak>",
+                        "en": "Today, there is no school.",
+                        "ru": "Сегодня нет уроков в школе."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">They walk into Marco's Cafe.</prosody></speak>",
+                        "en": "They walk into Marco's Cafe.",
+                        "ru": "Они заходят в кафе Марко."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The cafe is small, clean, and very nice.</prosody></speak>",
+                        "en": "The cafe is small, clean, and very nice.",
+                        "ru": "Кафе маленькое, чистое и очень приятное."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">There are ten small tables and twenty chairs.</prosody></speak>",
+                        "en": "There are ten small tables and twenty chairs.",
+                        "ru": "Там стоят десять маленьких столиков и двадцать стульев."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Marco, the cook, comes out of the kitchen.</prosody></speak>",
+                        "en": "Marco, the cook, comes out of the kitchen.",
+                        "ru": "Из кухни выходит повар Марко."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He wears a white hat and a white shirt.</prosody></speak>",
+                        "en": "He wears a white hat and a white shirt.",
+                        "ru": "На нём белый колпак и белая рубашка."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He looks very sad and afraid.</prosody></speak>",
+                        "en": "He looks very sad and afraid.",
+                        "ru": "Он выглядит очень грустным и испуганным."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Good morning, Marco! How are you today?</prosody></speak>",
+                        "en": "— Good morning, Marco! How are you today?",
+                        "ru": "— Доброе утро, Марко! Как вы сегодня?"
+                },
+                {
+                        "speaker": "marco",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">Hello, Leo. Hello, Mia. I am not happy!</prosody></speak>",
+                        "en": "— Hello, Leo. Hello, Mia. I am not happy!",
+                        "ru": "— Привет, Лео. Привет, Миа. Я совсем не весел!"
+                },
+                {
+                        "speaker": "marco",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">I have a very big problem today!</prosody></speak>",
+                        "en": "— I have a very big problem today!",
+                        "ru": "— У меня сегодня очень большая проблема!"
+                },
+                {
+                        "speaker": "miastudent",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2.5st\">What is the problem, Marco?</prosody></speak>",
+                        "en": "— What is the problem, Marco?",
+                        "ru": "— В чём проблема, Марко?"
+                },
+                {
+                        "speaker": "marco",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">This morning, at nine o'clock, I made a big Pink Birthday Cake.</prosody></speak>",
+                        "en": "— This morning, at nine o'clock, I made a big Pink Birthday Cake.",
+                        "ru": "— Сегодня утром в девять часов я испёк большой розовый торт на день рождения."
+                },
+                {
+                        "speaker": "marco",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">It is for a birthday party at one o'clock.</prosody></speak>",
+                        "en": "— It is for a birthday party at one o'clock.",
+                        "ru": "— Он для праздника в честь дня рождения в час дня."
+                },
+                {
+                        "speaker": "marco",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">I put red fruit on top of the cake.</prosody></speak>",
+                        "en": "— I put red fruit on top of the cake.",
+                        "ru": "— Я украсил торт сверху красными ягодами."
+                },
+                {
+                        "speaker": "marco",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">Then I put the cake in a big white box.</prosody></speak>",
+                        "en": "— Then I put the cake in a big white box.",
+                        "ru": "— Затем я положил торт в большую белую коробку."
+                },
+                {
+                        "speaker": "marco",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">I put the box in the cold room.</prosody></speak>",
+                        "en": "— I put the box in the cold room.",
+                        "ru": "— Я поставил коробку в холодильную комнату."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">And where is the cake now?</prosody></speak>",
+                        "en": "— And where is the cake now?",
+                        "ru": "— А где торт сейчас?"
+                },
+                {
+                        "speaker": "marco",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">Five minutes ago, I went into the cold room.</prosody></speak>",
+                        "en": "— Five minutes ago, I went into the cold room.",
+                        "ru": "— Пять минут назад я зашёл в холодильную комнату."
+                },
+                {
+                        "speaker": "marco",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">I opened the big white box.</prosody></speak>",
+                        "en": "— I opened the big white box.",
+                        "ru": "— Я открыл большую белую коробку."
+                },
+                {
+                        "speaker": "marco",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">The Pink Birthday Cake is not there!</prosody></speak>",
+                        "en": "— The Pink Birthday Cake is not there!",
+                        "ru": "— Розового торта там нет!"
+                },
+                {
+                        "speaker": "marco",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">Inside the box are twenty small brown breads!</prosody></speak>",
+                        "en": "— Inside the box are twenty small brown breads!",
+                        "ru": "— Внутри коробки двадцать маленьких буханок хлеба!"
+                },
+                {
+                        "speaker": "miastudent",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2.5st\">Twenty brown breads? Why is bread in the cake box?</prosody></speak>",
+                        "en": "— Twenty brown breads? Why is bread in the cake box?",
+                        "ru": "— Двадцать буханок хлеба? Почему хлеб в коробке из-под торта?"
+                },
+                {
+                        "speaker": "marco",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">I do not know! The party is in one hour! What can I do?</prosody></speak>",
+                        "en": "— I do not know! The party is in one hour! What can I do?",
+                        "ru": "— Я не знаю! Праздник через час! Что же мне делать?"
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Do not be sad, Marco. Mia and I can help you.</prosody></speak>",
+                        "en": "— Do not be sad, Marco. Mia and I can help you.",
+                        "ru": "— Не грусти, Марко. Мы с Мией поможем тебе."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Who was in the cafe between ten o'clock and twelve o'clock?</prosody></speak>",
+                        "en": "— Who was in the cafe between ten o'clock and twelve o'clock?",
+                        "ru": "— Кто был в кафе между десятью и двенадцатью часами?"
+                },
+                {
+                        "speaker": "marco",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">Only three people: Anna, my cafe worker.</prosody></speak>",
+                        "en": "— Only three people: Anna, my cafe worker.",
+                        "ru": "— Только три человека: Анна, сотрудница кафе."
+                },
+                {
+                        "speaker": "marco",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">Sam, my bicycle boy. And Mr. Green, a man in a grey hat.</prosody></speak>",
+                        "en": "— Sam, my bicycle boy. And Mr. Green, a man in a grey hat.",
+                        "ru": "— Сэм, мальчик на велосипеде. И мистер Грин, мужчина в серой шляпе."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo takes his small blue notebook and a black pen from his bag.</prosody></speak>",
+                        "en": "Leo takes his small blue notebook and a black pen from his bag.",
+                        "ru": "Лео достаёт из сумки маленький синий блокнот и чёрную ручку."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He and Mia are ready to ask questions.</prosody></speak>",
+                        "en": "He and Mia are ready to ask questions.",
+                        "ru": "Они с Мией готовы задавать вопросы."
+                }
+        ],
+        "quiz": [
+                {
+                        "question": "What is missing from the cold room?",
+                        "questionRu": "Что пропало из холодильной комнаты?",
+                        "options": [
+                                "A gold watch",
+                                "A big Pink Birthday Cake",
+                                "Twenty cups of coffee",
+                                "A silver cup"
+                        ],
+                        "correctIdx": 1
+                },
+                {
+                        "question": "What was inside the cake box instead?",
+                        "questionRu": "Что вместо торта оказалось внутри коробки?",
+                        "options": [
+                                "Twenty small brown breads",
+                                "A chocolate cake",
+                                "Two old shoes",
+                                "A red fruit salad"
+                        ],
+                        "correctIdx": 0
+                },
+                {
+                        "question": "When is the birthday party?",
+                        "questionRu": "Когда состоится праздник в честь дня рождения?",
+                        "options": [
+                                "At nine o'clock",
+                                "At eleven o'clock",
+                                "At one o'clock",
+                                "On Monday"
+                        ],
+                        "correctIdx": 2
+                }
+        ],
+        "wordCount": 281
+},
+        {
+        "id": "spec3-ch-2",
+        "number": 302,
+        "act": 7,
+        "titleEn": "Special Case 3 (Part 2): The First Person — Anna the Cafe Worker",
+        "titleRu": "Спецдело 3 (Часть 2): Первый человек — работница Анна",
+        "synopsisEn": "Leo and Mia question Anna at the front table. Anna describes the morning rush and recalls seeing Sam carry out a white box at 11:15, and Mr. Green near the kitchen at 11:30.",
+        "synopsisRu": "Лео и Миа опрашивают Анну у стойки. Анна рассказывает об утренней работе и вспоминает, что в 11:15 видела Сэма с белой коробкой, а в 11:30 — мистера Грина у кухни.",
+        "targetLevel": "CEFR A1",
+        "coverIcon": "fa-mug-saucer",
+        "coverColor": "#10b981",
+        "sentences": [
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo and Mia walk to the front table.</prosody></speak>",
+                        "en": "Leo and Mia walk to the front table.",
+                        "ru": "Лео и Миа подходят к переднему столику."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">A young woman in a green dress cleans the coffee machine.</prosody></speak>",
+                        "en": "A young woman in a green dress cleans the coffee machine.",
+                        "ru": "Молодая женщина в зелёном платье моет кофемашину."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Her name is Anna. She is twenty-two years old.</prosody></speak>",
+                        "en": "Her name is Anna. She is twenty-two years old.",
+                        "ru": "Её зовут Анна. Ей двадцать два года."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Hello, Anna. Can we ask you some questions about this morning?</prosody></speak>",
+                        "en": "— Hello, Anna. Can we ask you some questions about this morning?",
+                        "ru": "— Здравствуй, Анна. Можно задать тебе пару вопросов об этом утре?"
+                },
+                {
+                        "speaker": "anna",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">Hello, Leo. Yes, of course. Poor Marco!</prosody></speak>",
+                        "en": "— Hello, Leo. Yes, of course. Poor Marco!",
+                        "ru": "— Привет, Лео. Да, конечно. Бедный Марко!"
+                },
+                {
+                        "speaker": "anna",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">That pink cake was very beautiful.</prosody></speak>",
+                        "en": "— That pink cake was very beautiful.",
+                        "ru": "— Тот розовый торт был очень красивым."
+                },
+                {
+                        "speaker": "miastudent",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2.5st\">Tell us about your morning, Anna. What time did you come to work?</prosody></speak>",
+                        "en": "— Tell us about your morning, Anna. What time did you come to work?",
+                        "ru": "— Расскажи нам о своём утре, Анна. Во сколько ты пришла на работу?"
+                },
+                {
+                        "speaker": "anna",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">I came to the cafe at eight o'clock.</prosody></speak>",
+                        "en": "— I came to the cafe at eight o'clock.",
+                        "ru": "— Я пришла в кафе в восемь часов."
+                },
+                {
+                        "speaker": "anna",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">First, I cleaned the ten tables and the glass windows.</prosody></speak>",
+                        "en": "— First, I cleaned the ten tables and the glass windows.",
+                        "ru": "— Сначала я протёрла десять столиков и стеклянные окна."
+                },
+                {
+                        "speaker": "anna",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">Then I put the menus on the tables.</prosody></speak>",
+                        "en": "— Then I put the menus on the tables.",
+                        "ru": "— Затем я разложила меню на столы."
+                },
+                {
+                        "speaker": "anna",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">At half past eight, we opened the cafe door.</prosody></speak>",
+                        "en": "— At half past eight, we opened the cafe door.",
+                        "ru": "— В половине девятого мы открыли дверь кафе."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">What do people buy here in the morning?</prosody></speak>",
+                        "en": "— What do people buy here in the morning?",
+                        "ru": "— Что люди покупают здесь по утрам?"
+                },
+                {
+                        "speaker": "anna",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">Many people come for breakfast on Saturday.</prosody></speak>",
+                        "en": "— Many people come for breakfast on Saturday.",
+                        "ru": "— В субботу многие приходят на завтрак."
+                },
+                {
+                        "speaker": "anna",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">A cup of black coffee is two pounds.</prosody></speak>",
+                        "en": "— A cup of black coffee is two pounds.",
+                        "ru": "— Чашка чёрного кофе стоит два фунта."
+                },
+                {
+                        "speaker": "anna",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">A cup of hot tea with milk is one pound.</prosody></speak>",
+                        "en": "— A cup of hot tea with milk is one pound.",
+                        "ru": "— Чашка горячего чая с молоком стоит один фунт."
+                },
+                {
+                        "speaker": "anna",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">A piece of chocolate cake is three pounds.</prosody></speak>",
+                        "en": "— A piece of chocolate cake is three pounds.",
+                        "ru": "— Кусочек шоколадного торта стоит три фунта."
+                },
+                {
+                        "speaker": "anna",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">People can pay with money or pay by card.</prosody></speak>",
+                        "en": "— People can pay with money or pay by card.",
+                        "ru": "— Люди могут платить деньгами или картой."
+                },
+                {
+                        "speaker": "miastudent",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2.5st\">Were you in the kitchen or in the cold room today?</prosody></speak>",
+                        "en": "— Were you in the kitchen or in the cold room today?",
+                        "ru": "— Ты была сегодня на кухне или в холодильной комнате?"
+                },
+                {
+                        "speaker": "anna",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">No, I was here at the front table all morning.</prosody></speak>",
+                        "en": "— No, I was here at the front table all morning.",
+                        "ru": "— Нет, я всё утро была здесь у передней стойки."
+                },
+                {
+                        "speaker": "anna",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">Between ten o'clock and twelve o'clock, twenty people came into the cafe.</prosody></speak>",
+                        "en": "— Between ten o'clock and twelve o'clock, twenty people came into the cafe.",
+                        "ru": "— Между десятью и двенадцатью часами в кафе пришли двадцать человек."
+                },
+                {
+                        "speaker": "anna",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">I gave them coffee, tea, orange juice, and cheese sandwiches.</prosody></speak>",
+                        "en": "— I gave them coffee, tea, orange juice, and cheese sandwiches.",
+                        "ru": "— Я подавала им кофе, чай, апельсиновый сок и бутерброды с сыром."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Did you see any people near the kitchen door?</prosody></speak>",
+                        "en": "— Did you see any people near the kitchen door?",
+                        "ru": "— Ты видела кого-нибудь возле кухонной двери?"
+                },
+                {
+                        "speaker": "anna",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">Yes! At quarter past eleven, Sam, our bicycle boy, went into the kitchen.</prosody></speak>",
+                        "en": "— Yes! At quarter past eleven, Sam, our bicycle boy, went into the kitchen.",
+                        "ru": "— Да! В четверть двенадцатого наш курьер на велосипеде Сэм зашёл на кухню."
+                },
+                {
+                        "speaker": "anna",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">He came out with a big white box.</prosody></speak>",
+                        "en": "— He came out with a big white box.",
+                        "ru": "— Он вышел с большой белой коробкой."
+                },
+                {
+                        "speaker": "anna",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">And at half past eleven, I saw Mr. Green near the kitchen door.</prosody></speak>",
+                        "en": "— And at half past eleven, I saw Mr. Green near the kitchen door.",
+                        "ru": "— А в половине двенадцатого я видела мистера Грина у кухонной двери."
+                },
+                {
+                        "speaker": "anna",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">He had a brown box in his hands! He looked very afraid!</prosody></speak>",
+                        "en": "— He had a brown box in his hands! He looked very afraid!",
+                        "ru": "— У него в руках была коричневая коробка! Он выглядел очень испуганным!"
+                },
+                {
+                        "speaker": "miastudent",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2.5st\">Thank you, Anna. That is very good to know.</prosody></speak>",
+                        "en": "— Thank you, Anna. That is very good to know.",
+                        "ru": "— Спасибо, Анна. Это очень полезно знать."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo writes in his notebook: Anna: at the front table. Saw Sam with a white box at quarter past eleven. Saw Mr. Green near the kitchen at half past eleven.</prosody></speak>",
+                        "en": "Leo writes in his notebook: Anna: at the front table. Saw Sam with a white box at quarter past eleven. Saw Mr. Green near the kitchen at half past eleven.",
+                        "ru": "Лео пишет в блокноте: Анна: у стойки. Видела Сэма с белой коробкой в 11:15. Видела мистера Грина у кухни в 11:30."
+                }
+        ],
+        "quiz": [
+                {
+                        "question": "What time did Sam leave with a big white box?",
+                        "questionRu": "В какое время Сэм вышел с большой белой коробкой?",
+                        "options": [
+                                "At eight o'clock",
+                                "At quarter past eleven (11:15)",
+                                "At twelve o'clock",
+                                "At nine o'clock"
+                        ],
+                        "correctIdx": 1
+                },
+                {
+                        "question": "What did Mr. Green have in his hands?",
+                        "questionRu": "Что было в руках у мистера Грина?",
+                        "options": [
+                                "A white cake box",
+                                "A brown box",
+                                "A cup of tea",
+                                "A small blue notebook"
+                        ],
+                        "correctIdx": 1
+                },
+                {
+                        "question": "How much is a cup of black coffee?",
+                        "questionRu": "Сколько стоит чашка чёрного кофе?",
+                        "options": [
+                                "One pound",
+                                "Two pounds",
+                                "Three pounds",
+                                "Five pounds"
+                        ],
+                        "correctIdx": 1
+                }
+        ],
+        "wordCount": 290
+},
+        {
+        "id": "spec3-ch-3",
+        "number": 303,
+        "act": 7,
+        "titleEn": "Special Case 3 (Part 3): The Second Person — Sam the Bicycle Boy",
+        "titleRu": "Спецдело 3 (Часть 3): Второй человек — Сэм на велосипеде",
+        "synopsisEn": "Leo and Mia question delivery boy Sam. Sam explains how he navigated town streets and delivered a white box to the Little Star School, picking from two identical boxes in the cold room.",
+        "synopsisRu": "Лео и Миа опрашивают курьера Сэма. Сэм рассказывает, как развозил заказы по городу и отвёз белую коробку в школу «Маленькая Звезда», выбрав одну из двух одинаковых коробок.",
+        "targetLevel": "CEFR A1",
+        "coverIcon": "fa-bicycle",
+        "coverColor": "#3b82f6",
+        "sentences": [
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo and Mia walk outside to the street behind the cafe.</prosody></speak>",
+                        "en": "Leo and Mia walk outside to the street behind the cafe.",
+                        "ru": "Лео и Миа выходят на улицу за кафе."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">A boy of eighteen stands next to a big blue bicycle.</prosody></speak>",
+                        "en": "A boy of eighteen stands next to a big blue bicycle.",
+                        "ru": "Восемнадцатилетний парень стоит возле большого синего велосипеда."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">His name is Sam. He wears a red jacket and a bicycle hat.</prosody></speak>",
+                        "en": "His name is Sam. He wears a red jacket and a bicycle hat.",
+                        "ru": "Его зовут Сэм. На нём красная куртка и велосипедный шлем."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Hello, Sam. We want to ask you about the big white box.</prosody></speak>",
+                        "en": "— Hello, Sam. We want to ask you about the big white box.",
+                        "ru": "— Привет, Сэм. Мы хотим спросить тебя о большой белой коробке."
+                },
+                {
+                        "speaker": "sam",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+1.5st\">Hi, Leo! Hi, Mia! Is there a problem?</prosody></speak>",
+                        "en": "— Hi, Leo! Hi, Mia! Is there a problem?",
+                        "ru": "— Привет, Лео! Привет, Миа! Что-то случилось?"
+                },
+                {
+                        "speaker": "miastudent",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2.5st\">Marco's Pink Birthday Cake is not in the cold room.</prosody></speak>",
+                        "en": "— Marco's Pink Birthday Cake is not in the cold room.",
+                        "ru": "— Розового праздничного торта Марко нет в холодильной комнате."
+                },
+                {
+                        "speaker": "miastudent",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2.5st\">Anna saw you with a big white box at quarter past eleven.</prosody></speak>",
+                        "en": "— Anna saw you with a big white box at quarter past eleven.",
+                        "ru": "— Анна видела тебя с большой белой коробкой в четверть двенадцатого."
+                },
+                {
+                        "speaker": "sam",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+1.5st\">Yes, that is right! It is my job.</prosody></speak>",
+                        "en": "— Yes, that is right! It is my job.",
+                        "ru": "— Да, всё верно! Это моя работа."
+                },
+                {
+                        "speaker": "sam",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+1.5st\">I take Marco's bread and cakes to people in Oakwood Town.</prosody></speak>",
+                        "en": "— I take Marco's bread and cakes to people in Oakwood Town.",
+                        "ru": "— Я развожу хлеб и пирожные Марко жителям Оквуда."
+                },
+                {
+                        "speaker": "sam",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+1.5st\">I ride my bicycle on all the streets.</prosody></speak>",
+                        "en": "— I ride my bicycle on all the streets.",
+                        "ru": "— Я езжу на велосипеде по всем улицам."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Where did you go this morning, Sam? Which streets did you take?</prosody></speak>",
+                        "en": "— Where did you go this morning, Sam? Which streets did you take?",
+                        "ru": "— Куда ты ездил сегодня утром, Сэм? По каким улицам?"
+                },
+                {
+                        "speaker": "sam",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+1.5st\">At ten o'clock, I took a box of sweet bread to the Grand Hotel.</prosody></speak>",
+                        "en": "— At ten o'clock, I took a box of sweet bread to the Grand Hotel.",
+                        "ru": "— В десять часов я отвез коробку сладкого хлеба в отель «Гранд»."
+                },
+                {
+                        "speaker": "sam",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+1.5st\">Do you know the Grand Hotel?</prosody></speak>",
+                        "en": "— Do you know the Grand Hotel?",
+                        "ru": "— Вы знаете отель «Гранд»?"
+                },
+                {
+                        "speaker": "sam",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+1.5st\">First, you go down High Street. Then you turn left at the bus stop.</prosody></speak>",
+                        "en": "— First, you go down High Street. Then you turn left at the bus stop.",
+                        "ru": "— Сначала едешь по Главной улице. Потом поворачиваешь налево у автобусной остановки."
+                },
+                {
+                        "speaker": "sam",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+1.5st\">You go past the park. The hotel is on Park Road, next to the cinema.</prosody></speak>",
+                        "en": "— You go past the park. The hotel is on Park Road, next to the cinema.",
+                        "ru": "— Проезжаешь мимо парка. Отель на Парковой улице, рядом с кинотеатром."
+                },
+                {
+                        "speaker": "miastudent",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2.5st\">And what did you do at quarter past eleven?</prosody></speak>",
+                        "en": "— And what did you do at quarter past eleven?",
+                        "ru": "— А что ты делал в четверть двенадцатого?"
+                },
+                {
+                        "speaker": "sam",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+1.5st\">At quarter past eleven, I came back to the cafe.</prosody></speak>",
+                        "en": "— At quarter past eleven, I came back to the cafe.",
+                        "ru": "— В четверть двенадцатого я вернулся в кафе."
+                },
+                {
+                        "speaker": "sam",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+1.5st\">Marco was busy in the kitchen. I went into the cold room.</prosody></speak>",
+                        "en": "— Marco was busy in the kitchen. I went into the cold room.",
+                        "ru": "— Марко был занят на кухне. Я пошёл в холодильную комнату."
+                },
+                {
+                        "speaker": "sam",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+1.5st\">I had to take twenty small brown breads to the Little Star School.</prosody></speak>",
+                        "en": "— I had to take twenty small brown breads to the Little Star School.",
+                        "ru": "— Мне нужно было отвезти двадцать буханок хлеба в школу «Маленькая Звезда»."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Where is the Little Star School?</prosody></speak>",
+                        "en": "— Where is the Little Star School?",
+                        "ru": "— Где находится школа «Маленькая Звезда»?"
+                },
+                {
+                        "speaker": "sam",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+1.5st\">You go down High Street. Then you turn right at the book shop.</prosody></speak>",
+                        "en": "— You go down High Street. Then you turn right at the book shop.",
+                        "ru": "— Едешь вниз по Главной улице. Затем поворачиваешь направо у книжного магазина."
+                },
+                {
+                        "speaker": "sam",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+1.5st\">The school is on Green Street, opposite the big supermarket.</prosody></speak>",
+                        "en": "— The school is on Green Street, opposite the big supermarket.",
+                        "ru": "— Школа на Зелёной улице, напротив большого супермаркета."
+                },
+                {
+                        "speaker": "miastudent",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2.5st\">Tell us about the cold room, Sam. What did you see inside?</prosody></speak>",
+                        "en": "— Tell us about the cold room, Sam. What did you see inside?",
+                        "ru": "— Расскажи о холодильной комнате, Сэм. Что ты видел внутри?"
+                },
+                {
+                        "speaker": "sam",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+1.5st\">Inside the cold room, I saw two big white boxes on the table.</prosody></speak>",
+                        "en": "— Inside the cold room, I saw two big white boxes on the table.",
+                        "ru": "— В холодильной комнате я увидел на столе две большие белые коробки."
+                },
+                {
+                        "speaker": "sam",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+1.5st\">One box was on the left. One box was on the right.</prosody></speak>",
+                        "en": "— One box was on the left. One box was on the right.",
+                        "ru": "— Одна коробка стояла слева. Другая — справа."
+                },
+                {
+                        "speaker": "sam",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+1.5st\">The two boxes looked the same.</prosody></speak>",
+                        "en": "— The two boxes looked the same.",
+                        "ru": "— Обе коробки выглядели одинаково."
+                },
+                {
+                        "speaker": "sam",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+1.5st\">I took the box on the left. I put it on my bicycle.</prosody></speak>",
+                        "en": "— I took the box on the left. I put it on my bicycle.",
+                        "ru": "— Я взял коробку слева. Поставил её на велосипед."
+                },
+                {
+                        "speaker": "sam",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+1.5st\">Then I rode fast to the school!</prosody></speak>",
+                        "en": "— Then I rode fast to the school!",
+                        "ru": "— И быстро поехал в школу!"
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Did you open the box, Sam?</prosody></speak>",
+                        "en": "— Did you open the box, Sam?",
+                        "ru": "— Ты открывал коробку, Сэм?"
+                },
+                {
+                        "speaker": "sam",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+1.5st\">No! I never open the boxes.</prosody></speak>",
+                        "en": "— No! I never open the boxes.",
+                        "ru": "— Нет! Я никогда не открываю коробки."
+                },
+                {
+                        "speaker": "sam",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+1.5st\">At half past eleven, I was at the school door. I gave the white box to a teacher. Then I rode back here.</prosody></speak>",
+                        "en": "— At half past eleven, I was at the school door. I gave the white box to a teacher. Then I rode back here.",
+                        "ru": "— В половине двенадцатого я был у дверей школы. Отдал белую коробку учителю и поехал обратно."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo looks at Mia. Mia smiles. She writes a note in Leo's blue book.</prosody></speak>",
+                        "en": "Leo looks at Mia. Mia smiles. She writes a note in Leo's blue book.",
+                        "ru": "Лео смотрит на Мию. Миа улыбается. Она делает запись в синем блокноте Лео."
+                }
+        ],
+        "quiz": [
+                {
+                        "question": "Where did Sam take the white box at 11:15?",
+                        "questionRu": "Куда Сэм повёз белую коробку в 11:15?",
+                        "options": [
+                                "To the Grand Hotel",
+                                "To the Little Star School",
+                                "To the Town Bank",
+                                "To the cinema"
+                        ],
+                        "correctIdx": 1
+                },
+                {
+                        "question": "What did Sam see in the cold room?",
+                        "questionRu": "Что Сэм увидел в холодильной комнате?",
+                        "options": [
+                                "Only one small box",
+                                "Two big white boxes that looked the same",
+                                "A pink cake on a plate",
+                                "Mr. Green baking bread"
+                        ],
+                        "correctIdx": 1
+                },
+                {
+                        "question": "Which box did Sam take?",
+                        "questionRu": "Какую коробку взял Сэм?",
+                        "options": [
+                                "The box on the left",
+                                "The box on the right",
+                                "The brown shoe box",
+                                "Both boxes"
+                        ],
+                        "correctIdx": 0
+                }
+        ],
+        "wordCount": 354
+},
+        {
+        "id": "spec3-ch-4",
+        "number": 304,
+        "act": 7,
+        "titleEn": "Special Case 3 (Part 4): The Third Person — Mr. Green",
+        "titleRu": "Спецдело 3 (Часть 4): Третий человек — мистер Грин",
+        "synopsisEn": "Leo and Mia interview Mr. Green at Table 4. He claims he went to the Town Bank across the street at 11:20 to get money, and opens his brown box to reveal new shoes.",
+        "synopsisRu": "Лео и Миа беседуют с мистером Грином за 4 столиком. Тот заявляет, что в 11:20 ходил в городской банк напротив снять денег, и открывает коробку с новыми туфлями.",
+        "targetLevel": "CEFR A1",
+        "coverIcon": "fa-shoe-prints",
+        "coverColor": "#94a3b8",
+        "sentences": [
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo and Mia go back into the cafe.</prosody></speak>",
+                        "en": "Leo and Mia go back into the cafe.",
+                        "ru": "Лео и Миа возвращаются в кафе."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">At Table 4, an old man sits on a chair.</prosody></speak>",
+                        "en": "At Table 4, an old man sits on a chair.",
+                        "ru": "За четвёртым столиком на стуле сидит пожилой мужчина."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He wears a grey coat and a grey hat. His name is Mr. Green.</prosody></speak>",
+                        "en": "He wears a grey coat and a grey hat. His name is Mr. Green.",
+                        "ru": "На нём серое пальто и серая шляпа. Его зовут мистер Грин."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">On the floor next to his chair is a brown box.</prosody></speak>",
+                        "en": "On the floor next to his chair is a brown box.",
+                        "ru": "На полу рядом с его стулом стоит коричневая коробка."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Good morning, Mr. Green. Can we talk to you for a minute?</prosody></speak>",
+                        "en": "— Good morning, Mr. Green. Can we talk to you for a minute?",
+                        "ru": "— Доброе утро, мистер Грин. Можно поговорить с вами минутку?"
+                },
+                {
+                        "speaker": "mrgreen",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">Good morning, children. Yes, what is it? I am drinking my hot tea.</prosody></speak>",
+                        "en": "— Good morning, children. Yes, what is it? I am drinking my hot tea.",
+                        "ru": "— Доброе утро, ребята. Да, что такое? Я пью свой горячий чай."
+                },
+                {
+                        "speaker": "miastudent",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2.5st\">Mr. Green, Anna saw you near the kitchen door at half past eleven. Why were you there?</prosody></speak>",
+                        "en": "— Mr. Green, Anna saw you near the kitchen door at half past eleven. Why were you there?",
+                        "ru": "— Мистер Грин, Анна видела вас возле двери кухни в половине двенадцатого. Почему вы были там?"
+                },
+                {
+                        "speaker": "mrgreen",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">Near the kitchen door? Oh, no! That is not true! I was not near the kitchen!</prosody></speak>",
+                        "en": "— Near the kitchen door? Oh, no! That is not true! I was not near the kitchen!",
+                        "ru": "— Возле кухонной двери? О нет! Это неправда! Я не подходил к кухне!"
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Where were you at half past eleven, Mr. Green?</prosody></speak>",
+                        "en": "— Where were you at half past eleven, Mr. Green?",
+                        "ru": "— Где вы были в половине двенадцатого, мистер Грин?"
+                },
+                {
+                        "speaker": "mrgreen",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">Well, I came to the cafe at eleven o'clock.</prosody></speak>",
+                        "en": "— Well, I came to the cafe at eleven o'clock.",
+                        "ru": "— Ну, я пришёл в кафе в одиннадцать часов."
+                },
+                {
+                        "speaker": "mrgreen",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">I wanted to buy a cup of tea and some bread.</prosody></speak>",
+                        "en": "— I wanted to buy a cup of tea and some bread.",
+                        "ru": "— Я хотел купить чашку чая и немного хлеба."
+                },
+                {
+                        "speaker": "mrgreen",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">I looked in my coat bag, but I had no small money.</prosody></speak>",
+                        "en": "— I looked in my coat bag, but I had no small money.",
+                        "ru": "— Я посмотрел в карман пальто, но у меня не было мелочи."
+                },
+                {
+                        "speaker": "mrgreen",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">I only had my bank card, and I wanted money.</prosody></speak>",
+                        "en": "— I only had my bank card, and I wanted money.",
+                        "ru": "— Была только банковская карта, а мне нужны были наличные."
+                },
+                {
+                        "speaker": "miastudent",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2.5st\">So what did you do?</prosody></speak>",
+                        "en": "— So what did you do?",
+                        "ru": "— И что же вы сделали?"
+                },
+                {
+                        "speaker": "mrgreen",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">At twenty past eleven, I left the cafe.</prosody></speak>",
+                        "en": "— At twenty past eleven, I left the cafe.",
+                        "ru": "— В двадцать минут двенадцатого я вышел из кафе."
+                },
+                {
+                        "speaker": "mrgreen",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">I walked across High Street to the Town Bank, opposite this cafe.</prosody></speak>",
+                        "en": "— I walked across High Street to the Town Bank, opposite this cafe.",
+                        "ru": "— Я перешёл через Главную улицу в Городской банк напротив этого кафе."
+                },
+                {
+                        "speaker": "mrgreen",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">The bank door was open. I went inside the bank.</prosody></speak>",
+                        "en": "— The bank door was open. I went inside the bank.",
+                        "ru": "— Дверь банка была открыта. Я зашёл внутрь."
+                },
+                {
+                        "speaker": "mrgreen",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">I talked to a nice woman at the desk. She gave me twenty pounds.</prosody></speak>",
+                        "en": "— I talked to a nice woman at the desk. She gave me twenty pounds.",
+                        "ru": "— Я поговорил с милой женщиной за стойкой. Она выдала мне двадцать фунтов."
+                },
+                {
+                        "speaker": "mrgreen",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">I was in the bank from twenty past eleven until quarter to twelve!</prosody></speak>",
+                        "en": "— I was in the bank from twenty past eleven until quarter to twelve!",
+                        "ru": "— Я пробыл в банке с 11:20 до без четверти двенадцать!"
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">You went inside the bank today? At half past eleven?</prosody></speak>",
+                        "en": "— You went inside the bank today? At half past eleven?",
+                        "ru": "— Вы заходили в банк сегодня? В половине двенадцатого?"
+                },
+                {
+                        "speaker": "mrgreen",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">Yes! Of course! Then I came back here and bought my tea.</prosody></speak>",
+                        "en": "— Yes! Of course! Then I came back here and bought my tea.",
+                        "ru": "— Да! Конечно! Потом вернулся сюда и купил чай."
+                },
+                {
+                        "speaker": "mrgreen",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">And this brown box on the floor is from the shoe shop! Look!</prosody></speak>",
+                        "en": "— And this brown box on the floor is from the shoe shop! Look!",
+                        "ru": "— А эта коричневая коробка на полу — из обувного магазина! Смотрите!"
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Mr. Green opens the brown box on the floor. Inside the box are two new brown shoes. There is no cake in his box.</prosody></speak>",
+                        "en": "Mr. Green opens the brown box on the floor. Inside the box are two new brown shoes. There is no cake in his box.",
+                        "ru": "Мистер Грин открывает коричневую коробку на полу. Внутри — две новые коричневые туфли. Торта в его коробке нет."
+                }
+        ],
+        "quiz": [
+                {
+                        "question": "What was inside Mr. Green's brown box?",
+                        "questionRu": "Что было внутри коричневой коробки мистера Грина?",
+                        "options": [
+                                "A pink birthday cake",
+                                "Two new brown shoes",
+                                "Twenty brown breads",
+                                "A chocolate cake"
+                        ],
+                        "correctIdx": 1
+                },
+                {
+                        "question": "Where did Mr. Green claim he went at 11:20?",
+                        "questionRu": "Куда мистер Грин утверждал, что ходил в 11:20?",
+                        "options": [
+                                "To the cinema",
+                                "To the Town Bank opposite the cafe",
+                                "To the supermarket",
+                                "To the train station"
+                        ],
+                        "correctIdx": 1
+                },
+                {
+                        "question": "What is Mr. Green drinking at Table 4?",
+                        "questionRu": "Что мистер Грин пьёт за четвёртым столиком?",
+                        "options": [
+                                "Hot tea",
+                                "Black coffee",
+                                "Cold orange juice",
+                                "Milk"
+                        ],
+                        "correctIdx": 0
+                }
+        ],
+        "wordCount": 274
+},
+        {
+        "id": "spec3-ch-5",
+        "number": 305,
+        "act": 7,
+        "titleEn": "Special Case 3 (Part 5): Two Questions for Mr. Green",
+        "titleRu": "Спецдело 3 (Часть 5): Два вопроса к мистеру Грину",
+        "synopsisEn": "Mia spots the flaw: the bank is closed on weekends! Caught in his lie, Mr. Green admits he peeked into the kitchen to copy Marco's secret recipe for soft bread.",
+        "synopsisRu": "Миа замечает нестыковку: банк закрыт по выходным! Пойманный на лжи, мистер Грин признаётся, что заглянул на кухню списать рецепт мягкого хлеба Марко.",
+        "targetLevel": "CEFR A1",
+        "coverIcon": "fa-building-columns",
+        "coverColor": "#eab308",
+        "sentences": [
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo looks at the brown shoes. Then Leo opens his blue notebook and looks at Mr. Green.</prosody></speak>",
+                        "en": "Leo looks at the brown shoes. Then Leo opens his blue notebook and looks at Mr. Green.",
+                        "ru": "Лео смотрит на коричневые туфли. Затем открывает синий блокнот и смотрит на мистера Грина."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Thank you for showing us your new shoes, Mr. Green. You did not take the cake.</prosody></speak>",
+                        "en": "— Thank you for showing us your new shoes, Mr. Green. You did not take the cake.",
+                        "ru": "— Спасибо, что показали нам новые туфли, мистер Грин. Вы не брали торт."
+                },
+                {
+                        "speaker": "mrgreen",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">You see! I told you! I was in the bank across the street!</prosody></speak>",
+                        "en": "— You see! I told you! I was in the bank across the street!",
+                        "ru": "— Вот видите! Я же говорил вам! Я был в банке через улицу!"
+                },
+                {
+                        "speaker": "miastudent",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2.5st\">No, Mr. Green. You were not in the bank. Your story about the bank is not true.</prosody></speak>",
+                        "en": "— No, Mr. Green. You were not in the bank. Your story about the bank is not true.",
+                        "ru": "— Нет, мистер Грин. Вы не были в банке. Ваша история про банк — неправда."
+                },
+                {
+                        "speaker": "mrgreen",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">What? Why do you say that, young girl?</prosody></speak>",
+                        "en": "— What? Why do you say that, young girl?",
+                        "ru": "— Что? Почему ты так говоришь, девочка?"
+                },
+                {
+                        "speaker": "miastudent",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2.5st\">Look out the cafe window, Mr. Green. Look at the Town Bank opposite the cafe.</prosody></speak>",
+                        "en": "— Look out the cafe window, Mr. Green. Look at the Town Bank opposite the cafe.",
+                        "ru": "— Посмотрите в окно кафе, мистер Грин. Посмотрите на Городской банк напротив."
+                },
+                {
+                        "speaker": "miastudent",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2.5st\">What day is it today?</prosody></speak>",
+                        "en": "— What day is it today?",
+                        "ru": "— Какой сегодня день?"
+                },
+                {
+                        "speaker": "mrgreen",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">Today? Today is Saturday!</prosody></speak>",
+                        "en": "— Today? Today is Saturday!",
+                        "ru": "— Сегодня? Сегодня суббота!"
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Yes, today is Saturday.</prosody></speak>",
+                        "en": "— Yes, today is Saturday.",
+                        "ru": "— Да, сегодня суббота."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">In Oakwood Town, the bank is open from Monday to Friday.</prosody></speak>",
+                        "en": "— In Oakwood Town, the bank is open from Monday to Friday.",
+                        "ru": "— В городе Оквуд банк открыт с понедельника по пятницу."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">It opens at nine and closes at five.</prosody></speak>",
+                        "en": "— It opens at nine and closes at five.",
+                        "ru": "— Он открывается в девять и закрывается в пять."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">On Saturday and Sunday, the bank is closed all day!</prosody></speak>",
+                        "en": "— On Saturday and Sunday, the bank is closed all day!",
+                        "ru": "— В субботу и воскресенье банк закрыт весь день!"
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Look at the bank door: it is closed and dark!</prosody></speak>",
+                        "en": "— Look at the bank door: it is closed and dark!",
+                        "ru": "— Посмотрите на дверь банка: она заперта, и там темно!"
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Mr. Green looks out the window at the dark bank. His face turns very red. He puts his cup of tea down on the table.</prosody></speak>",
+                        "en": "Mr. Green looks out the window at the dark bank. His face turns very red. He puts his cup of tea down on the table.",
+                        "ru": "Мистер Грин смотрит в окно на тёмный банк. Его лицо сильно краснеет. Он ставит чашку чая на стол."
+                },
+                {
+                        "speaker": "mrgreen",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">Oh, dear... I forgot! Today is Saturday!</prosody></speak>",
+                        "en": "— Oh, dear... I forgot! Today is Saturday!",
+                        "ru": "— О боже... Я забыл! Сегодня же суббота!"
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">You did not take the cake, Mr. Green. Your box has shoes inside.</prosody></speak>",
+                        "en": "— You did not take the cake, Mr. Green. Your box has shoes inside.",
+                        "ru": "— Вы не брали торт, мистер Грин. В вашей коробке туфли."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">So why were you near Marco's kitchen door at half past eleven?</prosody></speak>",
+                        "en": "— So why were you near Marco's kitchen door at half past eleven?",
+                        "ru": "— Так почему же вы были возле кухонной двери Марко в 11:30?"
+                },
+                {
+                        "speaker": "mrgreen",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">Please do not be angry with me! I love making bread at home in my kitchen.</prosody></speak>",
+                        "en": "— Please do not be angry with me! I love making bread at home in my kitchen.",
+                        "ru": "— Пожалуйста, не сердитесь на меня! Я люблю печь хлеб дома на кухне."
+                },
+                {
+                        "speaker": "mrgreen",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">But my bread is always hard and dry. Marco makes the best, soft bread in Oakwood Town!</prosody></speak>",
+                        "en": "— But my bread is always hard and dry. Marco makes the best, soft bread in Oakwood Town!",
+                        "ru": "— Но мой хлеб всегда получается твёрдым и сухим. А Марко печёт самый лучший и мягкий хлеб в городе!"
+                },
+                {
+                        "speaker": "mrgreen",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">At half past eleven, I walked to the kitchen door. I looked inside. I wanted to see Marco's paper on the wall!</prosody></speak>",
+                        "en": "— At half past eleven, I walked to the kitchen door. I looked inside. I wanted to see Marco's paper on the wall!",
+                        "ru": "— В половине двенадцатого я подошёл к двери кухни. Заглянул внутрь. Хотел увидеть листок Марко на стене!"
+                },
+                {
+                        "speaker": "mrgreen",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">I saw Marco's bread list on the wall! He uses milk, warm water, yellow butter, one egg, and sugar!</prosody></speak>",
+                        "en": "— I saw Marco's bread list on the wall! He uses milk, warm water, yellow butter, one egg, and sugar!",
+                        "ru": "— Я увидел рецепт хлеба на стене! Он использует молоко, тёплую воду, жёлтое масло, одно яйцо и сахар!"
+                },
+                {
+                        "speaker": "mrgreen",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">I did not want Marco to be angry. So I told you a story about the bank!</prosody></speak>",
+                        "en": "— I did not want Marco to be angry. So I told you a story about the bank!",
+                        "ru": "— Я не хотел, чтобы Марко рассердился. Поэтому и придумал историю про банк!"
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Marco walks over to Table 4. He hears Mr. Green's words, and he laughs.</prosody></speak>",
+                        "en": "Marco walks over to Table 4. He hears Mr. Green's words, and he laughs.",
+                        "ru": "Марко подходит к четвёртому столику. Он слышит слова мистера Грина и смеётся."
+                },
+                {
+                        "speaker": "marco",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">Mr. Green! Do not be afraid! Come to my kitchen any day. I can show you how to make soft bread!</prosody></speak>",
+                        "en": "— Mr. Green! Do not be afraid! Come to my kitchen any day. I can show you how to make soft bread!",
+                        "ru": "— Мистер Грин! Не бойтесь! Приходите ко мне на кухню в любой день. Я покажу вам, как печь мягкий хлеб!"
+                }
+        ],
+        "quiz": [
+                {
+                        "question": "Why was Mr. Green's bank story a lie?",
+                        "questionRu": "Почему рассказ мистера Грина о банке был ложью?",
+                        "options": [
+                                "The bank is closed all day on Saturday and Sunday",
+                                "He lost his bank card",
+                                "The bank is on Green Street",
+                                "Marco was in the bank"
+                        ],
+                        "correctIdx": 0
+                },
+                {
+                        "question": "Why was Mr. Green really looking into the kitchen?",
+                        "questionRu": "Зачем мистер Грин на самом деле заглядывал на кухню?",
+                        "options": [
+                                "To take the cake",
+                                "To read Marco's secret bread recipe on the wall",
+                                "To buy a cup of tea",
+                                "To talk to Anna"
+                        ],
+                        "correctIdx": 1
+                },
+                {
+                        "question": "How did Marco react when he found out?",
+                        "questionRu": "Как Марко отреагировал, когда узнал правду?",
+                        "options": [
+                                "He was very angry",
+                                "He laughed and invited Mr. Green to learn how to make soft bread",
+                                "He called Inspector Vance",
+                                "He closed the cafe"
+                        ],
+                        "correctIdx": 1
+                }
+        ],
+        "wordCount": 325
+},
+        {
+        "id": "spec3-ch-6",
+        "number": 306,
+        "act": 7,
+        "titleEn": "Special Case 3 (Part 6): Where is the Pink Cake?",
+        "titleRu": "Спецдело 3 (Часть 6): Где же розовый торт?",
+        "synopsisEn": "Leo and Mia deduce the truth: Marco forgot to label the boxes! Sam grabbed the left box and took the cake to school by mistake. Sam rides back, retrieves the cake, and saves the birthday party.",
+        "synopsisRu": "Лео и Миа раскрывают тайну: Марко забыл подписать коробки! Сэм по ошибке увёз торт в школу. Сэм мчит обратно, возвращает торт и спасает праздник.",
+        "targetLevel": "CEFR A1",
+        "coverIcon": "fa-champagne-glasses",
+        "coverColor": "#f43f5e",
+        "sentences": [
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Mr. Green is very happy. He thanks Marco.</prosody></speak>",
+                        "en": "Mr. Green is very happy. He thanks Marco.",
+                        "ru": "Мистер Грин очень счастлив. Он благодарит Марко."
+                },
+                {
+                        "speaker": "marco",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">But Leo, Mia... if Mr. Green has shoes in his box, where is my Pink Birthday Cake?</prosody></speak>",
+                        "en": "— But Leo, Mia... if Mr. Green has shoes in his box, where is my Pink Birthday Cake?",
+                        "ru": "— Но Лео, Миа... если у мистера Грина в коробке туфли, то где же мой розовый торт?"
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">That part is very easy, Marco! Sam, please come here!</prosody></speak>",
+                        "en": "— That part is very easy, Marco! Sam, please come here!",
+                        "ru": "— Это как раз очень просто, Марко! Сэм, подойди сюда, пожалуйста!"
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Sam walks into the cafe.</prosody></speak>",
+                        "en": "Sam walks into the cafe.",
+                        "ru": "Сэм заходит в кафе."
+                },
+                {
+                        "speaker": "miastudent",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2.5st\">Marco, this morning you had two big white boxes in the cold room.</prosody></speak>",
+                        "en": "— Marco, this morning you had two big white boxes in the cold room.",
+                        "ru": "— Марко, сегодня утром у тебя в холодильной комнате стояли две большие белые коробки."
+                },
+                {
+                        "speaker": "miastudent",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2.5st\">One box had the Pink Birthday Cake. The other box had twenty small brown breads for the Little Star School.</prosody></speak>",
+                        "en": "— One box had the Pink Birthday Cake. The other box had twenty small brown breads for the Little Star School.",
+                        "ru": "— В одной коробке был розовый торт. В другой — двадцать буханок хлеба для школы «Маленькая Звезда»."
+                },
+                {
+                        "speaker": "miastudent",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2.5st\">Did you write names on the two boxes?</prosody></speak>",
+                        "en": "— Did you write names on the two boxes?",
+                        "ru": "— Ты подписал эти две коробки?"
+                },
+                {
+                        "speaker": "marco",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">Names on the boxes? Oh, no! I was so busy, I did not write on the boxes!</prosody></speak>",
+                        "en": "— Names on the boxes? Oh, no! I was so busy, I did not write on the boxes!",
+                        "ru": "— Подписал? О нет! Я был так занят, что ничего не написал на коробках!"
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Look at Sam's story. At quarter past eleven, Sam went into the cold room.</prosody></speak>",
+                        "en": "— Look at Sam's story. At quarter past eleven, Sam went into the cold room.",
+                        "ru": "— Вспомни рассказ Сэма. В четверть двенадцатого Сэм зашёл в холодильную комнату."
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">He saw two white boxes. The box on the left had the Pink Birthday Cake. The box on the right had the twenty brown breads!</prosody></speak>",
+                        "en": "— He saw two white boxes. The box on the left had the Pink Birthday Cake. The box on the right had the twenty brown breads!",
+                        "ru": "— Он увидел две белые коробки. В коробке слева был торт, а в коробке справа — двадцать буханок хлеба!"
+                },
+                {
+                        "speaker": "miastudent",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2.5st\">Sam took the box on the left! He rode his bicycle to Green Street.</prosody></speak>",
+                        "en": "— Sam took the box on the left! He rode his bicycle to Green Street.",
+                        "ru": "— Сэм взял коробку слева! Он поехал на велосипеде на Зелёную улицу."
+                },
+                {
+                        "speaker": "miastudent",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2.5st\">He gave the Pink Birthday Cake to the Little Star School! And the twenty brown breads stayed here in your cold room!</prosody></speak>",
+                        "en": "— He gave the Pink Birthday Cake to the Little Star School! And the twenty brown breads stayed here in your cold room!",
+                        "ru": "— Он отдал торт в школу «Маленькая Звезда»! А двадцать буханок хлеба так и остались здесь в холодильной комнате!"
+                },
+                {
+                        "speaker": "sam",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+1.5st\">Oh, no! I took the cake to the school!</prosody></speak>",
+                        "en": "— Oh, no! I took the cake to the school!",
+                        "ru": "— О нет! Я увёз торт в школу!"
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Then, a call comes on the cafe telephone. Anna picks up the telephone.</prosody></speak>",
+                        "en": "Then, a call comes on the cafe telephone. Anna picks up the telephone.",
+                        "ru": "Тут в кафе звонит телефон. Анна берёт трубку."
+                },
+                {
+                        "speaker": "anna",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">Hello, Marco's Cafe! ... Yes, Mrs. May! ... Oh, really? ... Yes, Sam is coming right now!</prosody></speak>",
+                        "en": "— Hello, Marco's Cafe! ... Yes, Mrs. May! ... Oh, really? ... Yes, Sam is coming right now!",
+                        "ru": "— Алло, кафе Марко! ... Да, миссис Мэй! ... О, правда? ... Да, Сэм сейчас же приедет!"
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Anna puts down the telephone and smiles at everyone.</prosody></speak>",
+                        "en": "Anna puts down the telephone and smiles at everyone.",
+                        "ru": "Анна кладёт трубку и улыбается всем."
+                },
+                {
+                        "speaker": "anna",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">That was Mrs. May from the Little Star School!</prosody></speak>",
+                        "en": "— That was Mrs. May from the Little Star School!",
+                        "ru": "— Это была миссис Мэй из школы «Маленькая Звезда»!"
+                },
+                {
+                        "speaker": "anna",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">The children opened the white box for lunch. Inside was a big Pink Birthday Cake!</prosody></speak>",
+                        "en": "— The children opened the white box for lunch. Inside was a big Pink Birthday Cake!",
+                        "ru": "— Дети открыли белую коробку на обед. Внутри оказался большой розовый торт!"
+                },
+                {
+                        "speaker": "anna",
+                        "voice": "Aoede",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">They did not eat it. It is safe on the teacher's table!</prosody></speak>",
+                        "en": "— They did not eat it. It is safe on the teacher's table!",
+                        "ru": "— Они не стали его есть. Он в целости стоит на учительском столе!"
+                },
+                {
+                        "speaker": "sam",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"1.0\" pitch=\"+1.5st\">I can ride my blue bicycle to Green Street now! I can bring the cake back in ten minutes! Take the box of brown bread, Marco!</prosody></speak>",
+                        "en": "— I can ride my blue bicycle to Green Street now! I can bring the cake back in ten minutes! Take the box of brown bread, Marco!",
+                        "ru": "— Я могу прямо сейчас поехать на синем велосипеде на Зелёную улицу! Я верну торт за десять минут! Марко, давай сюда коробку с хлебом!"
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Sam takes the box of twenty brown breads. He runs outside to his bicycle. He rides fast down High Street.</prosody></speak>",
+                        "en": "Sam takes the box of twenty brown breads. He runs outside to his bicycle. He rides fast down High Street.",
+                        "ru": "Сэм берёт коробку с двадцатью буханками хлеба. Выбегает на улицу к велосипеду. Он быстро мчит по Главной улице."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Ten minutes later, Sam comes back with the big Pink Birthday Cake. The cake is cold, safe, and very beautiful.</prosody></speak>",
+                        "en": "Ten minutes later, Sam comes back with the big Pink Birthday Cake. The cake is cold, safe, and very beautiful.",
+                        "ru": "Через десять минут Сэм возвращается с большим розовым тортом. Торт холодный, целый и очень красивый."
+                },
+                {
+                        "speaker": "marco",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">Thank you, Leo! Thank you, Mia! You helped us so much today!</prosody></speak>",
+                        "en": "— Thank you, Leo! Thank you, Mia! You helped us so much today!",
+                        "ru": "— Спасибо, Лео! Спасибо, Миа! Вы так помогли нам сегодня!"
+                },
+                {
+                        "speaker": "marco",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">Here, please sit down. Have some warm chocolate biscuits and two glasses of orange juice.</prosody></speak>",
+                        "en": "— Here, please sit down. Have some warm chocolate biscuits and two glasses of orange juice.",
+                        "ru": "— Садитесь, пожалуйста. Угощайтесь тёплым шоколадным печеньем и двумя стаканами апельсинового сока."
+                },
+                {
+                        "speaker": "marco",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">It is free for great detectives!</prosody></speak>",
+                        "en": "— It is free for great detectives!",
+                        "ru": "— Для великолепных детективов это бесплатно!"
+                },
+                {
+                        "speaker": "leovance",
+                        "voice": "Fenrir",
+                        "ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Thank you, Marco! Remember: always write names on your boxes, and never go to the bank on Saturday!</prosody></speak>",
+                        "en": "— Thank you, Marco! Remember: always write names on your boxes, and never go to the bank on Saturday!",
+                        "ru": "— Спасибо, Марко! Помни: всегда подписывай коробки и никогда не ходи в банк в субботу!"
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Everyone in the cafe laughs. Leo closes his blue notebook.</prosody></speak>",
+                        "en": "Everyone in the cafe laughs. Leo closes his blue notebook.",
+                        "ru": "Все в кафе смеются. Лео закрывает синий блокнот."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He eats a sweet chocolate biscuit and smiles at Mia.</prosody></speak>",
+                        "en": "He eats a sweet chocolate biscuit and smiles at Mia.",
+                        "ru": "Он ест сладкое шоколадное печенье и улыбается Мие."
+                },
+                {
+                        "speaker": "narrator",
+                        "voice": "Charon",
+                        "ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Another case in Oakwood Town is finished.</prosody></speak>",
+                        "en": "Another case in Oakwood Town is finished.",
+                        "ru": "Ещё одно дело в городе Оквуд раскрыто."
+                }
+        ],
+        "quiz": [
+                {
+                        "question": "Why did the mix-up happen?",
+                        "questionRu": "Почему произошла путаница?",
+                        "options": [
+                                "Marco was busy and did not write names on the two white boxes",
+                                "Sam dropped the cake in the street",
+                                "Mr. Green hid the cake in his shoe box",
+                                "Anna took the cake home"
+                        ],
+                        "correctIdx": 0
+                },
+                {
+                        "question": "Where was the Pink Birthday Cake found?",
+                        "questionRu": "Где был найден розовый торт?",
+                        "options": [
+                                "In the Grand Hotel",
+                                "Safe at the Little Star School on the teacher's table",
+                                "In the Town Bank",
+                                "Under Marco's table"
+                        ],
+                        "correctIdx": 1
+                },
+                {
+                        "question": "What treats did Marco give Leo and Mia?",
+                        "questionRu": "Чем Марко угостил Лео и Мию?",
+                        "options": [
+                                "Twenty brown breads",
+                                "Warm chocolate biscuits and orange juice",
+                                "Black coffee and tea",
+                                "Cheese pizza"
+                        ],
+                        "correctIdx": 1
+                }
+        ],
+        "wordCount": 401
+}
     ]
 };
 
