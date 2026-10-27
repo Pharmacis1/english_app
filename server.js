@@ -938,6 +938,43 @@ app.post('/api/ai/gemini-tts', async (req, res) => {
             }
         }
 
+        const gcloudKeyPath = path.join(__dirname, 'google_cloud_credentials.json');
+        if (fs.existsSync(gcloudKeyPath)) {
+            try {
+                if (!global.gcloudTtsClient) {
+                    const textToSpeech = require('@google-cloud/text-to-speech');
+                    global.gcloudTtsClient = new textToSpeech.TextToSpeechClient({ keyFilename: gcloudKeyPath });
+                }
+                const gcloudVoiceMap = {
+                    'Charon': 'en-US-Neural2-D',
+                    'Fenrir': 'en-US-Neural2-D',
+                    'Kore': 'en-US-Neural2-F',
+                    'Aoede': 'en-US-Neural2-F',
+                    'Puck': 'en-US-Neural2-A'
+                };
+                const gVoiceName = gcloudVoiceMap[voiceName] || 'en-US-Neural2-D';
+                const [gRes] = await global.gcloudTtsClient.synthesizeSpeech({
+                    input: { text: text },
+                    voice: { languageCode: 'en-US', name: gVoiceName },
+                    audioConfig: { audioEncoding: 'LINEAR16', sampleRateHertz: 24000 }
+                });
+                if (gRes?.audioContent) {
+                    const wavBuffer = Buffer.from(gRes.audioContent);
+                    try {
+                        const cacheDir = path.join(__dirname, 'audio', 'cache');
+                        if (!fs.existsSync(cacheDir)) fs.mkdirSync(cacheDir, { recursive: true });
+                        const cacheFilePath = path.join(cacheDir, `${voiceName}_${cleanKey}.wav`);
+                        fs.writeFile(cacheFilePath, wavBuffer, () => {});
+                    } catch (cacheErr) {}
+
+                    res.setHeader('Content-Type', 'audio/wav');
+                    return res.send(wavBuffer);
+                }
+            } catch (gcloudErr) {
+                console.warn('[Google Cloud TTS Fallback failed, trying Gemini API]:', gcloudErr.message);
+            }
+        }
+
         const apiKey = process.env.GEMINI_API_KEY || clientApiKey || '';
         if (!apiKey) return res.status(401).json({ success: false, error: "Gemini API Key missing. Please provide API Key in Settings." });
 

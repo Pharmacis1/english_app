@@ -1,0 +1,18 @@
+{
+  "id": "report_2026-10-25_23-26-56____Главный_экран__Hero_Showcas",
+  "timestamp": "2026-10-25T20:26:56.573Z",
+  "localTime": "26.10.2026, 00:26:56",
+  "category": "🔊 Озвучка / Звук",
+  "description": "Неверная озвучка слова",
+  "mode": "🏰 Главный экран (Hero Showcase Hub)",
+  "hero": "Valerius Lvl 100",
+  "subContext": "Сценарий: Tech Job Interview",
+  "viewport": {
+    "width": 392,
+    "height": 727
+  },
+  "url": "https://english.net-forge.ru/",
+  "userAgent": "Mozilla/5.0 (Linux; Android 12; Redmi Note 10S Build/SP1A.210812.016) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.7049.79 Mobile Safari/537.36 XiaoMi/MiuiBrowser/14.65.0-gn",
+  "logs": [],
+  "screenshotFile": "screenshot.jpg"
+}

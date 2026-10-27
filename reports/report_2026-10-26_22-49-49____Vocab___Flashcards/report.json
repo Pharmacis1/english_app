@@ -1,0 +1,18 @@
+{
+  "id": "report_2026-10-26_22-49-49____Vocab___Flashcards",
+  "timestamp": "2026-10-26T19:49:49.377Z",
+  "localTime": "26.10.2026, 23:49:49",
+  "category": "🐛 Баг / Ошибка",
+  "description": "Почему то в этом наборе всего 36 слов, хотя изучено больше (из раздела с новыми словами)",
+  "mode": "📚 Vocab & Flashcards",
+  "hero": "Valerius Lvl 100",
+  "subContext": "Сценарий: Tech Job Interview",
+  "viewport": {
+    "width": 392,
+    "height": 727
+  },
+  "url": "https://english.net-forge.ru/",
+  "userAgent": "Mozilla/5.0 (Linux; Android 12; Redmi Note 10S Build/SP1A.210812.016) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.7049.79 Mobile Safari/537.36 XiaoMi/MiuiBrowser/14.65.0-gn",
+  "logs": [],
+  "screenshotFile": "screenshot.jpg"
+}
