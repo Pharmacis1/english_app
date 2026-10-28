@@ -7789,6 +7789,2434 @@ const ELDRIN_AUDIOBOOK = {
                 }
         ],
         "wordCount": 401
+},
+{
+	"id": "spec4-ch-1",
+	"number": 401,
+	"act": 8,
+	"titleEn": "Special Case 4 (Part 1): A Problem at the Train Station",
+	"titleRu": "Спецдело 4 (Часть 1): Проблема на железнодорожной станции",
+	"synopsisEn": "On Monday morning, Inspector Vance arrives at Platform 1 of Oakwood Station. Famous singer Miss Bella Star is in despair: her red suitcase with her concert dress has been swapped for an old bag full of newspapers!",
+	"synopsisRu": "В понедельник утром инспектор Вэнс прибывает на платформу 1 вокзала Оквуда. Знаменитая певица мисс Белла Стар в отчаянии: её красный чемодан с концертным платьем подменили на старую сумку с газетами!",
+	"targetLevel": "CEFR A1",
+	"coverIcon": "fa-suitcase-rolling",
+	"coverColor": "#ef4444",
+	"sentences": [
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">It is Monday morning.</prosody></speak>",
+			"en": "It is Monday morning.",
+			"ru": "Утро понедельника."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The time is half past ten.</prosody></speak>",
+			"en": "The time is half past ten.",
+			"ru": "Время — половина одиннадцатого."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The sun is bright over Oakwood Train Station.</prosody></speak>",
+			"en": "The sun is bright over Oakwood Train Station.",
+			"ru": "Над железнодорожным вокзалом Оквуда ярко светит солнце."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Inspector Vance walks onto Platform 1.</prosody></speak>",
+			"en": "Inspector Vance walks onto Platform 1.",
+			"ru": "Инспектор Вэнс выходит на первую платформу."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He wears his grey suit.</prosody></speak>",
+			"en": "He wears his grey suit.",
+			"ru": "Он одет в свой серый костюм."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He has his small notebook in his hand.</prosody></speak>",
+			"en": "He has his small notebook in his hand.",
+			"ru": "В руке у него маленькая записная книжка."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Near the brown bench stands a young woman.</prosody></speak>",
+			"en": "Near the brown bench stands a young woman.",
+			"ru": "Возле коричневой скамейки стоит молодая женщина."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">She wears a long white coat and a red hat.</prosody></speak>",
+			"en": "She wears a long white coat and a red hat.",
+			"ru": "На ней длинное белое пальто и красная шляпа."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Her name is Miss Bella Star.</prosody></speak>",
+			"en": "Her name is Miss Bella Star.",
+			"ru": "Её зовут мисс Белла Стар."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">She is a famous singer from France.</prosody></speak>",
+			"en": "She is a famous singer from France.",
+			"ru": "Она — известная певица из Франции."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Miss Bella looks very sad and afraid.</prosody></speak>",
+			"en": "Miss Bella looks very sad and afraid.",
+			"ru": "Мисс Белла выглядит очень грустной и напуганной."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Next to her feet is a big red suitcase.</prosody></speak>",
+			"en": "Next to her feet is a big red suitcase.",
+			"ru": "У её ног стоит большой красный чемодан."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">A suitcase is a big bag for clothes.</prosody></speak>",
+			"en": "A suitcase is a big bag for clothes.",
+			"ru": "Чемодан — это большая сумка для одежды."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Good morning, Miss Bella.</prosody></speak>",
+			"en": "Good morning, Miss Bella.",
+			"ru": "Доброе утро, мисс Белла."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">I am Inspector Vance from the Oakwood Police.</prosody></speak>",
+			"en": "I am Inspector Vance from the Oakwood Police.",
+			"ru": "Я инспектор Вэнс из полиции Оквуда."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">How can I help you?</prosody></speak>",
+			"en": "How can I help you?",
+			"ru": "Чем я могу вам помочь?"
+		},
+		{
+			"speaker": "bella",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Oh, good morning, Inspector!</prosody></speak>",
+			"en": "Oh, good morning, Inspector!",
+			"ru": "О, доброе утро, инспектор!"
+		},
+		{
+			"speaker": "bella",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Thank you for coming!</prosody></speak>",
+			"en": "Thank you for coming!",
+			"ru": "Спасибо, что пришли!"
+		},
+		{
+			"speaker": "bella",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Tonight is my big music show at the Grand Hotel.</prosody></speak>",
+			"en": "Tonight is my big music show at the Grand Hotel.",
+			"ru": "Сегодня вечером моё большое музыкальное шоу в Гранд Отеле."
+		},
+		{
+			"speaker": "bella",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">It starts at eight o'clock.</prosody></speak>",
+			"en": "It starts at eight o'clock.",
+			"ru": "Оно начинается в восемь часов."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Yes, I know.</prosody></speak>",
+			"en": "Yes, I know.",
+			"ru": "Да, я знаю."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Everyone in Oakwood Town wants to hear you sing.</prosody></speak>",
+			"en": "Everyone in Oakwood Town wants to hear you sing.",
+			"ru": "Все в Оквуде хотят послушать ваше пение."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">What is the problem?</prosody></speak>",
+			"en": "What is the problem?",
+			"ru": "В чём заключается проблема?"
+		},
+		{
+			"speaker": "bella",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Look at this big red suitcase!</prosody></speak>",
+			"en": "Look at this big red suitcase!",
+			"ru": "Посмотрите на этот большой красный чемодан!"
+		},
+		{
+			"speaker": "bella",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">I came from London on the ten o'clock train.</prosody></speak>",
+			"en": "I came from London on the ten o'clock train.",
+			"ru": "Я приехала из Лондона на десятичасовом поезде."
+		},
+		{
+			"speaker": "bella",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">I had my red suitcase in my hand.</prosody></speak>",
+			"en": "I had my red suitcase in my hand.",
+			"ru": "В руках у меня был мой красный чемодан."
+		},
+		{
+			"speaker": "bella",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">My white dress was inside my suitcase.</prosody></speak>",
+			"en": "My white dress was inside my suitcase.",
+			"ru": "Моё белое платье было внутри чемодана."
+		},
+		{
+			"speaker": "bella",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">My gold shoes were inside, too.</prosody></speak>",
+			"en": "My gold shoes were inside, too.",
+			"ru": "Мои золотые туфли тоже были внутри."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">What did you do on Platform 1?</prosody></speak>",
+			"en": "What did you do on Platform 1?",
+			"ru": "Что вы делали на платформе 1?"
+		},
+		{
+			"speaker": "bella",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">At five past ten, I was here.</prosody></speak>",
+			"en": "At five past ten, I was here.",
+			"ru": "В пять минут одиннадцатого я была здесь."
+		},
+		{
+			"speaker": "bella",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">I put my red suitcase next to this bench.</prosody></speak>",
+			"en": "I put my red suitcase next to this bench.",
+			"ru": "Я поставила свой красный чемодан рядом с этой скамейкой."
+		},
+		{
+			"speaker": "bella",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Then I walked to the station shop.</prosody></speak>",
+			"en": "Then I walked to the station shop.",
+			"ru": "Затем я пошла в станционный магазин."
+		},
+		{
+			"speaker": "bella",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">I bought a cup of hot coffee.</prosody></speak>",
+			"en": "I bought a cup of hot coffee.",
+			"ru": "Я купила чашку горячего кофе."
+		},
+		{
+			"speaker": "bella",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">I was at the shop for five minutes.</prosody></speak>",
+			"en": "I was at the shop for five minutes.",
+			"ru": "Я была в магазине пять минут."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">And then?</prosody></speak>",
+			"en": "And then?",
+			"ru": "А затем?"
+		},
+		{
+			"speaker": "bella",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">At quarter past ten, I came back to the bench.</prosody></speak>",
+			"en": "At quarter past ten, I came back to the bench.",
+			"ru": "В четверть одиннадцатого я вернулась к скамейке."
+		},
+		{
+			"speaker": "bella",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">The red suitcase was still here.</prosody></speak>",
+			"en": "The red suitcase was still here.",
+			"ru": "Красный чемодан всё ещё был здесь."
+		},
+		{
+			"speaker": "bella",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">I opened it to get my small bag.</prosody></speak>",
+			"en": "I opened it to get my small bag.",
+			"ru": "Я открыла его, чтобы достать свою сумочку."
+		},
+		{
+			"speaker": "bella",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Look inside, Inspector!</prosody></speak>",
+			"en": "Look inside, Inspector!",
+			"ru": "Посмотрите внутрь, инспектор!"
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Inspector Vance looks inside the open red suitcase.</prosody></speak>",
+			"en": "Inspector Vance looks inside the open red suitcase.",
+			"ru": "Инспектор Вэнс заглядывает внутрь открытого красного чемодана."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">There is no white dress.</prosody></speak>",
+			"en": "There is no white dress.",
+			"ru": "Белого платья нет."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">There are no gold shoes.</prosody></speak>",
+			"en": "There are no gold shoes.",
+			"ru": "Золотых туфель нет."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Inside the bag are old newspapers and a brown sweater.</prosody></speak>",
+			"en": "Inside the bag are old newspapers and a brown sweater.",
+			"ru": "Внутри лежат старые газеты и коричневый свитер."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">There are also two big books about trains!</prosody></speak>",
+			"en": "There are also two big books about trains!",
+			"ru": "А ещё там две большие книги о поездах!"
+		},
+		{
+			"speaker": "bella",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">This is not my suitcase!</prosody></speak>",
+			"en": "This is not my suitcase!",
+			"ru": "Это не мой чемодан!"
+		},
+		{
+			"speaker": "bella",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Someone took my red suitcase and left this old red suitcase here!</prosody></speak>",
+			"en": "Someone took my red suitcase and left this old red suitcase here!",
+			"ru": "Кто-то забрал мой красный чемодан и оставил здесь этот старый чемодан!"
+		},
+		{
+			"speaker": "bella",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">I need my dress and my shoes for tonight!</prosody></speak>",
+			"en": "I need my dress and my shoes for tonight!",
+			"ru": "Мне нужны моё платье и туфли на сегодняшний вечер!"
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Do not be sad, Miss Bella.</prosody></speak>",
+			"en": "Do not be sad, Miss Bella.",
+			"ru": "Не грустите, мисс Белла."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Let us ask questions.</prosody></speak>",
+			"en": "Let us ask questions.",
+			"ru": "Давайте зададим вопросы."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Who was at the station between ten o'clock and quarter past ten?</prosody></speak>",
+			"en": "Who was at the station between ten o'clock and quarter past ten?",
+			"ru": "Кто был на станции между десятью часами и четвертью одиннадцатого?"
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Inspector Vance opens his notebook.</prosody></speak>",
+			"en": "Inspector Vance opens his notebook.",
+			"ru": "Инспектор Вэнс открывает свой блокнот."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He sees three people at the station.</prosody></speak>",
+			"en": "He sees three people at the station.",
+			"ru": "Он видит троих людей на станции."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Bob is at the ticket window.</prosody></speak>",
+			"en": "Bob is at the ticket window.",
+			"ru": "Боб сидит у билетной кассы."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">A young girl has a camera.</prosody></speak>",
+			"en": "A young girl has a camera.",
+			"ru": "У молодой девушки есть фотоаппарат."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">And Dan is the station worker.</prosody></speak>",
+			"en": "And Dan is the station worker.",
+			"ru": "А Дэн — станционный служащий."
+		}
+	],
+	"quiz": [
+		{
+			"question": "Who is Miss Bella Star and what is her job?",
+			"questionRu": "Кто такая мисс Белла Стар и какова её профессия?",
+			"options": [
+				"A famous singer from France",
+				"A station cleaner from London",
+				"A police detective from Oxford",
+				"A photographer from Madrid"
+			],
+			"correctIdx": 0
+		},
+		{
+			"question": "What was originally inside Miss Bella's red suitcase?",
+			"questionRu": "Что изначально было внутри красного чемодана мисс Беллы?",
+			"options": [
+				"A white dress and gold shoes",
+				"Old newspapers and brown bread",
+				"Two big books about trains",
+				"A black camera and a yellow hat"
+			],
+			"correctIdx": 0
+		},
+		{
+			"question": "What was found inside the red suitcase on the bench?",
+			"questionRu": "Что оказалось внутри оставленного на скамейке чемодана?",
+			"options": [
+				"Old newspapers, a brown sweater, and two train books",
+				"A music microphone and letters",
+				"A golden pocket watch",
+				"A pink birthday cake"
+			],
+			"correctIdx": 0
+		}
+	],
+	"wordCount": 372
+},
+{
+	"id": "spec4-ch-2",
+	"number": 402,
+	"act": 8,
+	"titleEn": "Special Case 4 (Part 2): The First Person — Bob the Ticket Seller",
+	"titleRu": "Спецдело 4 (Часть 2): Первый свидетель — Боб, продавец билетов",
+	"synopsisEn": "Inspector Vance talks to Bob at the ticket window. Bob reveals ticket prices, mentions that the Oxford train is delayed, and confirms who was on Platform 1.",
+	"synopsisRu": "Инспектор Вэнс опрашивает Боба в билетной кассе. Боб называет цены на билеты, сообщает, что поезд из Оксфорда задерживается, и подтверждает, кто был на первой платформе.",
+	"targetLevel": "CEFR A1",
+	"coverIcon": "fa-ticket",
+	"coverColor": "#0ea5e9",
+	"sentences": [
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Inspector Vance walks to the ticket window.</prosody></speak>",
+			"en": "Inspector Vance walks to the ticket window.",
+			"ru": "Инспектор Вэнс подходит к билетному окну."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">A man of forty sits behind the glass window.</prosody></speak>",
+			"en": "A man of forty sits behind the glass window.",
+			"ru": "За стеклянным окном сидит сорокалетний мужчина."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">His name is Bob.</prosody></speak>",
+			"en": "His name is Bob.",
+			"ru": "Его зовут Боб."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He wears glasses and a blue shirt.</prosody></speak>",
+			"en": "He wears glasses and a blue shirt.",
+			"ru": "Он носит очки и синюю рубашку."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Good morning, Bob.</prosody></speak>",
+			"en": "Good morning, Bob.",
+			"ru": "Доброе утро, Боб."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Can I ask you some questions?</prosody></speak>",
+			"en": "Can I ask you some questions?",
+			"ru": "Могу я задать вам несколько вопросов?"
+		},
+		{
+			"speaker": "bob",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1.5st\">Good morning, Inspector Vance!</prosody></speak>",
+			"en": "Good morning, Inspector Vance!",
+			"ru": "Доброе утро, инспектор Вэнс!"
+		},
+		{
+			"speaker": "bob",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1.5st\">Yes, of course.</prosody></speak>",
+			"en": "Yes, of course.",
+			"ru": "Да, конечно."
+		},
+		{
+			"speaker": "bob",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1.5st\">How can I help you today?</prosody></speak>",
+			"en": "How can I help you today?",
+			"ru": "Чем я могу помочь вам сегодня?"
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Tell me about your morning at the station, Bob.</prosody></speak>",
+			"en": "Tell me about your morning at the station, Bob.",
+			"ru": "Расскажите мне о вашем утре на станции, Боб."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">What time did you start work?</prosody></speak>",
+			"en": "What time did you start work?",
+			"ru": "В какое время вы начали работу?"
+		},
+		{
+			"speaker": "bob",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1.5st\">I came to the station at seven o'clock this morning.</prosody></speak>",
+			"en": "I came to the station at seven o'clock this morning.",
+			"ru": "Я пришёл на вокзал сегодня в семь часов утра."
+		},
+		{
+			"speaker": "bob",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1.5st\">I opened the ticket window at half past seven.</prosody></speak>",
+			"en": "I opened the ticket window at half past seven.",
+			"ru": "Я открыл билетную кассу в половине восьмого."
+		},
+		{
+			"speaker": "bob",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1.5st\">I sell train tickets to people all day.</prosody></speak>",
+			"en": "I sell train tickets to people all day.",
+			"ru": "Я продаю билеты на поезда людям весь день."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Where do the trains go from Oakwood Station?</prosody></speak>",
+			"en": "Where do the trains go from Oakwood Station?",
+			"ru": "Куда ходят поезда со станции Оквуд?"
+		},
+		{
+			"speaker": "bob",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1.5st\">We have trains to two cities: London and Oxford.</prosody></speak>",
+			"en": "We have trains to two cities: London and Oxford.",
+			"ru": "У нас поезда в два города: Лондон и Оксфорд."
+		},
+		{
+			"speaker": "bob",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1.5st\">A ticket to London is fifteen pounds.</prosody></speak>",
+			"en": "A ticket to London is fifteen pounds.",
+			"ru": "Билет в Лондон стоит пятнадцать фунтов."
+		},
+		{
+			"speaker": "bob",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1.5st\">A ticket to Oxford is eight pounds.</prosody></speak>",
+			"en": "A ticket to Oxford is eight pounds.",
+			"ru": "Билет в Оксфорд стоит восемь фунтов."
+		},
+		{
+			"speaker": "bob",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1.5st\">People can buy tickets here at my window.</prosody></speak>",
+			"en": "People can buy tickets here at my window.",
+			"ru": "Люди могут купить билеты здесь, в моём окне."
+		},
+		{
+			"speaker": "bob",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1.5st\">Or they can use the ticket machine.</prosody></speak>",
+			"en": "Or they can use the ticket machine.",
+			"ru": "Или они могут использовать билетный автомат."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Which trains came here between ten o'clock and half past ten?</prosody></speak>",
+			"en": "Which trains came here between ten o'clock and half past ten?",
+			"ru": "Какие поезда прибыли сюда между десятью и половиной одиннадцатого?"
+		},
+		{
+			"speaker": "bob",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1.5st\">Only one train, Inspector!</prosody></speak>",
+			"en": "Only one train, Inspector!",
+			"ru": "Только один поезд, инспектор!"
+		},
+		{
+			"speaker": "bob",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1.5st\">The train from London arrived on Platform 1 at ten o'clock.</prosody></speak>",
+			"en": "The train from London arrived on Platform 1 at ten o'clock.",
+			"ru": "Поезд из Лондона прибыл на первую платформу в десять часов."
+		},
+		{
+			"speaker": "bob",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1.5st\">Miss Bella was on that train.</prosody></speak>",
+			"en": "Miss Bella was on that train.",
+			"ru": "Мисс Белла была на этом поезде."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">What about Platform 2?</prosody></speak>",
+			"en": "What about Platform 2?",
+			"ru": "А как насчёт платформы 2?"
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Did a train from Oxford arrive at ten o'clock?</prosody></speak>",
+			"en": "Did a train from Oxford arrive at ten o'clock?",
+			"ru": "Прибыл ли поезд из Оксфорда в десять часов?"
+		},
+		{
+			"speaker": "bob",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1.5st\">No, Inspector.</prosody></speak>",
+			"en": "No, Inspector.",
+			"ru": "Нет, инспектор."
+		},
+		{
+			"speaker": "bob",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1.5st\">Every Monday, there is a train from Oxford at ten o'clock.</prosody></speak>",
+			"en": "Every Monday, there is a train from Oxford at ten o'clock.",
+			"ru": "Каждый понедельник есть поезд из Оксфорда в десять часов."
+		},
+		{
+			"speaker": "bob",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1.5st\">But today, the Oxford train is late!</prosody></speak>",
+			"en": "But today, the Oxford train is late!",
+			"ru": "Но сегодня оксфордский поезд опаздывает!"
+		},
+		{
+			"speaker": "bob",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1.5st\">It is still not here.</prosody></speak>",
+			"en": "It is still not here.",
+			"ru": "Его до сих пор нет."
+		},
+		{
+			"speaker": "bob",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1.5st\">It comes at eleven o'clock today.</prosody></speak>",
+			"en": "It comes at eleven o'clock today.",
+			"ru": "Сегодня он прибудет в одиннадцать часов."
+		},
+		{
+			"speaker": "bob",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1.5st\">So Platform 2 was closed and quiet all morning.</prosody></speak>",
+			"en": "So Platform 2 was closed and quiet all morning.",
+			"ru": "Поэтому платформа 2 была закрыта и пуста всё утро."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Did you see Platform 1 at ten past ten?</prosody></speak>",
+			"en": "Did you see Platform 1 at ten past ten?",
+			"ru": "Видели ли вы платформу 1 в десять минут одиннадцатого?"
+		},
+		{
+			"speaker": "bob",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1.5st\">Yes, I did.</prosody></speak>",
+			"en": "Yes, I did.",
+			"ru": "Да, видел."
+		},
+		{
+			"speaker": "bob",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1.5st\">Miss Bella was at the coffee shop.</prosody></speak>",
+			"en": "Miss Bella was at the coffee shop.",
+			"ru": "Мисс Белла была в кофейном магазине."
+		},
+		{
+			"speaker": "bob",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1.5st\">On Platform 1, I saw Clara.</prosody></speak>",
+			"en": "On Platform 1, I saw Clara.",
+			"ru": "На платформе 1 я видел Клару."
+		},
+		{
+			"speaker": "bob",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1.5st\">She is a young girl with a black camera.</prosody></speak>",
+			"en": "She is a young girl with a black camera.",
+			"ru": "Она молодая девушка с чёрным фотоаппаратом."
+		},
+		{
+			"speaker": "bob",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1.5st\">And I saw Dan, our station worker, near the wall.</prosody></speak>",
+			"en": "And I saw Dan, our station worker, near the wall.",
+			"ru": "И я видел Дэна, нашего служащего, у стены."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Thank you, Bob.</prosody></speak>",
+			"en": "Thank you, Bob.",
+			"ru": "Спасибо, Боб."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">That is very clear.</prosody></speak>",
+			"en": "That is very clear.",
+			"ru": "Это очень понятно."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Inspector Vance writes in his notebook:</prosody></speak>",
+			"en": "Inspector Vance writes in his notebook:",
+			"ru": "Инспектор Вэнс записывает в блокноте:"
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Bob: London train arrived at ten. Oxford train is late — no train on Platform 2.</prosody></speak>",
+			"en": "Bob: London train arrived at ten. Oxford train is late — no train on Platform 2.",
+			"ru": "Боб: лондонский поезд прибыл в 10:00. Оксфордский опаздывает — на платформе 2 поездов не было."
+		}
+	],
+	"quiz": [
+		{
+			"question": "How much is a train ticket from Oakwood to London?",
+			"questionRu": "Сколько стоит билет на поезд из Оквуда в Лондон?",
+			"options": [
+				"Fifteen pounds",
+				"Eight pounds",
+				"Ten pounds",
+				"Twenty pounds"
+			],
+			"correctIdx": 0
+		},
+		{
+			"question": "What happened to the ten o'clock train from Oxford?",
+			"questionRu": "Что произошло с десятичасовым поездом из Оксфорда?",
+			"options": [
+				"It was late and arrives at eleven o'clock",
+				"It arrived on time on Platform 2",
+				"It was cancelled completely",
+				"It stopped in London instead"
+			],
+			"correctIdx": 0
+		},
+		{
+			"question": "Whom did Bob see on Platform 1 at ten past ten?",
+			"questionRu": "Кого видел Боб на платформе 1 в десять минут одиннадцатого?",
+			"options": [
+				"Clara with a black camera and Dan near the wall",
+				"Leo and Mia with a bicycle",
+				"Three police officers",
+				"Mr. Arthur Sterling with his dog"
+			],
+			"correctIdx": 0
+		}
+	],
+	"wordCount": 295
+},
+{
+	"id": "spec4-ch-3",
+	"number": 403,
+	"act": 8,
+	"titleEn": "Special Case 4 (Part 3): The Second Person — Clara the Visitor",
+	"titleRu": "Спецдело 4 (Часть 3): Второй свидетель — Клара, туристка",
+	"synopsisEn": "Inspector Vance questions Clara, a student visiting from Madrid. Clara took photos on Platform 1 at ten past ten, revealing crucial visual evidence on her camera screen!",
+	"synopsisRu": "Инспектор Вэнс опрашивает Клару, студентку из Мадрида. Клара фотографировала на платформе 1 в 10:10, и на экране её камеры обнаруживаются важнейшие улики!",
+	"targetLevel": "CEFR A1",
+	"coverIcon": "fa-camera",
+	"coverColor": "#f59e0b",
+	"sentences": [
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Next, Inspector Vance walks over to a young woman on Platform 1.</prosody></speak>",
+			"en": "Next, Inspector Vance walks over to a young woman on Platform 1.",
+			"ru": "Затем инспектор Вэнс подходит к молодой женщине на первой платформе."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">She is twenty years old.</prosody></speak>",
+			"en": "She is twenty years old.",
+			"ru": "Ей двадцать лет."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">She has a small yellow bag.</prosody></speak>",
+			"en": "She has a small yellow bag.",
+			"ru": "У неё маленькая жёлтая сумка."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">In her hands is a black camera.</prosody></speak>",
+			"en": "In her hands is a black camera.",
+			"ru": "В её руках чёрный фотоаппарат."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Her name is Clara.</prosody></speak>",
+			"en": "Her name is Clara.",
+			"ru": "Её зовут Клара."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Good morning.</prosody></speak>",
+			"en": "Good morning.",
+			"ru": "Доброе утро."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">I am Inspector Vance.</prosody></speak>",
+			"en": "I am Inspector Vance.",
+			"ru": "Я инспектор Вэнс."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Can we talk for a minute?</prosody></speak>",
+			"en": "Can we talk for a minute?",
+			"ru": "Мы можем поговорить минутку?"
+		},
+		{
+			"speaker": "clara",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">Hello!</prosody></speak>",
+			"en": "Hello!",
+			"ru": "Здравствуйте!"
+		},
+		{
+			"speaker": "clara",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">Yes, of course!</prosody></speak>",
+			"en": "Yes, of course!",
+			"ru": "Да, конечно!"
+		},
+		{
+			"speaker": "clara",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">My English is simple, but I can talk with you.</prosody></speak>",
+			"en": "My English is simple, but I can talk with you.",
+			"ru": "Мой английский простой, но я могу поговорить с вами."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Where are you from, Clara?</prosody></speak>",
+			"en": "Where are you from, Clara?",
+			"ru": "Откуда вы, Клара?"
+		},
+		{
+			"speaker": "clara",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">I am from Madrid, in Spain.</prosody></speak>",
+			"en": "I am from Madrid, in Spain.",
+			"ru": "Я из Мадрида, в Испании."
+		},
+		{
+			"speaker": "clara",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">I am Spanish.</prosody></speak>",
+			"en": "I am Spanish.",
+			"ru": "Я испанка."
+		},
+		{
+			"speaker": "clara",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">I am a student.</prosody></speak>",
+			"en": "I am a student.",
+			"ru": "Я студентка."
+		},
+		{
+			"speaker": "clara",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">Right now, I am in England on holiday for seven days.</prosody></speak>",
+			"en": "Right now, I am in England on holiday for seven days.",
+			"ru": "Сейчас я в Англии на каникулах на семь дней."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Do you like England?</prosody></speak>",
+			"en": "Do you like England?",
+			"ru": "Вам нравится Англия?"
+		},
+		{
+			"speaker": "clara",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">Oh, yes!</prosody></speak>",
+			"en": "Oh, yes!",
+			"ru": "О да!"
+		},
+		{
+			"speaker": "clara",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">I love England.</prosody></speak>",
+			"en": "I love England.",
+			"ru": "Я люблю Англию."
+		},
+		{
+			"speaker": "clara",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">Last week, I was in France with my mother and my brother.</prosody></speak>",
+			"en": "Last week, I was in France with my mother and my brother.",
+			"ru": "На прошлой неделе я была во Франции с мамой и братом."
+		},
+		{
+			"speaker": "clara",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">France was very nice, too.</prosody></speak>",
+			"en": "France was very nice, too.",
+			"ru": "Франция тоже была прекрасна."
+		},
+		{
+			"speaker": "clara",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">Yesterday, I was in London.</prosody></speak>",
+			"en": "Yesterday, I was in London.",
+			"ru": "Вчера я была в Лондоне."
+		},
+		{
+			"speaker": "clara",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">Today, I came to Oakwood Town on the ten o'clock train.</prosody></speak>",
+			"en": "Today, I came to Oakwood Town on the ten o'clock train.",
+			"ru": "Сегодня я приехала в Оквуд на десятичасовом поезде."
+		},
+		{
+			"speaker": "clara",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">I have a room at the Park Hotel for two nights.</prosody></speak>",
+			"en": "I have a room at the Park Hotel for two nights.",
+			"ru": "У меня номер в Парк Отеле на две ночи."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Where were you between ten o'clock and quarter past ten?</prosody></speak>",
+			"en": "Where were you between ten o'clock and quarter past ten?",
+			"ru": "Где вы были между десятью часами и четвертью одиннадцатого?"
+		},
+		{
+			"speaker": "clara",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">I love taking photos with my camera!</prosody></speak>",
+			"en": "I love taking photos with my camera!",
+			"ru": "Я обожаю фотографировать на камеру!"
+		},
+		{
+			"speaker": "clara",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">Oakwood Station is old and very pretty.</prosody></speak>",
+			"en": "Oakwood Station is old and very pretty.",
+			"ru": "Станция Оквуд старая и очень красивая."
+		},
+		{
+			"speaker": "clara",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">At five past ten, I took photos of the big green train.</prosody></speak>",
+			"en": "At five past ten, I took photos of the big green train.",
+			"ru": "В пять минут одиннадцатого я фотографировала большой зелёный поезд."
+		},
+		{
+			"speaker": "clara",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">Then I took photos of the red flowers.</prosody></speak>",
+			"en": "Then I took photos of the red flowers.",
+			"ru": "Затем я сфотографировала красные цветы."
+		},
+		{
+			"speaker": "clara",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">I also took a photo of the station clock.</prosody></speak>",
+			"en": "I also took a photo of the station clock.",
+			"ru": "Я также сделала снимок станционных часов."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Did you take any photos of the bench on Platform 1?</prosody></speak>",
+			"en": "Did you take any photos of the bench on Platform 1?",
+			"ru": "Вы фотографировали скамейку на платформе 1?"
+		},
+		{
+			"speaker": "clara",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">Yes!</prosody></speak>",
+			"en": "Yes!",
+			"ru": "Да!"
+		},
+		{
+			"speaker": "clara",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">At ten past ten, I took two photos of the platform!</prosody></speak>",
+			"en": "At ten past ten, I took two photos of the platform!",
+			"ru": "В десять минут одиннадцатого я сделала два фото платформы!"
+		},
+		{
+			"speaker": "clara",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">Do you want to see my camera?</prosody></speak>",
+			"en": "Do you want to see my camera?",
+			"ru": "Хотите посмотреть мою камеру?"
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Yes, please!</prosody></speak>",
+			"en": "Yes, please!",
+			"ru": "Да, пожалуйста!"
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Show me the photo from ten past ten.</prosody></speak>",
+			"en": "Show me the photo from ten past ten.",
+			"ru": "Покажите мне фото, сделанное в 10:10."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Clara turns on her small black camera.</prosody></speak>",
+			"en": "Clara turns on her small black camera.",
+			"ru": "Клара включает свой маленький чёрный фотоаппарат."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">She shows the small screen to Inspector Vance.</prosody></speak>",
+			"en": "She shows the small screen to Inspector Vance.",
+			"ru": "Она показывает маленький экранчик инспектору Вэнсу."
+		},
+		{
+			"speaker": "clara",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">Look!</prosody></speak>",
+			"en": "Look!",
+			"ru": "Смотрите!"
+		},
+		{
+			"speaker": "clara",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">Here is the photo from ten past ten.</prosody></speak>",
+			"en": "Here is the photo from ten past ten.",
+			"ru": "Вот фото от 10:10."
+		},
+		{
+			"speaker": "clara",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">Over there is the coffee shop.</prosody></speak>",
+			"en": "Over there is the coffee shop.",
+			"ru": "Вон там — кофейная лавка."
+		},
+		{
+			"speaker": "clara",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">And look at the bench.</prosody></speak>",
+			"en": "And look at the bench.",
+			"ru": "И посмотрите на скамейку."
+		},
+		{
+			"speaker": "clara",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">An old man in a brown coat is there.</prosody></speak>",
+			"en": "An old man in a brown coat is there.",
+			"ru": "Там сидит пожилой мужчина в коричневом пальто."
+		},
+		{
+			"speaker": "clara",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">He has a big red suitcase in his hand!</prosody></speak>",
+			"en": "He has a big red suitcase in his hand!",
+			"ru": "В его руке большой красный чемодан!"
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Look at the old man's head in the photo, Clara.</prosody></speak>",
+			"en": "Look at the old man's head in the photo, Clara.",
+			"ru": "Посмотрите на голову старика на фотографии, Клара."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Where are his glasses?</prosody></speak>",
+			"en": "Where are his glasses?",
+			"ru": "Где его очки?"
+		},
+		{
+			"speaker": "clara",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">His glasses are on top of his head, not on his eyes!</prosody></speak>",
+			"en": "His glasses are on top of his head, not on his eyes!",
+			"ru": "Его очки на макушке головы, а не на глазах!"
+		},
+		{
+			"speaker": "clara",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">And look behind him, near the ticket machine.</prosody></speak>",
+			"en": "And look behind him, near the ticket machine.",
+			"ru": "И посмотрите позади него, возле билетного автомата."
+		},
+		{
+			"speaker": "clara",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2.5st\">That is the station worker in the blue coat!</prosody></speak>",
+			"en": "That is the station worker in the blue coat!",
+			"ru": "Это служащий станции в синем пальто!"
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Thank you, Clara!</prosody></speak>",
+			"en": "Thank you, Clara!",
+			"ru": "Спасибо, Клара!"
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Your photo is wonderful.</prosody></speak>",
+			"en": "Your photo is wonderful.",
+			"ru": "Ваша фотография просто замечательна."
+		}
+	],
+	"quiz": [
+		{
+			"question": "Where is Clara from and what is she doing in England?",
+			"questionRu": "Откуда родом Клара и что она делает в Англии?",
+			"options": [
+				"From Madrid, Spain; on a 7-day holiday",
+				"From Paris, France; working at the hotel",
+				"From Oxford; studying at school",
+				"From London; buying train tickets"
+			],
+			"correctIdx": 0
+		},
+		{
+			"question": "What did Clara's photo from ten past ten show at the bench?",
+			"questionRu": "Что показала фотография Клары от 10:10 возле скамейки?",
+			"options": [
+				"An old man in a brown coat holding a red suitcase",
+				"A thief running away with gold shoes",
+				"Nobody was near the bench",
+				"A dog sitting on the suitcase"
+			],
+			"correctIdx": 0
+		},
+		{
+			"question": "Where were the old man's glasses in Clara's photo?",
+			"questionRu": "Где были очки пожилого человека на фотографии Клары?",
+			"options": [
+				"On top of his head, not on his eyes",
+				"In his coat pocket",
+				"On the bench next to the bag",
+				"In his hand"
+			],
+			"correctIdx": 0
+		}
+	],
+	"wordCount": 338
+},
+{
+	"id": "spec4-ch-4",
+	"number": 404,
+	"act": 8,
+	"titleEn": "Special Case 4 (Part 4): The Third Person — Dan the Station Worker",
+	"titleRu": "Спецдело 4 (Часть 4): Третий свидетель — Дэн, служащий вокзала",
+	"synopsisEn": "Inspector Vance speaks to Dan, the station assistant. Dan claims he was extremely busy carrying bags on Platform 2 from ten to twenty past ten, never setting foot on Platform 1.",
+	"synopsisRu": "Инспектор Вэнс беседует с Дэном, помощником на вокзале. Дэн утверждает, что с 10:00 до 10:20 был занят переноской сумок на платформе 2 и вовсе не выходил на платформу 1.",
+	"targetLevel": "CEFR A1",
+	"coverIcon": "fa-person-digging",
+	"coverColor": "#6366f1",
+	"sentences": [
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Inspector Vance walks to the end of Platform 1.</prosody></speak>",
+			"en": "Inspector Vance walks to the end of Platform 1.",
+			"ru": "Инспектор Вэнс идёт в конец первой платформы."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">A tall man stands near a small door.</prosody></speak>",
+			"en": "A tall man stands near a small door.",
+			"ru": "Возле маленькой двери стоит высокий мужчина."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He wears a blue coat and a blue hat.</prosody></speak>",
+			"en": "He wears a blue coat and a blue hat.",
+			"ru": "Он одет в синее пальто и синюю фуражку."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">His name is Dan.</prosody></speak>",
+			"en": "His name is Dan.",
+			"ru": "Его зовут Дэн."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He is thirty years old.</prosody></speak>",
+			"en": "He is thirty years old.",
+			"ru": "Ему тридцать лет."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Good morning, Dan.</prosody></speak>",
+			"en": "Good morning, Dan.",
+			"ru": "Доброе утро, Дэн."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Can I ask you some questions?</prosody></speak>",
+			"en": "Can I ask you some questions?",
+			"ru": "Могу я задать вам несколько вопросов?"
+		},
+		{
+			"speaker": "dan",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">Oh!</prosody></speak>",
+			"en": "Oh!",
+			"ru": "О!"
+		},
+		{
+			"speaker": "dan",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">Good morning, Inspector Vance!</prosody></speak>",
+			"en": "Good morning, Inspector Vance!",
+			"ru": "Доброе утро, инспектор Вэнс!"
+		},
+		{
+			"speaker": "dan",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">Is there a problem at the station?</prosody></speak>",
+			"en": "Is there a problem at the station?",
+			"ru": "На станции какая-то проблема?"
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Miss Bella's red suitcase is not here.</prosody></speak>",
+			"en": "Miss Bella's red suitcase is not here.",
+			"ru": "Красного чемодана мисс Беллы здесь нет."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Another red suitcase is in its place.</prosody></speak>",
+			"en": "Another red suitcase is in its place.",
+			"ru": "На его месте стоит другой красный чемодан."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Tell me about your morning, Dan.</prosody></speak>",
+			"en": "Tell me about your morning, Dan.",
+			"ru": "Расскажите мне о вашем утре, Дэн."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">What do you do here at the station?</prosody></speak>",
+			"en": "What do you do here at the station?",
+			"ru": "Чем вы занимаетесь здесь на вокзале?"
+		},
+		{
+			"speaker": "dan",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">I help people with their bags, and I clean the platforms.</prosody></speak>",
+			"en": "I help people with their bags, and I clean the platforms.",
+			"ru": "Я помогаю людям с сумками и убираю платформы."
+		},
+		{
+			"speaker": "dan",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">Some bags are small and light.</prosody></speak>",
+			"en": "Some bags are small and light.",
+			"ru": "Некоторые сумки маленькие и лёгкие."
+		},
+		{
+			"speaker": "dan",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">Some suitcases are very big and heavy.</prosody></speak>",
+			"en": "Some suitcases are very big and heavy.",
+			"ru": "Некоторые чемоданы очень большие и тяжёлые."
+		},
+		{
+			"speaker": "dan",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">I carry the big bags to the trains.</prosody></speak>",
+			"en": "I carry the big bags to the trains.",
+			"ru": "Я подношу большие сумки к поездам."
+		},
+		{
+			"speaker": "dan",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">I also take bags to the taxis.</prosody></speak>",
+			"en": "I also take bags to the taxis.",
+			"ru": "Я также отношу сумки к такси."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Where were you between ten o'clock and twenty past ten, Dan?</prosody></speak>",
+			"en": "Where were you between ten o'clock and twenty past ten, Dan?",
+			"ru": "Где вы были между десятью часами и двадцатью минутами одиннадцатого, Дэн?"
+		},
+		{
+			"speaker": "dan",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">Between ten o'clock and twenty past ten?</prosody></speak>",
+			"en": "Between ten o'clock and twenty past ten?",
+			"ru": "Между десятью часами и двадцатью минутами одиннадцатого?"
+		},
+		{
+			"speaker": "dan",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">I was very busy, Inspector!</prosody></speak>",
+			"en": "I was very busy, Inspector!",
+			"ru": "Я был очень занят, инспектор!"
+		},
+		{
+			"speaker": "dan",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">I was not on Platform 1 at all!</prosody></speak>",
+			"en": "I was not on Platform 1 at all!",
+			"ru": "Я вообще не был на платформе 1!"
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Where were you?</prosody></speak>",
+			"en": "Where were you?",
+			"ru": "Где же вы были?"
+		},
+		{
+			"speaker": "dan",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">I was on Platform 2!</prosody></speak>",
+			"en": "I was on Platform 2!",
+			"ru": "Я был на платформе 2!"
+		},
+		{
+			"speaker": "dan",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">At ten o'clock, the fast train from Oxford arrived on Platform 2.</prosody></speak>",
+			"en": "At ten o'clock, the fast train from Oxford arrived on Platform 2.",
+			"ru": "В десять часов скоростной поезд из Оксфорда прибыл на платформу 2."
+		},
+		{
+			"speaker": "dan",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">Fifty people came off that train!</prosody></speak>",
+			"en": "Fifty people came off that train!",
+			"ru": "Пятьдесят человек вышли из того поезда!"
+		},
+		{
+			"speaker": "dan",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">I helped three old women with their big black suitcases.</prosody></speak>",
+			"en": "I helped three old women with their big black suitcases.",
+			"ru": "Я помог трём пожилым женщинам с их большими чёрными чемоданами."
+		},
+		{
+			"speaker": "dan",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">I carried their bags from Platform 2 to the bus stop outside!</prosody></speak>",
+			"en": "I carried their bags from Platform 2 to the bus stop outside!",
+			"ru": "Я донёс их сумки со второй платформы до автобусной остановки на улице!"
+		},
+		{
+			"speaker": "dan",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">I worked hard from ten o'clock until twenty past ten!</prosody></speak>",
+			"en": "I worked hard from ten o'clock until twenty past ten!",
+			"ru": "Я усердно работал с десяти часов до двадцати минут одиннадцатого!"
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Were you on Platform 2 at ten past ten?</prosody></speak>",
+			"en": "Were you on Platform 2 at ten past ten?",
+			"ru": "Были ли вы на платформе 2 в десять минут одиннадцатого?"
+		},
+		{
+			"speaker": "dan",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">Yes, Inspector!</prosody></speak>",
+			"en": "Yes, Inspector!",
+			"ru": "Да, инспектор!"
+		},
+		{
+			"speaker": "dan",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">I was on Platform 2 all the time!</prosody></speak>",
+			"en": "I was on Platform 2 all the time!",
+			"ru": "Я был на платформе 2 всё это время!"
+		},
+		{
+			"speaker": "dan",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">I did not see Miss Bella's red suitcase!</prosody></speak>",
+			"en": "I did not see Miss Bella's red suitcase!",
+			"ru": "Я не видел красный чемодан мисс Беллы!"
+		}
+	],
+	"quiz": [
+		{
+			"question": "What is Dan's job at Oakwood Station?",
+			"questionRu": "Какова работа Дэна на вокзале Оквуда?",
+			"options": [
+				"Carrying bags for passengers and cleaning platforms",
+				"Selling train tickets at the window",
+				"Driving the train to London",
+				"Cooking meals in the station cafe"
+			],
+			"correctIdx": 0
+		},
+		{
+			"question": "Where did Dan claim he was between 10:00 and 10:20?",
+			"questionRu": "Где Дэн утверждал, что находился с 10:00 до 10:20?",
+			"options": [
+				"On Platform 2 helping women with black suitcases",
+				"Inside the coffee shop drinking tea",
+				"Sleeping in the waiting room",
+				"At the police station"
+			],
+			"correctIdx": 0
+		},
+		{
+			"question": "What train did Dan claim arrived on Platform 2 at ten o'clock?",
+			"questionRu": "Какой поезд, по словам Дэна, прибыл на вторую платформу в 10:00?",
+			"options": [
+				"The fast train from Oxford",
+				"The green train from Paris",
+				"The slow train from London",
+				"The freight train with coal"
+			],
+			"correctIdx": 0
+		}
+	],
+	"wordCount": 239
+},
+{
+	"id": "spec4-ch-5",
+	"number": 405,
+	"act": 8,
+	"titleEn": "Special Case 4 (Part 5): The Inspector's Question",
+	"titleRu": "Спецдело 4 (Часть 5): Вопрос инспектора",
+	"synopsisEn": "Inspector Vance exposes Dan's alibi using Bob's timetable and Clara's photo. Caught eating a meat sandwich on duty, Dan confesses the truth about who took the red suitcase.",
+	"synopsisRu": "Инспектор Вэнс опровергает алиби Дэна с помощью расписания Боба и фото Клары. Пойманный на поедании бутерброда на дежурстве, Дэн рассказывает правду о том, кто забрал чемодан.",
+	"targetLevel": "CEFR A1",
+	"coverIcon": "fa-magnifying-glass",
+	"coverColor": "#38bdf8",
+	"sentences": [
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Inspector Vance looks at his notebook.</prosody></speak>",
+			"en": "Inspector Vance looks at his notebook.",
+			"ru": "Инспектор Вэнс смотрит в свою записную книжку."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Then he looks at Dan.</prosody></speak>",
+			"en": "Then he looks at Dan.",
+			"ru": "Затем он смотрит на Дэна."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Dan, your story is not true.</prosody></speak>",
+			"en": "Dan, your story is not true.",
+			"ru": "Дэн, ваша история не соответствует действительности."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">There are two big problems with your story.</prosody></speak>",
+			"en": "There are two big problems with your story.",
+			"ru": "В вашем рассказе есть две большие проблемы."
+		},
+		{
+			"speaker": "dan",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">Problems?</prosody></speak>",
+			"en": "Problems?",
+			"ru": "Проблемы?"
+		},
+		{
+			"speaker": "dan",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">What problems, Inspector?</prosody></speak>",
+			"en": "What problems, Inspector?",
+			"ru": "Какие проблемы, инспектор?"
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">First problem: I talked to Bob at the ticket window.</prosody></speak>",
+			"en": "First problem: I talked to Bob at the ticket window.",
+			"ru": "Первая проблема: я говорил с Бобом у билетной кассы."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Today, the train from Oxford did not arrive at ten o'clock!</prosody></speak>",
+			"en": "Today, the train from Oxford did not arrive at ten o'clock!",
+			"ru": "Сегодня поезд из Оксфорда не прибыл в десять часов!"
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The Oxford train is late.</prosody></speak>",
+			"en": "The Oxford train is late.",
+			"ru": "Оксфордский поезд опаздывает."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">It comes at eleven o'clock.</prosody></speak>",
+			"en": "It comes at eleven o'clock.",
+			"ru": "Он прибывает в одиннадцать часов."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">At ten past ten, no train was on Platform 2!</prosody></speak>",
+			"en": "At ten past ten, no train was on Platform 2!",
+			"ru": "В 10:10 на платформе 2 не было никакого поезда!"
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">No people were there!</prosody></speak>",
+			"en": "No people were there!",
+			"ru": "Там вообще не было людей!"
+		},
+		{
+			"speaker": "dan",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">Oh... well... maybe it was another train...</prosody></speak>",
+			"en": "Oh... well... maybe it was another train...",
+			"ru": "О... ну... может быть, это был другой поезд..."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Second problem, Dan: Clara has a camera.</prosody></speak>",
+			"en": "Second problem, Dan: Clara has a camera.",
+			"ru": "Вторая проблема, Дэн: у Клары есть фотоаппарат."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">She took a photo of Platform 1 at ten past ten.</prosody></speak>",
+			"en": "She took a photo of Platform 1 at ten past ten.",
+			"ru": "Она сделала фото платформы 1 в десять минут одиннадцатого."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">You are in that photo!</prosody></speak>",
+			"en": "You are in that photo!",
+			"ru": "Вы запечатлены на этом фото!"
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">You were standing near the ticket machine on Platform 1.</prosody></speak>",
+			"en": "You were standing near the ticket machine on Platform 1.",
+			"ru": "Вы стояли возле билетного автомата на первой платформе."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">In your left hand was a big meat sandwich.</prosody></speak>",
+			"en": "In your left hand was a big meat sandwich.",
+			"ru": "В вашей левой руке был большой сэндвич с мясом."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">In your right hand was a football newspaper!</prosody></speak>",
+			"en": "In your right hand was a football newspaper!",
+			"ru": "А в правой руке — футбольная газета!"
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Dan's face turns very red.</prosody></speak>",
+			"en": "Dan's face turns very red.",
+			"ru": "Лицо Дэна становится ярко-красным."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He looks down at his black shoes.</prosody></speak>",
+			"en": "He looks down at his black shoes.",
+			"ru": "Он опускает глаза на свои чёрные туфли."
+		},
+		{
+			"speaker": "dan",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">Okay!</prosody></speak>",
+			"en": "Okay!",
+			"ru": "Хорошо!"
+		},
+		{
+			"speaker": "dan",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">I am sorry, Inspector!</prosody></speak>",
+			"en": "I am sorry, Inspector!",
+			"ru": "Простите, инспектор!"
+		},
+		{
+			"speaker": "dan",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">Please do not tell Mister Bell!</prosody></speak>",
+			"en": "Please do not tell Mr. Bell!",
+			"ru": "Пожалуйста, не говорите мистеру Беллу!"
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Why did you say you were on Platform 2, Dan?</prosody></speak>",
+			"en": "Why did you say you were on Platform 2, Dan?",
+			"ru": "Почему же вы сказали, что были на платформе 2, Дэн?"
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Did you take Miss Bella's red suitcase?</prosody></speak>",
+			"en": "Did you take Miss Bella's red suitcase?",
+			"ru": "Вы взяли красный чемодан мисс Беллы?"
+		},
+		{
+			"speaker": "dan",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">No!</prosody></speak>",
+			"en": "No!",
+			"ru": "Нет!"
+		},
+		{
+			"speaker": "dan",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">I did not take the suitcase!</prosody></speak>",
+			"en": "I did not take the suitcase!",
+			"ru": "Я не брал чемодан!"
+		},
+		{
+			"speaker": "dan",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">I woke up at six o'clock this morning.</prosody></speak>",
+			"en": "I woke up at six o'clock this morning.",
+			"ru": "Я проснулся в шесть часов этим утром."
+		},
+		{
+			"speaker": "dan",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">I did not eat breakfast at home.</prosody></speak>",
+			"en": "I did not eat breakfast at home.",
+			"ru": "Я не позавтракал дома."
+		},
+		{
+			"speaker": "dan",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">By ten o'clock, I was very hungry!</prosody></speak>",
+			"en": "By ten o'clock, I was very hungry!",
+			"ru": "К десяти часам я был очень голоден!"
+		},
+		{
+			"speaker": "dan",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">I bought a hot meat sandwich.</prosody></speak>",
+			"en": "I bought a hot meat sandwich.",
+			"ru": "Я купил горячий мясной сэндвич."
+		},
+		{
+			"speaker": "dan",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">Do you know Mister Bell?</prosody></speak>",
+			"en": "Do you know Mr. Bell?",
+			"ru": "Вы знаете мистера Белла?"
+		},
+		{
+			"speaker": "dan",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">He says workers cannot eat food on the platform before twelve o'clock!</prosody></speak>",
+			"en": "He says workers cannot eat food on the platform before twelve o'clock!",
+			"ru": "Он говорит, что работникам нельзя есть на платформе до двенадцати часов!"
+		},
+		{
+			"speaker": "dan",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">So I stood near the ticket machine on Platform 1.</prosody></speak>",
+			"en": "So I stood near the ticket machine on Platform 1.",
+			"ru": "Поэтому я стоял у билетного автомата на платформе 1."
+		},
+		{
+			"speaker": "dan",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">I ate my sandwich there.</prosody></speak>",
+			"en": "I ate my sandwich there.",
+			"ru": "Я ел свой сэндвич там."
+		},
+		{
+			"speaker": "dan",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">I was afraid.</prosody></speak>",
+			"en": "I was afraid.",
+			"ru": "Мне было страшно."
+		},
+		{
+			"speaker": "dan",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">I did not want Mister Bell to be angry!</prosody></speak>",
+			"en": "I did not want Mr. Bell to be angry!",
+			"ru": "Я не хотел, чтобы мистер Белл сердился!"
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">And did you see the bench at ten past ten?</prosody></speak>",
+			"en": "And did you see the bench at ten past ten?",
+			"ru": "А видели ли вы скамейку в десять минут одиннадцатого?"
+		},
+		{
+			"speaker": "dan",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">Yes!</prosody></speak>",
+			"en": "Yes!",
+			"ru": "Да!"
+		},
+		{
+			"speaker": "dan",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">Now I remember!</prosody></speak>",
+			"en": "Now I remember!",
+			"ru": "Теперь я припоминаю!"
+		},
+		{
+			"speaker": "dan",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">Mister Walter, the old man who loves trains, was sitting on that bench!</prosody></speak>",
+			"en": "Mr. Walter, the old man who loves trains, was sitting on that bench!",
+			"ru": "Мистер Уолтер, пожилой человек, который обожает поезда, сидел на той скамейке!"
+		},
+		{
+			"speaker": "dan",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">He had a big red suitcase, too!</prosody></speak>",
+			"en": "He had a big red suitcase, too!",
+			"ru": "У него тоже был большой красный чемодан!"
+		},
+		{
+			"speaker": "dan",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">At ten past ten, he stood up.</prosody></speak>",
+			"en": "At ten past ten, he stood up.",
+			"ru": "В 10:10 он встал."
+		},
+		{
+			"speaker": "dan",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">He took a red suitcase and walked into the waiting room!</prosody></speak>",
+			"en": "He took a red suitcase and walked into the waiting room!",
+			"ru": "Он взял красный чемодан и пошёл в зал ожидания!"
+		}
+	],
+	"quiz": [
+		{
+			"question": "Why was Dan's alibi about Platform 2 false?",
+			"questionRu": "Почему алиби Дэна о платформе 2 оказалось ложным?",
+			"options": [
+				"The Oxford train was late and Platform 2 was empty",
+				"Dan was seen riding a bicycle in town",
+				"Platform 2 was broken and closed all week",
+				"Dan was at home sleeping"
+			],
+			"correctIdx": 0
+		},
+		{
+			"question": "Why was Dan really hiding near the ticket machine on Platform 1?",
+			"questionRu": "Почему на самом деле Дэн прятался у билетного автомата?",
+			"options": [
+				"He was secretly eating a meat sandwich against station rules",
+				"He was trying to steal a bag",
+				"He lost his blue keys",
+				"He was watching the train to Paris"
+			],
+			"correctIdx": 0
+		},
+		{
+			"question": "Whom did Dan remember seeing at the bench taking a red suitcase?",
+			"questionRu": "Кого Дэн вспомнил на скамейке, забиравшим красный чемодан?",
+			"options": [
+				"Mr. Walter, who walked into the waiting room",
+				"Miss Bella in her white coat",
+				"A stranger with a yellow mask",
+				"Bob the ticket seller"
+			],
+			"correctIdx": 0
+		}
+	],
+	"wordCount": 302
+},
+{
+	"id": "spec4-ch-6",
+	"number": 406,
+	"act": 8,
+	"titleEn": "Special Case 4 (Part 6): Two Red Suitcases",
+	"titleRu": "Спецдело 4 (Часть 6): Два красных чемодана",
+	"synopsisEn": "In the waiting room, Inspector Vance finds Mr. Walter with Miss Bella's suitcase. With his glasses on his head, Mr. Walter had mistaken Bella's bag for his own! The mystery is solved.",
+	"synopsisRu": "В зале ожидания инспектор Вэнс находит мистера Уолтера с чемоданом мисс Беллы. Забыв очки на голове, мистер Уолтер перепутал сумки! Тайна благополучно раскрыта.",
+	"targetLevel": "CEFR A1",
+	"coverIcon": "fa-star",
+	"coverColor": "#eab308",
+	"sentences": [
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Inspector Vance smiles.</prosody></speak>",
+			"en": "Inspector Vance smiles.",
+			"ru": "Инспектор Вэнс улыбается."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He asks Miss Bella and Clara to come with him.</prosody></speak>",
+			"en": "He asks Miss Bella and Clara to come with him.",
+			"ru": "Он просит мисс Беллу и Клару пойти с ним."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">They open the glass door.</prosody></speak>",
+			"en": "They open the glass door.",
+			"ru": "Они открывают стеклянную дверь."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">They walk into the station waiting room.</prosody></speak>",
+			"en": "They walk into the station waiting room.",
+			"ru": "Они входят в зал ожидания вокзала."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The room is warm and quiet.</prosody></speak>",
+			"en": "The room is warm and quiet.",
+			"ru": "В зале тепло и тихо."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">On a green chair near the window sits an old man.</prosody></speak>",
+			"en": "On a green chair near the window sits an old man.",
+			"ru": "В зелёном кресле у окна сидит пожилой человек."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He is seventy years old.</prosody></speak>",
+			"en": "He is seventy years old.",
+			"ru": "Ему семьдесят лет."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He wears a brown coat.</prosody></speak>",
+			"en": "He wears a brown coat.",
+			"ru": "Он одет в коричневое пальто."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">His glasses are still on top of his head.</prosody></speak>",
+			"en": "His glasses are still on top of his head.",
+			"ru": "Его очки всё ещё на макушке."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Next to his chair is a big red suitcase.</prosody></speak>",
+			"en": "Next to his chair is a big red suitcase.",
+			"ru": "Рядом с его креслом стоит большой красный чемодан."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">It has a small gold star on it!</prosody></speak>",
+			"en": "It has a small gold star on it!",
+			"ru": "На нём маленькая золотая звёздочка!"
+		},
+		{
+			"speaker": "bella",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Look!</prosody></speak>",
+			"en": "Look!",
+			"ru": "Посмотрите!"
+		},
+		{
+			"speaker": "bella",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">That is my red suitcase!</prosody></speak>",
+			"en": "That is my red suitcase!",
+			"ru": "Это мой красный чемодан!"
+		},
+		{
+			"speaker": "bella",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">I can see my gold star on it!</prosody></speak>",
+			"en": "I can see my gold star on it!",
+			"ru": "Я вижу на нём мою золотую звезду!"
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Inspector Vance walks to the old man.</prosody></speak>",
+			"en": "Inspector Vance walks to the old man.",
+			"ru": "Инспектор Вэнс подходит к пожилому мужчине."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He speaks in a kind, quiet voice.</prosody></speak>",
+			"en": "He speaks in a kind, quiet voice.",
+			"ru": "Он говорит мягким, спокойным голосом."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Good morning, Mister Walter.</prosody></speak>",
+			"en": "Good morning, Mr. Walter.",
+			"ru": "Доброе утро, мистер Уолтер."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">How are you today?</prosody></speak>",
+			"en": "How are you today?",
+			"ru": "Как ваши дела сегодня?"
+		},
+		{
+			"speaker": "walter",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">Oh, hello!</prosody></speak>",
+			"en": "Oh, hello!",
+			"ru": "О, здравствуйте!"
+		},
+		{
+			"speaker": "walter",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">Who is that?</prosody></speak>",
+			"en": "Who is that?",
+			"ru": "Кто это?"
+		},
+		{
+			"speaker": "walter",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">Wait a minute, I cannot see well.</prosody></speak>",
+			"en": "Wait a minute, I cannot see well.",
+			"ru": "Подождите минуту, я плохо вижу."
+		},
+		{
+			"speaker": "walter",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">Where are my glasses?</prosody></speak>",
+			"en": "Where are my glasses?",
+			"ru": "Где мои очки?"
+		},
+		{
+			"speaker": "walter",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">I looked in my coat, and I looked in my bag...</prosody></speak>",
+			"en": "I looked in my coat, and I looked in my bag...",
+			"ru": "Я искал в пальто и искал в сумке..."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Your glasses are on top of your head, Mister Walter.</prosody></speak>",
+			"en": "Your glasses are on top of your head, Mr. Walter.",
+			"ru": "Ваши очки у вас на голове, мистер Уолтер."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Mister Walter puts his hand on his head and laughs.</prosody></speak>",
+			"en": "Mr. Walter puts his hand on his head and laughs.",
+			"ru": "Мистер Уолтер кладёт руку на голову и смеётся."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He puts his glasses down on his nose.</prosody></speak>",
+			"en": "He puts his glasses down on his nose.",
+			"ru": "Он опускает очки на нос."
+		},
+		{
+			"speaker": "walter",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">Ha!</prosody></speak>",
+			"en": "Ha!",
+			"ru": "Ха!"
+		},
+		{
+			"speaker": "walter",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">Thank you, Inspector Vance!</prosody></speak>",
+			"en": "Thank you, Inspector Vance!",
+			"ru": "Спасибо, инспектор Вэнс!"
+		},
+		{
+			"speaker": "walter",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">I always forget my glasses!</prosody></speak>",
+			"en": "I always forget my glasses!",
+			"ru": "Я вечно забываю про свои очки!"
+		},
+		{
+			"speaker": "walter",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">Now I can see you well!</prosody></speak>",
+			"en": "Now I can see you well!",
+			"ru": "Теперь я хорошо вас вижу!"
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Mister Walter, why are you at the train station today?</prosody></speak>",
+			"en": "Mr. Walter, why are you at the train station today?",
+			"ru": "Мистер Уолтер, почему вы сегодня на вокзале?"
+		},
+		{
+			"speaker": "walter",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">I am going to Oxford on the eleven o'clock train.</prosody></speak>",
+			"en": "I am going to Oxford on the eleven o'clock train.",
+			"ru": "Я еду в Оксфорд на одиннадцатичасовом поезде."
+		},
+		{
+			"speaker": "walter",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">I want to visit my sister and her family.</prosody></speak>",
+			"en": "I want to visit my sister and her family.",
+			"ru": "Я хочу навестить сестру и её семью."
+		},
+		{
+			"speaker": "walter",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">I have two big books about trains for my sister's son.</prosody></speak>",
+			"en": "I have two big books about trains for my sister's son.",
+			"ru": "У меня две большие книги о поездах для сына сестры."
+		},
+		{
+			"speaker": "walter",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">I also have a warm brown sweater.</prosody></speak>",
+			"en": "I also have a warm brown sweater.",
+			"ru": "А также тёплый коричневый свитер."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Please look down at the red suitcase next to your chair, Mister Walter.</prosody></speak>",
+			"en": "Please look down at the red suitcase next to your chair, Mr. Walter.",
+			"ru": "Пожалуйста, посмотрите вниз на красный чемодан возле кресла, мистер Уолтер."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Is that your red suitcase?</prosody></speak>",
+			"en": "Is that your red suitcase?",
+			"ru": "Это ваш красный чемодан?"
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Mister Walter looks down with his glasses.</prosody></speak>",
+			"en": "Mr. Walter looks down with his glasses.",
+			"ru": "Мистер Уолтер смотрит вниз сквозь очки."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He is very surprised!</prosody></speak>",
+			"en": "He is very surprised!",
+			"ru": "Он очень удивлён!"
+		},
+		{
+			"speaker": "walter",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">Oh, my!</prosody></speak>",
+			"en": "Oh, my!",
+			"ru": "О боже!"
+		},
+		{
+			"speaker": "walter",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">This red suitcase is new and bright!</prosody></speak>",
+			"en": "This red suitcase is new and bright!",
+			"ru": "Этот красный чемодан новый и яркий!"
+		},
+		{
+			"speaker": "walter",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">And it has a gold star on it!</prosody></speak>",
+			"en": "And it has a gold star on it!",
+			"ru": "И на нём золотая звезда!"
+		},
+		{
+			"speaker": "walter",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">My red suitcase is old!</prosody></speak>",
+			"en": "My red suitcase is old!",
+			"ru": "А мой красный чемодан старый!"
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">At five past ten, Miss Bella was on Platform 1.</prosody></speak>",
+			"en": "At five past ten, Miss Bella was on Platform 1.",
+			"ru": "В пять минут одиннадцатого мисс Белла была на платформе 1."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">She put her red suitcase next to the bench.</prosody></speak>",
+			"en": "She put her red suitcase next to the bench.",
+			"ru": "Она поставила свой красный чемодан рядом со скамейкой."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">It was right next to your red suitcase.</prosody></speak>",
+			"en": "It was right next to your red suitcase.",
+			"ru": "Он оказался прямо рядом с вашим красным чемоданом."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">At ten past ten, your glasses were on your head.</prosody></speak>",
+			"en": "At ten past ten, your glasses were on your head.",
+			"ru": "В 10:10 ваши очки были на голове."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">You did not see well.</prosody></speak>",
+			"en": "You did not see well.",
+			"ru": "Вы плохо видели."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">You took Miss Bella's red suitcase, and you left your bag on the bench!</prosody></speak>",
+			"en": "You took Miss Bella's red suitcase, and you left your bag on the bench!",
+			"ru": "Вы взяли чемодан мисс Беллы, а свою сумку оставили на скамейке!"
+		},
+		{
+			"speaker": "walter",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">Oh, dear!</prosody></speak>",
+			"en": "Oh, dear!",
+			"ru": "О боже мой!"
+		},
+		{
+			"speaker": "walter",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">Miss Bella, I am so sorry!</prosody></speak>",
+			"en": "Miss Bella, I am so sorry!",
+			"ru": "Мисс Белла, мне очень жаль!"
+		},
+		{
+			"speaker": "walter",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">I did not have my glasses on!</prosody></speak>",
+			"en": "I did not have my glasses on!",
+			"ru": "На мне не было очков!"
+		},
+		{
+			"speaker": "walter",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">The two red bags looked the same!</prosody></speak>",
+			"en": "The two red bags looked the same!",
+			"ru": "Две красные сумки выглядели одинаково!"
+		},
+		{
+			"speaker": "walter",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">Did you open my bag?</prosody></speak>",
+			"en": "Did you open my bag?",
+			"ru": "Вы открывали мою сумку?"
+		},
+		{
+			"speaker": "bella",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Yes, Mister Walter!</prosody></speak>",
+			"en": "Yes, Mr. Walter!",
+			"ru": "Да, мистер Уолтер!"
+		},
+		{
+			"speaker": "bella",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Your train books and your brown sweater are safe on Platform 1!</prosody></speak>",
+			"en": "Your train books and your brown sweater are safe on Platform 1!",
+			"ru": "Ваши книги о поездах и коричневый свитер в целости на платформе 1!"
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Dan brings the other red suitcase into the waiting room.</prosody></speak>",
+			"en": "Dan brings the other red suitcase into the waiting room.",
+			"ru": "Дэн приносит второй красный чемодан в зал ожидания."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Miss Bella opens her suitcase with the gold star.</prosody></speak>",
+			"en": "Miss Bella opens her suitcase with the gold star.",
+			"ru": "Мисс Белла открывает свой чемодан с золотой звездой."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Inside are her beautiful white dress and her gold shoes.</prosody></speak>",
+			"en": "Inside are her beautiful white dress and her gold shoes.",
+			"ru": "Внутри её прекрасное белое платье и золотые туфли."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Miss Bella is very happy.</prosody></speak>",
+			"en": "Miss Bella is very happy.",
+			"ru": "Мисс Белла очень счастлива."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">She takes four blue tickets from her small bag.</prosody></speak>",
+			"en": "She takes four blue tickets from her small bag.",
+			"ru": "Она достаёт четыре синих билета из своей сумочки."
+		},
+		{
+			"speaker": "bella",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Thank you so much, Inspector Vance!</prosody></speak>",
+			"en": "Thank you so much, Inspector Vance!",
+			"ru": "Большое вам спасибо, инспектор Вэнс!"
+		},
+		{
+			"speaker": "bella",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">And thank you, Clara, for your photo!</prosody></speak>",
+			"en": "And thank you, Clara, for your photo!",
+			"ru": "И спасибо вам, Клара, за вашу фотографию!"
+		},
+		{
+			"speaker": "bella",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Here are four free tickets to my music show tonight!</prosody></speak>",
+			"en": "Here are four free tickets to my music show tonight!",
+			"ru": "Вот четыре бесплатных билета на моё сегодняшнее вечернее шоу!"
+		},
+		{
+			"speaker": "bella",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">One ticket is for you, Inspector.</prosody></speak>",
+			"en": "One ticket is for you, Inspector.",
+			"ru": "Один билет для вас, инспектор."
+		},
+		{
+			"speaker": "bella",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">One is for your son, Leo.</prosody></speak>",
+			"en": "One is for your son, Leo.",
+			"ru": "Один — для вашего сына Лео."
+		},
+		{
+			"speaker": "bella",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">And two tickets are for Clara and Mister Walter!</prosody></speak>",
+			"en": "And two tickets are for Clara and Mr. Walter!",
+			"ru": "И два билета — для Клары и мистера Уолтера!"
+		},
+		{
+			"speaker": "walter",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">Wonderful!</prosody></speak>",
+			"en": "Wonderful!",
+			"ru": "Замечательно!"
+		},
+		{
+			"speaker": "walter",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-3st\">I love music, and I will wear my glasses tonight!</prosody></speak>",
+			"en": "I love music, and I will wear my glasses tonight!",
+			"ru": "Я обожаю музыку и обязательно надену очки сегодня вечером!"
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Thank you, Miss Bella.</prosody></speak>",
+			"en": "Thank you, Miss Bella.",
+			"ru": "Спасибо, мисс Белла."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Have a great trip to Oxford, Mister Walter.</prosody></speak>",
+			"en": "Have a great trip to Oxford, Mr. Walter.",
+			"ru": "Приятной поездки в Оксфорд, мистер Уолтер."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">And Dan — eat breakfast at home tomorrow!</prosody></speak>",
+			"en": "And Dan — eat breakfast at home tomorrow!",
+			"ru": "А ты, Дэн — завтракай дома завтра!"
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Everyone in the waiting room laughs.</prosody></speak>",
+			"en": "Everyone in the waiting room laughs.",
+			"ru": "Все в зале ожидания смеются."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">At eleven o'clock, the Oxford train arrives on Platform 2.</prosody></speak>",
+			"en": "At eleven o'clock, the Oxford train arrives on Platform 2.",
+			"ru": "В одиннадцать часов оксфордский поезд прибывает на платформу 2."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Mister Walter takes his old red suitcase.</prosody></speak>",
+			"en": "Mr. Walter takes his old red suitcase.",
+			"ru": "Мистер Уолтер берёт свой старый красный чемодан."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Then he gets on the train.</prosody></speak>",
+			"en": "Then he gets on the train.",
+			"ru": "Затем он садится в поезд."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Another case in Oakwood Town is finished.</prosody></speak>",
+			"en": "Another case in Oakwood Town is finished.",
+			"ru": "Ещё одно дело в городке Оквуд раскрыто."
+		}
+	],
+	"quiz": [
+		{
+			"question": "Why did Mr. Walter accidentally take Miss Bella's suitcase?",
+			"questionRu": "Почему мистер Уолтер случайно взял чемодан мисс Беллы?",
+			"options": [
+				"His glasses were on his head, so the two red suitcases looked the same",
+				"He wanted to steal the singer's white dress",
+				"Dan told him to take it",
+				"The bags had the exact same name written on them"
+			],
+			"correctIdx": 0
+		},
+		{
+			"question": "How did Miss Bella identify her suitcase in the waiting room?",
+			"questionRu": "Как мисс Белла опознала свой чемодан в зале ожидания?",
+			"options": [
+				"By the small gold star on it",
+				"By a red ribbon on the handle",
+				"Her phone number was on the tag",
+				"It was unlocked"
+			],
+			"correctIdx": 0
+		},
+		{
+			"question": "What gift did Miss Bella give to Vance, Clara, Walter, and Leo?",
+			"questionRu": "Какой подарок мисс Белла сделала Вэнсу, Кларе, Уолтеру и Лео?",
+			"options": [
+				"Four free tickets to her evening music show",
+				"Gold shoes and white dresses",
+				"Train tickets to France",
+				"A box of pink birthday cakes"
+			],
+			"correctIdx": 0
+		}
+	],
+	"wordCount": 535
 }
     ]
 };

@@ -154,6 +154,31 @@ const CAST = {
         voice: 'en-US-Neural2-D', // Mr. Green (old gentleman in grey hat)
         pitch: '-2.5st',
         rate: '0.88'
+    },
+    bella: {
+        voice: 'en-US-Neural2-F', // Miss Bella Star (singer from France)
+        pitch: '+2st',
+        rate: '0.94'
+    },
+    bob: {
+        voice: 'en-US-Neural2-D', // Bob the ticket seller (man of 40)
+        pitch: '-1.5st',
+        rate: '0.92'
+    },
+    clara: {
+        voice: 'en-US-Neural2-F', // Clara (20-year-old visitor from Spain)
+        pitch: '+2.5st',
+        rate: '0.96'
+    },
+    dan: {
+        voice: 'en-US-Neural2-A', // Dan the station worker (30-year-old man)
+        pitch: '+1st',
+        rate: '0.96'
+    },
+    walter: {
+        voice: 'en-US-Neural2-D', // Mr. Walter (70-year-old kind grandfather)
+        pitch: '-3st',
+        rate: '0.88'
     }
 };
 

@@ -761,6 +761,86 @@ const NEW_WORDS_DATABASE = [
         translation: "мягкий / пышный",
         exampleEn: "Marco makes the best soft bread in the town.",
         exampleRu: "Марко печёт самый лучший мягкий хлеб в городе."
+    },
+    {
+        id: "suitcase",
+        word: "suitcase",
+        phonetic: "/ˈsuːt.keɪs/",
+        translation: "чемодан",
+        exampleEn: "A suitcase is a big bag for clothes.",
+        exampleRu: "Чемодан — это большая сумка для одежды."
+    },
+    {
+        id: "platform",
+        word: "platform",
+        phonetic: "/ˈplæt.fɔːm/",
+        translation: "платформа / перрон",
+        exampleEn: "Inspector Vance walks onto Platform 1.",
+        exampleRu: "Инспектор Вэнс выходит на первую платформу."
+    },
+    {
+        id: "singer",
+        word: "singer",
+        phonetic: "/ˈsɪŋ.ər/",
+        translation: "певица / певец",
+        exampleEn: "She is a famous singer from France.",
+        exampleRu: "Она — известная певица из Франции."
+    },
+    {
+        id: "holiday",
+        word: "holiday",
+        phonetic: "/ˈhɒl.ə.deɪ/",
+        translation: "отпуск / каникулы",
+        exampleEn: "I am in England on holiday for seven days.",
+        exampleRu: "Я нахожусь в Англии в отпуске на семь дней."
+    },
+    {
+        id: "camera",
+        word: "camera",
+        phonetic: "/ˈkæm.rə/",
+        translation: "фотоаппарат / камера",
+        exampleEn: "In her hands is a black camera.",
+        exampleRu: "В её руках чёрный фотоаппарат."
+    },
+    {
+        id: "photo",
+        word: "photo",
+        phonetic: "/ˈfəʊ.təʊ/",
+        translation: "фотография / фото",
+        exampleEn: "I love taking photos with my camera.",
+        exampleRu: "Я люблю делать фотографии на свой фотоаппарат."
+    },
+    {
+        id: "screen",
+        word: "screen",
+        phonetic: "/skriːn/",
+        translation: "экран",
+        exampleEn: "She shows the small screen to Inspector Vance.",
+        exampleRu: "Она показывает маленький экран инспектору Вэнсу."
+    },
+    {
+        id: "newspaper",
+        word: "newspaper",
+        phonetic: "/ˈnjuːzˌpeɪ.pər/",
+        translation: "газета",
+        exampleEn: "Inside the bag are old newspapers.",
+        exampleRu: "Внутри сумки лежат старые газеты."
+    },
+    {
+        id: "heavy",
+        word: "heavy",
+        phonetic: "/ˈhev.i/",
+        translation: "тяжёлый",
+        exampleEn: "Some suitcases are very big and heavy.",
+        exampleRu: "Некоторые чемоданы очень большие и тяжёлые."
+    },
+    {
+        id: "carry",
+        word: "carry",
+        phonetic: "/ˈkær.i/",
+        translation: "носить / переносить",
+        exampleEn: "I carry the big bags to the trains.",
+        exampleRu: "Я отношу большие сумки к поездам."
     }
 ];
 
