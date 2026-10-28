@@ -1059,7 +1059,11 @@ class NewWordsStudyEngine {
         let changed = false;
         this.database.forEach(w => {
             if (masteredIds.has(w.id)) {
-                const existing = deck.find(c => c.word && c.word.toLowerCase() === w.word.toLowerCase());
+                const existing = deck.find(c => c && c.word && (
+                    c.word.toLowerCase() === w.word.toLowerCase() ||
+                    (c.word === 'police' && w.word === 'police / policeman') ||
+                    (c.word === 'police / policeman' && w.word === 'police')
+                ));
                 if (!existing) {
                     deck.push({
                         word: w.word,
@@ -1080,6 +1084,18 @@ class NewWordsStudyEngine {
                 } else {
                     if (!existing.studied) {
                         existing.studied = true;
+                        changed = true;
+                    }
+                    if (!existing.heroId) {
+                        existing.heroId = "detective";
+                        changed = true;
+                    }
+                    if (!existing.repetitions || existing.repetitions === 0) {
+                        existing.repetitions = 1;
+                        changed = true;
+                    }
+                    if (!existing.interval || existing.interval === 0) {
+                        existing.interval = 1;
                         changed = true;
                     }
                     if (!existing.nextReviewDate || existing.nextReviewDate === 0) {
@@ -1118,7 +1134,11 @@ class NewWordsStudyEngine {
         let addedCount = 0;
 
         batchWords.forEach(w => {
-            const existing = deck.find(c => c.word && c.word.toLowerCase() === w.word.toLowerCase());
+            const existing = deck.find(c => c && c.word && (
+                c.word.toLowerCase() === w.word.toLowerCase() ||
+                (c.word === 'police' && w.word === 'police / policeman') ||
+                (c.word === 'police / policeman' && w.word === 'police')
+            ));
             if (!existing) {
                 deck.push({
                     word: w.word,
@@ -1138,6 +1158,9 @@ class NewWordsStudyEngine {
                 addedCount++;
             } else {
                 existing.studied = true;
+                existing.heroId = "detective";
+                if (!existing.repetitions || existing.repetitions === 0) existing.repetitions = 1;
+                if (!existing.interval || existing.interval === 0) existing.interval = 1;
                 if (!existing.nextReviewDate || existing.nextReviewDate === 0) {
                     existing.nextReviewDate = Date.now() + 24 * 3600 * 1000;
                 }

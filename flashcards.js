@@ -6,6 +6,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/dɪˈtek.tɪv/",
                     "translation": "детектив",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "The detective carefully examined the room.",
                     "rating": 0,
                     "interval": 1,
@@ -19,6 +20,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/kraɪm/",
                     "translation": "преступление",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "The police solved a dangerous crime.",
                     "rating": 0,
                     "interval": 1,
@@ -32,6 +34,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ɪnˈves.tɪ.ɡeɪt/",
                     "translation": "расследовать",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "We need to investigate every clue.",
                     "rating": 0,
                     "interval": 1,
@@ -45,6 +48,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˈev.ɪ.dəns/",
                     "translation": "доказательство / улики",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "The detective found fresh evidence.",
                     "rating": 0,
                     "interval": 1,
@@ -58,6 +62,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˈfʊt.prɪnt/",
                     "translation": "след ноги",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "There was a muddy footprint near the window.",
                     "rating": 0,
                     "interval": 1,
@@ -71,6 +76,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˈfɪŋ.ɡə.prɪnt/",
                     "translation": "отпечаток пальца",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "They lifted a fingerprint from the glass.",
                     "rating": 0,
                     "interval": 1,
@@ -84,6 +90,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˈæl.ɪ.baɪ/",
                     "translation": "алиби",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "The suspect had a solid alibi for that evening.",
                     "rating": 0,
                     "interval": 1,
@@ -97,6 +104,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˈwɪt.nəs/",
                     "translation": "свидетель",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "A key witness saw the thief in the park.",
                     "rating": 0,
                     "interval": 1,
@@ -110,6 +118,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˈsʌs.pekt/",
                     "translation": "подозреваемый",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "The officer questioned the main suspect.",
                     "rating": 0,
                     "interval": 1,
@@ -123,6 +132,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/θiːf/",
                     "translation": "вор",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "The quick thief vanished in the shadows.",
                     "rating": 0,
                     "interval": 1,
@@ -136,6 +146,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/laɪ/",
                     "translation": "ложь / лгать",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "He could tell when someone told a lie.",
                     "rating": 0,
                     "interval": 1,
@@ -149,6 +160,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/nəʊt/",
                     "translation": "записка",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "She found a handwritten note on the table.",
                     "rating": 0,
                     "interval": 1,
@@ -162,6 +174,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/rɪˈpɔːt/",
                     "translation": "отчет / рапорт",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "The detective filed an official report.",
                     "rating": 0,
                     "interval": 1,
@@ -175,6 +188,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˌɪn.fəˈmeɪ.ʃən/",
                     "translation": "информация",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "We need accurate information about the event.",
                     "rating": 0,
                     "interval": 1,
@@ -188,6 +202,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ɪkˈspleɪn/",
                     "translation": "объяснять",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "Can you explain what you saw last night?",
                     "rating": 0,
                     "interval": 1,
@@ -201,6 +216,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ɡes/",
                     "translation": "догадываться / предполагать",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "Try to guess where the key was hidden.",
                     "rating": 0,
                     "interval": 1,
@@ -210,10 +226,11 @@ const GENERAL_DECKS = {
                     "studied": false
             },
             {
-                    "word": "police",
+                    "word": "police / policeman",
                     "phonetic": "/pəˈliːs / pəˈliːs.mən/",
                     "translation": "полиция / полицейский",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "A brave policeman arrived on time.",
                     "rating": 0,
                     "interval": 1,
@@ -227,6 +244,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˈneɪ.bər/",
                     "translation": "сосед",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "Our kind neighbour called the station.",
                     "rating": 0,
                     "interval": 1,
@@ -240,6 +258,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˈvɪz.ɪ.tər/",
                     "translation": "посетитель / гость",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "A late visitor knocked on the door.",
                     "rating": 0,
                     "interval": 1,
@@ -253,6 +272,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˈəʊ.nər/",
                     "translation": "владелец",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "The owner unlocked the antique cabinet.",
                     "rating": 0,
                     "interval": 1,
@@ -266,6 +286,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˈweɪ.tər/",
                     "translation": "официант",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "The polite waiter poured fresh tea.",
                     "rating": 0,
                     "interval": 1,
@@ -279,6 +300,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˈwɒtʃˌmeɪ.kər/",
                     "translation": "часовщик",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "The skilled watchmaker fixed the tiny gears.",
                     "rating": 0,
                     "interval": 1,
@@ -292,6 +314,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˈɡræn.peə.rənts/",
                     "translation": "бабушка и дедушка",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "I often visit my grandparents on weekends.",
                     "rating": 0,
                     "interval": 1,
@@ -305,6 +328,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˈtiːnˌeɪ.dʒər/",
                     "translation": "подросток",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "The smart teenager found the lost phone.",
                     "rating": 0,
                     "interval": 1,
@@ -318,6 +342,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/kɪd/",
                     "translation": "ребенок / малыш",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "A curious kid asked many questions.",
                     "rating": 0,
                     "interval": 1,
@@ -331,6 +356,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/pəˈliːs ˈsteɪ.ʃən/",
                     "translation": "полицейский участок",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "They walked together to the police station.",
                     "rating": 0,
                     "interval": 1,
@@ -344,6 +370,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ænˈtiːk ʃɒp/",
                     "translation": "антикварная лавка",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "The antique shop was filled with rare clocks.",
                     "rating": 0,
                     "interval": 1,
@@ -357,6 +384,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˈbeɪ.kər.i/",
                     "translation": "пекарня",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "The morning bakery baked warm pastries.",
                     "rating": 0,
                     "interval": 1,
@@ -370,6 +398,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˌdaʊnˈsteəz/",
                     "translation": "внизу / на нижнем этаже",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "He heard footsteps downstairs at midnight.",
                     "rating": 0,
                     "interval": 1,
@@ -383,6 +412,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˈflæʃ.laɪt/",
                     "translation": "фонарик",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "She shone the bright flashlight into the corner.",
                     "rating": 0,
                     "interval": 1,
@@ -396,6 +426,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˈkiː.kɑːd/",
                     "translation": "электронный ключ-карта",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "Swipe your keycard to open the office door.",
                     "rating": 0,
                     "interval": 1,
@@ -409,6 +440,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˈmjuː.zɪk bɒks/",
                     "translation": "музыкальная шкатулка",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "The delicate music box played a sweet tune.",
                     "rating": 0,
                     "interval": 1,
@@ -422,6 +454,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˈpɒk.ɪt wɒtʃ/",
                     "translation": "карманные часы",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "His grandfather gave him a golden pocket watch.",
                     "rating": 0,
                     "interval": 1,
@@ -435,6 +468,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˈreɪn.kəʊt/",
                     "translation": "плащ / дождевик",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "Put on your yellow raincoat before heading out.",
                     "rating": 0,
                     "interval": 1,
@@ -448,6 +482,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˈsmɑːt.fəʊn/",
                     "translation": "смартфон",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "Check the photo on your smartphone.",
                     "rating": 0,
                     "interval": 1,
@@ -461,6 +496,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˈfəʊ.tə.ɡrɑːf/",
                     "translation": "фотография",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "The vintage photograph showed the old town.",
                     "rating": 0,
                     "interval": 1,
@@ -474,6 +510,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˈpeɪn.tɪŋ/",
                     "translation": "картина",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "A magnificent oil painting hung above the fireplace.",
                     "rating": 0,
                     "interval": 1,
@@ -487,6 +524,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˈstætʃ.uː/",
                     "translation": "статуэтка / статуя",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "A marble statue guarded the grand entrance.",
                     "rating": 0,
                     "interval": 1,
@@ -500,6 +538,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/seɪf/",
                     "translation": "сейф",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "The jewel was inside the locked safe.",
                     "rating": 0,
                     "interval": 1,
@@ -513,6 +552,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/sɜːtʃ/",
                     "translation": "поиск / искать",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "The search for the blue stone begins now.",
                     "rating": 0,
                     "interval": 1,
@@ -526,6 +566,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˈɒf.ɪ.sər/",
                     "translation": "офицер / полицейский",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "Officer Harris called the detective agency.",
                     "rating": 0,
                     "interval": 1,
@@ -539,6 +580,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/keɪs/",
                     "translation": "дело / расследование",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "We have an important case to solve today.",
                     "rating": 0,
                     "interval": 1,
@@ -552,6 +594,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˈmɪs.ɪŋ/",
                     "translation": "пропавший / отсутствующий",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "The famous blue stone is missing from the room.",
                     "rating": 0,
                     "interval": 1,
@@ -565,6 +608,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ɪkˈspen.sɪv/",
                     "translation": "дорогой (по цене)",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "That rare sapphire is very expensive.",
                     "rating": 0,
                     "interval": 1,
@@ -578,6 +622,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˈfeɪ.məs/",
                     "translation": "знаменитый / известный",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "The Midnight Sapphire is a famous jewel.",
                     "rating": 0,
                     "interval": 1,
@@ -591,6 +636,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/dʒɒb/",
                     "translation": "работа / задание",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "We have a new detective job this morning.",
                     "rating": 0,
                     "interval": 1,
@@ -604,6 +650,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˈɒf.ɪs/",
                     "translation": "офис / кабинет",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "Leo and Mia work in the office on Elm Street.",
                     "rating": 0,
                     "interval": 1,
@@ -617,6 +664,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˈtel.ɪ.fəʊn/",
                     "translation": "телефон",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "The black office telephone rings loudly.",
                     "rating": 0,
                     "interval": 1,
@@ -630,6 +678,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˈlæp.tɒp/",
                     "translation": "ноутбук",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "Mia opens her silver laptop on the desk.",
                     "rating": 0,
                     "interval": 1,
@@ -643,6 +692,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˈwʊd.ən/",
                     "translation": "деревянный",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "Leo sits at a big wooden desk.",
                     "rating": 0,
                     "interval": 1,
@@ -656,6 +706,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/kluː/",
                     "translation": "зацепка / улика",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "This muddy footprint is our first clue.",
                     "rating": 0,
                     "interval": 1,
@@ -669,6 +720,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˈsiː.krət/",
                     "translation": "секрет / секретный",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "The thief knew the secret code to the safe.",
                     "rating": 0,
                     "interval": 1,
@@ -682,6 +734,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/kəʊd/",
                     "translation": "код / шифр",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "Enter the four numbers of the code.",
                     "rating": 0,
                     "interval": 1,
@@ -695,6 +748,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/steəz/",
                     "translation": "лестница / ступени",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "They walked up the stairs to the second floor.",
                     "rating": 0,
                     "interval": 1,
@@ -708,6 +762,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/lɒk/",
                     "translation": "замок / запирать",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "Lord Blackwood turns the silver key in the lock.",
                     "rating": 0,
                     "interval": 1,
@@ -721,6 +776,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/mʌd/",
                     "translation": "грязь / слякоть",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "The thief left footprints in the wet mud.",
                     "rating": 0,
                     "interval": 1,
@@ -734,6 +790,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˈtɪk.ɪt/",
                     "translation": "билет",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "Barnaby found a blue bus ticket in the grass.",
                     "rating": 0,
                     "interval": 1,
@@ -747,6 +804,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/laʊd/",
                     "translation": "громкий",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "He heard a loud motorcycle near the gate.",
                     "rating": 0,
                     "interval": 1,
@@ -760,6 +818,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˈplæs.tɪk/",
                     "translation": "пластиковый / пластмасса",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "Leo put the evidence in a clean plastic bag.",
                     "rating": 0,
                     "interval": 1,
@@ -773,6 +832,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/saɪz/",
                     "translation": "размер",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "These black boots are the same size as the footprint.",
                     "rating": 0,
                     "interval": 1,
@@ -786,6 +846,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/dɪˈlɪv.ər/",
                     "translation": "доставлять",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "The courier arrived to deliver fresh food to the kitchen.",
                     "rating": 0,
                     "interval": 1,
@@ -799,6 +860,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/bɔɪl/",
                     "translation": "кипятить / варить",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "She boiled hot water for morning tea in the pot.",
                     "rating": 0,
                     "interval": 1,
@@ -812,6 +874,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/pɒt/",
                     "translation": "кастрюля / горшок",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "Hot vegetable soup boils in a large silver pot.",
                     "rating": 0,
                     "interval": 1,
@@ -825,6 +888,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/stəʊv/",
                     "translation": "кухонная плита",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "Claire stands near the large kitchen stove.",
                     "rating": 0,
                     "interval": 1,
@@ -838,6 +902,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˈhel.mɪt/",
                     "translation": "шлем",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "The motorcycle courier wore a dark protective helmet.",
                     "rating": 0,
                     "interval": 1,
@@ -851,6 +916,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/bɑːk/",
                     "translation": "лаять",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "Barnaby runs to the window and barks loudly.",
                     "rating": 0,
                     "interval": 1,
@@ -864,6 +930,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˈkæp.tɪn/",
                     "translation": "капитан",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "The captain of the boat is a kind man.",
                     "rating": 0,
                     "interval": 1,
@@ -877,6 +944,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/əˈsliːp/",
                     "translation": "спящий / уснувший",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "Oliver was asleep on the sofa in the library.",
                     "rating": 0,
                     "interval": 1,
@@ -890,6 +958,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˈnɜː.vəs/",
                     "translation": "нервный / взволнованный",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "Mister Sterling looks very sad and nervous.",
                     "rating": 0,
                     "interval": 1,
@@ -903,6 +972,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˈsɒr.i/",
                     "translation": "сожалеющий / «простите»",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "I am sorry, I told a lie about the garden!",
                     "rating": 0,
                     "interval": 1,
@@ -916,6 +986,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/sæd/",
                     "translation": "грустный / печальный",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "The old man was very sad about his missing watch.",
                     "rating": 0,
                     "interval": 1,
@@ -929,6 +1000,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/səˈpraɪzd/",
                     "translation": "удивлённый",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "He was surprised when the watch was gone.",
                     "rating": 0,
                     "interval": 1,
@@ -942,6 +1014,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˈiː.meɪl/",
                     "translation": "электронное письмо",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "I have many emails to write on my computer.",
                     "rating": 0,
                     "interval": 1,
@@ -955,6 +1028,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/teɪl/",
                     "translation": "хвост",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "Toby opens his eyes and wags his tail.",
                     "rating": 0,
                     "interval": 1,
@@ -968,6 +1042,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/tɔɪ/",
                     "translation": "игрушка",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "The dog ran outside with his favourite toy ball.",
                     "rating": 0,
                     "interval": 1,
@@ -981,6 +1056,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˈkʌb.əd/",
                     "translation": "шкаф / буфет",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "Look at the glass cupboard near the window.",
                     "rating": 0,
                     "interval": 1,
@@ -994,6 +1070,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˈnəʊt.bʊk/",
                     "translation": "блокнот / тетрадь",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "Leo has a small blue notebook in his hand.",
                     "rating": 0,
                     "interval": 1,
@@ -1007,6 +1084,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/mɪˈsteɪk/",
                     "translation": "ошибка",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "There are two big mistakes in your story.",
                     "rating": 0,
                     "interval": 1,
@@ -1020,6 +1098,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˈklev.ər/",
                     "translation": "умный / сообразительный",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "Mia is a very clever girl with round glasses.",
                     "rating": 0,
                     "interval": 1,
@@ -1033,6 +1112,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˈdɜː.ti/",
                     "translation": "грязный",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "Your white sports shoes are not dirty.",
                     "rating": 0,
                     "interval": 1,
@@ -1046,6 +1126,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/desk/",
                     "translation": "парта / рабочий стол",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "A boy sits at his desk in the classroom.",
                     "rating": 0,
                     "interval": 1,
@@ -1059,6 +1140,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˈklɑːs.ruːm/",
                     "translation": "класс / кабинет",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "The teacher walks into the classroom.",
                     "rating": 0,
                     "interval": 1,
@@ -1072,6 +1154,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/kʌp/",
                     "translation": "кубок / чашка",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "The Silver Cup is ready for the school game.",
                     "rating": 0,
                     "interval": 1,
@@ -1085,6 +1168,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/saɪn/",
                     "translation": "табличка / знак / вывеска",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "The gate had a big red sign: Field Closed Today.",
                     "rating": 0,
                     "interval": 1,
@@ -1098,6 +1182,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˈbɪs.kɪt/",
                     "translation": "печенье",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "Ben smiles and eats a sweet biscuit.",
                     "rating": 0,
                     "interval": 1,
@@ -1111,6 +1196,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˈbɜːθ.deɪ/",
                     "translation": "день рождения",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "Marco made a big Pink Birthday Cake for a party.",
                     "rating": 0,
                     "interval": 1,
@@ -1124,6 +1210,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/keɪk/",
                     "translation": "торт / пирожное",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "A piece of chocolate cake is three pounds.",
                     "rating": 0,
                     "interval": 1,
@@ -1137,6 +1224,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˈmen.juː/",
                     "translation": "меню",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "She put the menus on the ten tables.",
                     "rating": 0,
                     "interval": 1,
@@ -1150,6 +1238,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/paʊnd/",
                     "translation": "фунт (деньги)",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "A cup of black coffee is two pounds.",
                     "rating": 0,
                     "interval": 1,
@@ -1163,6 +1252,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/peɪ/",
                     "translation": "платить / оплачивать",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "People can pay with cash or pay by card.",
                     "rating": 0,
                     "interval": 1,
@@ -1176,6 +1266,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/bæŋk/",
                     "translation": "банк",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "The town bank is closed on Saturday.",
                     "rating": 0,
                     "interval": 1,
@@ -1189,6 +1280,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˈsuː.pəˌmɑː.kɪt/",
                     "translation": "супермаркет",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "The school is opposite the big supermarket.",
                     "rating": 0,
                     "interval": 1,
@@ -1202,6 +1294,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/ˈɒp.ə.zɪt/",
                     "translation": "напротив",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "I walked across the street to the bank opposite the cafe.",
                     "rating": 0,
                     "interval": 1,
@@ -1215,6 +1308,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/tɜːn/",
                     "translation": "поворачивать / повернуть",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "You turn left at the bus stop and go past the park.",
                     "rating": 0,
                     "interval": 1,
@@ -1228,6 +1322,7 @@ const GENERAL_DECKS = {
                     "phonetic": "/sɒft/",
                     "translation": "мягкий / пышный",
                     "definition": "Detective & City (A1) • Story Vocabulary",
+                    "heroId": "detective",
                     "example": "Marco makes the best soft bread in the town.",
                     "rating": 0,
                     "interval": 1,
@@ -1394,15 +1489,27 @@ class FlashcardEngine {
                 const parsedSaved = JSON.parse(savedSrsRaw);
                 Object.keys(parsedSaved).forEach(cat => {
                     if (decks[cat]) {
-                        parsedSaved[cat].forEach((savedCard, idx) => {
-                            if (decks[cat][idx]) {
-                                decks[cat][idx].studied = savedCard.studied || false;
-                                decks[cat][idx].repetitions = savedCard.repetitions || 0;
-                                decks[cat][idx].interval = savedCard.interval || 1;
-                                decks[cat][idx].easeFactor = savedCard.easeFactor || 2.5;
-                                decks[cat][idx].nextReviewDate = savedCard.nextReviewDate || 0;
-                                decks[cat][idx].learningInSession = savedCard.learningInSession || false;
-                                if (savedCard.heroId) decks[cat][idx].heroId = savedCard.heroId;
+                        const localDeck = decks[cat];
+                        parsedSaved[cat].forEach(savedCard => {
+                            if (!savedCard || !savedCard.word) return;
+                            const target = localDeck.find(c => c && c.word && (
+                                c.word.toLowerCase() === savedCard.word.toLowerCase() ||
+                                (c.word === 'police' && savedCard.word === 'police / policeman') ||
+                                (c.word === 'police / policeman' && savedCard.word === 'police')
+                            ));
+                            if (target) {
+                                target.studied = savedCard.studied || target.studied;
+                                target.repetitions = typeof savedCard.repetitions === 'number' ? savedCard.repetitions : target.repetitions;
+                                target.interval = typeof savedCard.interval === 'number' ? savedCard.interval : target.interval;
+                                target.easeFactor = typeof savedCard.easeFactor === 'number' ? savedCard.easeFactor : target.easeFactor;
+                                target.nextReviewDate = savedCard.nextReviewDate || target.nextReviewDate;
+                                target.learningInSession = savedCard.learningInSession || false;
+                                if (savedCard.rating) target.rating = savedCard.rating;
+                                if (savedCard.heroId) target.heroId = savedCard.heroId;
+                                else if (cat.includes("Detective")) target.heroId = "detective";
+                            } else {
+                                if (cat.includes("Detective") && !savedCard.heroId) savedCard.heroId = "detective";
+                                localDeck.push(savedCard);
                             }
                         });
                     } else if (Array.isArray(parsedSaved[cat]) && cat !== "🧠 Due for SRS Review") {
@@ -1433,7 +1540,11 @@ class FlashcardEngine {
                 if (decks["🔍 Новые слова (Детектив)"]) {
                     const legacy = decks["🔍 Новые слова (Детектив)"];
                     legacy.forEach(lCard => {
-                        const target = deck.find(c => c.word && c.word.toLowerCase() === lCard.word.toLowerCase());
+                        const target = deck.find(c => c.word && (
+                            c.word.toLowerCase() === lCard.word.toLowerCase() ||
+                            (c.word === 'police' && lCard.word === 'police / policeman') ||
+                            (c.word === 'police / policeman' && lCard.word === 'police')
+                        ));
                         if (target) {
                             target.studied = lCard.studied || target.studied;
                             target.repetitions = Math.max(target.repetitions || 0, lCard.repetitions || 0);
@@ -1441,7 +1552,9 @@ class FlashcardEngine {
                             target.easeFactor = lCard.easeFactor || target.easeFactor;
                             target.nextReviewDate = lCard.nextReviewDate || target.nextReviewDate;
                             target.rating = lCard.rating || target.rating;
+                            target.heroId = "detective";
                         } else {
+                            lCard.heroId = "detective";
                             deck.push(lCard);
                         }
                     });
@@ -1450,7 +1563,11 @@ class FlashcardEngine {
 
                 NEW_WORDS_DATABASE.forEach(w => {
                     if (masteredIds.has(w.id)) {
-                        const existing = deck.find(c => c.word && c.word.toLowerCase() === w.word.toLowerCase());
+                        const existing = deck.find(c => c.word && (
+                            c.word.toLowerCase() === w.word.toLowerCase() ||
+                            (c.word === 'police' && w.word === 'police / policeman') ||
+                            (c.word === 'police / policeman' && w.word === 'police')
+                        ));
                         if (!existing) {
                             deck.push({
                                 word: w.word,
@@ -1469,6 +1586,13 @@ class FlashcardEngine {
                             });
                         } else {
                             existing.studied = true;
+                            existing.heroId = "detective";
+                            if (!existing.repetitions || existing.repetitions === 0) {
+                                existing.repetitions = 1;
+                            }
+                            if (!existing.interval || existing.interval === 0) {
+                                existing.interval = 1;
+                            }
                             if (!existing.nextReviewDate || existing.nextReviewDate === 0) {
                                 existing.nextReviewDate = Date.now() + 24 * 3600 * 1000;
                             }
@@ -1658,7 +1782,7 @@ class FlashcardEngine {
                 break;
             case 'hard':
                 card.repetitions = Math.max(1, card.repetitions);
-                card.interval = Math.max(1, Math.round(card.interval * 1.2));
+                card.interval = Math.max(card.interval + 1, Math.round(card.interval * 1.2));
                 card.easeFactor = Math.max(1.3, card.easeFactor - 0.15);
                 card.learningInSession = false;
                 card.nextReviewDate = Date.now() + (card.interval * oneDayMs);
@@ -1674,7 +1798,7 @@ class FlashcardEngine {
                 card.repetitions += 1;
                 if (card.repetitions === 1) card.interval = 1;
                 else if (card.repetitions === 2) card.interval = 6;
-                else card.interval = Math.round(card.interval * card.easeFactor);
+                else card.interval = Math.max(card.interval + 2, Math.round(card.interval * card.easeFactor));
                 card.easeFactor = Math.max(1.3, card.easeFactor);
                 card.learningInSession = false;
                 card.nextReviewDate = Date.now() + (card.interval * oneDayMs);
@@ -1692,8 +1816,8 @@ class FlashcardEngine {
                 if (card.repetitions === 1) card.interval = 4;
                 else if (card.repetitions === 2) card.interval = 10;
                 else {
-                    const baseGood = Math.round(card.interval * card.easeFactor);
-                    card.interval = Math.max(baseGood + 2, Math.round(card.interval * card.easeFactor * 1.3));
+                    const baseGood = Math.max(card.interval + 2, Math.round(card.interval * card.easeFactor));
+                    card.interval = Math.max(baseGood + 2, Math.round(card.interval * (card.easeFactor + 0.15) * 1.3));
                 }
                 card.learningInSession = false;
                 card.nextReviewDate = Date.now() + (card.interval * oneDayMs);

@@ -3064,6 +3064,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function getHeroIdFromCategory(catName) {
         if (!catName || catName === "🧠 Due for SRS Review") return null;
+        if (catName.includes("Detective") || catName.includes("City")) return "detective";
         const matchedHero = rpgEngine.heroes.find(h => catName.includes(h.name));
         return matchedHero ? matchedHero.id : null;
     }
@@ -3071,8 +3072,9 @@ document.addEventListener("DOMContentLoaded", () => {
     function getHeroIdForCard(card) {
         if (!card) return null;
         if (card.heroId) return card.heroId;
+        if (card.definition && (card.definition.includes("Detective") || card.definition.includes("Детектив") || card.definition.includes("Новые слова"))) return "detective";
         if (typeof HEROES_DATA !== 'undefined' && Array.isArray(HEROES_DATA)) {
-            const hero = HEROES_DATA.find(h => h.words && h.words.some(w => w[0] === card.word || w.word === card.word));
+            const hero = HEROES_DATA.find(h => h.words && h.words.some(w => (Array.isArray(w) ? w[0] : (w.word || w)) === card.word));
             if (hero) return hero.id;
         }
         return null;
@@ -4729,6 +4731,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 accentColor = "#06b6d4";
                 rankTag = "Tech";
                 avatarContent = `<i class="fa-solid fa-laptop-code" style="color:#06b6d4;"></i>`;
+            } else if (cat.includes("Detective")) {
+                heroName = "Detective & City";
+                accentColor = "#38bdf8";
+                rankTag = "A1";
+                avatarContent = `<i class="fa-solid fa-magnifying-glass" style="color:#38bdf8;"></i>`;
             }
 
             btn.className = `hero-deck-card-chip ${isActive ? 'active' : ''}`;
@@ -4854,7 +4861,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const cardHeroId = getHeroIdForCard(currentCard);
             const cardHeroObj = cardHeroId ? rpgEngine.heroes.find(h => h.id === cardHeroId) : null;
-            const heroTagLabel = cardHeroObj ? `${cardHeroObj.name} (${cardHeroObj.cefrLevel?.split(' ')[0] || 'A0'})` : (isSrsMode ? "SRS" : flashcardEngine.currentCategory.replace(" Pack", ""));
+            let heroTagLabel = isSrsMode ? "SRS" : flashcardEngine.currentCategory.replace(" Pack", "");
+            if (cardHeroObj) {
+                heroTagLabel = `${cardHeroObj.name} (${cardHeroObj.cefrLevel?.split(' ')[0] || 'A0'})`;
+            } else if (cardHeroId === "detective" || (currentCard.definition && (currentCard.definition.includes("Detective") || currentCard.definition.includes("Детектив") || currentCard.definition.includes("Новые слова")))) {
+                heroTagLabel = "Детектив (A1)";
+            }
             const nextReviewStr = formatTimeUntilReview(currentCard.nextReviewDate, currentCard.studied);
             const modeTag = isSrsMode ? `<span style="color:var(--heart); font-weight:700;">🧠 SRS</span>` : `<span style="color:var(--heart); font-weight:700;">П.${flashcardEngine.batchIndex + 1}</span>`;
 
@@ -4879,17 +4891,20 @@ document.addEventListener("DOMContentLoaded", () => {
             const curReps = currentCard.repetitions || 0;
             const isRelearning = !!currentCard.learningInSession || curReps === 0;
 
-            const hardDays = isRelearning ? 1 : Math.max(1, Math.round(curInterval * 1.2));
+            const hardDays = isRelearning ? 1 : Math.max(curInterval + 1, Math.round(curInterval * 1.2));
             
             let goodDays = 1;
             if (isRelearning || curReps + 1 === 1) goodDays = 1;
             else if (curReps + 1 === 2) goodDays = 6;
-            else goodDays = Math.round(curInterval * curEase);
+            else goodDays = Math.max(curInterval + 2, Math.round(curInterval * curEase));
 
             let easyDays = 4;
             if (isRelearning || curReps + 1 === 1) easyDays = 4;
             else if (curReps + 1 === 2) easyDays = 10;
-            else easyDays = Math.max(goodDays + 2, Math.round(curInterval * (curEase + 0.15) * 1.3));
+            else {
+                const baseGood = Math.max(curInterval + 2, Math.round(curInterval * curEase));
+                easyDays = Math.max(baseGood + 2, Math.round(curInterval * (curEase + 0.15) * 1.3));
+            }
 
             if (againBtn) againBtn.innerHTML = `<i class="fa-solid fa-xmark"></i> <span>Снова <kbd class="hotkey-badge font-mono">1</kbd></span> <small class="font-mono">&lt;10м</small>`;
             if (hardBtn) hardBtn.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> <span>Трудно <kbd class="hotkey-badge font-mono">2</kbd></span> <small class="font-mono">${hardDays}д</small>`;
