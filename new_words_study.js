@@ -841,6 +841,86 @@ const NEW_WORDS_DATABASE = [
         translation: "носить / переносить",
         exampleEn: "I carry the big bags to the trains.",
         exampleRu: "Я отношу большие сумки к поездам."
+    },
+    {
+        id: "guitar",
+        word: "guitar",
+        phonetic: "/ɡɪˈtɑːr/",
+        translation: "гитара",
+        exampleEn: "My brown guitar is not here!",
+        exampleRu: "Моей коричневой гитары здесь нет!"
+    },
+    {
+        id: "stage",
+        word: "stage",
+        phonetic: "/steɪdʒ/",
+        translation: "сцена",
+        exampleEn: "A young man in a blue shirt stands on the stage.",
+        exampleRu: "Молодой человек в синей рубашке стоит на сцене."
+    },
+    {
+        id: "lake",
+        word: "lake",
+        phonetic: "/leɪk/",
+        translation: "озеро",
+        exampleEn: "Near the park lake is a small brown stage.",
+        exampleRu: "Возле паркового озера находится небольшая деревянная сцена."
+    },
+    {
+        id: "paint",
+        word: "paint",
+        phonetic: "/peɪnt/",
+        translation: "краска / рисовать красками",
+        exampleEn: "She has green paint and blue paint on her table.",
+        exampleRu: "У неё на столе зелёная и синяя краска."
+    },
+    {
+        id: "picture",
+        word: "picture",
+        phonetic: "/ˈpɪk.tʃər/",
+        translation: "картина / рисунок",
+        exampleEn: "Look at my new picture of the park lake!",
+        exampleRu: "Посмотрите на мою новую картину паркового озера!"
+    },
+    {
+        id: "summer",
+        word: "summer",
+        phonetic: "/ˈsʌm.ər/",
+        translation: "лето",
+        exampleEn: "In summer, the weather is warm.",
+        exampleRu: "Летом погода тёплая."
+    },
+    {
+        id: "thirsty",
+        word: "thirsty",
+        phonetic: "/ˈθɜː.sti/",
+        translation: "испытывающий жажду / хотящий пить",
+        exampleEn: "Everyone in the park is hot and thirsty.",
+        exampleRu: "Каждому в парке жарко и хочется пить."
+    },
+    {
+        id: "arm",
+        word: "arm",
+        phonetic: "/ɑːm/",
+        translation: "рука (от плеча до кисти)",
+        exampleEn: "Look at my right arm and my right hand!",
+        exampleRu: "Посмотрите на мою правую руку и кисть!"
+    },
+    {
+        id: "catch",
+        word: "catch",
+        phonetic: "/kætʃ/",
+        translation: "ловить / поймать",
+        exampleEn: "Catch the ball, Nick!",
+        exampleRu: "Лови мяч, Ник!"
+    },
+    {
+        id: "tired",
+        word: "tired",
+        phonetic: "/ˈtaɪəd/",
+        translation: "уставший / утомлённый",
+        exampleEn: "My legs and my back were very tired!",
+        exampleRu: "Мои ноги и спина очень устали!"
     }
 ];
 
@@ -1065,6 +1145,13 @@ class NewWordsStudyEngine {
                     (c.word === 'police / policeman' && w.word === 'police')
                 ));
                 if (!existing) {
+                    const otherCard = fe.getCardByWord(w.word);
+                    const initStudied = true;
+                    const initRepetitions = (otherCard && otherCard.studied) ? (otherCard.repetitions || 1) : 1;
+                    const initInterval = (otherCard && otherCard.studied) ? (otherCard.interval || 1) : 1;
+                    const initEase = (otherCard && otherCard.studied) ? (otherCard.easeFactor || 2.5) : 2.5;
+                    const initNextReview = (otherCard && otherCard.studied && otherCard.nextReviewDate) ? otherCard.nextReviewDate : (Date.now() + 24 * 3600 * 1000);
+
                     deck.push({
                         word: w.word,
                         phonetic: w.phonetic,
@@ -1073,11 +1160,11 @@ class NewWordsStudyEngine {
                         example: w.exampleEn,
                         heroId: "detective",
                         rating: 3,
-                        interval: 1,
-                        easeFactor: 2.5,
-                        repetitions: 1,
-                        nextReviewDate: Date.now() + 24 * 3600 * 1000,
-                        studied: true,
+                        interval: initInterval,
+                        easeFactor: initEase,
+                        repetitions: initRepetitions,
+                        nextReviewDate: initNextReview,
+                        studied: initStudied,
                         learningInSession: false
                     });
                     changed = true;
@@ -1107,6 +1194,7 @@ class NewWordsStudyEngine {
         });
 
         if (changed) {
+            fe.syncDuplicateWords();
             fe.saveDecks();
             fe.refreshDueCards();
             if (typeof window.updateVocabUI === 'function') {
@@ -1140,6 +1228,13 @@ class NewWordsStudyEngine {
                 (c.word === 'police / policeman' && w.word === 'police')
             ));
             if (!existing) {
+                const otherCard = fe.getCardByWord(w.word);
+                const initStudied = true;
+                const initRepetitions = (otherCard && otherCard.studied) ? (otherCard.repetitions || 1) : 1;
+                const initInterval = (otherCard && otherCard.studied) ? (otherCard.interval || 1) : 1;
+                const initEase = (otherCard && otherCard.studied) ? (otherCard.easeFactor || 2.5) : 2.5;
+                const initNextReview = (otherCard && otherCard.studied && otherCard.nextReviewDate) ? otherCard.nextReviewDate : (Date.now() + 24 * 3600 * 1000);
+
                 deck.push({
                     word: w.word,
                     phonetic: w.phonetic,
@@ -1148,11 +1243,11 @@ class NewWordsStudyEngine {
                     example: w.exampleEn,
                     heroId: "detective",
                     rating: 3,
-                    interval: 1,
-                    easeFactor: 2.5,
-                    repetitions: 1,
-                    nextReviewDate: Date.now() + 24 * 3600 * 1000, // Due in 1 day for SRS review
-                    studied: true,
+                    interval: initInterval,
+                    easeFactor: initEase,
+                    repetitions: initRepetitions,
+                    nextReviewDate: initNextReview,
+                    studied: initStudied,
                     learningInSession: false
                 });
                 addedCount++;
@@ -1167,6 +1262,7 @@ class NewWordsStudyEngine {
             }
         });
 
+        fe.syncDuplicateWords();
         fe.saveDecks();
         fe.refreshDueCards();
 

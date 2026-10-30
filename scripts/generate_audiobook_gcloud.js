@@ -179,6 +179,31 @@ const CAST = {
         voice: 'en-US-Neural2-D', // Mr. Walter (70-year-old kind grandfather)
         pitch: '-3st',
         rate: '0.88'
+    },
+    tom: {
+        voice: 'en-US-Neural2-I', // Tom Rivers (young singer, warm tenor)
+        pitch: '+1st',
+        rate: '0.94'
+    },
+    sophie: {
+        voice: 'en-US-Neural2-F', // Sophie (young painter, gentle, pleasant)
+        pitch: '+2st',
+        rate: '0.96'
+    },
+    paul: {
+        voice: 'en-US-Neural2-D', // Paul (ice cream seller, friendly, jovial)
+        pitch: '-2st',
+        rate: '0.90'
+    },
+    nick: {
+        voice: 'en-US-Neural2-A', // Nick (sports coach, energetic, athletic)
+        pitch: '+0.5st',
+        rate: '0.96'
+    },
+    lucy: {
+        voice: 'en-US-Neural2-F', // Lucy (park worker, warm, mature)
+        pitch: '+1st',
+        rate: '0.92'
     }
 };
 

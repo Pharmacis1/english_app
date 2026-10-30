@@ -10217,6 +10217,2210 @@ const ELDRIN_AUDIOBOOK = {
 		}
 	],
 	"wordCount": 535
+},
+{
+	"id": "spec5-ch-1",
+	"number": 501,
+	"act": 9,
+	"titleEn": "Special Case 5 (Part 1): Music Day in Oakwood Park",
+	"titleRu": "Спецдело 5 (Часть 1): День музыки в парке Оквуда",
+	"synopsisEn": "On Sunday afternoon in Oakwood Park, Leo Vance and Lucas attend Music Day. Singer Tom Rivers is in panic: his brown guitar in its black bag has vanished from the chair behind the stage!",
+	"synopsisRu": "В воскресенье днём в парке Оквуда Лео Вэнс и Лукас приходят на День музыки. Певец Том Риверс в панике: его коричневая гитара в чёрном чехле пропала со стула за сценой!",
+	"targetLevel": "CEFR A1",
+	"coverIcon": "fa-guitar",
+	"coverColor": "#f97316",
+	"sentences": [
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">It is Sunday afternoon.</prosody></speak>",
+			"en": "It is Sunday afternoon.",
+			"ru": "Воскресный день."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The time is half past two.</prosody></speak>",
+			"en": "The time is half past two.",
+			"ru": "Время — половина третьего."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Today is Music Day in Oakwood Park.</prosody></speak>",
+			"en": "Today is Music Day in Oakwood Park.",
+			"ru": "Сегодня в парке Оквуда День музыки."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The park is big, green, and beautiful.</prosody></speak>",
+			"en": "The park is big, green, and beautiful.",
+			"ru": "Парк большой, зелёный и красивый."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Many families and children are sitting on the grass.</prosody></speak>",
+			"en": "Many families and children are sitting on the grass.",
+			"ru": "Много семей и детей сидят на траве."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo Vance walks in the park with his classmate, Lucas.</prosody></speak>",
+			"en": "Leo Vance walks in the park with his classmate, Lucas.",
+			"ru": "Лео Вэнс гуляет в парке со своим одноклассником Лукасом."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo has his small blue notebook in his bag.</prosody></speak>",
+			"en": "Leo has his small blue notebook in his bag.",
+			"ru": "У Лео в сумке лежит его маленькая синяя записная книжка."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Lucas has a small yellow ball in his hand.</prosody></speak>",
+			"en": "Lucas has a small yellow ball in his hand.",
+			"ru": "У Лукаса в руке маленький жёлтый мяч."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Near the park lake is a small brown stage.</prosody></speak>",
+			"en": "Near the park lake is a small brown stage.",
+			"ru": "Возле паркового озера находится небольшая деревянная сцена."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">A young man in a blue shirt stands on the stage.</prosody></speak>",
+			"en": "A young man in a blue shirt stands on the stage.",
+			"ru": "Молодой человек в синей рубашке стоит на сцене."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">His name is Tom Rivers.</prosody></speak>",
+			"en": "His name is Tom Rivers.",
+			"ru": "Его зовут Том Риверс."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He is a famous singer in Oakwood Town.</prosody></speak>",
+			"en": "He is a famous singer in Oakwood Town.",
+			"ru": "Он известный певец в городке Оквуд."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Tom looks very sad and afraid.</prosody></speak>",
+			"en": "Tom looks very sad and afraid.",
+			"ru": "Том выглядит очень грустным и испуганным."
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Hello, Tom!</prosody></speak>",
+			"en": "Hello, Tom!",
+			"ru": "Привет, Том!"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">We are here for your music show!</prosody></speak>",
+			"en": "We are here for your music show!",
+			"ru": "Мы пришли на твоё музыкальное шоу!"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Why do you look so sad?</prosody></speak>",
+			"en": "Why do you look so sad?",
+			"ru": "Почему ты выглядишь таким грустным?"
+		},
+		{
+			"speaker": "tom",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">Hello, Leo.</prosody></speak>",
+			"en": "Hello, Leo.",
+			"ru": "Привет, Лео."
+		},
+		{
+			"speaker": "tom",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">Hello, Lucas.</prosody></speak>",
+			"en": "Hello, Lucas.",
+			"ru": "Привет, Лукас."
+		},
+		{
+			"speaker": "tom",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">We have a big problem!</prosody></speak>",
+			"en": "We have a big problem!",
+			"ru": "У нас большая проблема!"
+		},
+		{
+			"speaker": "tom",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">My brown guitar is not here!</prosody></speak>",
+			"en": "My brown guitar is not here!",
+			"ru": "Моей коричневой гитары здесь нет!"
+		},
+		{
+			"speaker": "lucas",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">Your guitar is not here?</prosody></speak>",
+			"en": "Your guitar is not here?",
+			"ru": "Твоей гитары здесь нет?"
+		},
+		{
+			"speaker": "lucas",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">Where was it, Tom?</prosody></speak>",
+			"en": "Where was it, Tom?",
+			"ru": "Где же она была, Том?"
+		},
+		{
+			"speaker": "tom",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">At one o'clock, I played three songs on this stage.</prosody></speak>",
+			"en": "At one o'clock, I played three songs on this stage.",
+			"ru": "В час дня я сыграл три песни на этой сцене."
+		},
+		{
+			"speaker": "tom",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">At two o'clock, I was hot and tired.</prosody></speak>",
+			"en": "At two o'clock, I was hot and tired.",
+			"ru": "В два часа мне было жарко и я устал."
+		},
+		{
+			"speaker": "tom",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">I put my brown guitar in its black bag.</prosody></speak>",
+			"en": "I put my brown guitar in its black bag.",
+			"ru": "Я убрал свою коричневую гитару в её чёрный чехол."
+		},
+		{
+			"speaker": "tom",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">I put the bag on that chair behind the stage.</prosody></speak>",
+			"en": "I put the bag on that chair behind the stage.",
+			"ru": "Я положил чехол на тот стул позади сцены."
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Where did you go at two o'clock?</prosody></speak>",
+			"en": "Where did you go at two o'clock?",
+			"ru": "Куда ты ушёл в два часа?"
+		},
+		{
+			"speaker": "tom",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">I walked to the park toilet to wash my face and hands.</prosody></speak>",
+			"en": "I walked to the park toilet to wash my face and hands.",
+			"ru": "Я пошёл в туалет парка умыть лицо и руки."
+		},
+		{
+			"speaker": "tom",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">I came back at half past two.</prosody></speak>",
+			"en": "I came back at half past two.",
+			"ru": "Я вернулся в половине третьего."
+		},
+		{
+			"speaker": "tom",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">Look at the chair!</prosody></speak>",
+			"en": "Look at the chair!",
+			"ru": "Посмотри на стул!"
+		},
+		{
+			"speaker": "tom",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">My guitar is gone!</prosody></speak>",
+			"en": "My guitar is gone!",
+			"ru": "Моя гитара пропала!"
+		},
+		{
+			"speaker": "lucas",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">When is your next song, Tom?</prosody></speak>",
+			"en": "When is your next song, Tom?",
+			"ru": "Когда твоя следующая песня, Том?"
+		},
+		{
+			"speaker": "tom",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">At three o'clock!</prosody></speak>",
+			"en": "At three o'clock!",
+			"ru": "В три часа!"
+		},
+		{
+			"speaker": "tom",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">I have only thirty minutes!</prosody></speak>",
+			"en": "I have only thirty minutes!",
+			"ru": "У меня осталось всего тридцать минут!"
+		},
+		{
+			"speaker": "tom",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">I need my guitar to sing!</prosody></speak>",
+			"en": "I need my guitar to sing!",
+			"ru": "Мне нужна гитара, чтобы петь!"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Do not be afraid, Tom.</prosody></speak>",
+			"en": "Do not be afraid, Tom.",
+			"ru": "Не бойся, Том."
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Lucas and I can help you.</prosody></speak>",
+			"en": "Lucas and I can help you.",
+			"ru": "Мы с Лукасом можем помочь тебе."
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Who was near the stage between two o'clock and half past two?</prosody></speak>",
+			"en": "Who was near the stage between two o'clock and half past two?",
+			"ru": "Кто был возле сцены между двумя часами и половиной третьего?"
+		},
+		{
+			"speaker": "tom",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">I saw three people near the stage.</prosody></speak>",
+			"en": "I saw three people near the stage.",
+			"ru": "Я видел трёх человек возле сцены."
+		},
+		{
+			"speaker": "tom",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">First, Sophie, the girl who paints pictures.</prosody></speak>",
+			"en": "First, Sophie, the girl who paints pictures.",
+			"ru": "Во-первых, Софи, девушку, которая пишет картины."
+		},
+		{
+			"speaker": "tom",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">Paul, the ice cream seller.</prosody></speak>",
+			"en": "Paul, the ice cream seller.",
+			"ru": "Пола, продавца мороженого."
+		},
+		{
+			"speaker": "tom",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">And Nick, the running teacher.</prosody></speak>",
+			"en": "And Nick, the running teacher.",
+			"ru": "И Ника, учителя по бегу."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo opens his blue notebook.</prosody></speak>",
+			"en": "Leo opens his blue notebook.",
+			"ru": "Лео открывает свою синюю записную книжку."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He and Lucas go to ask questions.</prosody></speak>",
+			"en": "He and Lucas go to ask questions.",
+			"ru": "Он и Лукас идут задавать вопросы."
+		}
+	],
+	"quiz": [
+		{
+			"question": "What event was taking place in Oakwood Park?",
+			"questionRu": "Какое событие проходило в парке Оквуда?",
+			"options": [
+				"Music Day in Oakwood Park",
+				"A big school football match",
+				"A birthday party at the cafe",
+				"A train exhibition at the station"
+			],
+			"correctIdx": 0
+		},
+		{
+			"question": "Where did Tom put his guitar at two o'clock?",
+			"questionRu": "Куда Том положил гитару в два часа?",
+			"options": [
+				"In a black bag on a chair behind the stage",
+				"Inside his blue car",
+				"In the ice cream shop",
+				"Under a tree near the lake"
+			],
+			"correctIdx": 0
+		},
+		{
+			"question": "How much time does Tom have before his next song at 3:00?",
+			"questionRu": "Сколько времени у Тома до следующей песни в 3:00?",
+			"options": [
+				"Only thirty minutes",
+				"Two hours",
+				"Five minutes",
+				"One whole day"
+			],
+			"correctIdx": 0
+		}
+	],
+	"wordCount": 289
+},
+{
+	"id": "spec5-ch-2",
+	"number": 502,
+	"act": 9,
+	"titleEn": "Special Case 5 (Part 2): The First Person — Sophie the Painter",
+	"titleRu": "Спецдело 5 (Часть 2): Первый свидетель — Софи, художница",
+	"synopsisEn": "Leo and Lucas question Sophie under the big tree. She reveals that Nick was by the stage at ten past two, and when sudden rain started at 2:15, park worker Lucy was seen near the stage.",
+	"synopsisRu": "Лео и Лукас опрашивают Софи под большим деревом. Она рассказывает, что Ник стоял у сцены в 2:10, а когда в 2:15 закапал дождь, возле сцены заметили служащую парка Люси.",
+	"targetLevel": "CEFR A1",
+	"coverIcon": "fa-palette",
+	"coverColor": "#ec4899",
+	"sentences": [
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo and Lucas walk to a big tree near the lake.</prosody></speak>",
+			"en": "Leo and Lucas walk to a big tree near the lake.",
+			"ru": "Лео и Лукас подходят к большому дереву возле озера."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">A young woman in a yellow dress sits on a small chair.</prosody></speak>",
+			"en": "A young woman in a yellow dress sits on a small chair.",
+			"ru": "Молодая женщина в жёлтом платье сидит на маленьком стуле."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Her name is Sophie.</prosody></speak>",
+			"en": "Her name is Sophie.",
+			"ru": "Её зовут Софи."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">She has green paint and blue paint on her table.</prosody></speak>",
+			"en": "She has green paint and blue paint on her table.",
+			"ru": "У неё на столе зелёная и синяя краска."
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Good afternoon, Sophie.</prosody></speak>",
+			"en": "Good afternoon, Sophie.",
+			"ru": "Добрый день, Софи."
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Can we ask you some questions?</prosody></speak>",
+			"en": "Can we ask you some questions?",
+			"ru": "Можем мы задать тебе несколько вопросов?"
+		},
+		{
+			"speaker": "sophie",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">Good afternoon, boys!</prosody></speak>",
+			"en": "Good afternoon, boys!",
+			"ru": "Добрый день, мальчики!"
+		},
+		{
+			"speaker": "sophie",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">Yes, of course.</prosody></speak>",
+			"en": "Yes, of course.",
+			"ru": "Да, конечно."
+		},
+		{
+			"speaker": "sophie",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">Look at my new picture of the park lake!</prosody></speak>",
+			"en": "Look at my new picture of the park lake!",
+			"ru": "Посмотрите на мою новую картину паркового озера!"
+		},
+		{
+			"speaker": "lucas",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">It is very nice, Sophie!</prosody></speak>",
+			"en": "It is very nice, Sophie!",
+			"ru": "Она очень красивая, Софи!"
+		},
+		{
+			"speaker": "lucas",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">Do you come to Oakwood Park every Sunday?</prosody></speak>",
+			"en": "Do you come to Oakwood Park every Sunday?",
+			"ru": "Ты приходишь в парк Оквуда каждое воскресенье?"
+		},
+		{
+			"speaker": "sophie",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">Yes, I do!</prosody></speak>",
+			"en": "Yes, I do!",
+			"ru": "Да!"
+		},
+		{
+			"speaker": "sophie",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">I love free time on Sunday.</prosody></speak>",
+			"en": "I love free time on Sunday.",
+			"ru": "Я люблю свободное время в воскресенье."
+		},
+		{
+			"speaker": "sophie",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">In my free time, I have many hobbies.</prosody></speak>",
+			"en": "In my free time, I have many hobbies.",
+			"ru": "В свободное время у меня много увлечений."
+		},
+		{
+			"speaker": "sophie",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">On Saturday, I read books at home.</prosody></speak>",
+			"en": "On Saturday, I read books at home.",
+			"ru": "В субботу я читаю книги дома."
+		},
+		{
+			"speaker": "sophie",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">Or I take photos with my camera.</prosody></speak>",
+			"en": "Or I take photos with my camera.",
+			"ru": "Или делаю фотографии на свой фотоаппарат."
+		},
+		{
+			"speaker": "sophie",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">On Sunday, I come to the park.</prosody></speak>",
+			"en": "On Sunday, I come to the park.",
+			"ru": "В воскресенье я прихожу в парк."
+		},
+		{
+			"speaker": "sophie",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">I listen to music and watch people dance.</prosody></speak>",
+			"en": "I listen to music and watch people dance.",
+			"ru": "Я слушаю музыку и смотрю, как люди танцуют."
+		},
+		{
+			"speaker": "sophie",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">I also paint pictures of trees and ducks.</prosody></speak>",
+			"en": "I also paint pictures of trees and ducks.",
+			"ru": "Ещё я рисую красками деревья и уток."
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Were you here between two o'clock and half past two today?</prosody></speak>",
+			"en": "Were you here between two o'clock and half past two today?",
+			"ru": "Ты была здесь сегодня между двумя часами и половиной третьего?"
+		},
+		{
+			"speaker": "sophie",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">Yes, I was right here under this tree.</prosody></speak>",
+			"en": "Yes, I was right here under this tree.",
+			"ru": "Да, я была прямо здесь, под этим деревом."
+		},
+		{
+			"speaker": "sophie",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">At two o'clock, Tom stopped singing.</prosody></speak>",
+			"en": "At two o'clock, Tom stopped singing.",
+			"ru": "В два часа Том закончил петь."
+		},
+		{
+			"speaker": "sophie",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">He put his black guitar bag on the chair behind the stage.</prosody></speak>",
+			"en": "He put his black guitar bag on the chair behind the stage.",
+			"ru": "Он положил свой чёрный чехол с гитарой на стул за сценой."
+		},
+		{
+			"speaker": "lucas",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">Did you see any people near the stage after two o'clock?</prosody></speak>",
+			"en": "Did you see any people near the stage after two o'clock?",
+			"ru": "Видела ли ты людей возле сцены после двух часов?"
+		},
+		{
+			"speaker": "sophie",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">Yes!</prosody></speak>",
+			"en": "Yes!",
+			"ru": "Да!"
+		},
+		{
+			"speaker": "sophie",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">At ten past two, I saw Nick, the running teacher.</prosody></speak>",
+			"en": "At ten past two, I saw Nick, the running teacher.",
+			"ru": "В десять минут третьего я видела Ника, учителя по бегу."
+		},
+		{
+			"speaker": "sophie",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">He stood right next to the stage!</prosody></speak>",
+			"en": "He stood right next to the stage!",
+			"ru": "Он стоял прямо рядом со сценой!"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Did you see other people?</prosody></speak>",
+			"en": "Did you see other people?",
+			"ru": "Видела ли ты других людей?"
+		},
+		{
+			"speaker": "sophie",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">Well, at quarter past two, the sky was dark grey.</prosody></speak>",
+			"en": "Well, at quarter past two, the sky was dark grey.",
+			"ru": "Ну, в четверть третьего небо стало тёмно-серым."
+		},
+		{
+			"speaker": "sophie",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">A cold wind started.</prosody></speak>",
+			"en": "A cold wind started.",
+			"ru": "Поднялся холодный ветер."
+		},
+		{
+			"speaker": "sophie",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">A little rain fell from the sky!</prosody></speak>",
+			"en": "A little rain fell from the sky!",
+			"ru": "С неба закапал небольшой дождь!"
+		},
+		{
+			"speaker": "sophie",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">I put my big bag over my picture.</prosody></speak>",
+			"en": "I put my big bag over my picture.",
+			"ru": "Я накрыла картину своей большой сумкой."
+		},
+		{
+			"speaker": "sophie",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">Then I looked at the stage again.</prosody></speak>",
+			"en": "Then I looked at the stage again.",
+			"ru": "Затем я снова посмотрела на сцену."
+		},
+		{
+			"speaker": "sophie",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">I saw Lucy, the park worker in the green hat.</prosody></speak>",
+			"en": "I saw Lucy, the park worker in the green hat.",
+			"ru": "Я увидела Люси, служащую парка в зелёной шляпе."
+		},
+		{
+			"speaker": "sophie",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">She walked away from the stage!</prosody></speak>",
+			"en": "She walked away from the stage!",
+			"ru": "Она уходила прочь от сцены!"
+		},
+		{
+			"speaker": "lucas",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">Did Lucy have the black guitar bag?</prosody></speak>",
+			"en": "Did Lucy have the black guitar bag?",
+			"ru": "Был ли у Люси чёрный чехол с гитарой?"
+		},
+		{
+			"speaker": "sophie",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">I do not know!</prosody></speak>",
+			"en": "I do not know!",
+			"ru": "Я не знаю!"
+		},
+		{
+			"speaker": "sophie",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">The trees were between us, and I looked down at my paint.</prosody></speak>",
+			"en": "The trees were between us, and I looked down at my paint.",
+			"ru": "Между нами были деревья, и я смотрела вниз на свои краски."
+		},
+		{
+			"speaker": "sophie",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">After five minutes, the clouds went away.</prosody></speak>",
+			"en": "After five minutes, the clouds went away.",
+			"ru": "Через пять минут тучи ушли."
+		},
+		{
+			"speaker": "sophie",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">The sun came out again.</prosody></speak>",
+			"en": "The sun came out again.",
+			"ru": "Снова выглянуло солнце."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo writes in his blue notebook:</prosody></speak>",
+			"en": "Leo writes in his blue notebook:",
+			"ru": "Лео записывает в своём синем блокноте:"
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Sophie saw Nick at ten past two. Rain fell at quarter past two. Lucy was there, too.</prosody></speak>",
+			"en": "Sophie saw Nick at ten past two. Rain fell at quarter past two. Lucy was there, too.",
+			"ru": "Софи видела Ника в 2:10. В 2:15 пошёл дождь. Люси тоже была там."
+		}
+	],
+	"quiz": [
+		{
+			"question": "What was Sophie doing under the big tree?",
+			"questionRu": "Что делала Софи под большим деревом?",
+			"options": [
+				"Painting pictures of the park lake, trees, and ducks",
+				"Selling ice cream and cold water",
+				"Singing songs with a guitar",
+				"Running ten kilometres"
+			],
+			"correctIdx": 0
+		},
+		{
+			"question": "What happened to the weather at quarter past two?",
+			"questionRu": "Что произошло с погодой в четверть третьего?",
+			"options": [
+				"The sky turned dark grey and a little rain fell",
+				"It became very hot and sunny",
+				"A big snowstorm started",
+				"The wind blew Tom's stage away"
+			],
+			"correctIdx": 0
+		},
+		{
+			"question": "Whom did Sophie see walking away from the stage during the rain?",
+			"questionRu": "Кого Софи увидела уходящей от сцены во время дождя?",
+			"options": [
+				"Lucy, the park worker in the green hat",
+				"Paul with an ice cream cart",
+				"Inspector Vance in a grey suit",
+				"Mr. Davis from school"
+			],
+			"correctIdx": 0
+		}
+	],
+	"wordCount": 309
+},
+{
+	"id": "spec5-ch-3",
+	"number": 503,
+	"act": 9,
+	"titleEn": "Special Case 5 (Part 3): The Second Person — Paul the Ice Cream Seller",
+	"titleRu": "Спецдело 5 (Часть 3): Второй свидетель — Пол, продавец мороженого",
+	"synopsisEn": "Leo and Lucas visit Paul at the park gate. Paul was busy selling treats in the hot summer, but confirms Nick came at 2:12 and carried a heavy box of apples in his right hand!",
+	"synopsisRu": "Лео и Лукас навещают Пола у ворот парка. Пол был занят продажей сладостей жарким летом, но подтверждает, что Ник приходил в 2:12 и нёс тяжёлый ящик яблок в правой руке!",
+	"targetLevel": "CEFR A1",
+	"coverIcon": "fa-ice-cream",
+	"coverColor": "#06b6d4",
+	"sentences": [
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Next, Leo and Lucas walk to the park gate.</prosody></speak>",
+			"en": "Next, Leo and Lucas walk to the park gate.",
+			"ru": "Затем Лео и Лукас идут к воротам парка."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Near the gate is a small white ice cream shop.</prosody></speak>",
+			"en": "Near the gate is a small white ice cream shop.",
+			"ru": "Возле ворот стоит маленький белый ларёк с мороженым."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">A fat, happy man in a white hat stands at the shop.</prosody></speak>",
+			"en": "A fat, happy man in a white hat stands at the shop.",
+			"ru": "У ларька стоит упитанный, весёлый мужчина в белой шляпе."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">His name is Paul.</prosody></speak>",
+			"en": "His name is Paul.",
+			"ru": "Его зовут Пол."
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Hello, Paul!</prosody></speak>",
+			"en": "Hello, Paul!",
+			"ru": "Привет, Пол!"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">How is your day today?</prosody></speak>",
+			"en": "How is your day today?",
+			"ru": "Как проходит твой день?"
+		},
+		{
+			"speaker": "paul",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">Hello, Leo!</prosody></speak>",
+			"en": "Hello, Leo!",
+			"ru": "Привет, Лео!"
+		},
+		{
+			"speaker": "paul",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">Hello, Lucas!</prosody></speak>",
+			"en": "Hello, Lucas!",
+			"ru": "Привет, Лукас!"
+		},
+		{
+			"speaker": "paul",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">Today is a great day!</prosody></speak>",
+			"en": "Today is a great day!",
+			"ru": "Сегодня отличный день!"
+		},
+		{
+			"speaker": "paul",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">In summer, the weather is warm.</prosody></speak>",
+			"en": "In summer, the weather is warm.",
+			"ru": "Летом погода тёплая."
+		},
+		{
+			"speaker": "paul",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">Everyone in the park is hot and thirsty.</prosody></speak>",
+			"en": "Everyone in the park is hot and thirsty.",
+			"ru": "Каждому в парке жарко и хочется пить."
+		},
+		{
+			"speaker": "paul",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">They all want cold food and cold drinks!</prosody></speak>",
+			"en": "They all want cold food and cold drinks!",
+			"ru": "Все хотят холодной еды и прохладительных напитков!"
+		},
+		{
+			"speaker": "lucas",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">What do people buy at your shop, Paul?</prosody></speak>",
+			"en": "What do people buy at your shop, Paul?",
+			"ru": "Что люди покупают в твоём ларьке, Пол?"
+		},
+		{
+			"speaker": "paul",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">Children love sweet chocolate ice cream and yellow banana ice cream.</prosody></speak>",
+			"en": "Children love sweet chocolate ice cream and yellow banana ice cream.",
+			"ru": "Дети любят сладкое шоколадное мороженое и жёлтое банановое мороженое."
+		},
+		{
+			"speaker": "paul",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">One ice cream is two pounds.</prosody></speak>",
+			"en": "One ice cream is two pounds.",
+			"ru": "Одно мороженое стоит два фунта."
+		},
+		{
+			"speaker": "paul",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">Old people like cold water or apple juice.</prosody></speak>",
+			"en": "Old people like cold water or apple juice.",
+			"ru": "Пожилые люди любят холодную воду или яблочный сок."
+		},
+		{
+			"speaker": "paul",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">And people who play sports buy red apples and bananas.</prosody></speak>",
+			"en": "And people who play sports buy red apples and bananas.",
+			"ru": "А спортсмены покупают красные яблоки и бананы."
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Paul, Tom's guitar is not on the stage.</prosody></speak>",
+			"en": "Paul, Tom's guitar is not on the stage.",
+			"ru": "Пол, гитары Тома нет на сцене."
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Did you see the stage between two o'clock and half past two?</prosody></speak>",
+			"en": "Did you see the stage between two o'clock and half past two?",
+			"ru": "Ты видел сцену между двумя часами и половиной третьего?"
+		},
+		{
+			"speaker": "paul",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">No, boys.</prosody></speak>",
+			"en": "No, boys.",
+			"ru": "Нет, ребята."
+		},
+		{
+			"speaker": "paul",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">The stage is far from my shop.</prosody></speak>",
+			"en": "The stage is far from my shop.",
+			"ru": "Сцена далеко от моего ларька."
+		},
+		{
+			"speaker": "paul",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">I was very busy here.</prosody></speak>",
+			"en": "I was very busy here.",
+			"ru": "Я был очень занят здесь."
+		},
+		{
+			"speaker": "paul",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">Fifteen children came here between two and half past two.</prosody></speak>",
+			"en": "Fifteen children came here between two and half past two.",
+			"ru": "Пятнадцать детей пришли сюда между двумя и половиной третьего."
+		},
+		{
+			"speaker": "paul",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">They bought ice cream from me.</prosody></speak>",
+			"en": "They bought ice cream from me.",
+			"ru": "Они покупали у меня мороженое."
+		},
+		{
+			"speaker": "lucas",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">Did you see Nick, the running teacher, today?</prosody></speak>",
+			"en": "Did you see Nick, the running teacher, today?",
+			"ru": "Видел ли ты Ника, учителя по бегу, сегодня?"
+		},
+		{
+			"speaker": "paul",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">Nick?</prosody></speak>",
+			"en": "Nick?",
+			"ru": "Ника?"
+		},
+		{
+			"speaker": "paul",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">Oh, yes!</prosody></speak>",
+			"en": "Oh, yes!",
+			"ru": "О да!"
+		},
+		{
+			"speaker": "paul",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">Nick came to my shop at twelve minutes past two!</prosody></speak>",
+			"en": "Nick came to my shop at twelve minutes past two!",
+			"ru": "Ник пришёл в мой ларёк в двенадцать минут третьего!"
+		},
+		{
+			"speaker": "paul",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">He was very thirsty after his morning run.</prosody></speak>",
+			"en": "He was very thirsty after his morning run.",
+			"ru": "Он очень хотел пить после утренней пробежки."
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">What did Nick buy from you?</prosody></speak>",
+			"en": "What did Nick buy from you?",
+			"ru": "Что Ник купил у тебя?"
+		},
+		{
+			"speaker": "paul",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">He bought two big bottles of cold water.</prosody></speak>",
+			"en": "He bought two big bottles of cold water.",
+			"ru": "Он купил две большие бутылки холодной воды."
+		},
+		{
+			"speaker": "paul",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">And he bought a big box of red apples.</prosody></speak>",
+			"en": "And he bought a big box of red apples.",
+			"ru": "И он купил большой ящик красных яблок."
+		},
+		{
+			"speaker": "paul",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">That box of apples was very heavy!</prosody></speak>",
+			"en": "That box of apples was very heavy!",
+			"ru": "Тот ящик яблок был очень тяжёлым!"
+		},
+		{
+			"speaker": "lucas",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">How did Nick carry the big box and the water, Paul?</prosody></speak>",
+			"en": "How did Nick carry the big box and the water, Paul?",
+			"ru": "Как Ник нёс большой ящик и воду, Пол?"
+		},
+		{
+			"speaker": "paul",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">He put the water bottles in his left hand.</prosody></speak>",
+			"en": "He put the water bottles in his left hand.",
+			"ru": "Он взял бутылки с водой в левую руку."
+		},
+		{
+			"speaker": "paul",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">And he carried the heavy box of apples in his right hand!</prosody></speak>",
+			"en": "And he carried the heavy box of apples in his right hand!",
+			"ru": "А тяжёлый ящик яблок он нёс в правой руке!"
+		},
+		{
+			"speaker": "paul",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">Then he walked fast to the car park.</prosody></speak>",
+			"en": "Then he walked fast to the car park.",
+			"ru": "Затем он быстро пошёл к автостоянке."
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">He carried the heavy box in his right hand?</prosody></speak>",
+			"en": "He carried the heavy box in his right hand?",
+			"ru": "Он нёс тяжёлый ящик в правой руке?"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Are you sure, Paul?</prosody></speak>",
+			"en": "Are you sure, Paul?",
+			"ru": "Ты уверен, Пол?"
+		},
+		{
+			"speaker": "paul",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">Yes!</prosody></speak>",
+			"en": "Yes!",
+			"ru": "Да!"
+		},
+		{
+			"speaker": "paul",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">I am very sure!</prosody></speak>",
+			"en": "I am very sure!",
+			"ru": "Я абсолютно уверен!"
+		},
+		{
+			"speaker": "paul",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">I put the box in his right hand!</prosody></speak>",
+			"en": "I put the box in his right hand!",
+			"ru": "Я сам положил ящик ему в правую руку!"
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo writes in his notebook:</prosody></speak>",
+			"en": "Leo writes in his notebook:",
+			"ru": "Лео записывает в своём блокноте:"
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Nick carried a big box of apples in his right hand.</prosody></speak>",
+			"en": "Nick carried a big box of apples in his right hand.",
+			"ru": "Ник нёс большой ящик яблок в правой руке."
+		}
+	],
+	"quiz": [
+		{
+			"question": "How much is one ice cream at Paul's shop?",
+			"questionRu": "Сколько стоит одно мороженое в ларьке Пола?",
+			"options": [
+				"Two pounds",
+				"Five pounds",
+				"Eight pounds",
+				"Ten pounds"
+			],
+			"correctIdx": 0
+		},
+		{
+			"question": "What did Nick buy at Paul's shop at 2:12?",
+			"questionRu": "Что Ник купил в ларьке Пола в 2:12?",
+			"options": [
+				"Two big bottles of cold water and a big box of red apples",
+				"Chocolate ice cream and banana milk",
+				"A cup of hot coffee and a sandwich",
+				"A new guitar and books"
+			],
+			"correctIdx": 0
+		},
+		{
+			"question": "In which hand did Nick carry the heavy box of apples?",
+			"questionRu": "В какой руке Ник нёс тяжёлый ящик яблок?",
+			"options": [
+				"In his right hand",
+				"In his left hand",
+				"Under his left arm",
+				"On top of his head"
+			],
+			"correctIdx": 0
+		}
+	],
+	"wordCount": 307
+},
+{
+	"id": "spec5-ch-4",
+	"number": 504,
+	"act": 9,
+	"titleEn": "Special Case 5 (Part 4): The Third Person — Nick the Running Teacher",
+	"titleRu": "Спецдело 5 (Часть 4): Третий свидетель — Ник, учитель по бегу",
+	"synopsisEn": "Leo and Lucas find Nick by the car park. When asked about Tom's guitar, Nick dramatically claims his right arm and hand are severely injured from a fall, preventing him from carrying anything.",
+	"synopsisRu": "Лео и Лукас находят Ника возле парковки. На вопрос о гитаре Тома Ник драматично заявляет, что его правая рука сильно травмирована после падения, и он не может ничего нести.",
+	"targetLevel": "CEFR A1",
+	"coverIcon": "fa-person-running",
+	"coverColor": "#ef4444",
+	"sentences": [
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo and Lucas walk to the green grass near the car park.</prosody></speak>",
+			"en": "Leo and Lucas walk to the green grass near the car park.",
+			"ru": "Лео и Лукас идут к зелёной траве возле автостоянки."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">A tall man stands near a bench.</prosody></speak>",
+			"en": "A tall man stands near a bench.",
+			"ru": "Возле скамейки стоит высокий мужчина."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He wears blue shorts, a white t-shirt, and red shoes.</prosody></speak>",
+			"en": "He wears blue shorts, a white t-shirt, and red shoes.",
+			"ru": "На нём синие шорты, белая футболка и красные кроссовки."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">His name is Nick.</prosody></speak>",
+			"en": "His name is Nick.",
+			"ru": "Его зовут Ник."
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Good afternoon, Nick.</prosody></speak>",
+			"en": "Good afternoon, Nick.",
+			"ru": "Добрый день, Ник."
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Can we talk to you for a minute?</prosody></speak>",
+			"en": "Can we talk to you for a minute?",
+			"ru": "Можем мы поговорить с тобой минутку?"
+		},
+		{
+			"speaker": "nick",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+0.5st\">Hello, Leo.</prosody></speak>",
+			"en": "Hello, Leo.",
+			"ru": "Привет, Лео."
+		},
+		{
+			"speaker": "nick",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+0.5st\">Hello, Lucas.</prosody></speak>",
+			"en": "Hello, Lucas.",
+			"ru": "Привет, Лукас."
+		},
+		{
+			"speaker": "nick",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+0.5st\">Why are you looking at me like that?</prosody></speak>",
+			"en": "Why are you looking at me like that?",
+			"ru": "Почему вы так смотрите на меня?"
+		},
+		{
+			"speaker": "lucas",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">Tom's brown guitar is gone from the stage.</prosody></speak>",
+			"en": "Tom's brown guitar is gone from the stage.",
+			"ru": "Коричневая гитара Тома пропала со сцены."
+		},
+		{
+			"speaker": "lucas",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">Sophie saw you next to the stage at ten past two!</prosody></speak>",
+			"en": "Sophie saw you next to the stage at ten past two!",
+			"ru": "Софи видела тебя рядом со сценой в десять минут третьего!"
+		},
+		{
+			"speaker": "nick",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+0.5st\">Yes, I was near the stage at ten past two!</prosody></speak>",
+			"en": "Yes, I was near the stage at ten past two!",
+			"ru": "Да, я был возле сцены в десять минут третьего!"
+		},
+		{
+			"speaker": "nick",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+0.5st\">I love Tom's music.</prosody></speak>",
+			"en": "I love Tom's music.",
+			"ru": "Я люблю музыку Тома."
+		},
+		{
+			"speaker": "nick",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+0.5st\">I walked to the stage because I wanted to talk to Tom.</prosody></speak>",
+			"en": "I walked to the stage because I wanted to talk to Tom.",
+			"ru": "Я подошёл к сцене, потому что хотел поговорить с Томом."
+		},
+		{
+			"speaker": "nick",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+0.5st\">But Tom was not there.</prosody></speak>",
+			"en": "But Tom was not there.",
+			"ru": "Но Тома там не было."
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Did you take Tom's guitar from the chair, Nick?</prosody></speak>",
+			"en": "Did you take Tom's guitar from the chair, Nick?",
+			"ru": "Ты взял гитару Тома со стула, Ник?"
+		},
+		{
+			"speaker": "nick",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+0.5st\">Take his guitar?</prosody></speak>",
+			"en": "Take his guitar?",
+			"ru": "Взял его гитару?"
+		},
+		{
+			"speaker": "nick",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+0.5st\">Me?</prosody></speak>",
+			"en": "Me?",
+			"ru": "Я?"
+		},
+		{
+			"speaker": "nick",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+0.5st\">No!</prosody></speak>",
+			"en": "No!",
+			"ru": "Нет!"
+		},
+		{
+			"speaker": "nick",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+0.5st\">I cannot carry a guitar today!</prosody></speak>",
+			"en": "I cannot carry a guitar today!",
+			"ru": "Я не могу носить гитару сегодня!"
+		},
+		{
+			"speaker": "nick",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+0.5st\">Look at my right arm and my right hand!</prosody></speak>",
+			"en": "Look at my right arm and my right hand!",
+			"ru": "Посмотрите на мою правую руку и кисть!"
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Nick holds up his right arm.</prosody></speak>",
+			"en": "Nick holds up his right arm.",
+			"ru": "Ник поднимает правую руку."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He makes a sad face.</prosody></speak>",
+			"en": "He makes a sad face.",
+			"ru": "Он делает грустное лицо."
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">What is wrong with your right arm, Nick?</prosody></speak>",
+			"en": "What is wrong with your right arm, Nick?",
+			"ru": "Что не так с твоей правой рукой, Ник?"
+		},
+		{
+			"speaker": "nick",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+0.5st\">Every day, I wake up at six o'clock.</prosody></speak>",
+			"en": "Every day, I wake up at six o'clock.",
+			"ru": "Каждый день я просыпаюсь в шесть часов."
+		},
+		{
+			"speaker": "nick",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+0.5st\">I run ten kilometres on my strong legs.</prosody></speak>",
+			"en": "I run ten kilometres on my strong legs.",
+			"ru": "Я пробегаю десять километров на своих сильных ногах."
+		},
+		{
+			"speaker": "nick",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+0.5st\">Running is good for the body.</prosody></speak>",
+			"en": "Running is good for the body.",
+			"ru": "Бег полезен для тела."
+		},
+		{
+			"speaker": "nick",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+0.5st\">It is good for your legs, feet, back, and heart.</prosody></speak>",
+			"en": "It is good for your legs, feet, back, and heart.",
+			"ru": "Он полезен для ног, стоп, спины и сердца."
+		},
+		{
+			"speaker": "nick",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+0.5st\">But this morning at nine o'clock, I fell down in my garden!</prosody></speak>",
+			"en": "But this morning at nine o'clock, I fell down in my garden!",
+			"ru": "Но сегодня утром в девять часов я упал в своём саду!"
+		},
+		{
+			"speaker": "lucas",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">You fell down in your garden?</prosody></speak>",
+			"en": "You fell down in your garden?",
+			"ru": "Ты упал в своём саду?"
+		},
+		{
+			"speaker": "nick",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+0.5st\">Yes!</prosody></speak>",
+			"en": "Yes!",
+			"ru": "Да!"
+		},
+		{
+			"speaker": "nick",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+0.5st\">I fell on my right arm!</prosody></speak>",
+			"en": "I fell on my right arm!",
+			"ru": "Я упал на правую руку!"
+		},
+		{
+			"speaker": "nick",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+0.5st\">Now my right arm and my right hand hurt very much!</prosody></speak>",
+			"en": "Now my right arm and my right hand hurt very much!",
+			"ru": "Теперь моя правая рука и кисть сильно болят!"
+		},
+		{
+			"speaker": "nick",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+0.5st\">The doctor said I must not use my right hand today.</prosody></speak>",
+			"en": "The doctor said I must not use my right hand today.",
+			"ru": "Доктор сказал, что мне нельзя пользоваться правой рукой сегодня."
+		},
+		{
+			"speaker": "nick",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+0.5st\">I cannot carry things in my right hand!</prosody></speak>",
+			"en": "I cannot carry things in my right hand!",
+			"ru": "Я не могу носить вещи в правой руке!"
+		},
+		{
+			"speaker": "nick",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+0.5st\">I cannot carry a bag, a book, or a guitar!</prosody></speak>",
+			"en": "I cannot carry a bag, a book, or a guitar!",
+			"ru": "Я не могу носить сумку, книгу или гитару!"
+		},
+		{
+			"speaker": "nick",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+0.5st\">My right hand hurts very much!</prosody></speak>",
+			"en": "My right hand hurts very much!",
+			"ru": "Моя правая рука очень болит!"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">So you cannot use your right hand at all today?</prosody></speak>",
+			"en": "So you cannot use your right hand at all today?",
+			"ru": "Значит, ты вообще не можешь пользоваться правой рукой сегодня?"
+		},
+		{
+			"speaker": "nick",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+0.5st\">No!</prosody></speak>",
+			"en": "No!",
+			"ru": "Нет!"
+		},
+		{
+			"speaker": "nick",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+0.5st\">Not at all!</prosody></speak>",
+			"en": "Not at all!",
+			"ru": "Совсем не могу!"
+		},
+		{
+			"speaker": "nick",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+0.5st\">Even a small cup of water hurts my right hand!</prosody></speak>",
+			"en": "Even a small cup of water hurts my right hand!",
+			"ru": "Даже маленькая чашка воды причиняет боль моей правой руке!"
+		}
+	],
+	"quiz": [
+		{
+			"question": "What clothes was Nick wearing?",
+			"questionRu": "Какая одежда была на Нике?",
+			"options": [
+				"Blue shorts, a white t-shirt, and red running shoes",
+				"A grey suit and black shoes",
+				"A yellow dress and a green hat",
+				"A white uniform with a chef's hat"
+			],
+			"correctIdx": 0
+		},
+		{
+			"question": "What injury did Nick claim to have?",
+			"questionRu": "О какой травме заявил Ник?",
+			"options": [
+				"He hurt his right arm and hand falling in his garden",
+				"He broke his left foot playing football",
+				"He had a bad stomach ache from ice cream",
+				"His eyes hurt from the bright sun"
+			],
+			"correctIdx": 0
+		},
+		{
+			"question": "What did Nick say even causes him pain?",
+			"questionRu": "Что, по словам Ника, причиняет ему боль?",
+			"options": [
+				"Even a small cup of water hurts his right hand",
+				"Walking on grass",
+				"Looking at a camera",
+				"Listening to guitar music"
+			],
+			"correctIdx": 0
+		}
+	],
+	"wordCount": 281
+},
+{
+	"id": "spec5-ch-5",
+	"number": 505,
+	"act": 9,
+	"titleEn": "Special Case 5 (Part 5): Lucas Tests the Suspect",
+	"titleRu": "Спецдело 5 (Часть 5): Лукас проверяет подозреваемого",
+	"synopsisEn": "Lucas cleverly tosses his yellow ball at Nick's right side, and Nick instinctively catches it! Busted by both the ball test and Paul's apple box, Nick admits he lied to avoid carrying heavy sound boxes.",
+	"synopsisRu": "Лукас ловко бросает жёлтый мяч в сторону правой руки Ника, и Ник инстинктивно ловит его! Разоблачённый мячом и ящиком яблок, Ник признаётся, что выдумал травму, чтобы не таскать колонки.",
+	"targetLevel": "CEFR A1",
+	"coverIcon": "fa-baseball",
+	"coverColor": "#eab308",
+	"sentences": [
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo looks at Lucas.</prosody></speak>",
+			"en": "Leo looks at Lucas.",
+			"ru": "Лео смотрит на Лукаса."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Lucas smiles and looks at the small yellow ball in his hand.</prosody></speak>",
+			"en": "Lucas smiles and looks at the small yellow ball in his hand.",
+			"ru": "Лукас улыбается и смотрит на маленький жёлтый мяч в руке."
+		},
+		{
+			"speaker": "lucas",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">Catch the ball, Nick!</prosody></speak>",
+			"en": "Catch the ball, Nick!",
+			"ru": "Лови мяч, Ник!"
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Lucas throws the yellow ball fast at Nick's right side.</prosody></speak>",
+			"en": "Lucas throws the yellow ball fast at Nick's right side.",
+			"ru": "Лукас быстро бросает жёлтый мяч в правую сторону Ника."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Nick does not think.</prosody></speak>",
+			"en": "Nick does not think.",
+			"ru": "Ник даже не думает."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He puts up his right hand and catches the ball fast!</prosody></speak>",
+			"en": "He puts up his right hand and catches the ball fast!",
+			"ru": "Он поднимает правую руку и быстро ловит мяч!"
+		},
+		{
+			"speaker": "nick",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+0.5st\">Ha!</prosody></speak>",
+			"en": "Ha!",
+			"ru": "Ха!"
+		},
+		{
+			"speaker": "nick",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+0.5st\">Good throw, Lucas!</prosody></speak>",
+			"en": "Good throw, Lucas!",
+			"ru": "Хороший бросок, Лукас!"
+		},
+		{
+			"speaker": "nick",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+0.5st\">Wait... oh, no!</prosody></speak>",
+			"en": "Wait... oh, no!",
+			"ru": "Постойте... о нет!"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">You caught that fast ball with your right hand, Nick!</prosody></speak>",
+			"en": "You caught that fast ball with your right hand, Nick!",
+			"ru": "Ты поймал этот быстрый мяч правой рукой, Ник!"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Your right hand does not hurt!</prosody></speak>",
+			"en": "Your right hand does not hurt!",
+			"ru": "Твоя правая рука не болит!"
+		},
+		{
+			"speaker": "nick",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+0.5st\">Well... um... maybe it is a little better now...</prosody></speak>",
+			"en": "Well... um... maybe it is a little better now...",
+			"ru": "Ну... э-э... может, сейчас ей стало немного лучше..."
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">No, Nick.</prosody></speak>",
+			"en": "No, Nick.",
+			"ru": "Нет, Ник."
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Your story about your right arm is not true!</prosody></speak>",
+			"en": "Your story about your right arm is not true!",
+			"ru": "Твоя история о правой руке неправда!"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">We talked to Paul at the ice cream shop.</prosody></speak>",
+			"en": "We talked to Paul at the ice cream shop.",
+			"ru": "Мы говорили с Полом в ларьке с мороженым."
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">At twelve minutes past two, you bought water and a big box of apples.</prosody></speak>",
+			"en": "At twelve minutes past two, you bought water and a big box of apples.",
+			"ru": "В двенадцать минут третьего ты купил воду и большой ящик яблок."
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">And you carried that heavy box in your right hand!</prosody></speak>",
+			"en": "And you carried that heavy box in your right hand!",
+			"ru": "И ты нёс этот тяжёлый ящик в правой руке!"
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Nick's face turns red.</prosody></speak>",
+			"en": "Nick's face turns red.",
+			"ru": "Лицо Ника становится красным."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He looks down at his red running shoes.</prosody></speak>",
+			"en": "He looks down at his red running shoes.",
+			"ru": "Он опускает взгляд на свои красные кроссовки."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He gives the yellow ball back to Lucas.</prosody></speak>",
+			"en": "He gives the yellow ball back to Lucas.",
+			"ru": "Он возвращает жёлтый мяч Лукасу."
+		},
+		{
+			"speaker": "nick",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+0.5st\">Okay, boys!</prosody></speak>",
+			"en": "Okay, boys!",
+			"ru": "Ладно, мальчики!"
+		},
+		{
+			"speaker": "nick",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+0.5st\">I am sorry!</prosody></speak>",
+			"en": "I am sorry!",
+			"ru": "Мне жаль!"
+		},
+		{
+			"speaker": "nick",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+0.5st\">My right arm is fine!</prosody></speak>",
+			"en": "My right arm is fine!",
+			"ru": "С моей правой рукой всё в порядке!"
+		},
+		{
+			"speaker": "nick",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+0.5st\">It does not hurt at all!</prosody></speak>",
+			"en": "It does not hurt at all!",
+			"ru": "Она совсем не болит!"
+		},
+		{
+			"speaker": "lucas",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">Why did you say that about your arm, Nick?</prosody></speak>",
+			"en": "Why did you say that about your arm, Nick?",
+			"ru": "Зачем же ты сказал так про руку, Ник?"
+		},
+		{
+			"speaker": "lucas",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">Did you take Tom's guitar?</prosody></speak>",
+			"en": "Did you take Tom's guitar?",
+			"ru": "Ты взял гитару Тома?"
+		},
+		{
+			"speaker": "nick",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+0.5st\">No!</prosody></speak>",
+			"en": "No!",
+			"ru": "Нет!"
+		},
+		{
+			"speaker": "nick",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+0.5st\">I did not take the guitar!</prosody></speak>",
+			"en": "I did not take the guitar!",
+			"ru": "Я не брал гитару!"
+		},
+		{
+			"speaker": "nick",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+0.5st\">Listen: this morning, I ran ten kilometres.</prosody></speak>",
+			"en": "Listen: this morning, I ran ten kilometres.",
+			"ru": "Послушайте: этим утром я пробежал десять километров."
+		},
+		{
+			"speaker": "nick",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+0.5st\">Then I played football for two hours.</prosody></speak>",
+			"en": "Then I played football for two hours.",
+			"ru": "Потом два часа играл в футбол."
+		},
+		{
+			"speaker": "nick",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+0.5st\">My legs and my back were very tired!</prosody></speak>",
+			"en": "My legs and my back were very tired!",
+			"ru": "Мои ноги и спина очень устали!"
+		},
+		{
+			"speaker": "nick",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+0.5st\">At one o'clock, Tom saw me near the stage.</prosody></speak>",
+			"en": "At one o'clock, Tom saw me near the stage.",
+			"ru": "В час дня Том увидел меня возле сцены."
+		},
+		{
+			"speaker": "nick",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+0.5st\">Tom said: \"Nick, you are strong! Can you help me at four o'clock? Please carry my four big music boxes to my car!\"</prosody></speak>",
+			"en": "Tom said: \"Nick, you are strong! Can you help me at four o'clock? Please carry my four big music boxes to my car!\"",
+			"ru": "Том сказал: «Ник, ты сильный! Поможешь мне в четыре часа? Донеси, пожалуйста, четыре большие колонки до машины!»"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">And you did not want to carry Tom's heavy sound boxes!</prosody></speak>",
+			"en": "And you did not want to carry Tom's heavy sound boxes!",
+			"ru": "И ты не хотел таскать тяжёлые колонки Тома!"
+		},
+		{
+			"speaker": "nick",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+0.5st\">Yes!</prosody></speak>",
+			"en": "Yes!",
+			"ru": "Да!"
+		},
+		{
+			"speaker": "nick",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+0.5st\">I was too tired!</prosody></speak>",
+			"en": "I was too tired!",
+			"ru": "Я слишком устал!"
+		},
+		{
+			"speaker": "nick",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+0.5st\">At ten past two, I walked to the stage.</prosody></speak>",
+			"en": "At ten past two, I walked to the stage.",
+			"ru": "В десять минут третьего я подошёл к сцене."
+		},
+		{
+			"speaker": "nick",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+0.5st\">I wanted to say to Tom: \"My right arm hurts today! I cannot carry your big boxes!\"</prosody></speak>",
+			"en": "I wanted to say to Tom: \"My right arm hurts today! I cannot carry your big boxes!\"",
+			"ru": "Я хотел сказать Тому: «Моя правая рука сегодня болит! Я не смогу нести твои большие коробки!»"
+		},
+		{
+			"speaker": "nick",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+0.5st\">So I told you the same story!</prosody></speak>",
+			"en": "So I told you the same story!",
+			"ru": "Вот я и вам рассказал ту же сказку!"
+		},
+		{
+			"speaker": "nick",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+0.5st\">I feel bad now.</prosody></speak>",
+			"en": "I feel bad now.",
+			"ru": "Теперь мне стыдно."
+		},
+		{
+			"speaker": "nick",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+0.5st\">I can help Tom carry all his boxes at four o'clock!</prosody></speak>",
+			"en": "I can help Tom carry all his boxes at four o'clock!",
+			"ru": "Я помогу Тому перенести все его коробки в четыре часа!"
+		}
+	],
+	"quiz": [
+		{
+			"question": "How did Lucas prove that Nick's right hand was healthy?",
+			"questionRu": "Как Лукас доказал, что правая рука Ника здорова?",
+			"options": [
+				"He threw a yellow ball and Nick caught it with his right hand",
+				"He checked Nick's doctor papers",
+				"He asked the police to inspect Nick",
+				"He gave Nick a cup of tea to hold"
+			],
+			"correctIdx": 0
+		},
+		{
+			"question": "Why did Nick really pretend his arm was hurt?",
+			"questionRu": "Почему на самом деле Ник притворился, что повредил руку?",
+			"options": [
+				"He was too tired to help carry Tom's four heavy sound boxes at 4:00",
+				"He wanted to steal the chocolate ice cream",
+				"He didn't want to run in the park",
+				"He wanted to play football alone"
+			],
+			"correctIdx": 0
+		},
+		{
+			"question": "What did Nick promise to do at four o'clock?",
+			"questionRu": "Что Ник пообещал сделать в четыре часа?",
+			"options": [
+				"Help Tom carry all his sound boxes to the car",
+				"Run another twenty kilometres",
+				"Buy twenty banana ice creams",
+				"Paint a picture with Sophie"
+			],
+			"correctIdx": 0
+		}
+	],
+	"wordCount": 296
+},
+{
+	"id": "spec5-ch-6",
+	"number": 506,
+	"act": 9,
+	"titleEn": "Special Case 5 (Part 6): Where is the Brown Guitar?",
+	"titleRu": "Спецдело 5 (Часть 6): Где же коричневая гитара?",
+	"synopsisEn": "Connecting Sophie's rain clue and Lucy's visit, Leo leads everyone to the Park Office. Lucy rescued the guitar from the rain, and her missing note was found in a playful puppy's mouth!",
+	"synopsisRu": "Сопоставив улику Софи о дожде и приход Люси, Лео ведёт всех в офис парка. Люси спасла гитару от ливня, а пропавшую записку нашли в пасти игривого щенка!",
+	"targetLevel": "CEFR A1",
+	"coverIcon": "fa-shield-heart",
+	"coverColor": "#22c55e",
+	"sentences": [
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Tom walks over to Leo, Lucas, and Nick.</prosody></speak>",
+			"en": "Tom walks over to Leo, Lucas, and Nick.",
+			"ru": "Том подходит к Лео, Лукасу и Нику."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He looks at his watch.</prosody></speak>",
+			"en": "He looks at his watch.",
+			"ru": "Он смотрит на свои часы."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The time is ten to three.</prosody></speak>",
+			"en": "The time is ten to three.",
+			"ru": "Время — без десяти три."
+		},
+		{
+			"speaker": "tom",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">Boys, did Nick take my guitar?</prosody></speak>",
+			"en": "Boys, did Nick take my guitar?",
+			"ru": "Мальчики, Ник взял мою гитару?"
+		},
+		{
+			"speaker": "tom",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">My song is in ten minutes!</prosody></speak>",
+			"en": "My song is in ten minutes!",
+			"ru": "Моя песня через десять минут!"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">No, Tom.</prosody></speak>",
+			"en": "No, Tom.",
+			"ru": "Нет, Том."
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Nick did not take your guitar.</prosody></speak>",
+			"en": "Nick did not take your guitar.",
+			"ru": "Ник не брал твою гитару."
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">And I know where your guitar is!</prosody></speak>",
+			"en": "And I know where your guitar is!",
+			"ru": "И я знаю, где твоя гитара!"
+		},
+		{
+			"speaker": "lucas",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">You do, Leo?</prosody></speak>",
+			"en": "You do, Leo?",
+			"ru": "Ты знаешь, Лео?"
+		},
+		{
+			"speaker": "lucas",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">Where is it?</prosody></speak>",
+			"en": "Where is it?",
+			"ru": "Где же она?"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Look at my blue notebook!</prosody></speak>",
+			"en": "Look at my blue notebook!",
+			"ru": "Посмотри в мой синий блокнот!"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Read Sophie's words from Part 2:</prosody></speak>",
+			"en": "Read Sophie's words from Part 2:",
+			"ru": "Прочитай слова Софи из второй части:"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">At two o'clock, your guitar was outside on the chair.</prosody></speak>",
+			"en": "At two o'clock, your guitar was outside on the chair.",
+			"ru": "В два часа твоя гитара лежала на улице на стуле."
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">At quarter past two, dark clouds came.</prosody></speak>",
+			"en": "At quarter past two, dark clouds came.",
+			"ru": "В четверть третьего набежали тёмные тучи."
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Rain started to fall!</prosody></speak>",
+			"en": "Rain started to fall!",
+			"ru": "Пошёл дождь!"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Then Sophie saw Lucy in the green hat near the stage!</prosody></speak>",
+			"en": "Then Sophie saw Lucy in the green hat near the stage!",
+			"ru": "Затем Софи увидела возле сцены Люси в зелёной шляпе!"
+		},
+		{
+			"speaker": "tom",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">Lucy, the park worker?</prosody></speak>",
+			"en": "Lucy, the park worker?",
+			"ru": "Люси, служащую парка?"
+		},
+		{
+			"speaker": "tom",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">Why did Lucy walk to the stage in the rain?</prosody></speak>",
+			"en": "Why did Lucy walk to the stage in the rain?",
+			"ru": "Зачем Люси пошла к сцене под дождём?"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Come with me to the Park Office near the lake!</prosody></speak>",
+			"en": "Come with me to the Park Office near the lake!",
+			"ru": "Пойдёмте со мной в офис парка возле озера!"
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">They all run to the small green house near the lake.</prosody></speak>",
+			"en": "They all run to the small green house near the lake.",
+			"ru": "Они все бегут к маленькому зелёному домику возле озера."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo knocks on the door.</prosody></speak>",
+			"en": "Leo knocks on the door.",
+			"ru": "Лео стучит в дверь."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">A kind woman in a green hat opens the door.</prosody></speak>",
+			"en": "A kind woman in a green hat opens the door.",
+			"ru": "Добрая женщина в зелёной шляпе открывает дверь."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">It is Lucy, the park worker.</prosody></speak>",
+			"en": "It is Lucy, the park worker.",
+			"ru": "Это Люси, служащая парка."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The room is warm and dry.</prosody></speak>",
+			"en": "The room is warm and dry.",
+			"ru": "В комнате тепло и сухо."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">On a big table is the black guitar bag!</prosody></speak>",
+			"en": "On a big table is the black guitar bag!",
+			"ru": "На большом столе лежит чёрный чехол с гитарой!"
+		},
+		{
+			"speaker": "tom",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">My guitar!</prosody></speak>",
+			"en": "My guitar!",
+			"ru": "Моя гитара!"
+		},
+		{
+			"speaker": "tom",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">Lucy, you have my brown guitar!</prosody></speak>",
+			"en": "Lucy, you have my brown guitar!",
+			"ru": "Люси, моя коричневая гитара у тебя!"
+		},
+		{
+			"speaker": "lucy",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"+1st\">Oh, hello, Tom!</prosody></speak>",
+			"en": "Oh, hello, Tom!",
+			"ru": "О, здравствуй, Том!"
+		},
+		{
+			"speaker": "lucy",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"+1st\">Yes, here it is!</prosody></speak>",
+			"en": "Yes, here it is!",
+			"ru": "Да, вот же она!"
+		},
+		{
+			"speaker": "lucy",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"+1st\">Open the bag and look — it is dry and safe!</prosody></speak>",
+			"en": "Open the bag and look — it is dry and safe!",
+			"ru": "Открой чехол и посмотри — она сухая и в безопасности!"
+		},
+		{
+			"speaker": "tom",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">Why did you take my guitar here, Lucy?</prosody></speak>",
+			"en": "Why did you take my guitar here, Lucy?",
+			"ru": "Почему ты унесла мою гитару сюда, Люси?"
+		},
+		{
+			"speaker": "lucy",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"+1st\">At quarter past two, dark clouds came over the park.</prosody></speak>",
+			"en": "At quarter past two, dark clouds came over the park.",
+			"ru": "В четверть третьего над парком сгустились тёмные тучи."
+		},
+		{
+			"speaker": "lucy",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"+1st\">Cold rain started to fall!</prosody></speak>",
+			"en": "Cold rain started to fall!",
+			"ru": "Начал капать холодный дождь!"
+		},
+		{
+			"speaker": "lucy",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"+1st\">I walked past the stage.</prosody></speak>",
+			"en": "I walked past the stage.",
+			"ru": "Я шла мимо сцены."
+		},
+		{
+			"speaker": "lucy",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"+1st\">I saw your guitar bag on the chair in the rain!</prosody></speak>",
+			"en": "I saw your guitar bag on the chair in the rain!",
+			"ru": "Я увидела твой чехол с гитарой на стуле под дождём!"
+		},
+		{
+			"speaker": "lucy",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"+1st\">Water is very bad for a guitar!</prosody></speak>",
+			"en": "Water is very bad for a guitar!",
+			"ru": "Вода очень вредна для гитары!"
+		},
+		{
+			"speaker": "lucy",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"+1st\">So I took your guitar into my dry room!</prosody></speak>",
+			"en": "So I took your guitar into my dry room!",
+			"ru": "Поэтому я занесла твою гитару в свою сухую комнату!"
+		},
+		{
+			"speaker": "tom",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">Thank you, Lucy!</prosody></speak>",
+			"en": "Thank you, Lucy!",
+			"ru": "Спасибо тебе, Люси!"
+		},
+		{
+			"speaker": "tom",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">Wait — why did you not tell me?</prosody></speak>",
+			"en": "Wait — why did you not tell me?",
+			"ru": "Постой — почему же ты не сказала мне?"
+		},
+		{
+			"speaker": "lucy",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"+1st\">I wrote a note on white paper.</prosody></speak>",
+			"en": "I wrote a note on white paper.",
+			"ru": "Я написала записку на белом листке."
+		},
+		{
+			"speaker": "lucy",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"+1st\">I put the paper on the chair under a cup!</prosody></speak>",
+			"en": "I put the paper on the chair under a cup!",
+			"ru": "Я положила бумагу на стул под чашку!"
+		},
+		{
+			"speaker": "lucy",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"+1st\">Did you not see my note?</prosody></speak>",
+			"en": "Did you not see my note?",
+			"ru": "Разве ты не видел мою записку?"
+		},
+		{
+			"speaker": "lucas",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">Wait a minute!</prosody></speak>",
+			"en": "Wait a minute!",
+			"ru": "Погодите минуту!"
+		},
+		{
+			"speaker": "lucas",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">Look under the stage!</prosody></speak>",
+			"en": "Look under the stage!",
+			"ru": "Посмотрите под сцену!"
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Everyone looks at the green grass near the stage.</prosody></speak>",
+			"en": "Everyone looks at the green grass near the stage.",
+			"ru": "Все смотрят на зелёную траву возле сцены."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">A small white dog is sitting on the grass.</prosody></speak>",
+			"en": "A small white dog is sitting on the grass.",
+			"ru": "Маленькая белая собака сидит на траве."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">In the dog's mouth is a piece of white paper!</prosody></speak>",
+			"en": "In the dog's mouth is a piece of white paper!",
+			"ru": "В пасти у собаки кусочек белой бумаги!"
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The little dog is playing with Lucy's note!</prosody></speak>",
+			"en": "The little dog is playing with Lucy's note!",
+			"ru": "Маленькая собачка играет с запиской Люси!"
+		},
+		{
+			"speaker": "lucas",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">Haha!</prosody></speak>",
+			"en": "Haha!",
+			"ru": "Ха-ха!"
+		},
+		{
+			"speaker": "lucas",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">Another dog in Oakwood Town!</prosody></speak>",
+			"en": "Another dog in Oakwood Town!",
+			"ru": "Ещё одна собака в городке Оквуд!"
+		},
+		{
+			"speaker": "lucas",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.98\" pitch=\"+1st\">First Mister Sterling's golden dog, and now this little white dog!</prosody></speak>",
+			"en": "First Mr. Sterling's golden dog, and now this little white dog!",
+			"ru": "Сначала золотая собака мистера Стерлинга, а теперь эта белая собачка!"
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Everyone laughs.</prosody></speak>",
+			"en": "Everyone laughs.",
+			"ru": "Все смеются."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Tom takes his brown guitar from the black bag.</prosody></speak>",
+			"en": "Tom takes his brown guitar from the black bag.",
+			"ru": "Том достаёт свою коричневую гитару из чёрного чехла."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He walks onto the stage at three o'clock.</prosody></speak>",
+			"en": "He walks onto the stage at three o'clock.",
+			"ru": "Он выходит на сцену ровно в три часа."
+		},
+		{
+			"speaker": "tom",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">Hello, mothers, fathers, and children!</prosody></speak>",
+			"en": "Hello, mothers, fathers, and children!",
+			"ru": "Здравствуйте, мамы, папы и дети!"
+		},
+		{
+			"speaker": "tom",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1st\">First, thank you to our two young detectives — Leo Vance and Lucas!</prosody></speak>",
+			"en": "First, thank you to our two young detectives — Leo Vance and Lucas!",
+			"ru": "Первым делом спасибо двум нашим юным детективам — Лео Вэнсу и Лукасу!"
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">All the people in the park smile and say thank you.</prosody></speak>",
+			"en": "All the people in the park smile and say thank you.",
+			"ru": "Все люди в парке улыбаются и благодарят."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">After the song, Nick carries Tom's big boxes.</prosody></speak>",
+			"en": "After the song, Nick carries Tom's big boxes.",
+			"ru": "После песни Ник переносит большие колонки Тома."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">And Paul gives Leo and Lucas two big chocolate ice creams.</prosody></speak>",
+			"en": "And Paul gives Leo and Lucas two big chocolate ice creams.",
+			"ru": "А Пол даёт Лео и Лукасу две большие порции шоколадного мороженого."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Another case in Oakwood Town is finished.</prosody></speak>",
+			"en": "Another case in Oakwood Town is finished.",
+			"ru": "Ещё одно дело в городке Оквуд завершено."
+		}
+	],
+	"quiz": [
+		{
+			"question": "Why did Lucy take the guitar to the Park Office?",
+			"questionRu": "Почему Люси унесла гитару в офис парка?",
+			"options": [
+				"To protect it from the rain, because water harms guitars",
+				"She wanted to play music in her room",
+				"Tom asked her to sell it",
+				"She thought someone forgot a bag of books"
+			],
+			"correctIdx": 0
+		},
+		{
+			"question": "What happened to the note Lucy left on the chair?",
+			"questionRu": "Что произошло с запиской, которую Люси оставила на стуле?",
+			"options": [
+				"A small white dog took the paper and played with it",
+				"The wind blew it into the deep lake",
+				"Nick put it in his pocket",
+				"Paul used it for wrapping ice cream"
+			],
+			"correctIdx": 0
+		},
+		{
+			"question": "What did Paul give Leo and Lucas after the show?",
+			"questionRu": "Чем Пол угостил Лео и Лукаса после выступления?",
+			"options": [
+				"Two big chocolate ice creams",
+				"Two bottles of cold water",
+				"Red apples and bananas",
+				"A new yellow ball"
+			],
+			"correctIdx": 0
+		}
+	],
+	"wordCount": 415
 }
     ]
 };

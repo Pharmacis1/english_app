@@ -1413,21 +1413,107 @@ class FlashcardEngine {
 
     computeDueCards(targetDecks = null) {
         const sourceDecks = targetDecks || this.decks || {};
+        this.syncDuplicateWords(sourceDecks);
+
         const dueCards = [];
+        const seenWords = new Set();
         const now = Date.now();
+
         Object.keys(sourceDecks).forEach(cat => {
             if (cat === "🧠 Due for SRS Review") return;
             (sourceDecks[cat] || []).forEach(card => {
-                if (card.studied && card.nextReviewDate && card.nextReviewDate <= now) {
+                if (card && card.studied && card.nextReviewDate && card.nextReviewDate <= now) {
+                    const cleanWord = (card.word || '').toLowerCase().trim();
+                    if (!cleanWord || seenWords.has(cleanWord)) return;
+
                     if (!card.heroId && typeof HEROES_DATA !== 'undefined') {
                         const hero = HEROES_DATA.find(h => cat.includes(h.name));
                         if (hero) card.heroId = hero.id;
                     }
+                    seenWords.add(cleanWord);
                     dueCards.push(card);
                 }
             });
         });
         return dueCards;
+    }
+
+    syncDuplicateWords(decks = null) {
+        const targetDecks = decks || this.decks;
+        if (!targetDecks) return;
+
+        const wordMap = new Map();
+
+        Object.keys(targetDecks).forEach(cat => {
+            if (cat === "🧠 Due for SRS Review") return;
+            const list = targetDecks[cat];
+            if (!Array.isArray(list)) return;
+
+            // 1. Remove duplicate words within the same deck
+            const uniqueCardsInDeck = [];
+            const seenInDeck = new Set();
+            list.forEach(card => {
+                if (!card || !card.word) return;
+                const cleanWord = card.word.toLowerCase().trim();
+                if (seenInDeck.has(cleanWord)) {
+                    const existingCard = uniqueCardsInDeck.find(c => (c.word || '').toLowerCase().trim() === cleanWord);
+                    if (existingCard) {
+                        existingCard.studied = existingCard.studied || card.studied;
+                        existingCard.repetitions = Math.max(existingCard.repetitions || 0, card.repetitions || 0);
+                        existingCard.interval = Math.max(existingCard.interval || 1, card.interval || 1);
+                        existingCard.easeFactor = Math.max(existingCard.easeFactor || 2.5, card.easeFactor || 2.5);
+                        existingCard.nextReviewDate = Math.max(existingCard.nextReviewDate || 0, card.nextReviewDate || 0);
+                        existingCard.rating = Math.max(existingCard.rating || 0, card.rating || 0);
+                    }
+                    return;
+                }
+                seenInDeck.add(cleanWord);
+                uniqueCardsInDeck.push(card);
+            });
+            targetDecks[cat] = uniqueCardsInDeck;
+
+            // 2. Register cards for cross-deck synchronization
+            uniqueCardsInDeck.forEach(card => {
+                const cleanWord = card.word.toLowerCase().trim();
+                if (!wordMap.has(cleanWord)) {
+                    wordMap.set(cleanWord, []);
+                }
+                wordMap.get(cleanWord).push(card);
+            });
+        });
+
+        // 3. For duplicate words appearing across multiple decks, sync to the best studied progress
+        wordMap.forEach((cardList, cleanWord) => {
+            if (cardList.length <= 1) return;
+
+            const anyStudied = cardList.some(c => c.studied);
+            if (!anyStudied) return;
+
+            let maxRepetitions = 0;
+            let maxInterval = 1;
+            let maxEaseFactor = 2.5;
+            let maxNextReviewDate = 0;
+            let maxRating = 0;
+
+            cardList.forEach(c => {
+                if (c.studied) {
+                    if ((c.repetitions || 0) > maxRepetitions) maxRepetitions = c.repetitions;
+                    if ((c.interval || 1) > maxInterval) maxInterval = c.interval;
+                    if ((c.easeFactor || 2.5) > maxEaseFactor) maxEaseFactor = c.easeFactor;
+                    if ((c.nextReviewDate || 0) > maxNextReviewDate) maxNextReviewDate = c.nextReviewDate;
+                    if ((c.rating || 0) > maxRating) maxRating = c.rating;
+                }
+            });
+
+            cardList.forEach(c => {
+                c.studied = true;
+                c.repetitions = maxRepetitions;
+                c.interval = maxInterval;
+                c.easeFactor = maxEaseFactor;
+                c.nextReviewDate = maxNextReviewDate;
+                c.rating = maxRating;
+            });
+        });
     }
 
     loadDecks() {
@@ -1563,12 +1649,28 @@ class FlashcardEngine {
 
                 NEW_WORDS_DATABASE.forEach(w => {
                     if (masteredIds.has(w.id)) {
-                        const existing = deck.find(c => c.word && (
+                        const existing = deck.find(c => c && c.word && (
                             c.word.toLowerCase() === w.word.toLowerCase() ||
                             (c.word === 'police' && w.word === 'police / policeman') ||
                             (c.word === 'police / policeman' && w.word === 'police')
                         ));
                         if (!existing) {
+                            let initRepetitions = 1;
+                            let initInterval = 1;
+                            let initEase = 2.5;
+                            let initNextReview = Date.now() + 24 * 3600 * 1000;
+                            const lowerW = w.word.toLowerCase().trim();
+                            for (const cName of Object.keys(decks)) {
+                                if (cName === "🧠 Due for SRS Review" || cName === deckName) continue;
+                                const match = (decks[cName] || []).find(c => c && c.word && c.word.toLowerCase().trim() === lowerW);
+                                if (match && match.studied) {
+                                    initRepetitions = Math.max(initRepetitions, match.repetitions || 1);
+                                    initInterval = Math.max(initInterval, match.interval || 1);
+                                    initEase = Math.max(initEase, match.easeFactor || 2.5);
+                                    initNextReview = Math.max(initNextReview, match.nextReviewDate || 0);
+                                    break;
+                                }
+                            }
                             deck.push({
                                 word: w.word,
                                 phonetic: w.phonetic,
@@ -1577,10 +1679,10 @@ class FlashcardEngine {
                                 example: w.exampleEn,
                                 heroId: "detective",
                                 rating: 3,
-                                interval: 1,
-                                easeFactor: 2.5,
-                                repetitions: 1,
-                                nextReviewDate: Date.now() + 24 * 3600 * 1000,
+                                interval: initInterval,
+                                easeFactor: initEase,
+                                repetitions: initRepetitions,
+                                nextReviewDate: initNextReview,
                                 studied: true,
                                 learningInSession: false
                             });
@@ -1602,8 +1704,22 @@ class FlashcardEngine {
             }
         } catch(e) {}
 
+        // Deduplicate and synchronize duplicate words across all decks!
+        this.syncDuplicateWords(decks);
+
         if (this.currentCategory === "🧠 Due for SRS Review" && this.decks && Array.isArray(this.decks["🧠 Due for SRS Review"]) && this.decks["🧠 Due for SRS Review"].length > 0) {
-            decks["🧠 Due for SRS Review"] = this.decks["🧠 Due for SRS Review"];
+            const activeQueue = this.decks["🧠 Due for SRS Review"];
+            const cleanQueue = [];
+            const seenWords = new Set();
+            activeQueue.forEach(card => {
+                if (!card || !card.word) return;
+                const cleanWord = card.word.toLowerCase().trim();
+                if (!seenWords.has(cleanWord)) {
+                    seenWords.add(cleanWord);
+                    cleanQueue.push(card);
+                }
+            });
+            decks["🧠 Due for SRS Review"] = cleanQueue;
         } else {
             decks["🧠 Due for SRS Review"] = this.computeDueCards(decks);
         }
@@ -1612,6 +1728,7 @@ class FlashcardEngine {
 
     refreshDueCards() {
         if (!this.decks) return;
+        this.syncDuplicateWords(this.decks);
         this.decks["🧠 Due for SRS Review"] = this.computeDueCards(this.decks);
     }
 
@@ -1759,6 +1876,8 @@ class FlashcardEngine {
 
         const oneDayMs = 24 * 60 * 60 * 1000;
 
+        const ratedWord = (card.word || '').toLowerCase().trim();
+
         switch(grade) {
             case 'again':
                 card.repetitions = 0;
@@ -1769,11 +1888,12 @@ class FlashcardEngine {
                 if (isSrsMode) {
                     const dueList = this.decks["🧠 Due for SRS Review"];
                     if (dueList && Array.isArray(dueList)) {
-                        const idx = dueList.indexOf(card);
-                        if (idx !== -1) {
-                            dueList.splice(idx, 1);
-                            dueList.push(card); // Re-queue failed card to end of SRS review queue!
+                        for (let i = dueList.length - 1; i >= 0; i--) {
+                            if ((dueList[i].word || '').toLowerCase().trim() === ratedWord) {
+                                dueList.splice(i, 1);
+                            }
                         }
+                        dueList.push(card); // Re-queue failed card to end of SRS review queue!
                     }
                 } else {
                     // In Hero Batch Mode: advance index so current card cycles to end of batch
@@ -1789,8 +1909,11 @@ class FlashcardEngine {
                 if (isSrsMode) {
                     const dueList = this.decks["🧠 Due for SRS Review"];
                     if (dueList && Array.isArray(dueList)) {
-                        const idx = dueList.indexOf(card);
-                        if (idx !== -1) dueList.splice(idx, 1);
+                        for (let i = dueList.length - 1; i >= 0; i--) {
+                            if ((dueList[i].word || '').toLowerCase().trim() === ratedWord) {
+                                dueList.splice(i, 1);
+                            }
+                        }
                     }
                 }
                 break;
@@ -1805,8 +1928,11 @@ class FlashcardEngine {
                 if (isSrsMode) {
                     const dueList = this.decks["🧠 Due for SRS Review"];
                     if (dueList && Array.isArray(dueList)) {
-                        const idx = dueList.indexOf(card);
-                        if (idx !== -1) dueList.splice(idx, 1);
+                        for (let i = dueList.length - 1; i >= 0; i--) {
+                            if ((dueList[i].word || '').toLowerCase().trim() === ratedWord) {
+                                dueList.splice(i, 1);
+                            }
+                        }
                     }
                 }
                 break;
@@ -1824,11 +1950,32 @@ class FlashcardEngine {
                 if (isSrsMode) {
                     const dueList = this.decks["🧠 Due for SRS Review"];
                     if (dueList && Array.isArray(dueList)) {
-                        const idx = dueList.indexOf(card);
-                        if (idx !== -1) dueList.splice(idx, 1);
+                        for (let i = dueList.length - 1; i >= 0; i--) {
+                            if ((dueList[i].word || '').toLowerCase().trim() === ratedWord) {
+                                dueList.splice(i, 1);
+                            }
+                        }
                     }
                 }
                 break;
+        }
+
+        // Synchronize SRS progress for this word across all decks so duplicates don't re-emerge
+        if (ratedWord && this.decks) {
+            Object.keys(this.decks).forEach(cat => {
+                if (cat === "🧠 Due for SRS Review") return;
+                (this.decks[cat] || []).forEach(c => {
+                    if (c && c.word && c.word.toLowerCase().trim() === ratedWord) {
+                        c.studied = true;
+                        c.repetitions = card.repetitions;
+                        c.interval = card.interval;
+                        c.easeFactor = card.easeFactor;
+                        c.nextReviewDate = card.nextReviewDate;
+                        c.learningInSession = card.learningInSession;
+                        c.rating = card.rating;
+                    }
+                });
+            });
         }
 
         this.saveDecks();
@@ -1907,14 +2054,16 @@ class FlashcardEngine {
             ? Object.keys(sourceDecks).filter(cat => cat !== "🧠 Due for SRS Review")
             : [targetCategory];
 
+        this.syncDuplicateWords(sourceDecks);
+
         const processedCardKeys = new Set();
 
         categories.forEach(cat => {
             (sourceDecks[cat] || []).forEach(card => {
                 if (!card.studied) return;
                 
-                const uniqueKey = `${card.heroId || cat}_${card.word}`;
-                if (processedCardKeys.has(uniqueKey)) return;
+                const uniqueKey = (card.word || '').toLowerCase().trim();
+                if (!uniqueKey || processedCardKeys.has(uniqueKey)) return;
                 processedCardKeys.add(uniqueKey);
 
                 totalStudied++;
