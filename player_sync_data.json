@@ -16,10 +16,10 @@
       "xp": 645,
       "maxXp": 645,
       "affinityLevel": 33,
-      "hp": 250,
-      "maxHp": 250,
-      "atk": 22,
-      "def": 18,
+      "hp": 21085,
+      "maxHp": 21085,
+      "atk": 2257,
+      "def": 1716,
       "skillName": "Aegis Shield",
       "skillDesc": "Taunts all enemies & increases DEF.",
       "skillIcon": "fa-shield",
@@ -736,10 +736,10 @@
       "xp": 645,
       "maxXp": 645,
       "affinityLevel": 20,
-      "hp": 180,
-      "maxHp": 180,
-      "atk": 14,
-      "def": 6,
+      "hp": 19494,
+      "maxHp": 19494,
+      "atk": 2087,
+      "def": 1467,
       "skillName": "Holy Radiance",
       "skillDesc": "Restores 140 HP.",
       "skillIcon": "fa-hand-holding-medical",
@@ -1456,10 +1456,10 @@
       "xp": 645,
       "maxXp": 645,
       "affinityLevel": 1,
-      "hp": 160,
-      "maxHp": 160,
-      "atk": 45,
-      "def": 5,
+      "hp": 19075,
+      "maxHp": 19075,
+      "atk": 2846,
+      "def": 1462,
       "skillName": "Flame Tempest",
       "skillDesc": "Deals 200 AoE damage.",
       "skillIcon": "fa-burst",
@@ -2175,10 +2175,10 @@
       "xp": 645,
       "maxXp": 645,
       "affinityLevel": 1,
-      "hp": 170,
-      "maxHp": 170,
-      "atk": 32,
-      "def": 6,
+      "hp": 19311,
+      "maxHp": 19311,
+      "atk": 2467,
+      "def": 1467,
       "skillName": "Deep Freeze",
       "skillDesc": "Freezes enemies.",
       "skillIcon": "fa-icicles",
@@ -2894,10 +2894,10 @@
       "xp": 645,
       "maxXp": 645,
       "affinityLevel": 1,
-      "hp": 190,
-      "maxHp": 190,
-      "atk": 38,
-      "def": 7,
+      "hp": 19735,
+      "maxHp": 19735,
+      "atk": 2641,
+      "def": 1482,
       "skillName": "Haste Wind",
       "skillDesc": "Fills party energy.",
       "skillIcon": "fa-feather",
@@ -3616,10 +3616,10 @@
       "xp": 645,
       "maxXp": 645,
       "affinityLevel": 1,
-      "hp": 280,
-      "maxHp": 280,
-      "atk": 48,
-      "def": 12,
+      "hp": 21824,
+      "maxHp": 21824,
+      "atk": 2887,
+      "def": 1587,
       "skillName": "Earthquake Smash",
       "skillDesc": "Stuns target.",
       "skillIcon": "fa-burst",
@@ -4343,10 +4343,10 @@
       "xp": 645,
       "maxXp": 645,
       "affinityLevel": 1,
-      "hp": 210,
-      "maxHp": 210,
-      "atk": 58,
-      "def": 8,
+      "hp": 20178,
+      "maxHp": 20178,
+      "atk": 3214,
+      "def": 1520,
       "skillName": "Shadow Strike",
       "skillDesc": "Deals 300 crit damage.",
       "skillIcon": "fa-skull",
@@ -5048,10 +5048,10 @@
       "xp": 645,
       "maxXp": 645,
       "affinityLevel": 1,
-      "hp": 230,
-      "maxHp": 230,
-      "atk": 28,
-      "def": 10,
+      "hp": 20632,
+      "maxHp": 20632,
+      "atk": 2372,
+      "def": 1541,
       "skillName": "Rejuvenation Vine",
       "skillDesc": "Heals party.",
       "skillIcon": "fa-seedling",
@@ -5775,10 +5775,10 @@
       "xp": 645,
       "maxXp": 645,
       "affinityLevel": 1,
-      "hp": 310,
-      "maxHp": 310,
-      "atk": 35,
-      "def": 15,
+      "hp": 22590,
+      "maxHp": 22590,
+      "atk": 2565,
+      "def": 1650,
       "skillName": "Valkyrie Charge",
       "skillDesc": "Knocks back enemies.",
       "skillIcon": "fa-person-through-window",
@@ -6498,10 +6498,10 @@
       "xp": 645,
       "maxXp": 645,
       "affinityLevel": 1,
-      "hp": 260,
-      "maxHp": 260,
-      "atk": 65,
-      "def": 14,
+      "hp": 21345,
+      "maxHp": 21345,
+      "atk": 3462,
+      "def": 1644,
       "skillName": "Arcane Nova",
       "skillDesc": "Deals 500 massive damage.",
       "skillIcon": "fa-meteor",
@@ -7219,7 +7219,8 @@
         "easeFactor": 2.65,
         "repetitions": 2,
         "nextReviewDate": 1793650703134,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "crime",
@@ -7233,7 +7234,8 @@
         "easeFactor": 2.65,
         "repetitions": 2,
         "nextReviewDate": 1793650707849,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "investigate",
@@ -7247,7 +7249,8 @@
         "easeFactor": 1.5,
         "repetitions": 1,
         "nextReviewDate": 1793655100690,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "evidence",
@@ -7261,7 +7264,8 @@
         "easeFactor": 1.3,
         "repetitions": 1,
         "nextReviewDate": 1793482532053,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "footprint",
@@ -7275,7 +7279,8 @@
         "easeFactor": 2.35,
         "repetitions": 2,
         "nextReviewDate": 1793477950336,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "fingerprint",
@@ -7289,7 +7294,8 @@
         "easeFactor": 2.65,
         "repetitions": 2,
         "nextReviewDate": 1793650736578,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "alibi",
@@ -7303,7 +7309,8 @@
         "easeFactor": 2.35,
         "repetitions": 2,
         "nextReviewDate": 1793477954285,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "witness",
@@ -7317,7 +7324,8 @@
         "easeFactor": 2.3,
         "repetitions": 2,
         "nextReviewDate": 1793477961345,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "suspect",
@@ -7331,7 +7339,8 @@
         "easeFactor": 2.5,
         "repetitions": 3,
         "nextReviewDate": 1794601358873,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "thief",
@@ -7345,7 +7354,8 @@
         "easeFactor": 2.65,
         "repetitions": 3,
         "nextReviewDate": 1795206163980,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "lie",
@@ -7359,7 +7369,8 @@
         "easeFactor": 2.65,
         "repetitions": 3,
         "nextReviewDate": 1795206167683,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "note",
@@ -7373,7 +7384,8 @@
         "easeFactor": 2.65,
         "repetitions": 2,
         "nextReviewDate": 1793650777530,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "report",
@@ -7387,7 +7399,8 @@
         "easeFactor": 2.65,
         "repetitions": 2,
         "nextReviewDate": 1793650782070,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "information",
@@ -7401,7 +7414,8 @@
         "easeFactor": 2.65,
         "repetitions": 2,
         "nextReviewDate": 1793650785129,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "explain",
@@ -7415,7 +7429,8 @@
         "easeFactor": 2.2,
         "repetitions": 2,
         "nextReviewDate": 1793650700356,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "guess",
@@ -7429,7 +7444,8 @@
         "easeFactor": 1.4,
         "repetitions": 2,
         "nextReviewDate": 1793740341759,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "police / policeman",
@@ -7443,7 +7459,8 @@
         "easeFactor": 2.65,
         "repetitions": 2,
         "nextReviewDate": 1793650810849,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "neighbour",
@@ -7457,7 +7474,8 @@
         "easeFactor": 2.65,
         "repetitions": 2,
         "nextReviewDate": 1793650816477,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "visitor",
@@ -7471,7 +7489,8 @@
         "easeFactor": 2.65,
         "repetitions": 2,
         "nextReviewDate": 1793650821944,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "owner",
@@ -7485,7 +7504,8 @@
         "easeFactor": 2.35,
         "repetitions": 2,
         "nextReviewDate": 1793910176979,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "waiter",
@@ -7499,7 +7519,8 @@
         "easeFactor": 2.35,
         "repetitions": 2,
         "nextReviewDate": 1793910184043,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "watchmaker",
@@ -7513,7 +7534,8 @@
         "easeFactor": 2.65,
         "repetitions": 2,
         "nextReviewDate": 1793650839791,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "grandparents",
@@ -7527,7 +7549,8 @@
         "easeFactor": 2.65,
         "repetitions": 2,
         "nextReviewDate": 1793650843019,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "teenager",
@@ -7541,7 +7564,8 @@
         "easeFactor": 2.65,
         "repetitions": 2,
         "nextReviewDate": 1793650845437,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "kid",
@@ -7555,7 +7579,8 @@
         "easeFactor": 2.65,
         "repetitions": 2,
         "nextReviewDate": 1793650850416,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "police station",
@@ -7569,7 +7594,8 @@
         "easeFactor": 2.65,
         "repetitions": 2,
         "nextReviewDate": 1793650853506,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "antique shop",
@@ -7583,7 +7609,8 @@
         "easeFactor": 2.65,
         "repetitions": 2,
         "nextReviewDate": 1793650856416,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "bakery",
@@ -7597,7 +7624,8 @@
         "easeFactor": 2.35,
         "repetitions": 2,
         "nextReviewDate": 1793910194163,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "downstairs",
@@ -7611,7 +7639,8 @@
         "easeFactor": 2.2,
         "repetitions": 2,
         "nextReviewDate": 1793650778234,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "flashlight",
@@ -7625,7 +7654,8 @@
         "easeFactor": 2.65,
         "repetitions": 2,
         "nextReviewDate": 1793650877880,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "keycard",
@@ -7639,7 +7669,8 @@
         "easeFactor": 2.65,
         "repetitions": 3,
         "nextReviewDate": 1795206200504,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "music box",
@@ -7653,7 +7684,8 @@
         "easeFactor": 2.65,
         "repetitions": 2,
         "nextReviewDate": 1793650885882,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "pocket watch",
@@ -7667,7 +7699,8 @@
         "easeFactor": 2.65,
         "repetitions": 2,
         "nextReviewDate": 1793650890619,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "raincoat",
@@ -7681,7 +7714,8 @@
         "easeFactor": 2.65,
         "repetitions": 2,
         "nextReviewDate": 1793650896739,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "smartphone",
@@ -7695,7 +7729,8 @@
         "easeFactor": 2.65,
         "repetitions": 2,
         "nextReviewDate": 1793650899662,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "photograph",
@@ -7709,7 +7744,8 @@
         "easeFactor": 2.65,
         "repetitions": 2,
         "nextReviewDate": 1793650902338,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "painting",
@@ -7723,7 +7759,8 @@
         "easeFactor": 2.35,
         "repetitions": 2,
         "nextReviewDate": 1793477990774,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "statue",
@@ -7737,7 +7774,8 @@
         "easeFactor": 2.65,
         "repetitions": 2,
         "nextReviewDate": 1793650915484,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "safe",
@@ -7751,7 +7789,8 @@
         "easeFactor": 2.65,
         "repetitions": 2,
         "nextReviewDate": 1793650918435,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "search",
@@ -7765,7 +7804,8 @@
         "easeFactor": 2.3,
         "repetitions": 2,
         "nextReviewDate": 1793477994989,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "officer",
@@ -7779,7 +7819,8 @@
         "easeFactor": 2.65,
         "repetitions": 2,
         "nextReviewDate": 1793650926993,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "case",
@@ -7793,7 +7834,8 @@
         "easeFactor": 2.65,
         "repetitions": 2,
         "nextReviewDate": 1793650931418,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "missing",
@@ -7807,7 +7849,8 @@
         "easeFactor": 2.65,
         "repetitions": 2,
         "nextReviewDate": 1793650936458,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "expensive",
@@ -7821,7 +7864,8 @@
         "easeFactor": 2.65,
         "repetitions": 4,
         "nextReviewDate": 1795724961003,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "famous",
@@ -7835,7 +7879,8 @@
         "easeFactor": 2.65,
         "repetitions": 2,
         "nextReviewDate": 1793650944994,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "job",
@@ -7849,7 +7894,8 @@
         "easeFactor": 2.65,
         "repetitions": 2,
         "nextReviewDate": 1793650948446,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "office",
@@ -7863,7 +7909,8 @@
         "easeFactor": 2.65,
         "repetitions": 2,
         "nextReviewDate": 1793650951965,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "telephone",
@@ -7877,7 +7924,8 @@
         "easeFactor": 2.65,
         "repetitions": 2,
         "nextReviewDate": 1793650954417,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "laptop",
@@ -7891,7 +7939,8 @@
         "easeFactor": 2.65,
         "repetitions": 2,
         "nextReviewDate": 1793650956998,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "wooden",
@@ -7905,7 +7954,8 @@
         "easeFactor": 2.65,
         "repetitions": 2,
         "nextReviewDate": 1793650960963,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "clue",
@@ -7919,7 +7969,8 @@
         "easeFactor": 2.3,
         "repetitions": 2,
         "nextReviewDate": 1793478000011,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "secret",
@@ -7933,7 +7984,8 @@
         "easeFactor": 2.65,
         "repetitions": 2,
         "nextReviewDate": 1793650971805,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "code",
@@ -7947,7 +7999,8 @@
         "easeFactor": 2.35,
         "repetitions": 2,
         "nextReviewDate": 1794000717476,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "stairs",
@@ -7961,7 +8014,8 @@
         "easeFactor": 2.2,
         "repetitions": 2,
         "nextReviewDate": 1793650784233,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "lock",
@@ -7975,7 +8029,8 @@
         "easeFactor": 2.5,
         "repetitions": 6,
         "nextReviewDate": 1794513486998,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "mud",
@@ -7989,7 +8044,8 @@
         "easeFactor": 2.3,
         "repetitions": 2,
         "nextReviewDate": 1793478016501,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "ticket",
@@ -8003,7 +8059,8 @@
         "easeFactor": 3.0999999999999996,
         "repetitions": 4,
         "nextReviewDate": 1804082610468,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "loud",
@@ -8017,7 +8074,8 @@
         "easeFactor": 2.0999999999999996,
         "repetitions": 1,
         "nextReviewDate": 1793482535701,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "plastic",
@@ -8031,7 +8089,8 @@
         "easeFactor": 2.65,
         "repetitions": 2,
         "nextReviewDate": 1793651015117,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "size",
@@ -8045,7 +8104,8 @@
         "easeFactor": 2.65,
         "repetitions": 2,
         "nextReviewDate": 1793651021083,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "deliver",
@@ -8059,7 +8119,8 @@
         "easeFactor": 2.35,
         "repetitions": 2,
         "nextReviewDate": 1794000733562,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "boil",
@@ -8073,7 +8134,8 @@
         "easeFactor": 2.3,
         "repetitions": 2,
         "nextReviewDate": 1793478022811,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "pot",
@@ -8087,7 +8149,8 @@
         "easeFactor": 2.3,
         "repetitions": 2,
         "nextReviewDate": 1793478029542,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "stove",
@@ -8101,7 +8164,8 @@
         "easeFactor": 2.5,
         "repetitions": 3,
         "nextReviewDate": 1794691939273,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "helmet",
@@ -8115,7 +8179,8 @@
         "easeFactor": 2.5,
         "repetitions": 3,
         "nextReviewDate": 1794692127540,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "bark",
@@ -8129,7 +8194,8 @@
         "easeFactor": 2.0999999999999996,
         "repetitions": 2,
         "nextReviewDate": 1793740522396,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "captain",
@@ -8143,7 +8209,8 @@
         "easeFactor": 2.65,
         "repetitions": 2,
         "nextReviewDate": 1793996403578,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "asleep",
@@ -8157,7 +8224,8 @@
         "easeFactor": 2.5,
         "repetitions": 2,
         "nextReviewDate": 1794085955767,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "nervous",
@@ -8171,7 +8239,8 @@
         "easeFactor": 2.5,
         "repetitions": 2,
         "nextReviewDate": 1793650821147,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "sorry",
@@ -8185,7 +8254,8 @@
         "easeFactor": 2.65,
         "repetitions": 2,
         "nextReviewDate": 1793996424250,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "sad",
@@ -8199,7 +8269,8 @@
         "easeFactor": 2.65,
         "repetitions": 2,
         "nextReviewDate": 1793996429467,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "surprised",
@@ -8213,7 +8284,8 @@
         "easeFactor": 2.65,
         "repetitions": 2,
         "nextReviewDate": 1793996432624,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "email",
@@ -8227,7 +8299,8 @@
         "easeFactor": 2.65,
         "repetitions": 2,
         "nextReviewDate": 1793996434923,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "tail",
@@ -8241,7 +8314,8 @@
         "easeFactor": 2.5,
         "repetitions": 2,
         "nextReviewDate": 1793651088593,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "toy",
@@ -8255,7 +8329,8 @@
         "easeFactor": 2.65,
         "repetitions": 2,
         "nextReviewDate": 1793996445295,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "cupboard",
@@ -8269,7 +8344,8 @@
         "easeFactor": 2.2,
         "repetitions": 2,
         "nextReviewDate": 1793914356575,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "notebook",
@@ -8283,7 +8359,8 @@
         "easeFactor": 2.65,
         "repetitions": 4,
         "nextReviewDate": 1795464072734,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "mistake",
@@ -8297,7 +8374,8 @@
         "easeFactor": 2.65,
         "repetitions": 2,
         "nextReviewDate": 1793996465092,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "clever",
@@ -8311,7 +8389,8 @@
         "easeFactor": 2.65,
         "repetitions": 2,
         "nextReviewDate": 1793996468063,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "dirty",
@@ -8325,7 +8404,8 @@
         "easeFactor": 2.65,
         "repetitions": 4,
         "nextReviewDate": 1799263867007,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "desk",
@@ -8339,7 +8419,8 @@
         "easeFactor": 2.65,
         "repetitions": 5,
         "nextReviewDate": 1801859311832,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "classroom",
@@ -8353,7 +8434,8 @@
         "easeFactor": 2.65,
         "repetitions": 4,
         "nextReviewDate": 1796147012022,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "cup",
@@ -8367,7 +8449,8 @@
         "easeFactor": 2.65,
         "repetitions": 4,
         "nextReviewDate": 1793996493164,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "sign",
@@ -8381,7 +8464,8 @@
         "easeFactor": 2.0999999999999996,
         "repetitions": 2,
         "nextReviewDate": 1793740385743,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "biscuit",
@@ -8395,7 +8479,8 @@
         "easeFactor": 2.65,
         "repetitions": 4,
         "nextReviewDate": 1799762537950,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "birthday",
@@ -8409,7 +8494,8 @@
         "easeFactor": 2.9499999999999997,
         "repetitions": 4,
         "nextReviewDate": 1800908796408,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "cake",
@@ -8423,7 +8509,8 @@
         "easeFactor": 2.9499999999999997,
         "repetitions": 5,
         "nextReviewDate": 1798741463818,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "menu",
@@ -8437,7 +8524,8 @@
         "easeFactor": 2.9499999999999997,
         "repetitions": 4,
         "nextReviewDate": 1802188897645,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "pound",
@@ -8451,7 +8539,8 @@
         "easeFactor": 2.35,
         "repetitions": 1,
         "nextReviewDate": 1793568764012,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "pay",
@@ -8465,7 +8554,8 @@
         "easeFactor": 2.8,
         "repetitions": 4,
         "nextReviewDate": 1798992150502,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "bank",
@@ -8479,7 +8569,8 @@
         "easeFactor": 3.0999999999999996,
         "repetitions": 4,
         "nextReviewDate": 1804082621157,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "supermarket",
@@ -8493,7 +8584,8 @@
         "easeFactor": 2.9499999999999997,
         "repetitions": 4,
         "nextReviewDate": 1802188944987,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "opposite",
@@ -8507,7 +8599,8 @@
         "easeFactor": 2.5,
         "repetitions": 2,
         "nextReviewDate": 1793914370030,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "turn",
@@ -8521,7 +8614,8 @@
         "easeFactor": 2.5,
         "repetitions": 2,
         "nextReviewDate": 1793914374759,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
       },
       {
         "word": "soft",
@@ -8535,7 +8629,158 @@
         "easeFactor": 2.9499999999999997,
         "repetitions": 4,
         "nextReviewDate": 1802624785834,
-        "studied": true
+        "studied": true,
+        "learningInSession": false
+      },
+      {
+        "word": "suitcase",
+        "phonetic": "/ˈsuːt.keɪs/",
+        "translation": "чемодан",
+        "definition": "Новые слова • Детективные расследования A1",
+        "example": "A suitcase is a big bag for clothes.",
+        "heroId": "detective",
+        "rating": 3,
+        "interval": 153,
+        "easeFactor": 3.0999999999999996,
+        "repetitions": 4,
+        "nextReviewDate": 1803995677361,
+        "studied": true,
+        "learningInSession": false
+      },
+      {
+        "word": "platform",
+        "phonetic": "/ˈplæt.fɔːm/",
+        "translation": "платформа / перрон",
+        "definition": "Новые слова • Детективные расследования A1",
+        "example": "Inspector Vance walks onto Platform 1.",
+        "heroId": "detective",
+        "rating": 3,
+        "interval": 153,
+        "easeFactor": 3.0999999999999996,
+        "repetitions": 4,
+        "nextReviewDate": 1804082770933,
+        "studied": true,
+        "learningInSession": false
+      },
+      {
+        "word": "singer",
+        "phonetic": "/ˈsɪŋ.ər/",
+        "translation": "певица / певец",
+        "definition": "Новые слова • Детективные расследования A1",
+        "example": "She is a famous singer from France.",
+        "heroId": "detective",
+        "rating": 3,
+        "interval": 1,
+        "easeFactor": 2.5,
+        "repetitions": 1,
+        "nextReviewDate": 1793482672166,
+        "studied": true,
+        "learningInSession": false
+      },
+      {
+        "word": "holiday",
+        "phonetic": "/ˈhɒl.ə.deɪ/",
+        "translation": "отпуск / каникулы",
+        "definition": "Новые слова • Детективные расследования A1",
+        "example": "I am in England on holiday for seven days.",
+        "heroId": "detective",
+        "rating": 3,
+        "interval": 1,
+        "easeFactor": 2.5,
+        "repetitions": 1,
+        "nextReviewDate": 1793482672168,
+        "studied": true,
+        "learningInSession": false
+      },
+      {
+        "word": "camera",
+        "phonetic": "/ˈkæm.rə/",
+        "translation": "фотоаппарат / камера",
+        "definition": "Новые слова • Детективные расследования A1",
+        "example": "In her hands is a black camera.",
+        "heroId": "detective",
+        "rating": 3,
+        "interval": 153,
+        "easeFactor": 3.0999999999999996,
+        "repetitions": 4,
+        "nextReviewDate": 1805055541618,
+        "studied": true,
+        "learningInSession": false
+      },
+      {
+        "word": "photo",
+        "phonetic": "/ˈfəʊ.təʊ/",
+        "translation": "фотография / фото",
+        "definition": "Новые слова • Детективные расследования A1",
+        "example": "I love taking photos with my camera.",
+        "heroId": "detective",
+        "rating": 3,
+        "interval": 153,
+        "easeFactor": 3.0999999999999996,
+        "repetitions": 4,
+        "nextReviewDate": 1805055543290,
+        "studied": true,
+        "learningInSession": false
+      },
+      {
+        "word": "screen",
+        "phonetic": "/skriːn/",
+        "translation": "экран",
+        "definition": "Новые слова • Детективные расследования A1",
+        "example": "She shows the small screen to Inspector Vance.",
+        "heroId": "detective",
+        "rating": 3,
+        "interval": 1,
+        "easeFactor": 2.5,
+        "repetitions": 1,
+        "nextReviewDate": 1793482672169,
+        "studied": true,
+        "learningInSession": false
+      },
+      {
+        "word": "newspaper",
+        "phonetic": "/ˈnjuːzˌpeɪ.pər/",
+        "translation": "газета",
+        "definition": "Новые слова • Детективные расследования A1",
+        "example": "Inside the bag are old newspapers.",
+        "heroId": "detective",
+        "rating": 3,
+        "interval": 153,
+        "easeFactor": 3.0999999999999996,
+        "repetitions": 4,
+        "nextReviewDate": 1806005817311,
+        "studied": true,
+        "learningInSession": false
+      },
+      {
+        "word": "heavy",
+        "phonetic": "/ˈhev.i/",
+        "translation": "тяжёлый",
+        "definition": "Новые слова • Детективные расследования A1",
+        "example": "Some suitcases are very big and heavy.",
+        "heroId": "detective",
+        "rating": 3,
+        "interval": 153,
+        "easeFactor": 3.0999999999999996,
+        "repetitions": 4,
+        "nextReviewDate": 1804617705655,
+        "studied": true,
+        "learningInSession": false
+      },
+      {
+        "word": "carry",
+        "phonetic": "/ˈkær.i/",
+        "translation": "носить / переносить",
+        "definition": "Новые слова • Детективные расследования A1",
+        "example": "I carry the big bags to the trains.",
+        "heroId": "detective",
+        "rating": 3,
+        "interval": 88,
+        "easeFactor": 2.5999999999999996,
+        "repetitions": 4,
+        "nextReviewDate": 1800128311649,
+        "studied": true,
+        "learningInSession": false
       }
     ],
     "IT & Tech": [
@@ -8550,7 +8795,8 @@
         "easeFactor": 2.5,
         "repetitions": 0,
         "nextReviewDate": 0,
-        "studied": false
+        "studied": false,
+        "learningInSession": false
       },
       {
         "word": "Deprecate",
@@ -8563,7 +8809,8 @@
         "easeFactor": 2.5,
         "repetitions": 0,
         "nextReviewDate": 0,
-        "studied": false
+        "studied": false,
+        "learningInSession": false
       },
       {
         "word": "Idempotent",
@@ -8576,7 +8823,8 @@
         "easeFactor": 2.5,
         "repetitions": 0,
         "nextReviewDate": 0,
-        "studied": false
+        "studied": false,
+        "learningInSession": false
       }
     ],
     "Valerius's Pack (A0)": [
@@ -13181,7 +13429,7 @@
         "definition": "Hero Pack: Ignis (A0 (Objects, Colors & Clothes))",
         "example": "A big travel suitcase.",
         "heroId": "ignis",
-        "rating": 0,
+        "rating": 3,
         "interval": 153,
         "easeFactor": 3.0999999999999996,
         "repetitions": 4,
@@ -16710,7 +16958,7 @@
         "definition": "Hero Pack: Zephyr (A0 (Places, Directions & Questions))",
         "example": "Train platform.",
         "heroId": "zephyr",
-        "rating": 0,
+        "rating": 3,
         "interval": 153,
         "easeFactor": 3.0999999999999996,
         "repetitions": 4,
@@ -17387,7 +17635,7 @@
         "definition": "Hero Pack: Thorin (A0/A1 (Descriptions & Opposites))",
         "example": "Heavy iron armor.",
         "heroId": "thorin",
-        "rating": 0,
+        "rating": 3,
         "interval": 153,
         "easeFactor": 3.0999999999999996,
         "repetitions": 4,
@@ -19114,7 +19362,7 @@
         "definition": "Hero Pack: Selene (A1 (Ability Can/Cannot & Hobbies))",
         "example": "Take a photo with camera.",
         "heroId": "selene",
-        "rating": 0,
+        "rating": 3,
         "interval": 153,
         "easeFactor": 3.0999999999999996,
         "repetitions": 4,
@@ -19129,7 +19377,7 @@
         "definition": "Hero Pack: Selene (A1 (Ability Can/Cannot & Hobbies))",
         "example": "A nice photo.",
         "heroId": "selene",
-        "rating": 0,
+        "rating": 3,
         "interval": 153,
         "easeFactor": 3.0999999999999996,
         "repetitions": 4,
@@ -21771,7 +22019,7 @@
         "definition": "Hero Pack: Oberon (A1 (Present Continuous & Nature))",
         "example": "Carry a heavy shield.",
         "heroId": "oberon",
-        "rating": 0,
+        "rating": 3,
         "interval": 88,
         "easeFactor": 2.5999999999999996,
         "repetitions": 4,
@@ -23048,7 +23296,7 @@
         "definition": "Hero Pack: Freya (A1 (Past Simple & Travel))",
         "example": "Morning newspaper.",
         "heroId": "freya",
-        "rating": 0,
+        "rating": 3,
         "interval": 153,
         "easeFactor": 3.0999999999999996,
         "repetitions": 4,
@@ -25105,7 +25353,7 @@
   "streak_days": 82,
   "last_streak_date": "2026-10-30",
   "writing_words": 1510,
-  "listening_words": 20339,
+  "listening_words": 20937,
   "speaking_words": 658,
   "drills_cards": 1204,
   "visual_fluency_xp": 31248,
@@ -25115,13 +25363,13 @@
   "completed_story_chapters": [
     1
   ],
-  "lastSyncedAt": "2026-10-30T21:36:30.234Z",
+  "lastSyncedAt": "2026-10-30T21:48:41.528Z",
   "eldrin_audiobook_state": {
-    "activeChapterId": "spec4-ch-6",
-    "currentSentenceIdx": 76,
+    "activeChapterId": "spec5-ch-2",
+    "currentSentenceIdx": 41,
     "playbackSpeed": 1,
     "narratorVoice": "Charon",
-    "isBlindMode": false,
+    "isBlindMode": true,
     "completedChapters": [
       "eldrin-ch-1",
       "eldrin-ch-2",
@@ -25165,7 +25413,9 @@
       "spec4-ch-3",
       "spec4-ch-4",
       "spec4-ch-5",
-      "spec4-ch-6"
+      "spec4-ch-6",
+      "spec5-ch-1",
+      "spec5-ch-2"
     ],
     "wordAwardedChapters": [
       "eldrin-ch-1",
@@ -25210,9 +25460,11 @@
       "spec4-ch-3",
       "spec4-ch-4",
       "spec4-ch-5",
-      "spec4-ch-6"
+      "spec4-ch-6",
+      "spec5-ch-1",
+      "spec5-ch-2"
     ],
-    "lastSavedAt": "2026-10-29T20:55:15.077Z"
+    "lastSavedAt": "2026-10-30T21:48:40.870Z"
   },
   "freeze_count": 0,
   "last_quest_date": "2026-10-30",
@@ -25223,7 +25475,7 @@
     "drills_cards": 0,
     "speaking_words": 0,
     "story_done": 0,
-    "audiobook_sentences": 0
+    "audiobook_sentences": 126
   },
   "speech_drills_mastery": {
     "am_ready": 1,

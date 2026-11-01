@@ -12421,6 +12421,2168 @@ const ELDRIN_AUDIOBOOK = {
 		}
 	],
 	"wordCount": 415
+},
+{
+	"id": "spec6-ch-1",
+	"number": 601,
+	"act": 10,
+	"titleEn": "Special Case 6 (Part 1): Breakfast at the Grand Hotel",
+	"titleRu": "Спецдело 6 (Часть 1): Завтрак в Гранд Отеле",
+	"synopsisEn": "On Saturday morning at the Grand Hotel, guest Mr. Robert White approaches Inspector Vance and Leo in panic: his gold room key and six theatre tickets for his mother's 75th birthday have vanished from Room 104!",
+	"synopsisRu": "В субботу утром в Гранд Отеле постоялец мистер Роберт Уайт в панике обращается к инспектору Вэнсу и Лео: золотой ключ от номера и шесть театральных билетов на 75-летие его матери пропали из комнаты 104!",
+	"targetLevel": "CEFR A1",
+	"coverIcon": "fa-hotel",
+	"coverColor": "#6366f1",
+	"sentences": [
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">It is Saturday morning.</prosody></speak>",
+			"en": "It is Saturday morning.",
+			"ru": "Субботнее утро."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The time is ten o'clock.</prosody></speak>",
+			"en": "The time is ten o'clock.",
+			"ru": "Время — десять часов."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Inspector Vance and his son, Leo, are at the Grand Hotel.</prosody></speak>",
+			"en": "Inspector Vance and his son, Leo, are at the Grand Hotel.",
+			"ru": "Инспектор Вэнс и его сын Лео находятся в Гранд Отеле."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">They sit at a small table in the hotel dining room.</prosody></speak>",
+			"en": "They sit at a small table in the hotel dining room.",
+			"ru": "Они сидят за маленьким столиком в гостиничной столовой."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Inspector Vance drinks hot black coffee.</prosody></speak>",
+			"en": "Inspector Vance drinks hot black coffee.",
+			"ru": "Инспектор Вэнс пьёт горячий чёрный кофе."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo eats eggs and bread with butter.</prosody></speak>",
+			"en": "Leo eats eggs and bread with butter.",
+			"ru": "Лео ест яйца и хлеб с маслом."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo's small blue notebook is on the table.</prosody></speak>",
+			"en": "Leo's small blue notebook is on the table.",
+			"ru": "Маленький синий блокнот Лео лежит на столе."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Then, a man in a grey suit runs into the dining room.</prosody></speak>",
+			"en": "Then, a man in a grey suit runs into the dining room.",
+			"ru": "Затем в столовую вбегает мужчина в сером костюме."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">His name is Mister Robert White.</prosody></speak>",
+			"en": "His name is Mr. Robert White.",
+			"ru": "Его зовут мистер Роберт Уайт."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He is fifty years old.</prosody></speak>",
+			"en": "He is fifty years old.",
+			"ru": "Ему пятьдесят лет."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He looks very sad and afraid.</prosody></speak>",
+			"en": "He looks very sad and afraid.",
+			"ru": "Он выглядит очень грустным и напуганным."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He sees Inspector Vance and walks fast to their table.</prosody></speak>",
+			"en": "He sees Inspector Vance and walks fast to their table.",
+			"ru": "Он видит инспектора Вэнса и быстро идёт к их столику."
+		},
+		{
+			"speaker": "white",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">Excuse me!</prosody></speak>",
+			"en": "Excuse me!",
+			"ru": "Прошу прощения!"
+		},
+		{
+			"speaker": "white",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">Are you Inspector Vance from the Oakwood Police?</prosody></speak>",
+			"en": "Are you Inspector Vance from the Oakwood Police?",
+			"ru": "Вы инспектор Вэнс из полиции Оквуда?"
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Yes, I am.</prosody></speak>",
+			"en": "Yes, I am.",
+			"ru": "Да, это я."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Good morning.</prosody></speak>",
+			"en": "Good morning.",
+			"ru": "Доброе утро."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">And this is my son, Leo.</prosody></speak>",
+			"en": "And this is my son, Leo.",
+			"ru": "А это мой сын Лео."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">What is the problem, sir?</prosody></speak>",
+			"en": "What is the problem, sir?",
+			"ru": "В чём дело, сэр?"
+		},
+		{
+			"speaker": "white",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">My name is Robert White.</prosody></speak>",
+			"en": "My name is Robert White.",
+			"ru": "Меня зовут Роберт Уайт."
+		},
+		{
+			"speaker": "white",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">I am staying here at the Grand Hotel with my family.</prosody></speak>",
+			"en": "I am staying here at the Grand Hotel with my family.",
+			"ru": "Я остановился здесь в Гранд Отеле со своей семьёй."
+		},
+		{
+			"speaker": "white",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">My room is Room 104, on the first floor.</prosody></speak>",
+			"en": "My room is Room 104, on the first floor.",
+			"ru": "Мой номер — комната 104, на первом этаже."
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Is there a problem in Room 104, Mister White?</prosody></speak>",
+			"en": "Is there a problem in Room 104, Mr. White?",
+			"ru": "В комнате 104 какая-то проблема, мистер Уайт?"
+		},
+		{
+			"speaker": "white",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">Yes!</prosody></speak>",
+			"en": "Yes!",
+			"ru": "Да!"
+		},
+		{
+			"speaker": "white",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">Tonight is my mother's birthday.</prosody></speak>",
+			"en": "Tonight is my mother's birthday.",
+			"ru": "Сегодня вечером день рождения моей мамы."
+		},
+		{
+			"speaker": "white",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">She is seventy-five years old today!</prosody></speak>",
+			"en": "She is seventy-five years old today!",
+			"ru": "Сегодня ей исполняется семьдесят пять лет!"
+		},
+		{
+			"speaker": "white",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">Yesterday, I bought six blue tickets for the Oakwood Theatre.</prosody></speak>",
+			"en": "Yesterday, I bought six blue tickets for the Oakwood Theatre.",
+			"ru": "Вчера я купил шесть синих билетов в театр Оквуда."
+		},
+		{
+			"speaker": "white",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">The big show is tonight.</prosody></speak>",
+			"en": "The big show is tonight.",
+			"ru": "Большое представление будет сегодня вечером."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Where did you put the six blue tickets, Mister White?</prosody></speak>",
+			"en": "Where did you put the six blue tickets, Mr. White?",
+			"ru": "Куда вы положили шесть синих билетов, мистер Уайт?"
+		},
+		{
+			"speaker": "white",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">This morning, at nine o'clock, I was in Room 104.</prosody></speak>",
+			"en": "This morning, at nine o'clock, I was in Room 104.",
+			"ru": "Сегодня утром в девять часов я был в комнате 104."
+		},
+		{
+			"speaker": "white",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">I had the six blue tickets in my hand.</prosody></speak>",
+			"en": "I had the six blue tickets in my hand.",
+			"ru": "В руках у меня было шесть синих билетов."
+		},
+		{
+			"speaker": "white",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">I also had my gold room key.</prosody></speak>",
+			"en": "I also had my gold room key.",
+			"ru": "У меня также был мой золотой ключ от номера."
+		},
+		{
+			"speaker": "white",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">I was near the small table next to the chair.</prosody></speak>",
+			"en": "I was near the small table next to the chair.",
+			"ru": "Я стоял возле маленького столика рядом со стулом."
+		},
+		{
+			"speaker": "white",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">Then my wife called me from the dining room.</prosody></speak>",
+			"en": "Then my wife called me from the dining room.",
+			"ru": "Затем моя жена позвала меня из столовой."
+		},
+		{
+			"speaker": "white",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">So I put the tickets and the key down.</prosody></speak>",
+			"en": "So I put the tickets and the key down.",
+			"ru": "Поэтому я положил билеты и ключ."
+		},
+		{
+			"speaker": "white",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">Then I came here for breakfast!</prosody></speak>",
+			"en": "Then I came here for breakfast!",
+			"ru": "Затем я пришёл сюда позавтракать!"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">And when did you go back to Room 104?</prosody></speak>",
+			"en": "And when did you go back to Room 104?",
+			"ru": "А когда вы вернулись в комнату 104?"
+		},
+		{
+			"speaker": "white",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">Five minutes ago, at ten o'clock!</prosody></speak>",
+			"en": "Five minutes ago, at ten o'clock!",
+			"ru": "Пять минут назад, в десять часов!"
+		},
+		{
+			"speaker": "white",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">The door of Room 104 was closed.</prosody></speak>",
+			"en": "The door of Room 104 was closed.",
+			"ru": "Дверь комнаты 104 была закрыта."
+		},
+		{
+			"speaker": "white",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">A hotel worker opened it for me.</prosody></speak>",
+			"en": "A hotel worker opened it for me.",
+			"ru": "Сотрудник отеля открыл её для меня."
+		},
+		{
+			"speaker": "white",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">I looked at the small table.</prosody></speak>",
+			"en": "I looked at the small table.",
+			"ru": "Я посмотрел на маленький столик."
+		},
+		{
+			"speaker": "white",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">I looked at the chair.</prosody></speak>",
+			"en": "I looked at the chair.",
+			"ru": "Я посмотрел на стул."
+		},
+		{
+			"speaker": "white",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">The six blue tickets and my gold key are not there!</prosody></speak>",
+			"en": "The six blue tickets and my gold key are not there!",
+			"ru": "Шести синих билетов и моего золотого ключа там нет!"
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Do not be sad, Mister White.</prosody></speak>",
+			"en": "Do not be sad, Mr. White.",
+			"ru": "Не огорчайтесь, мистер Уайт."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo and I can help you find them.</prosody></speak>",
+			"en": "Leo and I can help you find them.",
+			"ru": "Мы с Лео поможем вам найти их."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Let us go to the hotel front desk first.</prosody></speak>",
+			"en": "Let us go to the hotel front desk first.",
+			"ru": "Давайте сначала подойдём к стойке регистрации отеля."
+		}
+	],
+	"quiz": [
+		{
+			"question": "Where are Inspector Vance and Leo on Saturday morning?",
+			"questionRu": "Где находятся инспектор Вэнс и Лео в субботу утром?",
+			"options": [
+				"At the dining room of the Grand Hotel",
+				"At the Oakwood Train Station",
+				"In Marco's Cafe",
+				"At Oakwood School"
+			],
+			"correctIdx": 0
+		},
+		{
+			"question": "What did Mr. White buy for his mother's 75th birthday?",
+			"questionRu": "Что мистер Уайт купил на 75-летие своей матери?",
+			"options": [
+				"Six blue tickets for the Oakwood Theatre",
+				"A new gold pocket watch",
+				"A pink birthday cake",
+				"A brown guitar"
+			],
+			"correctIdx": 0
+		},
+		{
+			"question": "What items disappeared from Room 104?",
+			"questionRu": "Какие вещи пропали из номера 104?",
+			"options": [
+				"The gold room key and six blue theatre tickets",
+				"A black camera and a yellow bag",
+				"A silver cup and chocolate ice cream",
+				"A red suitcase and gold shoes"
+			],
+			"correctIdx": 0
+		}
+	],
+	"wordCount": 322
+},
+{
+	"id": "spec6-ch-2",
+	"number": 602,
+	"act": 10,
+	"titleEn": "Special Case 6 (Part 2): The First Person — Sarah at the Front Desk",
+	"titleRu": "Спецдело 6 (Часть 2): Первый свидетель — Сара на стойке регистрации",
+	"synopsisEn": "Receptionist Sarah explains the hotel layout and drops a crucial clue: the hotel lift has been completely out of service all morning, so everyone had to walk past her up and down the stairs!",
+	"synopsisRu": "Администратор Сара описывает устройство отеля и сообщает ключевую улику: лифт не работает всё утро, поэтому абсолютно все ходили мимо неё только по лестнице!",
+	"targetLevel": "CEFR A1",
+	"coverIcon": "fa-bell-concierge",
+	"coverColor": "#0ea5e9",
+	"sentences": [
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Inspector Vance, Leo, and Mister White walk into the hotel hall.</prosody></speak>",
+			"en": "Inspector Vance, Leo, and Mr. White walk into the hotel hall.",
+			"ru": "Инспектор Вэнс, Лео и мистер Уайт выходят в холл отеля."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">A young woman stands at the front desk.</prosody></speak>",
+			"en": "A young woman stands at the front desk.",
+			"ru": "Молодая женщина стоит за стойкой регистрации."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">She wears a dark blue jacket.</prosody></speak>",
+			"en": "She wears a dark blue jacket.",
+			"ru": "На ней тёмно-синий жакет."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Her name is Sarah.</prosody></speak>",
+			"en": "Her name is Sarah.",
+			"ru": "Её зовут Сара."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">She is twenty-five years old.</prosody></speak>",
+			"en": "She is twenty-five years old.",
+			"ru": "Ей двадцать пять лет."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Good morning, Sarah.</prosody></speak>",
+			"en": "Good morning, Sarah.",
+			"ru": "Доброе утро, Сара."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">We have a question about Room 104.</prosody></speak>",
+			"en": "We have a question about Room 104.",
+			"ru": "У нас есть вопрос по поводу номера 104."
+		},
+		{
+			"speaker": "sarah",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">Good morning, Inspector Vance!</prosody></speak>",
+			"en": "Good morning, Inspector Vance!",
+			"ru": "Доброе утро, инспектор Вэнс!"
+		},
+		{
+			"speaker": "sarah",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">Hello, Leo!</prosody></speak>",
+			"en": "Hello, Leo!",
+			"ru": "Привет, Лео!"
+		},
+		{
+			"speaker": "sarah",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">Oh, dear.</prosody></speak>",
+			"en": "Oh, dear.",
+			"ru": "О боже."
+		},
+		{
+			"speaker": "sarah",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">Is there a problem with Mister White's room?</prosody></speak>",
+			"en": "Is there a problem with Mr. White's room?",
+			"ru": "Какая-то проблема с комнатой мистера Уайта?"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Mister White's gold key and six theatre tickets are not in Room 104.</prosody></speak>",
+			"en": "Mr. White's gold key and six theatre tickets are not in Room 104.",
+			"ru": "Золотого ключа и шести театральных билетов мистера Уайта нет в номере 104."
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Tell us about the hotel this morning, Sarah.</prosody></speak>",
+			"en": "Tell us about the hotel this morning, Sarah.",
+			"ru": "Расскажи нам об отеле этим утром, Сара."
+		},
+		{
+			"speaker": "sarah",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">Well, the Grand Hotel is not very big.</prosody></speak>",
+			"en": "Well, the Grand Hotel is not very big.",
+			"ru": "Ну, Гранд Отель не очень большой."
+		},
+		{
+			"speaker": "sarah",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">We have two floors and twenty rooms.</prosody></speak>",
+			"en": "We have two floors and twenty rooms.",
+			"ru": "У нас два этажа и двадцать номеров."
+		},
+		{
+			"speaker": "sarah",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">Room 101 to Room 110 are on the first floor.</prosody></speak>",
+			"en": "Room 101 to Room 110 are on the first floor.",
+			"ru": "Номера со 101 по 110 находятся на первом этаже."
+		},
+		{
+			"speaker": "sarah",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">Room 201 to Room 210 are on the second floor.</prosody></speak>",
+			"en": "Room 201 to Room 210 are on the second floor.",
+			"ru": "Номера с 201 по 210 находятся на втором этаже."
+		},
+		{
+			"speaker": "sarah",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">Every room has a big bed, a table, and a chair.</prosody></speak>",
+			"en": "Every room has a big bed, a table, and a chair.",
+			"ru": "В каждой комнате есть большая кровать, стол и стул."
+		},
+		{
+			"speaker": "sarah",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">There is also a brown cupboard, a television, and a warm shower.</prosody></speak>",
+			"en": "There is also a brown cupboard, a television, and a warm shower.",
+			"ru": "Там также есть коричневый шкаф, телевизор и тёплый душ."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">How do people go up to the rooms?</prosody></speak>",
+			"en": "How do people go up to the rooms?",
+			"ru": "Как люди поднимаются в номера?"
+		},
+		{
+			"speaker": "sarah",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">Usually, people can take the hotel lift or walk up the stairs.</prosody></speak>",
+			"en": "Usually, people can take the hotel lift or walk up the stairs.",
+			"ru": "Обычно люди могут подняться на лифте или подняться по лестнице."
+		},
+		{
+			"speaker": "sarah",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">Listen to this, Inspector: today, the hotel lift is not working!</prosody></speak>",
+			"en": "Listen to this, Inspector: today, the hotel lift is not working!",
+			"ru": "Послушайте это, инспектор: сегодня лифт в отеле не работает!"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">The lift is not working today?</prosody></speak>",
+			"en": "The lift is not working today?",
+			"ru": "Лифт сегодня не работает?"
+		},
+		{
+			"speaker": "sarah",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">No!</prosody></speak>",
+			"en": "No!",
+			"ru": "Нет!"
+		},
+		{
+			"speaker": "sarah",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">At eight o'clock this morning, the lift stopped on the ground floor.</prosody></speak>",
+			"en": "At eight o'clock this morning, the lift stopped on the ground floor.",
+			"ru": "Сегодня в восемь утра лифт остановился на первом этаже."
+		},
+		{
+			"speaker": "sarah",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">We closed the lift door.</prosody></speak>",
+			"en": "We closed the lift door.",
+			"ru": "Мы закрыли дверь лифта."
+		},
+		{
+			"speaker": "sarah",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">We put a big yellow sign on it: No Lift Today.</prosody></speak>",
+			"en": "We put a big yellow sign on it: No Lift Today.",
+			"ru": "Мы повесили на него большую жёлтую табличку: «Лифт сегодня не работает»."
+		},
+		{
+			"speaker": "sarah",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">Nobody used the lift this morning!</prosody></speak>",
+			"en": "Nobody used the lift this morning!",
+			"ru": "Никто не пользовался лифтом сегодня утром!"
+		},
+		{
+			"speaker": "sarah",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">Everyone walked up and down the stairs right past my desk!</prosody></speak>",
+			"en": "Everyone walked up and down the stairs right past my desk!",
+			"ru": "Все поднимались и спускались по лестнице прямо мимо моей стойки!"
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">That is very important, Sarah!</prosody></speak>",
+			"en": "That is very important, Sarah!",
+			"ru": "Это очень важно, Сара!"
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Who walked up the stairs between nine o'clock and ten o'clock?</prosody></speak>",
+			"en": "Who walked up the stairs between nine o'clock and ten o'clock?",
+			"ru": "Кто поднимался по лестнице между девятью и десятью часами?"
+		},
+		{
+			"speaker": "sarah",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">Only two people, Inspector!</prosody></speak>",
+			"en": "Only two people, Inspector!",
+			"ru": "Всего два человека, инспектор!"
+		},
+		{
+			"speaker": "sarah",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">At nine o'clock, Maria walked up the stairs.</prosody></speak>",
+			"en": "At nine o'clock, Maria walked up the stairs.",
+			"ru": "В девять часов Мария поднялась по лестнице."
+		},
+		{
+			"speaker": "sarah",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">She is our room cleaner.</prosody></speak>",
+			"en": "She is our room cleaner.",
+			"ru": "Она наша горничная."
+		},
+		{
+			"speaker": "sarah",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">And at half past nine, young Peter walked down the stairs.</prosody></speak>",
+			"en": "And at half past nine, young Peter walked down the stairs.",
+			"ru": "А в половине десятого молодой Питер спустился по лестнице."
+		},
+		{
+			"speaker": "sarah",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">He is Mister White's brother's son.</prosody></speak>",
+			"en": "He is Mr. White's brother's son.",
+			"ru": "Он сын брата мистера Уайта."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Thank you, Sarah.</prosody></speak>",
+			"en": "Thank you, Sarah.",
+			"ru": "Спасибо, Сара."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo writes in his notebook:</prosody></speak>",
+			"en": "Leo writes in his notebook:",
+			"ru": "Лео записывает в своём блокноте:"
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The lift is closed today. Maria and Peter used the stairs.</prosody></speak>",
+			"en": "The lift is closed today. Maria and Peter used the stairs.",
+			"ru": "Лифт сегодня закрыт. Мария и Питер ходили по лестнице."
+		}
+	],
+	"quiz": [
+		{
+			"question": "How many rooms and floors does the Grand Hotel have?",
+			"questionRu": "Сколько номеров и этажей в Гранд Отеле?",
+			"options": [
+				"Two floors and twenty rooms",
+				"Five floors and fifty rooms",
+				"Three floors and twelve rooms",
+				"One floor and ten rooms"
+			],
+			"correctIdx": 0
+		},
+		{
+			"question": "Why was nobody able to use the hotel lift today?",
+			"questionRu": "Почему никто не мог сегодня воспользоваться лифтом?",
+			"options": [
+				"It stopped at eight o'clock and had a sign: No Lift Today",
+				"The hotel electricity was turned off",
+				"The key to the lift was lost",
+				"Only workers were allowed to ride it"
+			],
+			"correctIdx": 0
+		},
+		{
+			"question": "Whom did Sarah see using the stairs between 9:00 and 10:00?",
+			"questionRu": "Кого видела Сара на лестнице с 9:00 до 10:00?",
+			"options": [
+				"Cleaner Maria going up and young Peter coming down",
+				"Mr. Sterling and his golden dog",
+				"Lucas and Ben carrying a football",
+				"A stranger in a black coat"
+			],
+			"correctIdx": 0
+		}
+	],
+	"wordCount": 291
+},
+{
+	"id": "spec6-ch-3",
+	"number": 603,
+	"act": 10,
+	"titleEn": "Special Case 6 (Part 3): The Second Person — Maria the Room Cleaner",
+	"titleRu": "Спецдело 6 (Часть 3): Второй свидетель — Мария, горничная",
+	"synopsisEn": "Inspector Vance and Leo interview Maria on the first floor. She explains how she tidied Room 104, hung Mr. White's coat in the cupboard, and spotted Peter loitering outside the door at 9:40.",
+	"synopsisRu": "Инспектор Вэнс и Лео опрашивают Марию на первом этаже. Она рассказывает, как прибирала номер 104, повесила пальто мистера Уайта в шкаф и заметила Питера у двери в 9:40.",
+	"targetLevel": "CEFR A1",
+	"coverIcon": "fa-broom",
+	"coverColor": "#ec4899",
+	"sentences": [
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Inspector Vance and Leo walk up the stairs to the first floor.</prosody></speak>",
+			"en": "Inspector Vance and Leo walk up the stairs to the first floor.",
+			"ru": "Инспектор Вэнс и Лео поднимаются по лестнице на первый этаж."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">A woman stands in the hall near Room 105.</prosody></speak>",
+			"en": "A woman stands in the hall near Room 105.",
+			"ru": "В коридоре возле комнаты 105 стоит женщина."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">She wears a clean white dress.</prosody></speak>",
+			"en": "She wears a clean white dress.",
+			"ru": "На ней чистое белое платье."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Her name is Maria.</prosody></speak>",
+			"en": "Her name is Maria.",
+			"ru": "Её зовут Мария."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Next to her is a big box with white towels.</prosody></speak>",
+			"en": "Next to her is a big box with white towels.",
+			"ru": "Рядом с ней большая коробка с белыми полотенцами."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Good morning, Maria.</prosody></speak>",
+			"en": "Good morning, Maria.",
+			"ru": "Доброе утро, Мария."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Can we talk to you for a minute?</prosody></speak>",
+			"en": "Can we talk to you for a minute?",
+			"ru": "Можем мы поговорить с вами минутку?"
+		},
+		{
+			"speaker": "maria",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1.5st\">Good morning, Inspector!</prosody></speak>",
+			"en": "Good morning, Inspector!",
+			"ru": "Доброе утро, инспектор!"
+		},
+		{
+			"speaker": "maria",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1.5st\">Hello, young boy!</prosody></speak>",
+			"en": "Hello, young boy!",
+			"ru": "Привет, юный друг!"
+		},
+		{
+			"speaker": "maria",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1.5st\">Yes, of course.</prosody></speak>",
+			"en": "Yes, of course.",
+			"ru": "Да, конечно."
+		},
+		{
+			"speaker": "maria",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1.5st\">I am cleaning the rooms on the first floor today.</prosody></speak>",
+			"en": "I am cleaning the rooms on the first floor today.",
+			"ru": "Я убираю комнаты на первом этаже сегодня."
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">What do you do in the rooms every morning, Maria?</prosody></speak>",
+			"en": "What do you do in the rooms every morning, Maria?",
+			"ru": "Что вы делаете в номерах каждое утро, Мария?"
+		},
+		{
+			"speaker": "maria",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1.5st\">Every morning, I work from nine to twelve.</prosody></speak>",
+			"en": "Every morning, I work from nine to twelve.",
+			"ru": "Каждое утро я работаю с девяти до двенадцати."
+		},
+		{
+			"speaker": "maria",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1.5st\">I clean ten rooms.</prosody></speak>",
+			"en": "I clean ten rooms.",
+			"ru": "Я убираю десять комнат."
+		},
+		{
+			"speaker": "maria",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1.5st\">First, I open the window for cold, fresh air.</prosody></speak>",
+			"en": "First, I open the window for cold, fresh air.",
+			"ru": "Сначала я открываю окно для прохладного, свежего воздуха."
+		},
+		{
+			"speaker": "maria",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1.5st\">Next, I make the big bed.</prosody></speak>",
+			"en": "Next, I make the big bed.",
+			"ru": "Затем заправляю большую кровать."
+		},
+		{
+			"speaker": "maria",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1.5st\">Then, I wash the bathroom floor.</prosody></speak>",
+			"en": "Then, I wash the bathroom floor.",
+			"ru": "Затем мою пол в ванной комнате."
+		},
+		{
+			"speaker": "maria",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1.5st\">I put clean towels near the shower.</prosody></speak>",
+			"en": "I put clean towels near the shower.",
+			"ru": "Я кладу чистые полотенца возле душа."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Did you clean Room 104 this morning?</prosody></speak>",
+			"en": "Did you clean Room 104 this morning?",
+			"ru": "Вы убирали комнату 104 сегодня утром?"
+		},
+		{
+			"speaker": "maria",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1.5st\">Yes, Inspector!</prosody></speak>",
+			"en": "Yes, Inspector!",
+			"ru": "Да, инспектор!"
+		},
+		{
+			"speaker": "maria",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1.5st\">I went into Room 104 at half past nine.</prosody></speak>",
+			"en": "I went into Room 104 at half past nine.",
+			"ru": "Я зашла в комнату 104 в половине десятого."
+		},
+		{
+			"speaker": "maria",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1.5st\">Mister White was not there.</prosody></speak>",
+			"en": "Mr. White was not there.",
+			"ru": "Мистера Уайта там не было."
+		},
+		{
+			"speaker": "maria",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1.5st\">The door of Room 104 was open a little!</prosody></speak>",
+			"en": "The door of Room 104 was open a little!",
+			"ru": "Дверь комнаты 104 была слегка приоткрыта!"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">The door was open?</prosody></speak>",
+			"en": "The door was open?",
+			"ru": "Дверь была открыта?"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">What did you do inside Room 104, Maria?</prosody></speak>",
+			"en": "What did you do inside Room 104, Maria?",
+			"ru": "Что вы делали внутри комнаты 104, Мария?"
+		},
+		{
+			"speaker": "maria",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1.5st\">First, I made the bed.</prosody></speak>",
+			"en": "First, I made the bed.",
+			"ru": "Сначала я заправила постель."
+		},
+		{
+			"speaker": "maria",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1.5st\">Then I looked at the chair next to the small table.</prosody></speak>",
+			"en": "Then I looked at the chair next to the small table.",
+			"ru": "Затем посмотрела на стул рядом с маленьким столиком."
+		},
+		{
+			"speaker": "maria",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1.5st\">Mister White's long black coat was lying on the chair.</prosody></speak>",
+			"en": "Mr. White's long black coat was lying on the chair.",
+			"ru": "Длинное чёрное пальто мистера Уайта лежало на стуле."
+		},
+		{
+			"speaker": "maria",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1.5st\">A coat on a chair does not look clean and nice!</prosody></speak>",
+			"en": "A coat on a chair does not look clean and nice!",
+			"ru": "Пальто на стуле выглядит неаккуратно и некрасиво!"
+		},
+		{
+			"speaker": "maria",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1.5st\">So I picked up the black coat from the chair.</prosody></speak>",
+			"en": "So I picked up the black coat from the chair.",
+			"ru": "Поэтому я подняла чёрное пальто со стула."
+		},
+		{
+			"speaker": "maria",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1.5st\">I opened the big brown cupboard.</prosody></speak>",
+			"en": "I opened the big brown cupboard.",
+			"ru": "Я открыла большой коричневый шкаф."
+		},
+		{
+			"speaker": "maria",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1.5st\">I put the black coat inside!</prosody></speak>",
+			"en": "I put the black coat inside!",
+			"ru": "Я повесила чёрное пальто внутрь!"
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Did you see the key or the tickets on the table?</prosody></speak>",
+			"en": "Did you see the key or the tickets on the table?",
+			"ru": "Вы видели ключ или билеты на столе?"
+		},
+		{
+			"speaker": "maria",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1.5st\">No, Inspector!</prosody></speak>",
+			"en": "No, Inspector!",
+			"ru": "Нет, инспектор!"
+		},
+		{
+			"speaker": "maria",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1.5st\">Nothing was on the small table!</prosody></speak>",
+			"en": "Nothing was on the small table!",
+			"ru": "На маленьком столике ничего не было!"
+		},
+		{
+			"speaker": "maria",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1.5st\">Only a glass of water was on the table.</prosody></speak>",
+			"en": "Only a glass of water was on the table.",
+			"ru": "Только стакан воды стоял на столе."
+		},
+		{
+			"speaker": "maria",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1.5st\">At twenty to ten, I finished my work.</prosody></speak>",
+			"en": "At twenty to ten, I finished my work.",
+			"ru": "Без двадцати десять я закончила работу."
+		},
+		{
+			"speaker": "maria",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1.5st\">I closed the door.</prosody></speak>",
+			"en": "I closed the door.",
+			"ru": "Я закрыла дверь."
+		},
+		{
+			"speaker": "maria",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1.5st\">Then I walked out into the hall.</prosody></speak>",
+			"en": "Then I walked out into the hall.",
+			"ru": "Затем вышла в коридор."
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Did you see any people in the hall on the first floor?</prosody></speak>",
+			"en": "Did you see any people in the hall on the first floor?",
+			"ru": "Видели ли вы людей в коридоре на первом этаже?"
+		},
+		{
+			"speaker": "maria",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1.5st\">Yes!</prosody></speak>",
+			"en": "Yes!",
+			"ru": "Да!"
+		},
+		{
+			"speaker": "maria",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1.5st\">At twenty to ten, I came out of Room 104.</prosody></speak>",
+			"en": "At twenty to ten, I came out of Room 104.",
+			"ru": "Без двадцати десять я вышла из комнаты 104."
+		},
+		{
+			"speaker": "maria",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1.5st\">I saw young Peter in the hall!</prosody></speak>",
+			"en": "I saw young Peter in the hall!",
+			"ru": "Я увидела молодого Питера в коридоре!"
+		},
+		{
+			"speaker": "maria",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1.5st\">He was standing right near the door of Room 104!</prosody></speak>",
+			"en": "He was standing right near the door of Room 104!",
+			"ru": "Он стоял прямо возле двери комнаты 104!"
+		},
+		{
+			"speaker": "maria",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+1.5st\">When he saw me, he ran fast down the stairs!</prosody></speak>",
+			"en": "When he saw me, he ran fast down the stairs!",
+			"ru": "Когда он увидел меня, он быстро побежал вниз по лестнице!"
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo writes in his notebook:</prosody></speak>",
+			"en": "Leo writes in his notebook:",
+			"ru": "Лео записывает в своём блокноте:"
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Maria put the black coat in the cupboard. She saw Peter at twenty to ten.</prosody></speak>",
+			"en": "Maria put the black coat in the cupboard. She saw Peter at twenty to ten.",
+			"ru": "Мария убрала чёрное пальто в шкаф. Она видела Питера без двадцати десять."
+		}
+	],
+	"quiz": [
+		{
+			"question": "What did Maria do with Mr. White's black coat?",
+			"questionRu": "Что Мария сделала с чёрным пальто мистера Уайта?",
+			"options": [
+				"She put it inside the big brown cupboard",
+				"She washed it with soap and water",
+				"She took it down to the hotel front desk",
+				"She left it on the small table"
+			],
+			"correctIdx": 0
+		},
+		{
+			"question": "What was on the small table when Maria cleaned Room 104?",
+			"questionRu": "Что было на маленьком столике, когда Мария убирала номер 104?",
+			"options": [
+				"Only a glass of water",
+				"Six blue theatre tickets and a gold key",
+				"A cup of hot coffee and eggs",
+				"A blue notebook"
+			],
+			"correctIdx": 0
+		},
+		{
+			"question": "What did Peter do when Maria saw him outside Room 104 at 9:40?",
+			"questionRu": "Что сделал Питер, когда Мария увидела его у комнаты 104 в 9:40?",
+			"options": [
+				"He ran fast down the stairs",
+				"He asked Maria for a clean towel",
+				"He opened the door of Room 104",
+				"He entered the hotel lift"
+			],
+			"correctIdx": 0
+		}
+	],
+	"wordCount": 341
+},
+{
+	"id": "spec6-ch-4",
+	"number": 604,
+	"act": 10,
+	"titleEn": "Special Case 6 (Part 4): The Third Person — Peter White",
+	"titleRu": "Спецдело 6 (Часть 4): Третий свидетель — Питер Уайт",
+	"synopsisEn": "In the hotel garden, Vance and Leo question Peter. Peter claims he was never on the first floor at twenty to ten, boasting that he rode the lift straight down from the second floor!",
+	"synopsisRu": "В саду отеля Вэнс и Лео опрашивают Питера. Питер утверждает, что без двадцати десять не был на первом этаже, хвастаясь, что спустился со второго этажа на лифте!",
+	"targetLevel": "CEFR A1",
+	"coverIcon": "fa-user",
+	"coverColor": "#f59e0b",
+	"sentences": [
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Inspector Vance and Leo walk down the stairs to the hotel garden.</prosody></speak>",
+			"en": "Inspector Vance and Leo walk down the stairs to the hotel garden.",
+			"ru": "Инспектор Вэнс и Лео спускаются по лестнице в сад отеля."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">A young man of eighteen sits on a green bench.</prosody></speak>",
+			"en": "A young man of eighteen sits on a green bench.",
+			"ru": "Восемнадцатилетний юноша сидит на зелёной скамейке."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He wears a red sweater and blue jeans.</prosody></speak>",
+			"en": "He wears a red sweater and blue jeans.",
+			"ru": "На нём красный свитер и синие джинсы."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">His name is Peter White.</prosody></speak>",
+			"en": "His name is Peter White.",
+			"ru": "Его зовут Питер Уайт."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Hello, Peter.</prosody></speak>",
+			"en": "Hello, Peter.",
+			"ru": "Здравствуй, Питер."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">I am Inspector Vance, and this is Leo.</prosody></speak>",
+			"en": "I am Inspector Vance, and this is Leo.",
+			"ru": "Я инспектор Вэнс, а это Лео."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Can we ask you some questions?</prosody></speak>",
+			"en": "Can we ask you some questions?",
+			"ru": "Можем мы задать тебе несколько вопросов?"
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">Oh!</prosody></speak>",
+			"en": "Oh!",
+			"ru": "О!"
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">Hello, Inspector.</prosody></speak>",
+			"en": "Hello, Inspector.",
+			"ru": "Здравствуйте, инспектор."
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">Why are you asking me questions?</prosody></speak>",
+			"en": "Why are you asking me questions?",
+			"ru": "Почему вы задаёте мне вопросы?"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Tell us about your family here at the hotel, Peter.</prosody></speak>",
+			"en": "Tell us about your family here at the hotel, Peter.",
+			"ru": "Расскажи нам о своей семье здесь в отеле, Питер."
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Which room is yours?</prosody></speak>",
+			"en": "Which room is yours?",
+			"ru": "Какая комната твоя?"
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">We have a very big family!</prosody></speak>",
+			"en": "We have a very big family!",
+			"ru": "У нас очень большая семья!"
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">We are all here for my grandmother's birthday today.</prosody></speak>",
+			"en": "We are all here for my grandmother's birthday today.",
+			"ru": "Мы все здесь сегодня на дне рождения бабушки."
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">My grandfather and grandmother are in Room 103 on the first floor.</prosody></speak>",
+			"en": "My grandfather and grandmother are in Room 103 on the first floor.",
+			"ru": "Мои дедушка и бабушка живут в комнате 103 на первом этаже."
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">My father is Mister Robert White's brother.</prosody></speak>",
+			"en": "My father is Mr. Robert White's brother.",
+			"ru": "Мой папа — брат мистера Роберта Уайта."
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">My father, my mother, and my little sister are in Room 102.</prosody></speak>",
+			"en": "My father, my mother, and my little sister are in Room 102.",
+			"ru": "Мой папа, мама и младшая сестра живут в комнате 102."
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">Uncle Robert and his wife, Aunt Mary, are in Room 104.</prosody></speak>",
+			"en": "Uncle Robert and his wife, Aunt Mary, are in Room 104.",
+			"ru": "Дядя Роберт и его жена, тётя Мэри — в комнате 104."
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">And I have a small room on the second floor — Room 205!</prosody></speak>",
+			"en": "And I have a small room on the second floor — Room 205!",
+			"ru": "А у меня маленькая комната на втором этаже — номер 205!"
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Peter, Uncle Robert's key and six tickets are not in Room 104.</prosody></speak>",
+			"en": "Peter, Uncle Robert's key and six tickets are not in Room 104.",
+			"ru": "Питер, ключа дяди Роберта и шести билетов нет в комнате 104."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Where were you at twenty to ten this morning?</prosody></speak>",
+			"en": "Where were you at twenty to ten this morning?",
+			"ru": "Где ты был без двадцати десять этим утром?"
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">At twenty to ten?</prosody></speak>",
+			"en": "At twenty to ten?",
+			"ru": "Без двадцати десять?"
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">I was not on the first floor!</prosody></speak>",
+			"en": "I was not on the first floor!",
+			"ru": "Я не был на первом этаже!"
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">I did not go near Room 104 at all!</prosody></speak>",
+			"en": "I did not go near Room 104 at all!",
+			"ru": "Я вообще не подходил к комнате 104!"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Maria saw you outside Room 104 at twenty to ten!</prosody></speak>",
+			"en": "Maria saw you outside Room 104 at twenty to ten!",
+			"ru": "Мария видела тебя возле комнаты 104 без двадцати десять!"
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">No!</prosody></speak>",
+			"en": "No!",
+			"ru": "Нет!"
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">That is not true!</prosody></speak>",
+			"en": "That is not true!",
+			"ru": "Это неправда!"
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">She saw another boy, not me!</prosody></speak>",
+			"en": "She saw another boy, not me!",
+			"ru": "Она видела другого мальчика, не меня!"
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">Listen: I woke up late in Room 205 on the second floor.</prosody></speak>",
+			"en": "Listen: I woke up late in Room 205 on the second floor.",
+			"ru": "Слушайте: я проснулся поздно в комнате 205 на втором этаже."
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">At twenty to ten, I came out of Room 205.</prosody></speak>",
+			"en": "At twenty to ten, I came out of Room 205.",
+			"ru": "Без двадцати десять я вышел из комнаты 205."
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">I did not walk down the stairs to the first floor!</prosody></speak>",
+			"en": "I did not walk down the stairs to the first floor!",
+			"ru": "Я не спускался по лестнице на первый этаж!"
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">I opened the lift door on the second floor.</prosody></speak>",
+			"en": "I opened the lift door on the second floor.",
+			"ru": "Я открыл дверь лифта на втором этаже."
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">I went into the hotel lift.</prosody></speak>",
+			"en": "I went into the hotel lift.",
+			"ru": "Я зашёл в гостиничный лифт."
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">I rode the lift down to the ground floor!</prosody></speak>",
+			"en": "I rode the lift down to the ground floor!",
+			"ru": "Я поехал на лифте вниз на цокольный этаж!"
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">You rode the hotel lift at twenty to ten?</prosody></speak>",
+			"en": "You rode the hotel lift at twenty to ten?",
+			"ru": "Ты ехал на гостиничном лифте без двадцати десять?"
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">From the second floor to the ground floor?</prosody></speak>",
+			"en": "From the second floor to the ground floor?",
+			"ru": "Со второго этажа на первый?"
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">Yes, Inspector!</prosody></speak>",
+			"en": "Yes, Inspector!",
+			"ru": "Да, инспектор!"
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">I was inside the lift!</prosody></speak>",
+			"en": "I was inside the lift!",
+			"ru": "Я был внутри лифта!"
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">So I never went to the first floor!</prosody></speak>",
+			"en": "So I never went to the first floor!",
+			"ru": "Так что я ни разу не заходил на первый этаж!"
+		}
+	],
+	"quiz": [
+		{
+			"question": "Which room is Peter White staying in?",
+			"questionRu": "В каком номере живёт Питер Уайт?",
+			"options": [
+				"Room 205 on the second floor",
+				"Room 104 on the first floor",
+				"Room 102 with his parents",
+				"Room 103 with his grandparents"
+			],
+			"correctIdx": 0
+		},
+		{
+			"question": "What was Peter's alibi for twenty to ten?",
+			"questionRu": "Каково было алиби Питера на 9:40?",
+			"options": [
+				"He claimed he rode the hotel lift from the second floor down",
+				"He said he was eating breakfast in the dining room",
+				"He claimed he was sleeping until ten o'clock",
+				"He was walking in the park"
+			],
+			"correctIdx": 0
+		},
+		{
+			"question": "Why is the White family staying at the Grand Hotel?",
+			"questionRu": "Почему семья Уайт остановилась в Гранд Отеле?",
+			"options": [
+				"For Grandmother's 75th birthday celebration",
+				"For a football championship game",
+				"To buy train tickets to Oxford",
+				"To work as hotel room cleaners"
+			],
+			"correctIdx": 0
+		}
+	],
+	"wordCount": 295
+},
+{
+	"id": "spec6-ch-5",
+	"number": 605,
+	"act": 10,
+	"titleEn": "Special Case 6 (Part 5): Leo Finds the Mistake",
+	"titleRu": "Спецдело 6 (Часть 5): Лео находит ошибку в показаниях",
+	"synopsisEn": "Consulting his notes about the broken lift, Leo exposes Peter's lie. Blushing, Peter admits he sneaked by Room 104 to secretly replace four milk chocolates he ate from his grandmother's gift box!",
+	"synopsisRu": "Сверившись с записями о неработающем лифте, Лео разоблачает ложь Питера. Сгорая от стыда, Питер признаётся, что хотел тайком восполнить 4 шоколадки, съеденные из подарка бабушки!",
+	"targetLevel": "CEFR A1",
+	"coverIcon": "fa-magnifying-glass",
+	"coverColor": "#38bdf8",
+	"sentences": [
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Inspector Vance looks at his son and smiles.</prosody></speak>",
+			"en": "Inspector Vance looks at his son and smiles.",
+			"ru": "Инспектор Вэнс смотрит на сына и улыбается."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo, look at your blue notebook.</prosody></speak>",
+			"en": "Leo, look at your blue notebook.",
+			"ru": "Лео, посмотри в свой синий блокнот."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Is Peter's story true?</prosody></speak>",
+			"en": "Is Peter's story true?",
+			"ru": "Правдива ли история Питера?"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">No, Dad.</prosody></speak>",
+			"en": "No, Dad.",
+			"ru": "Нет, папа."
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Peter, your story about the hotel lift is not possible!</prosody></speak>",
+			"en": "Peter, your story about the hotel lift is not possible!",
+			"ru": "Питер, твоя история про лифт в отеле невозможна!"
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">Not possible?</prosody></speak>",
+			"en": "Not possible?",
+			"ru": "Невозможна?"
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">Why?</prosody></speak>",
+			"en": "Why?",
+			"ru": "Почему?"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">We talked to Sarah at the front desk.</prosody></speak>",
+			"en": "We talked to Sarah at the front desk.",
+			"ru": "Мы говорили с Сарой на стойке регистрации."
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">At eight o'clock this morning, the hotel lift stopped working!</prosody></speak>",
+			"en": "At eight o'clock this morning, the hotel lift stopped working!",
+			"ru": "В восемь часов этого утра лифт отеля перестал работать!"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Sarah closed the lift door.</prosody></speak>",
+			"en": "Sarah closed the lift door.",
+			"ru": "Сара закрыла дверь лифта."
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">She put a yellow sign on it: No Lift Today.</prosody></speak>",
+			"en": "She put a yellow sign on it: No Lift Today.",
+			"ru": "Она повесила жёлтую табличку: «Лифт сегодня не работает»."
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Nobody used the lift at twenty to ten!</prosody></speak>",
+			"en": "Nobody used the lift at twenty to ten!",
+			"ru": "Никто не пользовался лифтом без двадцати десять!"
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Also, Sarah saw you on the stairs at half past nine.</prosody></speak>",
+			"en": "Also, Sarah saw you on the stairs at half past nine.",
+			"ru": "Кроме того, Сара видела тебя на лестнице в половине десятого."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">And Maria saw you near Room 104 at twenty to ten!</prosody></speak>",
+			"en": "And Maria saw you near Room 104 at twenty to ten!",
+			"ru": "А Мария видела тебя возле комнаты 104 без двадцати десять!"
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Why did you say you used the lift?</prosody></speak>",
+			"en": "Why did you say you used the lift?",
+			"ru": "Почему же ты сказал, что ехал на лифте?"
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Peter's face turns very red.</prosody></speak>",
+			"en": "Peter's face turns very red.",
+			"ru": "Лицо Питера становится ярко-красным."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He puts his hands over his face.</prosody></speak>",
+			"en": "He puts his hands over his face.",
+			"ru": "Он закрывает лицо руками."
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">Oh, no!</prosody></speak>",
+			"en": "Oh, no!",
+			"ru": "О нет!"
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">I did not know the lift was closed!</prosody></speak>",
+			"en": "I did not know the lift was closed!",
+			"ru": "Я не знал, что лифт был закрыт!"
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">I am so sorry, Inspector!</prosody></speak>",
+			"en": "I am so sorry, Inspector!",
+			"ru": "Мне очень жаль, инспектор!"
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">Please listen to me!</prosody></speak>",
+			"en": "Please listen to me!",
+			"ru": "Пожалуйста, выслушайте меня!"
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">I did not take Uncle Robert's tickets or his key!</prosody></speak>",
+			"en": "I did not take Uncle Robert's tickets or his key!",
+			"ru": "Я не брал билеты или ключ дяди Роберта!"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Then why were you near Room 104, Peter?</prosody></speak>",
+			"en": "Then why were you near Room 104, Peter?",
+			"ru": "Тогда почему ты был возле комнаты 104, Питер?"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">And why did you run away from Maria?</prosody></speak>",
+			"en": "And why did you run away from Maria?",
+			"ru": "И почему ты убежал от Марии?"
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">It is because of Grandmother's birthday present!</prosody></speak>",
+			"en": "It is because of Grandmother's birthday present!",
+			"ru": "Всё из-за подарка бабушке на день рождения!"
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">Yesterday, my mother gave me ten pounds.</prosody></speak>",
+			"en": "Yesterday, my mother gave me ten pounds.",
+			"ru": "Вчера мама дала мне десять фунтов."
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">She asked me to buy milk chocolates for Grandmother's birthday!</prosody></speak>",
+			"en": "She asked me to buy milk chocolates for Grandmother's birthday!",
+			"ru": "Она попросила меня купить молочный шоколад на день рождения бабушки!"
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">So I bought a big box of chocolates.</prosody></speak>",
+			"en": "So I bought a big box of chocolates.",
+			"ru": "Вот я и купил большую коробку конфет."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">And what did you do this morning, Peter?</prosody></speak>",
+			"en": "And what did you do this morning, Peter?",
+			"ru": "И что ты сделал этим утром, Питер?"
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">This morning at nine o'clock, I woke up very hungry!</prosody></speak>",
+			"en": "This morning at nine o'clock, I woke up very hungry!",
+			"ru": "Этим утром в девять часов я проснулся очень голодным!"
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">I opened Grandmother's birthday box... and I ate four chocolates!</prosody></speak>",
+			"en": "I opened Grandmother's birthday box... and I ate four chocolates!",
+			"ru": "Я открыл подарочную коробку бабушки... и съел четыре шоколадки!"
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">Four chocolates were gone from the box!</prosody></speak>",
+			"en": "Four chocolates were gone from the box!",
+			"ru": "Четыре шоколадки пропали из коробки!"
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">I did not want my mother and father to be angry!</prosody></speak>",
+			"en": "I did not want my mother and father to be angry!",
+			"ru": "Я не хотел, чтобы мама и папа рассердились!"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Why did you go to Uncle Robert's room?</prosody></speak>",
+			"en": "Why did you go to Uncle Robert's room?",
+			"ru": "Почему же ты пошёл к комнате дяди Роберта?"
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">Yesterday, I was in Uncle Robert's room.</prosody></speak>",
+			"en": "Yesterday, I was in Uncle Robert's room.",
+			"ru": "Вчера я был в комнате дяди Роберта."
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">I saw a box of the same milk chocolates there!</prosody></speak>",
+			"en": "I saw a box of the same milk chocolates there!",
+			"ru": "Я увидел там коробку точно таких же молочных шоколадок!"
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">At half past nine, I walked down the stairs.</prosody></speak>",
+			"en": "At half past nine, I walked down the stairs.",
+			"ru": "В половине десятого я спустился по лестнице."
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">I wanted four chocolates from Uncle Robert's box for Grandmother's box!</prosody></speak>",
+			"en": "I wanted four chocolates from Uncle Robert's box for Grandmother's box!",
+			"ru": "Я хотел взять четыре шоколадки из коробки дяди Роберта для коробки бабушки!"
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">Then I saw Maria at the door.</prosody></speak>",
+			"en": "Then I saw Maria at the door.",
+			"ru": "Затем я увидел Марию у двери."
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">I was afraid and ran down the stairs!</prosody></speak>",
+			"en": "I was afraid and ran down the stairs!",
+			"ru": "Я испугался и побежал вниз по лестнице!"
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">I never went inside Room 104!</prosody></speak>",
+			"en": "I never went inside Room 104!",
+			"ru": "Я даже не заходил внутрь комнаты 104!"
+		}
+	],
+	"quiz": [
+		{
+			"question": "How did Leo prove Peter's lift story was a lie?",
+			"questionRu": "Как Лео доказал, что история Питера про лифт — ложь?",
+			"options": [
+				"Sarah closed the broken lift at 8:00 with a 'No Lift Today' sign",
+				"There are no lifts in the Grand Hotel at all",
+				"The lift only goes to the first floor",
+				"Peter was seen driving a red car"
+			],
+			"correctIdx": 0
+		},
+		{
+			"question": "What did Peter secretly do at nine o'clock?",
+			"questionRu": "Что Питер тайком сделал в девять часов утра?",
+			"options": [
+				"He ate four chocolates from Grandmother's birthday gift box",
+				"He took Uncle Robert's gold key",
+				"He lost his ten pounds in the garden",
+				"He painted pictures of trees"
+			],
+			"correctIdx": 0
+		},
+		{
+			"question": "Why was Peter sneaking around Room 104?",
+			"questionRu": "Зачем Питер крался возле номера 104?",
+			"options": [
+				"To take 4 replacement chocolates from Uncle Robert's box",
+				"To steal the six theatre tickets",
+				"To ask Maria for clean towels",
+				"To play a trick on his sister"
+			],
+			"correctIdx": 0
+		}
+	],
+	"wordCount": 305
+},
+{
+	"id": "spec6-ch-6",
+	"number": 606,
+	"act": 10,
+	"titleEn": "Special Case 6 (Part 6): The Secret Inside the Cupboard",
+	"titleRu": "Спецдело 6 (Часть 6): Секрет внутри шкафа",
+	"synopsisEn": "Piecing together Maria's housekeeping actions, Leo realizes where the items are. Inside the brown cupboard hangs Mr. White's black coat, and in its side pocket are the gold key and theatre tickets!",
+	"synopsisRu": "Сопоставив действия горничной Марии, Лео догадывается, где вещи. В шкафу висит чёрное пальто мистера Уайта, а в его кармане — золотой ключ и все билеты в театр!",
+	"targetLevel": "CEFR A1",
+	"coverIcon": "fa-ticket",
+	"coverColor": "#eab308",
+	"sentences": [
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Mister Robert White walks into the garden and hears Peter's story.</prosody></speak>",
+			"en": "Mr. Robert White walks into the garden and hears Peter's story.",
+			"ru": "Мистер Роберт Уайт выходит в сад и слышит рассказ Питера."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He laughs and puts his hand on Peter's arm.</prosody></speak>",
+			"en": "He laughs and puts his hand on Peter's arm.",
+			"ru": "Он смеётся и кладёт руку на плечо Питера."
+		},
+		{
+			"speaker": "white",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">Peter, my boy!</prosody></speak>",
+			"en": "Peter, my boy!",
+			"ru": "Питер, мой мальчик!"
+		},
+		{
+			"speaker": "white",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">You can have four chocolates from my box any time!</prosody></speak>",
+			"en": "You can have four chocolates from my box any time!",
+			"ru": "Ты можешь взять четыре шоколадки из моей коробки в любое время!"
+		},
+		{
+			"speaker": "white",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">Just ask me!</prosody></speak>",
+			"en": "Just ask me!",
+			"ru": "Только спроси меня!"
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">Thank you, Uncle Robert!</prosody></speak>",
+			"en": "Thank you, Uncle Robert!",
+			"ru": "Спасибо, дядя Роберт!"
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">I am sorry!</prosody></speak>",
+			"en": "I am sorry!",
+			"ru": "Прости меня!"
+		},
+		{
+			"speaker": "white",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">But Inspector Vance, where are my six tickets and my gold key?</prosody></speak>",
+			"en": "But Inspector Vance, where are my six tickets and my gold key?",
+			"ru": "Но инспектор Вэнс, где же мои шесть билетов и мой золотой ключ?"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Dad!</prosody></speak>",
+			"en": "Dad!",
+			"ru": "Папа!"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Look at my notes from Maria's story!</prosody></speak>",
+			"en": "Look at my notes from Maria's story!",
+			"ru": "Посмотри на мои записи из рассказа Марии!"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">I think I know where they are!</prosody></speak>",
+			"en": "I think I know where they are!",
+			"ru": "Кажется, я знаю, где они!"
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">I think I know, too, Leo!</prosody></speak>",
+			"en": "I think I know, too, Leo!",
+			"ru": "Думаю, я тоже догадываюсь, Лео!"
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Let us all go up to Room 104!</prosody></speak>",
+			"en": "Let us all go up to Room 104!",
+			"ru": "Давайте все поднимемся в комнату 104!"
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Everyone walks up the stairs into Room 104.</prosody></speak>",
+			"en": "Everyone walks up the stairs into Room 104.",
+			"ru": "Все поднимаются по лестнице в комнату 104."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo walks over to the small table and the chair.</prosody></speak>",
+			"en": "Leo walks over to the small table and the chair.",
+			"ru": "Лео подходит к маленькому столику и стулу."
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Mister White, what did you do at nine o'clock this morning?</prosody></speak>",
+			"en": "Mr. White, what did you do at nine o'clock this morning?",
+			"ru": "Мистер Уайт, что вы делали в девять часов этим утром?"
+		},
+		{
+			"speaker": "white",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">At nine o'clock, I stood right here next to this chair.</prosody></speak>",
+			"en": "At nine o'clock, I stood right here next to this chair.",
+			"ru": "В девять часов я стоял прямо здесь, возле этого стула."
+		},
+		{
+			"speaker": "white",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">My long black coat was on the chair.</prosody></speak>",
+			"en": "My long black coat was on the chair.",
+			"ru": "Моё длинное чёрное пальто лежало на стуле."
+		},
+		{
+			"speaker": "white",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">I had the key and the tickets in my hand.</prosody></speak>",
+			"en": "I had the key and the tickets in my hand.",
+			"ru": "У меня в руке были ключ и билеты."
+		},
+		{
+			"speaker": "white",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">Then my wife called me on my phone from the dining room.</prosody></speak>",
+			"en": "Then my wife called me on my phone from the dining room.",
+			"ru": "Затем жена позвонила мне на телефон из столовой."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">You took your phone out to answer your wife.</prosody></speak>",
+			"en": "You took your phone out to answer your wife.",
+			"ru": "Вы достали телефон, чтобы ответить жене."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Where did you put the key and the tickets?</prosody></speak>",
+			"en": "Where did you put the key and the tickets?",
+			"ru": "Куда же вы положили ключ и билеты?"
+		},
+		{
+			"speaker": "white",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">Well, I... I put them down fast!</prosody></speak>",
+			"en": "Well, I... I put them down fast!",
+			"ru": "Ну, я... я быстро положил их!"
+		},
+		{
+			"speaker": "white",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">I thought I put them on the small table!</prosody></speak>",
+			"en": "I thought I put them on the small table!",
+			"ru": "Я думал, что положил их на маленький столик!"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Look at Maria's story, Mister White!</prosody></speak>",
+			"en": "Look at Maria's story, Mr. White!",
+			"ru": "Посмотрите на рассказ Марии, мистер Уайт!"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">At half past nine, Maria came in to clean the room.</prosody></speak>",
+			"en": "At half past nine, Maria came in to clean the room.",
+			"ru": "В половине десятого Мария зашла убрать комнату."
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Nothing was on the small table.</prosody></speak>",
+			"en": "Nothing was on the small table.",
+			"ru": "На маленьком столике ничего не было."
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Your long black coat was on the chair.</prosody></speak>",
+			"en": "Your long black coat was on the chair.",
+			"ru": "Ваше длинное чёрное пальто лежало на стуле."
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Maria took your black coat from the chair.</prosody></speak>",
+			"en": "Maria took your black coat from the chair.",
+			"ru": "Мария взяла ваше чёрное пальто со стула."
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">She put it inside this big brown cupboard!</prosody></speak>",
+			"en": "She put it inside this big brown cupboard!",
+			"ru": "Она повесила его внутри этого большого коричневого шкафа!"
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Inspector Vance walks to the big brown cupboard.</prosody></speak>",
+			"en": "Inspector Vance walks to the big brown cupboard.",
+			"ru": "Инспектор Вэнс подходит к большому коричневому шкафу."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He opens the brown door.</prosody></speak>",
+			"en": "He opens the brown door.",
+			"ru": "Он открывает коричневую дверцу."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Inside the cupboard hangs Mister White's long black coat.</prosody></speak>",
+			"en": "Inside the cupboard hangs Mr. White's long black coat.",
+			"ru": "Внутри шкафа висит длинное чёрное пальто мистера Уайта."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The black coat has two small bags on the sides.</prosody></speak>",
+			"en": "The black coat has two small bags on the sides.",
+			"ru": "У чёрного пальто есть два кармана по бокам."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Inspector Vance puts his hand into the coat bag.</prosody></speak>",
+			"en": "Inspector Vance puts his hand into the coat bag.",
+			"ru": "Инспектор Вэнс опускает руку в карман пальто."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He takes out the bright gold key and the six blue tickets!</prosody></speak>",
+			"en": "He takes out the bright gold key and the six blue tickets!",
+			"ru": "Он достаёт блестящий золотой ключ и шесть синих билетов!"
+		},
+		{
+			"speaker": "white",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">My gold key!</prosody></speak>",
+			"en": "My gold key!",
+			"ru": "Мой золотой ключ!"
+		},
+		{
+			"speaker": "white",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">And the six blue tickets!</prosody></speak>",
+			"en": "And the six blue tickets!",
+			"ru": "И шесть синих билетов!"
+		},
+		{
+			"speaker": "white",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">They were in my coat all the time!</prosody></speak>",
+			"en": "They were in my coat all the time!",
+			"ru": "Они всё это время были в моём пальто!"
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Yes, Mister White.</prosody></speak>",
+			"en": "Yes, Mr. White.",
+			"ru": "Да, мистер Уайт."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">At nine o'clock, your wife called you.</prosody></speak>",
+			"en": "At nine o'clock, your wife called you.",
+			"ru": "В девять часов вам позвонила жена."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">You put the key and the tickets into your coat on the chair — not on the table!</prosody></speak>",
+			"en": "You put the key and the tickets into your coat on the chair — not on the table!",
+			"ru": "Вы положили ключ и билеты в своё пальто на стуле — а вовсе не на стол!"
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Then Maria put your coat inside the cupboard.</prosody></speak>",
+			"en": "Then Maria put your coat inside the cupboard.",
+			"ru": "Затем Мария убрала ваше пальто в шкаф."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Nothing was on the chair, so you forgot about your coat!</prosody></speak>",
+			"en": "Nothing was on the chair, so you forgot about your coat!",
+			"ru": "На стуле ничего не осталось, и вы забыли про пальто!"
+		},
+		{
+			"speaker": "white",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">Ha!</prosody></speak>",
+			"en": "Ha!",
+			"ru": "Ха!"
+		},
+		{
+			"speaker": "white",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">What a clever boy you are, Leo!</prosody></speak>",
+			"en": "What a clever boy you are, Leo!",
+			"ru": "Какой же ты умный мальчик, Лео!"
+		},
+		{
+			"speaker": "white",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">And what a great detective you are, Inspector Vance!</prosody></speak>",
+			"en": "And what a great detective you are, Inspector Vance!",
+			"ru": "И какой вы великолепный детектив, инспектор Вэнс!"
+		},
+		{
+			"speaker": "white",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">Look: I have my six tickets for tonight!</prosody></speak>",
+			"en": "Look: I have my six tickets for tonight!",
+			"ru": "Смотрите: мои шесть билетов на вечер у меня!"
+		},
+		{
+			"speaker": "white",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.90\" pitch=\"-2st\">And here is a big box of milk chocolates for you and Leo!</prosody></speak>",
+			"en": "And here is a big box of milk chocolates for you and Leo!",
+			"ru": "А вот большая коробка молочного шоколада для вас с Лео!"
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">Wait, Uncle Robert!</prosody></speak>",
+			"en": "Wait, Uncle Robert!",
+			"ru": "Подожди, дядя Роберт!"
+		},
+		{
+			"speaker": "peter",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+1st\">Can I have four chocolates for Grandmother's box first?</prosody></speak>",
+			"en": "Can I have four chocolates for Grandmother's box first?",
+			"ru": "А можно мне сначала четыре шоколадки для коробки бабушки?"
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Everyone in Room 104 laughs.</prosody></speak>",
+			"en": "Everyone in Room 104 laughs.",
+			"ru": "Все в комнате 104 смеются."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Peter gets four chocolates for his grandmother's box.</prosody></speak>",
+			"en": "Peter gets four chocolates for his grandmother's box.",
+			"ru": "Питер получает четыре конфеты для подарка бабушке."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Inspector Vance and Leo walk down the stairs to eat their breakfast.</prosody></speak>",
+			"en": "Inspector Vance and Leo walk down the stairs to eat their breakfast.",
+			"ru": "Инспектор Вэнс и Лео спускаются по лестнице, чтобы доесть завтрак."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Another case in Oakwood Town is finished.</prosody></speak>",
+			"en": "Another case in Oakwood Town is finished.",
+			"ru": "Ещё одно расследование в городке Оквуд завершено."
+		}
+	],
+	"quiz": [
+		{
+			"question": "Where were the gold key and six theatre tickets all the time?",
+			"questionRu": "Где всё это время находились золотой ключ и шесть билетов?",
+			"options": [
+				"Inside the pocket of Mr. White's black coat hanging in the cupboard",
+				"Under the big bed near the shower",
+				"Hidden in the hotel lift",
+				"In Peter's room on the second floor"
+			],
+			"correctIdx": 0
+		},
+		{
+			"question": "Why did Mr. White forget where he put the items?",
+			"questionRu": "Почему мистер Уайт забыл, куда положил вещи?",
+			"options": [
+				"His wife called him, so he quickly put them in his coat on the chair, not on the table",
+				"He lost his glasses on his head",
+				"He was eating eggs in the dining room",
+				"He dropped them on the stairs"
+			],
+			"correctIdx": 0
+		},
+		{
+			"question": "What gift did Mr. White give to Inspector Vance and Leo?",
+			"questionRu": "Какой подарок мистер Уайт вручил инспектору Вэнсу и Лео?",
+			"options": [
+				"A big box of milk chocolates",
+				"Four free theatre tickets",
+				"A gold pocket watch",
+				"A black suitcase"
+			],
+			"correctIdx": 0
+		}
+	],
+	"wordCount": 433
 }
     ]
 };

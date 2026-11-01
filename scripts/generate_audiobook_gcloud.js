@@ -204,6 +204,26 @@ const CAST = {
         voice: 'en-US-Neural2-F', // Lucy (park worker, warm, mature)
         pitch: '+1st',
         rate: '0.92'
+    },
+    white: {
+        voice: 'en-US-Neural2-D', // Mr. Robert White (50 years old, gentleman, a bit worried)
+        pitch: '-2st',
+        rate: '0.90'
+    },
+    sarah: {
+        voice: 'en-US-Neural2-F', // Sarah (front desk receptionist, polite, crisp)
+        pitch: '+2st',
+        rate: '0.96'
+    },
+    maria: {
+        voice: 'en-US-Neural2-F', // Maria (friendly room cleaner, warm)
+        pitch: '+1.5st',
+        rate: '0.94'
+    },
+    peter: {
+        voice: 'en-US-Neural2-A', // Peter White (18-year-old nephew, nervous, sweet-toothed)
+        pitch: '+1st',
+        rate: '0.96'
     }
 };
 

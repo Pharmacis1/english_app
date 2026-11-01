@@ -921,6 +921,86 @@ const NEW_WORDS_DATABASE = [
         translation: "уставший / утомлённый",
         exampleEn: "My legs and my back were very tired!",
         exampleRu: "Мои ноги и спина очень устали!"
+    },
+    {
+        id: "lift",
+        word: "lift",
+        phonetic: "/lɪft/",
+        translation: "лифт",
+        exampleEn: "Today, the hotel lift is not working!",
+        exampleRu: "Сегодня лифт в отеле не работает!"
+    },
+    {
+        id: "floor",
+        word: "floor",
+        phonetic: "/flɔːr/",
+        translation: "этаж / пол",
+        exampleEn: "My room is Room 104, on the first floor.",
+        exampleRu: "Мой номер — комната 104, на первом этаже."
+    },
+    {
+        id: "towel",
+        word: "towel",
+        phonetic: "/taʊəl/",
+        translation: "полотенце",
+        exampleEn: "Next to her is a big box with white towels.",
+        exampleRu: "Рядом с ней большая коробка с белыми полотенцами."
+    },
+    {
+        id: "shower",
+        word: "shower",
+        phonetic: "/ˈʃaʊ.ər/",
+        translation: "душ",
+        exampleEn: "There is also a television and a warm shower.",
+        exampleRu: "Там также есть телевизор и тёплый душ."
+    },
+    {
+        id: "chocolate",
+        word: "chocolate",
+        phonetic: "/ˈtʃɒk.lət/",
+        translation: "шоколад / шоколадная конфета",
+        exampleEn: "Here is a big box of milk chocolates for you!",
+        exampleRu: "Вот большая коробка молочного шоколада для вас!"
+    },
+    {
+        id: "uncle",
+        word: "uncle",
+        phonetic: "/ˈʌŋ.kəl/",
+        translation: "дядя",
+        exampleEn: "Uncle Robert and his wife are in Room 104.",
+        exampleRu: "Дядя Роберт и его жена находятся в комнате 104."
+    },
+    {
+        id: "aunt",
+        word: "aunt",
+        phonetic: "/ɑːnt/",
+        translation: "тётя",
+        exampleEn: "Uncle Robert and his wife, Aunt Mary, are in Room 104.",
+        exampleRu: "Дядя Роберт и его жена, тётя Мэри, живут в комнате 104."
+    },
+    {
+        id: "parents",
+        word: "parents",
+        phonetic: "/ˈpeə.rənts/",
+        translation: "родители",
+        exampleEn: "I did not want my mother and father to be angry!",
+        exampleRu: "Я не хотел, чтобы мои родители злились!"
+    },
+    {
+        id: "hall",
+        word: "hall",
+        phonetic: "/hɔːl/",
+        translation: "холл / коридор / зал",
+        exampleEn: "Inspector Vance, Leo, and Mr. White walk into the hotel hall.",
+        exampleRu: "Инспектор Вэнс, Лео и мистер Уайт входят в холл отеля."
+    },
+    {
+        id: "soap",
+        word: "soap",
+        phonetic: "/səʊp/",
+        translation: "мыло",
+        exampleEn: "Maria puts clean white towels and sweet soap in every room.",
+        exampleRu: "Мария кладёт чистые белые полотенца и душистое мыло в каждую комнату."
     }
 ];
 
