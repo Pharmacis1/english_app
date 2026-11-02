@@ -1001,6 +1001,86 @@ const NEW_WORDS_DATABASE = [
         translation: "мыло",
         exampleEn: "Maria puts clean white towels and sweet soap in every room.",
         exampleRu: "Мария кладёт чистые белые полотенца и душистое мыло в каждую комнату."
+    },
+    {
+        id: "museum",
+        word: "museum",
+        phonetic: "/mjuːˈziː.əm/",
+        translation: "музей",
+        exampleEn: "Today, Leo Vance and his class are visiting the Oakwood Museum.",
+        exampleRu: "Сегодня Лео Вэнс и его класс посещают музей Оквуда."
+    },
+    {
+        id: "autumn",
+        word: "autumn",
+        phonetic: "/ˈɔː.təm/",
+        translation: "осень",
+        exampleEn: "Outside, the autumn trees are yellow and red.",
+        exampleRu: "На улице осенние деревья жёлтые и красные."
+    },
+    {
+        id: "spring",
+        word: "spring",
+        phonetic: "/sprɪŋ/",
+        translation: "весна",
+        exampleEn: "In spring, school children come here.",
+        exampleRu: "Весной школьники приходят сюда."
+    },
+    {
+        id: "winter",
+        word: "winter",
+        phonetic: "/ˈwɪn.tər/",
+        translation: "зима",
+        exampleEn: "In January and February, it is cold winter.",
+        exampleRu: "В январе и феврале — холодная зима."
+    },
+    {
+        id: "boat",
+        word: "boat",
+        phonetic: "/bəʊt/",
+        translation: "лодка / катер / судно",
+        exampleEn: "It shows a white boat on blue water.",
+        exampleRu: "Она изображает белую лодку на синей воде."
+    },
+    {
+        id: "glove",
+        word: "glove",
+        phonetic: "/ɡlʌv/",
+        translation: "перчатка",
+        exampleEn: "On the floor is one small green glove and one red apple!",
+        exampleRu: "На полу лежит одна маленькая зелёная перчатка и одно красное яблоко!"
+    },
+    {
+        id: "dark",
+        word: "dark",
+        phonetic: "/dɑːk/",
+        translation: "тёмный / темнота",
+        exampleEn: "Room 1, Room 2, and Room 3 were dark — very dark!",
+        exampleRu: "Комната 1, комната 2 и комната 3 были тёмными — очень тёмными!"
+    },
+    {
+        id: "light",
+        word: "light",
+        phonetic: "/laɪt/",
+        translation: "свет / освещение / лампа",
+        exampleEn: "I had to turn off all the lights in the museum!",
+        exampleRu: "Мне пришлось выключить весь свет в музее!"
+    },
+    {
+        id: "lamp",
+        word: "lamp",
+        phonetic: "/læmp/",
+        translation: "лампа / светильник",
+        exampleEn: "He is looking at a lamp on the wall.",
+        exampleRu: "Он смотрит на лампу на стене."
+    },
+    {
+        id: "hit",
+        word: "hit",
+        phonetic: "/hɪt/",
+        translation: "ударять / задевать / удариться",
+        exampleEn: "My foot hit the chair in the dark!",
+        exampleRu: "Моя нога задела стул в темноте!"
     }
 ];
 

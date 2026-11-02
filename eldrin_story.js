@@ -14583,6 +14583,2014 @@ const ELDRIN_AUDIOBOOK = {
 		}
 	],
 	"wordCount": 433
+},
+{
+	"id": "spec7-ch-1",
+	"number": 701,
+	"act": 11,
+	"titleEn": "Special Case 7 (Part 1): A Strange Morning at the Museum",
+	"titleRu": "Спецдело 7 (Часть 1): Странное утро в музее",
+	"synopsisEn": "On a Tuesday morning in October, Leo Vance and his school class visit the Oakwood Museum. In the Art Room, they discover that the famous painting 'The Blue Sea' is hanging upside down, with a green glove and a red apple on the floor!",
+	"synopsisRu": "Во вторник утром в октябре Лео Вэнс и его класс приходят на экскурсию в музей Оквуда. В картинном зале они обнаруживают, что знаменитая картина «Синее море» висит вверх ногами, а на полу лежат зелёная перчатка и красное яблоко!",
+	"targetLevel": "CEFR A1",
+	"coverIcon": "fa-palette",
+	"coverColor": "#3b82f6",
+	"sentences": [
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">It is Tuesday morning in October.</prosody></speak>",
+			"en": "It is Tuesday morning in October.",
+			"ru": "Октябрьское утро вторника."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The time is nine o'clock.</prosody></speak>",
+			"en": "The time is nine o'clock.",
+			"ru": "Время — девять часов."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Outside, the autumn trees are yellow and red.</prosody></speak>",
+			"en": "Outside, the autumn trees are yellow and red.",
+			"ru": "На улице осенние деревья жёлтые и красные."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Today, Leo Vance and his school class are visiting the Oakwood Museum.</prosody></speak>",
+			"en": "Today, Leo Vance and his school class are visiting the Oakwood Museum.",
+			"ru": "Сегодня Лео Вэнс и его школьный класс посещают музей Оквуда."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Miss Rose, the museum worker, opens the big front door.</prosody></speak>",
+			"en": "Miss Rose, the museum worker, opens the big front door.",
+			"ru": "Мисс Роуз, сотрудница музея, открывает большую входную дверь."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">She wears a blue dress and white shoes.</prosody></speak>",
+			"en": "She wears a blue dress and white shoes.",
+			"ru": "На ней синее платье и белые туфли."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">At five past nine, Miss Rose and the children walk into Room 3.</prosody></speak>",
+			"en": "At five past nine, Miss Rose and the children walk into Room 3.",
+			"ru": "В пять минут десятого мисс Роуз и дети входят в зал номер 3."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Room 3 is the big Art Room.</prosody></speak>",
+			"en": "Room 3 is the big Art Room.",
+			"ru": "Зал номер 3 — это большая картинная галерея."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Then, Miss Rose stops.</prosody></speak>",
+			"en": "Then, Miss Rose stops.",
+			"ru": "Затем мисс Роуз останавливается."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">She is very surprised!</prosody></speak>",
+			"en": "She is very surprised!",
+			"ru": "Она очень удивлена!"
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">She looks very sad and afraid!</prosody></speak>",
+			"en": "She looks very sad and afraid!",
+			"ru": "Она выглядит очень расстроенной и испуганной!"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">What is the problem, Miss Rose?</prosody></speak>",
+			"en": "What is the problem, Miss Rose?",
+			"ru": "В чём дело, мисс Роуз?"
+		},
+		{
+			"speaker": "rose",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">Look at the white wall, Leo!</prosody></speak>",
+			"en": "Look at the white wall, Leo!",
+			"ru": "Посмотри на белую стену, Лео!"
+		},
+		{
+			"speaker": "rose",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">Look at our famous picture, The Blue Sea!</prosody></speak>",
+			"en": "Look at our famous picture, The Blue Sea!",
+			"ru": "Посмотри на нашу знаменитую картину «Синее море»!"
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">All the children look at the big picture on the wall.</prosody></speak>",
+			"en": "All the children look at the big picture on the wall.",
+			"ru": "Все дети смотрят на большую картину на стене."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The Blue Sea is a beautiful old picture from London.</prosody></speak>",
+			"en": "The Blue Sea is a beautiful old picture from London.",
+			"ru": "«Синее море» — это прекрасная старинная картина из Лондона."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">It shows a white boat on blue water.</prosody></speak>",
+			"en": "It shows a white boat on blue water.",
+			"ru": "На ней изображена белая лодка на синей воде."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">A bright yellow sun is in the sky.</prosody></speak>",
+			"en": "A bright yellow sun is in the sky.",
+			"ru": "Яркое жёлтое солнце светит в небе."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Wait — today, the picture is wrong!</prosody></speak>",
+			"en": "Wait — today, the picture is wrong!",
+			"ru": "Погодите — сегодня картина выглядит странно!"
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The blue water is at the top!</prosody></speak>",
+			"en": "The blue water is at the top!",
+			"ru": "Синяя вода находится наверху!"
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">And the yellow sun and the sky are at the bottom!</prosody></speak>",
+			"en": "And the yellow sun and the sky are at the bottom!",
+			"ru": "А жёлтое солнце и небо находятся внизу!"
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The white boat is upside down!</prosody></speak>",
+			"en": "The white boat is upside down!",
+			"ru": "Белая лодка перевёрнута вверх дном!"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">The picture is upside down on the wall!</prosody></speak>",
+			"en": "The picture is upside down on the wall!",
+			"ru": "Картина висит на стене вверх ногами!"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">And look on the floor under the picture, Miss Rose!</prosody></speak>",
+			"en": "And look on the floor under the picture, Miss Rose!",
+			"ru": "И посмотрите на пол под картиной, мисс Роуз!"
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Miss Rose looks down at the clean floor under the picture.</prosody></speak>",
+			"en": "Miss Rose looks down at the clean floor under the picture.",
+			"ru": "Мисс Роуз смотрит вниз на чистый пол под картиной."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">On the floor is one small green glove and one red apple!</prosody></speak>",
+			"en": "On the floor is one small green glove and one red apple!",
+			"ru": "На полу лежит одна маленькая зелёная перчатка и одно красное яблоко!"
+		},
+		{
+			"speaker": "rose",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">Oh, no!</prosody></speak>",
+			"en": "Oh, no!",
+			"ru": "О нет!"
+		},
+		{
+			"speaker": "rose",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">Someone was in Room 3 last night!</prosody></speak>",
+			"en": "Someone was in Room 3 last night!",
+			"ru": "Кто-то был в зале номер 3 прошлой ночью!"
+		},
+		{
+			"speaker": "rose",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">Did someone try to take our famous picture?</prosody></speak>",
+			"en": "Did someone try to take our famous picture?",
+			"ru": "Неужели кто-то пытался украсть нашу знаменитую картину?"
+		},
+		{
+			"speaker": "rose",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">I must call your father, Inspector Vance!</prosody></speak>",
+			"en": "I must call your father, Inspector Vance!",
+			"ru": "Я должна позвонить твоему отцу, инспектору Вэнсу!"
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Ten minutes later, Inspector Vance arrives at the Oakwood Museum.</prosody></speak>",
+			"en": "Ten minutes later, Inspector Vance arrives at the Oakwood Museum.",
+			"ru": "Через десять минут инспектор Вэнс прибывает в музей Оквуда."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He wears his grey suit and has his notebook in his hand.</prosody></speak>",
+			"en": "He wears his grey suit and has his notebook in his hand.",
+			"ru": "Он одет в серый костюм, и в руке у него блокнот."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo stands next to him with his small blue notebook.</prosody></speak>",
+			"en": "Leo stands next to him with his small blue notebook.",
+			"ru": "Лео стоит рядом с ним со своей маленькой синей записной книжкой."
+		}
+	],
+	"quiz": [
+		{
+			"question": "What happened to the famous picture 'The Blue Sea'?",
+			"questionRu": "Что произошло со знаменитой картиной «Синее море»?",
+			"options": [
+				"It was hanging upside down on the wall",
+				"It was completely stolen from the room",
+				"Someone painted it red",
+				"It fell into the lake"
+			],
+			"correctIdx": 0
+		},
+		{
+			"question": "What items were found on the floor under the picture?",
+			"questionRu": "Какие предметы были найдены на полу под картиной?",
+			"options": [
+				"One small green glove and one red apple",
+				"A gold key and blue tickets",
+				"A yellow tennis ball and books",
+				"A white dog collar"
+			],
+			"correctIdx": 0
+		},
+		{
+			"question": "In which room is the painting located?",
+			"questionRu": "В каком зале находится картина?",
+			"options": [
+				"Room 3, the big Art Room",
+				"Room 1, near the front door",
+				"Room 2, with the wall lamps",
+				"Room 104 on the first floor"
+			],
+			"correctIdx": 0
+		}
+	],
+	"wordCount": 268
+},
+{
+	"id": "spec7-ch-2",
+	"number": 702,
+	"act": 11,
+	"titleEn": "Special Case 7 (Part 2): The First Person — Miss Rose",
+	"titleRu": "Спецдело 7 (Часть 2): Первый свидетель — мисс Роуз",
+	"synopsisEn": "Miss Rose details the museum seasons and explains that 'The Blue Sea' is on loan from London for October. At 6:00 PM yesterday, the painting was normal, leaving only Jack and Tom as overnight occupants.",
+	"synopsisRu": "Мисс Роуз рассказывает о временах года в музее и сообщает, что картина гостит из Лондона на октябрь. Вчера в 18:00 картина висела правильно, а ночью в музее оставались только Джек и Том.",
+	"targetLevel": "CEFR A1",
+	"coverIcon": "fa-landmark",
+	"coverColor": "#0ea5e9",
+	"sentences": [
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Inspector Vance looks at the picture on the wall.</prosody></speak>",
+			"en": "Inspector Vance looks at the picture on the wall.",
+			"ru": "Инспектор Вэнс смотрит на картину на стене."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Then he looks at the floor.</prosody></speak>",
+			"en": "Then he looks at the floor.",
+			"ru": "Затем он смотрит на пол."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He sees the green glove and the red apple.</prosody></speak>",
+			"en": "He sees the green glove and the red apple.",
+			"ru": "Он видит зелёную перчатку и красное яблоко."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He turns to Miss Rose.</prosody></speak>",
+			"en": "He turns to Miss Rose.",
+			"ru": "Он поворачивается к мисс Роуз."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Good morning, Miss Rose.</prosody></speak>",
+			"en": "Good morning, Miss Rose.",
+			"ru": "Доброе утро, мисс Роуз."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Tell me about the museum and this picture.</prosody></speak>",
+			"en": "Tell me about the museum and this picture.",
+			"ru": "Расскажите мне о музее и об этой картине."
+		},
+		{
+			"speaker": "rose",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">Good morning, Inspector Vance!</prosody></speak>",
+			"en": "Good morning, Inspector Vance!",
+			"ru": "Доброе утро, инспектор Вэнс!"
+		},
+		{
+			"speaker": "rose",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">The Oakwood Museum is open all year, from January to December.</prosody></speak>",
+			"en": "The Oakwood Museum is open all year, from January to December.",
+			"ru": "Музей Оквуда открыт круглый год, с января по декабрь."
+		},
+		{
+			"speaker": "rose",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">In January and February, it is cold winter.</prosody></speak>",
+			"en": "In January and February, it is cold winter.",
+			"ru": "В январе и феврале стоит холодная зима."
+		},
+		{
+			"speaker": "rose",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">The museum is very quiet then.</prosody></speak>",
+			"en": "The museum is very quiet then.",
+			"ru": "В музее тогда очень тихо."
+		},
+		{
+			"speaker": "rose",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">In spring — in March, April, and May — school children come here.</prosody></speak>",
+			"en": "In spring — in March, April, and May — school children come here.",
+			"ru": "Весной — в марте, апреле и мае — сюда приходят школьники."
+		},
+		{
+			"speaker": "rose",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">In summer — in June, July, and August — many people come from other countries.</prosody></speak>",
+			"en": "In summer — in June, July, and August — many people come from other countries.",
+			"ru": "Летом — в июне, июле и августе — приезжает много людей из других стран."
+		},
+		{
+			"speaker": "rose",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">They see our old clocks and old books.</prosody></speak>",
+			"en": "They see our old clocks and old books.",
+			"ru": "Они смотрят на наши старинные часы и древние книги."
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">And what about autumn, Miss Rose?</prosody></speak>",
+			"en": "And what about autumn, Miss Rose?",
+			"ru": "А что насчёт осени, мисс Роуз?"
+		},
+		{
+			"speaker": "rose",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">Now it is October!</prosody></speak>",
+			"en": "Now it is October!",
+			"ru": "Сейчас октябрь!"
+		},
+		{
+			"speaker": "rose",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">Every October, a museum in London sends us one famous picture.</prosody></speak>",
+			"en": "Every October, a museum in London sends us one famous picture.",
+			"ru": "Каждый октябрь музей из Лондона присылает нам одну знаменитую картину."
+		},
+		{
+			"speaker": "rose",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">It stays here for four weeks.</prosody></speak>",
+			"en": "It stays here for four weeks.",
+			"ru": "Она остаётся здесь на четыре недели."
+		},
+		{
+			"speaker": "rose",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">This month, we have The Blue Sea!</prosody></speak>",
+			"en": "This month, we have The Blue Sea!",
+			"ru": "В этом месяце у нас «Синее море»!"
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">When did you last see The Blue Sea yesterday, Miss Rose?</prosody></speak>",
+			"en": "When did you last see The Blue Sea yesterday, Miss Rose?",
+			"ru": "Когда вы в последний раз видели «Синее море» вчера, мисс Роуз?"
+		},
+		{
+			"speaker": "rose",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">Yesterday was Monday.</prosody></speak>",
+			"en": "Yesterday was Monday.",
+			"ru": "Вчера был понедельник."
+		},
+		{
+			"speaker": "rose",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">On Monday, the museum closes at six o'clock in the evening.</prosody></speak>",
+			"en": "On Monday, the museum closes at six o'clock in the evening.",
+			"ru": "В понедельник музей закрывается в шесть часов вечера."
+		},
+		{
+			"speaker": "rose",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">At six o'clock, I was in Room 3.</prosody></speak>",
+			"en": "At six o'clock, I was in Room 3.",
+			"ru": "В шесть часов я была в зале номер 3."
+		},
+		{
+			"speaker": "rose",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">The picture was right on the wall!</prosody></speak>",
+			"en": "The picture was right on the wall!",
+			"ru": "Картина висела на стене правильно!"
+		},
+		{
+			"speaker": "rose",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">The sky was at the top.</prosody></speak>",
+			"en": "The sky was at the top.",
+			"ru": "Небо было наверху."
+		},
+		{
+			"speaker": "rose",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">The sea was at the bottom!</prosody></speak>",
+			"en": "The sea was at the bottom!",
+			"ru": "Море было внизу!"
+		},
+		{
+			"speaker": "rose",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">And the floor under the picture was clean.</prosody></speak>",
+			"en": "And the floor under the picture was clean.",
+			"ru": "И пол под картиной был чистым."
+		},
+		{
+			"speaker": "rose",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">There was no green glove and no red apple!</prosody></speak>",
+			"en": "There was no green glove and no red apple!",
+			"ru": "Там не было ни зелёной перчатки, ни красного яблока!"
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Who was inside the museum last night after six o'clock?</prosody></speak>",
+			"en": "Who was inside the museum last night after six o'clock?",
+			"ru": "Кто находился внутри музея вчера вечером после шести часов?"
+		},
+		{
+			"speaker": "rose",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">Only two people, Inspector!</prosody></speak>",
+			"en": "Only two people, Inspector!",
+			"ru": "Только два человека, инспектор!"
+		},
+		{
+			"speaker": "rose",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">Jack, the light worker.</prosody></speak>",
+			"en": "Jack, the light worker.",
+			"ru": "Джек, электромонтёр."
+		},
+		{
+			"speaker": "rose",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">And Tom, our night worker.</prosody></speak>",
+			"en": "And Tom, our night worker.",
+			"ru": "И Том, наш ночной сторож."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo writes in his notebook:</prosody></speak>",
+			"en": "Leo writes in his notebook:",
+			"ru": "Лео записывает в своём блокноте:"
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">At six o'clock, the picture was fine. Only Jack and Tom were here at night.</prosody></speak>",
+			"en": "At six o'clock, the picture was fine. Only Jack and Tom were here at night.",
+			"ru": "В шесть часов картина была в порядке. Ночью здесь были только Джек и Том."
+		}
+	],
+	"quiz": [
+		{
+			"question": "Where did the painting 'The Blue Sea' come from?",
+			"questionRu": "Откуда была привезена картина «Синее море»?",
+			"options": [
+				"From a museum in London for four weeks in October",
+				"From the Grand Hotel in Oakwood",
+				"From Madrid, Spain",
+				"From Mr. Sterling's house"
+			],
+			"correctIdx": 0
+		},
+		{
+			"question": "How was the painting positioned at six o'clock on Monday evening?",
+			"questionRu": "Как висела картина в шесть часов вечера в понедельник?",
+			"options": [
+				"Correctly, with the sky at the top and sea at the bottom",
+				"Upside down on the floor",
+				"It was already in the cupboard",
+				"Behind a brown chair"
+			],
+			"correctIdx": 0
+		},
+		{
+			"question": "Who was inside the museum on Monday night after six o'clock?",
+			"questionRu": "Кто находился в музее в понедельник вечером после закрытия?",
+			"options": [
+				"Jack the light worker and Tom the night worker",
+				"Miss Rose and school children",
+				"Inspector Vance and Leo",
+				"Lucas and Sophie"
+			],
+			"correctIdx": 0
+		}
+	],
+	"wordCount": 252
+},
+{
+	"id": "spec7-ch-3",
+	"number": 703,
+	"act": 11,
+	"titleEn": "Special Case 7 (Part 3): The Second Person — Jack the Light Worker",
+	"titleRu": "Спецдело 7 (Часть 3): Второй свидетель — Джек, электромонтёр",
+	"synopsisEn": "Electrician Jack reveals a vital fact: from 8:30 PM until 10:00 PM, he switched off all main lights in the museum to work on the electrical panel, plunging Rooms 1, 2, and 3 into total darkness!",
+	"synopsisRu": "Электромонтёр Джек сообщает важнейший факт: с 20:30 до 22:00 он полностью отключил свет в музее для ремонта щитка, погрузив все залы в абсолютную тьму!",
+	"targetLevel": "CEFR A1",
+	"coverIcon": "fa-bolt",
+	"coverColor": "#eab308",
+	"sentences": [
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Inspector Vance and Leo walk into Room 2.</prosody></speak>",
+			"en": "Inspector Vance and Leo walk into Room 2.",
+			"ru": "Инспектор Вэнс и Лео заходят в зал номер 2."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">A tall man in a grey jacket stands on a small chair.</prosody></speak>",
+			"en": "A tall man in a grey jacket stands on a small chair.",
+			"ru": "Высокий мужчина в серой куртке стоит на маленьком стуле."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He is looking at a lamp on the wall.</prosody></speak>",
+			"en": "He is looking at a lamp on the wall.",
+			"ru": "Он осматривает лампу на стене."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">His name is Jack.</prosody></speak>",
+			"en": "His name is Jack.",
+			"ru": "Его зовут Джек."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">On the floor next to him is a brown work bag.</prosody></speak>",
+			"en": "On the floor next to him is a brown work bag.",
+			"ru": "На полу рядом с ним стоит коричневая рабочая сумка."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Good morning, Jack.</prosody></speak>",
+			"en": "Good morning, Jack.",
+			"ru": "Доброе утро, Джек."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Can we ask you some questions about last night?</prosody></speak>",
+			"en": "Can we ask you some questions about last night?",
+			"ru": "Можем мы задать тебе несколько вопросов о вчерашнем вечере?"
+		},
+		{
+			"speaker": "jack",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+0.5st\">Good morning, Inspector!</prosody></speak>",
+			"en": "Good morning, Inspector!",
+			"ru": "Доброе утро, инспектор!"
+		},
+		{
+			"speaker": "jack",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+0.5st\">Hello, Leo!</prosody></speak>",
+			"en": "Hello, Leo!",
+			"ru": "Привет, Лео!"
+		},
+		{
+			"speaker": "jack",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+0.5st\">Yes, of course.</prosody></speak>",
+			"en": "Yes, of course.",
+			"ru": "Да, конечно."
+		},
+		{
+			"speaker": "jack",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+0.5st\">I heard about the picture in Room 3.</prosody></speak>",
+			"en": "I heard about the picture in Room 3.",
+			"ru": "Я слышал про картину в зале номер 3."
+		},
+		{
+			"speaker": "jack",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+0.5st\">That is very strange!</prosody></speak>",
+			"en": "That is very strange!",
+			"ru": "Это очень странно!"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Why were you at the museum on Monday evening, Jack?</prosody></speak>",
+			"en": "Why were you at the museum on Monday evening, Jack?",
+			"ru": "Почему ты был в музее в понедельник вечером, Джек?"
+		},
+		{
+			"speaker": "jack",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+0.5st\">Two lamps in Room 2 were old and dark.</prosody></speak>",
+			"en": "Two lamps in Room 2 were old and dark.",
+			"ru": "Две лампы в зале номер 2 были старыми и тусклыми."
+		},
+		{
+			"speaker": "jack",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+0.5st\">So Miss Rose asked me to put new lamps on the walls.</prosody></speak>",
+			"en": "So Miss Rose asked me to put new lamps on the walls.",
+			"ru": "Поэтому мисс Роуз попросила меня повесить новые лампы на стены."
+		},
+		{
+			"speaker": "jack",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+0.5st\">I came to the museum at seven o'clock on Monday evening.</prosody></speak>",
+			"en": "I came to the museum at seven o'clock on Monday evening.",
+			"ru": "Я пришёл в музей в семь часов в понедельник вечером."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Did you go into Room 3 last night, Jack?</prosody></speak>",
+			"en": "Did you go into Room 3 last night, Jack?",
+			"ru": "Ты заходил в зал номер 3 вчера вечером, Джек?"
+		},
+		{
+			"speaker": "jack",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+0.5st\">No, Inspector!</prosody></speak>",
+			"en": "No, Inspector!",
+			"ru": "Нет, инспектор!"
+		},
+		{
+			"speaker": "jack",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+0.5st\">I worked in Room 2.</prosody></speak>",
+			"en": "I worked in Room 2.",
+			"ru": "Я работал в зале номер 2."
+		},
+		{
+			"speaker": "jack",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+0.5st\">I also worked in the small back room.</prosody></speak>",
+			"en": "I also worked in the small back room.",
+			"ru": "Также я работал в маленькой подсобке."
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">What did you do between eight and ten o'clock, Jack?</prosody></speak>",
+			"en": "What did you do between eight and ten o'clock, Jack?",
+			"ru": "Что ты делал между восемью и десятью часами, Джек?"
+		},
+		{
+			"speaker": "jack",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+0.5st\">At eight o'clock, I finished the two lamps in Room 2.</prosody></speak>",
+			"en": "At eight o'clock, I finished the two lamps in Room 2.",
+			"ru": "В восемь часов я закончил с двумя лампами в зале номер 2."
+		},
+		{
+			"speaker": "jack",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+0.5st\">Then I went to the back room.</prosody></speak>",
+			"en": "Then I went to the back room.",
+			"ru": "Затем пошёл в подсобную комнату."
+		},
+		{
+			"speaker": "jack",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+0.5st\">I worked on the big light box.</prosody></speak>",
+			"en": "I worked on the big light box.",
+			"ru": "Я работал с большим электрощитком."
+		},
+		{
+			"speaker": "jack",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+0.5st\">Listen, Inspector: I had to turn off all the lights in the museum!</prosody></speak>",
+			"en": "Listen, Inspector: I had to turn off all the lights in the museum!",
+			"ru": "Послушайте, инспектор: мне пришлось выключить весь свет в музее!"
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">You turned off all the lights in the museum?</prosody></speak>",
+			"en": "You turned off all the lights in the museum?",
+			"ru": "Ты выключил весь свет в музее?"
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">What time was that, Jack?</prosody></speak>",
+			"en": "What time was that, Jack?",
+			"ru": "В какое время это было, Джек?"
+		},
+		{
+			"speaker": "jack",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+0.5st\">I turned off all the lights at half past eight!</prosody></speak>",
+			"en": "I turned off all the lights at half past eight!",
+			"ru": "Я выключил весь свет в половине девятого!"
+		},
+		{
+			"speaker": "jack",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+0.5st\">There were no lights from half past eight until ten o'clock!</prosody></speak>",
+			"en": "There were no lights from half past eight until ten o'clock!",
+			"ru": "С половины девятого до десяти часов света не было вообще!"
+		},
+		{
+			"speaker": "jack",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+0.5st\">Room 1, Room 2, and Room 3 had no light!</prosody></speak>",
+			"en": "Room 1, Room 2, and Room 3 had no light!",
+			"ru": "В зале 1, зале 2 и зале 3 не было света!"
+		},
+		{
+			"speaker": "jack",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+0.5st\">All three rooms were dark — very dark!</prosody></speak>",
+			"en": "All three rooms were dark — very dark!",
+			"ru": "Все три комнаты были тёмными — очень тёмными!"
+		},
+		{
+			"speaker": "jack",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+0.5st\">I used my small hand lamp in the back room.</prosody></speak>",
+			"en": "I used my small hand lamp in the back room.",
+			"ru": "Я пользовался маленьким ручным фонариком в подсобке."
+		},
+		{
+			"speaker": "jack",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+0.5st\">At ten o'clock, I finished my work.</prosody></speak>",
+			"en": "At ten o'clock, I finished my work.",
+			"ru": "В десять часов я закончил работу."
+		},
+		{
+			"speaker": "jack",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+0.5st\">I turned the lights on and went home!</prosody></speak>",
+			"en": "I turned the lights on and went home!",
+			"ru": "Я включил свет и пошёл домой!"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Look at Jack's hands, Dad!</prosody></speak>",
+			"en": "Look at Jack's hands, Dad!",
+			"ru": "Посмотри на руки Джека, папа!"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Jack has big yellow gloves in his bag.</prosody></speak>",
+			"en": "Jack has big yellow gloves in his bag.",
+			"ru": "У Джека в сумке большие жёлтые перчатки."
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">They are not small green gloves!</prosody></speak>",
+			"en": "They are not small green gloves!",
+			"ru": "Они совсем не маленькие зелёные перчатки!"
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Thank you, Jack.</prosody></speak>",
+			"en": "Thank you, Jack.",
+			"ru": "Спасибо, Джек."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">That is very important.</prosody></speak>",
+			"en": "That is very important.",
+			"ru": "Это очень важно."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo writes in his notebook:</prosody></speak>",
+			"en": "Leo writes in his notebook:",
+			"ru": "Лео записывает в своём блокноте:"
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Jack turned off all the lights from half past eight to ten. Room 3 was dark.</prosody></speak>",
+			"en": "Jack turned off all the lights from half past eight to ten. Room 3 was dark.",
+			"ru": "Джек выключил свет с половины девятого до десяти. Зал номер 3 был тёмным."
+		}
+	],
+	"quiz": [
+		{
+			"question": "Why was Jack at the museum on Monday evening?",
+			"questionRu": "Зачем Джек находился в музее в понедельник вечером?",
+			"options": [
+				"To install new lamps in Room 2",
+				"To clean the floors with soap",
+				"To guard the famous blue painting",
+				"To sell tickets to school children"
+			],
+			"correctIdx": 0
+		},
+		{
+			"question": "What happened to the lights between half past eight and ten o'clock?",
+			"questionRu": "Что произошло со светом между 8:30 и 10:00?",
+			"options": [
+				"Jack turned off all lights, so all rooms were very dark",
+				"The lights were shining brightly all night",
+				"Only the lights in Room 3 were turned on",
+				"The lights changed colors to green and red"
+			],
+			"correctIdx": 0
+		},
+		{
+			"question": "What gloves did Jack have in his work bag?",
+			"questionRu": "Какие перчатки были в рабочей сумке Джека?",
+			"options": [
+				"Big yellow gloves",
+				"Small green gloves",
+				"White clean gloves",
+				"No gloves at all"
+			],
+			"correctIdx": 0
+		}
+	],
+	"wordCount": 315
+},
+{
+	"id": "spec7-ch-4",
+	"number": 704,
+	"act": 11,
+	"titleEn": "Special Case 7 (Part 4): The Third Person — Tom the Night Worker",
+	"titleRu": "Спецдело 7 (Часть 4): Третий свидетель — Том, ночной сторож",
+	"synopsisEn": "Night worker Tom insists that to protect the valuable painting, he sat directly in front of 'The Blue Sea' from 8:30 to 9:30 reading 50 pages of a book under the room's dazzling bright lights.",
+	"synopsisRu": "Ночной сторож Том утверждает, что для охраны шедевра сидел прямо перед картиной с 20:30 до 21:30 и читал 50 страниц книги при ярком сиянии люстр.",
+	"targetLevel": "CEFR A1",
+	"coverIcon": "fa-shield",
+	"coverColor": "#64748b",
+	"sentences": [
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Inspector Vance and Leo walk to Room 1, near the front door.</prosody></speak>",
+			"en": "Inspector Vance and Leo walk to Room 1, near the front door.",
+			"ru": "Инспектор Вэнс и Лео идут в зал номер 1, возле входной двери."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">A man of fifty sits on a chair behind a desk.</prosody></speak>",
+			"en": "A man of fifty sits on a chair behind a desk.",
+			"ru": "Пятидесятилетний мужчина сидит на стуле за письменным столом."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He wears a dark blue coat.</prosody></speak>",
+			"en": "He wears a dark blue coat.",
+			"ru": "На нём тёмно-синее пальто."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">His name is Tom.</prosody></speak>",
+			"en": "His name is Tom.",
+			"ru": "Его зовут Том."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Good morning, Tom.</prosody></speak>",
+			"en": "Good morning, Tom.",
+			"ru": "Доброе утро, Том."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Can we talk to you about last night?</prosody></speak>",
+			"en": "Can we talk to you about last night?",
+			"ru": "Можем мы поговорить с вами о вчерашней ночи?"
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">Oh!</prosody></speak>",
+			"en": "Oh!",
+			"ru": "О!"
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">Good morning, Inspector Vance!</prosody></speak>",
+			"en": "Good morning, Inspector Vance!",
+			"ru": "Доброе утро, инспектор Вэнс!"
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">Good morning, young boy!</prosody></speak>",
+			"en": "Good morning, young boy!",
+			"ru": "Доброе утро, юный друг!"
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">Yes, I am the night worker here.</prosody></speak>",
+			"en": "Yes, I am the night worker here.",
+			"ru": "Да, я ночной дежурный здесь."
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">I work every night.</prosody></speak>",
+			"en": "I work every night.",
+			"ru": "Я работаю каждую ночь."
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">I start at eight in the evening and finish at six in the morning.</prosody></speak>",
+			"en": "I start at eight in the evening and finish at six in the morning.",
+			"ru": "Я начинаю в восемь вечера и заканчиваю в шесть утра."
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Tell us about your night work, Tom.</prosody></speak>",
+			"en": "Tell us about your night work, Tom.",
+			"ru": "Расскажите нам о вашей ночной работе, Том."
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Where do you sit at night?</prosody></speak>",
+			"en": "Where do you sit at night?",
+			"ru": "Где вы сидите ночью?"
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">This is my place right here in Room 1.</prosody></speak>",
+			"en": "This is my place right here in Room 1.",
+			"ru": "Вот моё место прямо здесь, в зале номер 1."
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">Look: my desk is next to the front door.</prosody></speak>",
+			"en": "Look: my desk is next to the front door.",
+			"ru": "Смотрите: мой стол стоит рядом с входной дверью."
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">My chair is behind the desk.</prosody></speak>",
+			"en": "My chair is behind the desk.",
+			"ru": "Мой стул находится за столом."
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">On my desk is a telephone and a clock.</prosody></speak>",
+			"en": "On my desk is a telephone and a clock.",
+			"ru": "На столе стоят телефон и часы."
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">Between my desk and the window is a small table.</prosody></speak>",
+			"en": "Between my desk and the window is a small table.",
+			"ru": "Между моим столом и окном стоит маленький столик."
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">Under the table is my bag with my night food.</prosody></speak>",
+			"en": "Under the table is my bag with my night food.",
+			"ru": "Под столиком стоит моя сумка с ночной едой."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Did you walk into Room 3 last night, Tom?</prosody></speak>",
+			"en": "Did you walk into Room 3 last night, Tom?",
+			"ru": "Вы заходили в зал номер 3 прошлой ночью, Том?"
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">Yes, Inspector!</prosody></speak>",
+			"en": "Yes, Inspector!",
+			"ru": "Да, инспектор!"
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">Miss Rose told me The Blue Sea is very expensive.</prosody></speak>",
+			"en": "Miss Rose told me The Blue Sea is very expensive.",
+			"ru": "Мисс Роуз сказала мне, что «Синее море» очень дорогое."
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">So last night, I stayed in Room 3 to watch the picture!</prosody></speak>",
+			"en": "So last night, I stayed in Room 3 to watch the picture!",
+			"ru": "Поэтому прошлой ночью я остался в зале номер 3 присматривать за картиной!"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">What time were you in Room 3, Tom?</prosody></speak>",
+			"en": "What time were you in Room 3, Tom?",
+			"ru": "В какое время вы были в зале номер 3, Том?"
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">I went into Room 3 at half past eight!</prosody></speak>",
+			"en": "I went into Room 3 at half past eight!",
+			"ru": "Я зашёл в зал номер 3 в половине девятого!"
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">There is a brown chair in front of the picture.</prosody></speak>",
+			"en": "There is a brown chair in front of the picture.",
+			"ru": "Перед картиной стоит коричневый стул."
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">I sat on that chair for one hour!</prosody></speak>",
+			"en": "I sat on that chair for one hour!",
+			"ru": "Я сидел на том стуле целый час!"
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">What did you do on that chair for one hour, Tom?</prosody></speak>",
+			"en": "What did you do on that chair for one hour, Tom?",
+			"ru": "Что же вы делали на этом стуле целый час, Том?"
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">I had a new book with me!</prosody></speak>",
+			"en": "I had a new book with me!",
+			"ru": "У меня с собой была новая книга!"
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">The big lights at the top of Room 3 were very bright!</prosody></speak>",
+			"en": "The big lights at the top of Room 3 were very bright!",
+			"ru": "Большие лампы под потолком зала 3 светили очень ярко!"
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">So I sat under the bright lights.</prosody></speak>",
+			"en": "So I sat under the bright lights.",
+			"ru": "Так что я сидел под ярким светом."
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">I read my book from half past eight to half past nine!</prosody></speak>",
+			"en": "I read my book from half past eight to half past nine!",
+			"ru": "Я читал свою книгу с половины девятого до половины десятого!"
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">Nobody came into Room 3, and the picture was fine!</prosody></speak>",
+			"en": "Nobody came into Room 3, and the picture was fine!",
+			"ru": "Никто не заходил в зал номер 3, и с картиной всё было отлично!"
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">At half past nine, I went back to Room 1.</prosody></speak>",
+			"en": "At half past nine, I went back to Room 1.",
+			"ru": "В половине десятого я вернулся в зал номер 1."
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">I sat at my desk and drank hot tea!</prosody></speak>",
+			"en": "I sat at my desk and drank hot tea!",
+			"ru": "Я сидел за столом и пил горячий чай!"
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Did you read in Room 3 from half past eight to half past nine?</prosody></speak>",
+			"en": "Did you read in Room 3 from half past eight to half past nine?",
+			"ru": "Вы действительно читали в зале номер 3 с половины девятого до половины десятого?"
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">Yes, Inspector!</prosody></speak>",
+			"en": "Yes, Inspector!",
+			"ru": "Да, инспектор!"
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">The lights in Room 3 were bright all the time!</prosody></speak>",
+			"en": "The lights in Room 3 were bright all the time!",
+			"ru": "Свет в зале номер 3 горел ярко всё это время!"
+		}
+	],
+	"quiz": [
+		{
+			"question": "What are Tom's working hours at the museum?",
+			"questionRu": "Каковы рабочие часы Тома в музее?",
+			"options": [
+				"From eight in the evening to six in the morning",
+				"From nine in the morning to twelve at noon",
+				"From seven to ten in the evening",
+				"All day on Saturday"
+			],
+			"correctIdx": 0
+		},
+		{
+			"question": "What did Tom claim he was doing in Room 3 from 8:30 to 9:30?",
+			"questionRu": "Что, по словам Тома, он делал в зале номер 3 с 8:30 до 9:30?",
+			"options": [
+				"Reading a book under bright lights on the brown chair",
+				"Fixing the electrical box with a tool",
+				"Drinking hot tea and eating apples in Room 1",
+				"Sleeping behind his desk"
+			],
+			"correctIdx": 0
+		},
+		{
+			"question": "What did Tom say about the lighting in Room 3?",
+			"questionRu": "Что Том утверждал по поводу освещения в зале номер 3?",
+			"options": [
+				"The lights in Room 3 were bright all the time",
+				"The room was completely pitch dark",
+				"He used his hand lamp to see the walls",
+				"Only one small lamp was working"
+			],
+			"correctIdx": 0
+		}
+	],
+	"wordCount": 316
+},
+{
+	"id": "spec7-ch-5",
+	"number": 705,
+	"act": 11,
+	"titleEn": "Special Case 7 (Part 5): Two Questions for Tom",
+	"titleRu": "Спецдело 7 (Часть 5): Два вопроса для Тома",
+	"synopsisEn": "Vance and Leo confront Tom with the blackout fact: reading was impossible in a dark room! When Vance notices a matching green glove poking out of Tom's pocket, Tom breaks down in embarrassment.",
+	"synopsisRu": "Вэнс и Лео обличают Тома фактом отключения света: читать в темноте невозможно! Когда инспектор замечает вторую зелёную перчатку в кармане Тома, сторож паникует и просит не увольнять его.",
+	"targetLevel": "CEFR A1",
+	"coverIcon": "fa-circle-question",
+	"coverColor": "#f43f5e",
+	"sentences": [
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Inspector Vance looks at Leo.</prosody></speak>",
+			"en": "Inspector Vance looks at Leo.",
+			"ru": "Инспектор Вэнс смотрит на Лео."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo opens his blue notebook and looks at his notes.</prosody></speak>",
+			"en": "Leo opens his blue notebook and looks at his notes.",
+			"ru": "Лео открывает синий блокнот и смотрит на свои записи."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Tom, your story is not true.</prosody></speak>",
+			"en": "Tom, your story is not true.",
+			"ru": "Том, ваш рассказ — неправда."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">You did not read a book in Room 3 at nine o'clock.</prosody></speak>",
+			"en": "You did not read a book in Room 3 at nine o'clock.",
+			"ru": "Вы не читали книгу в зале номер 3 в девять часов."
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">What?</prosody></speak>",
+			"en": "What?",
+			"ru": "Что?"
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">Why do you say that, Inspector?</prosody></speak>",
+			"en": "Why do you say that, Inspector?",
+			"ru": "Почему вы так говорите, инспектор?"
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">I read fifty pages of my book!</prosody></speak>",
+			"en": "I read fifty pages of my book!",
+			"ru": "Я прочитал пятьдесят страниц своей книги!"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">That is not possible, Tom!</prosody></speak>",
+			"en": "That is not possible, Tom!",
+			"ru": "Это невозможно, Том!"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">We talked to Jack, the light worker.</prosody></speak>",
+			"en": "We talked to Jack, the light worker.",
+			"ru": "Мы говорили с Джеком, электромонтёром."
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Last night at half past eight, Jack turned off all the lights!</prosody></speak>",
+			"en": "Last night at half past eight, Jack turned off all the lights!",
+			"ru": "Вчера в половине девятого вечера Джек выключил весь свет!"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">From half past eight until ten o'clock, there were no lights in the museum!</prosody></speak>",
+			"en": "From half past eight until ten o'clock, there were no lights in the museum!",
+			"ru": "С половины девятого до десяти часов в музее не было света!"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Room 3 was dark!</prosody></speak>",
+			"en": "Room 3 was dark!",
+			"ru": "Зал номер 3 был тёмным!"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Nobody can read a book in a dark room!</prosody></speak>",
+			"en": "Nobody can read a book in a dark room!",
+			"ru": "Никто не может читать книгу в тёмной комнате!"
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">Oh... well... maybe I read my book before half past eight...</prosody></speak>",
+			"en": "Oh... well... maybe I read my book before half past eight...",
+			"ru": "О... ну... может быть, я читал книгу до половины девятого..."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">And look at the coat on your chair, Tom.</prosody></speak>",
+			"en": "And look at the coat on your chair, Tom.",
+			"ru": "И посмотрите на пальто на вашем стуле, Том."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">What is that green thing in your coat bag?</prosody></speak>",
+			"en": "What is that green thing in your coat bag?",
+			"ru": "Что это за зелёный предмет в кармане вашего пальто?"
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Tom looks at his dark coat.</prosody></speak>",
+			"en": "Tom looks at his dark coat.",
+			"ru": "Том смотрит на своё тёмное пальто."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">In the side bag of his coat is one small green glove!</prosody></speak>",
+			"en": "In the side bag of his coat is one small green glove!",
+			"ru": "В боковом кармане его пальто лежит одна маленькая зелёная перчатка!"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">That is one small green glove!</prosody></speak>",
+			"en": "That is one small green glove!",
+			"ru": "Это одна маленькая зелёная перчатка!"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">And the other green glove is on the floor in Room 3!</prosody></speak>",
+			"en": "And the other green glove is on the floor in Room 3!",
+			"ru": "А вторая зелёная перчатка лежит на полу в зале номер 3!"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Next to the glove is a red apple from your bag!</prosody></speak>",
+			"en": "Next to the glove is a red apple from your bag!",
+			"ru": "Рядом с перчаткой лежит красное яблоко из вашей сумки!"
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Tom's face turns very red.</prosody></speak>",
+			"en": "Tom's face turns very red.",
+			"ru": "Лицо Тома становится ярко-красным."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He puts his hands on his head.</prosody></speak>",
+			"en": "He puts his hands on his head.",
+			"ru": "Он хватается руками за голову."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He looks down at his desk.</prosody></speak>",
+			"en": "He looks down at his desk.",
+			"ru": "Он опускает взгляд на свой стол."
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">Oh, dear!</prosody></speak>",
+			"en": "Oh, dear!",
+			"ru": "О боже!"
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">Oh, no!</prosody></speak>",
+			"en": "Oh, no!",
+			"ru": "О нет!"
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">I am so sorry, Inspector Vance!</prosody></speak>",
+			"en": "I am so sorry, Inspector Vance!",
+			"ru": "Мне так жаль, инспектор Вэнс!"
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">Please do not tell Miss Rose to take my job away!</prosody></speak>",
+			"en": "Please do not tell Miss Rose to take my job away!",
+			"ru": "Пожалуйста, не говорите мисс Роуз, чтобы она уволила меня!"
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">I love working at this museum!</prosody></speak>",
+			"en": "I love working at this museum!",
+			"ru": "Я люблю работать в этом музее!"
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Did you want to take the picture, Tom?</prosody></speak>",
+			"en": "Did you want to take the picture, Tom?",
+			"ru": "Вы хотели украсть картину, Том?"
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">What did you do in Room 3?</prosody></speak>",
+			"en": "What did you do in Room 3?",
+			"ru": "Что вы натворили в зале номер 3?"
+		}
+	],
+	"quiz": [
+		{
+			"question": "Why was it impossible for Tom to read fifty pages at 9:00 PM?",
+			"questionRu": "Почему для Тома было невозможно читать книгу в 21:00?",
+			"options": [
+				"All lights were turned off by Jack, so the room was pitch dark",
+				"Tom forgot his reading glasses at home",
+				"The book was locked in a cupboard",
+				"Room 3 was closed for cleaning"
+			],
+			"correctIdx": 0
+		},
+		{
+			"question": "What incriminating evidence was sticking out of Tom's coat pocket?",
+			"questionRu": "Какая улика торчала из кармана пальто Тома?",
+			"options": [
+				"The matching small green glove",
+				"A can of blue paint",
+				"A piece of white paper with a note",
+				"A gold pocket watch"
+			],
+			"correctIdx": 0
+		},
+		{
+			"question": "What was Tom afraid of after being caught?",
+			"questionRu": "Чего Том боялся больше всего после разоблачения?",
+			"options": [
+				"Losing his job at the museum",
+				"Being locked in Room 3",
+				"Paying fifteen pounds",
+				"Having to paint a new picture"
+			],
+			"correctIdx": 0
+		}
+	],
+	"wordCount": 234
+},
+{
+	"id": "spec7-ch-6",
+	"number": 706,
+	"act": 11,
+	"titleEn": "Special Case 7 (Part 6): What Happened in the Dark",
+	"titleRu": "Спецдело 7 (Часть 6): Что произошло в темноте",
+	"synopsisEn": "Tom confesses: walking without his flashlight, he tripped on the chair, caught the falling painting in panic, and hung it back upside down in the dark! Miss Rose forgives him, and the painting is restored right-side up.",
+	"synopsisRu": "Том сознаётся: шагая без фонаря, он споткнулся о стул, на лету поймал сорвавшуюся картину и в темноте повесил её вверх ногами! Мисс Роуз прощает сторожа, а шедевр возвращают в правильное положение.",
+	"targetLevel": "CEFR A1",
+	"coverIcon": "fa-circle-check",
+	"coverColor": "#22c55e",
+	"sentences": [
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Miss Rose walks into Room 1 and listens to Tom.</prosody></speak>",
+			"en": "Miss Rose walks into Room 1 and listens to Tom.",
+			"ru": "Мисс Роуз заходит в зал номер 1 и слушает Тома."
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">I did not want to take the picture!</prosody></speak>",
+			"en": "I did not want to take the picture!",
+			"ru": "Я не хотел украсть картину!"
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">Never!</prosody></speak>",
+			"en": "Never!",
+			"ru": "Ни за что!"
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">Listen to me: last night at half past eight, Jack turned off all the lights.</prosody></speak>",
+			"en": "Listen to me: last night at half past eight, Jack turned off all the lights.",
+			"ru": "Послушайте меня: прошлой ночью в половине девятого Джек выключил весь свет."
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">Room 1 and Room 3 were cold and very dark.</prosody></speak>",
+			"en": "Room 1 and Room 3 were cold and very dark.",
+			"ru": "В зале 1 и зале 3 было холодно и очень темно."
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">I put my green gloves in my coat.</prosody></speak>",
+			"en": "I put my green gloves in my coat.",
+			"ru": "Я положил свои зелёные перчатки в пальто."
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">I also took a red apple from my bag.</prosody></speak>",
+			"en": "I also took a red apple from my bag.",
+			"ru": "Также я достал красное яблоко из сумки."
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Why did you go into Room 3 at nine o'clock, Tom?</prosody></speak>",
+			"en": "Why did you go into Room 3 at nine o'clock, Tom?",
+			"ru": "Почему вы пошли в зал номер 3 в девять часов, Том?"
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">At nine o'clock, I walked into the rooms.</prosody></speak>",
+			"en": "At nine o'clock, I walked into the rooms.",
+			"ru": "В девять часов я пошёл по залам."
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">I wanted to look at the windows.</prosody></speak>",
+			"en": "I wanted to look at the windows.",
+			"ru": "Я хотел проверить окна."
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">I have a small hand lamp on my desk.</prosody></speak>",
+			"en": "I have a small hand lamp on my desk.",
+			"ru": "У меня на столе есть маленький фонарик."
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">But I forgot to take it with me!</prosody></speak>",
+			"en": "But I forgot to take it with me!",
+			"ru": "Но я забыл взять его с собой!"
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">So I walked into Room 3 in the dark!</prosody></speak>",
+			"en": "So I walked into Room 3 in the dark!",
+			"ru": "Поэтому я зашёл в зал номер 3 в темноте!"
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">It was very dark in Room 3.</prosody></speak>",
+			"en": "It was very dark in Room 3.",
+			"ru": "В зале номер 3 было очень темно."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">What did you do next?</prosody></speak>",
+			"en": "What did you do next?",
+			"ru": "Что вы сделали дальше?"
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">I did not see the brown chair in front of the wall!</prosody></speak>",
+			"en": "I did not see the brown chair in front of the wall!",
+			"ru": "Я не заметил коричневый стул перед стеной!"
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">My foot hit the chair in the dark!</prosody></speak>",
+			"en": "My foot hit the chair in the dark!",
+			"ru": "Моя нога задела стул в темноте!"
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">I fell on the wall!</prosody></speak>",
+			"en": "I fell on the wall!",
+			"ru": "Я упал на стену!"
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">My hands hit the big picture — The Blue Sea!</prosody></speak>",
+			"en": "My hands hit the big picture — The Blue Sea!",
+			"ru": "Мои руки ударили большую картину — «Синее море»!"
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">The picture came off the wall and fell right into my hands!</prosody></speak>",
+			"en": "The picture came off the wall and fell right into my hands!",
+			"ru": "Картина слетела со стены и упала прямо мне в руки!"
+		},
+		{
+			"speaker": "rose",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">Oh, my!</prosody></speak>",
+			"en": "Oh, my!",
+			"ru": "О боже мой!"
+		},
+		{
+			"speaker": "rose",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">Did the picture break, Tom?</prosody></speak>",
+			"en": "Did the picture break, Tom?",
+			"ru": "Картина не разбилась, Том?"
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">No, Miss Rose!</prosody></speak>",
+			"en": "No, Miss Rose!",
+			"ru": "Нет, мисс Роуз!"
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">I caught it in my hands!</prosody></speak>",
+			"en": "I caught it in my hands!",
+			"ru": "Я поймал её руками!"
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">It did not hit the floor!</prosody></speak>",
+			"en": "It did not hit the floor!",
+			"ru": "Она не ударилась о пол!"
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">I was so afraid!</prosody></speak>",
+			"en": "I was so afraid!",
+			"ru": "Я был так напуган!"
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">In the dark, I put the picture back on the wall fast!</prosody></speak>",
+			"en": "In the dark, I put the picture back on the wall fast!",
+			"ru": "В темноте я быстро повесил картину обратно на стену!"
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">There was no light in the room.</prosody></speak>",
+			"en": "There was no light in the room.",
+			"ru": "В зале не было света."
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">I did not see the boat or the water!</prosody></speak>",
+			"en": "I did not see the boat or the water!",
+			"ru": "Я не видел ни лодки, ни воды!"
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">I put the picture back on the wall upside down!</prosody></speak>",
+			"en": "I put the picture back on the wall upside down!",
+			"ru": "Я повесил картину обратно на стену вверх ногами!"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">When you fell on the chair, your apple and your glove fell on the floor!</prosody></speak>",
+			"en": "When you fell on the chair, your apple and your glove fell on the floor!",
+			"ru": "Когда вы упали на стул, ваше яблоко и перчатка упали на пол!"
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">Yes!</prosody></speak>",
+			"en": "Yes!",
+			"ru": "Да!"
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">It was dark, so I did not see them on the floor!</prosody></speak>",
+			"en": "It was dark, so I did not see them on the floor!",
+			"ru": "Было темно, поэтому я не увидел их на полу!"
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">Then I ran back to my desk in Room 1.</prosody></speak>",
+			"en": "Then I ran back to my desk in Room 1.",
+			"ru": "Затем я побежал обратно к своему столу в зале 1."
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">At ten o'clock, I was very tired.</prosody></speak>",
+			"en": "At ten o'clock, I was very tired.",
+			"ru": "В десять часов я очень устал."
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">I slept on my chair in Room 1.</prosody></speak>",
+			"en": "I slept on my chair in Room 1.",
+			"ru": "Я уснул на стуле в зале 1."
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">So I did not go back into Room 3!</prosody></speak>",
+			"en": "So I did not go back into Room 3!",
+			"ru": "Поэтому я больше не возвращался в зал номер 3!"
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">I did not want you to be angry, Miss Rose!</prosody></speak>",
+			"en": "I did not want you to be angry, Miss Rose!",
+			"ru": "Я не хотел, чтобы вы сердились, мисс Роуз!"
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">So I told you the story about my book!</prosody></speak>",
+			"en": "So I told you the story about my book!",
+			"ru": "Поэтому я и придумал историю про книгу!"
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Miss Rose looks at Tom for a moment.</prosody></speak>",
+			"en": "Miss Rose looks at Tom for a moment.",
+			"ru": "Мисс Роуз мгновение смотрит на Тома."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Then she smiles kindly.</prosody></speak>",
+			"en": "Then she smiles kindly.",
+			"ru": "Затем она добродушно улыбается."
+		},
+		{
+			"speaker": "rose",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">Oh, Tom!</prosody></speak>",
+			"en": "Oh, Tom!",
+			"ru": "О, Том!"
+		},
+		{
+			"speaker": "rose",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">You caught the picture!</prosody></speak>",
+			"en": "You caught the picture!",
+			"ru": "Ты поймал картину!"
+		},
+		{
+			"speaker": "rose",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">It did not hit the floor!</prosody></speak>",
+			"en": "It did not hit the floor!",
+			"ru": "Она не упала на пол!"
+		},
+		{
+			"speaker": "rose",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">Thank you, Tom!</prosody></speak>",
+			"en": "Thank you, Tom!",
+			"ru": "Спасибо тебе, Том!"
+		},
+		{
+			"speaker": "rose",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">You are a good worker.</prosody></speak>",
+			"en": "You are a good worker.",
+			"ru": "Ты хороший работник."
+		},
+		{
+			"speaker": "rose",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">Just remember: always take your lamp in the dark!</prosody></speak>",
+			"en": "Just remember: always take your lamp in the dark!",
+			"ru": "Только помни: всегда бери с собой фонарик в темноту!"
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">Thank you, Miss Rose!</prosody></speak>",
+			"en": "Thank you, Miss Rose!",
+			"ru": "Спасибо вам, мисс Роуз!"
+		},
+		{
+			"speaker": "tomnight",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.88\" pitch=\"-2.5st\">I will!</prosody></speak>",
+			"en": "I will!",
+			"ru": "Я обязательно буду!"
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Everyone walks back into Room 3.</prosody></speak>",
+			"en": "Everyone walks back into Room 3.",
+			"ru": "Все возвращаются в зал номер 3."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Jack and Tom take The Blue Sea off the wall.</prosody></speak>",
+			"en": "Jack and Tom take The Blue Sea off the wall.",
+			"ru": "Джек и Том снимают «Синее море» со стены."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">They put it back the right way!</prosody></speak>",
+			"en": "They put it back the right way!",
+			"ru": "Они вешают её обратно правильной стороной!"
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Now the blue water is at the bottom, and the yellow sun is at the top!</prosody></speak>",
+			"en": "Now the blue water is at the bottom, and the yellow sun is at the top!",
+			"ru": "Теперь синяя вода внизу, а жёлтое солнце наверху!"
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Leo takes the green glove and the red apple from the floor.</prosody></speak>",
+			"en": "Leo takes the green glove and the red apple from the floor.",
+			"ru": "Лео поднимает зелёную перчатку и красное яблоко с пола."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">He gives them to Tom.</prosody></speak>",
+			"en": "He gives them to Tom.",
+			"ru": "Он отдаёт их Тому."
+		},
+		{
+			"speaker": "rose",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">Thank you, Inspector Vance!</prosody></speak>",
+			"en": "Thank you, Inspector Vance!",
+			"ru": "Спасибо вам, инспектор Вэнс!"
+		},
+		{
+			"speaker": "rose",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">And thank you, Leo!</prosody></speak>",
+			"en": "And thank you, Leo!",
+			"ru": "И спасибо тебе, Лео!"
+		},
+		{
+			"speaker": "rose",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">You helped us so much today!</prosody></speak>",
+			"en": "You helped us so much today!",
+			"ru": "Вы так помогли нам сегодня!"
+		},
+		{
+			"speaker": "rose",
+			"voice": "Aoede",
+			"ssml": "<speak><prosody rate=\"0.96\" pitch=\"+2st\">All the children in Leo's class get free picture books from our shop!</prosody></speak>",
+			"en": "All the children in Leo's class get free picture books from our shop!",
+			"ru": "Все дети в классе Лео получают бесплатные иллюстрированные книги из нашего магазина!"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Thank you, Miss Rose!</prosody></speak>",
+			"en": "Thank you, Miss Rose!",
+			"ru": "Спасибо, мисс Роуз!"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">Look at my blue notebook, Dad!</prosody></speak>",
+			"en": "Look at my blue notebook, Dad!",
+			"ru": "Посмотри в мой синий блокнот, папа!"
+		},
+		{
+			"speaker": "leovance",
+			"voice": "Puck",
+			"ssml": "<speak><prosody rate=\"0.94\" pitch=\"+2st\">We have seven cases in Oakwood Town, and seven right answers!</prosody></speak>",
+			"en": "We have seven cases in Oakwood Town, and seven right answers!",
+			"ru": "У нас семь раскрытых дел в городке Оквуд и семь верных разгадок!"
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">You are a real detective now, Leo.</prosody></speak>",
+			"en": "You are a real detective now, Leo.",
+			"ru": "Теперь ты настоящий детектив, Лео."
+		},
+		{
+			"speaker": "vance",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">You are a very good detective!</prosody></speak>",
+			"en": "You are a very good detective!",
+			"ru": "Ты очень хороший сыщик!"
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">All the school children are happy and smile.</prosody></speak>",
+			"en": "All the school children are happy and smile.",
+			"ru": "Все школьники счастливы и улыбаются."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">Tom washes his red apple and eats it with a big smile.</prosody></speak>",
+			"en": "Tom washes his red apple and eats it with a big smile.",
+			"ru": "Том моет своё красное яблоко и ест его с широкой улыбкой."
+		},
+		{
+			"speaker": "narrator",
+			"voice": "Charon",
+			"ssml": "<speak><prosody rate=\"0.92\" pitch=\"-1st\">The secret of the Blue Picture at the Oakwood Museum is finished.</prosody></speak>",
+			"en": "The secret of the Blue Picture at the Oakwood Museum is finished.",
+			"ru": "Тайна синей картины в музее Оквуда успешно разгадана."
+		}
+	],
+	"quiz": [
+		{
+			"question": "How did 'The Blue Sea' end up upside down on the wall?",
+			"questionRu": "Как картина «Синее море» оказалась перевёрнутой на стене?",
+			"options": [
+				"Tom tripped in the dark, caught the falling painting, and hung it back in panic without seeing",
+				"A thief tried to take it and hung it upside down as a trick",
+				"Jack accidentally hit it with his ladder",
+				"The school children flipped it during the visit"
+			],
+			"correctIdx": 0
+		},
+		{
+			"question": "Why was Miss Rose happy with Tom after hearing the truth?",
+			"questionRu": "Почему мисс Роуз обрадовалась, услышав правду от Тома?",
+			"options": [
+				"Because Tom caught the falling painting and saved it from breaking on the floor",
+				"Because Tom bought her a red apple",
+				"Because Tom promised to fix all the lights",
+				"Because the painting looked better upside down"
+			],
+			"correctIdx": 0
+		},
+		{
+			"question": "What gift did all the children in Leo's class receive?",
+			"questionRu": "Какой подарок получили все дети из класса Лео?",
+			"options": [
+				"Free picture books from the museum shop",
+				"Two big chocolate ice creams",
+				"Tickets to the Oakwood Theatre",
+				"Small green gloves"
+			],
+			"correctIdx": 0
+		}
+	],
+	"wordCount": 513
 }
     ]
 };

@@ -10497,7 +10497,9 @@ document.addEventListener("DOMContentLoaded", () => {
         function updateBadges() {
             const curChapter = bookData.chapters.find(c => c.id === activeChapterId) || bookData.chapters[0];
             let chLabel;
-            if (curChapter.number > 600) {
+            if (curChapter.number > 700) {
+                chLabel = `Спецдело 7, ч. ${curChapter.number - 700}`;
+            } else if (curChapter.number > 600) {
                 chLabel = `Спецдело 6, ч. ${curChapter.number - 600}`;
             } else if (curChapter.number > 500) {
                 chLabel = `Спецдело 5, ч. ${curChapter.number - 500}`;
@@ -10538,7 +10540,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 const isActive = ch.id === activeChapterId;
                 const isDone = completedChapters.includes(ch.id);
                 let label;
-                if (ch.number > 600) {
+                if (ch.number > 700) {
+                    label = `Спец. 7.${ch.number - 700}`;
+                } else if (ch.number > 600) {
                     label = `Спец. 6.${ch.number - 600}`;
                 } else if (ch.number > 500) {
                     label = `Спец. 5.${ch.number - 500}`;
@@ -10707,6 +10711,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     speakerBadge = `<span class="badge" style="background:rgba(236,72,153,0.25); color:#f472b6; font-size:11px; border:1px solid rgba(236,72,153,0.5);"><i class="fa-solid fa-broom"></i> Мария (горничная)</span>`;
                 } else if (sent.speaker === 'peter') {
                     speakerBadge = `<span class="badge" style="background:rgba(239,68,68,0.25); color:#f87171; font-size:11px; border:1px solid rgba(239,68,68,0.5);"><i class="fa-solid fa-cookie-bite"></i> Питер Уайт</span>`;
+                } else if (sent.speaker === 'rose') {
+                    speakerBadge = `<span class="badge" style="background:rgba(59,130,246,0.25); color:#60a5fa; font-size:11px; border:1px solid rgba(59,130,246,0.5);"><i class="fa-solid fa-landmark"></i> Мисс Роуз</span>`;
+                } else if (sent.speaker === 'jack') {
+                    speakerBadge = `<span class="badge" style="background:rgba(234,179,8,0.25); color:#facc15; font-size:11px; border:1px solid rgba(234,179,8,0.5);"><i class="fa-solid fa-bolt"></i> Джек (электрик)</span>`;
+                } else if (sent.speaker === 'tomnight') {
+                    speakerBadge = `<span class="badge" style="background:rgba(100,116,139,0.25); color:#cbd5e1; font-size:11px; border:1px solid rgba(100,116,139,0.5);"><i class="fa-solid fa-shield"></i> Том (сторож)</span>`;
                 }
 
                 const isRevealed = !isBlindMode || revealedSentences.has(idx);
@@ -10934,7 +10944,9 @@ document.addEventListener("DOMContentLoaded", () => {
             if (!quizList || !modalQuiz || !quizBody) return;
 
             let chTitle;
-            if (curChapter.number > 600) {
+            if (curChapter.number > 700) {
+                chTitle = `Спецдело 7, ч. ${curChapter.number - 700}: ${curChapter.titleRu}`;
+            } else if (curChapter.number > 600) {
                 chTitle = `Спецдело 6, ч. ${curChapter.number - 600}: ${curChapter.titleRu}`;
             } else if (curChapter.number > 500) {
                 chTitle = `Спецдело 5, ч. ${curChapter.number - 500}: ${curChapter.titleRu}`;

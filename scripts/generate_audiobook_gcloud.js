@@ -224,6 +224,21 @@ const CAST = {
         voice: 'en-US-Neural2-A', // Peter White (18-year-old nephew, nervous, sweet-toothed)
         pitch: '+1st',
         rate: '0.96'
+    },
+    rose: {
+        voice: 'en-US-Neural2-F', // Miss Rose (museum worker, friendly, clear)
+        pitch: '+2st',
+        rate: '0.96'
+    },
+    jack: {
+        voice: 'en-US-Neural2-D', // Jack (light electrician, practical)
+        pitch: '+0.5st',
+        rate: '0.94'
+    },
+    tomnight: {
+        voice: 'en-US-Neural2-D', // Tom (50-year-old night watchman, deep, weary)
+        pitch: '-2.5st',
+        rate: '0.88'
     }
 };
 
