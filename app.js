@@ -2475,18 +2475,18 @@ document.addEventListener("DOMContentLoaded", () => {
         const headerLvlEl = document.getElementById("rpg-header-listening-lvl");
         const headerPillEl = document.getElementById("rpg-header-listening-pill");
         if (headerLvlEl) {
-            headerLvlEl.textContent = `Lv. ${stats.level} / 10`;
+            headerLvlEl.textContent = `Lv. ${stats.level} / 9`;
         }
         if (headerPillEl) {
             headerPillEl.title = `Навык восприятия (Listening Level ${stats.level}/100):\n` +
-                `Цель A1: 10 уровень (25 000 слов). ${stats.level >= 10 ? '✅ Порог A1 достигнут!' : ''}\n` +
+                `Цель A1: 9 уровень (25 000 слов). ${stats.level >= 9 ? '✅ Порог A1 достигнут!' : ''}\n` +
                 `Слов прослушано: ${stats.totalWords.toLocaleString()} / 800 000\n` +
                 (stats.level < 100 ? `До уровня ${stats.level + 1}: ${stats.wordsInCurrentLevel}/${stats.wordsNeededForNextLevel} слов (${stats.progressPercent}%)` : `МАКСИМАЛЬНЫЙ УРОВЕНЬ 100 ДОСТИГНУТ! 🏆`);
         }
 
         const trackerListeningEl = document.getElementById("tracker-listening-tag");
         if (trackerListeningEl) {
-            trackerListeningEl.innerHTML = `🎧 Listening: <strong>Lv. ${stats.level} / 10</strong> (${stats.totalWords.toLocaleString()} / 800 000)`;
+            trackerListeningEl.innerHTML = `🎧 Listening: <strong>Lv. ${stats.level} / 9</strong> (${stats.totalWords.toLocaleString()} / 800 000)`;
             trackerListeningEl.title = `Навык восприятия: прослушайте 800 000 слов в диалогах (1 слово = 1 XP). Прогресс уровня: ${stats.wordsInCurrentLevel}/${stats.wordsNeededForNextLevel} слов (${stats.progressPercent}%)`;
         }
         try { updateGlobalA1SkillsProgress(); } catch(e) {}
@@ -2615,16 +2615,16 @@ document.addEventListener("DOMContentLoaded", () => {
         const modalBadge = document.getElementById("drills-header-progress-badge");
 
         if (headerLvlEl) {
-            headerLvlEl.textContent = `Lv. ${stats.level} / 23`;
+            headerLvlEl.textContent = `Lv. ${stats.level} / 9`;
         }
         if (headerPillEl) {
             headerPillEl.title = `Навык дриллов (Drills Level ${stats.level}/100):\n` +
-                `Цель A1: 23 уровень (1 200 карточек). ${stats.level >= 23 ? '✅ Порог A1 достигнут!' : ''}\n` +
+                `Цель A1: 9 уровень (1 200 карточек). ${stats.level >= 9 ? '✅ Порог A1 достигнут!' : ''}\n` +
                 `Пройдено трансформаций: ${stats.totalCards.toLocaleString()} / 10 000\n` +
                 (stats.level < 100 ? `До уровня ${stats.level + 1}: ${stats.inLevel}/${stats.needed} карточек (${stats.percent}%)` : `МАКСИМАЛЬНЫЙ УРОВЕНЬ 100 ДОСТИГНУТ! 🏆`);
         }
         if (modalBadge) {
-            modalBadge.textContent = `Card: ${stats.totalCards.toLocaleString()} / 10,000 • Lv. ${stats.level} / 23`;
+            modalBadge.textContent = `Card: ${stats.totalCards.toLocaleString()} / 10,000 • Lv. ${stats.level} / 9`;
         }
         try { updateGlobalA1SkillsProgress(); } catch(e) {}
     }
@@ -2661,14 +2661,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const A1_TARGETS = {
             reading: { targetLvl: 11, desc: "30 000 XP" },
-            listening: { targetLvl: 10, desc: "25 000 слов" },
+            listening: { targetLvl: 9, desc: "25 000 слов" },
             writing: { targetLvl: 11, desc: "2 000 слов" },
-            drills: { targetLvl: 23, desc: "1 200 карточек" },
+            drills: { targetLvl: 9, desc: "1 200 карточек" },
             speaking: { targetLvl: 7, desc: "5 000 слов" },
             vocab: { targetLvl: 35, desc: "1 100 слов в SRS" }
         };
 
-        const totalTargetLevels = Object.values(A1_TARGETS).reduce((sum, item) => sum + item.targetLvl, 0); // 97
+        const totalTargetLevels = Object.values(A1_TARGETS).reduce((sum, item) => sum + item.targetLvl, 0); // 82
 
         const readingContrib = Math.min(readingLvl, A1_TARGETS.reading.targetLvl);
         const listeningContrib = Math.min(listeningStats.level, A1_TARGETS.listening.targetLvl);
